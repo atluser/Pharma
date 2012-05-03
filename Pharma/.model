@@ -1104,6 +1104,9 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:ColorsNode" name="Colors">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Colors.mscript" hidden="true"/>
   </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="VOUtility" sortOrder="1000" image="icons/window_plus_16.png" superclass="UIObject">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VOUtility.mscript"/>
+  </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Panels">
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
