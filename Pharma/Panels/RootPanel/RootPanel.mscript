@@ -1,0 +1,129 @@
+BorderPanel {
+	/*
+	 * Attributes
+	 */
+	 HorizontalPanel pnlHeader = new HorizontalPanel();
+	 
+	StackPanel stkPnl = new StackPanel();
+	RadioGroup rg = new RadioGroup();
+	ToolBarButton tbbAccount = new ToolBarButton();
+	ToolBarButton tbbActivity = new ToolBarButton();
+	ToolBarButton tbbCanvas = new ToolBarButton();
+	
+	BorderPanel brdAccountRootPanel=new BorderPanel();
+	BorderPanel brdEventRootPanel=new BorderPanel();
+	BorderPanel brdCanvassRootPanel=new BorderPanel();
+	
+	Button btnHome = new Button();
+	Button btnMenu=new Button();
+	/*
+	 * Callback methods 
+	 */
+	 
+	callback onCreate(Container c) {
+		//HEADER					
+		setUpHeader();
+		setNorth(pnlHeader);						
+		stkPnl.add(brdAccountRootPanel);
+		stkPnl.add(brdEventRootPanel);
+		stkPnl.add(brdCanvassRootPanel);
+		
+		setCenter(stkPnl);
+		
+	}
+	
+	
+	callback rg onToolBarButtonClicked(ToolBar c, int idxClicked, ToolBarButton tbb, boolean isChanged) {
+		
+		if (idxClicked == 0) {
+			stkPnl.select(brdAccountRootPanel);
+		} else if (idxClicked == 1) {
+			stkPnl.select(brdEventRootPanel);
+		} else if (idxClicked == 2) {
+			stkPnl.select(brdCanvassRootPanel);
+		}
+		
+	}	
+	 
+	/*
+	 * Custom methods
+	 */ 
+	void setUpHeader(){
+		//buttons
+		setUpButtons();
+		//radio
+		rg.addButton(tbbAccount);
+		rg.addButton(tbbActivity);
+		rg.addButton(tbbCanvas);
+		rg.setSelectedIndex(0);
+		rg.setNavigationType(ToolBar.SCROLLER);
+		rg.setAlignmentIfExtraSpace(ToolBar.SCROLLER,HorizontalAlignmentType.CENTER);
+		//add
+		pnlHeader.add(btnHome);
+		pnlHeader.add(rg);
+		pnlHeader.add(new Separator(),"");
+		pnlHeader.add(btnMenu);
+		
+		pnlHeader.setColumnWidth(0, Sizing.PERCENTS,4);
+		pnlHeader.setColumnWidth(1, Sizing.PERCENTS,20);
+		pnlHeader.setColumnWidth(2, Sizing.PERCENTS,73);
+		pnlHeader.setColumnWidth(3, Sizing.PERCENTS,3);
+		pnlHeader.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+	}
+	
+	void setUpButtons() {
+		
+		/*btnHome.setImage(Images.VodafoneImages.LogoPR.getImage());
+		btnHome.setFocusedImage(Images.VodafoneImages.LogoPR.getImage());
+		btnHome.setSelectedImage(Images.VodafoneImages.LogoPR.getImage());
+		*/
+		
+		btnHome.setText("Home");
+		
+		tbbAccount.setText(" Clienti ");
+		tbbAccount.setForeColor(Colors.White);
+		tbbAccount.setFocusedForeColor(Colors.White);
+		tbbAccount.setSelectedForeColor(Colors.White);
+		tbbAccount.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+		tbbAccount.setFocusedBackground(Background.createVerticalGradientRectangleBackground(Colors.Orange,Colors.Orange));
+		tbbAccount.setSelectedBackground(Background.createVerticalGradientRectangleBackground(Color.create(255,255,255), Color.create(222,222,222)));
+		
+		/*tbbAccount.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ActionBarButton, 0,0,0,0));
+		tbbAccount.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ActionBarButton, 0,0,0,0));
+		tbbAccount.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ActionBarSelectedButton, 0,0,0,0));
+		*/
+		
+		tbbActivity.setText(" Attivitˆ ");
+		tbbActivity.setForeColor(Colors.Black);
+		tbbActivity.setFocusedForeColor(Colors.Black);
+		tbbActivity.setSelectedForeColor(Colors.Black);
+		
+		tbbActivity.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+		tbbActivity.setFocusedBackground(Background.createVerticalGradientRectangleBackground(Colors.Orange,Colors.Orange));
+		tbbActivity.setSelectedBackground(Background.createVerticalGradientRectangleBackground(Color.create(255,255,255), Color.create(222,222,222)));	
+		
+		/*tbbActivity.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ActionBarButton, 0,0,0,0));
+		tbbActivity.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ActionBarButton, 0,0,0,0));
+		tbbActivity.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ActionBarSelectedButton, 0,0,0,0));		
+		*/
+		tbbCanvas.setText(" Canvass ");
+		tbbCanvas.setForeColor(Colors.Black);
+		tbbCanvas.setFocusedForeColor(Colors.Black);
+		tbbCanvas.setSelectedForeColor(Colors.Black);
+		tbbCanvas.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+		tbbCanvas.setFocusedBackground(Background.createVerticalGradientRectangleBackground(Colors.Orange,Colors.Orange));
+		tbbCanvas.setSelectedBackground(Background.createVerticalGradientRectangleBackground(Color.create(255,255,255), Color.create(222,222,222)));	
+		/*tbbCanvas.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ActionBarButton, 0,0,0,0));
+		tbbCanvas.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ActionBarButton, 0,0,0,0));
+		tbbCanvas.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ActionBarSelectedButton, 0,0,0,0));	
+		*/
+		
+		btnMenu.setText("Menu");
+		//btnMenu.setImage(Images.image.getImage());
+		/*btnMenu.setImage(Images.VodafoneImages.LogoVF.getImage());
+		btnMenu.setFocusedImage(Images.VodafoneImages.LogoVF.getImage());
+		btnMenu.setSelectedImage(Images.VodafoneImages.LogoVF.getImage());
+		
+		*/
+	}
+}

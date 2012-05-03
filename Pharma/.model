@@ -1105,13 +1105,25 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Colors.mscript" hidden="true"/>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Panels">
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StartPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartPanel.mscript"/>
     </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Screens">
+    <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="HomeScreen">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="HomeScreen.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="StartScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartScreen.mscript"/>
     </children>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Account">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Account.mscript"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Event">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Event.mscript"/>
   </children>
 </com.vaultus.studio.ecore.studio:UIProject>
