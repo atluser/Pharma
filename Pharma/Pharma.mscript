@@ -1,0 +1,72 @@
+UIProject {
+	
+	callback onApplicationStyleSetup(StyleReceptor styleReceptor){
+		
+		if(Device.isIPad()) {
+			Images.setDefault(Images.IPAD);
+		} else if(Device.isAndroid()) {
+			Images.setDefault(Images.ANDROID_X);
+		}
+		
+	}
+
+	callback onBarCodeScanned(String string_){
+		//TODO: add code
+	}
+
+	callback onDayChanged(){
+		//TODO: add code
+	}
+
+	callback onDeselect(){
+		//TODO: add code
+	}
+
+	callback onError(ErrorSource errorSource, Error error){
+		//TODO: add code
+	}
+
+	callback onLoggedIn(){
+		//TODO: add code
+	}
+
+	callback onLoggedOut(int int_){
+		//TODO: add code
+	}
+
+	callback onLoginCompleted(String string_){
+		//TODO: add code
+	}
+
+	callback onLoginFailed(int int_, String string_){
+		//TODO: add code
+	}
+
+	callback onLoginStarting(){
+		//TODO: add code
+	}
+
+	callback onSelect(){
+		//TODO: add code
+	}
+
+	callback onStart(PushedData pushedData){
+		
+		Screens.StartScreen scrStart = new Screens.StartScreen();
+		scrStart.push(0, false);
+		
+	}
+
+	callback onStop(){
+		//TODO: add code
+	}
+
+	callback onUserChanged(){
+		//TODO: add code
+	}
+
+	callback onUserInactivity(){
+		//TODO: add code
+	}
+
+}

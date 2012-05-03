@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.vaultus.ecore.properties:Properties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.vaultus.ecore.properties="http:///com/vaultus/ecore/properties.ecore" xmlns:com.vaultus.studio.ecore.strings="http:///com/vaultus/studio/ecore/strings.ecore">
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="ABOUT_STR" string="About Pharma"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="CLOSE_STR" string="Close"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="EXIT_STR" string="Exit"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="START_STR" string="Start Pharma"/>
+</com.vaultus.ecore.properties:Properties>

@@ -1,0 +1,1117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.vaultus.studio.ecore.studio:UIProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.vaultus.ecore.properties="http:///com/vaultus/ecore/properties.ecore" xmlns:com.vaultus.studio.ecore.log="http:///com/vaultus/studio/ecore/log.ecore" xmlns:com.vaultus.studio.ecore.studio="http:///com/vaultus/studio/ecore/studio.ecore">
+  <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="autostart"/>
+  <properties xsi:type="com.vaultus.ecore.properties:StringProperty" name="description"/>
+  <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="hidden"/>
+  <properties xsi:type="com.vaultus.studio.ecore.log:LogLevelProperty" name="logLevel"/>
+  <properties xsi:type="com.vaultus.ecore.properties:IntegerProperty" name="majorVersion" integer="1"/>
+  <properties xsi:type="com.vaultus.ecore.properties:IntegerProperty" name="microVersion"/>
+  <properties xsi:type="com.vaultus.ecore.properties:IntegerProperty" name="minorVersion"/>
+  <properties xsi:type="com.vaultus.ecore.properties:StringProperty" name="projectId"/>
+  <properties xsi:type="com.vaultus.ecore.properties:StringProperty" name="title"/>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Pharma.mscript"/>
+  <children xsi:type="com.vaultus.studio.ecore.studio:StringsNode" name="StringConstants">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StringConstants.mscript" hidden="true"/>
+    <stringKeys>ABOUT_STR</stringKeys>
+    <stringKeys>CLOSE_STR</stringKeys>
+    <stringKeys>EXIT_STR</stringKeys>
+    <stringKeys>START_STR</stringKeys>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:PropertiesNode" name="Properties"/>
+  <children xsi:type="com.vaultus.studio.ecore.studio:ImagesNode" name="Images">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Images.mscript" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="MainScreenImages">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MainScreenImages.mscript" hidden="true"/>
+      <images name="btn_01_normal"/>
+      <images name="btn_01_pressed"/>
+      <images name="btn_02_normal"/>
+      <images name="btn_02_pressed"/>
+      <images name="img_background"/>
+      <images name="img_logo_app"/>
+      <images name="img_logo_atlantic"/>
+      <images name="img_logo_vodafone"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="ANDROID" required="true" default="true" type="ANDROID" shown="true">
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="ANDROID" true="true"/>
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ANDROID.mscript" hidden="true"/>
+      <imagePaths name="AboutIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icon">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app_orig.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP_ORIG.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_background">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_app">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_atlantic">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="OptionsIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RolloverIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RubberBandIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ServerSetupIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImage">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscape">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeLeft">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeRight">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImagePortrait">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="ANDROID_L" required="true" type="ANDROID">
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="ANDROID" true="true"/>
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ANDROID_L.mscript" hidden="true"/>
+      <imagePaths name="AboutIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_background">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_app">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_atlantic">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="OptionsIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RolloverIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RubberBandIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ServerSetupIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImage">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscape">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeLeft">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeRight">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImagePortrait">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="ANDROID_S" required="true" type="ANDROID">
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="ANDROID" true="true"/>
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ANDROID_S.mscript" hidden="true"/>
+      <imagePaths name="AboutIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_background">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_app">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_atlantic">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="OptionsIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RolloverIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RubberBandIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ServerSetupIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImage">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscape">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeLeft">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeRight">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImagePortrait">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="ANDROID_X" required="true" type="ANDROID" shown="true">
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="ANDROID" true="true"/>
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ANDROID_X.mscript" hidden="true"/>
+      <imagePaths name="AboutIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icon">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app_orig.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP_ORIG.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_normal">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/btn_01_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/BTN_01_NORMAL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_pressed">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/btn_01_pressed.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/BTN_01_PRESSED.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_normal">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/btn_02_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/BTN_02_NORMAL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_pressed">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/btn_02_pressed.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/BTN_02_PRESSED.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_background">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/img_bg_screen.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_BG_SCREEN.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_app">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app_orig.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP_ORIG.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_atlantic">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/img_logo_atlantic.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_ATLANTIC.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/img_logo_vodafone.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_VODAFONE.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="OptionsIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RolloverIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RubberBandIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ServerSetupIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImage">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscape">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeLeft">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeRight">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImagePortrait">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_01_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_01_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_02_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_02_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_background">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_logo_app">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_logo_atlantic">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_logo_vodafone">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="BOLD" required="true" type="BLACKBERRY">
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="BLACKBERRY" true="true"/>
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="BOLD.mscript" hidden="true"/>
+      <imagePaths name="AboutIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_background">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_app">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_atlantic">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="OptionsIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RolloverIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RubberBandIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ServerSetupIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImage">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscape">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeLeft">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeRight">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImagePortrait">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="CURVE" required="true" default="true" type="BLACKBERRY">
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="BLACKBERRY" true="true"/>
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="CURVE.mscript" hidden="true"/>
+      <imagePaths name="AboutIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_background">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_app">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_atlantic">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="OptionsIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RolloverIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RubberBandIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ServerSetupIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImage">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscape">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeLeft">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeRight">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImagePortrait">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="IPAD" required="true" default="true" type="IPAD">
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="IPAD" true="true"/>
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="IPAD.mscript" hidden="true"/>
+      <imagePaths name="AboutIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_pressed">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_pressed">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_background">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_app">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_atlantic">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="OptionsIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RolloverIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RubberBandIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ServerSetupIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImage">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscape">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeLeft">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeRight">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImagePortrait">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+      </imagePaths>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="IPHONE" required="true" default="true" type="IPHONE">
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="IPAD" true="true"/>
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="IPHONE" true="true"/>
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="IPHONE4" true="true"/>
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="IPHONE.mscript" hidden="true"/>
+      <imagePaths name="AboutIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_pressed">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_pressed">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_background">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_app">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_atlantic">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="OptionsIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RolloverIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RubberBandIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ServerSetupIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImage">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscape">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeLeft">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeRight">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImagePortrait">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+      </imagePaths>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="PEARL" required="true" type="BLACKBERRY">
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="BLACKBERRY" true="true"/>
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PEARL.mscript" hidden="true"/>
+      <imagePaths name="AboutIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_background">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_app">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_atlantic">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="OptionsIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RolloverIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RubberBandIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ServerSetupIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImage">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscape">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeLeft">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeRight">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImagePortrait">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="STORM" required="true" type="BLACKBERRY">
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="BLACKBERRY" true="true"/>
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="STORM.mscript" hidden="true"/>
+      <imagePaths name="AboutIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_background">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_app">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_atlantic">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="OptionsIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RolloverIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RubberBandIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ServerSetupIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImage">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscape">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeLeft">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeRight">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImagePortrait">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="WM" required="true" default="true" type="WINDOWS">
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="NET" true="true"/>
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="POCKETPC" true="true"/>
+      <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="SMARTPHONE" true="true"/>
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="WM.mscript" hidden="true"/>
+      <imagePaths name="AboutIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_01_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.btn_02_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_background">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_app">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_atlantic">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="OptionsIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RolloverIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="RubberBandIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ServerSetupIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImage">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscape">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeLeft">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageLandscapeRight">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImagePortrait">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+    </children>
+    <images name="AboutIcon"/>
+    <images name="Icon"/>
+    <images name="OptionsIcon"/>
+    <images name="RolloverIcon"/>
+    <images name="RubberBandIcon"/>
+    <images name="ServerSetupIcon"/>
+    <images name="SplashImage"/>
+    <images name="SplashImageLandscape"/>
+    <images name="SplashImageLandscapeLeft"/>
+    <images name="SplashImageLandscapeRight"/>
+    <images name="SplashImagePortrait"/>
+    <images name="SplashImageUpsideDown"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:SoundsNode" name="SoundEffects">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SoundEffects.mscript" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:SoundSetNode" name="ANDROID" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:SoundSetNode" name="BLACKBERRY" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:SoundSetNode" name="NET" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:SoundSetNode" name="OBJC" hidden="true"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VideosNode" name="Videos">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Videos.mscript" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:VideoSetNode" name="ANDROID" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:VideoSetNode" name="BLACKBERRY" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:VideoSetNode" name="NET" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:VideoSetNode" name="OBJC" hidden="true"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:DocumentsNode" name="Documents">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Documents.mscript" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="ANDROID" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="BLACKBERRY" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="NET" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="OBJC" hidden="true"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:ColorsNode" name="Colors">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Colors.mscript" hidden="true"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Panels">
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StartPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartPanel.mscript"/>
+    </children>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Screens">
+    <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="StartScreen">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartScreen.mscript"/>
+    </children>
+  </children>
+</com.vaultus.studio.ecore.studio:UIProject>

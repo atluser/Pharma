@@ -1,0 +1,105 @@
+TablePanel {
+	
+	/*
+	 * Attributes
+	 */
+	BackgroundButton btn01 = new BackgroundButton();
+	BackgroundButton btn02 = new BackgroundButton();
+	BackgroundButton btn03 = new BackgroundButton(); 
+	
+	PictureBox picBox01 = new PictureBox();
+	PictureBox picBox02 = new PictureBox();
+	PictureBox picBox03 = new PictureBox();
+	
+	MessageBox msgBox = new MessageBox();
+	 
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {
+		
+		setUpButtons();
+		setUpPictureBoxes();
+		
+		add(picBox01, "colspan=3,halign=center,valign=bottom");
+		startNewRow();
+		add(btn01, "halign=center,hfill=fill");
+		add(new Separator(), "");
+		add(btn02, "halign=center,hfill=fill");
+		startNewRow();
+		add(btn03, "colspan=3,halign=center,valign=top,hfill=fill");
+		startNewRow();
+		add(picBox02, "halign=left,valign=top");
+		add(new Separator(), "");
+		add(picBox03, "halign=right,valign=top");
+		
+		//setBackground(Background.createImageRectangleBackground(Images.MainScreenImages.img_background.getImage(), Background.REPEAT_NONE));
+		setColumnWidth(0, Sizing.PERCENTS, 15);
+		setColumnWidth(1, Sizing.PERCENTS, 1);
+		setColumnWidth(2, Sizing.PERCENTS, 15);
+		setRowHeight(0, Sizing.PERCENTS, 25); 
+		setRowHeight(1, Sizing.PERCENTS, 10); 
+		setRowHeight(2, Sizing.PERCENTS, 25); 
+		setRowHeight(3, Sizing.PERCENTS, 10); 	
+	 
+	}
+
+	callback btn01 onClick(Control c) {
+		
+	}
+
+	callback btn02 onClick(Control c) {
+		shutdown();
+	}
+	
+	callback btn03 onClick(Control c) {
+		
+		msgBox.info(3, true, "About Pharma", "This is an info msg!", "OK", "");
+	
+	}	
+
+	/*
+	 * Custom methods
+	 */	 	 
+	void setUpButtons() {
+		
+		Font fnt = new Font();
+		fnt.setSize(22);
+		fnt.setFamily("Arial");
+		fnt.setBold();
+		
+		btn01.setFont(fnt);
+		btn01.setText("Start");
+		btn01.setForeColor(Color.create(222,222,222));
+		btn01.setFocusedForeColor(Color.create(222,222,222));
+		btn01.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.MainScreenImages.btn_01_normal.getImage(), 3, 3));
+		btn01.setFocusedBackground(Background.createHorizontalTiledImageRectangleBackground(Images.MainScreenImages.btn_01_pressed.getImage(), 3, 3));
+		btn01.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+
+		btn02.setFont(fnt);
+		btn02.setText("Exit");
+		btn02.setForeColor(Color.create(222,222,222));
+		btn02.setFocusedForeColor(Color.create(222,222,222));
+		btn02.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.MainScreenImages.btn_01_normal.getImage(), 3, 3));
+		btn02.setFocusedBackground(Background.createHorizontalTiledImageRectangleBackground(Images.MainScreenImages.btn_01_pressed.getImage(), 3, 3));
+		btn02.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+		
+		btn03.setFont(fnt);
+		btn03.setForeColor(Color.create(189,0,0));
+		btn03.setFocusedForeColor(Color.create(189,0,0));
+		btn03.setText("About");
+		btn03.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.MainScreenImages.btn_02_normal.getImage(), 3, 3));
+		btn03.setFocusedBackground(Background.createHorizontalTiledImageRectangleBackground(Images.MainScreenImages.btn_02_pressed.getImage(), 3, 3));
+		btn03.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+	
+	}
+	
+	void setUpPictureBoxes() {
+		
+		picBox01.setImage(Images.MainScreenImages.img_logo_app.getImage());
+		picBox02.setImage(Images.MainScreenImages.img_logo_vodafone.getImage());
+		picBox03.setImage(Images.MainScreenImages.img_logo_atlantic.getImage());
+		
+	}	
+	
+}
