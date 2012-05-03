@@ -1126,4 +1126,7 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Event">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Event.mscript"/>
   </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Order">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Order.mscript"/>
+  </children>
 </com.vaultus.studio.ecore.studio:UIProject>
