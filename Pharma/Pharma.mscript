@@ -13,6 +13,8 @@ UIProject {
 	 */
 	CrmEntity vObjCrmEntity = new CrmEntity();
 	Account vObjAccount = new Account();
+	Contact vObjContact = new Contact();
+	
 	
 	/*
 	 * VOUtility

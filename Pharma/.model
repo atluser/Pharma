@@ -2021,5 +2021,8 @@
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Contact">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListOfValues">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
   </children> 
 </com.vaultus.studio.ecore.studio:UIProject>
