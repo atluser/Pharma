@@ -1,2 +1,75 @@
 VirtualObject {
+	
+	StringField AccountId {
+		return null;
+	}
+	
+	StringField AccountCode {
+		return null;
+	}
+	
+	StringField AccountName {
+		return null;
+	}
+	
+	StringField AccountType {
+		return null;
+	}
+	StringField AccountCategory {
+		return null;
+	}	
+
+	StringField AccountStreetAddress {
+		return null;
+	}
+
+	StringField AccountCity {
+		return null;
+	}	
+
+	StringField AccountProvince {
+		return null;
+	}
+
+	StringField AccountPostalCode {
+		return null;
+	}
+
+	StringField AccountCountry {
+		return null;
+	}
+	
+	StringField AccountStatus {
+		return null;
+	}
+	
+	StringField AccountPhone {
+		return null;
+	}
+	
+	StringField AccountFax {
+		return null;
+	}
+	
+	StringField AccountEmail {
+		return null;
+	}
+	StringField AccountWebSite {
+		return null;
+	}
+	
+	Query getAccounts() {
+		return accountRows();
+	}
+	query accountRows<> {
+		ascendingBy AccountName;
+	}
+	
+	Query getAccountRow(String accountId){
+		return accountRow(accountId);
+	}
+	query accountRow<String accountId>{
+		where AccountId==accountId;
+	}
+	
 }
