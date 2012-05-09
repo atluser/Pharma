@@ -1,0 +1,11 @@
+VirtualObject {
+	StringField ContactName{return null;}
+	StringField ContactLastName{return null;}
+	StringField ContactStatus{return null;}
+	
+	StringField ContactPhone{return null;}
+	
+	StringField ContactStreetAddress{return null;}
+	StringField ContactStreetCity{return null;}
+
+}
