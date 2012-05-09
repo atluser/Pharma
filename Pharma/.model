@@ -2019,4 +2019,7 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Order">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Order.mscript"/>
   </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Contact">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
+  </children> 
 </com.vaultus.studio.ecore.studio:UIProject>
