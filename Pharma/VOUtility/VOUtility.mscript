@@ -334,7 +334,7 @@ UIObject {
 		return accountName;		
 	}
 	
-/*	 DataRow insertOrder(String accountCode){
+	 DataRow insertOrder(String accountCode){
 		
 		DataRow dt = vObjOrder.getNewRow();
 		
@@ -349,7 +349,7 @@ UIObject {
 		return dt;	
 			
 	}
-	
+/*	
 	void setItem(String orderCode,String productCode,String description,String productName, Integer qty,String unitPrice){
 		
 		DataRow dt = itemObj.getNewRow();
