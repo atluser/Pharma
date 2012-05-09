@@ -334,7 +334,7 @@ UIObject {
 		return accountName;		
 	}
 	
-	 DataRow insertOrder(String accountCode){
+	 DataRow getNewOrder(String accountCode){
 		
 		DataRow dt = vObjOrder.getNewRow();
 		
