@@ -1,0 +1,26 @@
+VirtualObject {
+	StringField ListCode{return null;}
+	StringField ProductCode{return null;}		
+	StringField ProductName{return null;}	
+	StringField ProductBrand{return null;}	
+	IntegerField Qty{return Platform.createInteger(0);}		
+	StringField UnitPrice{return null;}
+	
+	StringField Type{
+		if(Platform.createInteger(UnitPrice).intValue()>0)
+			return "Vendita";
+		else 
+			return "Omaggio";		
+	}
+	
+	StringField Image{return null;}
+	
+	
+	Query getList(String listCode){
+		return getList2(listCode);
+	}
+	query getList2<String listCode>{
+		where ListCode==listCode;
+	}
+
+}
