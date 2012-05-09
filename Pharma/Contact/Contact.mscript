@@ -4,7 +4,7 @@ VirtualObject {
 	StringField ContactStatus{return null;}
 	
 	StringField ContactPhone{return null;}
-	
+	StringField ContactEmail{return null;}
 	StringField ContactStreetAddress{return null;}
 	StringField ContactStreetCity{return null;}
 
