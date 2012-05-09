@@ -1,0 +1,251 @@
+TablePanel {
+	
+	/*
+	 * Attributes
+	 */
+	DataRow currentRow=null;
+	StickyTable stk = new StickyTable();
+	
+	ObjectMap cellDataArray=new ObjectMap();
+	ObjectArray arrObj=new ObjectArray();
+	
+	//RowSetModel rsm = new RowSetModel();
+	//MultiRowSetModel mrsm = new MultiRowSetModel();
+	MultiRowSetModel mrsm;
+	
+	ObjectMap entityFieldMap;	
+	ObjectArray sectionLabelArray;
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {
+	
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);
+		
+		//set size (note: this is required)
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		
+		
+		/*****************************************************CODICE VECCHIO VEDI METODO INIT
+		//set the model for the sticky table
+		stk.setDataModel(mrsm);
+		//rsm.setRows(cfg.getSectionNumber("Account"));
+	
+		//recupero il numero di sezioni
+		Query q=cfg.getSectionNumber("Account");
+		DataRowSet set=q.getRowSet();
+		DataRow sectionRow=set.first();
+		int NSECTION=cfg.Section.getIntegerValue(sectionRow).intValue()+1;				
+		appLog.log(Log.INFO,"numero sezioni "+NSECTION);
+		//costruisco il rowsetmodel
+		for(int section=0;section<NSECTION;section++){
+			RowSetModel rsm=new RowSetModel();
+			//definisco la query x la sezione
+			q=cfg.getNumberFieldInSection("Account",section);
+			set=q.getRowSet();
+			int nfield=set.getSize();
+			appLog.log(Log.INFO,"numero field "+nfield+" in section "+section);
+			rsm.setRows(q);
+			mrsm.add(rsm);
+		}
+		stk.setNumberOfGroups(NSECTION);
+		
+		********************************************************************/
+		
+		//add sticky table to screen
+		add(stk, "halign=center");
+		setColumnWidth(0,Sizing.PIXELS,(int) (0.8*Device.getScreenHeight()));		
+		
+		//stk.reload();	
+	
+	}
+	
+	
+	///////////////////////////////
+	// Callback to configure cells
+	///////////////////////////////
+	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
+		appLog.log(Log.INFO,"CREATING GROUP "+group+" ROW "+row);
+		//getcell type
+		Query q=cfg.getField("Account",group,row);
+		DataRowSet set=q.getRowSet();
+		DataRow dataRow=set.first();
+		String fieldType=cfg.FieldType.getStringValue(dataRow);
+		String picklist=cfg.PickList.getStringValue(dataRow);
+	//cell
+		Cells.EditFormDetailCell cell=new Cells.EditFormDetailCell();				
+		cell.init(fieldType,picklist);					
+		info.setPanel(cell);			
+		
+	}
+	
+	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
+		Cells.EditFormDetailCell tblVwCell = (Cells.EditFormDetailCell) cell;
+		DataRow sectionFieldRow=info.getDataRow();
+		//get field property
+		String caption=cfg.Caption.getStringValue(sectionFieldRow);				
+		String fieldName=cfg.Field.getStringValue(sectionFieldRow);
+		String fieldType=cfg.FieldType.getStringValue(sectionFieldRow);				
+		
+		DataAttribute att=(DataAttribute)entityFieldMap.getValue(fieldName);
+		appLog.log(Log.INFO,"attribute "+att.getName());
+		//read only
+		boolean readOnly=cfg.ReadOnly.getBooleanValue(sectionFieldRow).booleanValue();
+				
+	//inizializzo cella TextField
+		tblVwCell.setRow(currentRow);		
+		//popolo la cella
+		tblVwCell.label.setText(caption );							
+		tblVwCell.model.addField(att);			
+				
+		appLog.log(Log.INFO,"model loaded"+att.getName());
+		tblVwCell.model.setEditable(!readOnly); 				
+				
+		//memorizzo cella					
+		if(arrObj.findItem(tblVwCell)<0){				
+			arrObj.insertItem(row,tblVwCell);
+			//appLog.log(Log.INFO,"inserisco riga "+row+" campo "+fieldName+" value "+tblVwCell.data.getText());
+		}											
+	}
+	
+	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
+		cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PIXELS, 400);
+		cell.setCouldBeSelected(true);
+	}
+	
+	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
+		sizeInfo.setHeight(60);		
+	}		
+	
+	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
+		
+	}
+		
+	////////////////////////////
+	// Sticky Header (Optional)
+	////////////////////////////
+	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		//info.setPanel(new Panels.Accounts.AccountHeaderTableViewPanel());
+		//info.setPanel(new Panels.SectionHeader.EditHeaderSectionTPV());
+		
+		appLog.log(Log.INFO,"create HEADER "+group);
+		
+		TableViewPanel headerCell=new TableViewPanel();
+		
+		Label lblTitle=new Label();
+		if(sectionLabelArray!=null){
+			String  strTitle=(String)sectionLabelArray.getItem(group);		
+			lblTitle.setText(strTitle);
+		}		
+		headerCell.add(lblTitle,"halign=center");
+		
+		info.setPanel(headerCell);
+	}
+	
+	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
+				
+		cell.setCouldBeSelected(false);
+		cell.setHeight(Sizing.PIXELS, 60);
+		cell.setWidth(Sizing.PERCENTS, 70);
+	}
+	
+	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
+		cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+		
+	}		
+		
+	////////////////////////////
+	// Footer (Optional)
+	////////////////////////////
+	callback stk onFooterCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		//info.setPanel(new Panels.Accounts.AccountFooterTableViewPanel());
+	}
+	
+	callback stk onFooterConfigure(TableView c, CellConfig cell, int group){
+		cell.setCouldBeSelected(false);
+		cell.setHeight(Sizing.PIXELS, 60);
+		cell.setWidth(Sizing.PERCENTS, 100);
+	}
+	
+	callback stk onFooterInfo(TableView c, TableViewPanel cell, Footer info, int grp) {
+		/*Panels.Accounts.AccountFooterTableViewPanel tblVwPanelFooter = (Panels.Accounts.AccountFooterTableViewPanel) cell;
+		tblVwPanelFooter.setRowCount(rsm.getRowCount(0));
+		*/
+	}
+	
+	/*
+	 * Custom methods
+	 */
+	void init(String entity,DataRow row){
+		currentRow=row;
+		entityFieldMap=(ObjectMap)fieldMap.getValue(entity);
+		sectionLabelArray=(ObjectArray) sectionLabelMap.getValue(entity);
+		appLog.log(Log.INFO,"caricato array stringhe section "+sectionLabelArray.length());
+		Config.ScreenConfiguration scrConfig=new Config.ScreenConfiguration();
+		mrsm=scrConfig.createMultiRowSet(entity);
+				
+		int NSECTION=mrsm.getGroupCount();
+		appLog.log(Log.INFO,"GROUPCOUNT "+NSECTION);
+		stk.setNumberOfGroups(NSECTION);
+		
+		//set the model for the sticky table
+		stk.setDataModel(mrsm);						
+		
+	}
+	/*OLD METHOD
+	void save(){		
+		//scorro array
+		for(int i=0;i<arrObj.length();i++){				
+			TextField txt=(TextField)arrObj.getItem(i);
+			//check se valorizzato
+			appLog.log(Log.INFO,"controllo valore "+txt.getText());
+			if(txt.getText().equals("")) continue;						
+		
+			appLog.log(Log.INFO,"processo valore "+txt.getText());
+			TextModel model=(TextModel)txt.getDataModel();
+			String attributeName=model.getAttribute(0);
+			StringAttribute attribute=(StringAttribute) vObjAccount.getAttribute(attributeName); 
+			attribute.setStringValue(txt.getText(),currentRow);
+			//attribute.setStringValue(txt.getText(),attribute.getRow());
+			appLog.log(Log.INFO,"insertito valore "+txt.getText()+" su attributo "+attribute.getName());
+			//appLog.log(Log.INFO,"MODEL "+model.getName());
+			//sectionRow=set.next();		
+		}
+	
+		currentRow.applyUpdates();				
+	}
+	*/
+	
+	void save(VirtualObject obj){		
+		
+		for(int i=0;i<arrObj.length();i++){				
+			Cells.EditFormDetailCell cell=(Cells.EditFormDetailCell)arrObj.getItem(i);			
+			String fieldType=cell.FieldType;
+			String txt="";
+			if(fieldType.equals("TextField")){
+				TextField data=(TextField)cell.data;
+				txt=data.getText();
+			}
+			else if(fieldType.equals("ComboBox")){
+				ComboBox data=(ComboBox)cell.data;
+				int idx=data.getSelectedIndex();
+				txt=data.getChoice(idx);		
+			}	
+			if(txt.equals("")) continue;									
+			
+			appLog.log(Log.INFO,"processo valore "+txt);
+			Model model=cell.model;
+			String attributeName=model.getAttribute(0);
+			//StringAttribute attribute=(StringAttribute) vObjAccount.getAttribute(attributeName); 
+			StringAttribute attribute=(StringAttribute) obj.getAttribute(attributeName);
+			attribute.setStringValue(txt,currentRow);		
+			appLog.log(Log.INFO,"insertito valore "+txt+" su attributo "+attribute.getName());
+				
+		}
+	
+		currentRow.applyUpdates();
+	}
+}

@@ -1,0 +1,59 @@
+TableViewCell {	
+	DataRow currentRow=null;
+	HorizontalPanel fp=new HorizontalPanel();
+	Label label=new Label();
+	//TextField data=new TextField();		
+	//model
+	//TextModel model=new TextModel();
+	
+	Control data;
+	Model model;	
+	ChoiceModel choiceModel;
+	String FieldType="";
+	
+	
+	
+	callback onCreate(Container c){	
+		add(fp,"halign=center,vfill=fill");
+		//fp.setBackColor(Colors.Blue);
+		//setBackColor(Colors.Green);
+		
+	}
+	void setRow(DataRow row){
+		currentRow=row;					
+		model.setRow(row);
+	}
+	
+	void init(String fieldType,String picklist){
+		FieldType=fieldType;
+		if(fieldType.equals("TextField")){
+			data=new TextField();
+			model=new TextModel();
+			//data.setDataModel(model);
+		}
+		else if(fieldType.equals("Label")){
+			data=new Label();
+			model=new TextModel();
+		}
+		else if(fieldType.equals("ComboBox")){
+			data=new ComboBox();
+			choiceModel=new ChoiceModel();
+			choiceModel.setChoicesAttribute(vObjLOV.Value);
+			choiceModel.setChoicesKeyAttribute(vObjLOV.Name);
+			Query q=vObjLOV.getLOV(picklist);
+			choiceModel.setRows(q);
+			model=choiceModel;
+			//data.setDataModel(choiceModel);
+		}
+		data.setDataModel(model);
+		fp.add(new Separator(),"");
+		fp.add(label,"halign=right,hfill=fill");
+		fp.add(data,"halign=left,hfill=fill");						
+		
+		fp.setColumnWidth(0,Sizing.PIXELS, (int) (0.8*0.2*Device.getScreenHeight()));
+		fp.setColumnWidth(1,Sizing.PIXELS, (int) (0.8*0.3*Device.getScreenHeight()));
+		fp.setColumnWidth(2,Sizing.PIXELS, (int)(0.8*0.5*Device.getScreenHeight()));		
+		
+	}
+		
+}

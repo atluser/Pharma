@@ -4,9 +4,10 @@ UIProject {
 	Screens.HomeScreen scrHome;
 	
 	/*
-	 * Log
+	 * Logs
 	 */
 	Log logApp = getLog();
+	Log appLog = getLog();
 	
 	/*
 	 * Virtual objects
@@ -15,12 +16,23 @@ UIProject {
 	Account vObjAccount = new Account();
 	Contact vObjContact = new Contact();
 	ListOfValues vObjLOV = new ListOfValues();
-	
+	Order vObjOrder=new Order();
 	
 	/*
 	 * VOUtility
 	 */
 	VOUtility vObjUtil = new VOUtility();
+	
+	
+	Config.AccountConfig accountConfig=new Config.AccountConfig(); 
+	Config.ContactConfig contactConfig=new Config.ContactConfig();
+	Config.Field cfg=new Config.Field();
+	Config.Sections cfgSections=new Config.Sections();
+	
+	ObjectMap fieldMap=new ObjectMap();	
+	ObjectMap accountFieldMap=new ObjectMap();
+	//ObjectArray sectionLabelArray=new ObjectArray();
+	ObjectMap sectionLabelMap=new ObjectMap();
 	
 	callback onApplicationStyleSetup(StyleReceptor styleReceptor){
 		
@@ -75,7 +87,17 @@ UIProject {
 	callback onStart(PushedData pushedData){
 		
 		vObjUtil.loadCrmEntities();
+		vObjUtil.loadLOV();
 		vObjUtil.loadAccount();
+		
+		//configura account
+		accountConfig.fillAccountConfig();
+		//configura contact
+		contactConfig.fillContactConfig();
+		
+		//configura stringhe sezione Account
+		createSectionTitle("Account");
+		createSectionTitle("Contact");
 		
 		//Screens.StartScreen scrStart = new Screens.StartScreen();
 		scrStart = getNewStartScreen();
@@ -109,6 +131,24 @@ UIProject {
    		scrStart = new Screens.StartScreen();
    		return scrStart;
    		
+	}
+	
+	void createSectionTitle(String entity){
+		Query q=cfgSections.getSections(entity);
+		DataRowSet rs=q.getRowSet();
+		DataRow row=rs.first();
+		ObjectArray sectionLabelArray=new ObjectArray();		
+		while(row!=null){
+			int group=cfgSections.Section.getIntegerValue(row).intValue();
+			appLog.log(Log.INFO,"inserisco sezione "+group);
+			String title=cfgSections.Title.getStringValue(row);
+		//	Label label=new Label();
+		//	label.setText(title);						
+			sectionLabelArray.insertItem(group,title);
+			row=rs.next();
+		}
+		sectionLabelMap.putValue(entity,sectionLabelArray);			
+		
 	}
 
 }

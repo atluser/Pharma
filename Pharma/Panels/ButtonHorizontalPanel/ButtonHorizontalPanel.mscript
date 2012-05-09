@@ -1,0 +1,15 @@
+HorizontalPanel {
+	Button btnSave=new Button();
+	Button btnCancel=new Button();
+
+	callback onCreate(Container c){		
+		btnCancel.setText("Cancel");
+		btnSave.setText("Save");
+		add(btnCancel,"halign=left");
+		add(new Separator(),"");
+		add(btnSave,"halign=right");
+		setColumnWidth (0,Sizing.PERCENTS,10);
+		setColumnWidth (1,Sizing.PERCENTS,20);
+		setColumnWidth (2,Sizing.PERCENTS,10);
+	}	
+}

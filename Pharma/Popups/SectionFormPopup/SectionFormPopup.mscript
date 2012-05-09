@@ -1,0 +1,51 @@
+Popup {
+	VirtualObject dataObject;
+	TablePanel tp;
+	ScrollableVerticalPanel vp;
+	TablePanel mainTP=new TablePanel();
+	Panels.ButtonHorizontalPanel buttonBar=new Panels.ButtonHorizontalPanel();
+	Button btnSave=buttonBar.btnSave;
+	Button btnCancel=buttonBar.btnCancel;
+	int mode=-1;
+	
+	callback onCreate(Container c){				
+		add(mainTP,"halign=center,vfill=fill");
+		setBackColor(Colors.White);
+		//btnSave=buttonBar.btnSave;
+	}	
+	
+	void init(TablePanel pnl, VirtualObject obj){
+		//mode=m;
+		dataObject=obj;
+		tp=pnl;				
+		mainTP.add(buttonBar);
+		mainTP.startNewRow();
+		mainTP.add(pnl,"halign=center");
+		
+		mainTP.setRowHeight(0,Sizing.PREFERRED,0);
+		mainTP.setRowHeight(1,Sizing.PREFERRED,0);
+		
+	}
+		
+	
+	callback btnSave onClick(Control c){
+		Panels.EditStickyTablePanel stickyTP=(Panels.EditStickyTablePanel)tp;
+		stickyTP.save(dataObject);			
+		/*switch(mode){			
+			case 0:								
+				stickyTP.save(dataObject);
+			break;	
+			
+		}*/
+	}
+	
+	callback btnCancel onClick(Control c){
+		hide(Popup.POPUP_TYPE_FROM_TOP );
+		destroy();
+	
+	}
+	
+	
+
+}
+

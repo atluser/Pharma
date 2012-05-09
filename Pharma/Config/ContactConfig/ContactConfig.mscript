@@ -1,0 +1,97 @@
+UIObject {
+	
+	void fillContactConfig(){
+		DataRow row;
+		ObjectMap entityFieldMap=new ObjectMap();
+	//costruisco sezioni
+		row=cfgSections.getNewRow();
+		cfgSections.Entity.setStringValue("Contact",row);
+		cfgSections.Section.setIntegerValue(Platform.createInteger(0),row);
+		cfgSections.Title.setStringValue("Anagrafica",row);		
+		row.applyUpdates();
+		
+		row=cfgSections.getNewRow();
+		cfgSections.Entity.setStringValue("Contact",row);
+		cfgSections.Section.setIntegerValue(Platform.createInteger(1),row);
+		cfgSections.Title.setStringValue("Comunicazioni",row);		
+		row.applyUpdates();
+		
+		row=cfgSections.getNewRow();
+		cfgSections.Entity.setStringValue("Contact",row);
+		cfgSections.Section.setIntegerValue(Platform.createInteger(2),row);
+		cfgSections.Title.setStringValue("Localizzazione",row);		
+		row.applyUpdates();
+			
+	//--------------------------------------------------
+		
+	//riempio i field
+	//ContactName		
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Contact",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Field.setStringValue("ContactName",row);		
+		cfg.Position.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Caption.setStringValue("Nome",row);		
+		cfg.FieldType.setStringValue("TextField",row);
+		row.applyUpdates();
+		entityFieldMap.putValue("ContactName",vObjContact.ContactName);
+//ContactLastName
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Contact",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Field.setStringValue("ContactLastName",row);		
+		cfg.Position.setIntegerValue(Platform.createInteger(1),row);
+		cfg.Caption.setStringValue("Cognome",row);		
+		cfg.FieldType.setStringValue("TextField",row);
+		row.applyUpdates();
+		entityFieldMap.putValue("ContactLastName",vObjContact.ContactLastName);
+		
+		//ContactStatus
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Contact",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Field.setStringValue("ContactStatus",row);		
+		cfg.Position.setIntegerValue(Platform.createInteger(2),row);
+		cfg.Caption.setStringValue("Stato",row);		
+		cfg.FieldType.setStringValue("TextField",row);
+		row.applyUpdates();
+		entityFieldMap.putValue("ContactStatus",vObjContact.ContactStatus);
+		
+		//ContactPhone
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Contact",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(1),row);
+		cfg.Field.setStringValue("ContactPhone",row);		
+		cfg.Position.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Caption.setStringValue("Telefono",row);		
+		cfg.FieldType.setStringValue("TextField",row);
+		row.applyUpdates();
+		entityFieldMap.putValue("ContactPhone",vObjContact.ContactPhone);
+		
+		//ContactMail
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Contact",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(1),row);
+		cfg.Field.setStringValue("ContactEmail",row);		
+		cfg.Position.setIntegerValue(Platform.createInteger(1),row);
+		cfg.Caption.setStringValue("e-Mail",row);		
+		cfg.FieldType.setStringValue("TextField",row);
+		row.applyUpdates();
+		entityFieldMap.putValue("ContactEmail",vObjContact.ContactEmail);
+		
+		//ContactStreetAddress
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Contact",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(2),row);
+		cfg.Field.setStringValue("ContactStreetAddress",row);		
+		cfg.Position.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Caption.setStringValue("Indirizzo",row);		
+		cfg.FieldType.setStringValue("TextField",row);
+		row.applyUpdates();
+		entityFieldMap.putValue("ContactStreetAddress",vObjContact.ContactStreetAddress);
+		
+		
+		fieldMap.putValue("Contact",entityFieldMap);
+	}
+
+}

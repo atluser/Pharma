@@ -1,0 +1,13 @@
+Style {	
+	Font fnt = new Font();
+	callback onStyleCreation(Style style){		
+		fnt.setFamily("Arial");
+		fnt.setSize(16);
+		fnt.setBold();
+		
+		Label.setForeColor(Color.create(189,0,0));
+		Label.setFont(fnt);
+		
+		BackgroundButton.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+	}
+}

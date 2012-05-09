@@ -1,0 +1,27 @@
+UIObject {
+	
+	int getSectionNumber(String entity){
+		Query q=cfgSections.getSections(entity);
+		DataRowSet set=q.getRowSet();
+		int section=set.getSize();
+		appLog.log(Log.INFO,"sections in"+entity+section);		
+		return section;
+	}
+	
+	MultiRowSetModel createMultiRowSet(String Entity){
+		MultiRowSetModel mrsm= new MultiRowSetModel(); 
+		int NSECTION = getSectionNumber(Entity);					
+		appLog.log(Log.INFO,"numero sezioni "+NSECTION);
+		//costruisco il rowsetmodel
+		for(int section=0;section<NSECTION;section++){
+			RowSetModel rsm=new RowSetModel();
+			//definisco la query x la sezione
+			Query q=cfg.getFields(Entity,section);
+			DataRowSet set=q.getRowSet();			
+			appLog.log(Log.INFO,"numero field "+set.getSize()+" in section "+section);
+			rsm.setRows(q);
+			mrsm.add(rsm);
+		}
+		return mrsm;
+	}	
+}
