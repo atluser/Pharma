@@ -1,0 +1,181 @@
+UIObject {
+	
+	void fillAccountConfig(){
+		DataRow row;
+		ObjectMap accountFieldMap=new ObjectMap();
+	//costruisco sezioni
+		row=cfgSections.getNewRow();
+		cfgSections.Entity.setStringValue("Account",row);
+		cfgSections.Section.setIntegerValue(Platform.createInteger(0),row);
+		cfgSections.Title.setStringValue("Info1",row);		
+		row.applyUpdates();
+		
+		row=cfgSections.getNewRow();
+		cfgSections.Entity.setStringValue("Account",row);
+		cfgSections.Section.setIntegerValue(Platform.createInteger(1),row);
+		cfgSections.Title.setStringValue("Info2",row);		
+		row.applyUpdates();
+		
+		row=cfgSections.getNewRow();
+		cfgSections.Entity.setStringValue("Account",row);
+		cfgSections.Section.setIntegerValue(Platform.createInteger(2),row);
+		cfgSections.Title.setStringValue("Info3",row);		
+		row.applyUpdates();
+			
+	//--------------------------------------------------
+		
+	//riempio i field
+	//AccountCode		
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Field.setStringValue("AccountCode",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Caption.setStringValue("Codice",row);
+		cfg.ReadOnly.setBooleanValue(Platform.createBoolean(true),row);
+		cfg.FieldType.setStringValue("TextField",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountCode",vObjAccount.AccountCode);
+		
+		//AccountName
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Field.setStringValue("AccountName",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(1),row);
+		cfg.Caption.setStringValue("Ragione Sociale",row);
+		cfg.FieldType.setStringValue("TextField",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountName",vObjAccount.AccountName);
+		
+		//accountType		
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Field.setStringValue("AccountType",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(2),row);
+		cfg.Caption.setStringValue("Tipo",row);
+		cfg.ReadOnly.setBooleanValue(Platform.createBoolean(true),row);
+		cfg.FieldType.setStringValue("TextField",row);
+		row.applyUpdates();				
+		accountFieldMap.putValue("AccountType",vObjAccount.AccountType);
+		
+		//accountCategory
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Field.setStringValue("AccountCategory",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(3),row);
+		cfg.Caption.setStringValue("Categoria",row);
+		cfg.FieldType.setStringValue("TextField",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountCategory",vObjAccount.AccountCategory);
+		
+		//AccountStatus
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Field.setStringValue("AccountStatus",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(4),row);
+		cfg.Caption.setStringValue("Stato",row);
+		cfg.ReadOnly.setBooleanValue(Platform.createBoolean(true),row);
+		cfg.FieldType.setStringValue("TextField",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountStatus",vObjAccount.AccountStatus);
+		//-------------------------------
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(1),row);
+		cfg.Field.setStringValue("AccountStreetAddress",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(0),row);
+		cfg.FieldType.setStringValue("TextField",row);
+		cfg.Caption.setStringValue("Indirizzo",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountStreetAddress",vObjAccount.AccountStreetAddress);
+		
+		//AccountCity
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(1),row);
+		cfg.Field.setStringValue("AccountCity",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(1),row);
+		cfg.FieldType.setStringValue("TextField",row);
+		cfg.Caption.setStringValue("Citta",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountCity",vObjAccount.AccountCity);
+		
+		//AccountProvince			
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(1),row);
+		cfg.Field.setStringValue("AccountProvince",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(2),row);
+		cfg.FieldType.setStringValue("ComboBox",row);
+		cfg.Caption.setStringValue("Provincia",row);
+		cfg.PickList.setStringValue("PROVINCE",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountProvince",vObjAccount.AccountProvince);
+		
+		//AccountPostalCode
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(1),row);
+		cfg.Field.setStringValue("AccountPostalCode",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(3),row);
+		cfg.FieldType.setStringValue("TextField",row);
+		cfg.Caption.setStringValue("CAP",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountPostalCode",vObjAccount.AccountPostalCode);
+		
+		
+		//-----------------------------------------------------
+		//AccountPhone
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(2),row);
+		cfg.Field.setStringValue("AccountPhone",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(0),row);
+		cfg.FieldType.setStringValue("TextField",row);
+		cfg.Caption.setStringValue("Telefono",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountPhone",vObjAccount.AccountPhone);	
+	
+	//AccountFax
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(2),row);
+		cfg.Field.setStringValue("AccountFax",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(1),row);
+		cfg.FieldType.setStringValue("TextField",row);
+		cfg.Caption.setStringValue("Fax",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountFax",vObjAccount.AccountFax);
+	
+	
+	//AccountEmail
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(2),row);
+		cfg.Field.setStringValue("AccountEmail",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(2),row);
+		cfg.FieldType.setStringValue("TextField",row);
+		cfg.Caption.setStringValue("e-Mail",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountEmail",vObjAccount.AccountEmail);
+	
+	//AccountWebsite
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(2),row);
+		cfg.Field.setStringValue("AccountWebSite",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(3),row);
+		cfg.FieldType.setStringValue("TextField",row);
+		cfg.Caption.setStringValue("Sito",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountWebSite",vObjAccount.AccountWebSite);
+		
+		fieldMap.putValue("Account",accountFieldMap);
+	}
+	
+	
+}

@@ -1,0 +1,98 @@
+ScrollableVerticalPanel {
+
+	int NSECTION=0;
+	DataRow contextRow;
+	ObjectArray fpArray=new ObjectArray();
+	
+	void onCreate(Container c){
+		appLog.log(Log.INFO,"on create");
+		
+	}
+	
+	void init(DataRow row){
+		contextRow=row;				
+		appLog.log(Log.INFO,"init");
+//		sectionLabelArray=(ObjectArray) sectionLabelMap.getValue(entity);
+		
+		//recupero il numero di sezioni
+		Query q=cfg.getSectionNumber("Account");
+		DataRowSet set=q.getRowSet();
+		DataRow sectionRow=set.first();
+		int NSECTION=cfg.Section.getIntegerValue(sectionRow).intValue()+1;
+		appLog.log(Log.INFO,"NSECTION "+NSECTION);
+		
+		//definisco le sezioni form panel x ogni sezione
+		for (int i=0;i<NSECTION;i++)
+			fpArray.insertItem(i,new Panels.DetailFormPanel());						
+				
+		for(int section=0;section<NSECTION;section++){
+			//costruisco titolo sezione
+			/*Label lblTitle=(Label)sectionLabelArray.getItem(section);		
+			add(lblTitle);*/		
+			setVGap(20);			
+		
+			//field in section			
+			q=cfg.getNumberFieldInSection("Account",section);		
+			set=q.getRowSet();
+			DataRow sectionFieldRow=set.first();
+			//int nfield=cfg.FieldNumber.getIntegerValue(sectionFieldRow).intValue();				
+			int nfield=set.getSize();			
+			appLog.log(Log.INFO,"sezione "+section+ " n field "+nfield+" rowset "+set.getSize());
+			Panels.DetailFormPanel fp=(Panels.DetailFormPanel)fpArray.getItem(section);
+			
+			//inizializzo formpanel
+			fp.init(nfield,row);
+			//costruisco pannello per sezione section				
+				int i=0;
+			while(sectionFieldRow!=null){//scorro i field della sezione
+				//i numero field nella sezione section				
+				appLog.log(Log.INFO,"field "+i+"");
+				
+				String caption=cfg.Caption.getStringValue(sectionFieldRow);
+				Label label=(Label)fp.lblArray.getItem(i);										
+				label.setText(caption);				
+				TextModel model=(TextModel)fp.txtModelArray.getItem(i);								
+				String fieldName=cfg.Field.getStringValue(sectionFieldRow);
+				DataAttribute att=(DataAttribute)accountFieldMap.getValue(fieldName);
+				appLog.log(Log.INFO,"attribute "+att.getName());
+				model.addField(att);
+																
+				appLog.log(Log.INFO,"creato field  "+i);
+				i++;
+				sectionFieldRow=set.next();
+												
+			}
+			//aggancio sezione
+			add(fp);
+			
+			setVGap(50);						
+			
+		}
+						
+		
+	}	
+	
+	void save(){
+		for(int section=0;section<NSECTION;section++){
+			Panels.DetailFormPanel fp=(Panels.DetailFormPanel)fpArray.getItem(section);
+			for(int i=0;i<fp.dataArray.length();i++){
+				TextField txt=(TextField) fp.dataArray.getItem(i);
+				//StringAttribute attribute=(StringAttribute) vObjAccount.getAttribute("AccountName");
+				//TextModel model=(TextModel)fp.txtModelArray.getItem(i);			
+		
+				TextModel model=(TextModel)txt.getDataModel();
+				String attributeName=model.getAttribute(0);
+				StringAttribute attribute=(StringAttribute) vObjAccount.getAttribute(attributeName); 
+				attribute.setStringValue(txt.getText(),contextRow);
+				//attribute.setStringValue(txt.getText(),attribute.getRow());
+				appLog.log(Log.INFO,"insertito valore "+txt.getText()+" su attributo "+attribute.getName());
+				//appLog.log(Log.INFO,"MODEL "+model.getName());
+						
+			}
+		}
+		contextRow.applyUpdates();
+	}	
+
+	
+
+}

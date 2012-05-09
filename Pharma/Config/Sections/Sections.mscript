@@ -1,0 +1,21 @@
+VirtualObject {
+	StringField Entity{return null;}
+	IntegerField Section{return Platform.createInteger(0);}
+	StringField Title {return null;}
+	
+	Query getSections(String entity){
+		return getsections(entity);
+	}
+	query getsections<String entity>{
+		where Entity==entity;
+		ascendingBy Section;		
+	}
+	
+	Query getSectionLabel(String entity,int section){
+		return getsectionlabel(entity,section);
+	}
+	query getsectionlabel<String entity,int section>{
+		where Entity==entity;
+		where Section==section;		
+	}
+}

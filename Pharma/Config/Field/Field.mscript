@@ -1,0 +1,43 @@
+VirtualObject {
+	StringField Entity{return null;}
+	IntegerField Section{return Platform.createInteger(0);}
+	StringField Field{return null;}
+	IntegerField Position{return Platform.createInteger(0);}
+//	IntegerField FieldNumber{return Platform.createInteger(0);}
+	StringField Caption{return null;}
+	BooleanField ReadOnly {return Platform.createBoolean(false);}
+	StringField FieldType{return null;}
+	StringField PickList{return null;}
+
+	Query getField(String entity,int section, int position){
+		return getField2(entity,section,position);
+	}
+	query getField2<String entity, int section, int position>{
+		where Entity==entity;
+		where Section==section;
+		where Position==position;
+	}
+	
+	Query getFields(String entity,int section){
+		return getNumberFieldInSection2(entity,section);
+	}
+	
+	Query getNumberFieldInSection(String entity,int section){
+		return getNumberFieldInSection2(entity,section);
+	}
+	query getNumberFieldInSection2<String entity,int section>{
+		where Entity==entity;
+		where Section==section;
+		ascendingBy Position;
+		//unique count FieldNumber;
+		
+	}
+	Query getSectionNumber(String entity){
+		return getSectionNumber2(entity);
+	}
+	query getSectionNumber2<String entity>{
+		where Entity==entity;		
+		descendingBy Section;
+		//unique;
+	}
+}
