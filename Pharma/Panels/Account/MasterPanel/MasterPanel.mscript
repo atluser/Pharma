@@ -1,0 +1,41 @@
+TablePanel {
+	
+	/*
+	 * Attributes
+	 */
+	Panels.Account.StickyTablePanel pnlStickyTable;
+	/* OK
+	Panels.Account.DetailFormPanel pnlDetailForm;
+	*/
+	
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {
+		
+		pnlStickyTable = new Panels.Account.StickyTablePanel();
+		
+		add(pnlStickyTable,"valign=top");
+		
+		//setBackground(Background.createVerticalGradientRectangleBackground (Color.create(255,255,255), Color.create(255,255,255)));
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
+		setColumnWidth(0, Sizing.PERCENTS, 30);
+		setRowHeight(0, Sizing.PERCENTS, 100);
+		//setRowHeight(0, Sizing.PREFERRED, 0); 	
+	 
+	}
+	
+	/*
+	 * Custom methods
+	 */
+	 
+	 /* OK	 
+	 void setDetailFormPanel(Panels.Account.DetailFormPanel pnl) {
+	 	
+	 	pnlDetailForm = pnl;
+	 	pnlStickyTable.setDetailFormPanel(pnlDetailForm);
+	 
+	 }
+	 */
+
+}

@@ -1,2 +1,37 @@
 TableViewCell {
+	
+	Font fnt = new Font();
+	Label lbl = new Label();
+	//TextModel txtMdl = new TextModel();
+		
+	callback onCreate(Container container){
+
+		fnt.setFamily("Arial");
+		fnt.setSize(18);
+		//fnt.setBold();
+		lbl.setFont(fnt);
+		lbl.setForeColor(Colors.Black);
+		//lbl.setFocusedForeColor(Colors.White);
+		
+		//txtMdl.setForeColor(Colors.Black);
+		//txtMdl.setFocusedForeColor(Colors.White);
+		//lbl.setDataModel(txtMdl);
+			
+		add(lbl, "hfill=fill");
+		
+		setInsets (0, 8, 0, 8);
+		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));
+		setFocusedBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgRedBackground, 0, 0, 0, 0));
+		setColumnWidth(0, Sizing.PREFERRED, 0);	
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		
+	}
+	
+	void setRow(DataRow dtRw) {
+		
+		//String str = vObjCrmEntity.Name.getStringValue(dtRw);
+		//txtMdl.setText("   " + str);
+		
+	}
+
 }

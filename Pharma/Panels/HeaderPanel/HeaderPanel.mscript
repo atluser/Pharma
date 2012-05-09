@@ -1,0 +1,353 @@
+HorizontalPanel {
+
+	/*
+	 * Attributes
+	 */
+	int iTmpIdx = 4; 
+	 
+	StackPanel stkPnl;
+	Panels.Account.RootPanel pnlAccountRoot;
+	Panels.Activity.RootPanel pnlActivityRoot;
+	Panels.Contact.RootPanel pnlContactRoot;
+	Panels.Order.RootPanel pnlOrderRoot;
+	Panels.ServiceRequest.RootPanel pnlServiceRequestRoot;
+	Panels.Catalog.RootPanel pnlCatalogRoot;
+	
+	Button btnHome = new Button();
+	
+	RadioGroup rg = new RadioGroup();
+	ToolBarButton tbb01 = new ToolBarButton();	
+	ToolBarButton tbb02 = new ToolBarButton();
+	ToolBarButton tbb03 = new ToolBarButton();
+	ToolBarButton tbb04 = new ToolBarButton();	
+	ToolBarButton tbb05 = new ToolBarButton();
+	ToolBarButton tbb06 = new ToolBarButton();
+		
+	Button btnNew = new Button();
+	Button btnEdit = new Button();
+	Button btnDelete = new Button();
+	Button btnCrmMenu = new Button();		
+	Button btnMenu = new Button();
+
+	Popover poMenu = new Popover();
+	AnchorPosition apMenu = new AnchorPosition();
+	
+	Popover poCrmMenu = new Popover(); 
+	AnchorPosition apCrmMenu = new AnchorPosition();
+	//Action actPoCrmMenuClose = new Action();
+	//Action actPoCrmMenuBack = new Action();	
+
+	/*
+	 * Callback methods
+	 */ 
+	callback onCreate(Container c) {
+		
+		setUpButtons();	
+		//setUpMenuPopover();
+		setUpCrmMenuPopover(c);
+		
+		rg.addButton(tbb01);
+		rg.addButton(tbb02);
+		rg.addButton(tbb03);
+		rg.addButton(tbb04);	
+		rg.addButton(tbb05);
+		rg.addButton(tbb06);
+		rg.hideButton(4);
+		rg.hideButton(5);
+		rg.setSelectedIndex(0);
+		rg.setNavigationType(ToolBar.SCROLLER);
+		rg.setAlignmentIfExtraSpace(ToolBar.SCROLLER, HorizontalAlignmentType.CENTER);
+			
+		add(btnHome);
+		add(rg,"hfill=fill");
+		add(new Separator(),"");
+		add(btnNew);
+		add(btnEdit);
+		add(btnDelete);
+		add(btnCrmMenu);
+		add(btnMenu);
+		
+	 	setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		setColumnWidth(0, Sizing.PREFERRED,0);
+		setColumnWidth(1, Sizing.PREFERRED,0);
+		setColumnWidth(2, Sizing.PREFERRED,1);
+		setColumnWidth(3, Sizing.PREFERRED,0);
+		setColumnWidth(4, Sizing.PREFERRED,0);
+		setColumnWidth(5, Sizing.PREFERRED,0);
+		setColumnWidth(6, Sizing.PREFERRED,0);
+		setColumnWidth(7, Sizing.PREFERRED,0);
+		
+	}
+	
+	callback btnHome onClick(Control c) {
+		
+		logApp.log(Log.INFO, "HeaderPanel - btnHome onClick()");
+		poCrmMenu.dismiss();
+		
+	}	
+
+	callback rg onToolBarButtonClicked(ToolBar c, int idxClicked, ToolBarButton tbb, boolean isChanged) {
+		
+		logApp.log(Log.INFO, "HeaderPanel - rg onToolBarButtonClicked()");	
+		
+		if (idxClicked == 0) {
+			
+			poCrmMenu.dismiss();
+			stkPnl.select(pnlAccountRoot);
+		
+		} else if (idxClicked == 1) {
+			
+			poCrmMenu.dismiss();
+			stkPnl.select(pnlActivityRoot);
+		
+		} else if (idxClicked == 2) {
+
+			poCrmMenu.dismiss();
+			stkPnl.select(pnlContactRoot);
+		
+		} else if (idxClicked == 3) {
+		
+			poCrmMenu.dismiss();
+			stkPnl.select(pnlOrderRoot);
+		
+		} else if (idxClicked == 4) {
+		
+			poCrmMenu.dismiss();
+			//stkPnl.select(pnlOrderRoot);
+		
+		} else if (idxClicked == 5) {
+		
+			poCrmMenu.dismiss();
+			//stkPnl.select(pnlOrderRoot);
+		
+		}
+		
+	}
+
+	callback btnNew onClick(Control c) {
+		
+		logApp.log(Log.INFO, "HeaderPanel - btnNew onClick()");
+		poCrmMenu.dismiss();
+		
+	}
+	
+	callback btnEdit onClick(Control c) {
+		
+		logApp.log(Log.INFO, "HeaderPanel - btnEdit onClick()");
+		poCrmMenu.dismiss();
+		
+	}	
+	
+	callback btnDelete onClick(Control c) {
+		
+		logApp.log(Log.INFO, "HeaderPanel - btnDelete onClick()");
+		poCrmMenu.dismiss();
+		
+	}	
+	
+	callback btnCrmMenu onClick(Control c) {
+		
+		logApp.log(Log.INFO, "HeaderPanel - btnCrmMenu onClick()");
+		scrHome.showPopover(poCrmMenu, false, apCrmMenu);
+		
+	}
+	
+	callback btnMenu onClick(Control c) {
+		
+		logApp.log(Log.INFO, "HeaderPanel - btnMenu onClick()");
+		poCrmMenu.dismiss();
+		//scrHome.showPopover(poMenu, false, apMenu);
+		
+	}
+	
+	callback poCrmMenu onDeactivate(Container source){
+		logApp.log(Log.INFO, "HomePanel - poCrmMenu onDeactivate()");
+	
+	}
+	
+	callback poCrmMenu onDismiss(Screen owner, Popover popup){
+		logApp.log(Log.INFO, "HomePanel - poCrmMenu onDismiss()");
+	
+	}	
+	
+	/*
+	 * Custom methods
+	 */
+	void setUpButtons() {
+		
+		Font fnt = new Font();
+		fnt.setSize(18);
+		fnt.setFamily("Arial");
+		//fnt.setBold();
+		
+		btnHome.setImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnHome.setFocusedImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnHome.setSelectedImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		
+		tbb01.setFont(fnt);
+		tbb01.setText(StringConstants.TBB_ACCOUNTS_STR.getString());
+		tbb01.setForeColor(Color.create(255,255,255));
+		tbb01.setFocusedForeColor(Color.create(255,255,255));
+		tbb01.setSelectedForeColor(Color.create(255,255,255));
+		tbb01.setImage(Images.VodafoneImages.tbb_normal.getImage());
+		tbb01.setFocusedImage(Images.VodafoneImages.tbb_pressed.getImage());
+		tbb01.setSelectedImage(Images.VodafoneImages.tbb_pressed.getImage());
+		tbb01.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+
+		tbb02.setFont(fnt);
+		tbb02.setText(StringConstants.TBB_ACTIVITIES_STR.getString());
+		tbb02.setForeColor(Color.create(255,255,255));
+		tbb02.setFocusedForeColor(Color.create(255,255,255));
+		tbb02.setSelectedForeColor(Color.create(255,255,255));
+		tbb02.setImage(Images.VodafoneImages.tbb_normal.getImage());
+		tbb02.setFocusedImage(Images.VodafoneImages.tbb_pressed.getImage());
+		tbb02.setSelectedImage(Images.VodafoneImages.tbb_pressed.getImage());
+		tbb02.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+		
+		tbb03.setFont(fnt);
+		tbb03.setText(StringConstants.TBB_CONTACTS_STR.getString());
+		tbb03.setForeColor(Color.create(255,255,255));
+		tbb03.setFocusedForeColor(Color.create(255,255,255));
+		tbb03.setSelectedForeColor(Color.create(255,255,255));
+		tbb03.setImage(Images.VodafoneImages.tbb_normal.getImage());
+		tbb03.setFocusedImage(Images.VodafoneImages.tbb_pressed.getImage());
+		tbb03.setSelectedImage(Images.VodafoneImages.tbb_pressed.getImage());		
+		tbb03.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);				
+
+		tbb04.setFont(fnt);
+		tbb04.setText(StringConstants.TBB_ORDERS_STR.getString());
+		tbb04.setForeColor(Color.create(255,255,255));
+		tbb04.setFocusedForeColor(Color.create(255,255,255));
+		tbb04.setSelectedForeColor(Color.create(255,255,255));
+		tbb04.setImage(Images.VodafoneImages.tbb_normal.getImage());
+		tbb04.setFocusedImage(Images.VodafoneImages.tbb_pressed.getImage());
+		tbb04.setSelectedImage(Images.VodafoneImages.tbb_pressed.getImage());		
+		tbb04.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+	
+		tbb05.setFont(fnt);
+		tbb05.setText(StringConstants.TBB_SERVICE_REQUESTS_STR.getString());
+		tbb05.setForeColor(Color.create(255,255,255));
+		tbb05.setFocusedForeColor(Color.create(255,255,255));
+		tbb05.setSelectedForeColor(Color.create(255,255,255));
+		tbb05.setImage(Images.VodafoneImages.tbb_normal.getImage());
+		tbb05.setFocusedImage(Images.VodafoneImages.tbb_pressed.getImage());
+		tbb05.setSelectedImage(Images.VodafoneImages.tbb_pressed.getImage());		
+		tbb05.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);	
+
+		tbb06.setFont(fnt);
+		tbb06.setText(StringConstants.TBB_CATALOG_STR.getString());
+		tbb06.setForeColor(Color.create(255,255,255));
+		tbb06.setFocusedForeColor(Color.create(255,255,255));
+		tbb06.setSelectedForeColor(Color.create(255,255,255));
+		tbb06.setImage(Images.VodafoneImages.tbb_normal.getImage());
+		tbb06.setFocusedImage(Images.VodafoneImages.tbb_pressed.getImage());
+		tbb06.setSelectedImage(Images.VodafoneImages.tbb_pressed.getImage());		
+		tbb06.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);	
+
+		btnNew.setImage(Images.VodafoneImages.btn_new_normal.getImage());
+		btnNew.setFocusedImage(Images.VodafoneImages.btn_new_normal.getImage());
+		btnNew.setSelectedImage(Images.VodafoneImages.btn_new_normal.getImage());
+		
+		btnEdit.setImage(Images.VodafoneImages.btn_edit_normal.getImage());
+		btnEdit.setFocusedImage(Images.VodafoneImages.btn_edit_normal.getImage());
+		btnEdit.setSelectedImage(Images.VodafoneImages.btn_edit_normal.getImage());
+		
+		btnDelete.setImage(Images.VodafoneImages.btn_delete_normal.getImage());
+		btnDelete.setFocusedImage(Images.VodafoneImages.btn_delete_normal.getImage());
+		btnDelete.setSelectedImage(Images.VodafoneImages.btn_delete_normal.getImage());						
+		
+		btnCrmMenu.setImage(Images.VodafoneImages.btn_menu_normal.getImage());
+		btnCrmMenu.setFocusedImage(Images.VodafoneImages.btn_menu_normal.getImage());
+		btnCrmMenu.setSelectedImage(Images.VodafoneImages.btn_menu_normal.getImage());
+		
+		btnMenu.setImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+		btnMenu.setFocusedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+		btnMenu.setSelectedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+		
+	}
+	
+	void setUpMenuPopover() {
+		
+		logApp.log(Log.INFO, "HomePanel - setUpMenuPopover()");
+		
+		poMenu.setAutoDismiss(true);
+		
+		//Label lbl = new Label();
+		//lbl.setText("Popover");
+		Panels.CrmEntityPanel pnlCrmEntity = new Panels.CrmEntityPanel();			
+								
+		apMenu.setPositionType(AnchorPosition.HORIZONTAL_POSITION_RIGHT, AnchorPosition.VERTICAL_POSITION_TOP);
+		apMenu.setAnchor(btnMenu);
+		
+		poMenu.setTitle("AAA");	
+		//poCrmEntities.setBackground(Background.createVerticalGradientRectangleBackground(Colors.Green,Colors.Green));
+		poMenu.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
+		poMenu.setSize(Sizing.PIXELS, 110, Sizing.PIXELS, 240);
+		//poCrmEntities.add(lbl,"hfill=fill,vfill=fill");
+		poMenu.add(pnlCrmEntity, "hfill=fill,vfill=fill");
+	
+	}
+	
+	void setUpCrmMenuPopover(Container c) {
+		
+		logApp.log(Log.INFO, "HomePanel - setUpMenuPopover()");
+				
+		Panels.CrmEntityPanel pnlCrmEntity = new Panels.CrmEntityPanel();			
+		pnlCrmEntity.setHeaderPanel((Panels.HeaderPanel) c);
+		
+			
+		//actPoCrmMenuClose.setText("Close");
+		//actPoCrmMenuBack.setText("Back");						
+		apCrmMenu.setPositionType(AnchorPosition.HORIZONTAL_POSITION_RIGHT, AnchorPosition.VERTICAL_POSITION_TOP);
+		apCrmMenu.setAnchor(btnCrmMenu);
+		
+		//poCrmMenu.setBlocking(true);
+		poCrmMenu.setAutoDismiss(true);
+		//poCrmMenu.setTitle("AAA");
+		//poCrmMenu.setRightTitleBarAction(actPoCrmMenuClose);	
+		poCrmMenu.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
+		poCrmMenu.setSize(Sizing.PIXELS, 110, Sizing.PIXELS, 240);
+		poCrmMenu.add(pnlCrmEntity, "hfill=fill,vfill=fill");
+		
+	}	
+	
+	void setStackPanel(StackPanel stk){
+		stkPnl = stk;	
+	}
+	
+	void setAccountRootPanel(Panels.Account.RootPanel account){
+		pnlAccountRoot = account;	
+	}
+
+	void setActivityRootPanel(Panels.Activity.RootPanel activity){
+		pnlActivityRoot = activity;	
+	}
+	
+	void setContactRootPanel(Panels.Contact.RootPanel contact){
+		pnlContactRoot = contact;	
+	}
+	
+	void setOrderRootPanel(Panels.Order.RootPanel order){
+		pnlOrderRoot = order;	
+	}		
+	
+	void setServiceRequestRootPanel(Panels.ServiceRequest.RootPanel service){
+		pnlServiceRequestRoot = service;	
+	}	
+	
+	void setCatalogRootPanel(Panels.Catalog.RootPanel catalog){
+		pnlCatalogRoot = catalog;	
+	}	
+	
+	void showToolbarButton(int idx) {
+			
+		if(!rg.isButtonHidden(iTmpIdx)) {
+			rg.hideButton(iTmpIdx);
+		}
+		rg.showButton(idx);
+		rg.setSelectedIndex(idx);
+		iTmpIdx = idx;
+		poCrmMenu.dismiss();
+	}
+	
+}

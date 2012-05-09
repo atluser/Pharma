@@ -1,0 +1,147 @@
+TablePanel {
+	
+	/*
+	 * Attributes
+	 */
+	
+	/* OK 
+	Font fnt01 = new Font(); 
+	Font fnt02 = new Font(); 
+	PictureBox picBox = new PictureBox();
+	Label lbl01 = new Label();
+	Label lbl02 = new Label();
+
+	Panels.Accounts.DetailFormPanel pnlDetailForm = new Panels.Accounts.DetailFormPanel();
+
+	Button btnEmail = new Button();
+	Button btnMap = new Button();
+	Button btnActivities = new Button();
+	Button btnOrders = new Button();
+	Button btnCreateOrder = new Button();
+	*/
+	
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {
+		SearchField search=new SearchField(); 
+		Label lbl = new Label();
+		lbl.setText("Detail");
+		add(lbl,"halign=center, valign=top");
+		add(search,"halign=center, valign=top");
+		
+		
+		/* OK
+		fnt01.setFamily("Arial");
+		fnt01.setSize(24);
+		fnt01.setBold();
+		
+		lbl01.setText("Dettaglio Clente");
+		lbl01.setFont(fnt01);
+		lbl01.setForeColor(Color.create(189,0,0));
+		
+		fnt02.setFamily("Arial");
+		fnt02.setSize(20);
+		fnt02.setBold();
+		
+		lbl02.setText("Order Type");
+		lbl02.setFont(fnt02);
+		lbl02.setForeColor(Colors.Black);
+		
+		picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
+		//picBox.setBorder(Border.createRoundedBorder(Color.create(189,0,0)));
+		
+		setUpButtons();
+				
+		TablePanel pnl = new TablePanel();
+		
+		pnl.add(picBox,"colspan=2");	
+		pnl.add(lbl01,"colspan=3");
+		pnl.startNewRow();
+		pnl.add(pnlDetailForm,"colspan=5");
+		pnl.startNewRow();
+		pnl.add(btnEmail);
+		pnl.add(btnMap);
+		pnl.add(btnActivities);
+		pnl.add(btnOrders);	
+		pnl.add(btnCreateOrder);	
+		pnl.setRowHeight(0, Sizing.PERCENTS,20);
+		pnl.setRowHeight(1, Sizing.PREFERRED,1);
+		pnl.setRowHeight(2, Sizing.PERCENTS,20);
+		
+		add(pnl,"halign=center, valign=top"); 
+		*/
+
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+		setColumnWidth(0, Sizing.PERCENTS, 70); 
+		setRowHeight(0, Sizing.PERCENTS,100);
+		
+	} 
+	
+	/* OK
+	callback btnEmail onClick(Control c) {
+		//Screens.MapScreen scrMap = new Screens.MapScreen();
+		//scrMap.push(0,false);
+		
+		MessageBox msgBox=new MessageBox();
+        MessagingManager messagingManager = new MessagingManager();
+        Email email = messagingManager.createEmail();
+        if (email == null) {
+        	msgBox.info(1,"Non esiste un account email");
+            // Email is not available (e.g. no email account is setup on the device)
+            // Inform the user about this
+         } else {
+            RecipientList toList = email.getTo();
+            toList.clear();
+            toList.addAddress("aceleroni@atlantic.it");
+            email.setSubject("Email di prova");
+            email.setBody("Questa � una email di prova");
+            messagingManager.showMessage(email);
+         }
+
+	}
+	
+	callback btnMap onClick(Control c) {
+		//Screens.MapScreen scrMap = new Screens.MapScreen();
+		//scrMap.push(0,false);
+	}
+	
+	callback btnActivities onClick(Control c) {
+		Screens.Activities.ActivityScreen scrActivities = new Screens.Activities.ActivityScreen();
+		scrActivities.push(0,false);
+	}	
+	
+	callback btnOrders onClick(Control c) {
+		Screens.Orders.OrderScreen scrOrders = new Screens.Orders.OrderScreen();
+		scrOrders.push(0,false);
+	}	
+	
+	callback btnCreateOrder onClick(Control c) {
+		Screens.OrderEntry.OrderHeaderScreen scrOrders = new Screens.OrderEntry.OrderHeaderScreen();
+		//DataRow row=voUtil.insertOrder("001A000000qrCJK");
+		DataRow row=voUtil.insertOrder(gStrAccountId);
+		scrOrders.setData(row);
+		scrOrders.push(0,false);
+	}		
+	*/
+	
+	/*
+	 * Custom methods
+	 */
+	
+	/* OK  
+	Panels.Accounts.DetailFormPanel getDetailFormPanel() {
+		return pnlDetailForm;
+	 }	
+	 
+	void setUpButtons() {
+		
+		btnEmail.setText("Mail");
+		btnMap.setText("Map");
+		btnActivities.setText("Attivitˆ");
+		btnOrders.setText("Ordini");
+		btnCreateOrder.setText("Nuovo Ordine");	
+	
+	}	 
+	*/  
+}	

@@ -23,5 +23,24 @@ UIObject {
 			mrsm.add(rsm);
 		}
 		return mrsm;
-	}	
+	}
+	
+	void createSectionTitle(String entity){
+		Query q=cfgSections.getSections(entity);
+		DataRowSet rs=q.getRowSet();
+		DataRow row=rs.first();
+		ObjectArray sectionLabelArray=new ObjectArray();		
+		while(row!=null){
+			int group=cfgSections.Section.getIntegerValue(row).intValue();
+			appLog.log(Log.INFO,"inserisco sezione "+group);
+			String title=cfgSections.Title.getStringValue(row);
+		//	Label label=new Label();
+		//	label.setText(title);						
+			sectionLabelArray.insertItem(group,title);
+			row=rs.next();
+		}
+		sectionLabelMap.putValue(entity,sectionLabelArray);			
+		
+	}
+		
 }

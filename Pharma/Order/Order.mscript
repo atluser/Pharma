@@ -1,2 +1,49 @@
 VirtualObject {
+	
+	StringField OrderCode{
+		return null;
+	}
+	
+	StringField AccountCode{
+		return null;
+	}
+	
+	StringField AccountName{
+		return vObjUtil.getAccountName(AccountCode);		
+	}
+	
+	StringField OrderType{
+		return "Vendita";
+	}
+	
+	StringField OrderStatus{
+		return null;
+	}
+	
+	DateField OrderDate{
+		return Platform.createDate();
+	}
+	
+	StringField PromotionCode{
+		return null;
+	}
+	
+	IntegerField PromotionMinQty{
+		return Platform.createInteger(0);
+	}
+	
+	Query getOrderRow(String orderCode){
+		return orderRow(orderCode);
+	}
+	query orderRow<String orderCode>{
+		where OrderCode==orderCode;
+	}
+	
+	Query getOrderRowByAccountCode(String accountCode) {
+		return orderRowByAccountCode(accountCode);
+	}
+	query orderRowByAccountCode<String accountCode>{
+		where AccountCode==accountCode;
+	}	
+
 }

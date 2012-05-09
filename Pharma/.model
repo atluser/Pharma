@@ -12,10 +12,22 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Pharma.mscript"/>
   <children xsi:type="com.vaultus.studio.ecore.studio:StringsNode" name="StringConstants">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StringConstants.mscript" hidden="true"/>
-    <stringKeys>ABOUT_STR</stringKeys>
-    <stringKeys>CLOSE_STR</stringKeys>
-    <stringKeys>EXIT_STR</stringKeys>
-    <stringKeys>START_STR</stringKeys>
+    <stringKeys>BTN_ABOUT_STR</stringKeys>
+    <stringKeys>BTN_CLOSE_STR</stringKeys>
+    <stringKeys>BTN_EXIT_STR</stringKeys>
+    <stringKeys>BTN_OK_STR</stringKeys>
+    <stringKeys>BTN_START_STR</stringKeys>
+    <stringKeys>INFO_APP_NAME_STR</stringKeys>
+    <stringKeys>INFO_DEVICE_NAME_STR</stringKeys>
+    <stringKeys>INFO_MSG_STR</stringKeys>
+    <stringKeys>INFO_OS_VERSION_STR</stringKeys>
+    <stringKeys>INFO_SW_VERSION_STR</stringKeys>
+    <stringKeys>TBB_ACCOUNTS_STR</stringKeys>
+    <stringKeys>TBB_ACTIVITIES_STR</stringKeys>
+    <stringKeys>TBB_CATALOG_STR</stringKeys>
+    <stringKeys>TBB_CONTACTS_STR</stringKeys>
+    <stringKeys>TBB_ORDERS_STR</stringKeys>
+    <stringKeys>TBB_SERVICE_REQUESTS_STR</stringKeys>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:PropertiesNode" name="Properties"/>
   <children xsi:type="com.vaultus.studio.ecore.studio:ImagesNode" name="Images">
@@ -31,7 +43,30 @@
       <images name="img_logo_atlantic"/>
       <images name="img_logo_vodafone"/>
     </children>
-    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="ANDROID" required="true" default="true" type="ANDROID" shown="true">
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="PopoverImages">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PopoverImages.mscript" hidden="true"/>
+      <images name="ImgBlackBackground"/>
+      <images name="ImgRedBackground"/>
+      <images name="ImgWhiteBackground"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="SplitViewImages">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SplitViewImages.mscript" hidden="true"/>
+      <images name="ImgDetailBackground"/>
+      <images name="ImgMasterBackground"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="VodafoneImages">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VodafoneImages.mscript" hidden="true"/>
+      <images name="btn_delete_normal"/>
+      <images name="btn_edit_normal"/>
+      <images name="btn_menu_normal"/>
+      <images name="btn_new_normal"/>
+      <images name="img_actionbar_bg"/>
+      <images name="img_logo_atlantic"/>
+      <images name="img_logo_vodafone"/>
+      <images name="tbb_normal"/>
+      <images name="tbb_pressed"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="ANDROID" required="true" default="true" type="ANDROID">
       <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="ANDROID" true="true"/>
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ANDROID.mscript" hidden="true"/>
       <imagePaths name="AboutIcon">
@@ -43,6 +78,24 @@
       <imagePaths name="Icon">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app_orig.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP_ORIG.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgWhiteBackground">
+        <properties/>
+        <properties/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -100,6 +153,24 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
         <properties/>
@@ -149,6 +220,90 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_delete_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_edit_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_new_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_actionbar_bg">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_atlantic">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_actionbar_bg">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_logo_vodafone">
         <properties/>
         <properties/>
         <properties/>
@@ -170,6 +325,24 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgWhiteBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
         <properties/>
         <properties/>
@@ -224,6 +397,24 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
         <properties/>
@@ -273,6 +464,84 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_delete_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_edit_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_new_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_actionbar_bg">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_atlantic">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_actionbar_bg">
         <properties/>
         <properties/>
         <properties/>
@@ -294,6 +563,24 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgWhiteBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
         <properties/>
         <properties/>
@@ -343,6 +630,24 @@
         <properties/>
       </imagePaths>
       <imagePaths name="OptionsIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgWhiteBackground">
         <properties/>
         <properties/>
         <properties/>
@@ -402,6 +707,84 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_delete_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_edit_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_new_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_actionbar_bg">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_atlantic">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_actionbar_bg">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="ANDROID_X" required="true" type="ANDROID" shown="true">
       <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="ANDROID" true="true"/>
@@ -415,6 +798,48 @@
       <imagePaths name="Icon">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app_orig.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP_ORIG.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgBlackBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgDetailBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgRedBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgWhiteBackground">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_BACKGROUND.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -472,6 +897,24 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_03_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_03_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBackground">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_02_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_02_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_01_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_01_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
         <properties/>
@@ -523,6 +966,78 @@
       <imagePaths name="SplashImageUpsideDown">
         <properties/>
         <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_01_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_01_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_delete_normal">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_delete_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_DELETE_NORMAL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_edit_normal">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_edit_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_EDIT_NORMAL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_menu_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_MENU_NORMAL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_new_normal">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_new_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_NEW_NORMAL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_actionbar_bg">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/img_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/IMG_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_atlantic">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/img_logo_atlantic.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/IMG_LOGO_ATLANTIC.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_vodafone">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/img_logo_vodafone.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/IMG_LOGO_VODAFONE.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_normal">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/tbb_01_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/TBB_01_NORMAL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_pressed">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/tbb_01_pressed.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/TBB_01_PRESSED.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -550,7 +1065,43 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="btn_delete_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_edit_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_menu_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_new_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_actionbar_bg">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/img_bar_bg.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/IMG_BAR_BG.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="img_background">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_bar_bg">
         <properties/>
         <properties/>
         <properties/>
@@ -574,6 +1125,18 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="tbb_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="tbb_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="BOLD" required="true" type="BLACKBERRY">
       <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="BLACKBERRY" true="true"/>
@@ -582,6 +1145,15 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgWhiteBackground">
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
@@ -611,6 +1183,15 @@
       <imagePaths name="OptionsIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
       </imagePaths>
@@ -636,6 +1217,45 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_delete_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_edit_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_new_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_actionbar_bg">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_atlantic">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_actionbar_bg">
         <properties/>
       </imagePaths>
     </children>
@@ -648,6 +1268,15 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
         <properties/>
       </imagePaths>
@@ -673,6 +1302,15 @@
         <properties/>
       </imagePaths>
       <imagePaths name="OptionsIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgWhiteBackground">
         <properties/>
       </imagePaths>
       <imagePaths name="RolloverIcon">
@@ -702,8 +1340,47 @@
       <imagePaths name="SplashImageUpsideDown">
         <properties/>
       </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_delete_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_edit_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_new_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_actionbar_bg">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_atlantic">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_actionbar_bg">
+        <properties/>
+      </imagePaths>
     </children>
-    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="IPAD" required="true" default="true" type="IPAD">
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImageSetNode" name="IPAD" required="true" default="true" type="IPAD" shown="true">
       <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="IPAD" true="true"/>
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="IPAD.mscript" hidden="true"/>
       <imagePaths name="AboutIcon">
@@ -711,43 +1388,83 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icon">
+        <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP.PNG"/>
         <properties/>
+      </imagePaths>
+      <imagePaths name="ImgBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgBlackBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgDetailBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgRedBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgWhiteBackground">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_BACKGROUND.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
-        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/btn_01_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/BTN_01_NORMAL.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_pressed">
-        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/btn_01_pressed.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/BTN_01_PRESSED.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.btn_02_normal">
-        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/btn_02_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/BTN_02_NORMAL.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.btn_02_pressed">
-        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/btn_02_pressed.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/BTN_02_PRESSED.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_background">
-        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/img_bg_screen.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_BG_SCREEN.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_app">
-        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_atlantic">
-        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/img_logo_atlantic.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_ATLANTIC.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_vodafone">
-        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/login/img_logo_vodafone.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_VODAFONE.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="OptionsIcon">
         <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_03_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_03_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBackground">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_02_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_02_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_01_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_01_BACKGROUND.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="RolloverIcon">
@@ -783,6 +1500,78 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_01_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_01_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_delete_normal">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_delete_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_DELETE_NORMAL.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_edit_normal">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_edit_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_EDIT_NORMAL.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_menu_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_MENU_NORMAL.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_new_normal">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_new_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_NEW_NORMAL.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_actionbar_bg">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/img_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/IMG_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_atlantic">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/img_logo_atlantic.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/IMG_LOGO_ATLANTIC.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_vodafone">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/img_logo_vodafone.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/IMG_LOGO_VODAFONE.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_normal">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/tbb_01_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/TBB_01_NORMAL.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_pressed">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/tbb_01_pressed.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/TBB_01_PRESSED.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_delete_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_edit_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_new_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_actionbar_bg">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="tbb_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="tbb_pressed">
         <properties/>
         <properties/>
       </imagePaths>
@@ -800,6 +1589,18 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgWhiteBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
         <properties/>
         <properties/>
@@ -836,6 +1637,18 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
         <properties/>
@@ -869,6 +1682,58 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_delete_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_edit_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_new_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_actionbar_bg">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_atlantic">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_pressed">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_actionbar_bg">
         <properties/>
         <properties/>
       </imagePaths>
@@ -882,6 +1747,15 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
         <properties/>
       </imagePaths>
@@ -909,6 +1783,15 @@
       <imagePaths name="OptionsIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
       </imagePaths>
@@ -934,6 +1817,45 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_delete_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_edit_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_new_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_actionbar_bg">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_atlantic">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_actionbar_bg">
         <properties/>
       </imagePaths>
     </children>
@@ -946,6 +1868,15 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
         <properties/>
       </imagePaths>
@@ -973,6 +1904,15 @@
       <imagePaths name="OptionsIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
       </imagePaths>
@@ -998,6 +1938,45 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_delete_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_edit_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_new_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_actionbar_bg">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_atlantic">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_actionbar_bg">
         <properties/>
       </imagePaths>
     </children>
@@ -1012,6 +1991,15 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
         <properties/>
       </imagePaths>
@@ -1039,6 +2027,15 @@
       <imagePaths name="OptionsIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
       </imagePaths>
@@ -1064,6 +2061,45 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_delete_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_edit_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_new_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_actionbar_bg">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_atlantic">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.tbb_pressed">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="img_actionbar_bg">
         <properties/>
       </imagePaths>
     </children>
@@ -1109,9 +2145,6 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="FormStyle.mscript"/>
     </children>
   </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ScreenConfiguration" sortOrder="1000" image="icons/window_plus_16.png" superclass="UIObject">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ScreenConfiguration.mscript"/>
-  </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="VOUtility" sortOrder="1000" image="icons/window_plus_16.png" superclass="UIObject">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VOUtility.mscript"/>
   </children>
@@ -1121,6 +2154,9 @@
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SimpleTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SimpleTableViewCell.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="TwoRowsTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="TwoRowsTableViewCell.mscript"/>
     </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Config">
@@ -1144,26 +2180,124 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ButtonHorizontalPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ButtonHorizontalPanel.mscript"/>
     </children>
-    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailFormPanel" sortOrder="1400" image="icons/form.png" superclass="FormPanel">
-      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailFormPanel.mscript"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="CrmEntityPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="CrmEntityPanel.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailStickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailStickyTablePanel.mscript"/>
     </children>
-    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="EditScrollableVerticalPanel" sortOrder="1400" image="icons/scrollable_vertical.png" superclass="ScrollableVerticalPanel">
-      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditScrollableVerticalPanel.mscript"/>
-    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="EditStickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditStickyTablePanel.mscript"/>
     </children>
-    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ReadOnlyDetailFormPanel" sortOrder="1400" image="icons/form.png" superclass="FormPanel">
-      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ReadOnlyDetailFormPanel.mscript"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="FooterPanel" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewPanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="FooterPanel.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="HeaderPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="HeaderPanel.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SearchHeaderHorizontalPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SearchHeaderHorizontalPanel.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StartPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartPanel.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Account">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
+      </children>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Activity">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
+      </children>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Catalog">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
+      </children>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Contact">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
+      </children>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Order">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
+      </children>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="OrderEntry">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailCellHPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailCellHPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailHeaderHPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailHeaderHPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderHeaderFP" sortOrder="1400" image="icons/form.png" superclass="FormPanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderHeaderFP.mscript"/>
+      </children>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="ServiceRequest">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
+      </children>
     </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Popups">
@@ -1172,21 +2306,23 @@
     </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Screens">
-    <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="EditScreen">
-      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditScreen.mscript"/>
-    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="HomeScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="HomeScreen.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="StartScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartScreen.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="OrderEntry">
+      <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="ListItemScreen">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListItemScreen.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="OrderHeaderScreen">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderHeaderScreen.mscript"/>
+      </children>
+    </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Account">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Account.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Contact">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="CrmEntity">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="CrmEntity.mscript"/>
@@ -1194,10 +2330,16 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Event">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Event.mscript"/>
   </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListOfValues">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListOfValues.mscript"/>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListItem">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListItem.mscript"/>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Order">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Order.mscript"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Contact">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListOfValues">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
   </children>
 </com.vaultus.studio.ecore.studio:UIProject>

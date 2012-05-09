@@ -1,28 +1,31 @@
 UIProject {
+	
 	Screens.StartScreen scrStart;
 	Screens.HomeScreen scrHome;
 	
 	/*
-	 * Log
+	 * Logs
 	 */
 	Log logApp = getLog();
+	Log appLog = getLog();
 	
 	/*
 	 * Virtual objects
 	 */
 	CrmEntity vObjCrmEntity = new CrmEntity();
 	Account vObjAccount = new Account();
+	Contact vObjContact = new Contact();
+	ListOfValues vObjLOV = new ListOfValues();
+	Order vObjOrder=new Order();
+	ListItem vObjListItem=new ListItem();
+	/*
+	 * VOUtility
+	 */
+	VOUtility vObjUtil = new VOUtility();
 	
-	Log appLog = getLog();
-	VOUtility voUtil=new VOUtility();
 	
 	Config.AccountConfig accountConfig=new Config.AccountConfig(); 
 	Config.ContactConfig contactConfig=new Config.ContactConfig();
-		
-	Order vObjOrder=new Order();
-	ListOfValues vObjLOV=new ListOfValues(); 
-	Contact vObjContact=new Contact();
-	
 	Config.Field cfg=new Config.Field();
 	Config.Sections cfgSections=new Config.Sections();
 	
@@ -31,10 +34,6 @@ UIProject {
 	//ObjectArray sectionLabelArray=new ObjectArray();
 	ObjectMap sectionLabelMap=new ObjectMap();
 	
-	/*
-	 * VOUtility
-	 */
-	VOUtility vObjUtil = new VOUtility();
 	callback onApplicationStyleSetup(StyleReceptor styleReceptor){
 		
 		if(Device.isIPad()) {
@@ -86,26 +85,26 @@ UIProject {
 	}
 
 	callback onStart(PushedData pushedData){
-		voUtil.loadLOV();
-		voUtil.loadAccount();		
+		
+		vObjUtil.loadCrmEntities();
+		vObjUtil.loadLOV();
+		vObjUtil.loadAccount();
 		
 		//configura account
 		accountConfig.fillAccountConfig();
 		//configura contact
 		contactConfig.fillContactConfig();
 		
-		//configura stringhe sezione Account
-		createSectionTitle("Account");
-		createSectionTitle("Contact");
+		//configura stringhe sezione 
+		Config.ScreenConfiguration config=new Config.ScreenConfiguration();
+		config.createSectionTitle("Account");
+		config.createSectionTitle("Contact");
 		
-		
-		//vObjUtil.loadCrmEntities();
-		
-		Screens.StartScreen scrStart = new Screens.StartScreen();
-		//scrStart = getNewStartScreen();
+		//Screens.StartScreen scrStart = new Screens.StartScreen();
+		scrStart = getNewStartScreen();
 		//scrStart.push(0, false);
 		scrStart.push(Animation.NONE, false);
-				
+		
 	}
 
 	callback onStop(){
@@ -119,24 +118,21 @@ UIProject {
 	callback onUserInactivity(){
 		//TODO: add code
 	}
-
-	void createSectionTitle(String entity){
-		Query q=cfgSections.getSections(entity);
-		DataRowSet rs=q.getRowSet();
-		DataRow row=rs.first();
-		ObjectArray sectionLabelArray=new ObjectArray();		
-		while(row!=null){
-			int group=cfgSections.Section.getIntegerValue(row).intValue();
-			appLog.log(Log.INFO,"inserisco sezione "+group);
-			String title=cfgSections.Title.getStringValue(row);
-		//	Label label=new Label();
-		//	label.setText(title);						
-			sectionLabelArray.insertItem(group,title);
-			row=rs.next();
-		}
-		sectionLabelMap.putValue(entity,sectionLabelArray);			
+	
+	/*
+	 * Custom methods
+	 */
+	Screens.StartScreen getNewStartScreen() {
 		
+		logApp.log(Log.INFO, "Pharma - getNewStartScreen()");
+		
+   		if (scrStart != null && scrStart.isValid()) {
+   			scrStart.close();
+   		}
+   		scrStart = new Screens.StartScreen();
+   		return scrStart;
+   		
 	}
-
+	
+	
 }
-

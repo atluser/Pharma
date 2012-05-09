@@ -1,0 +1,63 @@
+TableViewCell {
+	
+	Font fnt01 = new Font();
+	Font fnt02 = new Font();
+	Label lbl01 = new Label();
+	Label lbl02 = new Label();
+		
+	callback onCreate(Container container){
+
+		fnt01.setFamily("Arial");
+		fnt01.setSize(18);		
+		fnt01.setBold();
+		lbl01.setFont(fnt01);
+		lbl01.setForeColor(Colors.Black);
+		
+		fnt02.setFamily("Arial");		
+		fnt02.setSize(16);
+		lbl02.setFont(fnt02);		
+		lbl02.setForeColor(Colors.Gray);
+
+		//add(lbl01, "hfill=fill,vfill=fill");
+		add(lbl01, "hfill=fill");
+		startNewRow();
+		//add(lbl02, "hfill=fill,vfill=fill");
+		add(lbl02, "hfill=fill");
+		
+		//setInsets ( int top, int left, int bottom, int right); 
+		setInsets (4, 8, 4, 8);
+		setBackground(Background.createVerticalGradientRectangleBackground(Color.create(222,222,222), Color.create(222,222,222)));
+		setFocusedBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+		setColumnWidth(0, Sizing.PERCENTS, 30);	
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		setRowHeight(1, Sizing.PREFERRED, 1);
+	
+	}
+	
+	
+	void setRow(DataRow dtRw) {
+		
+		/*OK
+		String strAccId = vObjAccount.AccountId.getStringValue(dtRw);
+		txtMdlAccId.setText(strAccId);
+		
+		String strAccName = vObjAccount.AccountName.getStringValue(dtRw);
+		txtMdlAccName.setText(strAccName);
+		
+		String strAccStreetAddress = vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")";
+		txtMdlAccStreetAddress.setText(strAccStreetAddress);
+		*/
+		
+		/*
+		String strAccAccountCity = vObjAccount.AccountCity.getStringValue(dtRw);
+		txtMdlAccStreetAddress.setText(strAccStreetAddress);
+		
+		String strAccAccountProvince = vObjAccount.AccountProvince.getStringValue(dtRw);
+		txtMdlAccStreetAddress.setText(strAccStreetAddress);		
+		*/
+		//strAddr = vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " -  " + vObjAccount.AccountCity.getStringValue(dtRw) + " (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")";
+	
+	}
+	
+
+}
