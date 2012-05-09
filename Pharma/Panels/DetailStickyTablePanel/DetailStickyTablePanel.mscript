@@ -45,7 +45,7 @@ TablePanel {
 	///////////////////////////////
 	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){		
 	//cell
-		Panels.Cells.EditFormDetailCell cell=new Panels.Cells.EditFormDetailCell();				
+		Cells.EditFormDetailCell cell=new Cells.EditFormDetailCell();				
 		cell.init("Label","");					
 		info.setPanel(cell);			
 		

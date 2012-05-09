@@ -1,7 +1,0 @@
-TableViewPanel {
-	Label label=new Label();
-	callback onCreate(Container c){
-		add(label,"halign=center,valign=center");
-	}
-
-}

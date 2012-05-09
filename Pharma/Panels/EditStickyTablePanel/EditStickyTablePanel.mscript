@@ -75,14 +75,14 @@ TablePanel {
 		String fieldType=cfg.FieldType.getStringValue(dataRow);
 		String picklist=cfg.PickList.getStringValue(dataRow);
 	//cell
-		Panels.Cells.EditFormDetailCell cell=new Panels.Cells.EditFormDetailCell();				
+		Cells.EditFormDetailCell cell=new Cells.EditFormDetailCell();				
 		cell.init(fieldType,picklist);					
 		info.setPanel(cell);			
 		
 	}
 	
 	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
-		Panels.Cells.EditFormDetailCell tblVwCell = (Panels.Cells.EditFormDetailCell) cell;
+		Cells.EditFormDetailCell tblVwCell = (Cells.EditFormDetailCell) cell;
 		DataRow sectionFieldRow=info.getDataRow();
 		//get field property
 		String caption=cfg.Caption.getStringValue(sectionFieldRow);				
