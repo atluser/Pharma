@@ -47,7 +47,7 @@ TablePanel {
 		//StringAttribute strAtt = (StringAttribute)vObjCrmEntity.getAttribute("Name");
 		//String str = strAtt.getStringValue(dtRw);
 		
-		tblVwCell.lbl.setText("   " + str);
+		tblVwCell.lbl.setText(str);
 	
 	}
 	

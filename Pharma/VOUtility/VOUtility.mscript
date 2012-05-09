@@ -62,6 +62,7 @@ UIObject {
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
 	}
+	
 	void loadAccount(){
 		
 		DataRow row = vObjAccount.getNewRow();

@@ -14,6 +14,7 @@ UIProject {
 	CrmEntity vObjCrmEntity = new CrmEntity();
 	Account vObjAccount = new Account();
 	Contact vObjContact = new Contact();
+	ListOfValues vObjLOV = new ListOfValues();
 	
 	
 	/*
@@ -74,6 +75,7 @@ UIProject {
 	callback onStart(PushedData pushedData){
 		
 		vObjUtil.loadCrmEntities();
+		vObjUtil.loadAccount();
 		
 		//Screens.StartScreen scrStart = new Screens.StartScreen();
 		scrStart = getNewStartScreen();

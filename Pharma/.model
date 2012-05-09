@@ -49,6 +49,11 @@
       <images name="ImgRedBackground"/>
       <images name="ImgWhiteBackground"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="SplitViewImages">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SplitViewImages.mscript" hidden="true"/>
+      <images name="ImgDetailBackground"/>
+      <images name="ImgMasterBackground"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="VodafoneImages">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VodafoneImages.mscript" hidden="true"/>
       <images name="btn_delete_normal"/>
@@ -73,6 +78,18 @@
       <imagePaths name="Icon">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app_orig.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP_ORIG.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+        <properties/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -203,6 +220,24 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
         <properties/>
         <properties/>
@@ -290,6 +325,18 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgWhiteBackground">
         <properties/>
         <properties/>
@@ -417,6 +464,24 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
         <properties/>
         <properties/>
@@ -498,6 +563,18 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgWhiteBackground">
         <properties/>
         <properties/>
@@ -625,6 +702,24 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
         <properties/>
         <properties/>
@@ -715,6 +810,24 @@
       <imagePaths name="ImgBlackBackground">
         <properties/>
         <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgDetailBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -851,6 +964,24 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_01_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_01_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
         <properties/>
         <properties/>
@@ -1016,6 +1147,12 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgWhiteBackground">
         <properties/>
       </imagePaths>
@@ -1080,6 +1217,15 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -1122,6 +1268,12 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgWhiteBackground">
         <properties/>
       </imagePaths>
@@ -1186,6 +1338,15 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -1236,6 +1397,18 @@
       </imagePaths>
       <imagePaths name="ImgBlackBackground">
         <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgDetailBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="ImgRedBackground">
@@ -1330,6 +1503,18 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_01_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_01_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_delete_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_DELETE_NORMAL.PNG"/>
         <properties/>
@@ -1404,6 +1589,14 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgWhiteBackground">
         <properties/>
         <properties/>
@@ -1489,6 +1682,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
         <properties/>
       </imagePaths>
@@ -1542,6 +1747,12 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgWhiteBackground">
         <properties/>
       </imagePaths>
@@ -1606,6 +1817,15 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -1648,6 +1868,12 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgWhiteBackground">
         <properties/>
       </imagePaths>
@@ -1712,6 +1938,15 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -1756,6 +1991,12 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgWhiteBackground">
         <properties/>
       </imagePaths>
@@ -1820,6 +2061,15 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgDetailBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -2024,5 +2274,5 @@
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListOfValues">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
-  </children> 
+  </children>
 </com.vaultus.studio.ecore.studio:UIProject>

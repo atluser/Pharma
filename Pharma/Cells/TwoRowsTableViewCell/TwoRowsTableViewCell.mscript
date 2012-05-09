@@ -8,7 +8,7 @@ TableViewCell {
 	callback onCreate(Container container){
 
 		fnt01.setFamily("Arial");
-		fnt01.setSize(20);		
+		fnt01.setSize(18);		
 		fnt01.setBold();
 		lbl01.setFont(fnt01);
 		lbl01.setForeColor(Colors.Black);
@@ -16,16 +16,21 @@ TableViewCell {
 		fnt02.setFamily("Arial");		
 		fnt02.setSize(16);
 		lbl02.setFont(fnt02);		
-		lbl01.setForeColor(Colors.Gray);
+		lbl02.setForeColor(Colors.Gray);
 
-		add(lbl01, "hfill=fill,vfill=fill");
+		//add(lbl01, "hfill=fill,vfill=fill");
+		add(lbl01, "hfill=fill");
 		startNewRow();
-		add(lbl02, "hfill=fill,vfill=fill");
+		//add(lbl02, "hfill=fill,vfill=fill");
+		add(lbl02, "hfill=fill");
 		
+		//setInsets ( int top, int left, int bottom, int right); 
+		setInsets (4, 8, 4, 8);
 		setBackground(Background.createVerticalGradientRectangleBackground(Color.create(222,222,222), Color.create(222,222,222)));
 		setFocusedBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
 		setColumnWidth(0, Sizing.PERCENTS, 30);	
-		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		setRowHeight(1, Sizing.PREFERRED, 1);
 	
 	}
 	

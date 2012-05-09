@@ -176,7 +176,7 @@ HorizontalPanel {
 	void setUpButtons() {
 		
 		Font fnt = new Font();
-		fnt.setSize(20);
+		fnt.setSize(18);
 		fnt.setFamily("Arial");
 		//fnt.setBold();
 		

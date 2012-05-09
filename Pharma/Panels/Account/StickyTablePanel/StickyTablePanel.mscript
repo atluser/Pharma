@@ -22,9 +22,9 @@ TablePanel {
 		//set size (note: this is required)
 		setRowHeight(0, Sizing.PREFERRED, 1);
 		
-		/* Da decommentare
+		
 		rsm.setRows(vObjAccount.getAccounts());
-		*/
+		
 		
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
@@ -49,13 +49,13 @@ TablePanel {
 		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
 		
 		DataRow dtRw = info.getDataRow();
-		/* Da decommentare
+		
 		String str01 = vObjAccount.AccountName.getStringValue(dtRw);
 		String str02 = vObjAccount.AccountStreetAddress.getStringValue(dtRw);
 	
-		tblVwCell.lbl01.setText("   " + str01);
-		tblVwCell.lbl01.setText("   " + str02);
-		*/
+		tblVwCell.lbl01.setText(str01);
+		tblVwCell.lbl02.setText(str02);
+		
 	}
 	
 	callback stk onCellConfigure(TableView c, CellConfig cell, int group){

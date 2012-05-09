@@ -7,7 +7,7 @@ TableViewCell {
 	callback onCreate(Container container){
 
 		fnt.setFamily("Arial");
-		fnt.setSize(20);
+		fnt.setSize(18);
 		//fnt.setBold();
 		lbl.setFont(fnt);
 		lbl.setForeColor(Colors.Black);
@@ -19,6 +19,7 @@ TableViewCell {
 			
 		add(lbl, "hfill=fill");
 		
+		setInsets (0, 8, 0, 8);
 		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));
 		setFocusedBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgRedBackground, 0, 0, 0, 0));
 		setColumnWidth(0, Sizing.PREFERRED, 0);	

@@ -25,6 +25,10 @@ TablePanel {
 	 */
 	callback onCreate(Container c) {
 		
+		Label lbl = new Label();
+		lbl.setText("Detail");
+		add(lbl,"halign=center, valign=top");
+		
 		/* OK
 		fnt01.setFamily("Arial");
 		fnt01.setSize(24);
@@ -65,8 +69,8 @@ TablePanel {
 		
 		add(pnl,"halign=center, valign=top"); 
 		*/
-		
-		setBackground(Background.createVerticalGradientRectangleBackground (Color.create(255,255,255), Color.create(255,255,255)));
+
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
 		setColumnWidth(0, Sizing.PERCENTS, 70); 
 		setRowHeight(0, Sizing.PERCENTS,100);
 		
