@@ -1,0 +1,127 @@
+TablePanel {
+	
+	/*
+	 * Attributes
+	 */
+	StickyTable stk = new StickyTable();
+	RowSetModel rsm = new RowSetModel();
+	
+	/*OK
+	Panels.Accounts.DetailFormPanel pnlDetailForm;
+	*/
+	
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {
+	
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);
+		
+		//set size (note: this is required)
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		
+		/* Da decommentare
+		rsm.setRows(vObjAccount.getAccounts());
+		*/
+		
+		//set the model for the sticky table
+		stk.setDataModel(rsm);
+		
+		//add sticky table to screen
+		add(stk, "vfill=fill,hfill=fill");	
+	
+	}
+
+	///////////////////////////////
+	// Callback to configure cells
+	///////////////////////////////
+	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
+		info.setPanel(new Cells.TwoRowsTableViewCell());
+	}
+	
+	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
+		/* OK
+		Panels.Accounts.AccountTableViewCell tblVwCell = (Panels.Accounts.AccountTableViewCell) cell;
+		tblVwCell.setRow(info.getDataRow());
+		*/
+		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
+		
+		DataRow dtRw = info.getDataRow();
+		/* Da decommentare
+		String str01 = vObjAccount.AccountName.getStringValue(dtRw);
+		String str02 = vObjAccount.AccountStreetAddress.getStringValue(dtRw);
+	
+		tblVwCell.lbl01.setText("   " + str01);
+		tblVwCell.lbl01.setText("   " + str02);
+		*/
+	}
+	
+	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
+		cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PREFERRED, 0);
+		cell.setCouldBeSelected(true);
+	}
+	
+	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
+		sizeInfo.setHeight(60);
+	}		
+	
+	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
+		/*
+		pnlDetailForm.setRow(rsm.getRow());
+		*/
+	}
+		
+	////////////////////////////
+	// Sticky Header (Optional)
+	////////////////////////////
+	/*
+	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		info.setPanel(new Panels.Accounts.AccountHeaderTableViewPanel());
+	}
+	
+	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
+		cell.setCouldBeSelected(false);
+		cell.setHeight(Sizing.PIXELS, 60);
+		cell.setWidth(Sizing.PERCENTS, 100);
+	}
+	
+	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
+		cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+	}
+	*/		
+		
+	////////////////////////////
+	// Footer (Optional)
+	////////////////////////////
+	/*
+	callback stk onFooterCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		info.setPanel(new Panels.Accounts.AccountFooterTableViewPanel());
+	}
+	
+	callback stk onFooterConfigure(TableView c, CellConfig cell, int group){
+		cell.setCouldBeSelected(false);
+		cell.setHeight(Sizing.PIXELS, 60);
+		cell.setWidth(Sizing.PERCENTS, 100);
+	}
+	
+	callback stk onFooterInfo(TableView c, TableViewPanel cell, Footer info, int grp) {
+		Panels.Accounts.AccountFooterTableViewPanel tblVwPanelFooter = (Panels.Accounts.AccountFooterTableViewPanel) cell;
+		tblVwPanelFooter.setRowCount(rsm.getRowCount(0));
+		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+	}
+	*/
+	
+	/*
+	 * Custom methods
+	 */
+	 
+	/* OK 
+	void setDetailFormPanel(Panels.Accounts.DetailFormPanel pnl) {
+		pnlDetailForm = pnl;
+	}
+	*/
+	
+}

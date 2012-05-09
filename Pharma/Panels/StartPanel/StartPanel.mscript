@@ -45,16 +45,22 @@ TablePanel {
 	}
 
 	callback btn01 onClick(Control c) {
+	
+		//Screens.HomeScreen scrHome = new Screens.HomeScreen();
+		scrHome = getNewHomeScreen();
+		scrHome.push(Animation.NONE, false);		
 		
 	}
 
 	callback btn02 onClick(Control c) {
+	
 		shutdown();
+	
 	}
 	
 	callback btn03 onClick(Control c) {
 		
-		msgBox.info(3, true, "About Pharma", "This is an info msg!", "OK", "");
+		msgBox.info(3, true, StringConstants.INFO_APP_NAME_STR.getString(), "1.0.0" + "\n\n" + StringConstants.INFO_DEVICE_NAME_STR.getString() + Device.getDeviceName() + "\n" + StringConstants.INFO_OS_VERSION_STR.getString() + Device.getOSVersion() + "\n" +  StringConstants.INFO_SW_VERSION_STR.getString() + Device.getSoftwareVersion() + "\n\n" + StringConstants.INFO_MSG_STR.getString(), StringConstants.BTN_OK_STR.getString(), "");
 	
 	}	
 
@@ -69,7 +75,7 @@ TablePanel {
 		fnt.setBold();
 		
 		btn01.setFont(fnt);
-		btn01.setText("Start");
+		btn01.setText(StringConstants.BTN_START_STR.getString());
 		btn01.setForeColor(Color.create(222,222,222));
 		btn01.setFocusedForeColor(Color.create(222,222,222));
 		btn01.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.MainScreenImages.btn_01_normal.getImage(), 3, 3));
@@ -77,7 +83,7 @@ TablePanel {
 		btn01.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 
 		btn02.setFont(fnt);
-		btn02.setText("Exit");
+		btn02.setText(StringConstants.BTN_EXIT_STR.getString());
 		btn02.setForeColor(Color.create(222,222,222));
 		btn02.setFocusedForeColor(Color.create(222,222,222));
 		btn02.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.MainScreenImages.btn_01_normal.getImage(), 3, 3));
@@ -87,7 +93,7 @@ TablePanel {
 		btn03.setFont(fnt);
 		btn03.setForeColor(Color.create(189,0,0));
 		btn03.setFocusedForeColor(Color.create(189,0,0));
-		btn03.setText("About");
+		btn03.setText(StringConstants.BTN_ABOUT_STR.getString());
 		btn03.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.MainScreenImages.btn_02_normal.getImage(), 3, 3));
 		btn03.setFocusedBackground(Background.createHorizontalTiledImageRectangleBackground(Images.MainScreenImages.btn_02_pressed.getImage(), 3, 3));
 		btn03.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
@@ -101,5 +107,18 @@ TablePanel {
 		picBox03.setImage(Images.MainScreenImages.img_logo_atlantic.getImage());
 		
 	}	
+	
+	
+	Screens.HomeScreen getNewHomeScreen() {
+		
+		logApp.log(Log.INFO, "StartPanel - getNewHomeScreen()");
+		
+   		if (scrHome != null && scrHome.isValid()) {
+   			scrHome.close();
+   		}
+   		scrHome = new Screens.HomeScreen();
+   		return scrHome;
+   		
+	}
 	
 }

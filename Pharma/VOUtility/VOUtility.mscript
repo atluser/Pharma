@@ -1,2 +1,19 @@
 UIObject {
+	
+	void loadCrmEntities() {
+		
+		insertCrmEntity(4, StringConstants.TBB_SERVICE_REQUESTS_STR.getString());
+		insertCrmEntity(5, StringConstants.TBB_CATALOG_STR.getString());
+
+	}
+	
+	void insertCrmEntity(int id, String name) {
+		
+		DataRow dtRw = vObjCrmEntity.getNewRow();
+		vObjCrmEntity.Id.setIntegerValue(Platform.createInteger(id), dtRw); 
+        vObjCrmEntity.Name.setStringValue(name, dtRw);      
+        dtRw.applyUpdates();		
+			
+	}
+	
 }

@@ -1,0 +1,30 @@
+BorderPanel {
+	/*
+	 * Attributes
+	 */
+	 
+	 
+	/*
+	 * Callback methods 
+	 */
+	callback onCreate(Container c) {
+			
+		//Detail Panel
+	 	Panels.Account.DetailPanel pnlDetail = new Panels.Account.DetailPanel();
+		setEast(pnlDetail);	 	
+	 	
+	 	// Master Panel
+	 	Panels.Account.MasterPanel pnlMaster = new Panels.Account.MasterPanel();
+		/* OK
+		pnlMaster.setDetailFormPanel(pnlDetail.getDetailFormPanel());
+	 	*/
+	 	setWest(pnlMaster);
+	 	
+	}
+	
+	 
+	/*
+	 * Custom methods
+	 */ 
+
+}

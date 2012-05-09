@@ -1,5 +1,24 @@
 UIProject {
 	
+	Screens.StartScreen scrStart;
+	Screens.HomeScreen scrHome;
+	
+	/*
+	 * Log
+	 */
+	Log logApp = getLog();
+	
+	/*
+	 * Virtual objects
+	 */
+	CrmEntity vObjCrmEntity = new CrmEntity();
+	Account vObjAccount = new Account();
+	
+	/*
+	 * VOUtility
+	 */
+	VOUtility vObjUtil = new VOUtility();
+	
 	callback onApplicationStyleSetup(StyleReceptor styleReceptor){
 		
 		if(Device.isIPad()) {
@@ -52,8 +71,12 @@ UIProject {
 
 	callback onStart(PushedData pushedData){
 		
-		Screens.StartScreen scrStart = new Screens.StartScreen();
-		scrStart.push(0, false);
+		vObjUtil.loadCrmEntities();
+		
+		//Screens.StartScreen scrStart = new Screens.StartScreen();
+		scrStart = getNewStartScreen();
+		//scrStart.push(0, false);
+		scrStart.push(Animation.NONE, false);
 		
 	}
 
@@ -67,6 +90,21 @@ UIProject {
 
 	callback onUserInactivity(){
 		//TODO: add code
+	}
+	
+	/*
+	 * Custom methods
+	 */
+	Screens.StartScreen getNewStartScreen() {
+		
+		logApp.log(Log.INFO, "Pharma - getNewStartScreen()");
+		
+   		if (scrStart != null && scrStart.isValid()) {
+   			scrStart.close();
+   		}
+   		scrStart = new Screens.StartScreen();
+   		return scrStart;
+   		
 	}
 
 }

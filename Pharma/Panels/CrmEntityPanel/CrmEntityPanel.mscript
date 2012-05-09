@@ -1,0 +1,84 @@
+TablePanel {
+	
+	/*
+	 * Attributes
+	 */
+	StickyTable stk = new StickyTable();
+	RowSetModel rsm = new RowSetModel();
+	Panels.HeaderPanel pnlHeader = new Panels.HeaderPanel();
+	
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {
+	
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);
+		
+		//set size (note: this is required)
+		setRowHeight(0, Sizing.PREFERRED, 1);
+
+		rsm.setRows(vObjCrmEntity.getCrmEntities());
+		
+		//set the model for the sticky table
+		stk.setDataModel(rsm);
+		
+		//add sticky table to screen
+		add(stk, "vfill=fill,hfill=fill");	
+	
+	}
+
+	///////////////////////////////
+	// Callback to configure cells
+	///////////////////////////////
+	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row) {
+		info.setPanel(new Cells.SimpleTableViewCell());
+	}
+	
+	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ) {
+		
+		Cells.SimpleTableViewCell tblVwCell = (Cells.SimpleTableViewCell) cell;
+		//tblVwCell.setRow(info.getDataRow());
+		DataRow dtRw = info.getDataRow();
+		String str = vObjCrmEntity.Name.getStringValue(dtRw);
+		
+		//ERRORE DA VERIFICARE
+		//StringAttribute strAtt = (StringAttribute)vObjCrmEntity.getAttribute("Name");
+		//String str = strAtt.getStringValue(dtRw);
+		
+		tblVwCell.lbl.setText("   " + str);
+	
+	}
+	
+	callback stk onCellConfigure(TableView c, CellConfig cell, int group) {
+	
+		cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PREFERRED, 0);
+		cell.setCouldBeSelected(true);
+	
+	}
+	
+	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row) {
+	
+		sizeInfo.setHeight(48);
+	
+	}		
+	
+	callback stk onSelectionChanged(TableView c , int group , int row) {	
+	
+		logApp.log(Log.INFO, "CrmEntityPanel - stk onSelectionChanged()");
+		pnlHeader.showToolbarButton(vObjCrmEntity.Id.getIntegerValue(rsm.getRow()).intValue());
+
+	}
+	
+	/*
+	 * Custom methods
+	 */
+	void setHeaderPanel(Panels.HeaderPanel pnl) {
+		
+		pnlHeader = pnl;
+		
+	}
+	
+}

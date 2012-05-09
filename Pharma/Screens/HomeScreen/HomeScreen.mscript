@@ -1,4 +1,7 @@
 Screen {
+	
+	Action actExit = new Action();
+			
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
 		//TODO: add code
 	}
@@ -16,12 +19,52 @@ Screen {
 	}
 
 	callback onClose(Container container){
-		//TODO: add code
+				
 	}
 
 	callback onCreate(Container container){
-		Panels.RootPanel pnl=new Panels.RootPanel();
-		add(pnl,"vfill=fill,hfill=fill");
+		
+		logApp.log(Log.INFO, "HomeScreen - onCreate()");
+				
+		// Body Panel
+		Panels.Account.RootPanel pnlAccountRoot = new Panels.Account.RootPanel();
+		Panels.Activity.RootPanel pnlActivityRoot = new Panels.Activity.RootPanel();
+		Panels.Contact.RootPanel pnlContactRoot = new Panels.Contact.RootPanel();
+		Panels.Order.RootPanel pnlOrderRoot = new Panels.Order.RootPanel();
+		Panels.ServiceRequest.RootPanel pnlServiceRequestRoot = new Panels.ServiceRequest.RootPanel();
+		Panels.Catalog.RootPanel pnlCatalogRoot = new Panels.Catalog.RootPanel();
+		
+		StackPanel stkPnlRoot = new StackPanel();
+		stkPnlRoot.add(pnlAccountRoot);
+		stkPnlRoot.add(pnlActivityRoot);
+		stkPnlRoot.add(pnlContactRoot);
+		stkPnlRoot.add(pnlOrderRoot);
+		stkPnlRoot.add(pnlServiceRequestRoot);
+		stkPnlRoot.add(pnlCatalogRoot);
+		
+		// Header Panel
+		Panels.HeaderPanel pnlHeader = new Panels.HeaderPanel();	
+		pnlHeader.setStackPanel(stkPnlRoot);
+		pnlHeader.setAccountRootPanel(pnlAccountRoot);
+		pnlHeader.setActivityRootPanel(pnlActivityRoot);
+		pnlHeader.setContactRootPanel(pnlContactRoot);
+		pnlHeader.setOrderRootPanel(pnlOrderRoot);
+		pnlHeader.setServiceRequestRootPanel(pnlServiceRequestRoot);
+		pnlHeader.setCatalogRootPanel(pnlCatalogRoot);				
+		
+		// Root Panel
+		BorderPanel brdPnlRoot = new BorderPanel();
+		brdPnlRoot.setNorth(pnlHeader);
+		brdPnlRoot.setCenter(stkPnlRoot);
+				
+		add(brdPnlRoot, "hfill=fill,vfill=fill");		
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		
+		// Menu
+		Menu mn = new Menu();
+		actExit.setText("Exit");
+		mn.add(actExit);
+		setMenu(mn);
 		
 	}
 
@@ -72,6 +115,11 @@ Screen {
 	callback onStartOrientationChange(Screen screen, int int_){
 		//TODO: add code
 	}
-
+	
+	callback actExit onRun(Action a) {
+	
+		shutdown();
+	
+	}
 
 }
