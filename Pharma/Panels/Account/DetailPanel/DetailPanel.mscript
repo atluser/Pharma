@@ -28,8 +28,7 @@ TablePanel {
 	callback onCreate(Container c) {		 
 		Label lbl = new Label();
 		lbl.setText("Detail");
-		add(lbl,"halign=center, valign=top");
-		add(search,"halign=center, valign=top");
+		add(lbl,"halign=center, valign=top");		
 		
 		
 		/* OK
