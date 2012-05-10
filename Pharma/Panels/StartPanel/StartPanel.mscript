@@ -46,8 +46,8 @@ TablePanel {
 
 	callback btn01 onClick(Control c) {
 	
-		//Screens.HomeScreen scrHome = new Screens.HomeScreen();
-		scrHome = getNewHomeScreen();
+		Screens.HomeScreen scrHome = new Screens.HomeScreen();
+		//scrHome = getNewHomeScreen();
 		scrHome.push(Animation.NONE, false);		
 		
 	}
@@ -108,7 +108,7 @@ TablePanel {
 		
 	}	
 	
-	
+	/*)
 	Screens.HomeScreen getNewHomeScreen() {
 		
 		logApp.log(Log.INFO, "StartPanel - getNewHomeScreen()");
@@ -120,5 +120,6 @@ TablePanel {
    		return scrHome;
    		
 	}
+	*/
 	
 }

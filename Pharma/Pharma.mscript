@@ -1,7 +1,7 @@
 UIProject {
 	
-	Screens.StartScreen scrStart;
-	Screens.HomeScreen scrHome;
+	//Screens.StartScreen scrStart;
+	//Screens.HomeScreen scrHome;
 	
 	/*
 	 * Logs
@@ -99,10 +99,10 @@ UIProject {
 		createSectionTitle("Account");
 		createSectionTitle("Contact");
 		
-		//Screens.StartScreen scrStart = new Screens.StartScreen();
-		scrStart = getNewStartScreen();
-		//scrStart.push(0, false);
+		Screens.StartScreen scrStart = new Screens.StartScreen();
+		//scrStart = getNewStartScreen();
 		scrStart.push(Animation.NONE, false);
+		//scrStart.push(Animation.NONE, false);
 		
 	}
 
@@ -121,6 +121,7 @@ UIProject {
 	/*
 	 * Custom methods
 	 */
+	/* 
 	Screens.StartScreen getNewStartScreen() {
 		
 		logApp.log(Log.INFO, "Pharma - getNewStartScreen()");
@@ -132,7 +133,7 @@ UIProject {
    		return scrStart;
    		
 	}
-	
+	*/
 	void createSectionTitle(String entity){
 		Query q=cfgSections.getSections(entity);
 		DataRowSet rs=q.getRowSet();

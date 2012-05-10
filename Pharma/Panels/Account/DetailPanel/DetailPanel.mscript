@@ -26,8 +26,8 @@ TablePanel {
 	callback onCreate(Container c) {
 		
 		Label lbl = new Label();
-		lbl.setText("Detail");
-		add(lbl,"halign=center, valign=top");
+		lbl.setText("Under Construction");
+		add(lbl,"halign=center");
 		
 		/* OK
 		fnt01.setFamily("Arial");

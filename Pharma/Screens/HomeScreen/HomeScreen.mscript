@@ -50,7 +50,8 @@ Screen {
 		pnlHeader.setContactRootPanel(pnlContactRoot);
 		pnlHeader.setOrderRootPanel(pnlOrderRoot);
 		pnlHeader.setServiceRequestRootPanel(pnlServiceRequestRoot);
-		pnlHeader.setCatalogRootPanel(pnlCatalogRoot);				
+		pnlHeader.setCatalogRootPanel(pnlCatalogRoot);
+		pnlHeader.setHomeScreen((Screens.HomeScreen) container);				
 		
 		// Root Panel
 		BorderPanel brdPnlRoot = new BorderPanel();

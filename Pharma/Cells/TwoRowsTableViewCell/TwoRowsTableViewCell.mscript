@@ -26,8 +26,9 @@ TableViewCell {
 		
 		//setInsets ( int top, int left, int bottom, int right); 
 		setInsets (4, 8, 4, 8);
-		setBackground(Background.createVerticalGradientRectangleBackground(Color.create(222,222,222), Color.create(222,222,222)));
-		setFocusedBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+		
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgCellBackground_u, 0, 0, 0, 0));
+		setFocusedBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgCellBackground_s, 0, 0, 0, 0));
 		setColumnWidth(0, Sizing.PERCENTS, 30);	
 		setRowHeight(0, Sizing.PREFERRED, 1);
 		setRowHeight(1, Sizing.PREFERRED, 1);

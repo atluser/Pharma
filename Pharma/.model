@@ -51,6 +51,8 @@
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="SplitViewImages">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SplitViewImages.mscript" hidden="true"/>
+      <images name="ImgCellBackground_s"/>
+      <images name="ImgCellBackground_u"/>
       <images name="ImgDetailBackground"/>
       <images name="ImgMasterBackground"/>
     </children>
@@ -78,6 +80,12 @@
       <imagePaths name="Icon">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app_orig.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP_ORIG.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgCellBackground_u">
+        <properties/>
+        <properties/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -220,6 +228,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
         <properties/>
         <properties/>
@@ -325,6 +339,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgCellBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgMasterBackground">
         <properties/>
         <properties/>
@@ -464,6 +484,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
         <properties/>
         <properties/>
@@ -563,6 +589,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgCellBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgMasterBackground">
         <properties/>
         <properties/>
@@ -702,6 +734,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
         <properties/>
         <properties/>
@@ -808,6 +846,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgBlackBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgCellBackground_s">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgCellBackground_u">
         <properties/>
         <properties/>
         <properties/>
@@ -966,6 +1016,18 @@
       <imagePaths name="SplashImageUpsideDown">
         <properties/>
         <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_s">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_02_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_02_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_u">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -1147,6 +1209,9 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgCellBackground_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgMasterBackground">
         <properties/>
       </imagePaths>
@@ -1217,6 +1282,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgDetailBackground">
@@ -1268,6 +1336,9 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgCellBackground_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgMasterBackground">
         <properties/>
       </imagePaths>
@@ -1338,6 +1409,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgDetailBackground">
@@ -1396,6 +1470,14 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgBlackBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgCellBackground_s">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgCellBackground_u">
         <properties/>
         <properties/>
       </imagePaths>
@@ -1503,6 +1585,14 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_s">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_02_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_02_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_u">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="SplitViewImages.ImgDetailBackground">
         <properties string="/Users/admin/Desktop/VF/images/popover/img_01_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_01_BACKGROUND.PNG"/>
         <properties/>
@@ -1589,6 +1679,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgCellBackground_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgMasterBackground">
         <properties/>
         <properties/>
@@ -1682,6 +1776,10 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
         <properties/>
       </imagePaths>
@@ -1747,6 +1845,9 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgCellBackground_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgMasterBackground">
         <properties/>
       </imagePaths>
@@ -1817,6 +1918,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgDetailBackground">
@@ -1868,6 +1972,9 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgCellBackground_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgMasterBackground">
         <properties/>
       </imagePaths>
@@ -1938,6 +2045,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgDetailBackground">
@@ -1991,6 +2101,9 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgCellBackground_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgMasterBackground">
         <properties/>
       </imagePaths>
@@ -2061,6 +2174,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgDetailBackground">
