@@ -2342,4 +2342,7 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListOfValues">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
   </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="PriceList">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceList.mscript"/>
+  </children>
 </com.vaultus.studio.ecore.studio:UIProject>
