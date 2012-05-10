@@ -18,10 +18,11 @@ UIObject {
 	
 	
 	DataRow getNewAccountRow(){
+		int id=vObjAccount.createQuery().getRowSet().getSize()+1;
 		DataRow row = vObjAccount.getNewRow();		
-        vObjAccount.AccountId.setStringValue("00100988", row);
-        vObjAccount.AccountCode.setStringValue("AccountCode", row);
-        vObjAccount.AccountName.setStringValue("AccountName", row);
+        vObjAccount.AccountId.setStringValue(""+id, row);
+        vObjAccount.AccountCode.setStringValue(""+id, row);
+        /*vObjAccount.AccountName.setStringValue("AccountName", row);
         vObjAccount.AccountType.setStringValue("AccountType", row);        
         vObjAccount.AccountStreetAddress.setStringValue("StreetAddress", row);
         vObjAccount.AccountCity.setStringValue("City", row);
@@ -32,7 +33,7 @@ UIObject {
         vObjAccount.AccountFax.setStringValue("Fax", row);
         vObjAccount.AccountEmail.setStringValue("mail", row);
         vObjAccount.AccountWebSite.setStringValue("sito", row);        
-        row.applyUpdates();
+//        row.applyUpdates();*/
         return row  ;
 
 	}

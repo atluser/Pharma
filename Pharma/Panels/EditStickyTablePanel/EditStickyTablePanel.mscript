@@ -133,14 +133,14 @@ TablePanel {
 		
 		appLog.log(Log.INFO,"create HEADER "+group);
 		
-		TableViewPanel headerCell=new TableViewPanel();
-		
-		Label lblTitle=new Label();
+		Cells.SectionHeaderCell headerCell=new Cells.SectionHeaderCell();
+		Label lblTitle=headerCell.lbl;
+		//Label lblTitle=new Label();
 		if(sectionLabelArray!=null){
 			String  strTitle=(String)sectionLabelArray.getItem(group);		
-			lblTitle.setText(strTitle);
-		}		
-		headerCell.add(lblTitle,"halign=center");
+			lblTitle.setText(strTitle);	
+		}	
+		//headerCell.add(lblTitle,"halign=center");
 		
 		info.setPanel(headerCell);
 	}

@@ -6,6 +6,9 @@ Screen {
 	Button btnMenu = new Button();
 	
 	Panels.EditStickyTablePanel stk = new Panels.EditStickyTablePanel();
+	StickyTable originListStk;
+	StickyTable detailStk;
+	VirtualObject dataObject;
 	
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
 		//TODO: add code
@@ -112,10 +115,16 @@ Screen {
 	}
 	
 	callback btnDone onClick(Control c) {
-		
+		stk.save(dataObject);
+		RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
+		rsm.setRows(dataObject.createQuery());
+		originListStk.reload();
+		detailStk.reload();
+		close(Animation.PUSH_FROM_TOP);
 	}
 	
 	callback btnUndo onClick(Control c) {
+		stk.currentRow.cancelUpdates();
 		close(Animation.PUSH_FROM_TOP);
 	}
 	
@@ -146,7 +155,11 @@ Screen {
 	
 	}
 	
-	void init(String entity,DataRow row, VirtualObject obj){
+	void init(String entity,DataRow row, VirtualObject obj,StickyTable originStk,StickyTable detail){
+		dataObject=obj;
+		//sticky table origine dati
+		originListStk=originStk;
+		detailStk=detail;
 		stk.init(entity,row);
-	}
+	}	
 }

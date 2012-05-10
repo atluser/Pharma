@@ -23,7 +23,7 @@ TablePanel {
 		setRowHeight(0, Sizing.PREFERRED, 1);
 		
 		
-		rsm.setRows(vObjAccount.getAccounts());
+		rsm.setRows(vObjAccount.getAccounts());		
 		
 		
 		//set the model for the sticky table
@@ -55,13 +55,13 @@ TablePanel {
 		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
 		
 		DataRow dtRw = info.getDataRow();
-		
-		String str01 = vObjAccount.AccountName.getStringValue(dtRw);
-		String str02 = vObjAccount.AccountStreetAddress.getStringValue(dtRw);
+		if(!dtRw.isDeleted()){		
+			String str01 = vObjAccount.AccountName.getStringValue(dtRw);
+			String str02 = vObjAccount.AccountStreetAddress.getStringValue(dtRw);					
 	
-		tblVwCell.lbl01.setText(str01);
-		tblVwCell.lbl02.setText(str02);
-		
+			tblVwCell.lbl01.setText(str01);
+			tblVwCell.lbl02.setText(str02);
+		}
 	}
 	
 	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
@@ -129,4 +129,7 @@ TablePanel {
 		pnlDetailForm = pnl;
 	}
 	
+	void executeQuery(){
+		rsm.setRows(vObjAccount.getAccounts());
+	}
 }

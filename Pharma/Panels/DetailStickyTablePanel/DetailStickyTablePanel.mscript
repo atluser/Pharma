@@ -17,7 +17,7 @@ TablePanel {
 	//RowSetModel rsm = new RowSetModel();
 	MultiRowSetModel mrsm ;
 	
-	String Entity="";
+	String currentEntity="";
 		
 	ObjectArray sectionLabelArray;
 	ObjectMap entityFieldMap;
@@ -95,7 +95,42 @@ TablePanel {
 	}		
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
-		
+		appLog.log(Log.INFO,"selezionato gruppo "+group);
+		if(currentEntity.equals("Account")){
+			if(group==1){
+				StringAttribute nameAtt=(StringAttribute)entityFieldMap.getValue("AccountName");
+				String accountName=nameAtt.getStringValue(currentRow);
+				StringAttribute addressAtt=(StringAttribute)entityFieldMap.getValue("AccountStreetAddress");
+				String street=addressAtt.getStringValue(currentRow);
+				StringAttribute cityAtt=(StringAttribute)entityFieldMap.getValue("AccountCity");
+				String city=cityAtt.getStringValue(currentRow);
+				StringAttribute capAtt=(StringAttribute)entityFieldMap.getValue("AccountPostalCode");
+				String cap=capAtt.getStringValue(currentRow);
+				
+				Screens.MapScreen scr=new Screens.MapScreen();
+				scr.setMap( accountName, "", street, city, "", cap,"");
+				scr.push(0,false);
+			}
+			else if(group==2 && row==0){
+				MessageBox msgBox=new MessageBox();
+        		MessagingManager messagingManager = new MessagingManager();
+        		Email email = messagingManager.createEmail();
+        		StringAttribute emailAtt=(StringAttribute)entityFieldMap.getValue("AccountEmail");
+        		String strEmail=emailAtt.getStringValue(currentRow);
+		        if (email == null) {
+		        	msgBox.info(1,"Non esiste un account email");
+		            // Email is not available (e.g. no email account is setup on the device)
+		            // Inform the user about this
+		         } else {
+		            RecipientList toList = email.getTo();
+		            toList.clear();
+		            toList.addAddress(strEmail);
+		            email.setSubject("Email di prova");
+		            email.setBody("Questa è una email di prova");
+		            messagingManager.showMessage(email);
+		         }
+			}
+		}
 	}
 		
 	////////////////////////////
@@ -106,14 +141,14 @@ TablePanel {
 		//info.setPanel(new Panels.SectionHeader.EditHeaderSectionTPV());
 		
 		
-		TableViewPanel headerCell=new TableViewPanel();
-		
-		Label lblTitle=new Label();
+		Cells.SectionHeaderCell headerCell=new Cells.SectionHeaderCell();
+		Label lblTitle=headerCell.lbl;
+		//Label lblTitle=new Label();
 		if(sectionLabelArray!=null){
 			String  strTitle=(String)sectionLabelArray.getItem(group);		
 			lblTitle.setText(strTitle);	
 		}	
-		headerCell.add(lblTitle,"halign=center");
+		//headerCell.add(lblTitle,"halign=center");
 		
 		info.setPanel(headerCell);
 	}
@@ -154,7 +189,7 @@ TablePanel {
 	 */
 	void init(String entity,DataRow row){
 		currentRow=row;
-		//Entity=entity;
+		currentEntity=entity;
 		entityFieldMap=(ObjectMap)fieldMap.getValue(entity);
 		sectionLabelArray=(ObjectArray) sectionLabelMap.getValue(entity);
 		

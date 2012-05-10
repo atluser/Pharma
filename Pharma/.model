@@ -266,6 +266,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
         <properties/>
@@ -540,6 +546,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
         <properties/>
@@ -803,6 +815,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.DettaglioCliente">
         <properties/>
         <properties/>
         <properties/>
@@ -1392,6 +1410,9 @@
       <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
       </imagePaths>
@@ -1526,6 +1547,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.DettaglioCliente">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -1934,6 +1958,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
         <properties/>
@@ -2082,6 +2110,9 @@
       <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
       </imagePaths>
@@ -2216,6 +2247,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.DettaglioCliente">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -2356,6 +2390,9 @@
       <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
       </imagePaths>
@@ -2441,6 +2478,9 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Cells">
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="EditFormDetailCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditFormDetailCell.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SectionHeaderCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewPanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SectionHeaderCell.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SimpleTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SimpleTableViewCell.mscript"/>
@@ -2601,6 +2641,9 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Screens">
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="HomeScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="HomeScreen.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="MapScreen">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MapScreen.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="NewOrEditRecordScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="NewOrEditRecordScreen.mscript"/>

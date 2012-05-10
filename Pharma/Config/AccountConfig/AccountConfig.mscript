@@ -129,12 +129,23 @@ UIObject {
 		
 		
 		//-----------------------------------------------------
+		//AccountEmail
+		row=cfg.getNewRow();
+		cfg.Entity.setStringValue("Account",row);
+		cfg.Section.setIntegerValue(Platform.createInteger(2),row);
+		cfg.Field.setStringValue("AccountEmail",row);
+		cfg.Position.setIntegerValue(Platform.createInteger(0),row);
+		cfg.FieldType.setStringValue("TextField",row);
+		cfg.Caption.setStringValue("e-Mail",row);
+		row.applyUpdates();
+		accountFieldMap.putValue("AccountEmail",vObjAccount.AccountEmail);
+	
 		//AccountPhone
 		row=cfg.getNewRow();
 		cfg.Entity.setStringValue("Account",row);
 		cfg.Section.setIntegerValue(Platform.createInteger(2),row);
 		cfg.Field.setStringValue("AccountPhone",row);
-		cfg.Position.setIntegerValue(Platform.createInteger(0),row);
+		cfg.Position.setIntegerValue(Platform.createInteger(1),row);
 		cfg.FieldType.setStringValue("TextField",row);
 		cfg.Caption.setStringValue("Telefono",row);
 		row.applyUpdates();
@@ -145,28 +156,18 @@ UIObject {
 		cfg.Entity.setStringValue("Account",row);
 		cfg.Section.setIntegerValue(Platform.createInteger(2),row);
 		cfg.Field.setStringValue("AccountFax",row);
-		cfg.Position.setIntegerValue(Platform.createInteger(1),row);
+		cfg.Position.setIntegerValue(Platform.createInteger(2),row);
 		cfg.FieldType.setStringValue("TextField",row);
 		cfg.Caption.setStringValue("Fax",row);
 		row.applyUpdates();
 		accountFieldMap.putValue("AccountFax",vObjAccount.AccountFax);
 	
 	
-	//AccountEmail
-		row=cfg.getNewRow();
-		cfg.Entity.setStringValue("Account",row);
-		cfg.Section.setIntegerValue(Platform.createInteger(2),row);
-		cfg.Field.setStringValue("AccountEmail",row);
-		cfg.Position.setIntegerValue(Platform.createInteger(2),row);
-		cfg.FieldType.setStringValue("TextField",row);
-		cfg.Caption.setStringValue("e-Mail",row);
-		row.applyUpdates();
-		accountFieldMap.putValue("AccountEmail",vObjAccount.AccountEmail);
 	
 	//AccountWebsite
 		row=cfg.getNewRow();
 		cfg.Entity.setStringValue("Account",row);
-		cfg.Section.setIntegerValue(Platform.createInteger(2),row);
+		cfg.Section.setIntegerValue(Platform.createInteger(3),row);
 		cfg.Field.setStringValue("AccountWebSite",row);
 		cfg.Position.setIntegerValue(Platform.createInteger(3),row);
 		cfg.FieldType.setStringValue("TextField",row);

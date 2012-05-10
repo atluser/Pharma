@@ -1,0 +1,100 @@
+Screen {
+	MapField mapField=new MapField();
+	Action actClose = new Action();
+	
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
+		//TODO: add code
+	}
+
+	callback onActivate(Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onClose(Container container){
+		//TODO: add code
+	}
+
+	callback onCreate(Container container){
+		
+		//mapField.addLocation("madonnina del grappa","","lombardia","20025","Italia");		
+		add(mapField,"vfill=fill,hfill=fill");
+		
+		Menu mn = new Menu();
+		actClose.setText("Close");
+		mn.add(actClose);
+		setMenu(mn);
+		
+	}
+	
+	void setMap(String accountName, String refer,String street,String city, String region, String postalcode,String country){
+		MapAnnotation mapAnot = new MapAnnotation();
+		mapAnot.setShowCallout(true);
+		mapAnot.setEnabled(true);
+		mapAnot.setTitle(accountName);
+		mapAnot.setSubTitle(refer);
+		mapAnot.setImageType(MapAnnotation.IMAGE_TYPE_DEFAULT);
+		mapField.clearLocations();
+		mapField.addLocation(street,"",region,postalcode,country,mapAnot);
+	}
+
+	callback onDeactivate(Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onInputEvent(Screen screen, InputEvent inputEvent){
+		//TODO: add code
+	}
+
+	callback onMenuDisplay(Screen screen){
+		//TODO: add code
+	}
+
+	callback onOpen(Container container){
+		//TODO: add code
+	}
+
+	callback onOrientationLayoutChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenKeyboardVisibilityChange(Screen screen, boolean boolean_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_, int int_1){
+		//TODO: add code
+	}
+
+	callback onStartOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback actClose onRun(Action a){
+		close();
+	}
+
+}

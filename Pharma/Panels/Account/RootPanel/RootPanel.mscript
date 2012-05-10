@@ -7,13 +7,14 @@ BorderPanel {
 	/*
 	 * Callback methods 
 	 */
+	StickyTablePanel stk=new StickyTablePanel();
+	//Detail Panel
+	 Panels.Account.DetailPanel pnlDetail = new Panels.Account.DetailPanel();
+	 	
 	callback onCreate(Container c) {
 		// Master Panel		
-		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();
-	 	StickyTablePanel stk=new StickyTablePanel();	
-		//Detail Panel
-	 	Panels.Account.DetailPanel pnlDetail = new Panels.Account.DetailPanel();
-	 	
+		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
+		
 	 	//set oggetti 
 	 	pnlDetail.picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
 	 	
@@ -21,7 +22,7 @@ BorderPanel {
 		pnlDetail.stk.init("Account",firstRow);
 		
 		//bind sticky and detail
-		stk.setDetailPanel(pnlDetail.stk);
+		stk.setDetailPanel(pnlDetail.stk);		
 		
 		setEast(pnlDetail);	 	
 	 	
@@ -33,10 +34,20 @@ BorderPanel {
 	 	setWest(pnlMaster);
 	 	
 	}
-	
-	 
 	/*
 	 * Custom methods
 	 */ 
-
+	
+	DataRow getCurrentRow(){
+		return stk.rsm.getRow();	
+	} 
+	
+	StickyTable getStickyTable(){
+		return stk.stk;
+	
+	}
+	StickyTable getDetailStickyTable(){
+		return pnlDetail.stk.stk;
+	
+	}
 }
