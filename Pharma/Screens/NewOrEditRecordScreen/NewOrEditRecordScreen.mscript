@@ -5,6 +5,8 @@ Screen {
 	Button btnUndo = new Button();
 	Button btnMenu = new Button();
 	
+	Panels.EditStickyTablePanel pnl = new Panels.EditStickyTablePanel();
+	
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
 		//TODO: add code
 	}
@@ -44,6 +46,7 @@ Screen {
 		pnlHeader.setColumnWidth(4, Sizing.PREFERRED,0);
 		
 		// Body Panel
+		
 		
 		// Root Panel
 		BorderPanel brdPnlRoot = new BorderPanel();
