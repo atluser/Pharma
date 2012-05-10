@@ -7,7 +7,7 @@ TablePanel {
 	
 	Font fnt01 = new Font(); 
 	Font fnt02 = new Font(); 
-	PictureBox picBox = new PictureBox();
+//	PictureBox picBox = new PictureBox();
 	Label lbl01 = new Label();
 	Label lbl02 = new Label();
 	
@@ -141,7 +141,7 @@ TablePanel {
 	}	 
 	*/
 	
-	void init(PictureBox pic,Label lbl01){
+	void init(PictureBox picBox,Label lbl01){
 		pnl.add(picBox,"colspan=2");		
 		pnl.add(lbl01,"colspan=3");
 		pnl.startNewRow();
