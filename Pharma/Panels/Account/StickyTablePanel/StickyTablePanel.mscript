@@ -20,7 +20,7 @@ TablePanel {
 		stk.setGridLineColor(Colors.Gray);
 		
 		//set size (note: this is required)
-		setRowHeight(0, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PERCENTS, 85);
 		
 		
 		rsm.setRows(vObjAccount.getAccounts());
@@ -30,7 +30,8 @@ TablePanel {
 		stk.setDataModel(rsm);
 		
 		//add sticky table to screen
-		add(stk, "vfill=fill,hfill=fill");	
+		//add(stk, "hfill=fill,vfill=fill");
+		add(stk, "hfill=fill,valign=top");	
 	
 	}
 

@@ -15,13 +15,14 @@ TablePanel {
 		
 		pnlStickyTable = new Panels.Account.StickyTablePanel();
 		
-		add(pnlStickyTable,"valign=top");
+		//add(pnlStickyTable,"valign=top");
+		add(pnlStickyTable,"hfill=fill,vfill=fill");
 		
 		//setBackground(Background.createVerticalGradientRectangleBackground (Color.create(255,255,255), Color.create(255,255,255)));
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
 		setColumnWidth(0, Sizing.PERCENTS, 30);
-		setRowHeight(0, Sizing.PERCENTS, 100);
-		//setRowHeight(0, Sizing.PREFERRED, 0); 	
+		//setRowHeight(0, Sizing.PERCENTS, 100);
+		setRowHeight(0, Sizing.PREFERRED, 1); 	
 	 
 	}
 	
