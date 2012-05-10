@@ -135,8 +135,11 @@ HorizontalPanel {
 		poCrmMenu.dismiss();
 		//void showPopup ( Popup popup , int popupType , int heightType , int height , int widthType , int width , boolean showTitleBar , boolean useDeviceOrientation , Background screenOverlayBackground )
 		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PREFERRED, 0, false, true, Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgRedBackground, 0, 0, 0, 0));
-		scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
+		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
 		//scrHome.showPopup(puNew,false);
+		
+		Screens.NewOrEditRecordScreen scrNewOrEditRecord = new Screens.NewOrEditRecordScreen();
+		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 		
 	}
 	
@@ -144,6 +147,9 @@ HorizontalPanel {
 		
 		logApp.log(Log.INFO, "HeaderPanel - btnEdit onClick()");
 		poCrmMenu.dismiss();
+		
+		Screens.NewOrEditRecordScreen scrNewOrEditRecord = new Screens.NewOrEditRecordScreen();
+		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 		
 	}	
 	

@@ -20,7 +20,7 @@ TablePanel {
 		stk.setGridLineColor(Colors.Gray);
 		
 		//set size (note: this is required)
-		setRowHeight(0, Sizing.PERCENTS, 85);
+		setRowHeight(0, Sizing.PREFERRED, 1);
 		
 		
 		rsm.setRows(vObjAccount.getAccounts());

@@ -59,9 +59,11 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="VodafoneImages">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VodafoneImages.mscript" hidden="true"/>
       <images name="btn_delete_normal"/>
+      <images name="btn_done_normal"/>
       <images name="btn_edit_normal"/>
       <images name="btn_menu_normal"/>
       <images name="btn_new_normal"/>
+      <images name="btn_undo_normal"/>
       <images name="img_actionbar_bg"/>
       <images name="img_logo_atlantic"/>
       <images name="img_logo_vodafone"/>
@@ -228,6 +230,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_s">
         <properties/>
         <properties/>
         <properties/>
@@ -489,6 +497,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_s">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
         <properties/>
@@ -734,6 +748,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_s">
         <properties/>
         <properties/>
         <properties/>
@@ -1055,6 +1075,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_done_normal">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_done_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_DONE_NORMAL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_edit_normal">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_edit_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_EDIT_NORMAL.PNG"/>
@@ -1070,6 +1096,12 @@
       <imagePaths name="VodafoneImages.btn_new_normal">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_new_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_NEW_NORMAL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_undo_normal">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_undo_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_UNDO_NORMAL.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -1133,6 +1165,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="btn_done_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="btn_edit_normal">
         <properties/>
         <properties/>
@@ -1146,6 +1184,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="btn_new_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_undo_normal">
         <properties/>
         <properties/>
         <properties/>
@@ -1284,6 +1328,9 @@
       <imagePaths name="SplashImageUpsideDown">
         <properties/>
       </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_s">
+        <properties/>
+      </imagePaths>
       <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
       </imagePaths>
@@ -1409,6 +1456,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_s">
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgCellBackground_u">
@@ -1609,6 +1659,10 @@
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_delete_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_DELETE_NORMAL.PNG"/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_done_normal">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_done_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_DONE_NORMAL.PNG"/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_edit_normal">
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_edit_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_EDIT_NORMAL.PNG"/>
         <properties/>
@@ -1619,6 +1673,10 @@
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_new_normal">
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_new_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_NEW_NORMAL.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_undo_normal">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_undo_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_UNDO_NORMAL.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.img_actionbar_bg">
@@ -1645,11 +1703,19 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="btn_done_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="btn_edit_normal">
         <properties/>
         <properties/>
       </imagePaths>
       <imagePaths name="btn_new_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_undo_normal">
         <properties/>
         <properties/>
       </imagePaths>
@@ -1776,6 +1842,10 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_s">
         <properties/>
         <properties/>
       </imagePaths>
@@ -1920,6 +1990,9 @@
       <imagePaths name="SplashImageUpsideDown">
         <properties/>
       </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_s">
+        <properties/>
+      </imagePaths>
       <imagePaths name="SplitViewImages.ImgCellBackground_u">
         <properties/>
       </imagePaths>
@@ -2045,6 +2118,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_s">
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgCellBackground_u">
@@ -2174,6 +2250,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImageUpsideDown">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="SplitViewImages.ImgCellBackground_s">
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgCellBackground_u">
@@ -2407,6 +2486,9 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Screens">
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="HomeScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="HomeScreen.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="NewOrEditRecordScreen">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="NewOrEditRecordScreen.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="StartScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartScreen.mscript"/>
