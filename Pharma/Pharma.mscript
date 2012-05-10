@@ -18,6 +18,8 @@ UIProject {
 	ListOfValues vObjLOV = new ListOfValues();
 	Order vObjOrder=new Order();
 	ListItem vObjListItem=new ListItem();
+	PriceList vObjList=new PriceList();
+		
 	/*
 	 * VOUtility
 	 */
@@ -89,7 +91,7 @@ UIProject {
 		vObjUtil.loadCrmEntities();
 		vObjUtil.loadLOV();
 		vObjUtil.loadAccount();
-		
+		vObjUtil.loadList();
 		//configura account
 		accountConfig.fillAccountConfig();
 		//configura contact
@@ -100,11 +102,12 @@ UIProject {
 		config.createSectionTitle("Account");
 		config.createSectionTitle("Contact");
 		
-		//Screens.StartScreen scrStart = new Screens.StartScreen();
+		Screens.StartScreen scrStart = new Screens.StartScreen();
 		scrStart = getNewStartScreen();
-		//scrStart.push(0, false);
-		scrStart.push(Animation.NONE, false);
-		
+		//DataRow row=vObjUtil.getNewOrder("00100988");
+		//Screens.OrderEntry.OrderHeaderScreen scrStart= new Screens.OrderEntry.OrderHeaderScreen();
+		//scrStart.setData(row);
+		scrStart.push(Animation.NONE, false);		
 	}
 
 	callback onStop(){
@@ -131,6 +134,9 @@ UIProject {
    		}
    		scrStart = new Screens.StartScreen();
    		return scrStart;
+   		
+   		
+   		 
    		
 	}
 	

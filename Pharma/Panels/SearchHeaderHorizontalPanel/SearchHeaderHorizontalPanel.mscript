@@ -1,0 +1,17 @@
+HorizontalPanel {
+	SearchField search=new SearchField();
+	callback onCreate(Container c){
+		search.setTextHint("Search");   
+		add(search,"hfill=fill");
+		setBackColor(Colors.Green);
+		setInsets (0, 8, 0, 8);
+		setColumnWidth(0,Sizing.PERCENTS,15);
+		//setRowHeight(0,Sizing.PREFERRED,1);	
+		search.setOnValueChangingPausedDelay(2000);	
+	}
+	
+	callback search onValueChangingPaused ( Control c ) {
+		appLog.log(Log.INFO,"paused");
+	}
+
+}

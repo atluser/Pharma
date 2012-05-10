@@ -127,6 +127,5 @@ TablePanel {
 	void setDetailFormPanel(Panels.Accounts.DetailFormPanel pnl) {
 		pnlDetailForm = pnl;
 	}
-	*/
-	
+	*/		
 }

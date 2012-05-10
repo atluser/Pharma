@@ -4,14 +4,16 @@ TablePanel {
 	 * Attributes
 	 */
 	
-	/* OK 
+	
 	Font fnt01 = new Font(); 
 	Font fnt02 = new Font(); 
 	PictureBox picBox = new PictureBox();
 	Label lbl01 = new Label();
 	Label lbl02 = new Label();
-
-	Panels.Accounts.DetailFormPanel pnlDetailForm = new Panels.Accounts.DetailFormPanel();
+	
+	TablePanel pnl = new TablePanel();
+	
+	/*Panels.Accounts.DetailFormPanel pnlDetailForm = new Panels.Accounts.DetailFormPanel();
 
 	Button btnEmail = new Button();
 	Button btnMap = new Button();
@@ -23,8 +25,7 @@ TablePanel {
 	/*
 	 * Callback methods
 	 */
-	callback onCreate(Container c) {
-		SearchField search=new SearchField(); 
+	callback onCreate(Container c) {		 
 		Label lbl = new Label();
 		lbl.setText("Detail");
 		add(lbl,"halign=center, valign=top");
@@ -54,10 +55,7 @@ TablePanel {
 		setUpButtons();
 				
 		TablePanel pnl = new TablePanel();
-		
-		pnl.add(picBox,"colspan=2");	
-		pnl.add(lbl01,"colspan=3");
-		pnl.startNewRow();
+				
 		pnl.add(pnlDetailForm,"colspan=5");
 		pnl.startNewRow();
 		pnl.add(btnEmail);
@@ -68,13 +66,12 @@ TablePanel {
 		pnl.setRowHeight(0, Sizing.PERCENTS,20);
 		pnl.setRowHeight(1, Sizing.PREFERRED,1);
 		pnl.setRowHeight(2, Sizing.PERCENTS,20);
+		*/
 		
 		add(pnl,"halign=center, valign=top"); 
-		*/
+		
 
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-		setColumnWidth(0, Sizing.PERCENTS, 70); 
-		setRowHeight(0, Sizing.PERCENTS,100);
 		
 	} 
 	
@@ -143,5 +140,14 @@ TablePanel {
 		btnCreateOrder.setText("Nuovo Ordine");	
 	
 	}	 
-	*/  
+	*/
+	
+	void init(PictureBox pic,Label lbl01){
+		pnl.add(picBox,"colspan=2");		
+		pnl.add(lbl01,"colspan=3");
+		pnl.startNewRow();
+		setColumnWidth(0, Sizing.PERCENTS, 70); 
+		setRowHeight(0, Sizing.PERCENTS,100);
+	
+	  }
 }	

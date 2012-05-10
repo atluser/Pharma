@@ -14,7 +14,9 @@ BorderPanel {
 		setEast(pnlDetail);	 	
 	 	
 	 	// Master Panel
-	 	Panels.Account.MasterPanel pnlMaster = new Panels.Account.MasterPanel();
+	 	Panels.MasterPanel pnlMaster = new Panels.MasterPanel();
+	 	StickyTablePanel stk=new StickyTablePanel();
+	 	pnlMaster.init(stk); 
 		/* OK
 		pnlMaster.setDetailFormPanel(pnlDetail.getDetailFormPanel());
 	 	*/

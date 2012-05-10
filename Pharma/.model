@@ -2195,6 +2195,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="HeaderPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="HeaderPanel.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
     </children>
@@ -2207,9 +2210,6 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Account">
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailPanel.mscript"/>
-      </children>
-      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
-        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>

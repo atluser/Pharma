@@ -1,0 +1,48 @@
+HorizontalPanel {
+	Label lblProductCode = new Label();
+	Label lblQty = new Label();
+	Label lblDescription=new Label();
+	Label lblType=new Label();
+	Label lblPrice=new Label();
+	Label lblMinQty=new Label();
+	Label lblImage=new Label();
+	
+	//HorizontalPanel hzPanel=new HorizontalPanel();
+	boolean canvass=false;
+	int ncol=5;
+	callback onCreate(Container c) {		
+		//setBackColor(Colors.White);
+		setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+		setLabel();
+		setPanelHeight(Sizing.PIXELS,40);
+//		startNewRow();
+				
+		add(lblProductCode, "halign=center");		
+		add(lblDescription, "halign=center");
+		add(lblPrice, "halign=center");
+		add(lblQty, "halign=center");				
+		add(lblMinQty, "halign=center");	
+		add(lblType, "halign=center");
+		//hzPanel.add(lblImage, "halign=center");				
+		
+		//add(hzPanel,"hfill=fill,vfill=fill");
+	}
+
+	void setLabel(){
+		lblProductCode.setText("Codice prodotto");					
+		lblDescription.setText("Prodotto");
+		lblPrice.setText("Prezzo");
+		lblQty.setText("Quantità");
+		lblMinQty.setText("Qtà minima");
+		lblType.setText("Tipo");
+		//lblImage.setText("Immagine");		
+	}
+	void setCanvass(){
+		canvass=true;
+		ncol=6;
+		for (int i=0;i<ncol;i++)						
+			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
+		//if(canvass)	add(lblMinQty, "halign=center");
+	}
+}
+

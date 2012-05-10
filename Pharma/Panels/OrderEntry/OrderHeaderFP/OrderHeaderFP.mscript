@@ -1,0 +1,118 @@
+FormPanel {
+		
+	DataRow fpRow=null;
+	
+	Label lblLOrderCode=new Label();
+	Label lblLAccountCode=new Label();
+	Label lblAccountName=new Label();
+	Label lblStatus=new Label();
+	Label lblType=new Label();
+	Label lblOrderDate=new Label();
+	Label lblCanvass=new Label();
+	
+	
+	TextField txtAccountCode =new TextField();
+	TextModel txtMdlAccountCode=new TextModel();		
+	
+	TextField txtAccountName =new TextField();
+	TextModel txtMdlAccountName=new TextModel();
+	
+	TextField txtOrderCode=new TextField();				
+	TextModel txtMdlOrderCode=new TextModel();
+	
+	TextField txtOrderType=new TextField();				
+	TextModel txtMdlOrderType=new TextModel();
+	
+	TextField txtOrderStatus=new TextField();				
+	TextModel txtMdlOrderStatus=new TextModel();
+	
+	DateBox dtOrder=new DateBox();
+	DateModel dtMdlOrder=new DateModel();
+	
+	ComboBox pkCanvass=new ComboBox();
+	//PickerElement pkrEl = new PickerElement();
+	ChoiceModel cmbMdlCanvass=new ChoiceModel();
+	
+					
+	callback onCreate(Container container){			
+		setLabel();
+		setList();
+		
+		add(lblLOrderCode,"halign=right",txtOrderCode,"halign=left,hfill=fill");		
+		add(lblLAccountCode,"halign=right",txtAccountCode,"halign=left,hfill=fill");
+		add(lblAccountName,"halign=right",txtAccountName,"halign=left,hfill=fill");
+		add(lblOrderDate,"halign=right",dtOrder,"halign=left,hfill=fill");
+		add(lblStatus,"halign=right",txtOrderStatus,"halign=left,hfill=fill");
+		add(lblType,"halign=right",txtOrderType,"halign=left,hfill=fill");
+		
+		add(lblCanvass,"halign=right",pkCanvass,"halign=left,hfill=fill");
+		setControlColumnWidth(Sizing.PERCENTS, 50);
+		
+	}
+	void setList(){
+		cmbMdlCanvass.setChoicesAttribute(vObjList.PriceListDescription);
+		cmbMdlCanvass.setChoicesKeyAttribute(vObjList.PriceListCode);
+		cmbMdlCanvass.setRows(vObjList.createQuery());
+		
+		pkCanvass.setDataModel(cmbMdlCanvass);
+//		pkrEl.setText("select one");
+//		pkCanvass.setPlaceHolder(pkrEl);
+	}
+	void setLabel(){
+		lblLAccountCode.setText("Codice cliente");
+		lblLOrderCode.setText("Numero Ordine");
+		lblStatus.setText("Stato");
+		lblType.setText("Tipo");
+		lblOrderDate.setText("Data ordine");
+		lblCanvass.setText("Canvass");	
+		lblAccountName.setText("Cliente");					
+	}
+	
+	void populateData(DataRow row){
+		fpRow=row;		
+		//appLog.log(Log.INFO,"orderHeaderPanel orderCode "+orderObj.OrderCode.getStringValue(fpRow));
+				
+		txtMdlAccountCode.addField(vObjOrder.AccountCode);
+		txtMdlAccountCode.setRow(row);
+		txtAccountCode.setDataModel(txtMdlAccountCode);				
+		txtMdlAccountCode.setEditable(false);
+		
+		
+		txtMdlAccountName.addField(vObjOrder.AccountName);
+		txtMdlAccountName.setRow(row);
+		txtAccountName.setDataModel(txtMdlAccountName);				
+		txtMdlAccountName.setEditable(false);		
+						
+		txtMdlOrderCode.addField(vObjOrder.OrderCode);
+		txtMdlOrderCode.setRow(row);
+		txtOrderCode.setDataModel(txtMdlOrderCode);	
+		txtMdlOrderCode.setEditable(false);
+		
+		txtMdlOrderStatus.addField(vObjOrder.OrderStatus);
+		txtMdlOrderStatus.setRow(row);
+		txtOrderStatus.setDataModel(txtMdlOrderStatus);	
+		txtMdlOrderStatus.setEditable(false);
+		
+		txtMdlOrderType.addField(vObjOrder.OrderType);
+		txtMdlOrderType.setRow(row);
+		txtOrderType.setDataModel(txtMdlOrderType);	
+		txtMdlOrderType.setEditable(false);
+		
+		dtMdlOrder.addField(vObjOrder.OrderDate);
+		dtMdlOrder.setRow(row);
+		dtOrder.setDataModel(dtMdlOrder);			
+		
+		cmbMdlCanvass.addField(vObjOrder.PromotionCode);
+		cmbMdlCanvass.setRow(row);
+	}
+	
+	void save(){
+		//MessageBox msgBox=new MessageBox();
+		cmbMdlCanvass.updateRow();
+		//msgBox.info(1,cmbMdlCanvass.getKeyValue()+"\n"+pkCanvass.getSelectedIndex()+"\n "+cmbMdlCanvass.getSelectedIndex());
+		//orderObj.PromotionCode.setStringValue(cmbMdlCanvass.getKeyValue(),fpRow);		
+		vObjOrder.PromotionCode.setStringValue(""+pkCanvass.getSelectedIndex(),fpRow);
+		fpRow.applyUpdates();		
+	}
+
+}
