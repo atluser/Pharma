@@ -364,18 +364,16 @@ UIObject {
 		dt.applyUpdates();	
 			
 	}
-	/*
-	void insertCanvass(String code,String description,int minQty){
+	*/
+	void insertList(String code,String description,int minQty){
 		
-		DataRow dt = canvassObj.getNewRow();
-		
-		canvassObj.Code.setStringValue(code,dt);
-		canvassObj.Description.setStringValue(description,dt);
-		canvassObj.MinQty.setIntegerValue(Platform.createInteger(minQty),dt);
+		DataRow dt = vObjList.getNewRow();		
+		vObjList.PriceListCode.setStringValue(code,dt);
+		vObjList.PriceListDescription.setStringValue(description,dt);		
 		dt.applyUpdates();
 		
 	}
-	
+	/*
 	void insertCanvassItem(String promotionCode,String productCode, String description,String productName,String  brand,String unitPrice,int minQty,String image){
 		
 		DataRow dt = canvassDetailObj.getNewRow();
