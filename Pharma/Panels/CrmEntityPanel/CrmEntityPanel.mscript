@@ -5,7 +5,8 @@ TablePanel {
 	 */
 	StickyTable stk = new StickyTable();
 	RowSetModel rsm = new RowSetModel();
-	Panels.HeaderPanel pnlHeader = new Panels.HeaderPanel();
+	//Panels.HeaderPanel pnlHeader = new Panels.HeaderPanel();
+	Panels.HeaderPanel pnlHeader;
 	
 	/*
 	 * Callback methods

@@ -34,7 +34,9 @@ TablePanel {
 		add(search,"hfill=fill");
 		startNewRow(); 
 		//add sticky table to screen
-		add(stk, "vfill=fill,hfill=fill");	
+		//add(stk, "hfill=fill,vfill=fill");
+		add(stk, "hfill=fill,valign=top");	
+
 	
 	}
 
@@ -83,8 +85,7 @@ TablePanel {
 	////////////////////////////
 	/*
 	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
-		Panels.SearchHeaderHorizontalPanel header=new Panels.SearchHeaderHorizontalPanel();
-		info.setPanel(header);
+		info.setPanel(new Panels.Accounts.AccountHeaderTableViewPanel());
 	}
 	
 	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){

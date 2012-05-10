@@ -12,6 +12,7 @@ HorizontalPanel {
 	Panels.Order.RootPanel pnlOrderRoot;
 	Panels.ServiceRequest.RootPanel pnlServiceRequestRoot;
 	Panels.Catalog.RootPanel pnlCatalogRoot;
+	Screens.HomeScreen scrHome;
 	
 	Button btnHome = new Button();
 	
@@ -36,6 +37,9 @@ HorizontalPanel {
 	AnchorPosition apCrmMenu = new AnchorPosition();
 	//Action actPoCrmMenuClose = new Action();
 	//Action actPoCrmMenuBack = new Action();	
+	
+	Popups.SectionFormPopup puNew = new Popups.SectionFormPopup();
+	
 
 	/*
 	 * Callback methods
@@ -45,6 +49,7 @@ HorizontalPanel {
 		setUpButtons();	
 		//setUpMenuPopover();
 		setUpCrmMenuPopover(c);
+		setUpPopup();
 		
 		rg.addButton(tbb01);
 		rg.addButton(tbb02);
@@ -128,6 +133,13 @@ HorizontalPanel {
 		
 		logApp.log(Log.INFO, "HeaderPanel - btnNew onClick()");
 		poCrmMenu.dismiss();
+		//void showPopup ( Popup popup , int popupType , int heightType , int height , int widthType , int width , boolean showTitleBar , boolean useDeviceOrientation , Background screenOverlayBackground )
+		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PREFERRED, 0, false, true, Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgRedBackground, 0, 0, 0, 0));
+		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
+		//scrHome.showPopup(puNew,false);
+		
+		Screens.NewOrEditRecordScreen scrNewOrEditRecord = new Screens.NewOrEditRecordScreen();
+		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 		
 	}
 	
@@ -135,6 +147,9 @@ HorizontalPanel {
 		
 		logApp.log(Log.INFO, "HeaderPanel - btnEdit onClick()");
 		poCrmMenu.dismiss();
+		
+		Screens.NewOrEditRecordScreen scrNewOrEditRecord = new Screens.NewOrEditRecordScreen();
+		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 		
 	}	
 	
@@ -156,6 +171,7 @@ HorizontalPanel {
 		
 		logApp.log(Log.INFO, "HeaderPanel - btnMenu onClick()");
 		poCrmMenu.dismiss();
+		//puNew.hide(Popup.POPUP_TYPE_FROM_BOTTOM);
 		//scrHome.showPopover(poMenu, false, apMenu);
 		
 	}
@@ -311,6 +327,27 @@ HorizontalPanel {
 		
 	}	
 	
+	void setUpPopup() {
+		
+		Label lbl = new Label();
+		lbl.setText("*** POPUP ***");
+		//puNew.setTitle("AAA");
+		
+		
+		
+		Panels.EditStickyTablePanel pnl = new Panels.EditStickyTablePanel();
+		DataRow dtRw =  vObjUtil.getNewAccountRow();
+		pnl.init("Account", dtRw);
+		
+		puNew.init(pnl, vObjAccount);
+		
+		//puNew.add(pnl, "halign=center,vfill=fill");
+		//puNew.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgRedBackground, 0, 0, 0, 0));	
+		//puNew.setColumnWidth(0, Sizing.PERCENTS, 60);
+		//puNew.setRowHeight(0, Sizing.PERCENTS, 100);
+	
+	}
+	
 	void setStackPanel(StackPanel stk){
 		stkPnl = stk;	
 	}
@@ -338,6 +375,10 @@ HorizontalPanel {
 	void setCatalogRootPanel(Panels.Catalog.RootPanel catalog){
 		pnlCatalogRoot = catalog;	
 	}	
+	
+	void setHomeScreen(Screens.HomeScreen scr) {
+		scrHome = scr;
+	}
 	
 	void showToolbarButton(int idx) {
 			

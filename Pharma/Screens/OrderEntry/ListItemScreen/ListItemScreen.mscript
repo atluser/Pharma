@@ -1,0 +1,173 @@
+Screen {
+	
+	String promotionCode=null;
+	String orderCode=null;
+	DataRow orderRow=null;
+	
+	//costruisco contenitore item
+	ObjectArray arrObj=new ObjectArray();
+	ScrollableTablePanel cvDtlTP=new ScrollableTablePanel();
+	//Panels.OrderEntry.DetailTP cvDtlTP=new Panels.OrderEntry.DetailTP();	
+	
+//	Panels.OrderEntry.HeaderPanel hp=new Panels.OrderEntry.HeaderPanel(); 
+	Button btnConfirm=new Button();
+	
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
+		//TODO: add code
+	}
+
+	callback onActivate(Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onClose(Container container){
+		//TODO: add code
+	}
+
+	callback onCreate(Container container){	
+		
+		TablePanel pnl = new TablePanel();
+		
+//		pnl.add(hp,"hfill=fill");
+		//pnl.startNewRow();
+		pnl.add(cvDtlTP,"vfill=fill,hfill=fill");
+		pnl.startNewRow();
+		btnConfirm.setText("Conferma");	
+		pnl.add(btnConfirm,"halign=center");
+		
+		pnl.setColumnWidth(0, Sizing.PREFERRED,1);
+		pnl.setRowHeight(0, Sizing.PREFERRED,0);
+		pnl.setRowHeight(1, Sizing.PREFERRED,1);
+		pnl.setRowHeight(2, Sizing.PERCENTS,20);
+		add(pnl,"hfill=fill, vfill=fill");
+			
+		//hp.setContainer((Screen)container);
+		
+		
+		appLog.log(Log.INFO,"CanvassDetail orderCode "+orderCode);
+		setBackColor(Colors.White);
+	
+	
+	}
+
+	callback onDeactivate(Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onInputEvent(Screen screen, InputEvent inputEvent){
+		//TODO: add code
+	}
+
+	callback onMenuDisplay(Screen screen){
+		//TODO: add code
+	}
+
+	callback onOpen(Container container){
+		//TODO: add code
+	}
+
+	callback onOrientationLayoutChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenKeyboardVisibilityChange(Screen screen, boolean boolean_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_, int int_1){
+		//TODO: add code
+	}
+
+	callback onStartOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	
+	callback btnConfirm onClick(Control c){
+		//costruiscoItem
+			createItem(orderCode,arrObj);					
+			/*Screens.OrderEntry.OrderSummaryScreen scr=new Screens.OrderEntry.OrderSummaryScreen();
+		//recupero linea ordine
+			scr.setData(orderRow);
+			scr.push(0,false);*/
+			close();		
+						
+	}
+	
+	
+	//disegno pannello
+	void drowDetailItem(String listCode){
+		Query q=vObjListItem.getList(listCode);
+		DataRowSet rowSet=q.getRowSet();
+		DataRow found=rowSet.first();
+		Panels.OrderEntry.DetailHeaderHPanel header=new Panels.OrderEntry.DetailHeaderHPanel();
+		header.setCanvass();
+		cvDtlTP.setRowHeight(0,Sizing.PIXELS,40);
+		cvDtlTP.add(header,"hfill=fill");
+		cvDtlTP.startNewRow();
+		int i=1;
+		while(found!=null){
+			Panels.OrderEntry.DetailCellHPanel cell=new Panels.OrderEntry.DetailCellHPanel(); 
+			cell.populateData(found);
+			cvDtlTP.add(cell,"hfill=fill");
+			cvDtlTP.startNewRow();
+			arrObj.addItem(cell);
+			cvDtlTP.setRowHeight(i,Sizing.PIXELS,60);
+			found=rowSet.next();
+			i++	;	
+		}		
+	}	
+	
+	//called orderheaderscreem
+	void setOrderRow(DataRow row){
+		orderRow=row;		
+		orderCode=vObjOrder.OrderCode.getStringValue(orderRow);
+		promotionCode=vObjOrder.PromotionCode.getStringValue(orderRow);		
+		appLog.log(Log.INFO,"costruisco canvassDetail "+vObjOrder.PromotionCode.getStringValue(orderRow));
+		drowDetailItem(promotionCode);
+		//cvDtlTP.setQuery(canvassDetailObj.getDetailfromCanvass(orderObj.PromotionCode.getStringValue(orderRow)),canvassDetailObj);
+		//cvDtlTP.setQuery(canvassDetailObj.getDetailfromCanvass(promotionCode),canvassDetailObj);
+	}
+	
+
+	void createItem(String orderCode,ObjectArray arrObj){			
+		//ObjectArray arrObj=cvDtlTP.getCells();			
+		for(int i=0;i<arrObj.length();i++){
+			Panels.OrderEntry.DetailCellHPanel cell=(Panels.OrderEntry.DetailCellHPanel) arrObj.getItem(i);
+			Integer qty=Platform.createInteger(cell.getQuantity());
+			appLog.log(Log.INFO,"quantità selezionata "+qty.toString());			
+			String productCode=cell.getProductCode();			
+			String unitPrice=cell.getUnitPrice();
+			String productName=cell.getProductName();
+			appLog.log(Log.INFO,"valori "+productCode);
+			if(qty.intValue()>0) {
+				appLog.log(Log.INFO,"inserisco "+orderCode);			
+				//vObjUtil.setItem(orderCode, productCode, "", productName,qty,unitPrice);
+			}			
+		}
+	}
+}

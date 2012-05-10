@@ -4,6 +4,7 @@ TablePanel {
 	 * Attributes
 	 */
 	
+
 	
 	Font fnt01 = new Font(); 
 	Font fnt02 = new Font(); 
@@ -149,4 +150,5 @@ TablePanel {
 		setRowHeight(0, Sizing.PERCENTS,100);
 	
 	  }
+
 }	

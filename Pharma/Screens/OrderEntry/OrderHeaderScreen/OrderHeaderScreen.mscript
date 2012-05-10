@@ -1,0 +1,118 @@
+Screen {
+	
+
+	
+	DataRow orderHeaderRow = null;
+//	Panels.OrderEntry.HeaderPanel headerPnl = new Panels.OrderEntry.HeaderPanel(); 
+	Panels.OrderEntry.OrderHeaderFP fp = new Panels.OrderEntry.OrderHeaderFP();
+	Panels.OrderEntry.FooterPanel footPnl = new Panels.OrderEntry.FooterPanel(); 
+	//BackgroundButton btnDetail = new BackgroundButton();
+	Button btnDetail = new Button();
+	
+	
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
+		Styles.FormStyle style = new Styles.FormStyle();
+		styleReceptor.applyVisualStyle(style);
+	}
+
+	callback onActivate(Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onClose(Container container){
+		//TODO: add code
+	}
+
+	callback onCreate(Container container){
+		//headerPnl.setContainer((Screen) container);
+		
+		TablePanel pnl = new TablePanel();
+		
+		//pnl.add(headerPnl,"hfill=fill");
+		//pnl.startNewRow();
+		pnl.add(fp,"halign=center,valign=center");
+		pnl.startNewRow();	
+		btnDetail.setText("Configura");
+		pnl.add(btnDetail,"halign=center");
+		
+		pnl.setColumnWidth(0, Sizing.PERCENTS, 100);
+		pnl.setRowHeight(0, Sizing.PREFERRED, 0);
+		pnl.setRowHeight(1, Sizing.PERCENTS, 60);
+		pnl.setRowHeight(2, Sizing.PERCENTS, 20);
+		add(pnl, "halign=center,vfill=fill");
+		setBackColor(Colors.White);
+		
+		
+
+	}
+
+	callback onDeactivate(Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onInputEvent(Screen screen, InputEvent inputEvent){
+		//TODO: add code
+	}
+
+	callback onMenuDisplay(Screen screen){
+		//TODO: add code
+	}
+
+	callback onOpen(Container container){
+		//TODO: add code
+	}
+
+	callback onOrientationLayoutChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenKeyboardVisibilityChange(Screen screen, boolean boolean_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_, int int_1){
+		//TODO: add code
+	}
+
+	callback onStartOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+	void setData(DataRow row){		
+		orderHeaderRow=row;		
+		fp.populateData(row);
+	}
+
+	callback btnDetail onClick(Control c){
+		ListItemScreen scr=new ListItemScreen();		
+		fp.save();			
+		appLog.log(Log.INFO,"Set order ROW promotioncode "+vObjOrder.PromotionCode.getStringValue(orderHeaderRow));
+		scr.setOrderRow(orderHeaderRow);
+		scr.push();		
+		close();
+	}
+	
+}

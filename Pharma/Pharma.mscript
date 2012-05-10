@@ -103,11 +103,14 @@ UIProject {
 		config.createSectionTitle("Contact");
 		
 		Screens.StartScreen scrStart = new Screens.StartScreen();
-		scrStart = getNewStartScreen();
+		//scrStart = getNewStartScreen();
+		scrStart.push(Animation.NONE, false);
+		//scrStart.push(Animation.NONE, false);
+		scrStart.push(Animation.NONE, false);		
 		//DataRow row=vObjUtil.getNewOrder("00100988");
 		//Screens.OrderEntry.OrderHeaderScreen scrStart= new Screens.OrderEntry.OrderHeaderScreen();
 		//scrStart.setData(row);
-		scrStart.push(Animation.NONE, false);		
+		
 	}
 
 	callback onStop(){
@@ -125,6 +128,7 @@ UIProject {
 	/*
 	 * Custom methods
 	 */
+	 /*
 	Screens.StartScreen getNewStartScreen() {
 		
 		logApp.log(Log.INFO, "Pharma - getNewStartScreen()");
@@ -139,6 +143,6 @@ UIProject {
    		 
    		
 	}
-	
+	*/
 	
 }
