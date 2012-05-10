@@ -1,0 +1,5 @@
+VirtualObject {
+	StringField PriceListCode{return null;}
+	StringField PriceListDescription{return null;}
+
+}
