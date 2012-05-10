@@ -4,6 +4,8 @@ HorizontalPanel {
 	 * Attributes
 	 */
 	int iTmpIdx = 4; 
+	
+	int currentEntity=0; 
 	 
 	StackPanel stkPnl;
 	Panels.Account.RootPanel pnlAccountRoot;
@@ -45,7 +47,7 @@ HorizontalPanel {
 	 * Callback methods
 	 */ 
 	callback onCreate(Container c) {
-		
+				
 		setUpButtons();	
 		//setUpMenuPopover();
 		setUpCrmMenuPopover(c);
@@ -94,7 +96,7 @@ HorizontalPanel {
 	callback rg onToolBarButtonClicked(ToolBar c, int idxClicked, ToolBarButton tbb, boolean isChanged) {
 		
 		logApp.log(Log.INFO, "HeaderPanel - rg onToolBarButtonClicked()");	
-		
+		currentEntity=idxClicked;
 		if (idxClicked == 0) {
 			
 			poCrmMenu.dismiss();
@@ -138,7 +140,21 @@ HorizontalPanel {
 		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
 		//scrHome.showPopup(puNew,false);
 		
-		Screens.NewOrEditRecordScreen scrNewOrEditRecord = new Screens.NewOrEditRecordScreen();
+		//default account
+		String entity="Account";
+		VirtualObject obj=vObjAccount;
+		DataRow row=vObjUtil.getNewAccountRow();
+		switch(currentEntity){
+			case 0:
+				entity="Account";
+				obj=vObjAccount;
+				row=vObjUtil.getNewAccountRow();
+			break;
+		}
+		
+		Screens.NewOrEditRecordScreen scrNewOrEditRecord = new Screens.NewOrEditRecordScreen();		
+		
+		scrNewOrEditRecord.init(entity,row,obj);
 		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 		
 	}

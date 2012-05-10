@@ -148,6 +148,7 @@ TablePanel {
 		*/
 	}
 	
+	
 	/*
 	 * Custom methods
 	 */
@@ -167,6 +168,12 @@ TablePanel {
 		stk.setDataModel(mrsm);						
 		
 		
-	}		
+	}
+	void setRow(DataRow row){
+		//appLog.log(Log.INFO,"cella selezionata ricarico i dati nuovi");
+		currentRow=row;
+		stk.reload();
+		//init("Account",row);
+	}
 	
 }

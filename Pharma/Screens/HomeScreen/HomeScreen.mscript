@@ -67,6 +67,8 @@ Screen {
 		mn.add(actExit);
 		setMenu(mn);
 		
+		setBackColor(Colors.White);
+		
 	}
 
 	callback onDeactivate(Container container){

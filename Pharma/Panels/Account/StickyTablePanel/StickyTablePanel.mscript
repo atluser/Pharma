@@ -6,9 +6,9 @@ TablePanel {
 	StickyTable stk = new StickyTable();
 	RowSetModel rsm = new RowSetModel();
 	
-	/*OK
-	Panels.Accounts.DetailFormPanel pnlDetailForm;
-	*/
+	
+	Panels.DetailStickyTablePanel pnlDetailForm;
+	
 	
 	/*
 	 * Callback methods
@@ -75,9 +75,9 @@ TablePanel {
 	}		
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
-		/*
+		
 		pnlDetailForm.setRow(rsm.getRow());
-		*/
+		
 	}
 		
 	////////////////////////////
@@ -124,9 +124,9 @@ TablePanel {
 	 * Custom methods
 	 */
 	 
-	/* OK 
-	void setDetailFormPanel(Panels.Accounts.DetailFormPanel pnl) {
+	 
+	void setDetailPanel(Panels.DetailStickyTablePanel pnl) {
 		pnlDetailForm = pnl;
 	}
-	*/		
+	
 }

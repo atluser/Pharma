@@ -64,6 +64,7 @@
       <images name="btn_menu_normal"/>
       <images name="btn_new_normal"/>
       <images name="btn_undo_normal"/>
+      <images name="DettaglioCliente"/>
       <images name="img_actionbar_bg"/>
       <images name="img_logo_atlantic"/>
       <images name="img_logo_vodafone"/>
@@ -889,6 +890,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="DettaglioCliente">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app_orig.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP_ORIG.PNG"/>
@@ -1102,6 +1109,12 @@
       <imagePaths name="SplitViewImages.ImgMasterBackground_u">
         <properties/>
         <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Pictures/Vodafone/clienti.PNG" path="C:/USERS/MCOLOMBO.ATL01/PICTURES/VODAFONE/CLIENTI.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -1559,6 +1572,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="DettaglioCliente">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP.PNG"/>
         <properties/>
@@ -1700,6 +1717,10 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.DettaglioCliente">
         <properties/>
         <properties/>
       </imagePaths>

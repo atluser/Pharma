@@ -5,7 +5,7 @@ Screen {
 	Button btnUndo = new Button();
 	Button btnMenu = new Button();
 	
-	Panels.EditStickyTablePanel pnl = new Panels.EditStickyTablePanel();
+	Panels.EditStickyTablePanel stk = new Panels.EditStickyTablePanel();
 	
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
 		//TODO: add code
@@ -46,12 +46,12 @@ Screen {
 		pnlHeader.setColumnWidth(4, Sizing.PREFERRED,0);
 		
 		// Body Panel
-		
-		
+		TablePanel tblPnl=new TablePanel();
+		tblPnl.add(stk,"valign=center");
 		// Root Panel
 		BorderPanel brdPnlRoot = new BorderPanel();
 		brdPnlRoot.setNorth(pnlHeader);
-		//brdPnlRoot.setCenter(stkPnlRoot);
+		brdPnlRoot.setCenter(tblPnl);
 		
 		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));		
 		add(brdPnlRoot, "hfill=fill,vfill=fill");		
@@ -145,5 +145,8 @@ Screen {
 		btnMenu.setSelectedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
 	
 	}
-
+	
+	void init(String entity,DataRow row, VirtualObject obj){
+		stk.init(entity,row);
+	}
 }

@@ -10,6 +10,7 @@ TablePanel {
 	/*
 	 * Callback methods
 	 */
+	 TablePanel stk;
 	callback onCreate(Container c) {								
 		
 		//setBackground(Background.createVerticalGradientRectangleBackground (Color.create(255,255,255), Color.create(255,255,255)));
@@ -21,8 +22,9 @@ TablePanel {
 	}
 	
 	void init(TablePanel tp){
-		
+		//stk=tp;
 		add(tp,"valign=top");
+		appLog.log(Log.INFO,"aggancio sticky");
 	}
 	
 	/*

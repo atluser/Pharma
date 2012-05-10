@@ -8,15 +8,23 @@ BorderPanel {
 	 * Callback methods 
 	 */
 	callback onCreate(Container c) {
-			
+		// Master Panel		
+		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();
+	 	StickyTablePanel stk=new StickyTablePanel();	
 		//Detail Panel
 	 	Panels.Account.DetailPanel pnlDetail = new Panels.Account.DetailPanel();
+	 	
+	 	//set oggetti 
+	 	pnlDetail.picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
+	 	
+	 	DataRow firstRow=vObjAccount.createQuery().getRowSet().first();
+		pnlDetail.stk.init("Account",firstRow);
+		
+		//bind sticky and detail
+		stk.setDetailPanel(pnlDetail.stk);
+		
 		setEast(pnlDetail);	 	
 	 	
-	 	// Master Panel
-
-	 	Panels.MasterPanel pnlMaster = new Panels.MasterPanel();
-	 	StickyTablePanel stk=new StickyTablePanel();
 	 	pnlMaster.init(stk); 
 
 		/* OK

@@ -7,19 +7,19 @@ UIObject {
 		row=cfgSections.getNewRow();
 		cfgSections.Entity.setStringValue("Account",row);
 		cfgSections.Section.setIntegerValue(Platform.createInteger(0),row);
-		cfgSections.Title.setStringValue("Info1",row);		
+		cfgSections.Title.setStringValue("Anagrafica",row);		
 		row.applyUpdates();
 		
 		row=cfgSections.getNewRow();
 		cfgSections.Entity.setStringValue("Account",row);
 		cfgSections.Section.setIntegerValue(Platform.createInteger(1),row);
-		cfgSections.Title.setStringValue("Info2",row);		
+		cfgSections.Title.setStringValue("Sede principale",row);		
 		row.applyUpdates();
 		
 		row=cfgSections.getNewRow();
 		cfgSections.Entity.setStringValue("Account",row);
 		cfgSections.Section.setIntegerValue(Platform.createInteger(2),row);
-		cfgSections.Title.setStringValue("Info3",row);		
+		cfgSections.Title.setStringValue("Comunicazioni",row);		
 		row.applyUpdates();
 			
 	//--------------------------------------------------
