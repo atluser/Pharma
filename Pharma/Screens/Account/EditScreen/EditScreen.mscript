@@ -1,0 +1,168 @@
+Screen {
+	
+	Button btnHome = new Button();
+	Button btnDone = new Button();
+	Button btnUndo = new Button();
+	Button btnMenu = new Button();
+	
+	Panels.EditStickyTablePanel stk = new Panels.EditStickyTablePanel();
+	StickyTable originListStk;
+	StickyTable detailStk;
+	VirtualObject dataObject;
+	
+	Query q;//=null;
+	
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
+		//TODO: add code
+	}
+
+	callback onActivate(Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onClose(Container container){
+		//TODO: add code
+	}
+
+	callback onCreate(Container container){
+		
+		setUpButtons();
+		
+		// Header Panel
+		HorizontalPanel pnlHeader = new HorizontalPanel();
+		pnlHeader.add(btnHome);
+		pnlHeader.add(new Separator(), "");
+		pnlHeader.add(btnDone);
+		pnlHeader.add(btnUndo);
+		pnlHeader.add(btnMenu);
+		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		pnlHeader.setColumnWidth(0, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(1, Sizing.PREFERRED,1);
+		pnlHeader.setColumnWidth(2, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(4, Sizing.PREFERRED,0);
+		
+		// Body Panel
+		TablePanel tblPnl=new TablePanel();
+		tblPnl.add(stk,"valign=center");
+		// Root Panel
+		BorderPanel brdPnlRoot = new BorderPanel();
+		brdPnlRoot.setNorth(pnlHeader);
+		brdPnlRoot.setCenter(tblPnl);
+		
+		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));		
+		add(brdPnlRoot, "hfill=fill,vfill=fill");		
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		
+	}
+
+	callback onDeactivate(Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onInputEvent(Screen screen, InputEvent inputEvent){
+		//TODO: add code
+	}
+
+	callback onMenuDisplay(Screen screen){
+		//TODO: add code
+	}
+
+	callback onOpen(Container container){
+		//TODO: add code
+	}
+
+	callback onOrientationLayoutChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenKeyboardVisibilityChange(Screen screen, boolean boolean_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_, int int_1){
+		//TODO: add code
+	}
+
+	callback onStartOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback btnHome onClick(Control c) {
+		close(Animation.PUSH_FROM_TOP);
+	}
+	
+	callback btnDone onClick(Control c) {
+		stk.save(dataObject);
+		RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
+		rsm.setRows(q);
+		originListStk.reload();
+		detailStk.reload();
+		close(Animation.PUSH_FROM_TOP);
+	}
+	
+	callback btnUndo onClick(Control c) {
+		stk.currentRow.cancelUpdates();
+		close(Animation.PUSH_FROM_TOP);
+	}
+	
+	callback btnMenu onClick(Control c) {
+		close(Animation.PUSH_FROM_TOP);
+	}			
+
+	/*
+	 * Custom methods
+	 */
+	void setUpButtons() {
+				
+		btnHome.setImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnHome.setFocusedImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnHome.setSelectedImage(Images.VodafoneImages.img_logo_vodafone.getImage());	
+
+		btnDone.setImage(Images.VodafoneImages.btn_done_normal.getImage());
+		btnDone.setFocusedImage(Images.VodafoneImages.btn_done_normal.getImage());
+		btnDone.setSelectedImage(Images.VodafoneImages.btn_done_normal.getImage());
+		
+		btnUndo.setImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		btnUndo.setFocusedImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		btnUndo.setSelectedImage(Images.VodafoneImages.btn_undo_normal.getImage());
+
+		btnMenu.setImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+		btnMenu.setFocusedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+		btnMenu.setSelectedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+	
+	}
+	
+	void init(String entity,DataRow row, VirtualObject obj,StickyTable originStk,StickyTable detail,Query localQ){
+		dataObject=obj;
+		q=localQ;
+		//sticky table origine dati
+		originListStk=originStk;
+		detailStk=detail;
+		stk.init(entity,row);
+	}	
+}
