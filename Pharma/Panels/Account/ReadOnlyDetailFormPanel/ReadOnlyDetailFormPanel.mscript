@@ -1,2 +1,109 @@
 ScrollableTablePanel {
+
+	/*
+	 * Attributes
+	 */
+	Font fnt01 = new Font(); 
+	PictureBox picBox = new PictureBox();
+	Label lbl01 = new Label();
+	FormPanel pnlForm = new FormPanel();
+	
+	// Anagrafica
+	TextModel txtMdlCode = new TextModel();
+	TextField txtFldCode = new TextField(); 
+	 
+	TextModel txtMdlName = new TextModel();
+	TextField txtFldName = new TextField();
+	 
+	TextModel txtMdlType = new TextModel();
+	TextField txtFldType = new TextField();
+	
+	TextModel txtMdlCategory = new TextModel();
+	TextField txtFldCategory = new TextField();
+	 
+	TextModel txtMdlStatus = new TextModel();
+	TextField txtFldStatus = new TextField(); 
+
+	// Sede e comunicazioni	 
+	TextModel txtMdlCountry = new TextModel();
+	TextField txtFldCountry = new TextField();
+		
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {
+
+		setUpHeader();
+		startNewRow();
+		setUpBody();
+		
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
+		setColumnWidth(0, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);
+		
+	}	
+	
+	/*
+	 * Custom methods
+	 */
+	void setUpHeader() {
+		
+		fnt01.setFamily("Arial");
+		fnt01.setSize(24);
+		fnt01.setBold();
+	
+		lbl01.setText("Dettaglio Clente");
+		lbl01.setFont(fnt01);
+		lbl01.setForeColor(Color.create(189,0,0));
+
+		picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
+		
+		//add(picBox);
+		//add(lbl01);
+	
+	}
+	
+	void setUpBody() {
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(16);
+		fnt.setBold();
+		
+		Label lblId = new Label();
+		lblId.setText("Id");
+		lblId.setFont(fnt);
+		lblId.setForeColor(Color.create(189,0,0));
+		pnlForm.add(lblId, "halign=right", txtFldCode, "halign=left,hfill=fill");
+		
+		Label lblName = new Label();
+		lblName.setText("Name");
+		lblName.setFont(fnt);
+		lblName.setForeColor(Color.create(189,0,0));		
+		pnlForm.add(lblName, "halign=right", txtFldName, "halign=left,hfill=fill");
+		
+		Label lblType = new Label();
+		lblType.setText("Type");
+		lblType.setFont(fnt);
+		lblType.setForeColor(Color.create(189,0,0));		
+		pnlForm.add(lblType, "halign=right", txtFldType, "halign=left,hfill=fill");
+		
+		Label lblReferenceName = new Label();
+		lblReferenceName.setText("Ref. Name");
+		lblReferenceName.setFont(fnt);
+		lblReferenceName.setForeColor(Color.create(189,0,0));		
+		pnlForm.add(lblReferenceName, "halign=right", txtFldCategory, "halign=left,hfill=fill");
+	
+		pnlForm.setLabelColumnWidth(Sizing.PREFERRED, 0);
+		pnlForm.setControlColumnWidth(Sizing.PERCENTS, 100);
+		add(pnlForm);
+		
+	}
+	
+	void setUpFooter() {
+		
+	
+	}
+
 }

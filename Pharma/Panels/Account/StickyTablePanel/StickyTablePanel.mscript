@@ -30,9 +30,10 @@ TablePanel {
 		stk.setDataModel(rsm);
 		
 		//add header search
-		Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();
-		add(search,"hfill=fill");
-		startNewRow(); 
+		//Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();
+		//add(search,"hfill=fill");
+		//startNewRow(); 
+		
 		//add sticky table to screen
 		//add(stk, "hfill=fill,vfill=fill");
 		add(stk, "hfill=fill,valign=top");	

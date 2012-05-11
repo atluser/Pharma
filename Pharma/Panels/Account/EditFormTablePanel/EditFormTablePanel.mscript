@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 TablePanel {
 	
 	DataRow currentRow;
@@ -155,3 +156,7 @@ TablePanel {
 	
 }
 
+=======
+TablePanel {
+}
+>>>>>>> refs/remotes/origin/santi
