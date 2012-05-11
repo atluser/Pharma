@@ -12,7 +12,7 @@ TablePanel {
 	Label lbl01 = new Label();
 	Label lbl02 = new Label();
 	
-	DetailStickyTablePanel stk = new DetailStickyTablePanel();	
+	//DetailStickyTablePanel stk = new DetailStickyTablePanel();	
 
 	
 	/*
@@ -42,10 +42,10 @@ TablePanel {
 		lbl02.setForeColor(Colors.Black);
 		
 		TablePanel pnl = new TablePanel();		
-		pnl.add(picBox,"colspan=2");	
-		pnl.add(lbl01,"colspan=3");		
+		//pnl.add(picBox);	
+		//pnl.add(lbl01);		
 		pnl.startNewRow();
-		pnl.add(stk,"colspan=5");
+		//pnl.add(stk,"colspan=5");
 		add(pnl,"halign=center");
 		
 		//picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());

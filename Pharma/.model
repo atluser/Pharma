@@ -2651,6 +2651,11 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="StartScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartScreen.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Account">
+      <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="EditScreen">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditScreen.mscript"/>
+      </children>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="OrderEntry">
       <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="ListItemScreen">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListItemScreen.mscript"/>

@@ -146,19 +146,19 @@ HorizontalPanel {
 		VirtualObject obj=vObjAccount;
 		DataRow row=vObjUtil.getNewAccountRow();
 		StickyTable originStk=pnlAccountRoot.getStickyTable();
-		StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
+		//StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
 		switch(currentEntity){
 			case 0:
 				entity="Account";
 				obj=vObjAccount;
 				row=vObjUtil.getNewAccountRow();
 				originStk=pnlAccountRoot.getStickyTable();
-				detailStk=pnlAccountRoot.getDetailStickyTable();
+				//detailStk=pnlAccountRoot.getDetailStickyTable();
 			break;
 		}
 		
 		Screens.NewOrEditRecordScreen scrNewOrEditRecord = new Screens.NewOrEditRecordScreen();
-		scrNewOrEditRecord.init(entity,row,obj,originStk,detailStk);
+		//scrNewOrEditRecord.init(entity,row,obj,originStk,detailStk);
 		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 	}
 	
@@ -174,19 +174,19 @@ HorizontalPanel {
 		VirtualObject obj=vObjAccount;
 		DataRow row=pnlAccountRoot.getCurrentRow();
 		StickyTable originStk=pnlAccountRoot.getStickyTable();;
-		StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
+		//StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
 		switch(currentEntity){
 			case 0:
 				entity="Account";
 				obj=vObjAccount;
 				row=pnlAccountRoot.getCurrentRow();
 				originStk=pnlAccountRoot.getStickyTable();
-				detailStk=pnlAccountRoot.getDetailStickyTable();
+		//		detailStk=pnlAccountRoot.getDetailStickyTable();
 			break;
 		}
 		
 		Screens.NewOrEditRecordScreen scrNewOrEditRecord = new Screens.NewOrEditRecordScreen();
-		scrNewOrEditRecord.init(entity,row,obj,originStk,detailStk);
+		//scrNewOrEditRecord.init(entity,row,obj,originStk,detailStk);
 		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 		
 		
