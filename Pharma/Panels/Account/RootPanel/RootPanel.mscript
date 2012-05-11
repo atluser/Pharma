@@ -8,13 +8,23 @@ BorderPanel {
 	 * Callback methods 
 	 */
 	StickyTablePanel stk=new StickyTablePanel();
+	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Account.ReadOnlyDetailFormPanel();
+	
 	//Detail Panel
-	Panels.Account.DetailPanel pnlDetail = new Panels.Account.DetailPanel();
+	//Panels.Account.DetailPanel pnlDetail = new Panels.Account.DetailPanel();
+	
+	//Panels.DetailPanel pnlDetail = new Panels.DetailPanel(); 
+	 
 	 	
 	callback onCreate(Container c) {
 		
 		// Master Panel		
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
+		pnlMaster.setContentPanel(stk);
+		
+		// Detail Panel
+		Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
+		pnlDetail.setContentPanel(pnlDetailForm);
 		
 	 	//set oggetti 
 	 	//pnlDetail.picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
@@ -25,14 +35,15 @@ BorderPanel {
 		//bind sticky and detail
 		//stk.setDetailPanel(pnlDetail.stk);		
 		
-		setEast(pnlDetail);	 	
+		//setEast(pnlDetail);	 	
 	 	
-	 	pnlMaster.init(stk); 
+	 	 
 
 		/* OK
 		pnlMaster.setDetailFormPanel(pnlDetail.getDetailFormPanel());
 	 	*/
 	 	setWest(pnlMaster);
+	 	setEast(pnlDetail);
 	 	
 	}
 	/*

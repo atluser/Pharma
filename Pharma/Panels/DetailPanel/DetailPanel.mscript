@@ -1,0 +1,28 @@
+TablePanel {
+	
+	/*
+	 * Attributes
+	 */
+		
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {		 
+					
+		setInsets(8,8,8,8);
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+		setColumnWidth(0, Sizing.PERCENTS, 70); 
+		//setRowHeight(0, Sizing.PERCENTS, 100);
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		
+	} 
+		
+	/*
+	 * Custom methods
+	 */	
+	void setContentPanel(ScrollableTablePanel pnl) {
+		//add(pnl,"halign=center, valign=top");
+		add(pnl, "hfill=fill,vfill=fill");
+	}
+	
+}

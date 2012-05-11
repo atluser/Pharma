@@ -13,18 +13,20 @@ TablePanel {
 	 TablePanel stk;
 	callback onCreate(Container c) {								
 		
-		//setBackground(Background.createVerticalGradientRectangleBackground (Color.create(255,255,255), Color.create(255,255,255)));
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
 		setColumnWidth(0, Sizing.PERCENTS, 30);
-		setRowHeight(0, Sizing.PERCENTS, 100);
-		//setRowHeight(0, Sizing.PREFERRED, 0); 	
+		//setRowHeight(0, Sizing.PERCENTS, 100);
+		setRowHeight(0, Sizing.PREFERRED, 1);	
 	 
 	}
 	
-	void init(TablePanel tp){
-		//stk=tp;
-		add(tp,"valign=top");
+	void setContentPanel(TablePanel pnl){
+		/*
+		add(pnl, "valign=top");
 		appLog.log(Log.INFO,"aggancio sticky");
+		*/
+		add(pnl, "hfill=fill,vfill=fill");
+		
 	}
 	
 	/*
