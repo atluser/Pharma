@@ -2466,6 +2466,8 @@
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:ColorsNode" name="Colors">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Colors.mscript" hidden="true"/>
+    <colors name="BackgroundGray" color="-2171170"/>
+    <colors name="Color" color="-8355712"/>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:StylesNode" name="Styles">
     <children xsi:type="com.vaultus.studio.ecore.studio:StyleNode" name="FormStyle">
@@ -2531,9 +2533,6 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
     </children>
-    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
-      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
-    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ScreenHeaderHorizontalPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ScreenHeaderHorizontalPanel.mscript"/>
     </children>
@@ -2544,11 +2543,11 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartPanel.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Account">
-      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
-        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailPanel.mscript"/>
-      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="EditFormTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditFormTablePanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ReadOnlyDetailFormPanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ReadOnlyDetailFormPanel.mscript"/>
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>

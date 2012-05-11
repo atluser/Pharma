@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Screen {
 	
 	Button btnHome = new Button();
@@ -6,7 +5,7 @@ Screen {
 	Button btnUndo = new Button();
 	Button btnMenu = new Button();
 	
-	Panels.EditStickyTablePanel stk = new Panels.EditStickyTablePanel();
+	Panels.Account.EditFormTablePanel fp = new Panels.Account.EditFormTablePanel();
 	StickyTable originListStk;
 	StickyTable detailStk;
 	VirtualObject dataObject;
@@ -14,7 +13,8 @@ Screen {
 	Query q;//=null;
 	
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
-		//TODO: add code
+		Styles.FormStyle style = new Styles.FormStyle();
+		styleReceptor.applyVisualStyle(style);
 	}
 
 	callback onActivate(Container container){
@@ -45,24 +45,30 @@ Screen {
 		pnlHeader.add(btnUndo);
 		pnlHeader.add(btnMenu);
 		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+
 		pnlHeader.setColumnWidth(0, Sizing.PREFERRED,0);
 		pnlHeader.setColumnWidth(1, Sizing.PREFERRED,1);
 		pnlHeader.setColumnWidth(2, Sizing.PREFERRED,0);
 		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,0);
 		pnlHeader.setColumnWidth(4, Sizing.PREFERRED,0);
 		
-		// Body Panel
-		TablePanel tblPnl=new TablePanel();
-		tblPnl.add(stk,"valign=center");
-		// Root Panel
-		BorderPanel brdPnlRoot = new BorderPanel();
-		brdPnlRoot.setNorth(pnlHeader);
-		brdPnlRoot.setCenter(tblPnl);
+		/*pnlHeader.setColumnWidth(0, Sizing.PERCENTS,4);
+		pnlHeader.setColumnWidth(1, Sizing.PERCENTS,70);
+		pnlHeader.setColumnWidth(2, Sizing.PERCENTS,20);
+		pnlHeader.setColumnWidth(3, Sizing.PERCENTS,3);
+		pnlHeader.setColumnWidth(3, Sizing.PERCENTS,3);*/
 		
-		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));		
-		add(brdPnlRoot, "hfill=fill,vfill=fill");		
+		TablePanel pnl = new TablePanel();
+		
+		pnl.add(pnlHeader,"hfill=fill");
+		pnl.setColumnWidth(0,Sizing.PERCENTS,100);
+		pnl.startNewRow();
+		pnl.add(fp,"halign=center,valign=center");
+		
+		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));						
 		setRowHeight(0, Sizing.PREFERRED, 1);
 		
+		add(pnl,"halign=center,vfill=fill");
 	}
 
 	callback onDeactivate(Container container){
@@ -117,7 +123,7 @@ Screen {
 		close(Animation.PUSH_FROM_TOP);
 	}
 	
-	callback btnDone onClick(Control c) {
+	/*callback btnDone onClick(Control c) {
 		stk.save(dataObject);
 		RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
 		rsm.setRows(q);
@@ -129,7 +135,7 @@ Screen {
 	callback btnUndo onClick(Control c) {
 		stk.currentRow.cancelUpdates();
 		close(Animation.PUSH_FROM_TOP);
-	}
+	}*/
 	
 	callback btnMenu onClick(Control c) {
 		close(Animation.PUSH_FROM_TOP);
@@ -158,89 +164,13 @@ Screen {
 	
 	}
 	
-	void init(String entity,DataRow row, VirtualObject obj,StickyTable originStk,StickyTable detail,Query localQ){
+/*	void init(String entity,DataRow row, VirtualObject obj,StickyTable originStk,StickyTable detail,Query localQ){
 		dataObject=obj;
 		q=localQ;
 		//sticky table origine dati
 		originListStk=originStk;
 		detailStk=detail;
 		stk.init(entity,row);
-	}	
+	}
+	*/	
 }
-=======
-Screen {
-	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
-		//TODO: add code
-	}
-
-	callback onActivate(Container container){
-		//TODO: add code
-	}
-
-	callback onBeginChangeFromFullScreen(Screen screen, Container container){
-		//TODO: add code
-	}
-
-	callback onBeginChangeToFullScreen(Screen screen, Container container){
-		//TODO: add code
-	}
-
-	callback onClose(Container container){
-		//TODO: add code
-	}
-
-	callback onCreate(Container container){
-		//TODO: add code
-	}
-
-	callback onDeactivate(Container container){
-		//TODO: add code
-	}
-
-	callback onEndChangeFromFullScreen(Screen screen, Container container){
-		//TODO: add code
-	}
-
-	callback onEndChangeToFullScreen(Screen screen, Container container){
-		//TODO: add code
-	}
-
-	callback onEndOrientationChange(Screen screen, int int_){
-		//TODO: add code
-	}
-
-	callback onInputEvent(Screen screen, InputEvent inputEvent){
-		//TODO: add code
-	}
-
-	callback onMenuDisplay(Screen screen){
-		//TODO: add code
-	}
-
-	callback onOpen(Container container){
-		//TODO: add code
-	}
-
-	callback onOrientationLayoutChange(Screen screen, int int_){
-		//TODO: add code
-	}
-
-	callback onScreenKeyboardVisibilityChange(Screen screen, boolean boolean_){
-		//TODO: add code
-	}
-
-	callback onScreenOrientationChange(Screen screen, int int_){
-		//TODO: add code
-	}
-
-	callback onScreenOrientationChange(Screen screen, int int_, int int_1){
-		//TODO: add code
-	}
-
-	callback onStartOrientationChange(Screen screen, int int_){
-		//TODO: add code
-	}
-
-
-}
->>>>>>> refs/remotes/origin/santi

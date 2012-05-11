@@ -157,7 +157,7 @@ HorizontalPanel {
 			break;
 		}
 		
-		Screens.NewOrEditRecordScreen scrNewOrEditRecord = new Screens.NewOrEditRecordScreen();
+		Screens.Account.EditScreen scrNewOrEditRecord = new Screens.Account.EditScreen();
 		//scrNewOrEditRecord.init(entity,row,obj,originStk,detailStk);
 		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 	}
@@ -185,7 +185,7 @@ HorizontalPanel {
 			break;
 		}
 		
-		Screens.NewOrEditRecordScreen scrNewOrEditRecord = new Screens.NewOrEditRecordScreen();
+		Screens.Account.EditScreen scrNewOrEditRecord = new Screens.Account.EditScreen();
 		//scrNewOrEditRecord.init(entity,row,obj,originStk,detailStk);
 		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 		

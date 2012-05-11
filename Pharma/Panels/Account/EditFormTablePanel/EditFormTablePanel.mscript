@@ -1,0 +1,157 @@
+TablePanel {
+	
+	DataRow currentRow;
+	
+	Label lblCode=new Label();
+	Label lblName=new Label();
+	Label lblType=new Label();
+	Label lblCategory=new Label();
+	Label lblStatus=new Label();
+	Label lblAddress=new Label();
+	Label lblCity=new Label();
+	Label lblCap=new Label();
+	Label lblProvince=new Label();
+	Label lblCountry=new Label();
+	
+	Label txtCode=new Label();
+	TextModel mdlCode =new TextModel();
+	
+	TextField txtName=new TextField();
+	TextModel mdlName =new TextModel();
+	
+	Label txtType=new Label();
+	TextModel mdlType =new TextModel();
+	
+	TextField txtCategory=new TextField();
+	TextModel mdlCategory=new TextModel();
+	
+	Label txtStatus=new Label();
+	TextModel mdlStatus=new TextModel();
+
+	TextField txtStreetAddress=new TextField();
+	TextModel mdlStreetAddress=new TextModel();
+		
+	TextField txtCity=new TextField();
+	TextModel mdlCity=new TextModel();
+	
+	TextField txtCap=new TextField();
+	TextModel mdlCap=new TextModel();
+	
+	ComboBox txtProvince=new ComboBox();
+	ChoiceModel mdlProvince=new ChoiceModel();
+	
+	ComboBox txtCountry=new ComboBox();
+	ChoiceModel mdlCountry=new ChoiceModel();
+	
+	FormPanel anagraficaFP=new FormPanel();
+	TablePanel addressTP=new TablePanel();
+	
+	callback onCreate(Container c){		
+		VerticalPanel vp=new VerticalPanel();
+		//Separator separator=new Separator();
+		//separator.setHeight(Sizing.PERCENTS,3);
+		setLabel();
+		//sezione anagrafica		
+		setInsets(8,8,8,8);						
+		Label lblTitle1=new Label();
+		lblTitle1.setText("Dati Anagrafici");
+		add(lblTitle1,"halign=center");
+		startNewRow();//1
+		setAnagraficaFormPanel();		
+		//add in table panel
+		add(anagraficaFP,"halign=center,hfill=fill");		
+		//setRowHeight(3,Sizing.PREFERRED,3);		
+		
+		//sezione indirizzo
+		startNewRow();//2
+		add(new Separator(),"");
+		setRowHeight(2,Sizing.PERCENTS,3);
+		startNewRow();//3
+		Label lblTitle2=new Label();
+		lblTitle2.setText("Sede e comunicazioni");
+		add(lblTitle2,"halign=center");
+		startNewRow();//4
+		setAddressTablePanel();
+		add(addressTP,"halign=center,hfill=fill");		
+		//setRowHeight(3,Sizing.PREFERRED,6);		
+		setColumnWidth(0,Sizing.PERCENTS,40);
+	}
+	
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
+		Styles.FormStyle style = new Styles.FormStyle();
+		styleReceptor.applyVisualStyle(style);
+	}
+	
+	
+	void setLabel(){
+		lblCode.setText("Codice");
+		lblName.setText("Nome");
+		lblName.setForeColor(Color.create(189,0,0));
+		lblType.setText("Tipo");
+		lblCategory.setText("Categoria");
+		lblStatus.setText("Stato");
+		lblAddress.setText("Indirizzo");
+		txtCity.setTextHint("Città");
+		lblCountry.setText("Paese");
+		lblProvince.setText("Provincia");
+		txtCap.setTextHint("CAP");
+	}
+	
+	void setModel(){
+		mdlCode.addField(vObjAccount.AccountCode);
+		mdlName.addField(vObjAccount.AccountName);
+		mdlType.addField(vObjAccount.AccountType);
+		mdlCategory.addField(vObjAccount.AccountCategory);
+		mdlStatus.addField(vObjAccount.AccountStatus);
+		mdlStreetAddress.addField(vObjAccount.AccountStreetAddress);
+		
+		txtCode.setDataModel(mdlCode);
+		txtName.setDataModel(mdlName);
+		txtType.setDataModel(mdlType);
+		txtCategory.setDataModel(mdlCategory);
+		txtStatus.setDataModel(mdlStatus);
+		txtStreetAddress.setDataModel(mdlStreetAddress);
+		txtCity.setDataModel(mdlCity);
+	
+	}
+	void setAnagraficaFormPanel(){ 
+		anagraficaFP.add(lblCode,"halign=right",txtCode,"halign=right,hfill=fill");
+		anagraficaFP.add(lblName,"halign=right",txtName,"halign=right,hfill=fill");
+		anagraficaFP.add(lblType,"halign=right",txtType,"halign=right,hfill=fill");
+		anagraficaFP.add(lblCategory,"halign=right",txtCategory,"halign=right,hfill=fill");
+		anagraficaFP.add(lblStatus,"halign=right",txtStatus,"halign=right,hfill=fill");
+		//anagraficaFP.setControlColumnWidth(Sizing.PERCENTS, 30);
+		anagraficaFP.setControlColumnWidth(Sizing.PREFERRED, 1);
+		
+		anagraficaFP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray)); 
+	}
+	
+	void setAddressTablePanel(){
+		addressTP.add(lblAddress,"halign=left");
+		addressTP.add(txtStreetAddress,"hfill=fill");
+		addressTP.startNewRow();
+		
+		//horizontal Panel
+		HorizontalPanel hz=new HorizontalPanel();
+		hz.add(txtCity,"hfill=fill");		
+		hz.add(txtCap,"hfill=fill");		
+		hz.add(txtProvince,"hfill=fill");
+		hz.setColumnWidth(0,Sizing.PREFERRED,2);
+		hz.setColumnWidth(1,Sizing.PREFERRED,1);
+		hz.setColumnWidth(2,Sizing.PREFERRED,1);
+		addressTP.add(hz,"colspan=2,hfill=fill");	
+		addressTP.startNewRow();
+		addressTP.add(lblCountry,"halign=left");
+		addressTP.add(txtCountry,"hfill=fill");
+		
+		addressTP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
+	}
+	
+	void setRow(DataRow row){
+		mdlCode.setRow(row);
+		mdlName.setRow(row);
+		mdlType.setRow(row);		
+	}
+	
+}
+

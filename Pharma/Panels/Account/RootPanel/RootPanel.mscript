@@ -9,7 +9,7 @@ BorderPanel {
 	 */
 	StickyTablePanel stk=new StickyTablePanel();
 	//Detail Panel
-	Panels.Account.DetailPanel pnlDetail = new Panels.Account.DetailPanel();
+	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 	 	
 	callback onCreate(Container c) {
 		
