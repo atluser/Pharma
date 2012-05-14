@@ -406,6 +406,11 @@ UIObject {
           vObjAccount.AccountFax.setStringValue("0123456789", row); 
           vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
           vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
+          
+          vObjAccount.AccountRating.setStringValue("Gold", row);
+          vObjAccount.AccountRevenue.setStringValue("0 - 100K", row);
+          vObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(10), row);
+          
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -443,6 +448,11 @@ UIObject {
           vObjAccount.AccountFax.setStringValue("0123456789", row); 
           vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
           vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
+
+		  vObjAccount.AccountRating.setStringValue("Platinum", row);
+          vObjAccount.AccountRevenue.setStringValue("100K - 500K", row);
+          vObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(12), row);          
+          
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
