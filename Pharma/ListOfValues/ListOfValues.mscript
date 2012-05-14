@@ -1,14 +1,2 @@
 VirtualObject {
-	StringField Type {return null;}
-	StringField Value {return null;}
-	StringField LanguageCode {return null;}
-	StringField Name {return null;}
-	
-	Query getLOV(String type){
-		return getLov2(type);
-	}
-	query getLov2<String type>{
-		where Type==type;
-	}	
 }
-

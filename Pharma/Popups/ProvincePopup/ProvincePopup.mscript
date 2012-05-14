@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Popup {
 	ChoiceModel mdlChoice;
 	
@@ -152,3 +153,7 @@ Popup {
 
 
 
+=======
+Popup {
+}
+>>>>>>> refs/remotes/origin/santi
