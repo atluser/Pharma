@@ -98,7 +98,7 @@ ScrollableTablePanel {
 	callback onCreate(Container c){
 		Font txtfnt=new Font();
 		txtfnt.setFamily("Arial");
-		txtfnt.setSize(16);		
+		txtfnt.setSize(18);		
 		txtfnt.setBold();
 											
 		setLabel();
@@ -229,7 +229,7 @@ ScrollableTablePanel {
 	void setModel(){		
 		Font txtfnt=new Font();
 		txtfnt.setFamily("Arial");
-		txtfnt.setSize(16);				
+		txtfnt.setSize(18);				
 		
 		txtType.setFont(txtfnt);
 		mdlType.setFont(txtfnt);
@@ -240,6 +240,7 @@ ScrollableTablePanel {
 		
 		
 		mdlCode.addField(vObjAccount.AccountCode);
+		mdlCode.setFont(txtfnt);
 		mdlName.addField(vObjAccount.AccountName);
 		mdlType.addField(vObjAccount.AccountType);
 		mdlCategory.addField(vObjAccount.AccountCategory);
@@ -284,7 +285,7 @@ ScrollableTablePanel {
 		mdlCountry.setChoicesAttribute(vObjLOV.Value);
 		mdlCountry.setChoicesKeyAttribute(vObjLOV.Name);
 		mdlCountry.setRows(vObjLOV.getLOV("COUNTRY"));		
-		mdlCountry.setSelectedIndex(1);		
+		//mdlCountry.setSelectedIndex(1);		
 				
 		mdlProvince.setChoicesAttribute(vObjLOV.Value);
 		mdlProvince.setChoicesKeyAttribute(vObjLOV.Name);
@@ -299,10 +300,10 @@ ScrollableTablePanel {
 		mdlProvince.setSelectedIndex(1);*/
 		
 		List catList=new List();			
-		txtCategory.setChoices(catList.split("Ospedale;ASL;Farmacia;Altro",";"));
+		txtCategory.setChoices(catList.split(";Ospedale;ASL;Farmacia;Altro",";"));
 		
-		txt01.setChoices(catList.split("Platinum;Gold;Silver",";"));
-		txt02.setChoices(catList.split("0 - 100 K;100 - 500 K;500 - 1000 K",";"));
+		txt01.setChoices(catList.split(";Platinum;Gold;Silver",";"));
+		txt02.setChoices(catList.split(";0 - 100 K;100 - 500 K;500 - 1000 K",";"));
 	
 	}
 	
@@ -403,19 +404,30 @@ ScrollableTablePanel {
 		mdlCity.setRow(row);
 		mdlCap.setRow(row);
 		mdlCountry.setRow(row);
+		mdlProvince.setRow(row);
+		mdlPhone.setRow(row);
+		mdlCell.setRow(row);
+		mdlMail.setRow(row);
+		mdlUrl.setRow(row);
 	}
 	
 	void save(){
 		vObjAccount.AccountName.setStringValue(txtName.getText(),currentRow);
-		//vObjAccount.AccountCategory.setStringValue(txtCategory.getText(),currentRow);
+		int idx=txtCategory.getSelectedIndex();
+		vObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);
 		
 		vObjAccount.AccountStreetAddress.setStringValue(txtStreetAddress.getText(),currentRow);
 		vObjAccount.AccountCity.setStringValue(txtCity.getText(),currentRow);
 		vObjAccount.AccountPostalCode.setStringValue(txtCap.getText(),currentRow);
+		idx=pkrProvince.getSelectedIndex();
+		vObjAccount.AccountProvince.setStringValue(pkrProvince.getChoice(idx),currentRow);
+		idx=pkrCountry.getSelectedIndex();
+		vObjAccount.AccountCountry.setStringValue(pkrCountry.getChoice(idx),currentRow);
 		
 		vObjAccount.AccountPhone.setStringValue(txtPhone.getText(),currentRow);
 		vObjAccount.AccountFax.setStringValue(txtFax.getText(),currentRow);
 		vObjAccount.AccountEmail.setStringValue(txtMail.getText(),currentRow);
+		vObjAccount.AccountWebSite.setStringValue(txtUrl.getText(),currentRow);
 		
 		currentRow.applyUpdates();
 	}
