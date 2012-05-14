@@ -171,14 +171,14 @@ HorizontalPanel {
 		
 			//default is account
 		String entity="Account";
-		VirtualObject obj=vObjAccount;
-		DataRow row=pnlAccountRoot.getCurrentRow();
+		//VirtualObject obj=vObjAccount;
+		DataRow row=null;//pnlAccountRoot.getCurrentRow();
 		StickyTable originStk=pnlAccountRoot.getStickyTable();;
 		//StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
 		switch(currentEntity){
 			case 0:
 				entity="Account";
-				obj=vObjAccount;
+				//obj=vObjAccount;
 				row=pnlAccountRoot.getCurrentRow();
 				originStk=pnlAccountRoot.getStickyTable();
 				//detailStk=pnlAccountRoot.getDetailStickyTable();
