@@ -29,6 +29,22 @@ ScrollableTablePanel {
 	// Sede e comunicazioni	 
 	TextModel txtMdlAddress = new TextModel();
 	Label txtFldAddress = new Label();
+	RichButton rchBtnAddress = new RichButton();
+	
+	TextModel txtMdlStreetAddress = new TextModel();
+	Label txtFldStreetAddress = new Label();
+	
+	TextModel txtMdlCity = new TextModel();
+	Label txtFldCity = new Label();
+	
+	TextModel txtMdlProvince = new TextModel();
+	Label txtFldProvince = new Label();
+	
+	TextModel txtMdlPostalCode = new TextModel();
+	Label txtFldPostalCode = new Label();
+	
+	TextModel txtMdlCountry = new TextModel();
+	Label txtFldCountry = new Label();
 	
 	TextModel txtMdlPhone = new TextModel();
 	Label txtFldPhone = new Label();
@@ -38,15 +54,18 @@ ScrollableTablePanel {
 	
 	TextModel txtMdlEmail = new TextModel();
 	Label txtFldEmail = new Label();
+	RichButton rchBtnEmail = new RichButton();
 	
 	TextModel txtMdlWebSite = new TextModel();
 	Label txtFldWebSite = new Label();
+	RichButton rchBtnWebSite = new RichButton();
+	
 		
 	/*
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
-
+		
 		setUpHeaderSection("Anagrafica");
 		startNewRow();
 		setUp1stSection();
@@ -98,6 +117,49 @@ ScrollableTablePanel {
 			
 	}
 	
+	callback rchBtnAddress onClick(Control c) {
+	
+		logApp.log(Log.INFO, "ReadOnlyDeatilFormPanel - rchBtnAddress onClick()");	
+		logApp.log(Log.INFO, txtFldName.getText() + " " + txtFldStreetAddress.getText() + " " + txtFldCity.getText() + " " + txtFldPostalCode.getText() + " " + txtFldCountry.getText());
+		
+		
+		//setMap(String accountName, String refer,String street,String city, String region, String postalcode,String country)
+		Screens.MapScreen scr = new Screens.MapScreen();
+		scr.setMap( txtFldName.getText(), "", txtFldStreetAddress.getText(), txtFldCity.getText(), "", txtFldPostalCode.getText(), txtFldCountry.getText());
+		scr.push(0,false);
+	
+	}
+	
+	callback rchBtnEmail onClick(Control c) {
+	
+		logApp.log(Log.INFO, "ReadOnlyDeatilFormPanel - rchBtnEmail onClick()");
+		
+		MessageBox msgBox = new MessageBox();
+        MessagingManager messagingManager = new MessagingManager();
+        Email email = messagingManager.createEmail();
+        //StringAttribute emailAtt = (StringAttribute)entityFieldMap.getValue("AccountEmail");
+        //String strEmail = emailAtt.getStringValue(currentRow);
+		if (email == null) {
+			msgBox.info(1,"Non esiste un account email");
+		    // Email is not available (e.g. no email account is setup on the device)
+		    // Inform the user about this
+		} else {
+		    RecipientList toList = email.getTo();
+		    toList.clear();
+		    toList.addAddress(txtFldEmail.getText());
+		    email.setSubject("Email di prova");
+		    email.setBody("Questa è una email di prova");
+		    messagingManager.showMessage(email);
+		}	
+	
+	}
+	
+	callback rchBtnWebSite onClick(Control c) {
+	
+		logApp.log(Log.INFO, "ReadOnlyDeatilFormPanel - rchBtnWebSite onClick()");	
+	
+	}
+	
 	/*
 	 * Custom methods
 	 */
@@ -128,8 +190,8 @@ ScrollableTablePanel {
 		txtFldCode.setFont(fnt);
 		txtFldCode.setForeColor(Colors.Black);
 		
-		//txtFldName.setFont(fnt);
-		//txtFldName.setForeColor(Colors.Black);
+		txtFldName.setFont(fnt);
+		txtFldName.setForeColor(Colors.Black);
 		
 		txtFldType.setFont(fnt);
 		txtFldType.setForeColor(Colors.Black);
@@ -147,13 +209,13 @@ ScrollableTablePanel {
 		lblCode.setFont(fnt);
 		lblCode.setForeColor(Colors.Black);
 		pnlForm01.add(lblCode, "halign=right", txtFldCode, "halign=left,hfill=fill");
-		/*
+		
 		Label lblName = new Label();
 		lblName.setText("Ragione Sociale");
 		lblName.setFont(fnt);
-		lblName.setForeColor(Color.create(189,0,0));		
+		lblName.setForeColor(Colors.Black);		
 		pnlForm01.add(lblName, "halign=right", txtFldName, "halign=left,hfill=fill");
-		*/
+		
 		Label lblType = new Label();
 		lblType.setText("Tipo");
 		lblType.setFont(fnt);
@@ -191,7 +253,15 @@ ScrollableTablePanel {
 		fnt.setSize(16);
 		
 		txtFldAddress.setFont(fnt);
-		txtFldAddress.setForeColor(Colors.Black);
+		txtFldAddress.setForeColor(Colors.Blue);
+		//txtFldAddress.setWordWrapWidth(Sizing.PERCENTS, 80);
+		//rchBtnAddress.setColumnWidth(0,Sizing.PERCENTS,50);
+		//rchBtnAddress.setColumnWidth(0,Sizing.PERCENTS, 65);
+		//rchBtnAddress.setRowHeight(0,Sizing.PREFERRED,0);
+		rchBtnAddress.add(txtFldAddress,"hfill=fill");
+		//rchBtnAddress.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.Inform, 20, 20, 20, 20));
+		//rchBtnAddress.setFont(fnt);
+		//rchBtnAddress.setForeColor(Colors.Blue);
 		
 		txtFldPhone.setFont(fnt);
 		txtFldPhone.setForeColor(Colors.Black);
@@ -200,10 +270,12 @@ ScrollableTablePanel {
 		txtFldFax.setForeColor(Colors.Black);
 		
 		txtFldEmail.setFont(fnt);
-		txtFldEmail.setForeColor(Colors.Black);
+		txtFldEmail.setForeColor(Colors.Blue);
+		rchBtnEmail.add(txtFldEmail,"hfill=fill");
 		
 		txtFldWebSite.setFont(fnt);
-		txtFldWebSite.setForeColor(Colors.Black);
+		txtFldWebSite.setForeColor(Colors.Blue);
+		rchBtnWebSite.add(txtFldWebSite,"hfill=fill");
 		
 		fnt.setBold();
 			
@@ -211,7 +283,8 @@ ScrollableTablePanel {
 		lblAddress.setText("Indirizzo");
 		lblAddress.setFont(fnt);
 		lblAddress.setForeColor(Colors.Black);
-		pnlForm02.add(lblAddress, "halign=right", txtFldAddress, "halign=left,hfill=fill");
+		//pnlForm02.add(lblAddress, "halign=right", txtFldAddress, "halign=left,hfill=fill");
+		pnlForm02.add(lblAddress, "halign=right,valign=top", rchBtnAddress, "halign=left,hfill=fill");
 		
 		Label lblPhone = new Label();
 		lblPhone.setText("Telefono");
@@ -229,13 +302,13 @@ ScrollableTablePanel {
 		lblEmail.setText("Email");
 		lblEmail.setFont(fnt);
 		lblEmail.setForeColor(Colors.Black);		
-		pnlForm02.add(lblEmail, "halign=right", txtFldEmail, "halign=left,hfill=fill");			
+		pnlForm02.add(lblEmail, "halign=right", rchBtnEmail, "halign=left,hfill=fill");			
 		
 		Label lblWebSite = new Label();
 		lblWebSite.setText("URL");
 		lblWebSite.setFont(fnt);
 		lblWebSite.setForeColor(Colors.Black);		
-		pnlForm02.add(lblWebSite, "halign=right", txtFldWebSite, "halign=left,hfill=fill");		
+		pnlForm02.add(lblWebSite, "halign=right", rchBtnWebSite, "halign=left,hfill=fill");		
 		
 		pnlForm02.setInsets(8,0,8,0);
 		//pnlForm02.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.Inform, 20, 20, 20, 20));	
@@ -299,11 +372,11 @@ ScrollableTablePanel {
 		txtMdlCode.setRow(dtRw);
 		txtMdlCode.setText(vObjAccount.AccountCode.getStringValue(dtRw));
 		txtFldCode.setDataModel(txtMdlCode);
-		/*
+		
 		txtMdlName.setRow(dtRw);
 		txtMdlName.setText(vObjAccount.AccountName.getStringValue(dtRw));
 		txtFldName.setDataModel(txtMdlName);
-		*/
+		
 		txtMdlType.setRow(dtRw);
 		txtMdlType.setText(vObjAccount.AccountType.getStringValue(dtRw));
 		txtFldType.setDataModel(txtMdlType);
@@ -315,9 +388,36 @@ ScrollableTablePanel {
 		txtMdlStatus.setRow(dtRw);
 		txtMdlStatus.setText(vObjAccount.AccountStatus.getStringValue(dtRw));
 		txtFldStatus.setDataModel(txtMdlStatus);
-		 
-		txtMdlAddress.setText(vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " - " + vObjAccount.AccountPostalCode.getStringValue(dtRw) + " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ") - " + vObjAccount.AccountCountry.getStringValue(dtRw));
+			 
+		txtMdlAddress.setRow(dtRw);
+		txtMdlAddress.setText(vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " \n" + vObjAccount.AccountPostalCode.getStringValue(dtRw) + " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")\n" + vObjAccount.AccountCountry.getStringValue(dtRw));
 		txtFldAddress.setDataModel(txtMdlAddress);
+		
+		/*
+		txtFldAddress.setText(txtMdlAddress.getText());
+		rchBtnAddress.setDataModel(txtMdlAddress);
+		//rchBtnAddress.add(txtFldAddress,"halign=center");
+		*/
+		
+		txtMdlStreetAddress.setRow(dtRw);
+		txtMdlStreetAddress.setText(vObjAccount.AccountStreetAddress.getStringValue(dtRw));
+		txtFldStreetAddress.setDataModel(txtMdlStreetAddress);
+	
+		txtMdlCity.setRow(dtRw);
+		txtMdlCity.setText(vObjAccount.AccountCity.getStringValue(dtRw));
+		txtFldCity.setDataModel(txtMdlCity);
+	
+		txtMdlProvince.setRow(dtRw);
+		txtMdlProvince.setText(vObjAccount.AccountProvince.getStringValue(dtRw));
+		txtFldProvince.setDataModel(txtMdlProvince);	
+	
+		txtMdlPostalCode.setRow(dtRw);
+		txtMdlPostalCode.setText(vObjAccount.AccountPostalCode.getStringValue(dtRw));
+		txtFldPostalCode.setDataModel(txtMdlPostalCode);
+	
+		txtMdlCountry.setRow(dtRw);
+		txtMdlCountry.setText(vObjAccount.AccountCountry.getStringValue(dtRw));
+		txtFldCountry.setDataModel(txtMdlCountry);
 		
 		txtMdlPhone.setRow(dtRw);
 		txtMdlPhone.setText(vObjAccount.AccountPhone.getStringValue(dtRw));
@@ -333,7 +433,7 @@ ScrollableTablePanel {
 		
 		txtMdlWebSite.setRow(dtRw);
 		txtMdlWebSite.setText(vObjAccount.AccountWebSite.getStringValue(dtRw));
-		txtFldWebSite.setDataModel(txtMdlWebSite);		
+		txtFldWebSite.setDataModel(txtMdlWebSite);	
 		
 	}
 
