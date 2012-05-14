@@ -73,6 +73,7 @@
       <images name="img_logo_atlantic"/>
       <images name="img_logo_vodafone"/>
       <images name="ImgList"/>
+      <images name="ImgPick"/>
       <images name="tbb_normal"/>
       <images name="tbb_pressed"/>
     </children>
@@ -296,6 +297,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPick">
         <properties/>
         <properties/>
         <properties/>
@@ -611,6 +618,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
@@ -915,6 +928,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
@@ -1060,6 +1079,12 @@
       <imagePaths name="ImgMasterBackground_u">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgPick">
+        <properties/>
+        <properties/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -1279,6 +1304,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Pictures/Vodafone/arrow_down.png" path="C:/USERS/MCOLOMBO.ATL01/PICTURES/VODAFONE/ARROW_DOWN.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/templates/box.png" path="/USERS/ADMIN/DESKTOP/VF/TEMPLATES/BOX.PNG"/>
@@ -1323,7 +1354,7 @@
       </imagePaths>
       <imagePaths name="VodafoneImages.img_actionbar_bg">
         <properties/>
-        <properties string="/Users/admin/Desktop/VF/images/actionbar/img_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/IMG_BACKGROUND.PNG"/>
+        <properties string="C:/DEV/workspace/git/Pharma1/Pharma/resources.cache/%USERS%ADMIN%DESKTOP%VF%IMAGES%ACTIONBAR%IMG_BACKGROUND.PNG" path="C:/DEV/WORKSPACE/GIT/PHARMA1/PHARMA/RESOURCES.CACHE/%USERS%ADMIN%DESKTOP%VF%IMAGES%ACTIONBAR%IMG_BACKGROUND.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -1580,6 +1611,9 @@
       <imagePaths name="VodafoneImages.ImgList">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
@@ -1734,6 +1768,9 @@
       <imagePaths name="VodafoneImages.ImgList">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
@@ -1819,6 +1856,10 @@
       </imagePaths>
       <imagePaths name="ImgMasterBackground_u">
         <properties string="/Users/admin/Desktop/VF/images/popover/img_04_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_04_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgPick">
+        <properties/>
         <properties/>
       </imagePaths>
       <imagePaths name="ImgRedBackground">
@@ -1963,6 +2004,10 @@
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
         <properties string="/Users/admin/Desktop/VF/images/list.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LIST.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPick">
+        <properties string="C:/Users/mcolombo.ATL01/Pictures/Vodafone/arrow_down.png" path="C:/USERS/MCOLOMBO.ATL01/PICTURES/VODAFONE/ARROW_DOWN.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
@@ -2203,6 +2248,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
@@ -2370,6 +2419,9 @@
       <imagePaths name="VodafoneImages.ImgList">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
@@ -2522,6 +2574,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPick">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
@@ -2678,6 +2733,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPick">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">

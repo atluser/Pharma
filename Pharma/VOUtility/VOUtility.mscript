@@ -23,8 +23,8 @@ UIObject {
         vObjAccount.AccountId.setStringValue(""+id, row);
         vObjAccount.AccountCode.setStringValue(""+id, row);
         //vObjAccount.AccountName.setStringValue("AccountName", row);
-        vObjAccount.AccountType.setStringValue("AccountType", row);        
-        vObjAccount.AccountStatus.setStringValue("Prospect", row);
+        vObjAccount.AccountType.setStringValue("Prospect", row);        
+        vObjAccount.AccountStatus.setStringValue("Nuovo", row);
         /*vObjAccount.AccountStreetAddress.setStringValue("StreetAddress", row);
         vObjAccount.AccountCity.setStringValue("City", row);
         vObjAccount.AccountProvince.setStringValue("Province", row);

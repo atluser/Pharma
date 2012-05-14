@@ -1,13 +1,14 @@
 Style {	
-	Font fnt = new Font();
-	callback onStyleCreation(Style style){		
-		fnt.setFamily("Arial");
-		fnt.setSize(16);
-		fnt.setBold();
+	Font lblfnt = new Font();	
+	callback onStyleCreation(Style style){
+				
+		lblfnt.setFamily("Arial");
+		lblfnt.setSize(16);
+		lblfnt.setBold();
 		
 		//Label.setForeColor(Color.create(189,0,0));
 		Label.setForeColor(Colors.Black);
-		Label.setFont(fnt);
+		//Label.setFont(fnt);
 		
 	/*	
 		ComboBox.setFont(fnt);
@@ -21,16 +22,17 @@ Style {
 		*/
 		Font fnt2=new Font();
 		fnt2.setFamily("Arial");
-		fnt2.setSize(19);
+		fnt2.setSize(18);
 				
 		Picker.setFont(fnt2);
 		Picker.setForeColor(Colors.Black);
 		//Picker.setFocusedForeColor(Colors.MidnightBlue);
-		Picker.setBorder(Border.createSimpleBorder(Color.create(189,0,0)));
+		Picker.setBorder(Border.createSimpleBorder(Colors.Gray));
 		//Picker.setEditBorder(Border.createSimpleBorder(Color.create(189,0,0)));
-		Picker.setBackColor(Color.create(190,190,190));
+		//Picker.setBackColor(Color.create(190,190,190));
 		//Picker.setFocusedBackColor(Color.create(189,0,0));
-		//Picker.setEditFocusedBackColor(Color.create(189,0,0));
+		//Picker.setEditFocusedBackColor(Color.create(189,0,0));		
+		Picker.setBackground(Background.create9PartImageRectangleBackground (Images.VodafoneImages.ImgPick , 0 , 50 , 0 , 0 ));
 
 		BackgroundButton.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
 	}
