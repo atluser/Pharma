@@ -47,7 +47,10 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PopoverImages.mscript" hidden="true"/>
       <images name="ImgBlackBackground"/>
       <images name="ImgRedBackground"/>
+      <images name="ImgRedBorderBackground"/>
+      <images name="ImgRedLineBackground"/>
       <images name="ImgWhiteBackground"/>
+      <images name="Inform"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="SplitViewImages">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SplitViewImages.mscript" hidden="true"/>
@@ -58,6 +61,7 @@
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="VodafoneImages">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VodafoneImages.mscript" hidden="true"/>
+      <images name="box"/>
       <images name="btn_delete_normal"/>
       <images name="btn_done_normal"/>
       <images name="btn_edit_normal"/>
@@ -68,6 +72,7 @@
       <images name="img_actionbar_bg"/>
       <images name="img_logo_atlantic"/>
       <images name="img_logo_vodafone"/>
+      <images name="ImgList"/>
       <images name="tbb_normal"/>
       <images name="tbb_pressed"/>
     </children>
@@ -176,7 +181,25 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBorderBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedLineBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.Inform">
         <properties/>
         <properties/>
         <properties/>
@@ -267,6 +290,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
         <properties/>
@@ -456,7 +491,25 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBorderBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedLineBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.Inform">
         <properties/>
         <properties/>
         <properties/>
@@ -547,6 +600,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
         <properties/>
@@ -730,7 +795,25 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBorderBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedLineBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.Inform">
         <properties/>
         <properties/>
         <properties/>
@@ -821,6 +904,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
         <properties/>
@@ -950,6 +1045,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgMasterBackground">
         <properties/>
         <properties/>
@@ -968,9 +1069,27 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgRedBorderBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgRedLineBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgWhiteBackground">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/popover/img_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Inform">
+        <properties/>
+        <properties/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -1040,9 +1159,27 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBorderBackground">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_08_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_08_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedLineBackground">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_05_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_05_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgWhiteBackground">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/popover/img_01_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_01_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.Inform">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/popover/inform.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/INFORM.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -1136,6 +1273,18 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/list.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LIST.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/templates/box.png" path="/USERS/ADMIN/DESKTOP/VF/TEMPLATES/BOX.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_delete_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_DELETE_NORMAL.PNG"/>
@@ -1199,6 +1348,12 @@
       <imagePaths name="VodafoneImages.tbb_pressed">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/actionbar/tbb_01_pressed.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/TBB_01_PRESSED.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="box">
+        <properties/>
+        <properties/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -1365,7 +1520,16 @@
       <imagePaths name="PopoverImages.ImgRedBackground">
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBorderBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedLineBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.Inform">
         <properties/>
       </imagePaths>
       <imagePaths name="RolloverIcon">
@@ -1411,6 +1575,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -1504,7 +1674,16 @@
       <imagePaths name="PopoverImages.ImgRedBackground">
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBorderBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedLineBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.Inform">
         <properties/>
       </imagePaths>
       <imagePaths name="RolloverIcon">
@@ -1550,6 +1729,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -1624,6 +1809,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgList">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgMasterBackground">
         <properties/>
         <properties/>
@@ -1636,8 +1825,20 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgRedBorderBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgRedLineBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgWhiteBackground">
         <properties string="/Users/admin/Desktop/VF/images/popover/img_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Inform">
+        <properties/>
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
@@ -1684,8 +1885,20 @@
         <properties string="/Users/admin/Desktop/VF/images/popover/img_02_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_02_BACKGROUND.PNG"/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBorderBackground">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_08_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_08_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedLineBackground">
+        <properties string="/Users/admin/Desktop/VF/images/popover/img_05_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_05_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgWhiteBackground">
         <properties string="/Users/admin/Desktop/VF/images/popover/img_01_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_01_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.Inform">
+        <properties string="/Users/admin/Desktop/VF/images/popover/inform.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/INFORM.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="RolloverIcon">
@@ -1748,6 +1961,14 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgList">
+        <properties string="/Users/admin/Desktop/VF/images/list.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LIST.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
+        <properties string="/Users/admin/Desktop/VF/templates/box.png" path="/USERS/ADMIN/DESKTOP/VF/TEMPLATES/BOX.PNG"/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_delete_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_DELETE_NORMAL.PNG"/>
         <properties/>
@@ -1790,6 +2011,10 @@
       </imagePaths>
       <imagePaths name="VodafoneImages.tbb_pressed">
         <properties string="/Users/admin/Desktop/VF/images/actionbar/tbb_01_pressed.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/TBB_01_PRESSED.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="box">
+        <properties/>
         <properties/>
       </imagePaths>
       <imagePaths name="btn_delete_normal">
@@ -1898,7 +2123,19 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBorderBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedLineBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.Inform">
         <properties/>
         <properties/>
       </imagePaths>
@@ -1959,6 +2196,14 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
       </imagePaths>
@@ -2065,7 +2310,16 @@
       <imagePaths name="PopoverImages.ImgRedBackground">
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBorderBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedLineBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.Inform">
         <properties/>
       </imagePaths>
       <imagePaths name="RolloverIcon">
@@ -2111,6 +2365,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -2204,7 +2464,16 @@
       <imagePaths name="PopoverImages.ImgRedBackground">
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBorderBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedLineBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.Inform">
         <properties/>
       </imagePaths>
       <imagePaths name="RolloverIcon">
@@ -2250,6 +2519,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -2345,7 +2620,16 @@
       <imagePaths name="PopoverImages.ImgRedBackground">
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedBorderBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgRedLineBackground">
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.Inform">
         <properties/>
       </imagePaths>
       <imagePaths name="RolloverIcon">
@@ -2391,6 +2675,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.DettaglioCliente">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgList">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
