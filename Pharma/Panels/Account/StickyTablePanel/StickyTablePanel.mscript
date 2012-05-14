@@ -7,8 +7,9 @@ TablePanel {
 	RowSetModel rsm = new RowSetModel();
 	
 	
-	Panels.DetailStickyTablePanel pnlDetailForm;
-	
+	//Panels.DetailStickyTablePanel pnlDetailForm;
+	Panels.DetailPanel pnlDetail;
+	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm;
 	
 	/*
 	 * Callback methods
@@ -77,6 +78,8 @@ TablePanel {
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		
+		//pnlDetailForm.setRow(rsm.getRow());
+		pnlDetail.setRow(rsm.getRow());
 		pnlDetailForm.setRow(rsm.getRow());
 		
 	}
@@ -125,8 +128,16 @@ TablePanel {
 	 * Custom methods
 	 */
 	 
-	 
+	/* 
 	void setDetailPanel(Panels.DetailStickyTablePanel pnl) {
+		pnlDetailForm = pnl;
+	}
+	*/
+	void setDetailPanel(Panels.DetailPanel pnl) {
+		pnlDetail = pnl;
+	}
+	
+	void setDetailFormPanel(Panels.Account.ReadOnlyDetailFormPanel pnl) {
 		pnlDetailForm = pnl;
 	}
 	

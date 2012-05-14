@@ -333,7 +333,13 @@ UIObject {
           vObjAccount.AccountCity.setStringValue("Lovere", row);
           vObjAccount.AccountProvince.setStringValue("BS", row);
           vObjAccount.AccountPostalCode.setStringValue("24065", row);
-          vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCountry.setStringValue("Italia", row);
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);     
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -346,6 +352,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24021", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -358,6 +370,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24129", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -370,6 +388,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24068", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           
@@ -383,6 +407,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24025", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -395,6 +425,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24064", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
 
@@ -408,6 +444,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24050", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -420,6 +462,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("CR", row);
           vObjAccount.AccountPostalCode.setStringValue("26025", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -432,6 +480,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("26127", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -444,6 +498,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24054", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -456,6 +516,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("CR", row);
           vObjAccount.AccountPostalCode.setStringValue("26126", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -468,6 +534,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24050", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -480,6 +552,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24060", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           
@@ -493,6 +571,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("26127", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -505,6 +589,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24023", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
 
@@ -518,6 +608,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24022", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -530,6 +626,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("CR", row);
           vObjAccount.AccountPostalCode.setStringValue("26013", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -542,6 +644,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24058", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -554,6 +662,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("CR", row);
           vObjAccount.AccountPostalCode.setStringValue("26060", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
           row = vObjAccount.getNewRow();
@@ -566,6 +680,12 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("24060", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
+          vObjAccount.AccountCategory.setStringValue("Farmacia", row);
+          vObjAccount.AccountStatus.setStringValue("Attivo", row);
+          vObjAccount.AccountPhone.setStringValue("0123456789", row);
+          vObjAccount.AccountFax.setStringValue("0123456789", row); 
+          vObjAccount.AccountEmail.setStringValue("atlantic.milano@gmail.com", row);
+          vObjAccount.AccountWebSite.setStringValue("www.atlantic-technologies.com", row);
           row.applyUpdates();
 
 	}

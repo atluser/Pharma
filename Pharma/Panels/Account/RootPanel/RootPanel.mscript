@@ -33,7 +33,9 @@ BorderPanel {
 		//pnlDetail.stk.init("Account",firstRow);
 		
 		//bind sticky and detail
-		//stk.setDetailPanel(pnlDetail.stk);		
+		//stk.setDetailPanel(pnlDetail.stk);
+		stk.setDetailPanel(pnlDetail);
+		stk.setDetailFormPanel(pnlDetailForm);		
 		
 		//setEast(pnlDetail);	 	
 	 	
@@ -44,6 +46,7 @@ BorderPanel {
 	 	*/
 	 	setWest(pnlMaster);
 	 	setEast(pnlDetail);
+	 	setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
 	 	
 	}
 	/*

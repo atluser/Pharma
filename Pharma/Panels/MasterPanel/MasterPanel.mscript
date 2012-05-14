@@ -14,7 +14,7 @@ TablePanel {
 	callback onCreate(Container c) {								
 		
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
-		setColumnWidth(0, Sizing.PERCENTS, 30);
+		setColumnWidth(0, Sizing.PERCENTS, 35);
 		//setRowHeight(0, Sizing.PERCENTS, 100);
 		setRowHeight(0, Sizing.PREFERRED, 1);	
 	 

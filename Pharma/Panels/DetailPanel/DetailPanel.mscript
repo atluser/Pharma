@@ -3,26 +3,59 @@ TablePanel {
 	/*
 	 * Attributes
 	 */
-		
+	TextModel txtMdlName = new TextModel();
+	Label txtFldName = new Label();
+	PictureBox picBox = new PictureBox();
+	
 	/*
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {		 
 					
-		setInsets(8,8,8,8);
+		setInsets(48,48,48,48);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-		setColumnWidth(0, Sizing.PERCENTS, 70); 
+		setColumnWidth(0, Sizing.PERCENTS, 65); 
 		//setRowHeight(0, Sizing.PERCENTS, 100);
-		setRowHeight(0, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PIXELS, 40);
+		setRowHeight(2, Sizing.PREFERRED, 1);
+		
+		DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
+		setRow(firstRow);
 		
 	} 
 		
 	/*
 	 * Custom methods
 	 */	
+	
 	void setContentPanel(ScrollableTablePanel pnl) {
 		//add(pnl,"halign=center, valign=top");
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(24);
+		fnt.setBold();
+		
+		picBox.setImage(Images.VodafoneImages.box.getImage());
+		txtFldName.setFont(fnt);
+		txtFldName.setForeColor(Color.create(189,0,0));
+		
+		//add(picBox,"hfill=fill,vfill=fill");
+		add(txtFldName, "hfill=fill,vfill=fill");
+		startNewRow();
+		add(new Separator(), "");
+		startNewRow();
 		add(pnl, "hfill=fill,vfill=fill");
+
+	}
+	
+	void setRow(DataRow dtRw) {
+		
+		txtMdlName.setRow(dtRw);
+		txtMdlName.setText(vObjAccount.AccountName.getStringValue(dtRw));
+		txtFldName.setDataModel(txtMdlName);
+	
 	}
 	
 }
