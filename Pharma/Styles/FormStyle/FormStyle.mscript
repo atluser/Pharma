@@ -9,6 +9,29 @@ Style {
 		Label.setForeColor(Colors.Black);
 		Label.setFont(fnt);
 		
+	/*	
+		ComboBox.setFont(fnt);
+		//ComboBox.setForeColor(Colors.White);
+		ComboBox.setFocusedForeColor(Colors.MidnightBlue);
+		//ComboBox.setBorder(Border.createSimpleBorder(Color.create(189,0,0)));
+		ComboBox.setEditBorder(Border.createSimpleBorder(Color.create(189,0,0)));
+		//ComboBox.setBackColor(Colors.LightSlateGray);
+		ComboBox.setFocusedBackColor(Color.create(189,0,0));
+		ComboBox.setEditFocusedBackColor(Color.create(189,0,0));			
+		*/
+		Font fnt2=new Font();
+		fnt2.setFamily("Arial");
+		fnt2.setSize(19);
+				
+		Picker.setFont(fnt2);
+		Picker.setForeColor(Colors.Black);
+		//Picker.setFocusedForeColor(Colors.MidnightBlue);
+		Picker.setBorder(Border.createSimpleBorder(Color.create(189,0,0)));
+		//Picker.setEditBorder(Border.createSimpleBorder(Color.create(189,0,0)));
+		Picker.setBackColor(Color.create(190,190,190));
+		//Picker.setFocusedBackColor(Color.create(189,0,0));
+		//Picker.setEditFocusedBackColor(Color.create(189,0,0));
+
 		BackgroundButton.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
 	}
 }

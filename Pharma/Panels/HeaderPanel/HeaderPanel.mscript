@@ -142,15 +142,15 @@ HorizontalPanel {
 		
 		
 		//default account
-		String entity="Account";
-		VirtualObject obj=vObjAccount;
-		DataRow row=vObjUtil.getNewAccountRow();
-		StickyTable originStk=pnlAccountRoot.getStickyTable();
+		String entity="";//"Account";
+		//VirtualObject obj=vObjAccount;
+		DataRow row=null;//=vObjUtil.getNewAccountRow();
+		StickyTable originStk=null;//=pnlAccountRoot.getStickyTable();
 		//StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
 		switch(currentEntity){
 			case 0:
 				entity="Account";
-				obj=vObjAccount;
+				//obj=vObjAccount;
 				row=vObjUtil.getNewAccountRow();
 				originStk=pnlAccountRoot.getStickyTable();
 				//detailStk=pnlAccountRoot.getDetailStickyTable();
@@ -158,7 +158,7 @@ HorizontalPanel {
 		}
 		
 		Screens.Account.EditScreen scrNewOrEditRecord = new Screens.Account.EditScreen();
-		//scrNewOrEditRecord.init(entity,row,obj,originStk,detailStk);
+		scrNewOrEditRecord.init(row,originStk);
 		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 	}
 	
@@ -169,7 +169,7 @@ HorizontalPanel {
 		logApp.log(Log.INFO, "HeaderPanel - btnEdit onClick()");
 		poCrmMenu.dismiss();
 		
-			//default account
+			//default is account
 		String entity="Account";
 		VirtualObject obj=vObjAccount;
 		DataRow row=pnlAccountRoot.getCurrentRow();
@@ -181,12 +181,12 @@ HorizontalPanel {
 				obj=vObjAccount;
 				row=pnlAccountRoot.getCurrentRow();
 				originStk=pnlAccountRoot.getStickyTable();
-		//		detailStk=pnlAccountRoot.getDetailStickyTable();
+				//detailStk=pnlAccountRoot.getDetailStickyTable();
 			break;
 		}
 		
 		Screens.Account.EditScreen scrNewOrEditRecord = new Screens.Account.EditScreen();
-		//scrNewOrEditRecord.init(entity,row,obj,originStk,detailStk);
+		scrNewOrEditRecord.init(row,originStk);
 		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 		
 		

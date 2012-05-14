@@ -1,11 +1,12 @@
 Screen {
+	//DataRow currentRow;
 	
 	Button btnHome = new Button();
 	Button btnDone = new Button();
 	Button btnUndo = new Button();
 	Button btnMenu = new Button();
 	
-	Panels.Account.EditFormTablePanel fp = new Panels.Account.EditFormTablePanel();
+	Panels.Account.EditFormScrollableTablePanel fp = new Panels.Account.EditFormScrollableTablePanel();
 	StickyTable originListStk;
 	StickyTable detailStk;
 	VirtualObject dataObject;
@@ -34,7 +35,7 @@ Screen {
 	}
 
 	callback onCreate(Container container){
-		
+		fp.scr=(Screen)container;
 		setUpButtons();
 		
 		// Header Panel
@@ -50,25 +51,24 @@ Screen {
 		pnlHeader.setColumnWidth(1, Sizing.PREFERRED,1);
 		pnlHeader.setColumnWidth(2, Sizing.PREFERRED,0);
 		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,0);
-		pnlHeader.setColumnWidth(4, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(4, Sizing.PREFERRED,0);			
 		
-		/*pnlHeader.setColumnWidth(0, Sizing.PERCENTS,4);
-		pnlHeader.setColumnWidth(1, Sizing.PERCENTS,70);
-		pnlHeader.setColumnWidth(2, Sizing.PERCENTS,20);
-		pnlHeader.setColumnWidth(3, Sizing.PERCENTS,3);
-		pnlHeader.setColumnWidth(3, Sizing.PERCENTS,3);*/
-		
-		TablePanel pnl = new TablePanel();
-		
-		pnl.add(pnlHeader,"hfill=fill");
-		pnl.setColumnWidth(0,Sizing.PERCENTS,100);
-		pnl.startNewRow();
-		pnl.add(fp,"halign=center,valign=center");
+		add(pnlHeader,"hfill=fill");
+//		ScrollableTablePanel pnl = new ScrollableTablePanel();
+//header		
+//	pnl.add(pnlHeader,"hfill=fill");
+//		pnl.setColumnWidth(0,Sizing.PERCENTS,100);
+//	pnl.startNewRow();
+//		pnl.add(fp,"halign=center,valign=center");		
+		add(fp,"halign=center,valign=center,vfill=fill");
 		
 		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));						
-		setRowHeight(0, Sizing.PREFERRED, 1);
+//		pnl.setRowHeight(0, Sizing.PREFERRED, 1);
+		//pnl.setRowHeight(1, Sizing.PREFERRED, 1);
 		
-		add(pnl,"halign=center,vfill=fill");
+//		add(pnl,"halign=center,vfill=fill");
+		setRowHeight(0, Sizing.PREFERRED, 0);	
+		setRowHeight(1, Sizing.PREFERRED, 1);
 	}
 
 	callback onDeactivate(Container container){
@@ -123,19 +123,22 @@ Screen {
 		close(Animation.PUSH_FROM_TOP);
 	}
 	
-	/*callback btnDone onClick(Control c) {
-		stk.save(dataObject);
+	callback btnDone onClick(Control c) {
+		//stk.save(dataObject);
+		fp.save();
 		RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
-		rsm.setRows(q);
+		rsm.setRows(vObjAccount.getAccounts());
 		originListStk.reload();
-		detailStk.reload();
+		//detailStk.reload();
 		close(Animation.PUSH_FROM_TOP);
 	}
 	
 	callback btnUndo onClick(Control c) {
-		stk.currentRow.cancelUpdates();
+//		stk.currentRow.cancelUpdates();
+		if(fp.currentRow!=null)
+			fp.currentRow.cancelUpdates();
 		close(Animation.PUSH_FROM_TOP);
-	}*/
+	}
 	
 	callback btnMenu onClick(Control c) {
 		close(Animation.PUSH_FROM_TOP);
@@ -164,6 +167,12 @@ Screen {
 	
 	}
 	
+	void init(DataRow row,StickyTable originStk){
+		//sticky table origine dati
+		originListStk=originStk;		
+		fp.setRow(row);
+			
+	}
 /*	void init(String entity,DataRow row, VirtualObject obj,StickyTable originStk,StickyTable detail,Query localQ){
 		dataObject=obj;
 		q=localQ;

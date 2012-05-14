@@ -1,0 +1,154 @@
+Popup {
+	ChoiceModel mdlChoice;
+	
+/*	callback onCreate(Container c){
+		Panels.ProvinceStickyTablePanel stk=new Panels.ProvinceStickyTablePanel();
+		add(stk,"hfill=fill,vfill=fill");
+		setRowHeight(0,Sizing.PREFERRED,1);
+	}
+*/
+//TablePanel {
+	
+	/*
+	 * Attributes
+	 */
+	StickyTable stk = new StickyTable();
+	RowSetModel rsm = new RowSetModel();
+	
+	
+	Panels.DetailStickyTablePanel pnlDetailForm;
+	
+	
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {
+	
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);
+		
+		//set size (note: this is required)
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		setColumnWidth(0, Sizing.PREFERRED, 0);
+		
+		rsm.setRows(vObjLOV.getLOV("PROVINCE"));						
+		//set the model for the sticky table
+		stk.setDataModel(rsm);
+		
+		
+		//add header search
+		//Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();
+		//add(search,"hfill=fill");
+		//startNewRow(); 
+		
+		//add sticky table to screen		
+		add(stk, "valign=top");			
+
+	
+	}
+
+	///////////////////////////////
+	// Callback to configure cells
+	///////////////////////////////
+	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
+		info.setPanel(new Cells.SimpleTableViewCell());
+	}
+	
+	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
+		/* OK
+		Panels.Accounts.AccountTableViewCell tblVwCell = (Panels.Accounts.AccountTableViewCell) cell;
+		tblVwCell.setRow(info.getDataRow());
+		*/
+		Cells.SimpleTableViewCell tblVwCell = (Cells.SimpleTableViewCell)cell;
+		
+		DataRow dtRw = info.getDataRow();
+		if(!dtRw.isDeleted()){		
+			String str01 = vObjLOV.Value.getStringValue(dtRw);							
+			tblVwCell.lbl.setText(str01);			
+		}
+	}
+	
+	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
+		cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PREFERRED, 0);
+		cell.setCouldBeSelected(true);
+	}
+	
+	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
+		sizeInfo.setHeight(60);
+	}		
+	
+	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
+		mdlChoice.setSelectedIndex(row);
+		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
+		//pnlDetailForm.setRow(rsm.getRow());
+		
+	}
+		
+	////////////////////////////
+	// Sticky Header (Optional)
+	////////////////////////////
+	
+	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		TableViewPanel pnl=new TableViewPanel();
+		Label title=new Label();
+		title.setText("Province");
+		pnl.add(title,"halign=center");
+		info.setPanel(pnl);
+	}
+	
+	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
+		cell.setCouldBeSelected(true);
+		cell.setHeight(Sizing.PIXELS, 60);
+		cell.setWidth(Sizing.PREFERRED, 0);
+	}
+	
+	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
+		cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+	}
+			
+		
+	////////////////////////////
+	// Footer (Optional)
+	////////////////////////////
+	/*
+	callback stk onFooterCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		info.setPanel(new Panels.Accounts.AccountFooterTableViewPanel());
+	}
+	
+	callback stk onFooterConfigure(TableView c, CellConfig cell, int group){
+		cell.setCouldBeSelected(false);
+		cell.setHeight(Sizing.PIXELS, 60);
+		cell.setWidth(Sizing.PERCENTS, 100);
+	}
+	
+	callback stk onFooterInfo(TableView c, TableViewPanel cell, Footer info, int grp) {
+		Panels.Accounts.AccountFooterTableViewPanel tblVwPanelFooter = (Panels.Accounts.AccountFooterTableViewPanel) cell;
+		tblVwPanelFooter.setRowCount(rsm.getRowCount(0));
+		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+	}
+	*/
+	
+	/*
+	 * Custom methods
+	 */
+	 
+	 
+	void setDetailPanel(Panels.DetailStickyTablePanel pnl) {
+		pnlDetailForm = pnl;
+	}
+	
+	void executeQuery(){
+		rsm.setRows(vObjAccount.getAccounts());
+	}
+	/*void init (RowSetModel rsm){
+		//rsm.setRows(vObjLOV.getLOV("PROVINCE"));						
+		//set the model for the sticky table
+		stk.setDataModel(rsm);
+		
+	}*/
+}
+
+
+
