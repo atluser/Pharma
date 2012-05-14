@@ -240,6 +240,7 @@ ScrollableTablePanel {
 		
 		
 		mdlCode.addField(vObjAccount.AccountCode);
+		mdlCode.setFont(txtfnt);
 		mdlName.addField(vObjAccount.AccountName);
 		mdlType.addField(vObjAccount.AccountType);
 		mdlCategory.addField(vObjAccount.AccountCategory);
@@ -403,19 +404,30 @@ ScrollableTablePanel {
 		mdlCity.setRow(row);
 		mdlCap.setRow(row);
 		mdlCountry.setRow(row);
+		mdlProvince.setRow(row);
+		mdlPhone.setRow(row);
+		mdlCell.setRow(row);
+		mdlMail.setRow(row);
+		mdlUrl.setRow(row);
 	}
 	
 	void save(){
 		vObjAccount.AccountName.setStringValue(txtName.getText(),currentRow);
-		//vObjAccount.AccountCategory.setStringValue(txtCategory.getText(),currentRow);
+		int idx=txtCategory.getSelectedIndex();
+		vObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);
 		
 		vObjAccount.AccountStreetAddress.setStringValue(txtStreetAddress.getText(),currentRow);
 		vObjAccount.AccountCity.setStringValue(txtCity.getText(),currentRow);
 		vObjAccount.AccountPostalCode.setStringValue(txtCap.getText(),currentRow);
+		idx=pkrProvince.getSelectedIndex();
+		vObjAccount.AccountProvince.setStringValue(pkrProvince.getChoice(idx),currentRow);
+		idx=pkrCountry.getSelectedIndex();
+		vObjAccount.AccountCountry.setStringValue(pkrCountry.getChoice(idx),currentRow);
 		
 		vObjAccount.AccountPhone.setStringValue(txtPhone.getText(),currentRow);
 		vObjAccount.AccountFax.setStringValue(txtFax.getText(),currentRow);
 		vObjAccount.AccountEmail.setStringValue(txtMail.getText(),currentRow);
+		vObjAccount.AccountWebSite.setStringValue(txtUrl.getText(),currentRow);
 		
 		currentRow.applyUpdates();
 	}
