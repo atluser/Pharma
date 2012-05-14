@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ScrollableTablePanel {
 	
 	DataRow currentRow;
@@ -385,7 +384,3 @@ ScrollableTablePanel {
 		refresh();	
 	}
 }
-=======
-ScrollableTablePanel {
-}
->>>>>>> refs/remotes/origin/santi
