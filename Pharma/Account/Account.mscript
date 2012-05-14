@@ -58,6 +58,18 @@ VirtualObject {
 		return null;
 	}
 	
+	StringField AccountRating {
+		return null;
+	}
+	
+	StringField AccountRevenue {
+		return null;
+	}
+	
+	IntegerField AccountNumberOfEmployee {
+		return Platform.createInteger(0);
+	}	
+	
 	Query getAccounts() {
 		return accountRows();
 	}
