@@ -29,7 +29,7 @@ UIObject {
         vObjAccount.AccountCity.setStringValue("City", row);
         vObjAccount.AccountProvince.setStringValue("Province", row);
         vObjAccount.AccountPostalCode.setStringValue("Postalcode", row);*/
-        vObjAccount.AccountCountry.setStringValue("Italia", row);
+        vObjAccount.AccountCountry.setStringValue("I", row);
         /*
         vObjAccount.AccountPhone.setStringValue("Telefono", row);
         vObjAccount.AccountFax.setStringValue("Fax", row);

@@ -8,7 +8,7 @@ Screen {
 	
 	Panels.Account.EditFormScrollableTablePanel fp = new Panels.Account.EditFormScrollableTablePanel();
 	StickyTable originListStk;
-	StickyTable detailStk;
+	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm;
 	VirtualObject dataObject;
 	
 	Query q;//=null;
@@ -130,6 +130,7 @@ Screen {
 		rsm.setRows(vObjAccount.getAccounts());
 		originListStk.reload();
 		//detailStk.reload();
+		pnlDetailForm.setRow(fp.currentRow);
 		close(Animation.PUSH_FROM_TOP);
 	}
 	
@@ -167,10 +168,13 @@ Screen {
 	
 	}
 	
-	void init(DataRow row,StickyTable originStk){
+	void init(DataRow row,StickyTable originStk, Panels.Account.ReadOnlyDetailFormPanel accfp){
 		//sticky table origine dati
 		originListStk=originStk;		
+		//detail form
+		pnlDetailForm=accfp;		
 		fp.setRow(row);
+		//refresh();		
 			
 	}
 /*	void init(String entity,DataRow row, VirtualObject obj,StickyTable originStk,StickyTable detail,Query localQ){
