@@ -34,7 +34,7 @@ TablePanel {
 		
 		Font fnt = new Font();
 		fnt.setFamily("Arial");
-		fnt.setSize(24);
+		fnt.setSize(26);
 		fnt.setBold();
 		
 		picBox.setImage(Images.VodafoneImages.box.getImage());
@@ -42,7 +42,8 @@ TablePanel {
 		txtFldName.setForeColor(Color.create(189,0,0));
 		
 		//add(picBox,"hfill=fill,vfill=fill");
-		add(txtFldName, "hfill=fill,vfill=fill");
+		//add(txtFldName, "hfill=fill,vfill=fill");
+		add(txtFldName, "hfill=fill");
 		startNewRow();
 		add(new Separator(), "");
 		startNewRow();

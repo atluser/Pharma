@@ -59,7 +59,7 @@ TablePanel {
 		DataRow dtRw = info.getDataRow();
 		if(!dtRw.isDeleted()){		
 			String str01 = vObjAccount.AccountName.getStringValue(dtRw);
-			String str02 = vObjAccount.AccountStreetAddress.getStringValue(dtRw);					
+			String str02 = vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " (" + vObjAccount.AccountProvince.getStringValue(dtRw) +")";					
 	
 			tblVwCell.lbl01.setText(str01);
 			tblVwCell.lbl02.setText(str02);

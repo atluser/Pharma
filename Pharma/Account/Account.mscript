@@ -83,5 +83,22 @@ VirtualObject {
 	query accountRow<String accountId>{
 		where AccountId==accountId;
 	}
+	/* 
+	Query getAccountsStartsWithA() {
+		return accountRows();
+	}
+	query accountRows<> {
+		where AccountName startsWith "A";
+		ascendingBy AccountName;
+	}
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

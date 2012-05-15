@@ -3,6 +3,8 @@ ScrollableTablePanel {
 	/*
 	 * Attributes
 	 */
+	 DataRow currentRow = null;
+	 
 	FormPanel pnlForm01 = new FormPanel();
 	FormPanel pnlForm02 = new FormPanel();
 	FormPanel pnlForm03 = new FormPanel();
@@ -44,6 +46,7 @@ ScrollableTablePanel {
 	TextModel txtMdlPostalCode = new TextModel();
 	Label txtFldPostalCode = new Label();
 	
+	//ChoiceModel txtMdlCountry = new ChoiceModel();
 	TextModel txtMdlCountry = new TextModel();
 	Label txtFldCountry = new Label();
 	
@@ -198,7 +201,7 @@ ScrollableTablePanel {
 	void setUpHeaderSection(String str) {
 		Font fnt = new Font(); 
 		fnt.setFamily("Arial");
-		fnt.setSize(18);
+		fnt.setSize(22);
 		fnt.setBold();
 	
 		Label lbl = new Label();
@@ -217,7 +220,7 @@ ScrollableTablePanel {
 		
 		Font fnt = new Font();
 		fnt.setFamily("Arial");
-		fnt.setSize(16);
+		fnt.setSize(20);
 		
 		txtFldCode.setFont(fnt);
 		txtFldCode.setForeColor(Colors.Black);
@@ -269,6 +272,9 @@ ScrollableTablePanel {
 		pnlForm01.setInsets(8,8,8,8);
 		//pnlForm01.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.Inform, 20, 20, 20, 20));
 		pnlForm01.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
+		//pnlForm01.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgFormBG, 20, 20, 20, 20));
+		//pnlForm01.setBackground(Background.createGradientRoundedBackground(Color.create(222,222,222), Color.create(222,222,222), Color.create(196,196,196), Color.create(196,196,196)));
+		
 		pnlForm01.setLabelColumnWidth(Sizing.PERCENTS, 20);
 		//pnlForm01.setLabelColumnWidth(Sizing.PREFERRED, 0);
 		pnlForm01.setControlColumnWidth(Sizing.PREFERRED, 1);
@@ -282,11 +288,11 @@ ScrollableTablePanel {
 	
 		Font fnt = new Font();
 		fnt.setFamily("Arial");
-		fnt.setSize(16);
+		fnt.setSize(20);
 		
 		txtFldAddress.setFont(fnt);
 		txtFldAddress.setForeColor(Colors.Blue);
-		//txtFldAddress.setWordWrapWidth(Sizing.PERCENTS, 80);
+		txtFldAddress.setWordWrapWidth(Sizing.PERCENTS, 50);
 		//rchBtnAddress.setColumnWidth(0,Sizing.PERCENTS,50);
 		//rchBtnAddress.setColumnWidth(0,Sizing.PERCENTS, 65);
 		//rchBtnAddress.setRowHeight(0,Sizing.PREFERRED,0);
@@ -345,6 +351,7 @@ ScrollableTablePanel {
 		pnlForm02.setInsets(8,0,8,0);
 		//pnlForm02.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.Inform, 20, 20, 20, 20));	
 		pnlForm02.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
+		//pnlForm02.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgFormBG, 20, 20, 20, 20));
 		pnlForm02.setLabelColumnWidth(Sizing.PERCENTS, 20);
 		//pnlForm02.setLabelColumnWidth(Sizing.PREFERRED, 0);
 		pnlForm02.setControlColumnWidth(Sizing.PREFERRED, 1);
@@ -357,38 +364,38 @@ ScrollableTablePanel {
 	void setUp3rdSection() {
 		
 		Font fnt = new Font();
-		fnt.setSize(16);
+		fnt.setSize(20);
 		fnt.setFamily("Arial");
 		fnt.setBold();
 		
 		btn01.setFont(fnt);
-		//btn01.setText(StringConstants.BTN_START_STR.getString());
-		btn01.setText("Attivitˆ");
+		btn01.setText(StringConstants.TBB_CONTACTS_STR.getString());
+		//btn01.setText("Contatti");
 		btn01.setLeftSpacing(48);
 		btn01.setForeColor(Colors.Black);
 		btn01.setFocusedForeColor(Colors.Black);
-		btn01.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgList, 50, 30, 0, 0));
-		btn01.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgList, 50, 30, 0, 0));
+		btn01.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgContactsList, 50, 30, 0, 0));
+		btn01.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgContactsList, 50, 30, 0, 0));
 		//btn01.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		
 		btn02.setFont(fnt);
-		//btn01.setText(StringConstants.BTN_START_STR.getString());
-		btn02.setText("Ordini");
+		btn02.setText(StringConstants.TBB_ACTIVITIES_STR.getString());
+		//btn02.setText("Attivita'");
 		btn02.setLeftSpacing(48);
 		btn02.setForeColor(Colors.Black);
 		btn02.setFocusedForeColor(Colors.Black);
-		btn02.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgList, 50, 30, 0, 0));
-		btn02.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgList, 50, 30, 0, 0));
+		btn02.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgActivitiesList, 50, 30, 0, 0));
+		btn02.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgActivitiesList, 50, 30, 0, 0));
 		//btn02.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		
 		btn03.setFont(fnt);
-		//btn01.setText(StringConstants.BTN_START_STR.getString());
-		btn03.setText("Contatti");
+		btn03.setText(StringConstants.TBB_ORDERS_STR.getString());
+		//btn03.setText("ORDINI");
 		btn03.setLeftSpacing(48);
 		btn03.setForeColor(Colors.Black);
 		btn03.setFocusedForeColor(Colors.Black);
-		btn03.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgList, 50, 30, 0, 0));
-		btn03.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgList, 50, 30, 0, 0));
+		btn03.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
+		btn03.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
 		//btn03.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		
 		add(btn01,"hfill=fill");
@@ -403,7 +410,7 @@ ScrollableTablePanel {
 
 		Font fnt = new Font();
 		fnt.setFamily("Arial");
-		fnt.setSize(16);
+		fnt.setSize(20);
 		
 		txtFldRating.setFont(fnt);
 		txtFldRating.setForeColor(Colors.Black);
@@ -437,6 +444,7 @@ ScrollableTablePanel {
 		pnlForm03.setInsets(8,0,8,0);
 		//pnlForm02.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.Inform, 20, 20, 20, 20));	
 		pnlForm03.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
+		//pnlForm03.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgFormBG, 20, 20, 20, 20));
 		pnlForm03.setLabelColumnWidth(Sizing.PERCENTS, 20);
 		//pnlForm02.setLabelColumnWidth(Sizing.PREFERRED, 0);
 		pnlForm03.setControlColumnWidth(Sizing.PREFERRED, 1);
@@ -447,6 +455,8 @@ ScrollableTablePanel {
 	}
 	
 	void setRow(DataRow dtRw) {
+			
+		currentRow = dtRw;	
 			
 		txtMdlCode.setRow(dtRw);
 		txtMdlCode.setText(vObjAccount.AccountCode.getStringValue(dtRw));
@@ -495,7 +505,12 @@ ScrollableTablePanel {
 		txtFldPostalCode.setDataModel(txtMdlPostalCode);
 	
 		txtMdlCountry.setRow(dtRw);
+		//txtMdlCountry.setRows(vObjLOV.getLOV("COUNTRY"));
+		//txtMdlCountry.setChoicesAttribute(vObjLOV.Value);
+		//txtMdlCountry.setChoicesKeyAttribute(vObjLOV.Name);
 		txtMdlCountry.setText(vObjAccount.AccountCountry.getStringValue(dtRw));
+		//txtMdlCountry.addField(vObjAccount.AccountCountry);
+		//txtFldCountry.setText(txtMdlCountry.getText());
 		txtFldCountry.setDataModel(txtMdlCountry);
 		
 		txtMdlPhone.setRow(dtRw);
@@ -525,6 +540,8 @@ ScrollableTablePanel {
 		txtMdlNumberOfEmployee.setRow(dtRw);
 		txtMdlNumberOfEmployee.setText(vObjAccount.AccountNumberOfEmployee.getIntegerValue(dtRw).toString());
 		txtFldNumberOfEmployee.setDataModel(txtMdlNumberOfEmployee);
+		
+		refresh();
 			
 	}
 
