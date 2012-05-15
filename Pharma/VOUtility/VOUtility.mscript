@@ -74,21 +74,21 @@ UIObject {
         
         row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("I", row);
+        vObjLOV.Name.setStringValue("+39", row);
         vObjLOV.Value.setStringValue("Italia", row);
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
         row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("F", row);
+        vObjLOV.Name.setStringValue("+33", row);
         vObjLOV.Value.setStringValue("Francia", row);
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
         row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("D", row);
+        vObjLOV.Name.setStringValue("+49", row);
         vObjLOV.Value.setStringValue("Germania", row);
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
