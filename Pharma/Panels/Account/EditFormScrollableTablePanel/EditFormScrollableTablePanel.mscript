@@ -1,5 +1,4 @@
-ScrollableTablePanel {
-	
+ScrollableTablePanel {	
 	DataRow currentRow;
 	int labelColumnSize=9;//dimensione % label column
 	String labelAlign="halign=center";
@@ -18,7 +17,7 @@ ScrollableTablePanel {
 	Label lblCountry=new Label();
 	Label lblPhone=new Label();
 	Label lblCell=new Label();
-	Label lblPrefix=new Label();
+	//Label lblPrefix=new Label();
 	Label lblMail=new Label();
 	Label lblFax=new Label();
 	Label lblUrl=new Label();
@@ -30,7 +29,7 @@ ScrollableTablePanel {
 	Label txtCode=new Label();
 	TextModel mdlCode =new TextModel();
 	
-	TextField txtName=new TextField();
+	UppercaseField txtName=new UppercaseField();
 	TextModel mdlName =new TextModel();
 	
 	Label txtType=new Label();
@@ -38,7 +37,7 @@ ScrollableTablePanel {
 	
 	//TextField txtCategory=new TextField();
 	Picker txtCategory=new Picker();
-	TextModel mdlCategory=new TextModel();
+	ChoiceModel mdlCategory=new ChoiceModel();
 	
 	Label txtStatus=new Label();
 	TextModel mdlStatus=new TextModel();
@@ -55,22 +54,22 @@ ScrollableTablePanel {
 	ComboBox txtProvince=new ComboBox();
 	ChoiceModel mdlProvince=new ChoiceModel();
 	
-	Picker btnProvinceSticky=new Picker();
+	//Picker btnProvinceSticky=new Picker();
 	
-	ComboBox txtCountry=new ComboBox();
+	//ComboBox txtCountry=new ComboBox();
 	ChoiceModel mdlCountry=new ChoiceModel();
 	
 	
 	PhoneField txtPhone=new PhoneField();
 	TextModel mdlPhone=new TextModel();
 	
-	TextField txtPrefix=new TextField();
+	Label txtPrefix=new Label();
 	TextModel mdlPrefix=new TextModel();
 	
 	PhoneField txtFax=new PhoneField();
 	TextModel mdlFax=new TextModel();
 	
-	TextField txtFaxPrefix=new TextField();
+	Label txtFaxPrefix=new Label();
 	TextModel mdlFaxPrefix=new TextModel();
 	
 	PhoneField txtCell=new PhoneField();
@@ -96,13 +95,15 @@ ScrollableTablePanel {
 	Styles.FormStyle style = new Styles.FormStyle();
 	
 	callback onCreate(Container c){
-		Font txtfnt=new Font();
-		txtfnt.setFamily("Arial");
-		txtfnt.setSize(18);		
-		txtfnt.setBold();
-											
+		
 		setLabel();
 		setModel();
+		
+		Font txtfnt=new Font();
+		txtfnt.setFamily("Arial");
+		txtfnt.setSize(22);		
+		txtfnt.setBold();
+											
 		//sezione anagrafica		
 		setInsets(8,8,8,8);						
 		Label lblTitle1=new Label();
@@ -178,18 +179,21 @@ ScrollableTablePanel {
 		lblType.setFont(txtfnt);				
 		lblCategory.setText("Categoria");
 		lblCategory.setFont(txtfnt);
+		lblCategory.setForeColor(Color.create(189,0,0));
 		lblStatus.setText("Stato");
 		lblStatus.setFont(txtfnt);						
 		lblAddress.setText("Indirizzo");
 		lblAddress.setFont(txtfnt);
+		lblAddress.setForeColor(Color.create(189,0,0));
 		txtCity.setTextHint("Città");
 		lblCountry.setText("Paese");
 		lblCountry.setFont(txtfnt);
+		lblCountry.setForeColor(Color.create(189,0,0));
 		lblProvince.setText("Provincia");
 		lblProvince.setFont(txtfnt);
 		txtCap.setTextHint("CAP");
 		lblPhone.setText("Telefono");
-		lblPhone.setFont(txtfnt);
+		lblPhone.setFont(txtfnt);		
 		lblMail.setText("e-Mail");
 		lblMail.setFont(txtfnt);
 		lblFax.setText("Fax");
@@ -204,26 +208,31 @@ ScrollableTablePanel {
 		lbl02.setText("Fatturato");
 		lbl02.setFont(txtfnt);
 		lbl03.setText("Nr. Dipendenti");
-		lbl03.setFont(txtfnt);
+		lbl03.setFont(txtfnt);				
 		
 	/**************tentativi picker ************/
 		//btnProvinceSticky.setTextHint("Province");
-		//picker
-		/*PickerElement pkrEl1=new PickerElement();
-		PickerElement pkrEl2=new PickerElement();
-		PickerElement pkrEl3=new PickerElement();
-		pkrEl1.setText("Seleziona paese");
-		pkrEl2.setText("Seleziona provincia");
-		pkrEl3.setText("prova");
-		pkrCountry.setPlaceHolder(pkrEl1);
-		pkrProvince.setPlaceHolder(pkrEl2);
-		pkrProvince.setMenuItemLabel("Provincia");
-		/*
-		pkrProvince.setBackColor(Colors.Blue);
 		
-		pkrProvince.addElement(pkrEl3);
-		pkrProvince.doneAddingElements();		
-		*****************************/					
+		
+		//setdatamodel
+		txtCode.setDataModel(mdlCode);
+		txtName.setDataModel(mdlName);
+		txtType.setDataModel(mdlType);
+		txtCategory.setDataModel(mdlCategory);
+		txtStatus.setDataModel(mdlStatus);
+		txtStreetAddress.setDataModel(mdlStreetAddress);
+		txtCity.setDataModel(mdlCity);
+		txtCap.setDataModel(mdlCap);
+		txtProvince.setDataModel(mdlProvince);
+		pkrProvince.setDataModel(mdlProvince);
+		//txtCountry.setDataModel(mdlCountry);
+		pkrCountry.setDataModel(mdlCountry);
+		txtPhone.setDataModel(mdlPhone);
+		txtFax.setDataModel(mdlFax);
+		txtMail.setDataModel(mdlMail);
+		txtUrl.setDataModel(mdlUrl);
+		txtPrefix.setDataModel(mdlPrefix);
+		txtFaxPrefix.setDataModel(mdlFaxPrefix);							
 	}
 	
 	void setModel(){		
@@ -236,8 +245,9 @@ ScrollableTablePanel {
 		//mdlType.setForeColor(Colors.Black);
 		txtStatus.setFont(txtfnt);
 		mdlStatus.setFont(txtfnt);
-		//mdlStatus.setForeColor(Colors.Black);
-		
+		//mdlStatus.setForeColor(Colors.Black);		
+		mdlPrefix.setFont(txtfnt);
+		mdlFaxPrefix.setFont(txtfnt);
 		
 		mdlCode.addField(vObjAccount.AccountCode);
 		mdlCode.setFont(txtfnt);
@@ -255,28 +265,32 @@ ScrollableTablePanel {
 		mdlMail.addField(vObjAccount.AccountEmail);
 		mdlUrl.addField(vObjAccount.AccountWebSite);
 		
-		txtCode.setDataModel(mdlCode);
-		txtName.setDataModel(mdlName);
-		txtType.setDataModel(mdlType);
-		txtCategory.setDataModel(mdlCategory);
-		txtStatus.setDataModel(mdlStatus);
-		txtStreetAddress.setDataModel(mdlStreetAddress);
-		txtCity.setDataModel(mdlCity);
-		txtCap.setDataModel(mdlCap);
-		txtProvince.setDataModel(mdlProvince);
-		pkrProvince.setDataModel(mdlProvince);
-		txtCountry.setDataModel(mdlCountry);
-		pkrCountry.setDataModel(mdlCountry);
-		txtPhone.setDataModel(mdlPhone);
-		txtFax.setDataModel(mdlFax);
-		txtMail.setDataModel(mdlMail);
-		txtUrl.setDataModel(mdlUrl);
+		/*mdlPrefix.setText("+39");
+		mdlFaxPrefix.setText("+39");
+*/
 		
 		//btnProvinceSticky.setText("Provincia");
 		//btnProvinceSticky.setDataModel(mdlProvince);
 		//mdlName.setText("pippo");
 		
 		setChoiceModel();
+		
+		//picker
+		PickerElement pkrEl1=new PickerElement();
+		PickerElement pkrEl2=new PickerElement();
+		PickerElement pkrEl3=new PickerElement();
+		pkrEl1.setText("Seleziona paese");
+		pkrEl2.setText("Seleziona provincia");
+		pkrEl3.setText("prova");
+		pkrCountry.setPlaceHolder(pkrEl1);
+		pkrProvince.setPlaceHolder(pkrEl2);
+		//pkrProvince.setMenuItemLabel("Provincia");
+		/*
+		pkrProvince.setBackColor(Colors.Blue);
+		
+		pkrProvince.addElement(pkrEl3);
+		pkrProvince.doneAddingElements();		
+		*****************************/
 	}
 	
 	void setChoiceModel(){
@@ -287,7 +301,7 @@ ScrollableTablePanel {
 		mdlCountry.setRows(vObjLOV.getLOV("COUNTRY"));		
 		//mdlCountry.setSelectedIndex(1);		
 				
-		mdlProvince.setChoicesAttribute(vObjLOV.Value);
+		mdlProvince.setChoicesAttribute(vObjLOV.Name);
 		mdlProvince.setChoicesKeyAttribute(vObjLOV.Name);
 		mdlProvince.setRows(vObjLOV.getLOV("PROVINCE"));
 		
@@ -302,8 +316,8 @@ ScrollableTablePanel {
 		List catList=new List();			
 		txtCategory.setChoices(catList.split(";Ospedale;ASL;Farmacia;Altro",";"));
 		
-		txt01.setChoices(catList.split(";Platinum;Gold;Silver",";"));
-		txt02.setChoices(catList.split(";0 - 100 K;100 - 500 K;500 - 1000 K",";"));
+		txt01.setChoices(catList.split(" ;Platinum;Gold;Silver",";"));
+		txt02.setChoices(catList.split(" ;0 - 100 K;100 - 500 K;500 - 1000 K",";"));
 	
 	}
 	
@@ -333,9 +347,11 @@ ScrollableTablePanel {
 		
 		//horizontal Panel
 		HorizontalPanel hz=new HorizontalPanel();
+		hz.setInsets(0,6,0,0);
+		hz.setHGap(3);
 		hz.add(txtCity,"hfill=fill");		
 		hz.add(txtCap,"hfill=fill");		
-		hz.add(pkrProvince,"halign=center,vfill=fill,hfill=fill");
+		hz.add(pkrProvince,"halign=left,vfill=fill,hfill=fill");
 		hz.setColumnWidth(0,Sizing.PREFERRED,2);
 		hz.setColumnWidth(1,Sizing.PREFERRED,1);
 		hz.setColumnWidth(2,Sizing.PREFERRED,1);
@@ -392,8 +408,8 @@ ScrollableTablePanel {
 		scr=sourceScr;
 		setRow(dtRow);
 	}*/
-	void setRow(DataRow row){
-		currentRow=row;
+	void setRow(DataRow row){		
+		currentRow=row;			
 		
 		mdlCode.setRow(row);
 		mdlName.setRow(row);
@@ -409,27 +425,57 @@ ScrollableTablePanel {
 		mdlCell.setRow(row);
 		mdlMail.setRow(row);
 		mdlUrl.setRow(row);
+		
+		int idx=mdlCountry.getSelectedIndex();
+		if(idx>=0)		pkrCountry.setSelectedIndex(mdlCountry.getSelectedIndex());
+		
+		idx=mdlProvince.getSelectedIndex();
+		if(idx>=0)		pkrProvince.setSelectedIndex(mdlProvince.getSelectedIndex());
+		idx=mdlCategory.getSelectedIndex();
+		if(idx>=0) txtCategory.setSelectedIndex(idx);
+		if(mdlCountry!=null){
+			String out=mdlCategory.getText();
+			idx=mdlCategory.getSelectedIndex();
+			appLog.log(Log.INFO,"mdlcotegory "+out+" "+idx);
+			out=mdlCountry.getText();
+			idx=mdlCountry.getSelectedIndex();
+			appLog.log(Log.INFO,"mdlcountry "+out+" "+idx);
+		}
+		else 
+			appLog.log(Log.INFO,"mdlcountry is null");
+		
+		
 	}
 	
 	void save(){
-		vObjAccount.AccountName.setStringValue(txtName.getText(),currentRow);
-		int idx=txtCategory.getSelectedIndex();
-		vObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);
+			vObjAccount.AccountName.setStringValue(txtName.getText(),currentRow);
+			int idx=txtCategory.getSelectedIndex();
+			//String key=mdlCategory.getKeyValue();
+			vObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);
+			
+			vObjAccount.AccountStreetAddress.setStringValue(txtStreetAddress.getText(),currentRow);
+			vObjAccount.AccountCity.setStringValue(txtCity.getText(),currentRow);
+			vObjAccount.AccountPostalCode.setStringValue(txtCap.getText(),currentRow);
+			idx=pkrProvince.getSelectedIndex();
+			vObjAccount.AccountProvince.setStringValue(pkrProvince.getChoice(idx),currentRow);
+			idx=pkrCountry.getSelectedIndex();
+			String key =mdlCountry.getKeyValue();
+			//vObjAccount.AccountCountry.setStringValue(pkrCountry.getChoice(idx),currentRow);
+			vObjAccount.AccountCountry.setStringValue(mdlCountry.getKeyValue(),currentRow);
+					
+			vObjAccount.AccountPhone.setStringValue(txtPhone.getText(),currentRow);
+			vObjAccount.AccountFax.setStringValue(txtFax.getText(),currentRow);
+			vObjAccount.AccountEmail.setStringValue(txtMail.getText(),currentRow);
+			vObjAccount.AccountWebSite.setStringValue(txtUrl.getText(),currentRow);
+			
+			currentRow.applyUpdates();
 		
-		vObjAccount.AccountStreetAddress.setStringValue(txtStreetAddress.getText(),currentRow);
-		vObjAccount.AccountCity.setStringValue(txtCity.getText(),currentRow);
-		vObjAccount.AccountPostalCode.setStringValue(txtCap.getText(),currentRow);
-		idx=pkrProvince.getSelectedIndex();
-		vObjAccount.AccountProvince.setStringValue(pkrProvince.getChoice(idx),currentRow);
-		idx=pkrCountry.getSelectedIndex();
-		vObjAccount.AccountCountry.setStringValue(pkrCountry.getChoice(idx),currentRow);
-		
-		vObjAccount.AccountPhone.setStringValue(txtPhone.getText(),currentRow);
-		vObjAccount.AccountFax.setStringValue(txtFax.getText(),currentRow);
-		vObjAccount.AccountEmail.setStringValue(txtMail.getText(),currentRow);
-		vObjAccount.AccountWebSite.setStringValue(txtUrl.getText(),currentRow);
-		
-		currentRow.applyUpdates();
+	}
+	
+	callback pkrCountry onValueChange(Control c){
+		String key=mdlCountry.getKeyValue();
+		mdlPrefix.setText(key);
+		mdlFaxPrefix.setText(key);
 	}
 	
 	/*callback btnProvinceSticky onClick(Control c){
@@ -441,7 +487,5 @@ ScrollableTablePanel {
 	
 		
 	}*/
-	callback pkrProvince onValueChange(Control c){
-		refresh();	
-	}
+	
 }
