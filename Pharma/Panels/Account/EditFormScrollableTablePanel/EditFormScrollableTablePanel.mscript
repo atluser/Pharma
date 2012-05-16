@@ -594,7 +594,7 @@ ScrollableTablePanel {
 		province.btnPopup=button;
 		province.mdlPickMap=model;
 		province.setQuery(vObjLOV.getLOV(type));
-		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 50, Sizing.PREFERRED, 0, false);
+		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PIXELS, 200, false);
 		
 	}
 }
