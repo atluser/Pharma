@@ -1,13 +1,25 @@
 TableViewPanel {
+	
 	Label lbl=new Label(); 
+	
 	callback onCreate(Container c){
+		
 		Font fnt = new Font();
 		fnt.setSize(18);
 		fnt.setFamily("Arial");
+		fnt.setBold();
+		
 		lbl.setFont(fnt);
 		lbl.setForeColor(Color.create(255,255,255));
-		add(lbl,"halign=center,valign=center,hfill=fill");
+		
+		//add(lbl,"halign=center,valign=center,hfill=fill");
+		add(lbl,"hfill=fill");
+		
+		setInsets (0, 8, 0, 8);
 		setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		setColumnWidth(0, Sizing.PREFERRED, 0);	
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		
 	}
 
 }

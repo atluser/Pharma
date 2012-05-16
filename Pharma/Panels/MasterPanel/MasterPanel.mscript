@@ -15,8 +15,8 @@ TablePanel {
 		
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
 		setColumnWidth(0, Sizing.PERCENTS, 35);
-		//setRowHeight(0, Sizing.PERCENTS, 100);
-		setRowHeight(0, Sizing.PREFERRED, 1);	
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);	
 	 
 	}
 	
@@ -25,6 +25,9 @@ TablePanel {
 		add(pnl, "valign=top");
 		appLog.log(Log.INFO,"aggancio sticky");
 		*/
+		Panels.SearchHeaderHorizontalPanel search = new Panels.SearchHeaderHorizontalPanel();
+		add(search,"halign=center");
+		startNewRow();
 		add(pnl, "hfill=fill,vfill=fill");
 		
 	}
