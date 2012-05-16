@@ -61,14 +61,14 @@ UIObject {
         row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("PROVINCE", row);
         vObjLOV.Name.setStringValue("BG", row);
-        vObjLOV.Value.setStringValue("Bergamo", row);
+        vObjLOV.Value.setStringValue("BG", row);
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
         row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("PROVINCE", row);
         vObjLOV.Name.setStringValue("TO", row);
-        vObjLOV.Value.setStringValue("Torino", row);
+        vObjLOV.Value.setStringValue("TO", row);
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
@@ -92,6 +92,69 @@ UIObject {
         vObjLOV.Value.setStringValue("Germania", row);
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("CATEGORY", row);
+        vObjLOV.Name.setStringValue("Farmacia", row);
+        vObjLOV.Value.setStringValue("Farmacia", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("CATEGORY", row);
+        vObjLOV.Name.setStringValue("ASL", row);
+        vObjLOV.Value.setStringValue("ASL", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("CATEGORY", row);
+        vObjLOV.Name.setStringValue("Ospedale", row);
+        vObjLOV.Value.setStringValue("Ospedale", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("RATING", row);
+        vObjLOV.Name.setStringValue("Gold", row);
+        vObjLOV.Value.setStringValue("Gold", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("RATING", row);
+        vObjLOV.Name.setStringValue("Platinum", row);
+        vObjLOV.Value.setStringValue("Platinum", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();        
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("RATING", row);
+        vObjLOV.Name.setStringValue("Silver", row);
+        vObjLOV.Value.setStringValue("Silver", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("REVENUE", row);
+        vObjLOV.Name.setStringValue("0 - 100 K", row);
+        vObjLOV.Value.setStringValue("0 - 100 K", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("REVENUE", row);
+        vObjLOV.Name.setStringValue("100 - 500 K", row);
+        vObjLOV.Value.setStringValue("100 - 500 K", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("REVENUE", row);
+        vObjLOV.Name.setStringValue("500 - 1000 K", row);
+        vObjLOV.Value.setStringValue("500 - 1000 K", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();        
 	}
 	
 	void loadAccount(){

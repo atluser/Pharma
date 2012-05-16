@@ -1,6 +1,7 @@
 Popup {
 	TextModel mdlPickMap;
 	BackgroundButton btnPopup;
+	String strtitle="HEADER";
 	
 /*	callback onCreate(Container c){
 		Panels.ProvinceStickyTablePanel stk=new Panels.ProvinceStickyTablePanel();
@@ -24,12 +25,16 @@ Popup {
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
-	
+		//TablePanel tp=new TablePanel();
+		
 		stk.setGridLineThickness(1);
 		stk.setGridLineStyle(LineStyle.SOLID);
 		stk.setGridLineColor(Colors.Gray);
 		
 		//set size (note: this is required)
+		/*tp.setRowHeight(0, Sizing.PREFERRED, 1);
+		tp.setColumnWidth(0, Sizing.PREFERRED, 0);
+		*/
 		setRowHeight(0, Sizing.PREFERRED, 1);
 		setColumnWidth(0, Sizing.PREFERRED, 0);
 		
@@ -44,9 +49,11 @@ Popup {
 		//startNewRow(); 
 		
 		//add sticky table to screen		
-		add(stk, "valign=top");			
+		//tp.add(stk, "valign=top");			
+		add(stk, "valign=top");
 
-	
+		//add(tp,"halign=center;vfill=fill");
+		setColumnWidth(0, Sizing.PREFERRED, 0);
 	}
 
 	///////////////////////////////
@@ -97,13 +104,13 @@ Popup {
 	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
 		TableViewPanel pnl=new TableViewPanel();
 		Label title=new Label();
-		title.setText("Province");
+		title.setText(strtitle);
 		pnl.add(title,"halign=center");
 		info.setPanel(pnl);
 	}
 	
 	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
-		cell.setCouldBeSelected(true);
+		cell.setCouldBeSelected(false);
 		cell.setHeight(Sizing.PIXELS, 60);
 		cell.setWidth(Sizing.PREFERRED, 0);
 	}

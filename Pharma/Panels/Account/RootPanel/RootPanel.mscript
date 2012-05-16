@@ -58,8 +58,7 @@ BorderPanel {
 	} 
 	
 	StickyTable getStickyTable(){
-		return stk.stk;
-	
+		return stk.stk;	
 	}
 	/*
 	StickyTable getDetailStickyTable(){

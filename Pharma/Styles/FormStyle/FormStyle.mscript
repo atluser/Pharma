@@ -10,6 +10,7 @@ Style {
 		Label.setForeColor(Colors.Black);
 		Label.setFont(lblfnt);
 		TextField.setFont(lblfnt);
+		//TextField.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		
 	/*			
 		ComboBox.setFont(fnt);
@@ -36,8 +37,12 @@ Style {
 		Picker.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER); 		
 		Picker.setBackground(Background.create9PartImageRectangleBackground (Images.VodafoneImages.ImgPick , 0 , 50 , 0 , 0 ));
 		*/
+		
+		//BackgroundButton.setBorder(Border.createSimpleBorder(Colors.Gray));
+		BackgroundButton.setBorder(Border.createRoundedBorder(Colors.Gray)); 
 		BackgroundButton.setForeColor(Colors.Black);
-		BackgroundButton.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+		BackgroundButton.setLeftSpacing(3);
+		BackgroundButton.setHorizontalTextAlignment(HorizontalAlignmentType.LEFT);
 		BackgroundButton.setFont(lblfnt);
 //		BackgroundButton.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
 		BackgroundButton.setBackground(Background.create9PartImageRectangleBackground (Images.VodafoneImages.ImgPick , 0 , 50 , 0 , 0 ));

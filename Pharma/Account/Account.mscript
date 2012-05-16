@@ -47,6 +47,8 @@ VirtualObject {
 		return null;
 	}
 	
+	StringField AccountPrefix{return null;}
+	
 	StringField AccountFax {
 		return null;
 	}
