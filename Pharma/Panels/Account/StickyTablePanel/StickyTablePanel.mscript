@@ -5,7 +5,10 @@ TablePanel {
 	 */
 	StickyTable stk = new StickyTable();
 	RowSetModel rsm = new RowSetModel();
-	
+	/*KO
+	DataRowArray arrDtRwA = null;
+	DataRowArray arrDtRwB = null;
+	*/
 	
 	//Panels.DetailStickyTablePanel pnlDetailForm;
 	Panels.DetailPanel pnlDetail;
@@ -22,24 +25,16 @@ TablePanel {
 		
 		//set size (note: this is required)
 		setRowHeight(0, Sizing.PREFERRED, 1);
-		
-		
+			
 		rsm.setRows(vObjAccount.getAccounts());		
-		
 		
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
 		
-		//add header search
-		//Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();
-		//add(search,"hfill=fill");
-		//startNewRow(); 
-		
-		//add sticky table to screen
-		//add(stk, "hfill=fill,vfill=fill");
 		add(stk, "hfill=fill,valign=top");	
-
-	
+		
+		//KO createStickyTableGrouped();
+		
 	}
 
 	///////////////////////////////
@@ -87,10 +82,30 @@ TablePanel {
 	////////////////////////////
 	// Sticky Header (Optional)
 	////////////////////////////
-	/*
+	/* 
 	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
-		info.setPanel(new Panels.Accounts.AccountHeaderTableViewPanel());
+		
+		KO
+		TableViewCell headerCell = new TableViewCell();
+		Label lbl = new Label();
+		
+		if(group == 0) {
+			lbl.setText("A");
+			appLog.log(Log.INFO, "onHeaderCreateInfo() - setText(A)");
+		} else if(group == 1) {
+			lbl.setText("B");
+			appLog.log(Log.INFO, "onHeaderCreateInfo() - setText(B)");
+		}	
+		
+		headerCell.add(lbl,"hfill=fill");	
+		headerCell.setBackColor(Colors.Red);
+		info.setPanel(headerCell);
+		
+		//info.setPanel(new Panels.Accounts.AccountHeaderTableViewPanel());
+		
+		
 	}
+	*/
 	
 	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
 		cell.setCouldBeSelected(true);
@@ -100,8 +115,7 @@ TablePanel {
 	
 	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
 		cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
-	}
-		*/	
+	}	
 		
 	////////////////////////////
 	// Footer (Optional)
@@ -142,6 +156,49 @@ TablePanel {
 	}
 	
 	void executeQuery(){
-		rsm.setRows(vObjAccount.getAccounts());
+		//OK rsm.setRows(vObjAccount.getAccounts());
 	}
+	
+	/* KO
+	void createStickyTableGrouped() {
+		
+		arrDtRwA = new DataRowArray();
+		arrDtRwB = new DataRowArray();
+		
+		DataRowSet dtRwSetA = vObjAccount.getAccountsStartWithA().getRowSet();
+		DataRow dtRwA = dtRwSetA.first();
+		while(dtRwA != null) {
+			arrDtRwA.addItem(dtRwA);
+			dtRwA = dtRwSetA.next();
+			appLog.log(Log.INFO, "createStickyTableGrouped() - A");
+		}
+		
+		DataRowSet dtRwSetB = vObjAccount.getAccountsStartWithB().getRowSet();
+		DataRow dtRwB = dtRwSetB.first();
+		while(dtRwB != null) {
+			arrDtRwB.addItem(dtRwB);
+			dtRwB = dtRwSetB.next();
+			appLog.log(Log.INFO,"createStickyTableGrouped() - B");
+		}
+	
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);	
+	
+		//set size (note: this is required)
+		//setRowHeight(0, Sizing.PREFERRED, 1);
+	
+		stk.setNumberOfGroups(2);
+		stk.setNumberOfCellsInGroup (0, arrDtRwA.length());
+		stk.setNumberOfCellsInGroup (1, arrDtRwB.length());
+		stk.refresh();
+	
+		add(stk, "hfill=fill,valign=top");
+		
+	}
+	*/
+	
+	
+	
+	
 }

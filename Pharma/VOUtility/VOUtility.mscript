@@ -357,7 +357,7 @@ UIObject {
           //row = vObjAccount.getNewRow();
           vObjAccount.AccountId.setStringValue("00100988", row);
           vObjAccount.AccountCode.setStringValue("00100988", row);
-          vObjAccount.AccountName.setStringValue("FARMACIA BIANCHI", row);
+          vObjAccount.AccountName.setStringValue("AFARMACIA BIANCHI", row);
           vObjAccount.AccountType.setStringValue("Cliente", row);
           vObjAccount.AccountStreetAddress.setStringValue("Via San Maurizio, 10", row);
           vObjAccount.AccountCity.setStringValue("Lovere", row);
@@ -375,7 +375,7 @@ UIObject {
           row = vObjAccount.getNewRow();
           vObjAccount.AccountId.setStringValue("00100398", row);
           vObjAccount.AccountCode.setStringValue("00100398", row);
-          vObjAccount.AccountName.setStringValue("FARMACIA MARI SRL", row);
+          vObjAccount.AccountName.setStringValue("AFARMACIA MARI SRL", row);
           vObjAccount.AccountType.setStringValue("Cliente", row);
           vObjAccount.AccountStreetAddress.setStringValue("Via Provinciale, 3", row);
           vObjAccount.AccountCity.setStringValue("Albino", row);
@@ -393,7 +393,7 @@ UIObject {
           row = vObjAccount.getNewRow();
           vObjAccount.AccountId.setStringValue("00100853", row);
           vObjAccount.AccountCode.setStringValue("00100853", row);
-          vObjAccount.AccountName.setStringValue("FARMACIA ALBINI", row);
+          vObjAccount.AccountName.setStringValue("BFARMACIA ALBINI", row);
           vObjAccount.AccountType.setStringValue("Cliente", row);
           vObjAccount.AccountStreetAddress.setStringValue("Via Molino, 3", row);
           vObjAccount.AccountCity.setStringValue("Pascolo", row);
@@ -416,7 +416,7 @@ UIObject {
           row = vObjAccount.getNewRow();
           vObjAccount.AccountId.setStringValue("00100060", row);
           vObjAccount.AccountCode.setStringValue("00100060", row);
-          vObjAccount.AccountName.setStringValue("FARMACIA SERIATE SNC", row);
+          vObjAccount.AccountName.setStringValue("BFARMACIA SERIATE SNC", row);
           vObjAccount.AccountType.setStringValue("Cliente", row);
           vObjAccount.AccountStreetAddress.setStringValue("Via Nazionale, 83", row);
           vObjAccount.AccountCity.setStringValue("Seriate", row);
