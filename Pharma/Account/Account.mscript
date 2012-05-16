@@ -77,6 +77,13 @@ VirtualObject {
 		ascendingBy AccountName;
 	}
 	
+	Query getAccountStartsWith(String strStart){
+		return accountStartsWith(strStart);
+	}
+	query accountStartsWith<String strStart>{
+		where AccountName startsWith strStart; 
+	}
+	
 	Query getAccountRow(String accountId){
 		return accountRow(accountId);
 	}

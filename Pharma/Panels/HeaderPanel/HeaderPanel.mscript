@@ -182,7 +182,8 @@ HorizontalPanel {
 			case 0:
 				entity="Account";
 				//obj=vObjAccount;
-				row=pnlAccountRoot.getCurrentRow();
+				//row=pnlAccountRoot.getCurrentRow();
+				row=pnlAccountRoot.pnlDetailForm.currentRow;
 				originStk=pnlAccountRoot.getStickyTable();
 				//detailStk=pnlAccountRoot.getDetailStickyTable();
 				pnlDetailForm=pnlAccountRoot.pnlDetailForm;

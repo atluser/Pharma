@@ -36,6 +36,9 @@ UIProject {
 	//ObjectArray sectionLabelArray=new ObjectArray();
 	ObjectMap sectionLabelMap=new ObjectMap();
 	
+	String letter="A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R;S;T;U;V;W;X;Y;Z";
+	List letterList=new List();
+	
 	callback onApplicationStyleSetup(StyleReceptor styleReceptor){
 		
 		if(Device.isIPad()) {
@@ -87,6 +90,7 @@ UIProject {
 	}
 
 	callback onStart(PushedData pushedData){
+		letterList=List.split(letter,";");
 		
 		vObjUtil.loadCrmEntities();
 		vObjUtil.loadLOV();

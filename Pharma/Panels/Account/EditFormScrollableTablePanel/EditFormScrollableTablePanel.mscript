@@ -265,9 +265,9 @@ ScrollableTablePanel {
 		mdlMail.addField(vObjAccount.AccountEmail);
 		mdlUrl.addField(vObjAccount.AccountWebSite);
 		
-		mdlPrefix.setText("+39");
+		/*mdlPrefix.setText("+39");
 		mdlFaxPrefix.setText("+39");
-
+*/
 		
 		//btnProvinceSticky.setText("Provincia");
 		//btnProvinceSticky.setDataModel(mdlProvince);
@@ -431,10 +431,14 @@ ScrollableTablePanel {
 		
 		idx=mdlProvince.getSelectedIndex();
 		if(idx>=0)		pkrProvince.setSelectedIndex(mdlProvince.getSelectedIndex());
-		
+		idx=mdlCategory.getSelectedIndex();
+		if(idx>=0) txtCategory.setSelectedIndex(idx);
 		if(mdlCountry!=null){
 			String out=mdlCategory.getText();
 			idx=mdlCategory.getSelectedIndex();
+			appLog.log(Log.INFO,"mdlcotegory "+out+" "+idx);
+			out=mdlCountry.getText();
+			idx=mdlCountry.getSelectedIndex();
 			appLog.log(Log.INFO,"mdlcountry "+out+" "+idx);
 		}
 		else 
@@ -444,31 +448,6 @@ ScrollableTablePanel {
 	}
 	
 	void save(){
-		//check required field
-		String message="Valirizzare campo ";
-		MessageBox msgBox=new MessageBox();
-		Label lblMessage=new Label();
-		if(txtName.getText()==""){
-			message+=lblName.getText();
-			msgBox.error(1,message);			
-		}
-		else if(txtStreetAddress.getText()==""){
-			message+=lblAddress.getText();
-			msgBox.error(1,message);
-		}
-		else if(txtCity.getText()==""){
-			message+="Città";
-			msgBox.error(1,message);
-		}
-		else if(mdlProvince.getText()==""){
-				message+="Provincia";
-				msgBox.error(1,message);		
-		}
-		else if(mdlCountry.getText()==""){
-				message+="Paese";		
-				msgBox.error(1,message);
-		}
-		else {
 			vObjAccount.AccountName.setStringValue(txtName.getText(),currentRow);
 			int idx=txtCategory.getSelectedIndex();
 			//String key=mdlCategory.getKeyValue();
@@ -490,7 +469,7 @@ ScrollableTablePanel {
 			vObjAccount.AccountWebSite.setStringValue(txtUrl.getText(),currentRow);
 			
 			currentRow.applyUpdates();
-		}
+		
 	}
 	
 	callback pkrCountry onValueChange(Control c){

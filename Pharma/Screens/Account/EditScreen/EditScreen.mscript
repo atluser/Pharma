@@ -124,14 +124,22 @@ Screen {
 	}
 	
 	callback btnDone onClick(Control c) {
-		//stk.save(dataObject);
-		fp.save();
-		RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
-		rsm.setRows(vObjAccount.getAccounts());
-		originListStk.reload();
-		//detailStk.reload();
-		pnlDetailForm.setRow(fp.currentRow);
-		close(Animation.PUSH_FROM_TOP);
+		if(checkRequired()){
+			//stk.save(dataObject);		
+			fp.save();
+			/*RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
+			rsm.setRows(vObjAccount.getAccounts());*/
+			//reset query
+			MultiRowSetModel mrsm=(MultiRowSetModel) originListStk.getDataModel();
+			for (int i=0;i<mrsm.getGroupCount();i++){
+				RowSetModel rsm=mrsm.getComponent(i);
+				rsm.setRows(vObjAccount.getAccountStartsWith(letterList.getItem(i)));
+			}
+			originListStk.reload();
+			//detailStk.reload();
+			pnlDetailForm.setRow(fp.currentRow);
+			close(Animation.PUSH_FROM_TOP);
+		}
 	}
 	
 	callback btnUndo onClick(Control c) {
@@ -143,11 +151,43 @@ Screen {
 	
 	callback btnMenu onClick(Control c) {
 		close(Animation.PUSH_FROM_TOP);
-	}			
+	}
+					
 
 	/*
 	 * Custom methods
 	 */
+	 
+	 boolean checkRequired(){
+	 	boolean result=false;
+	 	//check required field
+		String message="Valirizzare campo ";
+		MessageBox msgBox=new MessageBox();		
+		if(fp.txtName.getText()==""){
+			message+=fp.lblName.getText();
+			msgBox.error(1,message);			
+		}
+		else if(fp.txtStreetAddress.getText()==""){
+			message+=fp.lblAddress.getText();
+			msgBox.error(1,message);
+		}
+		else if(fp.txtCity.getText()==""){
+			message+="Città";
+			msgBox.error(1,message);
+		}
+		else if(fp.mdlProvince.getText()==""){
+				message+="Provincia";
+				msgBox.error(1,message);		
+		}
+		else if(fp.mdlCountry.getText()==""){
+				message+="Paese";		
+				msgBox.error(1,message);
+		}
+		else result=true;
+		
+		return result;
+	 }
+	 
 	void setUpButtons() {
 				
 		btnHome.setImage(Images.VodafoneImages.img_logo_vodafone.getImage());
