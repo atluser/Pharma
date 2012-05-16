@@ -1,5 +1,6 @@
 Popup {
-	ChoiceModel mdlChoice;
+	TextModel mdlPickMap;
+	BackgroundButton btnPopup;
 	
 /*	callback onCreate(Container c){
 		Panels.ProvinceStickyTablePanel stk=new Panels.ProvinceStickyTablePanel();
@@ -32,7 +33,7 @@ Popup {
 		setRowHeight(0, Sizing.PREFERRED, 1);
 		setColumnWidth(0, Sizing.PREFERRED, 0);
 		
-		rsm.setRows(vObjLOV.getLOV("PROVINCE"));						
+		//rsm.setRows(vObjLOV.getLOV("PROVINCE"));						
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
 		
@@ -80,7 +81,10 @@ Popup {
 	}		
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
-		mdlChoice.setSelectedIndex(row);
+		//mdlChoice.setSelectedIndex(row);		
+		//Cells.SimpleTableViewCell tblVwCell = (Cells.SimpleTableViewCell)cell;				
+		btnPopup.setText(vObjLOV.Value.getStringValue(rsm.getRow()));
+		mdlPickMap.setText(vObjLOV.Name.getStringValue(rsm.getRow()));
 		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
 		//pnlDetailForm.setRow(rsm.getRow());
 		
@@ -141,6 +145,10 @@ Popup {
 	
 	void executeQuery(){
 		rsm.setRows(vObjAccount.getAccounts());
+	}
+	
+	void setQuery(Query q){
+		rsm.setRows(q);
 	}
 	/*void init (RowSetModel rsm){
 		//rsm.setRows(vObjLOV.getLOV("PROVINCE"));						

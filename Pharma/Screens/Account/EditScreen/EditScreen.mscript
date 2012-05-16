@@ -212,7 +212,7 @@ Screen {
 		//sticky table origine dati
 		originListStk=originStk;		
 		//detail form
-		pnlDetailForm=accfp;		
+		pnlDetailForm=accfp;				
 		fp.setRow(row);
 		//refresh();		
 			

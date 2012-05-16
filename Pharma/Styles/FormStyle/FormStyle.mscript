@@ -3,14 +3,15 @@ Style {
 	callback onStyleCreation(Style style){
 				
 		lblfnt.setFamily("Arial");
-		lblfnt.setSize(16);
-		lblfnt.setBold();
+		lblfnt.setSize(20);
+		//lblfnt.setBold();
 		
 		//Label.setForeColor(Color.create(189,0,0));
 		Label.setForeColor(Colors.Black);
-		//Label.setFont(fnt);
+		Label.setFont(lblfnt);
+		TextField.setFont(lblfnt);
 		
-	/*	
+	/*			
 		ComboBox.setFont(fnt);
 		//ComboBox.setForeColor(Colors.White);
 		ComboBox.setFocusedForeColor(Colors.MidnightBlue);
@@ -19,12 +20,12 @@ Style {
 		//ComboBox.setBackColor(Colors.LightSlateGray);
 		ComboBox.setFocusedBackColor(Color.create(189,0,0));
 		ComboBox.setEditFocusedBackColor(Color.create(189,0,0));			
-		*/
+		
 		Font fnt2=new Font();
 		fnt2.setFamily("Arial");
-		fnt2.setSize(18);
-				
-		Picker.setFont(fnt2);
+		fnt2.setSize(18);		
+		
+		Picker.setFont(lblfnt);
 		Picker.setForeColor(Colors.Black);
 		//Picker.setFocusedForeColor(Colors.MidnightBlue);
 		Picker.setBorder(Border.createSimpleBorder(Colors.Gray));
@@ -34,8 +35,11 @@ Style {
 		//Picker.setEditFocusedBackColor(Color.create(189,0,0));
 		Picker.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER); 		
 		Picker.setBackground(Background.create9PartImageRectangleBackground (Images.VodafoneImages.ImgPick , 0 , 50 , 0 , 0 ));
-		
-
-		BackgroundButton.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+		*/
+		BackgroundButton.setForeColor(Colors.Black);
+		BackgroundButton.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+		BackgroundButton.setFont(lblfnt);
+//		BackgroundButton.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+		BackgroundButton.setBackground(Background.create9PartImageRectangleBackground (Images.VodafoneImages.ImgPick , 0 , 50 , 0 , 0 ));
 	}
 }

@@ -54,7 +54,7 @@ UIObject {
 		row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("PROVINCE", row);
         vObjLOV.Name.setStringValue("MI", row);
-        vObjLOV.Value.setStringValue("Milano", row);
+        vObjLOV.Value.setStringValue("MI", row);
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         

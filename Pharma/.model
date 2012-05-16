@@ -317,6 +317,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgFormBG">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
         <properties/>
         <properties/>
@@ -657,6 +663,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgFormBG">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
         <properties/>
         <properties/>
@@ -986,6 +998,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgContactsList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgFormBG">
         <properties/>
         <properties/>
         <properties/>
@@ -1740,6 +1758,9 @@
       <imagePaths name="VodafoneImages.ImgContactsList">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgFormBG">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
         <properties/>
       </imagePaths>
@@ -1907,6 +1928,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgContactsList">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgFormBG">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
@@ -2435,6 +2459,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgFormBG">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
         <properties/>
         <properties/>
@@ -2620,6 +2648,9 @@
       <imagePaths name="VodafoneImages.ImgContactsList">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgFormBG">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
         <properties/>
       </imagePaths>
@@ -2787,6 +2818,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgContactsList">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgFormBG">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
@@ -2958,6 +2992,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgContactsList">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgFormBG">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgList">
