@@ -13,6 +13,8 @@ TablePanel {
 	
 	
 	ObjectArray rsmArray=new ObjectArray();	
+	Array arr = new Array();
+	
 	
 	/*
 	 * Callback methods
@@ -42,7 +44,7 @@ TablePanel {
 		//add sticky table to screen
 		//add(stk, "hfill=fill,vfill=fill");
 		add(stk, "hfill=fill,valign=top");	
-
+		//stk.reload();
 	
 	}
 
@@ -63,7 +65,7 @@ TablePanel {
 		DataRow dtRw = info.getDataRow();
 		if(!dtRw.isDeleted()){		
 			String str01 = vObjAccount.AccountName.getStringValue(dtRw);
-			String str02 = vObjAccount.AccountStreetAddress.getStringValue(dtRw);					
+			String str02 = vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " - (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")";					
 	
 			tblVwCell.lbl01.setText(str01);
 			tblVwCell.lbl02.setText(str02);
@@ -93,18 +95,31 @@ TablePanel {
 	////////////////////////////
 	
 	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
-		 Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
-		 header.lbl.setText(letterList.getItem(group));
-		info.setPanel(header);
+		
+		//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
+		
+		//Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+		//if(rsm.getRowCount(group) > 0) {
+			//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
+			Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+			//header.lbl.setText(letterList.getItem(group));
+			info.setPanel(header);
+		//}
+		
 	}
 	
 	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
-		cell.setCouldBeSelected(true);
-		cell.setHeight(Sizing.PIXELS, 20);
+		cell.setCouldBeSelected(false);
+		cell.setHeight(Sizing.PIXELS, 30);
+		//cell.setHeight(Sizing.PREFERRED, 0);
 		cell.setWidth(Sizing.PERCENTS, 100);
 	}
 	
 	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
+	
+			Panels.Cells.SectionHeaderCell header = (Panels.Cells.SectionHeaderCell)cell;
+			header.lbl.setText(arr.getItem(grp));
+	
 		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
 	}
 			
@@ -150,12 +165,24 @@ TablePanel {
 	void executeQuery(){
 		//rsm.setRows(vObjAccount.getAccounts());
 	}
-	void setInitQuery(){		
-		for(int i=0;i<letterList.length();i++){
-			RowSetModel rsm1=new RowSetModel();
+	
+	void setInitQuery(){
+				
+		for(int i = 0; i < letterList.length(); i++) {
+			
+			RowSetModel rsm1 = new RowSetModel();
 			rsm1.setRows(vObjAccount.getAccountStartsWith(letterList.getItem(i)));
-			rsm.add(rsm1);
-			rsmArray.insertItem(i,rsm1);		
+			
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - "+ i + " : " + rsm1.getRowCount(0));
+			
+			if(rsm1.getRowCount(0) > 0) {
+				
+				rsm.add(rsm1);
+				arr.insertItem(rsm.getGroupCount() - 1, letterList.getItem(i));		
+			}
+			
+			//rsm.add(rsm1);	
+			rsmArray.insertItem(i, rsm1);
 		}
 		stk.setNumberOfGroups(letterList.length());	
 				

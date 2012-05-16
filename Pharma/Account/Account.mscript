@@ -82,6 +82,7 @@ VirtualObject {
 	}
 	query accountStartsWith<String strStart>{
 		where AccountName startsWith strStart; 
+		ascendingBy AccountName;
 	}
 	
 	Query getAccountRow(String accountId){
@@ -93,6 +94,7 @@ VirtualObject {
 	/*
 	 * For StickyTable Grouped
 	 */
+	 /*
 	Query getAccountsStartWithA() {
 		return startsWithA();
 	}
@@ -300,5 +302,5 @@ VirtualObject {
 		where AccountName startsWith "Z";
 		ascendingBy AccountName;
 	}	
-	
+	*/
 }
