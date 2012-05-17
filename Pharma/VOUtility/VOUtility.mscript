@@ -310,7 +310,7 @@ UIObject {
           vObjAccount.AccountProvince.setStringValue("CR", row);
           vObjAccount.AccountPostalCode.setStringValue("26025", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
-          vObjAccount.AccountCategory.setStringValue("OSPEDALE", row);
+          vObjAccount.AccountCategory.setStringValue("Ospedale", row);
           vObjAccount.AccountStatus.setStringValue("Attivo", row);
           vObjAccount.AccountPhone.setStringValue("0123456789", row);
           vObjAccount.AccountFax.setStringValue("0123456789", row); 

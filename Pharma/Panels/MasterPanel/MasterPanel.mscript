@@ -21,12 +21,10 @@ TablePanel {
 	}
 	
 	void setContentPanel(TablePanel pnl){
-		/*
-		add(pnl, "valign=top");
-		appLog.log(Log.INFO,"aggancio sticky");
-		*/
+		
 		Panels.SearchHeaderHorizontalPanel search = new Panels.SearchHeaderHorizontalPanel();
-		add(search,"halign=center");
+		
+		add(search,"hfill=fill");
 		startNewRow();
 		add(pnl, "hfill=fill,vfill=fill");
 		

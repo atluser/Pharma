@@ -1,6 +1,6 @@
 TableViewPanel {
 	
-	Label lbl=new Label(); 
+	Label lbl = new Label(); 
 	
 	callback onCreate(Container c){
 		

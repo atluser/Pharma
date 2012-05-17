@@ -22,6 +22,9 @@ BorderPanel {
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
 		pnlMaster.setContentPanel(stk);
 		
+		// Index Panel
+		Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
+		
 		// Detail Panel
 		Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 		pnlDetail.setContentPanel(pnlDetailForm);
@@ -45,6 +48,7 @@ BorderPanel {
 		pnlMaster.setDetailFormPanel(pnlDetail.getDetailFormPanel());
 	 	*/
 	 	setWest(pnlMaster);
+	 	setCenter(pnlIndex);
 	 	setEast(pnlDetail);
 	 	setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
 	 	
@@ -52,10 +56,12 @@ BorderPanel {
 	/*
 	 * Custom methods
 	 */ 
-	
+	 
+	/*
 	DataRow getCurrentRow(){
 		return stk.rsm.getRow();	
 	} 
+	*/
 	
 	StickyTable getStickyTable(){
 		return stk.stk;	

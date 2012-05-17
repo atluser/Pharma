@@ -1,0 +1,235 @@
+TablePanel {
+
+	Link lnkA = new Link();
+	Link lnkB = new Link();
+	Link lnkC = new Link();
+	Link lnkD = new Link();
+	Link lnkE = new Link();
+	Link lnkF = new Link();
+	Link lnkG = new Link();
+	Link lnkH = new Link();
+	Link lnkI = new Link();
+	Link lnkJ = new Link();
+	Link lnkK = new Link();
+	Link lnkL = new Link();
+	Link lnkM = new Link();
+	Link lnkN = new Link();
+	Link lnkO = new Link();
+	Link lnkP = new Link();
+	Link lnkQ = new Link();
+	Link lnkR = new Link();
+	Link lnkS = new Link();
+	Link lnkT = new Link();
+	Link lnkU = new Link();
+	Link lnkV = new Link();
+	Link lnkW = new Link();
+	Link lnkX = new Link();
+	Link lnkY = new Link();
+	Link lnkZ = new Link();
+
+	callback onCreate(Container c) {
+	
+		setUpLinks();
+		
+		setInsets(0,10,0,0);
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
+		setColumnWidth(0, Sizing.PREFERRED, 0);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 0);
+		setRowHeight(2, Sizing.PREFERRED, 0);
+		setRowHeight(3, Sizing.PREFERRED, 0);
+		setRowHeight(4, Sizing.PREFERRED, 0);
+		setRowHeight(5, Sizing.PREFERRED, 0);
+		setRowHeight(6, Sizing.PREFERRED, 0);
+		setRowHeight(7, Sizing.PREFERRED, 0);
+		setRowHeight(8, Sizing.PREFERRED, 0);
+		setRowHeight(9, Sizing.PREFERRED, 0);
+		setRowHeight(10, Sizing.PREFERRED, 0);
+		setRowHeight(11, Sizing.PREFERRED, 0);
+		setRowHeight(12, Sizing.PREFERRED, 0);
+		setRowHeight(13, Sizing.PREFERRED, 0);
+		setRowHeight(14, Sizing.PREFERRED, 0);
+		setRowHeight(15, Sizing.PREFERRED, 0);
+		setRowHeight(16, Sizing.PREFERRED, 0);
+		setRowHeight(17, Sizing.PREFERRED, 0);
+		setRowHeight(18, Sizing.PREFERRED, 0);
+		setRowHeight(19, Sizing.PREFERRED, 0);
+		setRowHeight(20, Sizing.PREFERRED, 0);
+		setRowHeight(21, Sizing.PREFERRED, 0);
+		setRowHeight(22, Sizing.PREFERRED, 0);
+		setRowHeight(23, Sizing.PREFERRED, 0);
+		setRowHeight(24, Sizing.PREFERRED, 0);
+		setRowHeight(25, Sizing.PREFERRED, 1);
+		
+	}
+	
+	callback lnkA onClick(Control c) {
+		
+	}
+	
+	void setUpLinks() {
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(18);
+		fnt.setBold();
+		
+		lnkA.setFont(fnt);
+		lnkA.setForeColor(Color.create(189,0,0));
+		lnkA.setText("A");
+		
+		lnkB.setFont(fnt);
+		lnkB.setForeColor(Color.create(189,0,0));
+		lnkB.setText("B");
+
+		lnkC.setFont(fnt);
+		lnkC.setForeColor(Color.create(189,0,0));
+		lnkC.setText("C");
+
+		lnkD.setFont(fnt);
+		lnkD.setForeColor(Color.create(189,0,0));
+		lnkD.setText("D");
+
+		lnkE.setFont(fnt);
+		lnkE.setForeColor(Color.create(189,0,0));
+		lnkE.setText("E");
+
+		lnkF.setFont(fnt);
+		lnkF.setForeColor(Color.create(189,0,0));
+		lnkF.setText("F");
+
+		lnkG.setFont(fnt);
+		lnkG.setForeColor(Color.create(189,0,0));
+		lnkG.setText("G");
+
+		lnkH.setFont(fnt);
+		lnkH.setForeColor(Color.create(189,0,0));
+		lnkH.setText("H");
+
+		lnkI.setFont(fnt);
+		lnkI.setForeColor(Color.create(189,0,0));
+		lnkI.setText("I");
+
+		lnkJ.setFont(fnt);
+		lnkJ.setForeColor(Color.create(189,0,0));
+		lnkJ.setText("J");
+
+		lnkK.setFont(fnt);
+		lnkK.setForeColor(Color.create(189,0,0));
+		lnkK.setText("K");
+
+		lnkL.setFont(fnt);
+		lnkL.setForeColor(Color.create(189,0,0));
+		lnkL.setText("L");
+
+		lnkM.setFont(fnt);
+		lnkM.setForeColor(Color.create(189,0,0));
+		lnkM.setText("M");
+
+		lnkN.setFont(fnt);
+		lnkN.setForeColor(Color.create(189,0,0));
+		lnkN.setText("N");
+
+		lnkO.setFont(fnt);
+		lnkO.setForeColor(Color.create(189,0,0));
+		lnkO.setText("O");
+
+		lnkP.setFont(fnt);
+		lnkP.setForeColor(Color.create(189,0,0));
+		lnkP.setText("P");
+
+		lnkQ.setFont(fnt);
+		lnkQ.setForeColor(Color.create(189,0,0));
+		lnkQ.setText("Q");
+
+		lnkR.setFont(fnt);
+		lnkR.setForeColor(Color.create(189,0,0));
+		lnkR.setText("R");
+
+		lnkS.setFont(fnt);
+		lnkS.setForeColor(Color.create(189,0,0));
+		lnkS.setText("S");
+
+		lnkT.setFont(fnt);
+		lnkT.setForeColor(Color.create(189,0,0));
+		lnkT.setText("T");
+
+		lnkU.setFont(fnt);
+		lnkU.setForeColor(Color.create(189,0,0));
+		lnkU.setText("U");
+
+		lnkV.setFont(fnt);
+		lnkV.setForeColor(Color.create(189,0,0));
+		lnkV.setText("V");
+		
+		lnkW.setFont(fnt);
+		lnkW.setForeColor(Color.create(189,0,0));
+		lnkW.setText("W");
+		
+		lnkX.setFont(fnt);
+		lnkX.setForeColor(Color.create(189,0,0));
+		lnkX.setText("X");
+		
+		lnkY.setFont(fnt);
+		lnkY.setForeColor(Color.create(189,0,0));
+		lnkY.setText("Y");						
+
+		lnkZ.setFont(fnt);
+		lnkZ.setForeColor(Color.create(189,0,0));
+		lnkZ.setText("Z");
+		
+		add(lnkA, "halign=center,valign=top");
+		startNewRow();
+		add(lnkB, "halign=center,valign=top");
+		startNewRow();
+		add(lnkC, "halign=center,valign=top");
+		startNewRow();
+		add(lnkD, "halign=center,valign=top");
+		startNewRow();
+		add(lnkE, "halign=center,valign=top");
+		startNewRow();
+		add(lnkF, "halign=center,valign=top");
+		startNewRow();
+		add(lnkG, "halign=center,valign=top");
+		startNewRow();
+		add(lnkH, "halign=center,valign=top");
+		startNewRow();
+		add(lnkI, "halign=center,valign=top");
+		startNewRow();
+		add(lnkJ, "halign=center,valign=top");
+		startNewRow();
+		add(lnkK, "halign=center,valign=top");
+		startNewRow();
+		add(lnkL, "halign=center,valign=top");
+		startNewRow();
+		add(lnkM, "halign=center,valign=top");
+		startNewRow();
+		add(lnkN, "halign=center,valign=top");
+		startNewRow();
+		add(lnkO, "halign=center,valign=top");
+		startNewRow();
+		add(lnkP, "halign=center,valign=top");
+		startNewRow();
+		add(lnkQ, "halign=center,valign=top");
+		startNewRow();
+		add(lnkR, "halign=center,valign=top");
+		startNewRow();
+		add(lnkS, "halign=center,valign=top");
+		startNewRow();
+		add(lnkT, "halign=center,valign=top");
+		startNewRow();
+		add(lnkU, "halign=center,valign=top");
+		startNewRow();
+		add(lnkV, "halign=center,valign=top");
+		startNewRow();
+		add(lnkW, "halign=center,valign=top");
+		startNewRow();
+		add(lnkX, "halign=center,valign=top");
+		startNewRow();
+		add(lnkY, "halign=center,valign=top");
+		startNewRow();
+		add(lnkZ, "halign=center,valign=top");
+
+	}
+	
+}

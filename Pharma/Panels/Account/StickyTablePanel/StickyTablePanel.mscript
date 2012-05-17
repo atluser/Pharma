@@ -4,126 +4,121 @@ TablePanel {
 	 * Attributes
 	 */
 	StickyTable stk = new StickyTable();
-	//RowSetModel rsm = new RowSetModel();
-	MultiRowSetModel rsm=new MultiRowSetModel();
-	
-	//Panels.DetailStickyTablePanel pnlDetailForm;
+	DataRowArray arrRows = null;
+
 	Panels.DetailPanel pnlDetail;
 	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm;
-	
-	
-	ObjectArray rsmArray=new ObjectArray();	
-	Array arr = new Array();
-	
 	
 	/*
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {		
-			
-		stk.setGridLineThickness(1);
-		stk.setGridLineStyle(LineStyle.SOLID);
-		stk.setGridLineColor(Colors.Gray);
+					
+		arrRows = new DataRowArray();
+						
+		setInitQuery();
+	
+		add(stk, "hfill=fill,valign=top");	
 		
 		//set size (note: this is required)
 		setRowHeight(0, Sizing.PREFERRED, 1);
 		
-		
-		//rsm.setRows(vObjAccount.getAccounts());		
-		
-		setInitQuery();
-		
-		//set the model for the sticky table
-		stk.setDataModel(rsm);
-		//stk.setDataModel(mrsm);
-		//add header search
-		//Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();
-		//add(search,"hfill=fill");
-		//startNewRow(); 
-		
-		//add sticky table to screen
-		//add(stk, "hfill=fill,vfill=fill");
-		add(stk, "hfill=fill,valign=top");	
-		//stk.reload();
-	
 	}
 
 	///////////////////////////////
 	// Callback to configure cells
 	///////////////////////////////
 	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
+		
 		info.setPanel(new Cells.TwoRowsTableViewCell());
+	
 	}
 	
 	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
-		/* OK
-		Panels.Accounts.AccountTableViewCell tblVwCell = (Panels.Accounts.AccountTableViewCell) cell;
-		tblVwCell.setRow(info.getDataRow());
-		*/
-		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
 		
-		DataRow dtRw = info.getDataRow();
-		if(!dtRw.isDeleted()){		
-			String str01 = vObjAccount.AccountName.getStringValue(dtRw);
-			String str02 = vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " - (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")";					
-	
+		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
+			
+		DataRow dtRowLoc = null;
+		
+		if(arrRows != null)
+			dtRowLoc = arrRows.getItem(row);
+		
+		if(dtRowLoc == null) {
+		
+			return;
+		
+		} else {
+			
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(0): " + dtRowLoc.getString(0));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(1): " + dtRowLoc.getString(1));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(2): " + dtRowLoc.getString(2));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(3): " + dtRowLoc.getString(3));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(4): " + dtRowLoc.getString(4));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(5): " + dtRowLoc.getString(5));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(6): " + dtRowLoc.getString(6));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(7): " + dtRowLoc.getString(7));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(8): " + dtRowLoc.getString(8));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(9): " + dtRowLoc.getString(9));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(10): " + dtRowLoc.getString(10));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(11): " + dtRowLoc.getString(11));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(12): " + dtRowLoc.getString(12));
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + grp + " - getString(13): " + dtRowLoc.getString(13));
+				
+			String str01 = dtRowLoc.getString(7);
+			String str02 = dtRowLoc.getString(2) + " - " + dtRowLoc.getString(1) + " (" + dtRowLoc.getString(12) + ")";
+			
 			tblVwCell.lbl01.setText(str01);
 			tblVwCell.lbl02.setText(str02);
+		
 		}
+		
+		dtRowLoc = null;
+		
 	}
 	
 	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
+		
+		cell.setCouldBeSelected(true);
 		cell.setHeight(Sizing.PREFERRED, 0);
 		cell.setWidth(Sizing.PREFERRED, 0);
-		cell.setCouldBeSelected(true);
+	
 	}
 	
 	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
+		
 		sizeInfo.setHeight(60);
+		
 	}		
 	
-	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
+	callback stk onSelectionChanged (TableView c , int group , int row) {	
 		
-		//pnlDetailForm.setRow(rsm.getRow());
-		pnlDetail.setRow(rsm.getRow());
-		pnlDetailForm.setRow(rsm.getRow());
+		pnlDetail.setRow(arrRows.getItem(row));
+		pnlDetailForm.setRow(arrRows.getItem(row));
 		
 	}
 		
 	////////////////////////////
 	// Sticky Header (Optional)
 	////////////////////////////
-	
 	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
 		
-		//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
-		
-		//Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
-		//if(rsm.getRowCount(group) > 0) {
-			//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
-			Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
-			//header.lbl.setText(letterList.getItem(group));
-			info.setPanel(header);
-		//}
-		
+		Panels.Cells.SectionHeaderCell header = new Panels.Cells.SectionHeaderCell();
+		header.lbl.setText(letterList.getItem(group));
+		info.setPanel(header);
+			
 	}
 	
-	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
-		cell.setCouldBeSelected(false);
+	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group) {
+		
 		cell.setHeight(Sizing.PIXELS, 30);
-		//cell.setHeight(Sizing.PREFERRED, 0);
 		cell.setWidth(Sizing.PERCENTS, 100);
+	
 	}
 	
 	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
-	
-			Panels.Cells.SectionHeaderCell header = (Panels.Cells.SectionHeaderCell)cell;
-			header.lbl.setText(arr.getItem(grp));
-	
-		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+			
 	}
 			
-		
 	////////////////////////////
 	// Footer (Optional)
 	////////////////////////////
@@ -167,31 +162,35 @@ TablePanel {
 	}
 	
 	void setInitQuery(){
-				
-		for(int i = 0; i < letterList.length(); i++) {
 			
-			RowSetModel rsm1 = new RowSetModel();
-			rsm1.setRows(vObjAccount.getAccountStartsWith(letterList.getItem(i)));
-			
-			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - "+ i + " : " + rsm1.getRowCount(0));
-			
-			if(rsm1.getRowCount(0) > 0) {
-				
-				rsm.add(rsm1);
-				arr.insertItem(rsm.getGroupCount() - 1, letterList.getItem(i));		
+		//arrRows = new DataRowArray();		
+		
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);
+		stk.setNumberOfGroups(letterList.length());
+		
+		for(int i = 0; i < letterList.length(); i++) {	
+		//for(int i = 0; i < 1; i++) {
+						
+			//arrRows = new DataRowArray();
+			DataRowSet rsLocRows = vObjAccount.getAccountStartsWith(letterList.getItem(i)).getRowSet();
+			DataRow dtRowLoc = rsLocRows.first();
+
+			while(dtRowLoc != null) {
+
+				arrRows.addItem(dtRowLoc);
+				dtRowLoc = rsLocRows.next();
+
 			}
+
+			stk.setNumberOfCellsInGroup (i, rsLocRows.getSize());
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - Group: " + i + " - Rows: " + rsLocRows.getSize());
 			
-			//rsm.add(rsm1);	
-			rsmArray.insertItem(i, rsm1);
 		}
-		stk.setNumberOfGroups(letterList.length());	
+		
+		stk.refresh();
 				
 	}
 	
-	/*void setQuery(){
-		for(int i=0;i<rsmArray.length();i++){
-			RowSetModel rsm1=(RowSetModel)rsmArray.getItem(i);			
-			rsm1.setRows(vObjAccount.getAccountStartWidth(letterList.getItem(i)));				
-		}
-	}*/
 }
