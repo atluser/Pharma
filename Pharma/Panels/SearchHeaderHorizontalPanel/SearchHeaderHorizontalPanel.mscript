@@ -9,10 +9,10 @@ HorizontalPanel {
 		search.setTextHint("Search");   
 		add(search,"hfill=fill");
 		//setBackColor(Colors.Green);
-		setInsets (0, 8, 0, 8);
-		setColumnWidth(0,Sizing.PERCENTS,20);
-		//setRowHeight(0,Sizing.PREFERRED,0);	
-		//setColumnWidth(0,Sizing.PREFERRED,0);
+		setInsets (10, 8, 8, 8);
+		setColumnWidth(0,Sizing.PREFERRED,0);
+		//setRowHeight(0,Sizing.PIXELS,60);	
+		//setColumnWidth(0,Sizing.PIXELS,60);
 		//search.setOnValueChangingPausedDelay(1000);	
 	}
 	

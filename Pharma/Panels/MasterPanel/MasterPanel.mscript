@@ -14,18 +14,14 @@ TablePanel {
 	callback onCreate(Container c) {								
 		
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
-		setColumnWidth(0, Sizing.PERCENTS, 35);
-		setRowHeight(0, Sizing.PREFERRED, 0);
-		setRowHeight(1, Sizing.PREFERRED, 1);	
+		//setColumnWidth(0, Sizing.PERCENTS, 35);
+		setColumnWidth(0, Sizing.PREFERRED, 0);
+		setRowHeight(0, Sizing.PREFERRED, 1);	
 	 
 	}
 	
 	void setContentPanel(TablePanel pnl){
 		
-		Panels.SearchHeaderHorizontalPanel search = new Panels.SearchHeaderHorizontalPanel();
-		
-		add(search,"hfill=fill");
-		startNewRow();
 		add(pnl, "hfill=fill,vfill=fill");
 		
 	}

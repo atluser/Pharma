@@ -14,8 +14,8 @@ TablePanel {
 					
 		setInsets(48,48,48,48);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-		setColumnWidth(0, Sizing.PERCENTS, 55); 
-		//setRowHeight(0, Sizing.PERCENTS, 100);
+		//setColumnWidth(0, Sizing.PERCENTS, 65); 
+		setColumnWidth(0, Sizing.PREFERRED, 0);
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PIXELS, 40);
 		setRowHeight(2, Sizing.PREFERRED, 1);

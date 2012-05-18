@@ -1,7 +1,10 @@
 TablePanel {
-
+	
+	StickyTable stkTbl;
+	Array arr;
+	
 	Link lnkA = new Link();
-	Link lnkB = new Link();
+	BackgroundButton lnkB = new BackgroundButton();
 	Link lnkC = new Link();
 	Link lnkD = new Link();
 	Link lnkE = new Link();
@@ -31,7 +34,10 @@ TablePanel {
 	
 		setUpLinks();
 		
-		setInsets(0,10,0,0);
+		lnkB.setEnabled(false);
+		lnkB.setDisabledForeColor(Colors.Red);
+		
+		setInsets(0,5,0,5);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
 		setColumnWidth(0, Sizing.PREFERRED, 0);
 		setRowHeight(0, Sizing.PREFERRED, 0);
@@ -64,118 +70,271 @@ TablePanel {
 	}
 	
 	callback lnkA onClick(Control c) {
-		
+		appLog.log(Log.INFO, "IndexPanel - lnkA onClick()");
+		stkTbl.scrollTo(arr.findItem("A"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("A"),0);
 	}
+
+	callback lnkB onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkB onClick()");
+		stkTbl.scrollTo(arr.findItem("B"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("B"),0);
+	}
+	
+	callback lnkC onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkC onClick()");
+		stkTbl.scrollTo(arr.findItem("C"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("C"),0);
+	}
+	
+	callback lnkD onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkD onClick()");
+		stkTbl.scrollTo(arr.findItem("D"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("D"),0);
+	}
+	
+	callback lnkE onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkE onClick()");
+		stkTbl.scrollTo(arr.findItem("E"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("E"),0);
+	}			
+	
+	callback lnkF onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkF onClick()");
+		stkTbl.scrollTo(arr.findItem("F"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("F"),0);
+	}
+	
+	callback lnkG onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkG onClick()");
+		stkTbl.scrollTo(arr.findItem("G"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("G"),0);
+	}	
+	
+	callback lnkH onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkH onClick()");
+		stkTbl.scrollTo(arr.findItem("H"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("H"),0);
+	}	
+	
+	callback lnkI onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkI onClick()");
+		stkTbl.scrollTo(arr.findItem("H"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("H"),0);
+	}	
+	
+	callback lnkJ onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkJ onClick()");
+		stkTbl.scrollTo(arr.findItem("J"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("J"),0);
+	}	
+	
+	callback lnkK onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkK onClick()");
+		stkTbl.scrollTo(arr.findItem("K"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("K"),0);
+	}
+	
+	callback lnkL onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkL onClick()");
+		stkTbl.scrollTo(arr.findItem("L"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("L"),0);
+	}	
+	
+	callback lnkM onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkM onClick()");
+		stkTbl.scrollTo(arr.findItem("M"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("M"),0);
+	}
+	
+	callback lnkN onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkN onClick()");
+		stkTbl.scrollTo(arr.findItem("N"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("N"),0);
+	}		
+			
+	callback lnkO onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkO onClick()");
+		stkTbl.scrollTo(arr.findItem("O"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("O"),0);
+	}
+	
+	callback lnkP onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkP onClick()");
+		stkTbl.scrollTo(arr.findItem("P"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("P"),0);
+	}
+	
+	callback lnkQ onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkQ onClick()");
+		stkTbl.scrollTo(arr.findItem("Q"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("Q"),0);
+	}	
+	
+	callback lnkR onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkR onClick()");
+		stkTbl.scrollTo(arr.findItem("R"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("R"),0);
+	}	
+	
+	callback lnkS onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkS onClick()");
+		stkTbl.scrollTo(arr.findItem("S"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("S"),0);
+	}	
+
+	callback lnkT onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkT onClick()");
+		stkTbl.scrollTo(arr.findItem("T"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("T"),0);
+	}
+
+	callback lnkU onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkU onClick()");
+		stkTbl.scrollTo(arr.findItem("U"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("U"),0);
+	}
+
+	callback lnkV onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkV onClick()");
+		stkTbl.scrollTo(arr.findItem("V"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("V"),0);
+	}
+	
+	callback lnkW onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkW onClick()");
+		stkTbl.scrollTo(arr.findItem("W"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("W"),0);
+	}	
+	
+	callback lnkX onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkX onClick()");
+		stkTbl.scrollTo(arr.findItem("X"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("X"),0);
+	}	
+	
+	callback lnkY onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkY onClick()");
+		stkTbl.scrollTo(arr.findItem("Y"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("Y"),0);
+	}	
+	
+	callback lnkZ onClick(Control c) {
+		appLog.log(Log.INFO, "IndexPanel - lnkZ onClick()");
+		stkTbl.scrollTo(arr.findItem("Z"), 0, StickyTable.SCROLL_POSITION_NONE);
+		stkTbl.select(arr.findItem("Z"),0);
+	}	
+	
 	
 	void setUpLinks() {
 		
 		Font fnt = new Font();
 		fnt.setFamily("Arial");
-		fnt.setSize(18);
+		fnt.setSize(16);
 		fnt.setBold();
 		
 		lnkA.setFont(fnt);
-		lnkA.setForeColor(Color.create(189,0,0));
+		lnkA.setForeColor(Colors.Black);
 		lnkA.setText("A");
 		
 		lnkB.setFont(fnt);
-		lnkB.setForeColor(Color.create(189,0,0));
+		lnkB.setForeColor(Colors.Black);
 		lnkB.setText("B");
 
 		lnkC.setFont(fnt);
-		lnkC.setForeColor(Color.create(189,0,0));
+		lnkC.setForeColor(Colors.Black);
 		lnkC.setText("C");
 
 		lnkD.setFont(fnt);
-		lnkD.setForeColor(Color.create(189,0,0));
+		lnkD.setForeColor(Colors.Black);
 		lnkD.setText("D");
 
 		lnkE.setFont(fnt);
-		lnkE.setForeColor(Color.create(189,0,0));
+		lnkE.setForeColor(Colors.Black);
 		lnkE.setText("E");
 
 		lnkF.setFont(fnt);
-		lnkF.setForeColor(Color.create(189,0,0));
+		lnkF.setForeColor(Colors.Black);
 		lnkF.setText("F");
 
 		lnkG.setFont(fnt);
-		lnkG.setForeColor(Color.create(189,0,0));
+		lnkG.setForeColor(Colors.Black);
 		lnkG.setText("G");
 
 		lnkH.setFont(fnt);
-		lnkH.setForeColor(Color.create(189,0,0));
+		lnkH.setForeColor(Colors.Black);
 		lnkH.setText("H");
 
 		lnkI.setFont(fnt);
-		lnkI.setForeColor(Color.create(189,0,0));
+		lnkI.setForeColor(Colors.Black);
 		lnkI.setText("I");
 
 		lnkJ.setFont(fnt);
-		lnkJ.setForeColor(Color.create(189,0,0));
+		lnkJ.setForeColor(Colors.Black);
 		lnkJ.setText("J");
 
 		lnkK.setFont(fnt);
-		lnkK.setForeColor(Color.create(189,0,0));
+		lnkK.setForeColor(Colors.Black);
 		lnkK.setText("K");
 
 		lnkL.setFont(fnt);
-		lnkL.setForeColor(Color.create(189,0,0));
+		lnkL.setForeColor(Colors.Black);
 		lnkL.setText("L");
 
 		lnkM.setFont(fnt);
-		lnkM.setForeColor(Color.create(189,0,0));
+		lnkM.setForeColor(Colors.Black);
 		lnkM.setText("M");
 
 		lnkN.setFont(fnt);
-		lnkN.setForeColor(Color.create(189,0,0));
+		lnkN.setForeColor(Colors.Black);
 		lnkN.setText("N");
 
 		lnkO.setFont(fnt);
-		lnkO.setForeColor(Color.create(189,0,0));
+		lnkO.setForeColor(Colors.Black);
 		lnkO.setText("O");
 
 		lnkP.setFont(fnt);
-		lnkP.setForeColor(Color.create(189,0,0));
+		lnkP.setForeColor(Colors.Black);
 		lnkP.setText("P");
 
 		lnkQ.setFont(fnt);
-		lnkQ.setForeColor(Color.create(189,0,0));
+		lnkQ.setForeColor(Colors.Black);
 		lnkQ.setText("Q");
 
 		lnkR.setFont(fnt);
-		lnkR.setForeColor(Color.create(189,0,0));
+		lnkR.setForeColor(Colors.Black);
 		lnkR.setText("R");
 
 		lnkS.setFont(fnt);
-		lnkS.setForeColor(Color.create(189,0,0));
+		lnkS.setForeColor(Colors.Black);
 		lnkS.setText("S");
 
 		lnkT.setFont(fnt);
-		lnkT.setForeColor(Color.create(189,0,0));
+		lnkT.setForeColor(Colors.Black);
 		lnkT.setText("T");
 
 		lnkU.setFont(fnt);
-		lnkU.setForeColor(Color.create(189,0,0));
+		lnkU.setForeColor(Colors.Black);
 		lnkU.setText("U");
 
 		lnkV.setFont(fnt);
-		lnkV.setForeColor(Color.create(189,0,0));
+		lnkV.setForeColor(Colors.Black);
 		lnkV.setText("V");
 		
 		lnkW.setFont(fnt);
-		lnkW.setForeColor(Color.create(189,0,0));
+		lnkW.setForeColor(Colors.Black);
 		lnkW.setText("W");
 		
 		lnkX.setFont(fnt);
-		lnkX.setForeColor(Color.create(189,0,0));
+		lnkX.setForeColor(Colors.Black);
 		lnkX.setText("X");
 		
 		lnkY.setFont(fnt);
-		lnkY.setForeColor(Color.create(189,0,0));
+		lnkY.setForeColor(Colors.Black);
 		lnkY.setText("Y");						
 
 		lnkZ.setFont(fnt);
-		lnkZ.setForeColor(Color.create(189,0,0));
+		lnkZ.setForeColor(Colors.Black);
 		lnkZ.setText("Z");
 		
 		add(lnkA, "halign=center,valign=top");
@@ -229,7 +388,21 @@ TablePanel {
 		add(lnkY, "halign=center,valign=top");
 		startNewRow();
 		add(lnkZ, "halign=center,valign=top");
-
+		
 	}
+	
+	
+	void setStickyTable(StickyTable stk){
+		
+		stkTbl = stk;
+	
+	}
+	
+	void setArray(Array a){
+		
+		arr = a;
+	
+	}	
+	
 	
 }
