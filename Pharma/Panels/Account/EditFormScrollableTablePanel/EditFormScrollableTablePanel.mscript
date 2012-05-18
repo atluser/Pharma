@@ -5,6 +5,12 @@ ScrollableTablePanel {
 	String controlAlign="halign=left,hfill=fill";
 	Screen scr=null;
 	
+	Popover poPick=new Popover();
+	Panels.PickLOVStickyTablePanel pnlPick = new Panels.PickLOVStickyTablePanel();
+	Label lblPickTitle=new Label();
+	Action actClosePop=new Action();
+	//AnchorPosition ap=new AnchorPosition();
+	
 	Label lblCode=new Label();
 	Label lblName=new Label();
 	Label lblType=new Label();
@@ -105,9 +111,9 @@ ScrollableTablePanel {
 	FormPanel additionalFP=new FormPanel();
 	
 	Styles.FormStyle style = new Styles.FormStyle();
-	
+	//Font titlefnt;
 	callback onCreate(Container c){
-		
+		setUpPickPopover();
 		setLabel();
 		setModel();
 		
@@ -115,6 +121,7 @@ ScrollableTablePanel {
 		txtfnt.setFamily("Arial");
 		txtfnt.setSize(22);		
 		txtfnt.setBold();
+		//titlefnt=txtfnt.createCopy();
 		
 		//tablepanel
 		TablePanel mainTP=new TablePanel();
@@ -550,7 +557,7 @@ ScrollableTablePanel {
 	
 	}*/
 	callback btnCountryPopup onClick(Control c){
-		showPopup((BackgroundButton)c,mdlCountry,"COUNTRY");		
+		showPopup((BackgroundButton)c,mdlPrefix,"COUNTRY","Paese");		
 		/*
 		Popups.ProvincePopup province=new Popups.ProvincePopup();
 		//province.stk.setDataModel(mdlProvince);
@@ -564,7 +571,7 @@ ScrollableTablePanel {
 	
 	callback btnProvincePopup onClick(Control c){
 		
-		showPopup((BackgroundButton)c,mdlProvince,"PROVINCE");		
+		showPopup((BackgroundButton)c,mdlProvince,"PROVINCE","Province");		
 		/*
 		Popups.ProvincePopup province=new Popups.ProvincePopup();
 		//province.stk.setDataModel(mdlProvince);
@@ -576,25 +583,88 @@ ScrollableTablePanel {
 	}
 	
 	callback btnCategoryPopup onClick(Control c){
-		showPopup((BackgroundButton)c,mdlCategory,"CATEGORY");		
+		showPopup((BackgroundButton)c,mdlCategory,"CATEGORY","Categorie");		
 	}
 	
 	callback btnRevenuePopup onClick(Control c){
-		showPopup((BackgroundButton)c,mdlRevenue,"REVENUE");		
+		showPopup((BackgroundButton)c,mdlRevenue,"REVENUE","Fatturato");		
 	}
 	
 	callback btnRatingPopup onClick(Control c){
-		showPopup((BackgroundButton)c,mdlRating,"RATING");		
+		showPopup((BackgroundButton)c,mdlRating,"RATING","Rating");		
 	}
-	
-	
-	void showPopup(BackgroundButton button,TextModel model, String type){
-		Popups.ProvincePopup province=new Popups.ProvincePopup();
-		//province.stk.setDataModel(mdlProvince);
+	//SHOW POPUP
+	/*
+	void showPopup(BackgroundButton button,TextModel model, String type,String title){
+		Popups.ProvincePopup province=new Popups.ProvincePopup();	
 		province.btnPopup=button;
 		province.mdlPickMap=model;
-		province.setQuery(vObjLOV.getLOV(type));
-		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PIXELS, 200, false);
+		province.setQuery(vObjLOV.getLOV(type));		
+		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PIXELS, 400); 
+		
+	}*/
+	
+	void setUpPickPopover(){
+		Font titlefnt=new Font();
+		titlefnt.setFamily("Arial");
+		titlefnt.setSize(22);
+		titlefnt.setBold();
+		/*
+		Font fnt=style.lblfnt.createCopy();
+		fnt.setBold();
+		
+		actClosePop.setText("Close");
+		actClosePop.setForeColor(Color.create(255,255,255));
+		actClosePop.setBackColor(Colors.Gray);		
+		actClosePop.setFont(fnt);	
+			
+		*/
+		poPick.setAutoDismiss(true);
+		
+		TitleBarStyle titleBarStyle=new TitleBarStyle();
+		
+		titleBarStyle.setFont(titlefnt);
+		titleBarStyle.setBackColor(Colors.Gray);
+		//titleBarStyle.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
+		titleBarStyle.setForeColor(Color.create(255,255,255));
+		titleBarStyle.setTitleAlignment(HorizontalAlignmentType.RIGHT);
+		
+		//style.TitleBar.setFont(titlefnt);
+		poPick.setTitleBarStyle(titleBarStyle);
+		poPick.setSize( Sizing.PIXELS, 400, Sizing.PIXELS, 400);		
+		//poPick.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
+		poPick.setBackColor(Colors.BackgroundGray);
+		//poPick.setLeftTitleBarAction ( actClosePop ); 
+		pnlPick.po=poPick;
+				
+		/*
+		poPick.add(lblPickTitle,"hfill=fill,vfill=fill");
+		poPick.startNewRow();
+		*/		
+		poPick.add(pnlPick, "hfill=fill,vfill=fill");		
 		
 	}
+	
+	//SHOW POPOVER
+	
+	void showPopup(BackgroundButton button,TextModel model, String type,String title){
+		AnchorPosition ap=new AnchorPosition();
+		ap.setPositionType(AnchorPosition.HORIZONTAL_POSITION_RIGHT, AnchorPosition.VERTICAL_POSITION_CENTER);
+		ap.setAnchor(button);		
+							
+		pnlPick.btnPopup=button;
+		pnlPick.mdlPickMap=model;
+		pnlPick.setQuery(vObjLOV.getLOV(type));				
+		pnlPick.stk.reload();
+		
+		poPick.setTitle(title);
+		lblPickTitle.setText(title);				
+		scr.showPopover(poPick, true, ap);
+		
+	}
+	
+	callback actClosePop onRun(Action a){
+		poPick.dismiss();
+	} 
+			
 }

@@ -46,5 +46,11 @@ Style {
 		BackgroundButton.setFont(lblfnt);
 //		BackgroundButton.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
 		BackgroundButton.setBackground(Background.create9PartImageRectangleBackground (Images.VodafoneImages.ImgPick , 0 , 50 , 0 , 0 ));
+		
+		TitleBar.setBackColor(Color.create(189,0,0));		
+		//TitleBar.setFont(lblfnt);
+		//TitleBar.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
+		//TitleBar.setForeColor(Color.create(255,255,255));
+		//TitleBar.setTitleAlignment(HorizontalAlignmentType.LEFT);
 	}
 }

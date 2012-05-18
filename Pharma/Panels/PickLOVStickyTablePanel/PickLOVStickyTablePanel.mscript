@@ -1,7 +1,8 @@
-Popup {
+TablePanel {
 	TextModel mdlPickMap;
 	BackgroundButton btnPopup;
 	String strtitle="HEADER";
+	Popover po;
 	
 /*	callback onCreate(Container c){
 		Panels.ProvinceStickyTablePanel stk=new Panels.ProvinceStickyTablePanel();
@@ -25,15 +26,15 @@ Popup {
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
-		TablePanel tp=new TablePanel();
+		//TablePanel tp=new TablePanel();
 		
 		stk.setGridLineThickness(1);
 		stk.setGridLineStyle(LineStyle.SOLID);
 		stk.setGridLineColor(Colors.Gray);						
 		
+		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
-		setColumnWidth(0, Sizing.PREFERRED, 0);
-		
+		//setColumnWidth(0, Sizing.PREFERRED, 0);		
 		//rsm.setRows(vObjLOV.getLOV("PROVINCE"));						
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
@@ -41,18 +42,19 @@ Popup {
 		
 		//add header search
 		Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();
-		tp.add(search,"hfill=fill");
-		tp.startNewRow(); 
+		add(search,"hfill=fill");		
+		startNewRow(); 
 		
 		//add sticky table to screen		
-		tp.add(stk, "valign=top,vfill=fill");			
-		//add(stk, "valign=top");
-		tp.setRowHeight(0, Sizing.PREFERRED, 0);
+		//tp.add(stk, "valign=top,vfill=fill");			
+		add(stk, "vfill=fill,hfill=fill");
+		/*tp.setRowHeight(0, Sizing.PREFERRED, 0);
 		tp.setRowHeight(1, Sizing.PREFERRED, 1);
 		
 		add(tp,"halign=center,vfill=fill,hfill=fill");		
-		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
-				
+		*/
+		//setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
+		//setBackColor(Colors.White);		
 	}
 
 	///////////////////////////////
@@ -91,16 +93,16 @@ Popup {
 		//Cells.SimpleTableViewCell tblVwCell = (Cells.SimpleTableViewCell)cell;				
 		btnPopup.setText(vObjLOV.Value.getStringValue(rsm.getRow()));
 		mdlPickMap.setText(vObjLOV.Name.getStringValue(rsm.getRow()));
-		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
-		//pnlDetailForm.setRow(rsm.getRow());
+		po.dismiss();
+		
 		
 	}
 		
 	////////////////////////////
 	// Sticky Header (Optional)
 	////////////////////////////
-	
-	/*callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+	/*
+	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
 		Cells.SectionHeaderCell pnl=new Cells.SectionHeaderCell();
 		
 		pnl.lbl.setText(strtitle);				

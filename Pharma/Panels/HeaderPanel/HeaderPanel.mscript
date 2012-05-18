@@ -172,7 +172,7 @@ HorizontalPanel {
 		poCrmMenu.dismiss();
 		
 			//default is account
-		String entity="Account";
+		String entity="";
 		//VirtualObject obj=vObjAccount;
 		DataRow row=null;//pnlAccountRoot.getCurrentRow();
 		StickyTable originStk=pnlAccountRoot.getStickyTable();
@@ -201,6 +201,23 @@ HorizontalPanel {
 		
 		logApp.log(Log.INFO, "HeaderPanel - btnDelete onClick()");
 		poCrmMenu.dismiss();
+		
+		DataRow row=null;//pnlAccountRoot.getCurrentRow();
+		StickyTable originStk=pnlAccountRoot.getStickyTable();		
+		switch(currentEntity){
+			case 0:
+				//Account								
+				row=pnlAccountRoot.pnlDetailForm.currentRow;
+				originStk=pnlAccountRoot.getStickyTable();								
+			break;			
+		}
+		MessageBox msg=new MessageBox();
+		if(msg.ask ( 1 ,false , "ATTENZIONE!" , "Sei sicuro di cancellare i record?" , "OK" , "Cancel" )) {
+			row.delete();
+			row.applyUpdates();
+			originStk.reload();
+		}
+	
 		
 	}	
 	
