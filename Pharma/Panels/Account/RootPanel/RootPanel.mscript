@@ -1,76 +1,38 @@
 BorderPanel {
+	
 	/*
 	 * Attributes
 	 */
-	 
+	StickyTablePanel stk = new StickyTablePanel();
+	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Account.ReadOnlyDetailFormPanel();	 
 	 
 	/*
 	 * Callback methods 
 	 */
-	StickyTablePanel stk=new StickyTablePanel();
-	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Account.ReadOnlyDetailFormPanel();
-	
-	//Detail Panel
-	//Panels.Account.DetailPanel pnlDetail = new Panels.Account.DetailPanel();
-	
-	//Panels.DetailPanel pnlDetail = new Panels.DetailPanel(); 
-	 
-	 	
 	callback onCreate(Container c) {
 		
 		// Master Panel		
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
 		pnlMaster.setContentPanel(stk);
 		
-		// Index Panel
-		Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
-		
 		// Detail Panel
 		Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 		pnlDetail.setContentPanel(pnlDetailForm);
 		
-	 	//set oggetti 
-	 	//pnlDetail.picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
-	 	
-	 	//DataRow firstRow=vObjAccount.createQuery().getRowSet().first();
-		//pnlDetail.stk.init("Account",firstRow);
-		
-		//bind sticky and detail
-		//stk.setDetailPanel(pnlDetail.stk);
 		stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);		
 		
-		//setEast(pnlDetail);	 	
-	 	
-	 	 
-
-		/* OK
-		pnlMaster.setDetailFormPanel(pnlDetail.getDetailFormPanel());
-	 	*/
 	 	setWest(pnlMaster);
-	 	setCenter(pnlIndex);
 	 	setEast(pnlDetail);
 	 	setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
 	 	
 	}
+	
 	/*
 	 * Custom methods
-	 */ 
-	 
-	/*
-	DataRow getCurrentRow(){
-		return stk.rsm.getRow();	
-	} 
-	*/
-	
+	 */  	
 	StickyTable getStickyTable(){
 		return stk.stk;	
 	}
-	/*
-	StickyTable getDetailStickyTable(){
-		return pnlDetail.stk.stk;
-	
-	}
-	*/
 	
 }
