@@ -12,10 +12,11 @@ TablePanel {
 	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm;
 	
 	
-	ObjectArray rsmArray=new ObjectArray();	
+	//ObjectArray rsmArray=new ObjectArray();	
 	Array arr = new Array();
 	
 	Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
+	SearchField tblSearch =pnlSearch.search;
 	Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
 	
 	/*
@@ -143,6 +144,20 @@ TablePanel {
 	}
 	*/
 	
+		//search callback
+	callback tblSearch onValueChange ( Control c ) {
+		//appLog.log(Log.INFO,"change");
+		tblSearch.setOnValueChangingPausedDelay(500);
+	}
+	
+	callback tblSearch onValueChangingPaused(Control c){
+		//appLog.log(Log.INFO,"paused");
+		//Query q=vObjAccount.getAccountContains(tblSearch.getText());
+		executeQuery(tblSearch.getText());
+		stk.reload();
+	}
+	
+	
 	/*
 	 * Custom methods
 	 */
@@ -160,11 +175,25 @@ TablePanel {
 		pnlDetailForm = pnl;
 	}
 	
-	void executeQuery(){
-		//rsm.setRows(vObjAccount.getAccounts());
+	void executeQuery(String s){
+		//ricostruisco il multirow con la nuova query
+		rsm.clear();
+		arr.removeAllItems();
+		//rsmArray.removeAllItems();
+		setQuery(s);
+		/*
+		for (int i=0;i<rsm.getGroupCount();i++){
+			RowSetModel component=rsm.getComponent(i);
+			Query q=vObjAccount.getAccountContains(arr.getItem(i),s);
+			component.setRows(q);
+		}*/
 	}
 	
+	
 	void setInitQuery(){
+		//clean before start
+		rsm.clear();
+		arr.removeAllItems();
 				
 		for(int i = 0; i < letterList.length(); i++) {
 			
@@ -178,18 +207,31 @@ TablePanel {
 				rsm.add(rsm1);
 				arr.insertItem(rsm.getGroupCount() - 1, letterList.getItem(i));		
 			}
-			
-			//rsm.add(rsm1);	
-			rsmArray.insertItem(i, rsm1);
+							
+			//rsmArray.insertItem(i, rsm1);
 		}
 		stk.setNumberOfGroups(letterList.length());	
 				
 	}
 	
-	/*void setQuery(){
-		for(int i=0;i<rsmArray.length();i++){
-			RowSetModel rsm1=(RowSetModel)rsmArray.getItem(i);			
-			rsm1.setRows(vObjAccount.getAccountStartWidth(letterList.getItem(i)));				
+	void setQuery(String s){
+				
+		for(int i = 0; i < letterList.length(); i++) {
+			
+			RowSetModel rsm1 = new RowSetModel();
+			rsm1.setRows(vObjAccount.getAccountContains(letterList.getItem(i),s));
+			
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - "+ i + " : " + rsm1.getRowCount(0));
+			
+			if(rsm1.getRowCount(0) > 0) {
+				
+				rsm.add(rsm1);
+				arr.insertItem(rsm.getGroupCount() - 1, letterList.getItem(i));		
+			}
+						
+		//	rsmArray.insertItem(i, rsm1);
 		}
-	}*/
+		stk.setNumberOfGroups(letterList.length());	
+				
+	}			
 }

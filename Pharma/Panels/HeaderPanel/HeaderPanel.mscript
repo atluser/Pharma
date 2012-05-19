@@ -3,6 +3,9 @@ HorizontalPanel {
 	/*
 	 * Attributes
 	 */
+	 
+	MessageBox msg=new MessageBox(); 
+	 
 	int iTmpIdx = 4; 
 	
 	int currentEntity=0; 
@@ -147,7 +150,8 @@ HorizontalPanel {
 		DataRow row=null;//=vObjUtil.getNewAccountRow();
 		StickyTable originStk=null;//=pnlAccountRoot.getStickyTable();
 		//StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
-		Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm=null;
+		TablePanel pnlDetailForm=null;
+		TablePanel stkTP=null;
 		switch(currentEntity){
 			case 0:
 				entity="Account";
@@ -155,12 +159,12 @@ HorizontalPanel {
 				row=vObjUtil.getNewAccountRow();
 				originStk=pnlAccountRoot.getStickyTable();
 				pnlDetailForm=pnlAccountRoot.pnlDetailForm;
-				//detailStk=pnlAccountRoot.getDetailStickyTable();
+				stkTP=pnlAccountRoot.stk;
 			break;
 		}
 		
 		Screens.Account.EditScreen scrNewOrEditRecord = new Screens.Account.EditScreen();
-		scrNewOrEditRecord.init(row,originStk,pnlDetailForm);
+		scrNewOrEditRecord.init(row,stkTP,pnlDetailForm);
 		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 	}
 	
@@ -176,7 +180,8 @@ HorizontalPanel {
 		//VirtualObject obj=vObjAccount;
 		DataRow row=null;//pnlAccountRoot.getCurrentRow();
 		StickyTable originStk=pnlAccountRoot.getStickyTable();
-		Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm=null;
+		TablePanel stkTP=null;
+		TablePanel pnlDetailForm=null;
 		//StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
 		switch(currentEntity){
 			case 0:
@@ -185,13 +190,14 @@ HorizontalPanel {
 				//row=pnlAccountRoot.getCurrentRow();
 				row=pnlAccountRoot.pnlDetailForm.currentRow;
 				originStk=pnlAccountRoot.getStickyTable();
+				stkTP=pnlAccountRoot.stk;
 				//detailStk=pnlAccountRoot.getDetailStickyTable();
 				pnlDetailForm=pnlAccountRoot.pnlDetailForm;
 			break;
 		}
 		
 		Screens.Account.EditScreen scrNewOrEditRecord = new Screens.Account.EditScreen();
-		scrNewOrEditRecord.init(row,originStk,pnlDetailForm);
+		scrNewOrEditRecord.init(row,stkTP,pnlDetailForm);		
 		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 		
 		
@@ -200,26 +206,36 @@ HorizontalPanel {
 	callback btnDelete onClick(Control c) {
 		
 		logApp.log(Log.INFO, "HeaderPanel - btnDelete onClick()");
-		poCrmMenu.dismiss();
-		
-		DataRow row=null;//pnlAccountRoot.getCurrentRow();
-		StickyTable originStk=pnlAccountRoot.getStickyTable();		
-		switch(currentEntity){
-			case 0:
-				//Account								
-				row=pnlAccountRoot.pnlDetailForm.currentRow;
-				originStk=pnlAccountRoot.getStickyTable();								
-			break;			
-		}
-		MessageBox msg=new MessageBox();
-		if(msg.ask ( 1 ,false , "ATTENZIONE!" , "Sei sicuro di cancellare i record?" , "OK" , "Cancel" )) {
-			row.delete();
-			row.applyUpdates();
-			originStk.reload();
-		}
-	
-		
+		poCrmMenu.dismiss();				
+		msg.ask ( 1 ,false , "ATTENZIONE!" , "Sei sicuro di cancellare i record?" , "OK" , "Cancel" );
+			
 	}	
+	
+	 
+ 
+	callback msg onDismissed ( MessageBox messageBox , int contextId , int dismissalType , int result , String value ){
+		if(result==MessageBox.RESULT_OK){
+			appLog.log(Log.INFO,"POPUP OK "+value);					
+			switch(currentEntity){
+				case 0:
+				//Account								
+				DataRow row=pnlAccountRoot.pnlDetailForm.currentRow;
+				Panels.Account.StickyTablePanel stkTP=pnlAccountRoot.stk;
+				row.delete();
+				stkTP.setInitQuery();
+				stkTP.stk.scrollTo ( 0 , 0 , TableView.SCROLL_POSITION_NONE ); 
+				stkTP.stk.select(0,0);												
+			break;			
+			}
+		//	appLog.log(Log.INFO,"ROW "+row.isDeleted());						
+		}
+		else 
+			appLog.log(Log.INFO,"POPUP CANCEL "+value);
+				
+	} 
+ 
+ 
+	
 	
 	
 	callback btnCrmMenu onClick(Control c) {

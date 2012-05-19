@@ -3,14 +3,9 @@ TablePanel {
 	BackgroundButton btnPopup;
 	String strtitle="HEADER";
 	Popover po;
+	String TYPE;
 	
-/*	callback onCreate(Container c){
-		Panels.ProvinceStickyTablePanel stk=new Panels.ProvinceStickyTablePanel();
-		add(stk,"hfill=fill,vfill=fill");
-		setRowHeight(0,Sizing.PREFERRED,1);
-	}
-*/
-//TablePanel {
+	
 	
 	/*
 	 * Attributes
@@ -18,8 +13,10 @@ TablePanel {
 	StickyTable stk = new StickyTable();
 	RowSetModel rsm = new RowSetModel();
 	
+	Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();
+	SearchField tblSearch=search.search;	
 	
-	Panels.DetailStickyTablePanel pnlDetailForm;
+	//Panels.DetailStickyTablePanel pnlDetailForm;
 	
 	
 	/*
@@ -41,7 +38,7 @@ TablePanel {
 		
 		
 		//add header search
-		Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();
+		//Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();		
 		add(search,"hfill=fill");		
 		startNewRow(); 
 		
@@ -141,18 +138,28 @@ TablePanel {
 		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
 	}
 	*/
+	//search callback
+	callback tblSearch onValueChange ( Control c ) {
+		//appLog.log(Log.INFO,"change");
+		tblSearch.setOnValueChangingPausedDelay(1000);
+	}
+	
+	callback tblSearch onValueChangingPaused(Control c){
+		//appLog.log(Log.INFO,"paused");
+		executeQuery(tblSearch.getText());
+	}
 	
 	/*
 	 * Custom methods
 	 */
 	 
 	 
-	void setDetailPanel(Panels.DetailStickyTablePanel pnl) {
+	/*void setDetailPanel(Panels.DetailStickyTablePanel pnl) {
 		pnlDetailForm = pnl;
-	}
+	}*/
 	
-	void executeQuery(){
-		rsm.setRows(vObjAccount.getAccounts());
+	void executeQuery(String value){
+		rsm.setRows(vObjLOV.getLOVByVal(TYPE,value));
 	}
 	
 	void setQuery(Query q){

@@ -7,7 +7,8 @@ Screen {
 	Button btnMenu = new Button();
 	
 	Panels.Account.EditFormScrollableTablePanel fp = new Panels.Account.EditFormScrollableTablePanel();
-	StickyTable originListStk;
+	//StickyTable originListStk;
+	Panels.Account.StickyTablePanel stkTP;
 	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm;
 	VirtualObject dataObject;
 	
@@ -127,15 +128,19 @@ Screen {
 		if(checkRequired()){
 			//stk.save(dataObject);		
 			fp.save();
-			/*RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
-			rsm.setRows(vObjAccount.getAccounts());*/
+			//ricarico sticky
+			//svuoto rsm
+			stkTP.setInitQuery();
+			//RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
+			//rsm.setRows(vObjAccount.getAccounts());
 			//reset query
+			/*
 			MultiRowSetModel mrsm=(MultiRowSetModel) originListStk.getDataModel();
 			for (int i=0;i<mrsm.getGroupCount();i++){
 				RowSetModel rsm=mrsm.getComponent(i);
 				//rsm.setRows(vObjAccount.getAccountStartsWith(originListStk.arr.getItem(i)));
 			}
-			originListStk.reload();
+			originListStk.reload();*/
 			//detailStk.reload();
 			pnlDetailForm.setRow(fp.currentRow);
 			close(Animation.PUSH_FROM_TOP);
@@ -165,6 +170,10 @@ Screen {
 		MessageBox msgBox=new MessageBox();		
 		if(fp.txtName.getText()==""){
 			message+=fp.lblName.getText();
+			msgBox.error(1,message);			
+		}
+		else if(fp.mdlCategory.getText()==""){
+			message+=fp.lblCategory.getText();
 			msgBox.error(1,message);			
 		}
 		else if(fp.txtStreetAddress.getText()==""){
@@ -208,22 +217,23 @@ Screen {
 	
 	}
 	
-	void init(DataRow row,StickyTable originStk, Panels.Account.ReadOnlyDetailFormPanel accfp){
-		//sticky table origine dati
-		originListStk=originStk;		
+	void init(DataRow row, TablePanel tp,TablePanel accfp){
+		//sticky table origine dati				
 		//detail form
-		pnlDetailForm=accfp;				
+		pnlDetailForm=(Panels.Account.ReadOnlyDetailFormPanel)accfp;				
+		stkTP=(Panels.Account.StickyTablePanel)tp;
 		fp.setRow(row);
 		//refresh();		
 			
 	}
-/*	void init(String entity,DataRow row, VirtualObject obj,StickyTable originStk,StickyTable detail,Query localQ){
-		dataObject=obj;
-		q=localQ;
+	
+	/*void init(DataRow row,StickyTable originStk, Panels.Account.ReadOnlyDetailFormPanel accfp){
 		//sticky table origine dati
-		originListStk=originStk;
-		detailStk=detail;
-		stk.init(entity,row);
-	}
-	*/	
+		originListStk=originStk;		
+		//detail form
+		pnlDetailForm=accfp;						
+		fp.setRow(row);
+		//refresh();		
+			
+	}*/
 }

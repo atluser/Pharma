@@ -594,15 +594,16 @@ ScrollableTablePanel {
 		showPopup((BackgroundButton)c,mdlRating,"RATING","Rating");		
 	}
 	//SHOW POPUP
-	/*
+	
 	void showPopup(BackgroundButton button,TextModel model, String type,String title){
 		Popups.ProvincePopup province=new Popups.ProvincePopup();	
 		province.btnPopup=button;
 		province.mdlPickMap=model;
+		province.lblTitle.setText(title);
 		province.setQuery(vObjLOV.getLOV(type));		
-		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PIXELS, 400); 
+		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PREFERRED, 0,true,true); 
 		
-	}*/
+	}
 	
 	void setUpPickPopover(){
 		Font titlefnt=new Font();
@@ -619,7 +620,8 @@ ScrollableTablePanel {
 		actClosePop.setFont(fnt);	
 			
 		*/
-		poPick.setAutoDismiss(true);
+		
+		poPick.setAutoDismiss(false);
 		
 		TitleBarStyle titleBarStyle=new TitleBarStyle();
 		
@@ -646,7 +648,7 @@ ScrollableTablePanel {
 	}
 	
 	//SHOW POPOVER
-	
+	/*
 	void showPopup(BackgroundButton button,TextModel model, String type,String title){
 		AnchorPosition ap=new AnchorPosition();
 		ap.setPositionType(AnchorPosition.HORIZONTAL_POSITION_RIGHT, AnchorPosition.VERTICAL_POSITION_CENTER);
@@ -654,7 +656,8 @@ ScrollableTablePanel {
 							
 		pnlPick.btnPopup=button;
 		pnlPick.mdlPickMap=model;
-		pnlPick.setQuery(vObjLOV.getLOV(type));				
+		pnlPick.setQuery(vObjLOV.getLOV(type));
+		pnlPick.TYPE=type;				
 		pnlPick.stk.reload();
 		
 		poPick.setTitle(title);
@@ -662,7 +665,7 @@ ScrollableTablePanel {
 		scr.showPopover(poPick, true, ap);
 		
 	}
-	
+	*/
 	callback actClosePop onRun(Action a){
 		poPick.dismiss();
 	} 

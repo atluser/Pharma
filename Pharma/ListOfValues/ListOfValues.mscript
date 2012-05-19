@@ -4,6 +4,14 @@ VirtualObject {
 	StringField LanguageCode {return null;}
 	StringField Name {return null;}
 
+	Query getLOVByVal(String type,String val){
+		return getLovByVal2(type,val);
+	}
+	query getLovByVal2<String type,String val>{
+		where Type==type;
+		where Value==val;
+	}
+
 	Query getLOV(String type){
 		return getLov2(type);
 	}

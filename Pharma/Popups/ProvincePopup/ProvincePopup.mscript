@@ -1,8 +1,8 @@
 Popup {
 	TextModel mdlPickMap;
 	BackgroundButton btnPopup;
-	String strtitle="HEADER";
-	
+	//String TITLE="HEADER";
+	Label lblTitle=new Label();
 /*	callback onCreate(Container c){
 		Panels.ProvinceStickyTablePanel stk=new Panels.ProvinceStickyTablePanel();
 		add(stk,"hfill=fill,vfill=fill");
@@ -16,7 +16,7 @@ Popup {
 	 */
 	StickyTable stk = new StickyTable();
 	RowSetModel rsm = new RowSetModel();
-	
+	BackgroundButton btnClose=new BackgroundButton();
 	
 	Panels.DetailStickyTablePanel pnlDetailForm;
 	
@@ -25,33 +25,70 @@ Popup {
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
-		TablePanel tp=new TablePanel();
+		//setRowHeight(0, Sizing.PREFERRED, 1);
+		setRowHeight(2, Sizing.PREFERRED, 1);
+		//setColumnWidth(0, Sizing.PREFERRED, 0);
+		setColumnWidth(0, Sizing.PIXELS, 250);
 		
+		 setInsets (4,4,4,4);
+		//TablePanel tp=new TablePanel();
+		//tp.setInsets (8,8,8,8);
 		stk.setGridLineThickness(1);
 		stk.setGridLineStyle(LineStyle.SOLID);
 		stk.setGridLineColor(Colors.Gray);						
-		
-		setRowHeight(1, Sizing.PREFERRED, 1);
-		setColumnWidth(0, Sizing.PREFERRED, 0);
-		
+						
 		//rsm.setRows(vObjLOV.getLOV("PROVINCE"));						
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
 		
+		//title panel
+		Font titlefnt=new Font();
+		titlefnt.setFamily("Arial");
+		titlefnt.setSize(22);
+		titlefnt.setBold();
+		
+		//action font
+		Font actfnt=titlefnt.createCopy();
+		actfnt.setSize(16);
+		btnClose.setText("Close");		
+		btnClose.setForeColor(Color.create(255,255,255));
+		btnClose.setSpacing(8,8,8,8);
+		//btnClose.setBackColor(Colors.Red);
+		//btnClose.setBorder(Border.createRoundedBorder(Colors.Gray));
+		btnClose.setBackground(Background.createColorRoundedBackground(Color.create(189,0,0),Colors.Gray,LineStyle.SOLID)) ;				
+		lblTitle.setFont(titlefnt);
+		lblTitle.setForeColor(Colors.Black);
+		
+		HorizontalPanel hzTitle=new HorizontalPanel();
+		//hzTitle.setHGap(50);
+		hzTitle.add(btnClose,"halign=left");
+		hzTitle.add(lblTitle,"halign=center");
+		hzTitle.setColumnWidth(0,Sizing.PREFERRED,0);
+		hzTitle.setColumnWidth(1,Sizing.PREFERRED,1);
+		
+		add(hzTitle,"hfill=fill");
+		
+		startNewRow();
 		
 		//add header search
 		Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();
-		tp.add(search,"hfill=fill");
-		tp.startNewRow(); 
+		//tp.add(search,"hfill=fill");
+		add(search,"hfill=fill");
+		//tp.startNewRow(); 
+		startNewRow();
 		
 		//add sticky table to screen		
-		tp.add(stk, "valign=top,vfill=fill");			
-		//add(stk, "valign=top");
-		tp.setRowHeight(0, Sizing.PREFERRED, 0);
-		tp.setRowHeight(1, Sizing.PREFERRED, 1);
+		//tp.add(stk, "hfill=fill,vfill=fill");			
+		add(stk, "valign=top");
+		//tp.setRowHeight(0, Sizing.PREFERRED, 0);
+		//tp.setRowHeight(1, Sizing.PREFERRED, 0);
+		//tp.setRowHeight(2, Sizing.PREFERRED, 1);
+		//tp.setColumnWidth(2, Sizing.PIXELS, 300);
 		
-		add(tp,"halign=center,vfill=fill,hfill=fill");		
-		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
+		//add(tp,"halign=center,vfill=fill,hfill=fill,colspan=2");		
+		//setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
+		setBackColor(Colors.BackgroundGray);
+		
 				
 	}
 
@@ -84,6 +121,7 @@ Popup {
 	
 	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
 		sizeInfo.setHeight(60);
+		sizeInfo.setWidth(200);
 	}		
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
@@ -139,6 +177,10 @@ Popup {
 		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
 	}
 	*/
+	
+	callback btnClose onClick(Control c){
+		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
+	}
 	
 	/*
 	 * Custom methods

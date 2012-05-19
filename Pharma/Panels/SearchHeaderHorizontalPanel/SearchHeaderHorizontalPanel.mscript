@@ -2,7 +2,7 @@ HorizontalPanel {
 	
 	//SearchField search=new SearchField();
 	
-	TextField search = new TextField();
+	SearchField search = new SearchField();
 	
 	callback onCreate(Container c) {
 		
@@ -13,11 +13,16 @@ HorizontalPanel {
 		setColumnWidth(0,Sizing.PREFERRED,0);
 		//setRowHeight(0,Sizing.PIXELS,60);	
 		//setColumnWidth(0,Sizing.PIXELS,60);
-		//search.setOnValueChangingPausedDelay(1000);	
+	//	search.setOnValueChangingPausedDelay(1000);	
 	}
 	
 	callback search onValueChange ( Control c ) {
-		appLog.log(Log.INFO,"paused");
+		//appLog.log(Log.INFO,"change");
+		search.setOnValueChangingPausedDelay(1000);
+	}
+	
+	callback search onValueChangingPaused(Control c){
+		//appLog.log(Log.INFO,"paused");
 	}
 
 }

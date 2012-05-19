@@ -87,6 +87,14 @@ VirtualObject {
 		ascendingBy AccountName;
 	}
 	
+	Query getAccountContains(String letter,String str){
+		return accountContains(letter,str);
+	}
+	query accountContains<String letter,String str>{
+		where AccountName startsWith letter;
+		where AccountName contains str;
+		ascendingBy AccountName;
+	}
 	Query getAccountRow(String accountId){
 		return accountRow(accountId);
 	}
