@@ -41,7 +41,7 @@ Style {
 		//BackgroundButton.setBorder(Border.createSimpleBorder(Colors.Gray));
 		BackgroundButton.setBorder(Border.createRoundedBorder(Colors.Gray)); 
 		BackgroundButton.setForeColor(Colors.Black);
-		BackgroundButton.setLeftSpacing(3);
+		BackgroundButton.setLeftSpacing(4);
 		BackgroundButton.setHorizontalTextAlignment(HorizontalAlignmentType.LEFT);
 		BackgroundButton.setFont(lblfnt);
 //		BackgroundButton.setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));

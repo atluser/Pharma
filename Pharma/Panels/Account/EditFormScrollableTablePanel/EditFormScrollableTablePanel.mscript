@@ -600,8 +600,9 @@ ScrollableTablePanel {
 		province.btnPopup=button;
 		province.mdlPickMap=model;
 		province.lblTitle.setText(title);
-		province.setQuery(vObjLOV.getLOV(type));		
-		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PREFERRED, 0,true,true); 
+		province.setQuery(vObjLOV.getLOV(type));
+		province.TYPE=type;		
+		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PREFERRED, 0,true,true);		 
 		
 	}
 	

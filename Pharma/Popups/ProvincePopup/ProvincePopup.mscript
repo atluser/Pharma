@@ -3,13 +3,8 @@ Popup {
 	BackgroundButton btnPopup;
 	//String TITLE="HEADER";
 	Label lblTitle=new Label();
-/*	callback onCreate(Container c){
-		Panels.ProvinceStickyTablePanel stk=new Panels.ProvinceStickyTablePanel();
-		add(stk,"hfill=fill,vfill=fill");
-		setRowHeight(0,Sizing.PREFERRED,1);
-	}
-*/
-//TablePanel {
+
+	String TYPE="";
 	
 	/*
 	 * Attributes
@@ -18,7 +13,11 @@ Popup {
 	RowSetModel rsm = new RowSetModel();
 	BackgroundButton btnClose=new BackgroundButton();
 	
-	Panels.DetailStickyTablePanel pnlDetailForm;
+	//Panels.DetailStickyTablePanel pnlDetailForm;
+	
+	Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
+	SearchField tblSearch =pnlSearch.search;
+	
 	
 	
 	/*
@@ -71,9 +70,9 @@ Popup {
 		startNewRow();
 		
 		//add header search
-		Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();
+		//Panels.SearchHeaderHorizontalPanel search=new Panels.SearchHeaderHorizontalPanel();
 		//tp.add(search,"hfill=fill");
-		add(search,"hfill=fill");
+		add(pnlSearch,"hfill=fill");
 		//tp.startNewRow(); 
 		startNewRow();
 		
@@ -130,7 +129,7 @@ Popup {
 		btnPopup.setText(vObjLOV.Value.getStringValue(rsm.getRow()));
 		mdlPickMap.setText(vObjLOV.Name.getStringValue(rsm.getRow()));
 		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
-		//pnlDetailForm.setRow(rsm.getRow());
+		btnPopup.refresh();
 		
 	}
 		
@@ -182,26 +181,34 @@ Popup {
 		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
 	}
 	
+		//search callback
+	callback tblSearch onValueChange ( Control c ) {
+		//appLog.log(Log.INFO,"change");
+		tblSearch.setOnValueChangingPausedDelay(500);
+	}
+	
+	callback tblSearch onValueChangingPaused(Control c){
+		//appLog.log(Log.INFO,"paused");
+		//Query q=vObjAccount.getAccountContains(tblSearch.getText());
+		executeQuery(tblSearch.getText());
+		stk.reload();
+	}
+	
 	/*
 	 * Custom methods
 	 */
 	 
 	 
-	void setDetailPanel(Panels.DetailStickyTablePanel pnl) {
+	/*void setDetailPanel(Panels.DetailStickyTablePanel pnl) {
 		pnlDetailForm = pnl;
-	}
+	}*/
 	
-	void executeQuery(){
-		rsm.setRows(vObjAccount.getAccounts());
+	void executeQuery(String val){
+		rsm.setRows(vObjLOV.getLOVByVal(TYPE,val));
 	}
 	
 	void setQuery(Query q){
 		rsm.setRows(q);
 	}
-	/*void init (RowSetModel rsm){
-		//rsm.setRows(vObjLOV.getLOV("PROVINCE"));						
-		//set the model for the sticky table
-		stk.setDataModel(rsm);
-		
-	}*/
+	
 }
