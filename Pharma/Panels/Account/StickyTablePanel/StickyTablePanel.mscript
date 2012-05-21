@@ -41,6 +41,8 @@ TablePanel {
 		stk.setGridLineStyle(LineStyle.SOLID);
 		stk.setGridLineColor(Colors.Gray);		
 		setColumnWidth(0, Sizing.PERCENTS, 25);
+		//setColumnWidth(0, Sizing.PREFERRED, 1);
+		
 		setColumnWidth(1, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
@@ -205,7 +207,8 @@ TablePanel {
 			if(rsm1.getRowCount(0) > 0) {
 				
 				rsm.add(rsm1);
-				arr.insertItem(rsm.getGroupCount() - 1, letterList.getItem(i));		
+				arr.insertItem(rsm.getGroupCount() - 1, letterList.getItem(i));	
+				pnlIndex.enableIndexLinks(i);	
 			}
 							
 			//rsmArray.insertItem(i, rsm1);
@@ -226,12 +229,15 @@ TablePanel {
 			if(rsm1.getRowCount(0) > 0) {
 				
 				rsm.add(rsm1);
-				arr.insertItem(rsm.getGroupCount() - 1, letterList.getItem(i));		
+				arr.insertItem(rsm.getGroupCount() - 1, letterList.getItem(i));	
+				pnlIndex.enableIndexLinks(i);
+					
 			}
 						
 		//	rsmArray.insertItem(i, rsm1);
 		}
 		stk.setNumberOfGroups(letterList.length());	
 				
-	}			
+	}	
+			
 }

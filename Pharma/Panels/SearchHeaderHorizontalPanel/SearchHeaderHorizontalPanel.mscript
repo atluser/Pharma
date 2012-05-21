@@ -10,7 +10,7 @@ HorizontalPanel {
 		add(search,"hfill=fill");
 		//setBackColor(Colors.Green);
 		setInsets (10, 8, 8, 8);
-		setColumnWidth(0,Sizing.PREFERRED,0);
+		setColumnWidth(0,Sizing.PREFERRED,1);
 		//setRowHeight(0,Sizing.PIXELS,60);	
 		//setColumnWidth(0,Sizing.PIXELS,60);
 	//	search.setOnValueChangingPausedDelay(1000);	

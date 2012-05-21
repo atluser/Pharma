@@ -4,7 +4,7 @@ TablePanel {
 	Array arr;
 	
 	Link lnkA = new Link();
-	BackgroundButton lnkB = new BackgroundButton();
+	Link lnkB = new Link();
 	Link lnkC = new Link();
 	Link lnkD = new Link();
 	Link lnkE = new Link();
@@ -33,9 +33,6 @@ TablePanel {
 	callback onCreate(Container c) {
 	
 		setUpLinks();
-		
-		lnkB.setEnabled(false);
-		lnkB.setDisabledForeColor(Colors.Red);
 		
 		setInsets(0,5,0,5);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
@@ -70,159 +67,211 @@ TablePanel {
 	}
 	
 	callback lnkA onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkA onClick()");
-		stkTbl.scrollTo(arr.findItem("A"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("A"),0);
+		if(lnkA.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkA onClick()");
+			stkTbl.scrollTo(arr.findItem("A"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("A"),0);
+		}
 	}
 
 	callback lnkB onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkB onClick()");
-		stkTbl.scrollTo(arr.findItem("B"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("B"),0);
+		if(lnkB.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkB onClick()");
+			stkTbl.scrollTo(arr.findItem("B"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("B"),0);
+		}
 	}
 	
 	callback lnkC onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkC onClick()");
-		stkTbl.scrollTo(arr.findItem("C"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("C"),0);
+		if(lnkC.isEnabled()) {	
+			appLog.log(Log.INFO, "IndexPanel - lnkC onClick()");
+			stkTbl.scrollTo(arr.findItem("C"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("C"),0);
+		}
 	}
 	
 	callback lnkD onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkD onClick()");
-		stkTbl.scrollTo(arr.findItem("D"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("D"),0);
+		if(lnkD.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkD onClick()");
+			stkTbl.scrollTo(arr.findItem("D"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("D"),0);
+		}
 	}
 	
 	callback lnkE onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkE onClick()");
-		stkTbl.scrollTo(arr.findItem("E"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("E"),0);
+		if(lnkE.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkE onClick()");
+			stkTbl.scrollTo(arr.findItem("E"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("E"),0);
+		}
 	}			
 	
 	callback lnkF onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkF onClick()");
-		stkTbl.scrollTo(arr.findItem("F"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("F"),0);
+		if(lnkF.isEnabled()) {		
+			appLog.log(Log.INFO, "IndexPanel - lnkF onClick()");
+			stkTbl.scrollTo(arr.findItem("F"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("F"),0);
+		}
 	}
 	
 	callback lnkG onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkG onClick()");
-		stkTbl.scrollTo(arr.findItem("G"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("G"),0);
+		if(lnkG.isEnabled()) {		
+			appLog.log(Log.INFO, "IndexPanel - lnkG onClick()");
+			stkTbl.scrollTo(arr.findItem("G"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("G"),0);
+		}
 	}	
 	
 	callback lnkH onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkH onClick()");
-		stkTbl.scrollTo(arr.findItem("H"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("H"),0);
+		if(lnkH.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkH onClick()");
+			stkTbl.scrollTo(arr.findItem("H"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("H"),0);
+		}
 	}	
 	
 	callback lnkI onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkI onClick()");
-		stkTbl.scrollTo(arr.findItem("H"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("H"),0);
+		if(lnkI.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkI onClick()");
+			stkTbl.scrollTo(arr.findItem("H"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("H"),0);
+		}
 	}	
 	
 	callback lnkJ onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkJ onClick()");
-		stkTbl.scrollTo(arr.findItem("J"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("J"),0);
+		if(lnkJ.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkJ onClick()");
+			stkTbl.scrollTo(arr.findItem("J"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("J"),0);
+		}
 	}	
 	
 	callback lnkK onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkK onClick()");
-		stkTbl.scrollTo(arr.findItem("K"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("K"),0);
+		if(lnkK.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkK onClick()");
+			stkTbl.scrollTo(arr.findItem("K"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("K"),0);
+		}
 	}
 	
 	callback lnkL onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkL onClick()");
-		stkTbl.scrollTo(arr.findItem("L"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("L"),0);
+		if(lnkL.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkL onClick()");
+			stkTbl.scrollTo(arr.findItem("L"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("L"),0);
+		}
 	}	
 	
 	callback lnkM onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkM onClick()");
-		stkTbl.scrollTo(arr.findItem("M"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("M"),0);
+		if(lnkM.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkM onClick()");
+			stkTbl.scrollTo(arr.findItem("M"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("M"),0);
+		}
 	}
 	
 	callback lnkN onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkN onClick()");
-		stkTbl.scrollTo(arr.findItem("N"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("N"),0);
+		if(lnkN.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkN onClick()");
+			stkTbl.scrollTo(arr.findItem("N"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("N"),0);
+		}
 	}		
 			
 	callback lnkO onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkO onClick()");
-		stkTbl.scrollTo(arr.findItem("O"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("O"),0);
+		if(lnkO.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkO onClick()");
+			stkTbl.scrollTo(arr.findItem("O"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("O"),0);
+		}
 	}
 	
 	callback lnkP onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkP onClick()");
-		stkTbl.scrollTo(arr.findItem("P"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("P"),0);
+		if(lnkP.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkP onClick()");
+			stkTbl.scrollTo(arr.findItem("P"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("P"),0);
+		}
 	}
 	
 	callback lnkQ onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkQ onClick()");
-		stkTbl.scrollTo(arr.findItem("Q"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("Q"),0);
+		if(lnkQ.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkQ onClick()");
+			stkTbl.scrollTo(arr.findItem("Q"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("Q"),0);
+		}
 	}	
 	
 	callback lnkR onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkR onClick()");
-		stkTbl.scrollTo(arr.findItem("R"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("R"),0);
+		if(lnkR.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkR onClick()");
+			stkTbl.scrollTo(arr.findItem("R"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("R"),0);
+		}
 	}	
 	
 	callback lnkS onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkS onClick()");
-		stkTbl.scrollTo(arr.findItem("S"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("S"),0);
+		if(lnkS.isEnabled()) {	
+			appLog.log(Log.INFO, "IndexPanel - lnkS onClick()");
+			stkTbl.scrollTo(arr.findItem("S"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("S"),0);
+		}
 	}	
 
 	callback lnkT onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkT onClick()");
-		stkTbl.scrollTo(arr.findItem("T"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("T"),0);
+		if(lnkT.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkT onClick()");
+			stkTbl.scrollTo(arr.findItem("T"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("T"),0);
+		}
 	}
 
 	callback lnkU onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkU onClick()");
-		stkTbl.scrollTo(arr.findItem("U"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("U"),0);
+		if(lnkU.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkU onClick()");
+			stkTbl.scrollTo(arr.findItem("U"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("U"),0);
+		}
 	}
 
 	callback lnkV onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkV onClick()");
-		stkTbl.scrollTo(arr.findItem("V"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("V"),0);
+		if(lnkV.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkV onClick()");
+			stkTbl.scrollTo(arr.findItem("V"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("V"),0);
+		}
 	}
 	
 	callback lnkW onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkW onClick()");
-		stkTbl.scrollTo(arr.findItem("W"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("W"),0);
+		if(lnkW.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkW onClick()");
+			stkTbl.scrollTo(arr.findItem("W"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("W"),0);
+		}
 	}	
 	
 	callback lnkX onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkX onClick()");
-		stkTbl.scrollTo(arr.findItem("X"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("X"),0);
+		if(lnkX.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkX onClick()");
+			stkTbl.scrollTo(arr.findItem("X"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("X"),0);
+		}
 	}	
 	
 	callback lnkY onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkY onClick()");
-		stkTbl.scrollTo(arr.findItem("Y"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("Y"),0);
+		if(lnkY.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkY onClick()");
+			stkTbl.scrollTo(arr.findItem("Y"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("Y"),0);
+		}
 	}	
 	
 	callback lnkZ onClick(Control c) {
-		appLog.log(Log.INFO, "IndexPanel - lnkZ onClick()");
-		stkTbl.scrollTo(arr.findItem("Z"), 0, StickyTable.SCROLL_POSITION_NONE);
-		stkTbl.select(arr.findItem("Z"),0);
+		if(lnkZ.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkZ onClick()");
+			stkTbl.scrollTo(arr.findItem("Z"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("Z"),0);
+		}
 	}	
 	
 	
@@ -236,107 +285,159 @@ TablePanel {
 		lnkA.setFont(fnt);
 		lnkA.setForeColor(Colors.Black);
 		lnkA.setText("A");
+		lnkA.setEnabled(false);
+		lnkA.setDisabledForeColor(Colors.Gray);		
 		
 		lnkB.setFont(fnt);
 		lnkB.setForeColor(Colors.Black);
 		lnkB.setText("B");
+		lnkB.setEnabled(false);
+		lnkB.setDisabledForeColor(Colors.Gray);
 
 		lnkC.setFont(fnt);
 		lnkC.setForeColor(Colors.Black);
 		lnkC.setText("C");
+		lnkC.setEnabled(false);
+		lnkC.setDisabledForeColor(Colors.Gray);
 
 		lnkD.setFont(fnt);
 		lnkD.setForeColor(Colors.Black);
 		lnkD.setText("D");
+		lnkD.setEnabled(false);
+		lnkD.setDisabledForeColor(Colors.Gray);
 
 		lnkE.setFont(fnt);
 		lnkE.setForeColor(Colors.Black);
 		lnkE.setText("E");
-
+		lnkE.setEnabled(false);
+		lnkE.setDisabledForeColor(Colors.Gray);
+		
 		lnkF.setFont(fnt);
 		lnkF.setForeColor(Colors.Black);
 		lnkF.setText("F");
+		lnkF.setEnabled(false);
+		lnkF.setDisabledForeColor(Colors.Gray);
 
 		lnkG.setFont(fnt);
 		lnkG.setForeColor(Colors.Black);
 		lnkG.setText("G");
+		lnkG.setEnabled(false);
+		lnkG.setDisabledForeColor(Colors.Gray);
 
 		lnkH.setFont(fnt);
 		lnkH.setForeColor(Colors.Black);
 		lnkH.setText("H");
+		lnkH.setEnabled(false);
+		lnkH.setDisabledForeColor(Colors.Gray);
 
 		lnkI.setFont(fnt);
 		lnkI.setForeColor(Colors.Black);
 		lnkI.setText("I");
+		lnkI.setEnabled(false);
+		lnkI.setDisabledForeColor(Colors.Gray);
 
 		lnkJ.setFont(fnt);
 		lnkJ.setForeColor(Colors.Black);
 		lnkJ.setText("J");
-
+		lnkJ.setEnabled(false);
+		lnkJ.setDisabledForeColor(Colors.Gray);
+		
 		lnkK.setFont(fnt);
 		lnkK.setForeColor(Colors.Black);
 		lnkK.setText("K");
-
+		lnkK.setEnabled(false);
+		lnkK.setDisabledForeColor(Colors.Gray);
+		
 		lnkL.setFont(fnt);
 		lnkL.setForeColor(Colors.Black);
 		lnkL.setText("L");
-
+		lnkL.setEnabled(false);
+		lnkL.setDisabledForeColor(Colors.Gray);
+		
 		lnkM.setFont(fnt);
 		lnkM.setForeColor(Colors.Black);
 		lnkM.setText("M");
-
+		lnkM.setEnabled(false);
+		lnkM.setDisabledForeColor(Colors.Gray);
+		
 		lnkN.setFont(fnt);
 		lnkN.setForeColor(Colors.Black);
 		lnkN.setText("N");
+		lnkN.setEnabled(false);
+		lnkN.setDisabledForeColor(Colors.Gray);
 
 		lnkO.setFont(fnt);
 		lnkO.setForeColor(Colors.Black);
 		lnkO.setText("O");
+		lnkO.setEnabled(false);
+		lnkO.setDisabledForeColor(Colors.Gray);
 
 		lnkP.setFont(fnt);
 		lnkP.setForeColor(Colors.Black);
 		lnkP.setText("P");
-
+		lnkP.setEnabled(false);
+		lnkP.setDisabledForeColor(Colors.Gray);
+		
 		lnkQ.setFont(fnt);
 		lnkQ.setForeColor(Colors.Black);
 		lnkQ.setText("Q");
-
+		lnkQ.setEnabled(false);
+		lnkQ.setDisabledForeColor(Colors.Gray);
+		
 		lnkR.setFont(fnt);
 		lnkR.setForeColor(Colors.Black);
 		lnkR.setText("R");
-
+		lnkR.setEnabled(false);
+		lnkR.setDisabledForeColor(Colors.Gray);
+		
 		lnkS.setFont(fnt);
 		lnkS.setForeColor(Colors.Black);
 		lnkS.setText("S");
+		lnkS.setEnabled(false);
+		lnkS.setDisabledForeColor(Colors.Gray);
 
 		lnkT.setFont(fnt);
 		lnkT.setForeColor(Colors.Black);
 		lnkT.setText("T");
-
+		lnkT.setEnabled(false);
+		lnkT.setDisabledForeColor(Colors.Gray);
+		
 		lnkU.setFont(fnt);
 		lnkU.setForeColor(Colors.Black);
 		lnkU.setText("U");
-
+		lnkU.setEnabled(false);
+		lnkU.setDisabledForeColor(Colors.Gray);
+		
 		lnkV.setFont(fnt);
 		lnkV.setForeColor(Colors.Black);
 		lnkV.setText("V");
-		
+		lnkV.setEnabled(false);
+		lnkV.setDisabledForeColor(Colors.Gray);
+				
 		lnkW.setFont(fnt);
 		lnkW.setForeColor(Colors.Black);
 		lnkW.setText("W");
-		
+		lnkW.setEnabled(false);
+		lnkW.setDisabledForeColor(Colors.Gray);
+				
 		lnkX.setFont(fnt);
 		lnkX.setForeColor(Colors.Black);
 		lnkX.setText("X");
-		
+		lnkX.setEnabled(false);
+		lnkX.setDisabledForeColor(Colors.Gray);
+				
 		lnkY.setFont(fnt);
 		lnkY.setForeColor(Colors.Black);
 		lnkY.setText("Y");						
+		lnkY.setEnabled(false);
+		lnkY.setDisabledForeColor(Colors.Gray);
 
 		lnkZ.setFont(fnt);
 		lnkZ.setForeColor(Colors.Black);
 		lnkZ.setText("Z");
-		
+		lnkZ.setEnabled(false);
+		lnkZ.setDisabledForeColor(Colors.Gray);
+				
 		add(lnkA, "halign=center,valign=top");
 		startNewRow();
 		add(lnkB, "halign=center,valign=top");
@@ -404,5 +505,89 @@ TablePanel {
 	
 	}	
 	
+	void enableIndexLinks(int i) {
+	
+		switch(i) {
+			case 0:
+					lnkA.setEnabled(true);
+					break;
+			case 1:
+					lnkB.setEnabled(true);
+					break;
+			case 2:
+					lnkC.setEnabled(true);
+					break;
+			case 3:
+					lnkD.setEnabled(true);
+					break;
+			case 4:
+					lnkE.setEnabled(true);
+					break;
+			case 5:
+					lnkF.setEnabled(true);
+					break;
+			case 6:
+					lnkG.setEnabled(true);
+					break;
+			case 7:
+					lnkH.setEnabled(true);
+					break;
+			case 8:
+					lnkI.setEnabled(true);
+					break;
+			case 9:
+					lnkJ.setEnabled(true);
+					break;
+			case 10:
+					lnkK.setEnabled(true);
+					break;
+			case 11:
+					lnkL.setEnabled(true);
+					break;
+			case 12:
+					lnkM.setEnabled(true);
+					break;
+			case 13:
+					lnkN.setEnabled(true);
+					break;
+			case 14:
+					lnkO.setEnabled(true);
+					break;
+			case 15:
+					lnkP.setEnabled(true);
+					break;
+			case 16:
+					lnkQ.setEnabled(true);
+					break;
+			case 17:
+					lnkR.setEnabled(true);
+					break;
+			case 18:
+					lnkS.setEnabled(true);
+					break;
+			case 19:
+					lnkT.setEnabled(true);
+					break;
+			case 20:
+					lnkU.setEnabled(true);
+					break;
+			case 21:
+					lnkV.setEnabled(true);
+					break;
+			case 22:
+					lnkW.setEnabled(true);
+					break;
+			case 23:
+					lnkX.setEnabled(true);
+					break;
+			case 24:
+					lnkY.setEnabled(true);
+					break;
+			case 25:
+					lnkZ.setEnabled(true);
+					break;																																																																																																																																	
+		}	
+		
+	}	
 	
 }
