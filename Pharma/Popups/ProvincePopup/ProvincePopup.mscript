@@ -3,7 +3,7 @@ Popup {
 	BackgroundButton btnPopup;
 	//String TITLE="HEADER";
 	Label lblTitle=new Label();
-
+	Label lblFoot=new Label();
 	String TYPE="";
 	
 	/*
@@ -12,8 +12,6 @@ Popup {
 	StickyTable stk = new StickyTable();
 	RowSetModel rsm = new RowSetModel();
 	BackgroundButton btnClose=new BackgroundButton();
-	
-	//Panels.DetailStickyTablePanel pnlDetailForm;
 	
 	Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
 	SearchField tblSearch =pnlSearch.search;
@@ -24,10 +22,11 @@ Popup {
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
-		//setRowHeight(0, Sizing.PREFERRED, 1);
-		setRowHeight(2, Sizing.PREFERRED, 1);
-		//setColumnWidth(0, Sizing.PREFERRED, 0);
-		setColumnWidth(0, Sizing.PIXELS, 250);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 0);
+		setRowHeight(2, Sizing.PREFERRED, 1);		
+		
+		setColumnWidth(0, Sizing.PIXELS, 350);
 		
 		 setInsets (4,4,4,4);
 		//TablePanel tp=new TablePanel();
@@ -49,21 +48,28 @@ Popup {
 		//action font
 		Font actfnt=titlefnt.createCopy();
 		actfnt.setSize(16);
-		btnClose.setText("Close");		
-		btnClose.setForeColor(Color.create(255,255,255));
-		btnClose.setSpacing(8,8,8,8);
+		//btnClose.setText("Close");		
+		//btnClose.setForeColor(Color.create(255,255,255));
+		//btnClose.setSpacing(8,8,8,8);
 		//btnClose.setBackColor(Colors.Red);
 		//btnClose.setBorder(Border.createRoundedBorder(Colors.Gray));
-		btnClose.setBackground(Background.createColorRoundedBackground(Color.create(189,0,0),Colors.Gray,LineStyle.SOLID)) ;				
+		//btnClose.setBackground(Background.createColorRoundedBackground(Color.create(189,0,0),Colors.Gray,LineStyle.SOLID)) ;
+		btnClose.setImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		btnClose.setFocusedImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		btnClose.setSelectedImage(Images.VodafoneImages.btn_undo_normal.getImage());		
 		lblTitle.setFont(titlefnt);
 		lblTitle.setForeColor(Colors.Black);
 		
 		HorizontalPanel hzTitle=new HorizontalPanel();
+		hzTitle.setInsets(0,8,0,0);
 		//hzTitle.setHGap(50);
-		hzTitle.add(btnClose,"halign=left");
-		hzTitle.add(lblTitle,"halign=center");
-		hzTitle.setColumnWidth(0,Sizing.PREFERRED,0);
-		hzTitle.setColumnWidth(1,Sizing.PREFERRED,1);
+		//hzTitle.add(btnClose,"halign=left");
+		lblTitle.setForeColor(Color.create(255,255,255));		
+		hzTitle.add(lblTitle,"halign=left");
+		hzTitle.add(btnClose,"halign=right");
+		hzTitle.setColumnWidth(1,Sizing.PREFERRED,0);
+		hzTitle.setColumnWidth(0,Sizing.PREFERRED,1);
+		hzTitle.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
 		
 		add(hzTitle,"hfill=fill");
 		
@@ -86,6 +92,31 @@ Popup {
 		
 		//add(tp,"halign=center,vfill=fill,hfill=fill,colspan=2");		
 		//setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
+		
+		//footer
+		startNewRow();
+		HorizontalPanel footer=new HorizontalPanel();
+		
+		//footer font
+		Font fnt=new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(16);
+		lblFoot.setForeColor(Colors.Black);
+		lblFoot.setFont(fnt);		
+//		lblFoot.setText(COUNT);
+		footer.add(lblFoot,"halign=right");
+				
+		//hzfoot.setInsets(0,8,0,0);
+		//hzTitle.setHGap(50);
+		//hzTitle.add(btnClose,"halign=left");
+		//lblTitle.setForeColor(Color.create(255,255,255));		
+		//hzTitle.add(lblTitle,"halign=left");
+		//hzTitle.add(btnClose,"halign=right");
+		//hzTitle.setColumnWidth(1,Sizing.PREFERRED,0);
+		footer.setColumnWidth(0,Sizing.PREFERRED,1);
+		//footer.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		add(footer,"valign=bottom,hfill=fill");
+		
 		setBackColor(Colors.BackgroundGray);
 		
 				
@@ -155,13 +186,13 @@ Popup {
 		cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
 	}
 			
-		
+	*/	
 	////////////////////////////
 	// Footer (Optional)
 	////////////////////////////
 	/*
 	callback stk onFooterCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
-		info.setPanel(new Panels.Accounts.AccountFooterTableViewPanel());
+		info.setPanel(new Panels.FooterPanel());
 	}
 	
 	callback stk onFooterConfigure(TableView c, CellConfig cell, int group){
@@ -171,8 +202,8 @@ Popup {
 	}
 	
 	callback stk onFooterInfo(TableView c, TableViewPanel cell, Footer info, int grp) {
-		Panels.Accounts.AccountFooterTableViewPanel tblVwPanelFooter = (Panels.Accounts.AccountFooterTableViewPanel) cell;
-		tblVwPanelFooter.setRowCount(rsm.getRowCount(0));
+		Panels.FooterPanel tblVwPanelFooter = (Panels.FooterPanel) cell;
+		tblVwPanelFooter.l4.setText(lblTitle.getText()+" "+rsm.getRowCount(grp));
 		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
 	}
 	*/
@@ -207,8 +238,9 @@ Popup {
 		rsm.setRows(vObjLOV.getLOVByVal(TYPE,val));
 	}
 	
-	void setQuery(Query q){
+	void setQuery(Query q){		
 		rsm.setRows(q);
+		lblFoot.setText("Conteggio record: "+rsm.getRowCount(0));
 	}
 	
 }
