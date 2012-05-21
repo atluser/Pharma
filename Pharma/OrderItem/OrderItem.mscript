@@ -1,0 +1,53 @@
+VirtualObject {
+
+	// Dettaglio Riga
+	StringField OrderItemProductCode {
+		return null;
+	}
+	
+	StringField OrderItemProductName {
+		return null;
+	}
+	
+	StringField OrderItemProductCategory {
+		return null;
+	}
+	
+	StringField OrderItemProductImage {
+		return null;
+	}
+	
+	StringField OrderItemProductPrice {
+		return null;
+	}
+	
+	DateField OrderItem1stDeliveryDate {
+		return Platform.createDate();
+	}
+
+	DateField OrderItem2ndDeliveryDate {
+		return Platform.createDate();
+	}	
+		
+	DateField OrderItem3rdDeliveryDate {
+		return Platform.createDate();
+	}	
+	
+	IntegerField OrderItemProductDiscount {
+		return null;
+	}
+	
+	CurrencyField OrderItemTotalGross {
+		return null;
+	}
+
+	CurrencyField OrderItemTotalNet {
+		return null;
+	}
+
+	FloatField OrderItemTotalDiscount {
+		return null;
+	}
+	
+	
+}

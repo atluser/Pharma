@@ -3316,6 +3316,9 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListOfValues">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListOfValues.mscript"/>
   </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="OrderItem">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItem.mscript"/>
+  </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="PriceList">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceList.mscript"/>
   </children>

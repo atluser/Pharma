@@ -1,7 +1,16 @@
 VirtualObject {
 	
-	StringField OrderCode{
+	// Dettaglio Ordine
+	StringField OrderCode {
 		return null;
+	}
+	
+	DateField OrderDate {
+		return Platform.createDate();
+	}	
+	
+	StringField OrderType {
+		return "Ordine di Vendita";
 	}
 	
 	StringField AccountCode{
@@ -12,18 +21,49 @@ VirtualObject {
 		return vObjUtil.getAccountName(AccountCode);		
 	}
 	
-	StringField OrderType{
-		return "Vendita";
-	}
+	StringField OrderPriceList {
+		return "Listino Base";
+	}	
 	
 	StringField OrderStatus{
 		return null;
 	}
 	
-	DateField OrderDate{
+	// Consegna e Pagamento
+	DateField Order1stDeliveryDate {
 		return Platform.createDate();
 	}
+
+	DateField Order2ndDeliveryDate {
+		return Platform.createDate();
+	}	
+		
+	DateField Order3rdDeliveryDate {
+		return Platform.createDate();
+	}	
 	
+	StringField OrderPaymentMode {
+		return null;
+	}
+		
+	StringField OrderNote {
+		return null;
+	}	
+		
+	// Totali Ordine
+	CurrencyField OrderTotalGross {
+		return null;
+	}
+
+	CurrencyField OrderTotalNet {
+		return null;
+	}
+
+	FloatField OrderTotalDiscount {
+		return null;
+	}
+
+	//Da Eliminare	
 	StringField PromotionCode{
 		return null;
 	}
@@ -31,6 +71,7 @@ VirtualObject {
 	IntegerField PromotionMinQty{
 		return Platform.createInteger(0);
 	}
+
 	
 	Query getOrderRow(String orderCode){
 		return orderRow(orderCode);
