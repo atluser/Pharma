@@ -94,6 +94,105 @@ UIObject {
         row.applyUpdates();
         
         row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+34", row);
+        vObjLOV.Value.setStringValue("Spagna", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+32", row);
+        vObjLOV.Value.setStringValue("Belgio", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+31", row);
+        vObjLOV.Value.setStringValue("Olanda", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+351", row);
+        vObjLOV.Value.setStringValue("Portogallo", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+353", row);
+        vObjLOV.Value.setStringValue("Irlanda", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+43", row);
+        vObjLOV.Value.setStringValue("Austria", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+45", row);
+        vObjLOV.Value.setStringValue("Danimarca", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+46", row);
+        vObjLOV.Value.setStringValue("Svezia", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+47", row);
+        vObjLOV.Value.setStringValue("Norvegia", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+48", row);
+        vObjLOV.Value.setStringValue("Polonia", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+30", row);
+        vObjLOV.Value.setStringValue("Grecia", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+41", row);
+        vObjLOV.Value.setStringValue("Svizzera", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+44", row);
+        vObjLOV.Value.setStringValue("Gran Bretagna", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("COUNTRY", row);
+        vObjLOV.Name.setStringValue("+1", row);
+        vObjLOV.Value.setStringValue("U.S.A", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("CATEGORY", row);
         vObjLOV.Name.setStringValue("Farmacia", row);
         vObjLOV.Value.setStringValue("Farmacia", row);

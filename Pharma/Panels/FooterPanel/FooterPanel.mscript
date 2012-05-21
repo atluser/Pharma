@@ -1,2 +1,28 @@
 TableViewPanel {
+	
+	/*
+	 * Attributes
+	 */
+	 Label l4 = new Label();
+
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {
+		Font fnt=new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(19);
+		l4.setForeColor(Colors.Black);
+		l4.setFont(fnt);		
+		l4.setText("Footer");
+		add(l4,"align=right");
+		setColumnWidth(0,Sizing.PREFERRED,1);
+		//setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));	
+		
+	} 
+	
+	/*
+	 * Custom methods
+	 */
+
 }

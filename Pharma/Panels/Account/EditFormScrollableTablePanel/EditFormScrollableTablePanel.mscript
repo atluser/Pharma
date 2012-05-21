@@ -1,7 +1,7 @@
 ScrollableTablePanel {	
 	DataRow currentRow;
 	int labelColumnSize=11;//dimensione % label column
-	String labelAlign="halign=center";
+	String labelAlign="halign=left";
 	String controlAlign="halign=left,hfill=fill";
 	Screen scr=null;
 	
@@ -210,7 +210,7 @@ ScrollableTablePanel {
 		//lblAddress.setFont(txtfnt);
 		lblAddress.setForeColor(Color.create(189,0,0));
 		txtCity.setTextHint("Città");
-		lblCountry.setText("Paese");
+		lblCountry.setText("Nazione");
 		//lblCountry.setFont(txtfnt);
 		lblCountry.setForeColor(Color.create(189,0,0));
 		lblProvince.setText("Provincia");
@@ -557,7 +557,7 @@ ScrollableTablePanel {
 	
 	}*/
 	callback btnCountryPopup onClick(Control c){
-		showPopup((BackgroundButton)c,mdlPrefix,"COUNTRY","Paese");		
+		showPopup((BackgroundButton)c,mdlPrefix,"COUNTRY","Nazioni");		
 		/*
 		Popups.ProvincePopup province=new Popups.ProvincePopup();
 		//province.stk.setDataModel(mdlProvince);
@@ -601,8 +601,8 @@ ScrollableTablePanel {
 		province.mdlPickMap=model;
 		province.lblTitle.setText(title);
 		province.setQuery(vObjLOV.getLOV(type));
-		province.TYPE=type;		
-		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PREFERRED, 0,true,true);		 
+		province.TYPE=type;				
+		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);		 
 		
 	}
 	
