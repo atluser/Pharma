@@ -15,5 +15,6 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CATALOG_STR" string="Catalog"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CONTACTS_STR" string="Contacts"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ORDERS_STR" string="Orders"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_PRICELIST_STR" string="PriceList"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_SERVICE_REQUESTS_STR" string="Service"/>
 </com.vaultus.ecore.properties:Properties>

@@ -1,2 +1,27 @@
 TablePanel {
+
+	/*
+	 * Attributes
+	 */
+	StickyTable stk = new StickyTable();
+	//RowSetModel rsm = new RowSetModel();
+	MultiRowSetModel rsm=new MultiRowSetModel();
+
+	//Panels.DetailStickyTablePanel pnlDetailForm;
+	Panels.DetailPanel pnlDetail;
+	Panels.PriceList.ReadOnlyDetailFormPanel pnlDetailForm;
+
+	callback onCreate(Container c){
+
+
+	}
+	void setDetailPanel(Panels.DetailPanel pnl) {
+		pnlDetail = pnl;
+	}
+
+	void setDetailFormPanel(ReadOnlyDetailFormPanel pnl) {
+		pnlDetailForm = pnl;
+	}
+
+
 }

@@ -4,6 +4,7 @@ UIObject {
 		
 		insertCrmEntity(4, StringConstants.TBB_SERVICE_REQUESTS_STR.getString());
 		insertCrmEntity(5, StringConstants.TBB_CATALOG_STR.getString());
+		insertCrmEntity(6, StringConstants.TBB_PRICELIST_STR.getString());
 
 	}
 	
@@ -423,7 +424,7 @@ UIObject {
           vObjAccount.AccountName.setStringValue("FARMACIA GREEN", row);
           vObjAccount.AccountType.setStringValue("Cliente", row);
           vObjAccount.AccountStreetAddress.setStringValue("Via Giuseppe Verdi, 2", row);
-          vObjAccount.AccountCity.setStringValue("RIVOLTA DÕADDA", row);
+          vObjAccount.AccountCity.setStringValue("RIVOLTA Dï¿½ADDA", row);
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("26127", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
@@ -514,7 +515,7 @@ UIObject {
           vObjAccount.AccountName.setStringValue("FARMACIA NOSARI SRL", row);
           vObjAccount.AccountType.setStringValue("Cliente", row);
           vObjAccount.AccountStreetAddress.setStringValue("Via Giuseppe Verdi, 20", row);
-          vObjAccount.AccountCity.setStringValue("Rivolta dÕAdda", row);
+          vObjAccount.AccountCity.setStringValue("Rivolta dï¿½Adda", row);
           vObjAccount.AccountProvince.setStringValue("BG", row);
           vObjAccount.AccountPostalCode.setStringValue("26127", row);
           vObjAccount.AccountCountry.setStringValue("Italia", row);      
@@ -705,14 +706,14 @@ UIObject {
 	
 	void loadList(){
 		
-		insertList("0","Speciale Privè",10);
+		insertList("0","Speciale Prive",10);
 		insertListItem("0","01tA0000003HQs3","HC7 cl.70","HAVANA CLUB","10",3,"https://c.na7.content.force.com/servlet/servlet.FileDownload?file=015A0000001jkrN");
 		insertListItem("0","01tA0000003HRPB","ABSOLUT VODKA cl 70","ABSOLUT VODKA","15",0,"https://c.na7.content.force.com/servlet/servlet.FileDownload?file=015A0000001jkrD");
 		insertListItem("0","01tA0000003HSj7","BEEFEATER 24","BEEFEATER","15",0,"");
 		insertListItem("0","01tA0000003HSj2","MALIBU","MALIBU","10",0,"");
 		insertListItem("0","01tA0000003HRPB","ABSOLUT VODKA cl 70","ABSOLUT VODKA","0",3,"");
 		
-		insertList("1","Super Privè",20);
+		insertList("1","Super Prive",20);
 		insertListItem("1","01tA0000003HRPB","ABSOLUT VODKA cl 70","ABSOLUT VODKA","15",0,"");
 		insertListItem("1","01tA0000003HSj7","BEEFEATER 24","BEEFEATER","15",0,"");
 		insertListItem("1","01tA0000003HSj2","MALIBU","MALIBU","10",0,"");

@@ -1,2 +1,40 @@
 BorderPanel {
+
+
+	/*
+	 * Attributes
+	 */
+	StickyTablePanel stk = new StickyTablePanel();
+	//Panels.PriceList.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.PriceList.ReadOnlyDetailFormPanel();	 
+	ReadOnlyDetailFormPanel pnlDetailForm = new ReadOnlyDetailFormPanel();
+
+	/*
+	 * Callback methods 
+	 */
+	callback onCreate(Container c) {
+
+		// Master Panel		
+		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
+		pnlMaster.setContentPanel(stk);
+
+		// Detail Panel
+		Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
+		pnlDetail.setContentPanel(pnlDetailForm);
+
+		stk.setDetailPanel(pnlDetail);
+		stk.setDetailFormPanel(pnlDetailForm);		
+
+	 	setWest(pnlMaster);
+	 	setEast(pnlDetail);
+	 	setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+
+	}
+
+	/*
+	 * Custom methods
+	 */  	
+	/*StickyTable getStickyTable(){
+		return stk.stk;	
+	}*/
+
 }
