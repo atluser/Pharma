@@ -19,6 +19,7 @@ UIProject {
 	Order vObjOrder=new Order();
 	ListItem vObjListItem=new ListItem();
 	PriceList vObjList=new PriceList();
+	PriceList vObjPriceList=new PriceList();
 		
 	/*
 	 * VOUtility

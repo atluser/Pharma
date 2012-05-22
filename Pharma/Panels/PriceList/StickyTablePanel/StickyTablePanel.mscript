@@ -9,12 +9,110 @@ TablePanel {
 
 	//Panels.DetailStickyTablePanel pnlDetailForm;
 	Panels.DetailPanel pnlDetail;
-	Panels.PriceList.ReadOnlyDetailFormPanel pnlDetailForm;
+	ReadOnlyDetailFormPanel pnlDetailForm;
+	Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
+	SearchField tblSearch =pnlSearch.search;
+	
 
 	callback onCreate(Container c){
+		//setInitQuery();
+		
+		//set the model for the sticky table
+		stk.setDataModel(rsm);
+		
+		add(pnlSearch,"colspan=2,hfill=fill");
+		startNewRow(); 
+		add(stk, "hfill=fill,valign=top");
+	//	add(pnlIndex, "hfill=fill,valign=top");	
 
-
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);		
+		setColumnWidth(0, Sizing.PERCENTS, 25);
+		//setColumnWidth(0, Sizing.PREFERRED, 1);
+		
+		setColumnWidth(1, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);
+	
 	}
+
+	///////////////////////////////
+	// Callback to configure cells
+	///////////////////////////////
+	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
+		info.setPanel(new Cells.TwoRowsTableViewCell());
+	}
+	
+	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
+		/* OK
+		Panels.Accounts.AccountTableViewCell tblVwCell = (Panels.Accounts.AccountTableViewCell) cell;
+		tblVwCell.setRow(info.getDataRow());
+		*/
+		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
+		
+		DataRow dtRw = info.getDataRow();
+		if(!dtRw.isDeleted()){		
+			String str01 = vObjPriceList.PriceListName.getStringValue(dtRw);
+			String str02 = vObjPriceList.PriceListDescription.getStringValue(dtRw) ;//+ " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " - (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")";					
+	
+			tblVwCell.lbl01.setText(str01);
+			tblVwCell.lbl02.setText(str02);
+		}
+	}
+	
+	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
+		cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PREFERRED, 0);
+		cell.setCouldBeSelected(true);
+	}
+	
+	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
+		sizeInfo.setHeight(60);
+	}		
+	
+	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
+		
+		//pnlDetailForm.setRow(rsm.getRow());
+		pnlDetail.setRow(rsm.getRow());
+		pnlDetailForm.setRow(rsm.getRow());
+		
+	}
+		
+	////////////////////////////
+	// Sticky Header (Optional)
+	////////////////////////////
+	/*	
+	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		
+		//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
+		
+		//Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+		//if(rsm.getRowCount(group) > 0) {
+			//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
+			Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+			//header.lbl.setText(letterList.getItem(group));
+			info.setPanel(header);
+		//}
+		
+	}
+	
+	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
+		cell.setCouldBeSelected(false);
+		cell.setHeight(Sizing.PIXELS, 30);
+		//cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PERCENTS, 100);
+	}
+	
+	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
+	
+			Panels.Cells.SectionHeaderCell header = (Panels.Cells.SectionHeaderCell)cell;
+			header.lbl.setText(arr.getItem(grp));
+	
+		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+	}
+	*/
+			
 	void setDetailPanel(Panels.DetailPanel pnl) {
 		pnlDetail = pnl;
 	}

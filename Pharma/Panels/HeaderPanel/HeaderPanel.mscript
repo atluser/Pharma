@@ -102,7 +102,7 @@ HorizontalPanel {
 
 	callback rg onToolBarButtonClicked(ToolBar c, int idxClicked, ToolBarButton tbb, boolean isChanged) {
 
-		logApp.log(Log.INFO, "HeaderPanel - rg onToolBarButtonClicked()");	
+		logApp.log(Log.INFO, "HeaderPanel - rg onToolBarButtonClicked()");
 		currentEntity=idxClicked;
 		if (idxClicked == 0) {
 
@@ -139,9 +139,10 @@ HorizontalPanel {
 			poCrmMenu.dismiss();
 			stkPnl.select(pnlPriceListRoot);
 
-		}
-
+		}						
+		
 	}
+
 
 	callback btnNew onClick(Control c) {
 
@@ -485,7 +486,49 @@ HorizontalPanel {
 		rg.showButton(idx);
 		rg.setSelectedIndex(idx);
 		iTmpIdx = idx;
+		btnToolbarClick(idx);
 		poCrmMenu.dismiss();
+	}
+	
+	void btnToolbarClick(int idxClicked){
+		currentEntity=idxClicked;
+		if (idxClicked == 0) {
+
+			poCrmMenu.dismiss();
+			stkPnl.select(pnlAccountRoot);
+
+		} else if (idxClicked == 1) {
+
+			poCrmMenu.dismiss();
+			stkPnl.select(pnlActivityRoot);
+
+		} else if (idxClicked == 2) {
+
+			poCrmMenu.dismiss();
+			stkPnl.select(pnlContactRoot);
+
+		} else if (idxClicked == 3) {
+
+			poCrmMenu.dismiss();
+			stkPnl.select(pnlOrderRoot);
+
+		} else if (idxClicked == 4) {
+
+			poCrmMenu.dismiss();
+			//stkPnl.select(pnlOrderRoot);
+
+		} else if (idxClicked == 5) {
+
+			poCrmMenu.dismiss();
+			//stkPnl.select(pnlOrderRoot);				
+
+		} else if (idxClicked == 6) {
+		//priceList
+			poCrmMenu.dismiss();
+			stkPnl.select(pnlPriceListRoot);
+
+		}						
+		
 	}
 
 }

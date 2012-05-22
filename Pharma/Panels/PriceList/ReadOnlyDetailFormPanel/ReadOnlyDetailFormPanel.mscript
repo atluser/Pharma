@@ -1,2 +1,44 @@
 ScrollableTablePanel {
+	DataRow currentRow;
+	
+	Label lblCode=new Label();
+	//TextModel txtMdlCode=new TextModel();
+	Label txtCode=new Label();
+	
+	Label lblName=new Label();
+	//TextModel txtMdlName=new TextModel();
+	Label txtName=new Label();
+	
+	Label lblDescription=new Label();
+	Label txtDescription=new Label();
+	//TextModel txtMdlDescription=new TextModel();
+	String labelAlign="halign=left";
+	String controlAlign="halign=left,hfill=fill";
+	
+	callback onCreate(Container c){
+		FormPanel fp1=new FormPanel();
+		fp1.add(lblCode,labelAlign,txtCode,controlAlign);
+		fp1.add(lblName,labelAlign,txtName,controlAlign);
+		fp1.add(lblDescription,labelAlign,txtDescription,controlAlign);
+		
+		add(fp1,"");
+	}
+	
+	void setLabel(){
+		lblCode.setText("Codice");
+		lblName.setText("Nome");
+		lblDescription.setText("Descrizione");
+	
+	}
+	
+	void setRow(DataRow dtRw) {
+			
+		currentRow = dtRw;	
+	/*		
+		txtMdlCode.setRow(dtRw);
+		txtMdlCode.setText(vObjAccount.AccountCode.getStringValue(dtRw));
+		txtFldCode.setDataModel(txtMdlCode);
+	*/
+	}
+
 }

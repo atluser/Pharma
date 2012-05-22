@@ -1,5 +1,13 @@
 VirtualObject {
 	StringField PriceListCode{return null;}
 	StringField PriceListDescription{return null;}
+	StringField PriceListName{return null;}
+	StringField PriceListType{return null;}
+	StringField PriceListDivision{return null;}
+	CurrencyField PriceListCurrencyCode{return null;}
+	StringField PriceListStatus{return null;}
+	DateField PriceListStartDate{return null;}
+	DateField PriceListEndDate{return null;}
+	IntegerField PriceListMinOrder {return Platform.createInteger(0);}
 
 }

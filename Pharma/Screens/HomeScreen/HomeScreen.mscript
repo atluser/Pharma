@@ -33,6 +33,7 @@ Screen {
 		Panels.Order.RootPanel pnlOrderRoot = new Panels.Order.RootPanel();
 		Panels.ServiceRequest.RootPanel pnlServiceRequestRoot = new Panels.ServiceRequest.RootPanel();
 		Panels.Catalog.RootPanel pnlCatalogRoot = new Panels.Catalog.RootPanel();
+		Panels.PriceList.RootPanel pnlPriceListRoot = new Panels.PriceList.RootPanel();
 		
 		StackPanel stkPnlRoot = new StackPanel();
 		stkPnlRoot.add(pnlAccountRoot);
@@ -41,6 +42,7 @@ Screen {
 		stkPnlRoot.add(pnlOrderRoot);
 		stkPnlRoot.add(pnlServiceRequestRoot);
 		stkPnlRoot.add(pnlCatalogRoot);
+		stkPnlRoot.add(pnlPriceListRoot);
 		
 		// Header Panel
 		Panels.HeaderPanel pnlHeader = new Panels.HeaderPanel();	
@@ -51,6 +53,7 @@ Screen {
 		pnlHeader.setOrderRootPanel(pnlOrderRoot);
 		pnlHeader.setServiceRequestRootPanel(pnlServiceRequestRoot);
 		pnlHeader.setCatalogRootPanel(pnlCatalogRoot);
+		pnlHeader.pnlPriceListRoot=pnlPriceListRoot;
 		pnlHeader.setHomeScreen((Screens.HomeScreen) container);				
 		
 		// Root Panel
