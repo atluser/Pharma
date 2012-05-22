@@ -3156,6 +3156,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="EditFormDetailCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditFormDetailCell.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ItemTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ItemTableViewCell.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SectionHeaderCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewPanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SectionHeaderCell.mscript"/>
     </children>
@@ -3305,6 +3308,9 @@
       </children>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="PriceList">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="PriceListItemStickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceListItemStickyTablePanel.mscript"/>
+      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ReadOnlyDetailFormPanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ReadOnlyDetailFormPanel.mscript"/>
       </children>
@@ -3367,6 +3373,11 @@
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderHeaderScreen.mscript"/>
       </children>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="PriceList">
+      <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="PriceListItemScreen">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceListItemScreen.mscript"/>
+      </children>
+    </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Account">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Account.mscript"/>
@@ -3394,6 +3405,9 @@
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="PriceList">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceList.mscript"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="PriceListItem">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceListItem.mscript"/>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ProductList">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ProductList.mscript"/>
