@@ -42,11 +42,11 @@ TablePanel {
 		txtFldName.setForeColor(Color.create(189,0,0));
 		
 		//add(picBox,"hfill=fill,vfill=fill");
-		add(txtFldName, "hfill=fill,vfill=fill");
+		add(txtFldName, "hfill=fill");
 		startNewRow();
 		add(new Separator(), "");
 		startNewRow();
-		add(pnl, "hfill=fill,vfill=fill");
+		add(pnl, "hfill=fill");
 
 	}
 	/*

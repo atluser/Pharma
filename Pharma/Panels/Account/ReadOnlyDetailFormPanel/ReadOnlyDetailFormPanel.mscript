@@ -467,9 +467,11 @@ ScrollableTablePanel {
 		txtMdlCode.setRow(dtRw);
 		txtMdlCode.setText(vObjAccount.AccountCode.getStringValue(dtRw));
 		txtFldCode.setDataModel(txtMdlCode);
+				
 		
-		iNumberOfOrders = vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet().getSize();
-		
+		/*if(vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet()!=null)
+			iNumberOfOrders=vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet().getSize();
+		*/
 		txtMdlName.setRow(dtRw);
 		txtMdlName.setText(vObjAccount.AccountName.getStringValue(dtRw));
 		txtFldName.setDataModel(txtMdlName);
