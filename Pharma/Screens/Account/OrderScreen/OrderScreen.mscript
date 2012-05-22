@@ -60,10 +60,22 @@ Screen {
 		pnlHeader.setColumnWidth(6, Sizing.PREFERRED,0);
 		pnlHeader.setColumnWidth(7, Sizing.PREFERRED,0);			
 		
-		add(pnlHeader,"hfill=fill");
-
-		setRowHeight(0, Sizing.PREFERRED, 0);	
-		//setRowHeight(1, Sizing.PREFERRED, 1);
+		// Master Panel
+		Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
+		
+		// Root Panel
+		TablePanel pnlRoot = new TablePanel();
+		pnlRoot.add(pnlHeader,"colspan=2,hfill=fill");
+		pnlRoot.startNewRow();
+		pnlRoot.add(pnlMaster,"hfill=fill,vfill=fill");
+		pnlRoot.setColumnWidth(0, Sizing.PIXELS, 300);
+		pnlRoot.setColumnWidth(1, Sizing.PREFERRED, 1);
+		pnlRoot.setRowHeight(0, Sizing.PREFERRED, 0);	
+		pnlRoot.setRowHeight(1, Sizing.PREFERRED, 1);
+		
+		add(pnlRoot,"hfill=fill,vfill=fill");
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		
 	}
 
 	callback onDeactivate(Container container){
