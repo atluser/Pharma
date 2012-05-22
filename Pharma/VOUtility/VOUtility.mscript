@@ -373,7 +373,35 @@ UIObject {
         vObjLOV.Name.setStringValue("500 - 1000 K", row);
         vObjLOV.Value.setStringValue("500 - 1000 K", row);
         vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();        
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
+        vObjLOV.Name.setStringValue("COLD & PAIN", row);
+        vObjLOV.Value.setStringValue("COLD & PAIN", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
+        vObjLOV.Name.setStringValue("PROPOLI/LENITOS", row);
+        vObjLOV.Value.setStringValue("PROPOLI/LENITOS", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
+        vObjLOV.Name.setStringValue("VITAMINE", row);
+        vObjLOV.Value.setStringValue("VITAMINE", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
+        vObjLOV.Name.setStringValue("NUTRITIONAL", row);
+        vObjLOV.Value.setStringValue("NUTRITIONAL", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();                                                   
 	}
 	
 	void loadAccount(){

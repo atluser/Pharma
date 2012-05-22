@@ -72,11 +72,18 @@ TablePanel {
 			String strName = vObjPriceListItem.ProductName.getStringValue(dtRw);					
 			String strUOM = vObjPriceListItem.UOM.getStringValue(dtRw);
 			String strPrice = vObjPriceListItem.UnitPrice.getCurrencyValue(dtRw).toString();
+			Boolean bScount1=vObjPriceListItem.DiscountProduct.getBooleanValue(dtRw);
+			Boolean bScount2=vObjPriceListItem.DiscountNumber.getBooleanValue(dtRw);
 	
 			tblVwCell.lblCode.setText(strCode);
 			tblVwCell.lblName.setText(strName);
 			tblVwCell.lblUOM.setText(strUOM);
 			tblVwCell.lblPrice.setText(strPrice);
+			
+			tblVwCell.picMdlDiscount1.setChecked(bScount1);
+			tblVwCell.picMdlDiscount1.setBoolean(bScount1);
+			tblVwCell.picMdlDiscount1.setChecked(bScount2);
+			tblVwCell.picMdlDiscount1.setBoolean(bScount2);
 		}
 	}
 	
@@ -187,7 +194,7 @@ TablePanel {
 		//clean before start
 		rsm.clear();
 		arr.removeAllItems();
-		Query q=vObjPriceListItem.getCategory(listCode);
+		Query q=vObjLOV.getLOV("PRODUCT_CATEGORY");
 		DataRowSet set=q.getRowSet();
 		DataRow dtRow=set.first();		
 		while(dtRow!=null){

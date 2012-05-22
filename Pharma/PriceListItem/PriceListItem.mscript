@@ -16,8 +16,10 @@ VirtualObject {
 		where PriceListCode==listCode;
 		where ProductCategory==category;
 	}
-	
-	query getCategory<String listCode>{
+	Query getCategory(String listCode){
+		return category(listCode);
+	}
+	query category<String listCode>{
 		where PriceListCode==listCode;
 		ascendingBy ProductCategory;
 		unique;
