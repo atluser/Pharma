@@ -1,0 +1,21 @@
+VirtualObject {
+	StringField ProductCode{return null;}
+	StringField ProductName{return null;}
+	
+		
+	
+	mapping productList<Products products,ListItem listItem >{
+		join products.ProductCode==listItem.ProductCode;
+		map products.ProductName as ProductName;
+		map products.ProductCode as ProductCode;
+	}
+	
+	query getProductList<Products products,ListItem listItem, String listCode >{
+		from productList<products,listItem>;
+		//where ListCode==
+		ascendingBy ProductCode;
+	
+	}
+
+}
+

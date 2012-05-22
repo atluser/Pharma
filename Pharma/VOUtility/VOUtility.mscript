@@ -1,5 +1,26 @@
 UIObject {
 	
+	void loadProducts(){
+		DataRow row=null;
+		row=vObjProducts.getNewRow();		
+		vObjProducts.ProductCode.setStringValue("018622175",row);
+		vObjProducts.ProductName.setStringValue("SUPRADYN",row);
+		vObjProducts.ProductCategory.setStringValue("COLD & PAIN",row);
+		row.applyUpdates();
+	}
+	
+	void loadListItem(){
+		DataRow row=null;
+		row=vObjListItem.getNewRow();		
+		vObjListItem.ProductCode.setStringValue("018622175",row);
+		vObjListItem.ListCode.setStringValue("001",row);
+		//vObjProducts.ProductName.setStringValue("SUPRADYN",row);
+		//vObjProducts.ProductCategory.setStringValue("COLD & PAIN",row);
+		
+		row.applyUpdates();
+	}
+	
+	
 	void loadPriceList(){
 		DataRow row=null;
 		row=vObjPriceList.getNewRow();
@@ -696,7 +717,7 @@ UIObject {
 		dt.applyUpdates();	
 			
 	}
-	*/
+	
 	void insertList(String code,String description,int minQty){
 		
 		DataRow dt = vObjList.getNewRow();		
@@ -740,7 +761,7 @@ UIObject {
 		
 		//insertCanvass("C","TEST",0);
 	}
-	
+	*/
 }
 
 

@@ -349,6 +349,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_back_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
         <properties/>
@@ -695,6 +701,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_back_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
         <properties/>
@@ -1030,6 +1042,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
         <properties/>
         <properties/>
@@ -1787,6 +1805,9 @@
       <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_back_normal">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
       </imagePaths>
@@ -1957,6 +1978,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -2501,6 +2525,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_back_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
         <properties/>
@@ -2685,6 +2713,9 @@
       <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_back_normal">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
       </imagePaths>
@@ -2855,6 +2886,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -3029,6 +3063,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
@@ -3357,5 +3394,11 @@
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="PriceList">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceList.mscript"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ProductList">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ProductList.mscript"/>
+  </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Products">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Products.mscript"/>
   </children>
 </com.vaultus.studio.ecore.studio:UIProject>

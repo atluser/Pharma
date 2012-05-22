@@ -17,9 +17,9 @@ VirtualObject {
 	
 	
 	Query getList(String listCode){
-		return getList2(listCode);
+		return getList2(listCode);	
 	}
-	query getList2<String listCode>{
+	query getList2<String listCode>{		
 		where ListCode==listCode;
 	}
 

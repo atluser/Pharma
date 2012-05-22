@@ -19,7 +19,9 @@ UIProject {
 	Order vObjOrder=new Order();
 	ListItem vObjListItem=new ListItem();
 	PriceList vObjList=new PriceList();
+	ProductList vObjProductList=new ProductList();
 	PriceList vObjPriceList=new PriceList();
+	Products vObjProducts=new Products();
 		
 	/*
 	 * VOUtility
@@ -96,8 +98,29 @@ UIProject {
 		vObjUtil.loadCrmEntities();
 		vObjUtil.loadLOV();
 		vObjUtil.loadAccount();
-		//vObjUtil.loadList();
+		vObjUtil.loadProducts();
+		vObjUtil.loadListItem();
 		vObjUtil.loadPriceList();
+		
+		//test join
+		appLog.log(Log.INFO,"LANCIO QUERY ");
+		Query q=vObjProductList.getProductList(vObjProducts,vObjListItem,"");
+		if(q!=null){
+			appLog.log(Log.INFO,"query OK");
+			if(q.getRowSet()!=null){
+				appLog.log(Log.INFO,"ROWSET not null");
+				appLog.log(Log.INFO,"SIZE "+""+q.getRowSet().getSize());
+				//DataRow row=q.getRowSet().first();
+				//String productName=vObjListItem.ProductName.getStringValue(row);
+				//appLog.log(Log.INFO,"PRODUCTNAME "+productName);
+			}
+			else appLog.log(Log.INFO,"rowset null ");
+		
+		}else 
+			appLog.log(Log.INFO,"query is null");
+		
+		
+		
 		//configura account
 		accountConfig.fillAccountConfig();
 		//configura contact
