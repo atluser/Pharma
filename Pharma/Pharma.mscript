@@ -101,6 +101,7 @@ UIProject {
 		vObjUtil.loadProducts();
 		vObjUtil.loadListItem();
 		vObjUtil.loadPriceList();
+		vObjUtil.loadOrder();
 		
 		//test join
 		appLog.log(Log.INFO,"LANCIO QUERY ");

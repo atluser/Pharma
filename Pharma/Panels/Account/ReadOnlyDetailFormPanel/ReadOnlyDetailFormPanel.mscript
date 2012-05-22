@@ -395,7 +395,7 @@ ScrollableTablePanel {
 		//btn02.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		
 		btn03.setFont(fnt);
-		btn03.setText(StringConstants.TBB_ORDERS_STR.getString() + "(" + iNumberOfOrders + ")");
+		btn03.setText(StringConstants.TBB_ORDERS_STR.getString() + " (" + iNumberOfOrders + ")");
 		//btn03.setText("ORDINI");
 		btn03.setLeftSpacing(48);
 		btn03.setForeColor(Colors.Black);
@@ -467,11 +467,14 @@ ScrollableTablePanel {
 		txtMdlCode.setRow(dtRw);
 		txtMdlCode.setText(vObjAccount.AccountCode.getStringValue(dtRw));
 		txtFldCode.setDataModel(txtMdlCode);
-				
+						
+		//logApp.log(Log.INFO, "ReadOnlyDetailFormPanel - setRow() - txtFldCode.getText: " + txtFldCode.getText());
+		//logApp.log(Log.INFO, "ReadOnlyDetailFormPanel - setRow() - getSize: " + vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet().getSize());
 		
-		/*if(vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet()!=null)
-			iNumberOfOrders=vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet().getSize();
-		*/
+		if(vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet() != null)
+			iNumberOfOrders = vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet().getSize();
+			btn03.setText(StringConstants.TBB_ORDERS_STR.getString() + " (" + iNumberOfOrders + ")");
+		
 		txtMdlName.setRow(dtRw);
 		txtMdlName.setText(vObjAccount.AccountName.getStringValue(dtRw));
 		txtFldName.setDataModel(txtMdlName);

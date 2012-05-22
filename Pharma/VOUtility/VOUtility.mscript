@@ -717,7 +717,7 @@ UIObject {
 		dt.applyUpdates();	
 			
 	}
-	
+	*/
 	void insertList(String code,String description,int minQty){
 		
 		DataRow dt = vObjList.getNewRow();		
@@ -761,7 +761,45 @@ UIObject {
 		
 		//insertCanvass("C","TEST",0);
 	}
-	*/
+
+	void loadOrder() {
+		
+		DataRow row = vObjOrder.getNewRow();
+
+        vObjOrder.OrderCode.setStringValue("00000001", row);
+        vObjOrder.OrderDate.setDateValue(Platform.createDate(), row);
+        vObjOrder.OrderType.setStringValue("Ordine di Vendita", row);
+        vObjOrder.AccountCode.setStringValue("00100052", row);
+        vObjOrder.OrderPriceList.setStringValue("Listino Base", row);
+        vObjOrder.OrderStatus.setStringValue("Confermato", row);
+        vObjOrder.Order1stDeliveryDate.setDateValue(Platform.createDate(), row);
+        vObjOrder.Order2ndDeliveryDate.setDateValue(Platform.createDate(), row);
+        vObjOrder.Order3rdDeliveryDate.setDateValue(Platform.createDate(), row);
+	    vObjOrder.OrderPaymentMode.setStringValue("Ri.Ba.", row);
+        vObjOrder.OrderTotalGross.setCurrencyValue(Platform.createDouble(100.00) , row);
+        vObjOrder.OrderTotalNet.setCurrencyValue(Platform.createDouble(85.00), row);
+        vObjOrder.OrderTotalDiscount.setFloatValue(Platform.createFloat(10), row); 
+        row.applyUpdates();
+
+        row = vObjOrder.getNewRow();
+        vObjOrder.OrderCode.setStringValue("00000002", row);
+        vObjOrder.OrderDate.setDateValue(Platform.createDate(), row);
+        vObjOrder.OrderType.setStringValue("Ordine di Vendita", row);
+        vObjOrder.AccountCode.setStringValue("00100052", row);
+        vObjOrder.OrderPriceList.setStringValue("Listino Base", row);
+        vObjOrder.OrderStatus.setStringValue("Confermato", row);
+        vObjOrder.Order1stDeliveryDate.setDateValue(Platform.createDate(), row);
+        vObjOrder.Order2ndDeliveryDate.setDateValue(Platform.createDate(), row);
+        vObjOrder.Order3rdDeliveryDate.setDateValue(Platform.createDate(), row);
+	    vObjOrder.OrderPaymentMode.setStringValue("Ri.Ba.", row);
+        vObjOrder.OrderTotalGross.setCurrencyValue(Platform.createDouble(150.00) , row);
+        vObjOrder.OrderTotalNet.setCurrencyValue(Platform.createDouble(125.00), row);
+        vObjOrder.OrderTotalDiscount.setFloatValue(Platform.createFloat(15), row); 
+        row.applyUpdates();
+		
+	}
+
+	
 }
 
 
