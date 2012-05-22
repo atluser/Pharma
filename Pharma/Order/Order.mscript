@@ -73,6 +73,13 @@ VirtualObject {
 	}
 	//
 	
+	Query getOrders() {
+		return orderRows();
+	}
+	query orderRows<> {
+		ascendingBy OrderCode;
+	}
+	
 	Query getOrderRow(String orderCode){
 		return orderRow(orderCode);
 	}

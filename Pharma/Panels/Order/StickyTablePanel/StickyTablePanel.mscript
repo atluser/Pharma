@@ -1,2 +1,132 @@
 TablePanel {
+	
+	//Panels.AccountDetailPanel pnlAccountDetailPanel;
+	
+	//Panels.DetailFormPanel pnlDetailForm;
+	
+	SearchField src = new SearchField();
+	StickyTable stk = new StickyTable();
+	RowSetModel rsm = new RowSetModel();
+
+	callback onCreate(Container c) {
+		
+		rsm.setRows(vObjOrder.getOrders());
+		
+		stk.setDataModel(rsm);
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);
+		
+		src.setTextHint("Search...");
+		//src.setBackColor(Colors.Gray);
+		
+		add(src, "hfill=fill");
+		startNewRow();
+		add(stk, "hfill=fill,vfill=fill");
+		
+		setInsets(8,8,8,8);
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
+		
+		//set size (note: this is required)
+		setColumnWidth(0, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);		
+		
+	}
+	
+	///////////////////////////////
+	// Callback to configure cells
+	///////////////////////////////
+	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
+		info.setPanel(new Cells.TwoRowsTableViewCell());
+	}
+	
+	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
+		//Panels.AccountTableViewCell tblVwCell = (Panels.AccountTableViewCell) cell;
+		//tblVwCell.populateData(info.getDataRow());
+		
+		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
+		
+		DataRow dtRw = info.getDataRow();
+		if(!dtRw.isDeleted()){		
+			String str01 = vObjOrder.OrderCode.getStringValue(dtRw);
+			String str02 = vObjOrder.OrderStatus.getStringValue(dtRw);					
+	
+			tblVwCell.lbl01.setText(str01);
+			tblVwCell.lbl02.setText(str02);
+		}
+		
+	}
+	
+	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
+		cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PREFERRED, 0);
+		cell.setCouldBeSelected(true);
+	}
+	
+	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
+		sizeInfo.setHeight(60);
+	}		
+	
+	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
+		logApp.log(Log.INFO, "AccountStickyTablePanel::onSelectionChanged - Row: "+ row);
+		//pnlAccountDetailPanel.populateData(rsm.getRow());
+		//pnlAccountInfoPanel.setData(rsm.getRow());
+		
+		//pnlDetailForm.getSelectedRow(rsm.getRow());
+		//pnlDetailForm.setRow(rsm.getRow());
+		
+	}
+		
+	////////////////////////////
+	// Sticky Header (Optional)
+	////////////////////////////
+	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		//info.setPanel(new Panels.AccountHeaderTableViewPanel());
+	}
+	
+	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
+		//cell.setCouldBeSelected(false);
+		//cell.setHeight(Sizing.PIXELS, 60);
+		//cell.setWidth(Sizing.PERCENTS, 100);
+	}
+	
+	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
+		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+	}		
+		
+	////////////////////////////
+	// Footer (Optional)
+	////////////////////////////
+	callback stk onFooterCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		//info.setPanel(new Panels.AccountFooterTableViewPanel());
+	}
+	
+	callback stk onFooterConfigure(TableView c, CellConfig cell, int group){
+		//cell.setCouldBeSelected(false);
+		//cell.setHeight(Sizing.PIXELS, 60);
+		//cell.setWidth(Sizing.PERCENTS, 100);
+	}
+	
+	callback stk onFooterInfo(TableView c, TableViewPanel cell, Footer info, int grp) {
+		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+	}
+	
+	/*
+	 * Custom methods
+	 */
+	/*  
+	void setAccountDetailPanel(Panels.AccountDetailPanel accountDetailPanel) {
+		pnlAccountDetailPanel = accountDetailPanel;
+	}	
+	
+	//void setAccountInfoPanel(Panels.AccountInfoPanel accountInfoPanel) {
+	//	pnlAccountInfoPanel = accountInfoPanel;
+	//}
+	
+	void setDetailFormPanel(Panels.DetailFormPanel pnl) {
+		pnlDetailForm = pnl;
+	}
+	*/		
 }
+
