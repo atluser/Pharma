@@ -22,7 +22,7 @@ TablePanel {
 	
 	void setContentPanel(TablePanel pnl){
 		
-		add(pnl, "hfill=fill,vfill=fill");
+		add(pnl, "hfill=fill,valign=top");
 		
 	}
 	

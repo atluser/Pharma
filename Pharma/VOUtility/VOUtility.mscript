@@ -1,5 +1,23 @@
 UIObject {
 	
+	void loadPriceList(){
+		DataRow row=null;
+		row=vObjPriceList.getNewRow();
+		int id=vObjPriceList.createQuery().getRowSet().getSize()+1;
+		vObjPriceList.PriceListCode.setStringValue("0001",row);
+		vObjPriceList.PriceListName.setStringValue("AHLB0001",row);
+		vObjPriceList.PriceListType.setStringValue("Listino Base Divisionale",row);
+		vObjPriceList.PriceListDescription.setStringValue("Listino Base Divisionale HealtCare",row);
+		vObjPriceList.PriceListDivision.setStringValue("AH",row);
+		//vObjPriceList.PriceListCurrencyCode.setCurrencyStringValue(0.0,row);
+		vObjPriceList.PriceListStatus.setStringValue("Attivo",row);
+		vObjPriceList.PriceListStartDate.setDateValue(Platform.createDate(),row);
+		//vObjPriceList.PriceListEndDate.setDateValue(Platform.createDate(),row);
+		vObjPriceList.PriceListMinOrder.setIntegerValue(Platform.createInteger(100),row);
+		row.applyUpdates();
+	}
+	
+	
 	void loadCrmEntities() {
 		
 		insertCrmEntity(6, StringConstants.TBB_SERVICE_REQUESTS_STR.getString());

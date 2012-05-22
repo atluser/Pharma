@@ -484,7 +484,8 @@ HorizontalPanel {
 		} else if (idxClicked == 5) {
 
 			poCrmMenu.dismiss();
-			stkPnl.select(pnlPriceListRoot);				
+			stkPnl.select(pnlPriceListRoot);
+			appLog.log(Log.INFO,"PriceList");				
 
 		} else if (idxClicked == 6) {
 		//priceList

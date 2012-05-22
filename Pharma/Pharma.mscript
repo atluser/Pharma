@@ -96,7 +96,8 @@ UIProject {
 		vObjUtil.loadCrmEntities();
 		vObjUtil.loadLOV();
 		vObjUtil.loadAccount();
-		vObjUtil.loadList();
+		//vObjUtil.loadList();
+		vObjUtil.loadPriceList();
 		//configura account
 		accountConfig.fillAccountConfig();
 		//configura contact

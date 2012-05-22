@@ -5,7 +5,7 @@ TablePanel {
 	 */
 	StickyTable stk = new StickyTable();
 	//RowSetModel rsm = new RowSetModel();
-	MultiRowSetModel rsm=new MultiRowSetModel();
+	RowSetModel rsm=new RowSetModel();
 
 	//Panels.DetailStickyTablePanel pnlDetailForm;
 	Panels.DetailPanel pnlDetail;
@@ -15,7 +15,7 @@ TablePanel {
 	
 
 	callback onCreate(Container c){
-		//setInitQuery();
+		rsm.setRows(vObjPriceList.createQuery());
 		
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
@@ -73,9 +73,8 @@ TablePanel {
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		
+		pnlDetail.txtFldName.setText(vObjPriceList.PriceListName.getStringValue(rsm.getRow()));
 		pnlDetailForm.setRow(rsm.getRow());
-		//pnlDetail.setRow(rsm.getRow());
-		//pnlDetail.setRow(rsm.getRow());
 		
 	}
 		
@@ -112,6 +111,19 @@ TablePanel {
 		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
 	}
 	*/
+	
+		//search callback
+	callback tblSearch onValueChange ( Control c ) {
+		//appLog.log(Log.INFO,"change");
+		tblSearch.setOnValueChangingPausedDelay(500);
+	}
+	
+	callback tblSearch onValueChangingPaused(Control c){
+		//appLog.log(Log.INFO,"paused");		
+		rsm.setRows(vObjPriceList.getPriceList(tblSearch.getText()));
+		stk.reload();
+	}
+	
 			
 	void setDetailPanel(Panels.DetailPanel pnl) {
 		pnlDetail = pnl;
