@@ -73,6 +73,8 @@ ScrollableTablePanel {
 
 	TextModel txtMdlNumberOfEmployee = new TextModel();
 	Label txtFldNumberOfEmployee = new Label();
+	
+	int iNumberOfOrders = 0;
 		
 	/*
 	 * Callback methods
@@ -149,7 +151,11 @@ ScrollableTablePanel {
 	}
 	
 	callback btn03 onClick(Control c) {
-			
+		
+		Screens.Account.OrderScreen scrOrder = new Screens.Account.OrderScreen();
+		scrOrder.lbl02.setText(txtFldName.getText());
+		scrOrder.push(Animation.NONE, false);	
+	
 	}
 	
 	callback rchBtnAddress onClick(Control c) {
@@ -389,7 +395,7 @@ ScrollableTablePanel {
 		//btn02.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		
 		btn03.setFont(fnt);
-		btn03.setText(StringConstants.TBB_ORDERS_STR.getString());
+		btn03.setText(StringConstants.TBB_ORDERS_STR.getString() + "(" + iNumberOfOrders + ")");
 		//btn03.setText("ORDINI");
 		btn03.setLeftSpacing(48);
 		btn03.setForeColor(Colors.Black);
@@ -457,10 +463,12 @@ ScrollableTablePanel {
 	void setRow(DataRow dtRw) {
 			
 		currentRow = dtRw;	
-			
+				
 		txtMdlCode.setRow(dtRw);
 		txtMdlCode.setText(vObjAccount.AccountCode.getStringValue(dtRw));
 		txtFldCode.setDataModel(txtMdlCode);
+		
+		iNumberOfOrders = vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet().getSize();
 		
 		txtMdlName.setRow(dtRw);
 		txtMdlName.setText(vObjAccount.AccountName.getStringValue(dtRw));
