@@ -112,6 +112,22 @@ TablePanel {
 		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
 	}
 	
+	callback src onValueChange ( Control c ) {
+		//appLog.log(Log.INFO,"change");
+		src.setOnValueChangingPausedDelay(500);
+	}
+	
+	callback src onValueChangingPaused(Control c){
+		//appLog.log(Log.INFO,"paused");
+		//Query q=vObjAccount.getAccountContains(tblSearch.getText());
+		
+		//executeQuery(tblSearch.getText());
+		stk.reload();
+	}	
+	
+	
+	
+	
 	/*
 	 * Custom methods
 	 */
