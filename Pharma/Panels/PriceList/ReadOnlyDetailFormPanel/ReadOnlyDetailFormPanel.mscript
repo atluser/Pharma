@@ -1,5 +1,6 @@
 ScrollableTablePanel {
 	DataRow currentRow;
+	Button btnItem=new Button();
 	
 	FormPanel pnlForm01 = new FormPanel();
 	
@@ -52,7 +53,8 @@ ScrollableTablePanel {
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 0);
 		setRowHeight(2, Sizing.PIXELS, 48);
-		
+		btnItem.setText("Prodotti");
+		add(btnItem,"");
 		
 		
 		/*DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
@@ -67,6 +69,11 @@ ScrollableTablePanel {
 	
 	}*/
 	
+	callback btnItem onClick(Control c){
+		Screens.PriceList.PriceListItemScreen scr=new Screens.PriceList.PriceListItemScreen();
+		scr.push();
+	
+	}
 	void setRow(DataRow dtRw) {
 			
 		currentRow = dtRw;

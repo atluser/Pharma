@@ -1,0 +1,48 @@
+TableViewCell {
+	
+	Font fnt = new Font();
+	Label lblCode = new Label();
+	Label lblName=new Label();
+	Label lblUOM=new Label();
+	Label lblPrice=new Label();
+	CheckBox picDiscount1=new CheckBox();
+	CheckBox picDiscount2=new CheckBox();
+	
+	//TextModel txtMdl = new TextModel();
+	Styles.FormStyle style = new Styles.FormStyle();
+	callback onCreate(Container container){
+
+		fnt.setFamily("Arial");
+		fnt.setSize(18);
+		//fnt.setBold();
+	//	lbl.setFont(fnt);
+//		lbl.setForeColor(Colors.Black);
+		//lbl.setFocusedForeColor(Colors.White);
+		
+		//txtMdl.setForeColor(Colors.Black);
+		//txtMdl.setFocusedForeColor(Colors.White);
+		//lbl.setDataModel(txtMdl);
+			
+		add(lblCode, "hfill=fill");
+		add(lblName, "hfill=fill");
+		add(lblUOM, "hfill=fill");
+		add(lblPrice, "hfill=fill");
+		add(picDiscount1, "hfill=fill");
+		add(picDiscount2, "hfill=fill");
+		
+		setInsets (0, 8, 0, 8);
+		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));
+		setFocusedBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgRedBackground, 0, 0, 0, 0));
+		setColumnWidth(0, Sizing.PREFERRED, 0);	
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		
+	}
+	
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){		
+		styleReceptor.applyVisualStyle(style);
+	}
+	
+	
+	
+
+}

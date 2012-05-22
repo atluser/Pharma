@@ -1,0 +1,26 @@
+VirtualObject {
+	StringField PriceListCode{return null;}
+	StringField ProductCode{return null;}
+	StringField ProductName{return null;}
+	StringField ProductCategory{return null;}
+	StringField UOM{return null;}
+	CurrencyField UnitPrice{return Platform.createDouble(0.0);}
+	BooleanField DiscountProduct{return Platform.createBoolean(false);}
+	BooleanField DiscountNumber{return Platform.createBoolean(false);}
+	
+	query getListItem<String listCode>{
+		where PriceListCode==listCode;
+	}
+	
+	query getListItemByCategory<String listCode,String category>{
+		where PriceListCode==listCode;
+		where ProductCategory==category;
+	}
+	
+	query getCategory<String listCode>{
+		where PriceListCode==listCode;
+		ascendingBy ProductCategory;
+		unique;
+	}
+
+}

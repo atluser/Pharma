@@ -18,6 +18,7 @@ UIProject {
 	ListOfValues vObjLOV = new ListOfValues();
 	Order vObjOrder=new Order();
 	ListItem vObjListItem=new ListItem();
+	PriceListItem vObjPriceListItem=new PriceListItem();
 	PriceList vObjList=new PriceList();
 	ProductList vObjProductList=new ProductList();
 	PriceList vObjPriceList=new PriceList();
@@ -101,6 +102,7 @@ UIProject {
 		vObjUtil.loadProducts();
 		vObjUtil.loadListItem();
 		vObjUtil.loadPriceList();
+		vObjUtil.loadPriceListItem();
 		vObjUtil.loadOrder();
 		
 		//test join

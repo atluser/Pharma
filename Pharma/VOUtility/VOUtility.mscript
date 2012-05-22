@@ -20,6 +20,86 @@ UIObject {
 		row.applyUpdates();
 	}
 	
+	void loadPriceListItem(){
+		DataRow row=null;
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.ProductCode.setStringValue("018622175",row);
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductName.setStringValue("SUPRADYN",row);
+		vObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622171",row);		
+		vObjPriceListItem.ProductName.setStringValue("LASONIL GEL RX",row);
+		vObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(15.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622172",row);		
+		vObjPriceListItem.ProductName.setStringValue("SANIPIRINA",row);
+		vObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(false),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622170",row);		
+		vObjPriceListItem.ProductName.setStringValue("ASPIRINA C",row);
+		vObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(15.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(false),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622176",row);		
+		vObjPriceListItem.ProductName.setStringValue("LENITOS PASTIGLIE",row);
+		vObjPriceListItem.ProductCategory.setStringValue("PROPOLI/LENITOS",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(20.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622177",row);		
+		vObjPriceListItem.ProductName.setStringValue("LENIGOLA",row);
+		vObjPriceListItem.ProductCategory.setStringValue("PROPOLI/LENITOS",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(20.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622178",row);		
+		vObjPriceListItem.ProductName.setStringValue("DEFENFLU C",row);
+		vObjPriceListItem.ProductCategory.setStringValue("PROPOLI/LENITOS",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		row.applyUpdates();
+	}
+	
 	
 	void loadPriceList(){
 		DataRow row=null;
