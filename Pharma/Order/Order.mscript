@@ -71,7 +71,7 @@ VirtualObject {
 	IntegerField PromotionMinQty{
 		return Platform.createInteger(0);
 	}
-
+	//
 	
 	Query getOrderRow(String orderCode){
 		return orderRow(orderCode);

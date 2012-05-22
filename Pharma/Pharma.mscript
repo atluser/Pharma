@@ -98,6 +98,8 @@ UIProject {
 		vObjUtil.loadAccount();
 		//vObjUtil.loadList();
 		vObjUtil.loadPriceList();
+		vObjUtil.loadOrder();
+		
 		//configura account
 		accountConfig.fillAccountConfig();
 		//configura contact
