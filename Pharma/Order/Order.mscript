@@ -94,4 +94,21 @@ VirtualObject {
 		where AccountCode==accountCode;
 	}	
 
+	Query getOrderContains(String str1){
+		return orderContains1(str1);
+	}
+	query orderContains1<String str2> {
+		where OrderCode contains str2;
+		ascendingBy OrderCode;
+	}
+	
+	Query getOrderContains(String str01, String str02){
+		return orderContains(str01, str02);
+	}
+	query orderContains<String str01, String str02>{
+		where AccountCode == str01;
+		where OrderCode contains str02;
+		ascendingBy OrderCode;
+	}	
+	
 }

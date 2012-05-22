@@ -4,13 +4,15 @@ TablePanel {
 	
 	//Panels.DetailFormPanel pnlDetailForm;
 	
+	Label lbl = new Label();
+	
 	SearchField src = new SearchField();
 	StickyTable stk = new StickyTable();
 	RowSetModel rsm = new RowSetModel();
 
 	callback onCreate(Container c) {
 		
-		rsm.setRows(vObjOrder.getOrders());
+		setQuery();
 		
 		stk.setDataModel(rsm);
 		stk.setGridLineThickness(1);
@@ -99,38 +101,53 @@ TablePanel {
 	// Footer (Optional)
 	////////////////////////////
 	callback stk onFooterCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
-		//info.setPanel(new Panels.AccountFooterTableViewPanel());
+		/*
+		TableViewPanel pnlFooter = new TableViewPanel();
+		pnlFooter.add(lbl,"halign=center,valign=center");
+		
+		info.setPanel(pnlFooter);
+		*/
 	}
 	
 	callback stk onFooterConfigure(TableView c, CellConfig cell, int group){
-		//cell.setCouldBeSelected(false);
-		//cell.setHeight(Sizing.PIXELS, 60);
-		//cell.setWidth(Sizing.PERCENTS, 100);
+		/*
+		cell.setCouldBeSelected(false);
+		cell.setHeight(Sizing.PIXELS, 60);
+		cell.setWidth(Sizing.PERCENTS, 100);
+		*/
 	}
 	
 	callback stk onFooterInfo(TableView c, TableViewPanel cell, Footer info, int grp) {
-		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.DarkGray, Colors.DarkGray));
 	}
 	
-	callback src onValueChange ( Control c ) {
-		//appLog.log(Log.INFO,"change");
+	callback src onValueChange (Control c) {
 		src.setOnValueChangingPausedDelay(500);
 	}
 	
 	callback src onValueChangingPaused(Control c){
-		//appLog.log(Log.INFO,"paused");
-		//Query q=vObjAccount.getAccountContains(tblSearch.getText());
-		
-		//executeQuery(tblSearch.getText());
+		setQuery(src.getText());
 		stk.reload();
 	}	
-	
-	
-	
 	
 	/*
 	 * Custom methods
 	 */
+	void setQuery() {
+		rsm.setRows(vObjOrder.getOrders());
+		//lbl.setText(" " + vObjOrder.getOrders().getRowSet().getSize() + "Records");
+	} 
+	 
+	void setQuery(String str) {
+		rsm.setRows(vObjOrder.getOrderContains(str));
+		//lbl.setText(" " + vObjOrder.getOrderContains(str).getRowSet().getSize() + "Records");
+	} 
+	
+	void setQuery(String str01, String str02) {
+		rsm.setRows(vObjOrder.getOrderContains(str01, str02));
+		//lbl.setText(" " + vObjOrder.getOrderContains(str01, str02).getRowSet().getSize() + "Records");
+	}
+	  
 	/*  
 	void setAccountDetailPanel(Panels.AccountDetailPanel accountDetailPanel) {
 		pnlAccountDetailPanel = accountDetailPanel;

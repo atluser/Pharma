@@ -154,6 +154,7 @@ ScrollableTablePanel {
 		
 		Screens.Account.OrderScreen scrOrder = new Screens.Account.OrderScreen();
 		scrOrder.lbl02.setText(txtFldName.getText());
+		scrOrder.setAccountCode(txtFldCode.getText());
 		scrOrder.push(Animation.NONE, false);	
 	
 	}
