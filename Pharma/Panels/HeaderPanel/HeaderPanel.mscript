@@ -103,44 +103,7 @@ HorizontalPanel {
 	callback rg onToolBarButtonClicked(ToolBar c, int idxClicked, ToolBarButton tbb, boolean isChanged) {
 
 		logApp.log(Log.INFO, "HeaderPanel - rg onToolBarButtonClicked()");
-		currentEntity=idxClicked;
-		if (idxClicked == 0) {
-
-			poCrmMenu.dismiss();
-			stkPnl.select(pnlAccountRoot);
-
-		} else if (idxClicked == 1) {
-
-			poCrmMenu.dismiss();
-			stkPnl.select(pnlActivityRoot);
-
-		} else if (idxClicked == 2) {
-
-			poCrmMenu.dismiss();
-			stkPnl.select(pnlContactRoot);
-
-		} else if (idxClicked == 3) {
-
-			poCrmMenu.dismiss();
-			stkPnl.select(pnlOrderRoot);
-
-		} else if (idxClicked == 4) {
-
-			poCrmMenu.dismiss();
-			//stkPnl.select(pnlOrderRoot);
-
-		} else if (idxClicked == 5) {
-
-			poCrmMenu.dismiss();
-			//stkPnl.select(pnlOrderRoot);				
-
-		} else if (idxClicked == 6) {
-		//priceList
-			poCrmMenu.dismiss();
-			stkPnl.select(pnlPriceListRoot);
-
-		}						
-		
+		btnToolbarClick(idxClicked);		
 	}
 
 
@@ -329,7 +292,7 @@ HorizontalPanel {
 		tbb04.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 
 		tbb05.setFont(fnt);
-		tbb05.setText(StringConstants.TBB_SERVICE_REQUESTS_STR.getString());
+		tbb05.setText(StringConstants.TBB_CATALOG_STR.getString());
 		tbb05.setForeColor(Color.create(255,255,255));
 		tbb05.setFocusedForeColor(Color.create(255,255,255));
 		tbb05.setSelectedForeColor(Color.create(255,255,255));
@@ -339,7 +302,7 @@ HorizontalPanel {
 		tbb05.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);	
 
 		tbb06.setFont(fnt);
-		tbb06.setText(StringConstants.TBB_CATALOG_STR.getString());
+		tbb06.setText(StringConstants.TBB_PRICELIST_STR.getString());
 		tbb06.setForeColor(Color.create(255,255,255));
 		tbb06.setFocusedForeColor(Color.create(255,255,255));
 		tbb06.setSelectedForeColor(Color.create(255,255,255));
@@ -349,7 +312,7 @@ HorizontalPanel {
 		tbb06.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);	
 
 		tbb07.setFont(fnt);
-		tbb07.setText(StringConstants.TBB_PRICELIST_STR.getString());
+		tbb07.setText(StringConstants.TBB_SERVICE_REQUESTS_STR.getString());
 		tbb07.setForeColor(Color.create(255,255,255));
 		tbb07.setFocusedForeColor(Color.create(255,255,255));
 		tbb07.setSelectedForeColor(Color.create(255,255,255));
@@ -412,7 +375,8 @@ HorizontalPanel {
 
 		//actPoCrmMenuClose.setText("Close");
 		//actPoCrmMenuBack.setText("Back");						
-		apCrmMenu.setPositionType(AnchorPosition.HORIZONTAL_POSITION_RIGHT, AnchorPosition.VERTICAL_POSITION_TOP);
+
+//		apCrmMenu.setPositionType(AnchorPosition.HORIZONTAL_POSITION_RIGHT, AnchorPosition.VERTICAL_POSITION_TOP);
 		apCrmMenu.setAnchor(btnCrmMenu);
 
 		//poCrmMenu.setBlocking(true);
@@ -515,17 +479,17 @@ HorizontalPanel {
 		} else if (idxClicked == 4) {
 
 			poCrmMenu.dismiss();
-			//stkPnl.select(pnlOrderRoot);
+			stkPnl.select(pnlCatalogRoot);
 
 		} else if (idxClicked == 5) {
 
 			poCrmMenu.dismiss();
-			//stkPnl.select(pnlOrderRoot);				
+			stkPnl.select(pnlPriceListRoot);				
 
 		} else if (idxClicked == 6) {
 		//priceList
 			poCrmMenu.dismiss();
-			stkPnl.select(pnlPriceListRoot);
+			stkPnl.select(pnlServiceRequestRoot);
 
 		}						
 		

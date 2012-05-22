@@ -19,10 +19,10 @@ TablePanel {
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PIXELS, 40);
 		setRowHeight(2, Sizing.PREFERRED, 1);
-		
+		/*
 		DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
 		setRow(firstRow);
-		
+		*/
 	} 
 		
 	/*
@@ -49,13 +49,13 @@ TablePanel {
 		add(pnl, "hfill=fill,vfill=fill");
 
 	}
-	
+	/*
 	void setRow(DataRow dtRw) {
 		
 		txtMdlName.setRow(dtRw);
 		txtMdlName.setText(vObjAccount.AccountName.getStringValue(dtRw));
 		txtFldName.setDataModel(txtMdlName);
 	
-	}
+	}*/
 	
 }

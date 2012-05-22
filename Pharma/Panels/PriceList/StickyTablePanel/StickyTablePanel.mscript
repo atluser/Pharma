@@ -73,9 +73,9 @@ TablePanel {
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		
-		//pnlDetailForm.setRow(rsm.getRow());
-		pnlDetail.setRow(rsm.getRow());
 		pnlDetailForm.setRow(rsm.getRow());
+		//pnlDetail.setRow(rsm.getRow());
+		//pnlDetail.setRow(rsm.getRow());
 		
 	}
 		

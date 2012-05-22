@@ -12,7 +12,7 @@ VirtualObject {
 		return crmEntities();
 	}
 	query crmEntities<> {
-		ascendingBy Name;
+		ascendingBy Id;
 	}	
 
 }

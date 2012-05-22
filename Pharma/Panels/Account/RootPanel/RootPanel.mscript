@@ -20,7 +20,11 @@ BorderPanel {
 		pnlDetail.setContentPanel(pnlDetailForm);
 		
 		stk.setDetailPanel(pnlDetail);
-		stk.setDetailFormPanel(pnlDetailForm);		
+		stk.setDetailFormPanel(pnlDetailForm);
+		if(stk.rsm.hasMoreRows(0)){
+			stk.stk.scrollTo(0,0,TableView.SCROLL_POSITION_NONE);
+			stk.stk.select(0,0);
+		}		
 		
 	 	setWest(pnlMaster);
 	 	setEast(pnlDetail);
