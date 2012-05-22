@@ -63,6 +63,7 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="VodafoneImages">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VodafoneImages.mscript" hidden="true"/>
       <images name="box"/>
+      <images name="btn_back_normal"/>
       <images name="btn_delete_normal"/>
       <images name="btn_done_normal"/>
       <images name="btn_edit_normal"/>
@@ -1458,6 +1459,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_back_normal">
+        <properties/>
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_back_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_BACK_NORMAL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_delete_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_DELETE_NORMAL.PNG"/>
@@ -1549,6 +1556,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="btn_02_pressed">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_back_normal">
         <properties/>
         <properties/>
         <properties/>
@@ -2218,6 +2231,10 @@
         <properties string="/Users/admin/Desktop/VF/templates/box.png" path="/USERS/ADMIN/DESKTOP/VF/TEMPLATES/BOX.PNG"/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_back_normal">
+        <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_back_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_BACK_NORMAL.PNG"/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_delete_normal">
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_delete_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_DELETE_NORMAL.PNG"/>
         <properties/>
@@ -2263,6 +2280,10 @@
         <properties/>
       </imagePaths>
       <imagePaths name="box">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_back_normal">
         <properties/>
         <properties/>
       </imagePaths>
@@ -3296,6 +3317,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Account">
       <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="EditScreen">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditScreen.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="OrderScreen">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderScreen.mscript"/>
       </children>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="OrderEntry">
