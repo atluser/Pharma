@@ -1,0 +1,76 @@
+Screen {
+	Panels.PriceList.PriceListItemStickyTablePanel stk= new Panels.PriceList.PriceListItemStickyTablePanel(); 
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
+		//TODO: add code
+	}
+
+	callback onActivate(Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onClose(Container container){
+		//TODO: add code
+	}
+
+	callback onCreate(Container container){
+		add(stk,"vfill=fill,hfill=fill");
+	}
+
+	callback onDeactivate(Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onInputEvent(Screen screen, InputEvent inputEvent){
+		//TODO: add code
+	}
+
+	callback onMenuDisplay(Screen screen){
+		//TODO: add code
+	}
+
+	callback onOpen(Container container){
+		//TODO: add code
+	}
+
+	callback onOrientationLayoutChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenKeyboardVisibilityChange(Screen screen, boolean boolean_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_, int int_1){
+		//TODO: add code
+	}
+
+	callback onStartOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+
+}
