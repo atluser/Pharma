@@ -3168,6 +3168,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="TwoRowsTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="TwoRowsTableViewCell.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="TwoRowsTwoColsTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="TwoRowsTwoColsTableViewCell.mscript"/>
+    </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Config">
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="AccountConfig" sortOrder="1000" image="icons/window_plus_16.png" superclass="UIObject">
