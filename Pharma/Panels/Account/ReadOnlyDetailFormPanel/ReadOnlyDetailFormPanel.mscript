@@ -3,7 +3,7 @@ ScrollableTablePanel {
 	/*
 	 * Attributes
 	 */
-	 DataRow currentRow = null;
+	DataRow currentRow = null;
 	 
 	FormPanel pnlForm01 = new FormPanel();
 	FormPanel pnlForm02 = new FormPanel();

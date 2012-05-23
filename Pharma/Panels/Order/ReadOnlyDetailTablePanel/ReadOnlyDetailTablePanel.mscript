@@ -1,0 +1,194 @@
+TablePanel {
+	
+	/*
+	 * Attributes
+	 */
+	DataRow currentRow = null;
+	 
+	FormPanel pnlForm01 = new FormPanel();
+	FormPanel pnlForm02 = new FormPanel();
+	FormPanel pnlForm03 = new FormPanel();
+	ScrollableTablePanel pnlScroll = new ScrollableTablePanel();
+	
+	BackgroundButton btn01 = new BackgroundButton();
+	
+	PictureBox picBox = new PictureBox();
+	
+	// Dettaglio Ordine
+	TextModel txtMdlCode = new TextModel();
+	Label txtFldCode = new Label();
+	
+	DateModel dtMdlDate = new DateModel();
+	Label txtFldDate = new Label();
+	
+	TextModel txtMdlType = new TextModel();
+	Label txtFldType = new Label();
+	
+	TextModel txtMdlAccountName = new TextModel();
+	Label txtFldAccountName = new Label();
+	
+	TextModel txtMdlPriceList = new TextModel();
+	Label txtFldPriceList = new Label();	
+	
+	TextModel txtMdlStatus = new TextModel();
+	Label txtFldStatus = new Label();
+	
+	// Consegna e Pagamento
+	DateModel dtMdl1stDate = new DateModel();
+	Label txtFld1stDate = new Label();
+	
+	DateModel dtMdl2ndDate = new DateModel();
+	Label txtFld2ndDate = new Label();
+	
+	DateModel dtMdl3rdDate = new DateModel();
+	Label txtFld3rdDate = new Label();
+	
+	TextModel txtMdlPaymentMode = new TextModel();
+	Label txtFldPaymentMode = new Label();
+	
+	TextModel txtMdlNote = new TextModel();
+	Label txtFldNote = new Label();
+	
+	// Totali Ordine
+	TextModel txtMdlTotalGross = new TextModel();
+	Label txtFldTotalGross = new Label();
+	
+	TextModel txtMdlTotalNet = new TextModel();
+	Label txtFldTotalNet = new Label();
+	
+	TextModel txtMdlTotalDiscount = new TextModel();
+	Label txtFldTotalDiscount = new Label();
+	
+	/*
+	 * Callback methods
+	 */	
+	callback onCreate(Container c) {
+		
+		setUpHeader();
+		
+		add(picBox);
+		add(txtFldCode);
+		startNewRow();
+		//setUpForms();
+		pnlScroll.add(txtFldCode,"hfill=fill");
+		pnlScroll.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
+		add(pnlScroll,"colspan=2,hfill=fill");
+
+		
+		setInsets(8,8,8,8);
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+		
+		//set size (note: this is required)
+		setColumnWidth(0, Sizing.PREFERRED, 0);
+		setColumnWidth(1, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);
+		
+		//DataRow firstRow = vObjOrder.getOrders().getRowSet().first();
+		//setRow(firstRow);
+		
+	}	
+	
+	/*
+	 * Custom methods
+	 */
+	void setUpHeader() {
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(24);
+		fnt.setBold();
+		
+		picBox.setImage(Images.VodafoneImages.box.getImage());
+		txtFldCode.setFont(fnt);
+		txtFldCode.setForeColor(Color.create(189,0,0));
+	
+		//add(picBox);
+		//add(txtFldCode);
+	
+	} 
+	
+	void setUpForms() {
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(20);
+		
+		txtFldCode.setFont(fnt);
+		txtFldCode.setForeColor(Colors.Black);
+		
+		txtFldDate.setFont(fnt);
+		txtFldDate.setForeColor(Colors.Black);
+		
+		txtFldType.setFont(fnt);
+		txtFldType.setForeColor(Colors.Black);
+		
+		txtFldAccountName.setFont(fnt);
+		txtFldAccountName.setForeColor(Colors.Black);
+		
+		txtFldPriceList.setFont(fnt);
+		txtFldPriceList.setForeColor(Colors.Black);
+		
+		txtFldStatus.setFont(fnt);
+		txtFldStatus.setForeColor(Colors.Black);
+		
+		fnt.setBold();
+	
+		Label lblCode = new Label();
+		lblCode.setText("Nr. Ordine");
+		lblCode.setFont(fnt);
+		lblCode.setForeColor(Colors.Black);
+		pnlForm01.add(lblCode, "halign=right", txtFldCode, "halign=left,hfill=fill");
+		
+		Label lblDate = new Label();
+		lblDate.setText("Data Ordine");
+		lblDate.setFont(fnt);
+		lblDate.setForeColor(Colors.Black);
+		pnlForm01.add(lblDate, "halign=right", txtFldDate, "halign=left,hfill=fill");
+		
+		Label lblType = new Label();
+		lblType.setText("Tipo");
+		lblType.setFont(fnt);
+		lblType.setForeColor(Colors.Black);
+		pnlForm01.add(lblType, "halign=right", txtFldType, "halign=left,hfill=fill");
+		
+		Label lblAccountName = new Label();
+		lblAccountName.setText("Cliente");
+		lblAccountName.setFont(fnt);
+		lblAccountName.setForeColor(Colors.Black);
+		pnlForm01.add(lblAccountName, "halign=right", txtFldAccountName, "halign=left,hfill=fill");
+	
+		Label lblPriceList = new Label();
+		lblPriceList.setText("Listino");
+		lblPriceList.setFont(fnt);
+		lblPriceList.setForeColor(Colors.Black);
+		pnlForm01.add(lblPriceList, "halign=right", txtFldPriceList, "halign=left,hfill=fill");
+		
+		Label lblStatus = new Label();
+		lblStatus.setText("Listino");
+		lblStatus.setFont(fnt);
+		lblStatus.setForeColor(Colors.Black);
+		pnlForm01.add(lblStatus, "halign=right", txtFldStatus, "halign=left,hfill=fill");
+		
+		
+		pnlForm01.setInsets(8,8,8,8);
+		pnlForm01.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
+		pnlForm01.setLabelColumnWidth(Sizing.PERCENTS, 20);
+		pnlForm01.setControlColumnWidth(Sizing.PREFERRED, 1);
+		pnlScroll.add(pnlForm01,"hfill=fill");
+		
+		add(pnlScroll,"hfill=fill,vfill=fill");
+	
+	}
+	 
+	void setRow(DataRow dtRw) {
+		
+		currentRow = dtRw;	
+				
+		txtMdlCode.setRow(dtRw);
+		txtMdlCode.setText(vObjOrder.OrderCode.getStringValue(dtRw));
+		txtFldCode.setDataModel(txtMdlCode);
+		
+	}
+
+}

@@ -62,8 +62,12 @@ Screen {
 		pnlHeader.setColumnWidth(6, Sizing.PREFERRED,0);
 		pnlHeader.setColumnWidth(7, Sizing.PREFERRED,0);			
 		
+		// Detail Panel
+		Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
+		
 		// Master Panel
 		Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
+		pnlMaster.setDetailPanel(pnlDetail);
 		pnlMaster.setQuery(sAccountCode,"");
 		
 		// Root Panel
@@ -71,6 +75,7 @@ Screen {
 		pnlRoot.add(pnlHeader,"colspan=2,hfill=fill");
 		pnlRoot.startNewRow();
 		pnlRoot.add(pnlMaster,"hfill=fill,vfill=fill");
+		pnlRoot.add(pnlDetail,"hfill=fill,vfill=fill");
 		pnlRoot.setColumnWidth(0, Sizing.PIXELS, 300);
 		pnlRoot.setColumnWidth(1, Sizing.PREFERRED, 1);
 		pnlRoot.setRowHeight(0, Sizing.PREFERRED, 0);	

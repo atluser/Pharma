@@ -1,15 +1,19 @@
 TablePanel {
-	
-	//Panels.AccountDetailPanel pnlAccountDetailPanel;
-	
-	//Panels.DetailFormPanel pnlDetailForm;
-	
+
+	/*
+	 *
+	 */		
 	Label lbl = new Label();
 	
 	SearchField src = new SearchField();
 	StickyTable stk = new StickyTable();
 	RowSetModel rsm = new RowSetModel();
 
+	Panels.Order.ReadOnlyDetailTablePanel pnlDetail;
+
+	/*
+	 *
+	 */
 	callback onCreate(Container c) {
 		
 		setQuery();
@@ -72,12 +76,7 @@ TablePanel {
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		logApp.log(Log.INFO, "AccountStickyTablePanel::onSelectionChanged - Row: "+ row);
-		//pnlAccountDetailPanel.populateData(rsm.getRow());
-		//pnlAccountInfoPanel.setData(rsm.getRow());
-		
-		//pnlDetailForm.getSelectedRow(rsm.getRow());
-		//pnlDetailForm.setRow(rsm.getRow());
-		
+		pnlDetail.setRow(rsm.getRow());
 	}
 		
 	////////////////////////////
@@ -148,18 +147,9 @@ TablePanel {
 		//lbl.setText(" " + vObjOrder.getOrderContains(str01, str02).getRowSet().getSize() + "Records");
 	}
 	  
-	/*  
-	void setAccountDetailPanel(Panels.AccountDetailPanel accountDetailPanel) {
-		pnlAccountDetailPanel = accountDetailPanel;
-	}	
-	
-	//void setAccountInfoPanel(Panels.AccountInfoPanel accountInfoPanel) {
-	//	pnlAccountInfoPanel = accountInfoPanel;
-	//}
-	
-	void setDetailFormPanel(Panels.DetailFormPanel pnl) {
-		pnlDetailForm = pnl;
+	void setDetailPanel(Panels.Order.ReadOnlyDetailTablePanel pnl) {
+		pnlDetail = pnl;
 	}
-	*/		
+		
 }
 
