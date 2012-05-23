@@ -80,10 +80,8 @@ TablePanel {
 			tblVwCell.lblUOM.setText(strUOM);
 			tblVwCell.lblPrice.setText(strPrice);
 			
-			tblVwCell.picMdlDiscount1.setChecked(bScount1);
-			tblVwCell.picMdlDiscount1.setBoolean(bScount1);
-			tblVwCell.picMdlDiscount1.setChecked(bScount2);
-			tblVwCell.picMdlDiscount1.setBoolean(bScount2);
+			tblVwCell.picDiscount1.setChecked(bScount1);			
+			tblVwCell.picDiscount2.setChecked(bScount2);
 		}
 	}
 	

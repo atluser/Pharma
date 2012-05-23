@@ -68,11 +68,16 @@ TableViewCell {
 		lblPrice.setFont(fnt);
 		lblPrice.setForeColor(Colors.Black);
 		
-		picDiscount1.setDataModel(picMdlDiscount1);
-		picDiscount2.setDataModel(picMdlDiscount2);
 		
-		picMdlDiscount1.setEditable(false);
-		picMdlDiscount2.setEditable(false);
+		picDiscount1.setDisabledForeColor(Colors.Green);
+		picDiscount2.setDisabledForeColor(Colors.Green);
+		picDiscount1.setEnabled(false);
+		picDiscount2.setEnabled(false); 
+		//picDiscount1.setDataModel(picMdlDiscount1);
+		//picDiscount2.setDataModel(picMdlDiscount2);
+		
+		//picMdlDiscount1.setEditable(false);
+		//picMdlDiscount2.setEditable(false);
 	}
 	
 
