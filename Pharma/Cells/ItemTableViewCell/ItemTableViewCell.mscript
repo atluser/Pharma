@@ -8,15 +8,21 @@ TableViewCell {
 	CheckBox picDiscount1=new CheckBox();
 	CheckBox picDiscount2=new CheckBox();
 	
+	PictureBox picBox=new PictureBox();
+	
+	Label lblQtyMin=new Label();
+	Label lblQtyMax=new Label();
+	NumberFormatModel mdlPrice=new NumberFormatModel();
+	/*
 	CheckBoxModel picMdlDiscount1=new CheckBoxModel();
 	CheckBoxModel picMdlDiscount2=new CheckBoxModel();
-	
+	*/
 	HorizontalPanel hz=new HorizontalPanel();
 	
 	//TextModel txtMdl = new TextModel();
 	Styles.FormStyle style = new Styles.FormStyle();
 	String alignment="halign=center";
-	int ncol=8;
+	int ncol=9;
 	
 	callback onCreate(Container container){
 
@@ -32,13 +38,15 @@ TableViewCell {
 		//lbl.setDataModel(txtMdl);
 		
 		setLabel();
-			
+		hz.add(picBox,alignment);	
 		hz.add(lblCode, alignment);
 		hz.add(lblName, alignment);
 		hz.add(lblUOM, alignment);
 		hz.add(lblPrice, alignment);
 		hz.add(picDiscount1, alignment);
 		hz.add(picDiscount2, alignment);
+		hz.add(lblQtyMin, alignment);
+		hz.add(lblQtyMax, alignment);
 		add(hz,"hfill=fill");
 		
 		setInsets (0, 8, 0, 8);
@@ -63,11 +71,15 @@ TableViewCell {
 		lblCode.setForeColor(Colors.Black);
 		lblName.setFont(fnt);
 		lblName.setForeColor(Colors.Black);
+		lblName.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
 		lblUOM.setFont(fnt);		
 		lblUOM.setForeColor(Colors.Black);
 		lblPrice.setFont(fnt);
 		lblPrice.setForeColor(Colors.Black);
-		
+		lblQtyMin.setForeColor(Colors.Black);
+		lblQtyMin.setFont(fnt);
+		lblQtyMax.setForeColor(Colors.Black);
+		lblQtyMax.setFont(fnt);
 		
 		picDiscount1.setDisabledForeColor(Colors.Green);
 		picDiscount2.setDisabledForeColor(Colors.Green);
@@ -78,6 +90,9 @@ TableViewCell {
 		
 		//picMdlDiscount1.setEditable(false);
 		//picMdlDiscount2.setEditable(false);
+		
+		lblPrice.setDataModel(mdlPrice);
+		mdlPrice.setPrecision(2);	
 	}
 	
 

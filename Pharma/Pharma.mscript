@@ -40,6 +40,9 @@ UIProject {
 	//ObjectArray sectionLabelArray=new ObjectArray();
 	ObjectMap sectionLabelMap=new ObjectMap();
 	
+	//ProductImage
+	ObjectMap productImageMap=new ObjectMap();
+	
 	String letter="A;B;C;D;E;F;G;H;I;J;K;L;M;N;O;P;Q;R;S;T;U;V;W;X;Y;Z";
 	List letterList=new List();
 	
@@ -104,6 +107,8 @@ UIProject {
 		vObjUtil.loadPriceList();
 		vObjUtil.loadPriceListItem();
 		vObjUtil.loadOrder();
+		
+		vObjUtil.loadImage();
 		
 		//test join
 		appLog.log(Log.INFO,"LANCIO QUERY ");

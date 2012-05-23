@@ -1,0 +1,86 @@
+HorizontalPanel {
+	Font fnt = new Font();
+	Label lblCode = new Label();
+	Label lblName=new Label();
+	Label lblUOM=new Label();
+	Label lblPrice=new Label();
+	Label lblDiscount1=new Label();
+	Label lblDiscount2=new Label();
+	Label lblImage=new Label();	
+	Label lblQtyMin=new Label();
+	Label lblQtyMax=new Label();
+	
+	//TextModel txtMdl = new TextModel();
+	Styles.FormStyle style = new Styles.FormStyle();
+	String alignment="halign=center";
+	int ncol=9;
+	
+	callback onCreate(Container container){
+
+		fnt.setFamily("Arial");
+		fnt.setSize(18);
+		//fnt.setBold();
+	//	lbl.setFont(fnt);
+//		lbl.setForeColor(Colors.Black);
+		//lbl.setFocusedForeColor(Colors.Black);
+		
+		//txtMdl.setForeColor(Colors.Black);
+		//txtMdl.setFocusedForeColor(Colors.Black);
+		//lbl.setDataModel(txtMdl);
+		
+		setLabel();
+		add(lblImage, alignment);	
+		add(lblCode, alignment);
+		add(lblName, alignment);
+		add(lblUOM, alignment);
+		add(lblPrice, alignment);
+		add(lblDiscount1, alignment);
+		add(lblDiscount2, alignment);		
+		add(lblQtyMin,alignment);
+		add(lblQtyMax,alignment);		
+		
+		setInsets (8, 8, 8, 8);
+		
+		//setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));		
+		setBackground(Background.createColorRectangleBackground(Colors.BackgroundGray,Colors.Gray,LineStyle.SOLID));			
+		for (int i=0;i<ncol;i++)
+			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
+		setPanelHeight(Sizing.PIXELS,60);
+		
+	}
+	
+	
+	
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){		
+		styleReceptor.applyVisualStyle(style);
+	}
+	
+	void setLabel(){
+		lblCode.setText("Codice");		
+		lblName.setText("Nome");
+		lblUOM.setText("Unità di misura");
+		lblPrice.setText("Prezzo");
+		lblImage.setText("Immagine");
+		lblDiscount1.setText("Ammesso sconto %");
+		lblDiscount1.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
+		lblDiscount2.setText("Ammesso sconto merce");
+		lblDiscount2.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
+		lblQtyMin.setText("Qtà Min.");
+		lblQtyMax.setText("Qtà Max.");		
+		
+		/*lblCode.setFont(fnt);
+		lblCode.setForeColor(Colors.Black);		
+		lblName.setFont(fnt);
+		lblName.setForeColor(Colors.Black);		
+		lblUOM.setFont(fnt);		
+		lblUOM.setForeColor(Colors.Black);		
+		lblPrice.setFont(fnt);
+		lblPrice.setForeColor(Colors.Black);		
+		lblImage.setFont(fnt);
+		lblImage.setForeColor(Colors.Black);
+		*/
+		
+		
+	}
+
+}

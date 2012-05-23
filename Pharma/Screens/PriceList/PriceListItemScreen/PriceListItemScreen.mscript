@@ -1,5 +1,14 @@
 Screen {
 	Panels.PriceList.PriceListItemStickyTablePanel stk= new Panels.PriceList.PriceListItemStickyTablePanel(); 
+	Button btnBack = new Button();
+	Button btnHome = new Button();
+	Button btnMenu = new Button();
+	
+	Label lbl01 = new Label();
+	Label lbl02 = new Label();//codice listino
+	
+	String listCode;
+	
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
 		//TODO: add code
 	}
@@ -21,7 +30,45 @@ Screen {
 	}
 
 	callback onCreate(Container container){
-		add(stk,"vfill=fill,hfill=fill");
+		setUpLabels();
+		setUpButtons();
+		// Header Panel
+		HorizontalPanel pnlHeader = new HorizontalPanel();
+		//pnlHeader.add(btnHome);
+		pnlHeader.add(btnBack);
+		pnlHeader.add(lbl01);
+		pnlHeader.add(lbl02);
+		pnlHeader.add(new Separator(), "");
+		pnlHeader.add(btnMenu);
+		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+
+		
+		/*pnlHeader.setColumnWidth(0, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(1, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(2, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,1);
+		pnlHeader.setColumnWidth(4, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(5, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(6, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(7, Sizing.PREFERRED,0);			
+		*/
+		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,1);
+		stk.listCode=listCode;
+		stk.setQuery("");
+		/*
+		TablePanel pnlRoot = new TablePanel();
+		pnlRoot.add(pnlHeader,"hfill=fill");
+		pnlRoot.startNewRow();				
+		pnlRoot.add(stk,"vfill=fill,hfill=fill");		
+		pnlRoot.setRowHeight(0, Sizing.PREFERRED, 0);	
+		pnlRoot.setRowHeight(1, Sizing.PREFERRED, 1);
+		add(pnlRoot,"vfill=fill,hfill=fill");
+		*/
+		
+		add(pnlHeader,"hfill=fill");					
+		add(stk,"vfill=fill,hfill=fill");		
+		setBackColor(Colors.White);
+		
 	}
 
 	callback onDeactivate(Container container){
@@ -71,6 +118,54 @@ Screen {
 	callback onStartOrientationChange(Screen screen, int int_){
 		//TODO: add code
 	}
+	
+	callback btnBack onClick(Control c) {
+		close(Animation.NONE);
+	}
+	
+	callback btnMenu onClick(Control c) {
+		close(Animation.NONE);
+	}
+	
 
+
+	void setUpButtons() {
+				
+		btnHome.setImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnHome.setFocusedImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnHome.setSelectedImage(Images.VodafoneImages.img_logo_vodafone.getImage());	
+
+		btnBack.setImage(Images.VodafoneImages.btn_back_normal.getImage());
+		btnBack.setFocusedImage(Images.VodafoneImages.btn_back_normal.getImage());
+		btnBack.setSelectedImage(Images.VodafoneImages.btn_back_normal.getImage());
+	
+		btnMenu.setImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+		btnMenu.setFocusedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+		btnMenu.setSelectedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+	
+	}
+	
+	void setUpLabels() {
+		
+		Font fnt01 = new Font();
+		fnt01.setSize(24);
+		fnt01.setFamily("Arial");
+		//fnt01.setBold();
+		
+		Font fnt02 = new Font();
+		fnt02.setSize(24);
+		fnt02.setFamily("Arial");
+		fnt02.setBold();
+		
+		//Label lbl = new Label();
+		lbl01.setText(" Listino: ");
+		lbl01.setFont(fnt01);
+		lbl01.setForeColor(Color.create(255,255,255));
+	
+		lbl02.setFont(fnt02);
+		lbl02.setForeColor(Color.create(255,255,255));
+	
+	}		
+	
 
 }

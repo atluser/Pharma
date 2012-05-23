@@ -17,10 +17,13 @@ TablePanel {
 	//ObjectArray rsmArray=new ObjectArray();	
 	Array arr = new Array();
 	
-	/*Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
+	Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
 	SearchField tblSearch =pnlSearch.search;
-	Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
-	*/
+	//Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
+	
+	
+	Panels.ItemHeaderHorizontalPanel pnlHeader= new Panels.ItemHeaderHorizontalPanel();
+	
 	/*
 	 * Callback methods
 	 */
@@ -29,14 +32,19 @@ TablePanel {
 		/*pnlIndex.setStickyTable(stk);
 		pnlIndex.setArray(arr);
 		*/
-		setInitQuery();
+		//setInitQuery();
 		
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
+	
+		//HEADER
+		add(pnlHeader,"hfill=fill");
+		startNewRow();
 		
-		/*add(pnlSearch,"colspan=2,hfill=fill");
-		startNewRow();*/
-		 
+		add(pnlSearch,"hfill=fill");
+		startNewRow();
+		
+	 
 		add(stk, "hfill=fill,valign=top");
 		//add(pnlIndex, "hfill=fill,valign=top");	
 
@@ -45,10 +53,11 @@ TablePanel {
 		stk.setGridLineColor(Colors.Gray);		
 		setColumnWidth(0, Sizing.PERCENTS, 100);
 		//setColumnWidth(0, Sizing.PREFERRED, 1);
-		
-		setColumnWidth(1, Sizing.PREFERRED, 1);
+				
 		setRowHeight(0, Sizing.PREFERRED, 0);
-		setRowHeight(1, Sizing.PREFERRED, 1);
+		setRowHeight(1, Sizing.PREFERRED, 0);
+		setRowHeight(2, Sizing.PREFERRED, 1);
+		setBackColor(Colors.BackgroundGray);
 	
 	}
 
@@ -78,10 +87,16 @@ TablePanel {
 			tblVwCell.lblCode.setText(strCode);
 			tblVwCell.lblName.setText(strName);
 			tblVwCell.lblUOM.setText(strUOM);
-			tblVwCell.lblPrice.setText(strPrice);
+			tblVwCell.mdlPrice.setValue(vObjPriceListItem.UnitPrice.getCurrencyValue(dtRw));
 			
 			tblVwCell.picDiscount1.setChecked(bScount1);			
 			tblVwCell.picDiscount2.setChecked(bScount2);
+			ImageReference img=(ImageReference)productImageMap.getValue(vObjPriceListItem.ProductImage.getStringValue(dtRw));				
+			tblVwCell.picBox.setImage(img);
+			appLog.log(Log.INFO,"PRODUCT "+vObjPriceListItem.ProductName.getStringValue(dtRw)+" Image "+vObjPriceListItem.ProductImage.getStringValue(dtRw));
+			
+			tblVwCell.lblQtyMin.setText(vObjPriceListItem.QtyMin.getIntegerValue(dtRw).toString());
+			tblVwCell.lblQtyMax.setText(vObjPriceListItem.QtyMax.getIntegerValue(dtRw).toString());
 		}
 	}
 	
@@ -157,19 +172,17 @@ TablePanel {
 	}
 	*/
 	
-	/*	//search callback
+		//search callback
 	callback tblSearch onValueChange ( Control c ) {
 		//appLog.log(Log.INFO,"change");
 		tblSearch.setOnValueChangingPausedDelay(500);
 	}
 	
 	callback tblSearch onValueChangingPaused(Control c){
-		//appLog.log(Log.INFO,"paused");
-		//Query q=vObjAccount.getAccountContains(tblSearch.getText());
-		executeQuery(tblSearch.getText());
+		setQuery(tblSearch.getText());
 		stk.reload();
 	}
-	*/
+	
 	
 	/*
 	 * Custom methods
@@ -188,7 +201,7 @@ TablePanel {
 		pnlDetailForm = pnl;
 	}
 	
-	void setInitQuery(){
+	void setQuery(String val){
 		//clean before start
 		rsm.clear();
 		arr.removeAllItems();
@@ -196,9 +209,9 @@ TablePanel {
 		DataRowSet set=q.getRowSet();
 		DataRow dtRow=set.first();		
 		while(dtRow!=null){
-			String category=vObjPriceListItem.ProductCategory.getStringValue(dtRow);
+			String category=vObjLOV.Value.getStringValue(dtRow);
 			RowSetModel rsm1 = new RowSetModel();
-			rsm1.setRows(vObjPriceListItem.getListItemByCategory(listCode,category));
+			rsm1.setRows(vObjPriceListItem.getListItemByCategory(listCode,category,val));
 			
 			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - " + category+" : " + rsm1.getRowCount(0));
 			
@@ -215,6 +228,7 @@ TablePanel {
 				
 	}
 	
+	/*
 	void setQuery(String s){
 				
 		for(int i = 0; i < letterList.length(); i++) {
@@ -236,6 +250,6 @@ TablePanel {
 		}
 		stk.setNumberOfGroups(letterList.length());	
 				
-	}	
+	}*/	
 			
 }

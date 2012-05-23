@@ -71,7 +71,9 @@ ScrollableTablePanel {
 	
 	callback btnItem onClick(Control c){
 		Screens.PriceList.PriceListItemScreen scr=new Screens.PriceList.PriceListItemScreen();
-		scr.push();
+		scr.lbl02.setText(txtFldName.getText());
+		scr.listCode=txtFldCode.getText();
+		scr.push(0,false);
 	
 	}
 	void setRow(DataRow dtRw) {
