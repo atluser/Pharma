@@ -199,6 +199,9 @@ ScrollableTablePanel {
 	callback rchBtnWebSite onClick(Control c) {
 	
 		logApp.log(Log.INFO, "ReadOnlyDeatilFormPanel - rchBtnWebSite onClick()");	
+		Screens.BrowserScreen scr=new Screens.BrowserScreen();
+		scr.br.setURL("http://"+txtFldWebSite.getText());
+		scr.push(0,false);
 	
 	}
 	

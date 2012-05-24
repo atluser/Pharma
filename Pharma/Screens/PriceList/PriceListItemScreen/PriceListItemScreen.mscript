@@ -68,6 +68,7 @@ Screen {
 		add(pnlHeader,"hfill=fill");					
 		add(stk,"vfill=fill,hfill=fill");		
 		setBackColor(Colors.White);
+		setRowHeight(1,Sizing.PREFERRED,1);
 		
 	}
 

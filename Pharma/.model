@@ -258,6 +258,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Products.Lenigola">
         <properties/>
         <properties/>
@@ -724,6 +730,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Products.Lenigola">
         <properties/>
         <properties/>
@@ -1179,6 +1191,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
         <properties/>
         <properties/>
         <properties/>
@@ -2299,6 +2317,9 @@
       <imagePaths name="Products.Defenflu">
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Products.Lenigola">
         <properties/>
       </imagePaths>
@@ -2529,6 +2550,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Lenigola">
@@ -3244,6 +3268,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Products.Lenigola">
         <properties/>
         <properties/>
@@ -3525,6 +3553,9 @@
       <imagePaths name="Products.Defenflu">
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Products.Lenigola">
         <properties/>
       </imagePaths>
@@ -3755,6 +3786,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Lenigola">
@@ -3989,6 +4023,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Lenigola">
@@ -4388,6 +4425,9 @@
     </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Screens">
+    <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="BrowserScreen">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="BrowserScreen.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="HomeScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="HomeScreen.mscript"/>
     </children>

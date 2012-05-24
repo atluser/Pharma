@@ -91,8 +91,8 @@ TablePanel {
 			
 			tblVwCell.picDiscount1.setChecked(bScount1);			
 			tblVwCell.picDiscount2.setChecked(bScount2);
-			ImageReference img=(ImageReference)productImageMap.getValue(vObjPriceListItem.ProductImage.getStringValue(dtRw));				
-			tblVwCell.picBox.setImage(img);
+			ImageReference img=(ImageReference)productImageMap.getValue(vObjPriceListItem.ProductImage.getStringValue(dtRw));
+			if(img!=null)	tblVwCell.picBox.setImage(img);
 			appLog.log(Log.INFO,"PRODUCT "+vObjPriceListItem.ProductName.getStringValue(dtRw)+" Image "+vObjPriceListItem.ProductImage.getStringValue(dtRw));
 			
 			tblVwCell.lblQtyMin.setText(vObjPriceListItem.QtyMin.getIntegerValue(dtRw).toString());
