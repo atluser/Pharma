@@ -1,0 +1,244 @@
+Screen {
+//	Common.TemplateTablePanel templateTblPnl = new Common.TemplateTablePanel();
+//	StackPanel stPnl = new StackPanel();
+	//Log appLog = getLog();
+	Browser br = new Browser();
+	
+	//Browser br2 = new Browser();
+	//TablePanel rootPnl = new TablePanel();
+	TablePanel pnl = new TablePanel();
+	//TablePanel pnl2 = new TablePanel();
+	AnimationField animationSpinner = new AnimationField();
+	int brRow;
+	int spinnerRow;
+	//Timer tStart = new Timer();
+	Label urlLabel = new Label();
+	TextField urlField = new TextField();
+	Button b1 = new Button();
+//	Button b2 = new Button();
+	//String desc="This screen contains two panels in a stack panel. The Buttons on the top help you navigate to each of them. One Panel loads the browser from URL and the other from String.Clicking on the AboutUs link is blocked by using the onURLRequest callback";
+	
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
+		//TODO: add code
+	}
+
+
+	callback onBeginChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onClose(Container container){
+		//TODO: add code
+	}
+
+	callback onCreate(Container container){ 		
+		//currentScreen = browserScrn ;
+		
+		/*templateTblPnl.hdrPnl.btnMenu.setEnabled(false);
+		templateTblPnl.hdrPnl.btnMenu.setVisible(false);
+		
+		templateTblPnl.setHeaderText("Browser");
+		
+	//	setMenu(opMenu);
+	/*	animationSpinner.addImage(Images.sp.getImage());
+		animationSpinner.addImage(Images.sp2.getImage());
+		animationSpinner.addImage(Images.sp3.getImage());
+		animationSpinner.addImage(Images.sp4.getImage());
+		
+		animationSpinner.setBackground(Background.createColorRoundedBackground(Color.create(68, 68, 68), Color.create(68, 68, 68), LineStyle.SOLID));
+	
+		pnl.add(animationSpinner, "halign=middle, valign=middle");
+		pnl.setRowHeight(0,Sizing.PERCENTS,0);
+		pnl.startNewRow();
+	
+	*/
+	
+	
+		//urlLabel.setText("Enter URL");
+
+		//br.setURL("http://www.antennasoftware.com/");
+	//br.setURL("www.google.com");
+		br.setBackColor(Colors.Transparent);
+		pnl.add(br, "hfill=fill, vfill=fill");
+		pnl.setRowHeight(0,Sizing.PERCENTS,80);
+	
+		//br2.setBackColor(Colors.Transparent);
+		//pnl2.add(br2, "hfill=fill, vfill=fill");
+		//pnl2.setRowHeight(0,Sizing.PERCENTS,80);
+	add(pnl,"");
+		//stPnl.add(pnl);
+		//stPnl.add(pnl2);
+		
+		b1.setText("Load from URL");
+		//b2.setText("From String");
+		
+		//rootPnl.setColumnWidth(0,Sizing.PERCENTS,50);
+		//rootPnl.setColumnWidth(1,Sizing.PERCENTS,50);
+		
+	//	rootPnl.add(urlLabel,"hfill=fill");
+		//rootPnl.add(urlField,"hfill=fill");
+		//rootPnl.startNewRow();
+		//rootPnl.add(b1,"hfill=fill");
+		//rootPnl.add(b2,"hfill=fill");
+			
+		//rootPnl.startNewRow();
+			
+		//rootPnl.add(stPnl,"vfill=fill,hfill=fill,colspan=2");
+		//rootPnl.setRowHeight(1,Sizing.PERCENTS,80);
+		
+		//templateTblPnl.addPanel(rootPnl);
+		//add(rootPnl,"");
+		//add(templateTblPnl,"hfill=fill,vfill =fill");
+		
+		br.start();
+		
+		//tStart.schedule(2000);
+		
+	
+}
+callback onActivate ( Container source ){
+	//msgBxGeneric.ask(0, false, "Description", desc, arrMsgBxChoice , 0);
+	}
+
+//callback description onRun(Action c){
+	//	msgBxGeneric.ask(0, false, "Description", desc, arrMsgBxChoice , 0);
+	//}
+	/*
+	callback b1 onClick(Control c){
+
+		stPnl.select(pnl);
+		stPnl.layout();
+		
+	}*/
+		
+		
+	/*callback b2 onClick(Control c){
+		stPnl.select(pnl2);
+		refreshContent();
+		stPnl.layout();
+		}
+		
+		void refreshContent() {
+		String htmlContent = "<html><body>";
+		htmlContent += "Hello This is the HTML content <br><br> You can add your HTML code here.";
+		htmlContent += "</body></html>";
+		br2.setHtml(htmlContent);
+		br2.start();		
+	}		
+		
+		
+	 callback tStart timerFired ( Timer timer ){
+		br.start();
+		logApp.log(Log.INFO, "br start");
+		pnl.setRowHeight(1, Sizing.PIXELS, 0);
+		pnl.setRowHeight(0, Sizing.PERCENTS, 100);
+		animationSpinner.startAnimating();
+		pnl.layout();
+		layout();			
+	} 
+ */
+	
+	
+	callback br onLoadFailed(Browser c, String error) {
+	
+		appLog.log(Log.INFO, "Load Failed");
+	}
+	
+	callback br onLoadFinished(Browser c) {
+		appLog.log(Log.INFO, "Load Finished");	
+		/*pnl.setRowHeight(0, Sizing.PIXELS, 0);
+		pnl.setRowHeight(1, Sizing.PERCENTS, 100);
+		animationSpinner.stopAnimating();*/
+		pnl.layout();
+		layout();
+	}
+	
+	callback br onLoadStarted(Browser c) {
+		appLog.log(Log.INFO, "Load Started");
+	}
+	
+	callback br onURLRequest(Browser c, URL url, int type, RequestEvent event) { //Blocking the About Us link
+	String stringurl = url.getAbsoluteString();	
+	appLog.log(Log.INFO, "onURL Request" + stringurl);
+	String blockurl ="http://www.antennasoftware.com/about-us/overview";
+	if(stringurl==blockurl)
+	{
+		//msgBxGeneric.ask(0, false, "", "This URL is blocked", arrMsgBxChoice , 0);
+	}
+	
+	
+	
+	
+	}
+	
+	
+	/*callback br2 onLoadFailed(Browser c, String error) {
+	
+		logApp.log(Log.INFO, "Load Failed for br2");
+	}
+	
+	callback br2 onLoadFinished(Browser c) {
+		logApp.log(Log.INFO, "Load Finished for br2");	
+		pnl2.layout();
+		layout();
+	}
+	
+	callback br2 onLoadStarted(Browser c) {
+		logApp.log(Log.INFO, "Load Started for br2");
+	}
+	*/
+	
+	callback onDeactivate(Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onInputEvent(Screen screen, InputEvent inputEvent){
+		//TODO: add code
+	}
+
+	callback onMenuDisplay(Screen screen){
+		//TODO: add code
+	}
+
+	callback onOpen(Container container){
+		//TODO: add code
+	}
+
+	callback onOrientationLayoutChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenKeyboardVisibilityChange(Screen screen, boolean boolean_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_, int int_1){
+		//TODO: add code
+	}
+
+	callback onStartOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+	
+
+}

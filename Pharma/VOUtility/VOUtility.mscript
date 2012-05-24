@@ -20,6 +20,17 @@ UIObject {
 		row.applyUpdates();
 	}
 	
+	void loadImage(){
+		productImageMap.putValue("Supradin",Images.Products.Supradin);
+		productImageMap.putValue("Lasonil",Images.Products.Lasonil);
+		productImageMap.putValue("Sanipirina",Images.Products.Sanipirina);
+		productImageMap.putValue("Lenitos",Images.Products.Lenitos);
+		productImageMap.putValue("Aspirina",Images.Products.Aspirina);
+		productImageMap.putValue("Lenigola",Images.Products.Lenigola);
+		productImageMap.putValue("Defenflu",Images.Products.Defenflu);	
+	}
+	
+	
 	void loadPriceListItem(){
 		DataRow row=null;
 		row=vObjPriceListItem.getNewRow();			
@@ -31,6 +42,8 @@ UIObject {
 		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
 		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
 		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.ProductImage.setStringValue("Supradin",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
 		row.applyUpdates();
 		
 		row=vObjPriceListItem.getNewRow();			
@@ -42,6 +55,8 @@ UIObject {
 		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(15.0),row);
 		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
 		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.ProductImage.setStringValue("Lasonil",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
 		row.applyUpdates();
 		
 		row=vObjPriceListItem.getNewRow();			
@@ -53,6 +68,8 @@ UIObject {
 		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
 		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
 		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(false),row);
+		vObjPriceListItem.ProductImage.setStringValue("Sanipirina",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
 		row.applyUpdates();
 		
 		row=vObjPriceListItem.getNewRow();			
@@ -64,6 +81,8 @@ UIObject {
 		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(15.0),row);
 		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(false),row);
 		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.ProductImage.setStringValue("Aspirina",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
 		row.applyUpdates();
 		
 		row=vObjPriceListItem.getNewRow();			
@@ -75,6 +94,8 @@ UIObject {
 		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(20.0),row);
 		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
 		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.ProductImage.setStringValue("Lenitos",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
 		row.applyUpdates();
 		
 		row=vObjPriceListItem.getNewRow();			
@@ -86,6 +107,8 @@ UIObject {
 		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(20.0),row);
 		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
 		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.ProductImage.setStringValue("Lenigola",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
 		row.applyUpdates();
 		
 		row=vObjPriceListItem.getNewRow();			
@@ -97,6 +120,99 @@ UIObject {
 		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
 		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
 		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.ProductImage.setStringValue("Defenflu",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622179",row);		
+		vObjPriceListItem.ProductName.setStringValue("BECOZYM",row);
+		vObjPriceListItem.ProductCategory.setStringValue("VITAMINE",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(15.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(false),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(false),row);
+		vObjPriceListItem.ProductImage.setStringValue("Becozym",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622180",row);		
+		vObjPriceListItem.ProductName.setStringValue("BENADON",row);
+		vObjPriceListItem.ProductCategory.setStringValue("VITAMINE",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.ProductImage.setStringValue("Benadon",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622181",row);		
+		vObjPriceListItem.ProductName.setStringValue("ELEVIT",row);
+		vObjPriceListItem.ProductCategory.setStringValue("VITAMINE",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.ProductImage.setStringValue("Elevit",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622182",row);		
+		vObjPriceListItem.ProductName.setStringValue("AUTAN",row);
+		vObjPriceListItem.ProductCategory.setStringValue("JOHNSON WAX",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.ProductImage.setStringValue("Autan",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622183",row);		
+		vObjPriceListItem.ProductName.setStringValue("CALCIDON",row);
+		vObjPriceListItem.ProductCategory.setStringValue("NUTRITIONAL",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.ProductImage.setStringValue("Calcidon",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+				
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622184",row);		
+		vObjPriceListItem.ProductName.setStringValue("REDOXON",row);
+		vObjPriceListItem.ProductCategory.setStringValue("NUTRITIONAL",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.ProductImage.setStringValue("Redoxon",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=vObjPriceListItem.getNewRow();			
+		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		vObjPriceListItem.ProductCode.setStringValue("018622185",row);		
+		vObjPriceListItem.ProductName.setStringValue("FAVE DI FUCA",row);
+		vObjPriceListItem.ProductCategory.setStringValue("LASSATIVI",row);
+		vObjPriceListItem.UOM.setStringValue("Scatola",row);
+		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		//vObjPriceListItem.ProductImage.setStringValue("Redoxon",row);
+		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
 		row.applyUpdates();
 	}
 	

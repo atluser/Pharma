@@ -53,6 +53,17 @@
       <images name="ImgWhiteBackground"/>
       <images name="Inform"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="Products">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Products.mscript" hidden="true"/>
+      <images name="Aspirina"/>
+      <images name="Defenflu"/>
+      <images name="Lasonil"/>
+      <images name="Lenigola"/>
+      <images name="Lenitos"/>
+      <images name="Sanipirina"/>
+      <images name="Sobrepin"/>
+      <images name="Supradin"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="SplitViewImages">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SplitViewImages.mscript" hidden="true"/>
       <images name="ImgCellBackground_s"/>
@@ -91,6 +102,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app_orig.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP_ORIG.PNG"/>
@@ -122,6 +139,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgWhiteBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenitos">
         <properties/>
         <properties/>
         <properties/>
@@ -217,6 +246,102 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenigola">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenitos">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sanipirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sobrepin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Supradin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenigola">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenitos">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sanipirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sobrepin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.supradin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
         <properties/>
@@ -230,6 +355,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ServerSetupIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Sobrepin">
         <properties/>
         <properties/>
         <properties/>
@@ -443,6 +574,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
         <properties/>
@@ -474,6 +611,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgWhiteBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenitos">
         <properties/>
         <properties/>
         <properties/>
@@ -569,6 +718,102 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenigola">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenitos">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sanipirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sobrepin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Supradin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenigola">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenitos">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sanipirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sobrepin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.supradin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
         <properties/>
@@ -582,6 +827,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ServerSetupIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Sobrepin">
         <properties/>
         <properties/>
         <properties/>
@@ -789,6 +1040,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
         <properties/>
@@ -820,6 +1077,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgWhiteBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenitos">
         <properties/>
         <properties/>
         <properties/>
@@ -915,6 +1184,102 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenigola">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenitos">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sanipirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sobrepin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Supradin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenigola">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenitos">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sanipirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sobrepin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.supradin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
         <properties/>
@@ -928,6 +1293,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ServerSetupIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Sobrepin">
         <properties/>
         <properties/>
         <properties/>
@@ -1135,6 +1506,18 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Aspirina">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/defenflu.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/DEFENFLU.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="DettaglioCliente">
         <properties/>
         <properties/>
@@ -1261,6 +1644,24 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Lasonil">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/LENIGOLA.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LENIGOLA.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenigola">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenitos">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/sanipirina.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SANIPIRINA.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/login/btn_01_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/BTN_01_NORMAL.PNG"/>
@@ -1351,6 +1752,102 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Aspirina">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/aspirina.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/ASPIRINA.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Defenflu">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/defenflu.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/DEFENFLU.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/lasonil.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LASONIL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenigola">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/LENIGOLA.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LENIGOLA.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenitos">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/lenitos.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LENITOS.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sanipirina">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/sanipirina.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SANIPIRINA.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sobrepin">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/sobrepin sciroppo.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SOBREPIN SCIROPPO.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Supradin">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/supradin.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SUPRADIN.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.aspirina">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/aspirina.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/ASPIRINA.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lasonil">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/lenitos.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LENITOS.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenigola">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenitos">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/lenitos.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LENITOS.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sanipirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sobrepin">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/sobrepin sciroppo.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SOBREPIN SCIROPPO.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.supradin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
         <properties/>
@@ -1363,9 +1860,21 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Sanipirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ServerSetupIcon">
         <properties/>
         <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Sobrepin">
+        <properties/>
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/supradin.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SUPRADIN.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -1430,6 +1939,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Supradin">
         <properties/>
         <properties/>
         <properties/>
@@ -1549,6 +2064,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="box">
         <properties/>
         <properties/>
@@ -1621,6 +2142,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="img_actionbar_bg">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/img_bar_bg.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/IMG_BAR_BG.PNG"/>
@@ -1657,6 +2184,42 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="lasonil">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="lenigola">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="lenitos">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="sanipirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="sobrepin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="supradin">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="tbb_normal">
         <properties/>
         <properties/>
@@ -1676,6 +2239,9 @@
       <imagePaths name="AboutIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
@@ -1692,6 +2258,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenitos">
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
@@ -1739,6 +2311,54 @@
       <imagePaths name="PopoverImages.Inform">
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenigola">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenitos">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sanipirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sobrepin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Supradin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenigola">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenitos">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sanipirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sobrepin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.supradin">
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
       </imagePaths>
@@ -1746,6 +2366,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ServerSetupIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Sobrepin">
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImage">
@@ -1851,6 +2474,9 @@
       <imagePaths name="AboutIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
@@ -1867,6 +2493,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenitos">
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
@@ -1914,6 +2546,54 @@
       <imagePaths name="PopoverImages.Inform">
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenigola">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenitos">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sanipirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sobrepin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Supradin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenigola">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenitos">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sanipirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sobrepin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.supradin">
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
       </imagePaths>
@@ -1921,6 +2601,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ServerSetupIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Sobrepin">
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImage">
@@ -2027,6 +2710,14 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Aspirina">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/defenflu.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/DEFENFLU.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Defenflu">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="DettaglioCliente">
         <properties/>
         <properties/>
@@ -2111,6 +2802,18 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Lasonil">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/LENIGOLA.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LENIGOLA.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenigola">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenitos">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/sanipirina.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SANIPIRINA.PNG"/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
         <properties string="/Users/admin/Desktop/VF/images/login/btn_01_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/BTN_01_NORMAL.PNG"/>
         <properties/>
@@ -2171,6 +2874,70 @@
         <properties string="/Users/admin/Desktop/VF/images/popover/inform.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/INFORM.PNG"/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Aspirina">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/aspirina.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/ASPIRINA.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Defenflu">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/defenflu.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/DEFENFLU.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/lasonil.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LASONIL.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenigola">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/LENIGOLA.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LENIGOLA.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenitos">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/lenitos.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LENITOS.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sanipirina">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/sanipirina.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SANIPIRINA.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sobrepin">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/sobrepin sciroppo.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SOBREPIN SCIROPPO.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Supradin">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/supradin.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SUPRADIN.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.aspirina">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/aspirina.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/ASPIRINA.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.defenflu">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lasonil">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/lasonil.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LASONIL.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenigola">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenitos">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/lenitos.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LENITOS.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sanipirina">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sobrepin">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/sobrepin sciroppo.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SOBREPIN SCIROPPO.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.supradin">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
         <properties/>
@@ -2179,8 +2946,16 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Sanipirina">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ServerSetupIcon">
         <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Sobrepin">
+        <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/supradin.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/SUPRADIN.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImage">
@@ -2224,6 +2999,10 @@
         <properties/>
       </imagePaths>
       <imagePaths name="SplitViewImages.ImgMasterBackground_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Supradin">
         <properties/>
         <properties/>
       </imagePaths>
@@ -2303,6 +3082,10 @@
         <properties string="/Users/admin/Desktop/VF/images/actionbar/tbb_01_pressed.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/TBB_01_PRESSED.PNG"/>
         <properties/>
       </imagePaths>
+      <imagePaths name="aspirina">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="box">
         <properties/>
         <properties/>
@@ -2331,7 +3114,35 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="defenflu">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="img_actionbar_bg">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="lasonil">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="lenigola">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="lenitos">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="sanipirina">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="sobrepin">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="supradin">
         <properties/>
         <properties/>
       </imagePaths>
@@ -2350,6 +3161,10 @@
       <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="IPHONE4" true="true"/>
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="IPHONE.mscript" hidden="true"/>
       <imagePaths name="AboutIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Aspirina">
         <properties/>
         <properties/>
       </imagePaths>
@@ -2374,6 +3189,14 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgWhiteBackground">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lasonil">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenitos">
         <properties/>
         <properties/>
       </imagePaths>
@@ -2437,6 +3260,70 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Aspirina">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Defenflu">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenigola">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenitos">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sanipirina">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sobrepin">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Supradin">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.aspirina">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.defenflu">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lasonil">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenigola">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenitos">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sanipirina">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sobrepin">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.supradin">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
         <properties/>
@@ -2446,6 +3333,10 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ServerSetupIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Sobrepin">
         <properties/>
         <properties/>
       </imagePaths>
@@ -2584,6 +3475,9 @@
       <imagePaths name="AboutIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
@@ -2600,6 +3494,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenitos">
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
@@ -2647,6 +3547,54 @@
       <imagePaths name="PopoverImages.Inform">
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenigola">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenitos">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sanipirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sobrepin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Supradin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenigola">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenitos">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sanipirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sobrepin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.supradin">
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
       </imagePaths>
@@ -2654,6 +3602,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ServerSetupIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Sobrepin">
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImage">
@@ -2759,6 +3710,9 @@
       <imagePaths name="AboutIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
@@ -2775,6 +3729,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenitos">
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
@@ -2822,6 +3782,54 @@
       <imagePaths name="PopoverImages.Inform">
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenigola">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenitos">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sanipirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sobrepin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Supradin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenigola">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenitos">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sanipirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sobrepin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.supradin">
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
       </imagePaths>
@@ -2829,6 +3837,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ServerSetupIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Sobrepin">
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImage">
@@ -2936,6 +3947,9 @@
       <imagePaths name="AboutIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
@@ -2952,6 +3966,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgWhiteBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Lenitos">
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.btn_01_normal">
@@ -2999,6 +4019,54 @@
       <imagePaths name="PopoverImages.Inform">
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenigola">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Lenitos">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sanipirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Sobrepin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Supradin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lasonil">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenigola">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.lenitos">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sanipirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.sobrepin">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.supradin">
+        <properties/>
+      </imagePaths>
       <imagePaths name="RolloverIcon">
         <properties/>
       </imagePaths>
@@ -3006,6 +4074,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ServerSetupIcon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Sobrepin">
         <properties/>
       </imagePaths>
       <imagePaths name="SplashImage">
@@ -3214,6 +4285,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="IndexPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="IndexPanel.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ItemHeaderHorizontalPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ItemHeaderHorizontalPanel.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
     </children>
@@ -3351,6 +4425,9 @@
     </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Screens">
+    <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="BrowserScreen">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="BrowserScreen.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="HomeScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="HomeScreen.mscript"/>
     </children>

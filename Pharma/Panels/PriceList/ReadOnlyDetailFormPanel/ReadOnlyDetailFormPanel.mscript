@@ -1,6 +1,6 @@
 ScrollableTablePanel {
 	DataRow currentRow;
-	Button btnItem=new Button();
+	BackgroundButton btnItem=new BackgroundButton();
 	
 	FormPanel pnlForm01 = new FormPanel();
 	
@@ -53,8 +53,7 @@ ScrollableTablePanel {
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 0);
 		setRowHeight(2, Sizing.PIXELS, 48);
-		btnItem.setText("Prodotti");
-		add(btnItem,"");
+		setUp3rdSection();
 		
 		
 		/*DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
@@ -71,7 +70,9 @@ ScrollableTablePanel {
 	
 	callback btnItem onClick(Control c){
 		Screens.PriceList.PriceListItemScreen scr=new Screens.PriceList.PriceListItemScreen();
-		scr.push();
+		scr.lbl02.setText(txtFldName.getText());
+		scr.listCode=txtFldCode.getText();
+		scr.push(0,false);
 	
 	}
 	void setRow(DataRow dtRw) {
@@ -230,5 +231,27 @@ ScrollableTablePanel {
 		add(pnlForm01,"hfill=fill");
 		
 	}
+	
+	
+	void setUp3rdSection() {
+		
+		Font fnt = new Font();
+		fnt.setSize(20);
+		fnt.setFamily("Arial");
+		fnt.setBold();
+		
+		btnItem.setFont(fnt);
+		btnItem.setText("Prodotti");		
+		btnItem.setLeftSpacing(48);
+		btnItem.setForeColor(Colors.Black);
+		btnItem.setFocusedForeColor(Colors.Black);
+		btnItem.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgContactsList, 50, 30, 0, 0));
+		btnItem.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgContactsList, 50, 30, 0, 0));
+		//btn01.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+		
+		add(btnItem,"hfill=fill");
+		
+	}
+	
 
 }
