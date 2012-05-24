@@ -5,82 +5,87 @@ TablePanel {
 	 */
 	DataRow currentRow = null;
 	 
+	PictureBox picBox = new PictureBox();
+	Label lbl01 = new Label();
+	Label lbl02 = new Label();
+	
 	FormPanel pnlForm01 = new FormPanel();
 	FormPanel pnlForm02 = new FormPanel();
 	FormPanel pnlForm03 = new FormPanel();
-	ScrollableTablePanel pnlScroll = new ScrollableTablePanel();
 	
 	BackgroundButton btn01 = new BackgroundButton();
 	
-	PictureBox picBox = new PictureBox();
 	
 	// Dettaglio Ordine
-	TextModel txtMdlCode = new TextModel();
-	Label txtFldCode = new Label();
-	
-	DateModel dtMdlDate = new DateModel();
-	Label txtFldDate = new Label();
-	
-	TextModel txtMdlType = new TextModel();
-	Label txtFldType = new Label();
-	
-	TextModel txtMdlAccountName = new TextModel();
-	Label txtFldAccountName = new Label();
-	
-	TextModel txtMdlPriceList = new TextModel();
-	Label txtFldPriceList = new Label();	
-	
-	TextModel txtMdlStatus = new TextModel();
-	Label txtFldStatus = new Label();
+	Label lblFld01 = new Label();
+	Label lblFld02 = new Label();
+	Label lblFld03 = new Label();
+	Label lblFld04 = new Label();
+	Label lblFld05 = new Label();	
+	Label lblFld06 = new Label();
 	
 	// Consegna e Pagamento
-	DateModel dtMdl1stDate = new DateModel();
-	Label txtFld1stDate = new Label();
-	
-	DateModel dtMdl2ndDate = new DateModel();
-	Label txtFld2ndDate = new Label();
-	
-	DateModel dtMdl3rdDate = new DateModel();
-	Label txtFld3rdDate = new Label();
-	
-	TextModel txtMdlPaymentMode = new TextModel();
-	Label txtFldPaymentMode = new Label();
-	
-	TextModel txtMdlNote = new TextModel();
-	Label txtFldNote = new Label();
+	Label lblFld07 = new Label();
+	Label lblFld08 = new Label();
+	Label lblFld09 = new Label();
+	Label lblFld10 = new Label();
+	Label lblFld11 = new Label();
 	
 	// Totali Ordine
-	TextModel txtMdlTotalGross = new TextModel();
-	Label txtFldTotalGross = new Label();
-	
-	TextModel txtMdlTotalNet = new TextModel();
-	Label txtFldTotalNet = new Label();
-	
-	TextModel txtMdlTotalDiscount = new TextModel();
-	Label txtFldTotalDiscount = new Label();
+	Label lblFld12 = new Label();
+	Label lblFld13 = new Label();
+	Label lblFld14 = new Label();
 	
 	/*
 	 * Callback methods
 	 */	
 	callback onCreate(Container c) {
-		
+				
 		setUpHeader();
+		setUpForms();
 		
-		add(picBox);
-		add(txtFldCode);
+		// Header Panel
+		TablePanel pnlHeader = new TablePanel();
+		pnlHeader.add(picBox,"rowspan=2");
+		pnlHeader.add(lbl01,"valign=bottom");
+		pnlHeader.startNewRow();
+		pnlHeader.add(lbl02,"valign=top");
+		//pnlHeader.setInsets(0,48,0,0);
+		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
+		pnlHeader.setColumnWidth(0, Sizing.PREFERRED, 0);
+		pnlHeader.setColumnWidth(1, Sizing.PREFERRED, 1);
+		pnlHeader.setRowHeight(0, Sizing.PREFERRED, 1);
+		pnlHeader.setRowHeight(1, Sizing.PREFERRED, 1);
+		
+		// Body Panel
+		ScrollableTablePanel pnlBody = new ScrollableTablePanel();
+		pnlBody.add(pnlForm01,"hfill=fill,halign=center,valign=top");
+		pnlBody.startNewRow();
+		pnlBody.add(new Separator(), "");
+		pnlBody.startNewRow();
+		pnlBody.add(pnlForm02,"hfill=fill,halign=center,valign=top");
+		pnlBody.startNewRow();
+		pnlBody.add(new Separator(), "");
+		pnlBody.startNewRow();
+		pnlBody.add(pnlForm03,"hfill=fill,halign=center,valign=top");
+		
+		pnlBody.enableScroll(true);
+		//pnlBody.setInsets(48,48,48,48);
+		pnlBody.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgCellBackground_s, 0, 0, 0, 0));
+		pnlBody.setColumnWidth(0, Sizing.PREFERRED, 1);
+		pnlBody.setRowHeight(0, Sizing.PREFERRED, 0);
+		pnlBody.setRowHeight(1, Sizing.PIXELS, 48);
+		pnlBody.setRowHeight(2, Sizing.PREFERRED, 0);
+		pnlBody.setRowHeight(3, Sizing.PIXELS, 48);
+		pnlBody.setRowHeight(4, Sizing.PREFERRED, 0);
+		
+		add(pnlHeader,"hfill=fill,vfill=fill");
 		startNewRow();
-		//setUpForms();
-		pnlScroll.add(txtFldCode,"hfill=fill");
-		pnlScroll.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
-		add(pnlScroll,"colspan=2,hfill=fill");
-
+		add(pnlBody,"hfill=fill,vfill=fill");
 		
-		setInsets(8,8,8,8);
+		setInsets(48,48,48,48);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-		
-		//set size (note: this is required)
-		setColumnWidth(0, Sizing.PREFERRED, 0);
-		setColumnWidth(1, Sizing.PREFERRED, 1);
+		setColumnWidth(0, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
 		
@@ -96,17 +101,34 @@ TablePanel {
 		
 		Font fnt = new Font();
 		fnt.setFamily("Arial");
-		fnt.setSize(24);
-		fnt.setBold();
 		
-		picBox.setImage(Images.VodafoneImages.box.getImage());
-		txtFldCode.setFont(fnt);
-		txtFldCode.setForeColor(Color.create(189,0,0));
+		fnt.setSize(18);
+		lbl02.setFont(fnt);
+		lbl02.setForeColor(Colors.Black);
+
+		fnt.setSize(22);
+		fnt.setBold();
+		lbl01.setFont(fnt);
+		lbl01.setForeColor(Color.create(189,0,0));
 	
-		//add(picBox);
-		//add(txtFldCode);
+		picBox.setImage(Images.VodafoneImages.box.getImage());
 	
 	} 
+	
+	void setFormTitle(String str) {
+		Font fnt = new Font(); 
+		fnt.setFamily("Arial");
+		fnt.setSize(22);
+		fnt.setBold();
+	
+		Label lbl = new Label();
+		lbl.setText(str);
+		lbl.setFont(fnt);
+		lbl.setForeColor(Colors.Black);
+		
+		add(lbl,"hfill=fill");
+	
+	}
 	
 	void setUpForms() {
 		
@@ -114,80 +136,226 @@ TablePanel {
 		fnt.setFamily("Arial");
 		fnt.setSize(20);
 		
-		txtFldCode.setFont(fnt);
-		txtFldCode.setForeColor(Colors.Black);
+		lblFld01.setFont(fnt);
+		lblFld01.setForeColor(Colors.Black);
 		
-		txtFldDate.setFont(fnt);
-		txtFldDate.setForeColor(Colors.Black);
+		lblFld02.setFont(fnt);
+		lblFld02.setForeColor(Colors.Black);
 		
-		txtFldType.setFont(fnt);
-		txtFldType.setForeColor(Colors.Black);
+		lblFld03.setFont(fnt);
+		lblFld03.setForeColor(Colors.Black);
 		
-		txtFldAccountName.setFont(fnt);
-		txtFldAccountName.setForeColor(Colors.Black);
+		lblFld04.setFont(fnt);
+		lblFld04.setForeColor(Colors.Black);
 		
-		txtFldPriceList.setFont(fnt);
-		txtFldPriceList.setForeColor(Colors.Black);
+		lblFld05.setFont(fnt);
+		lblFld05.setForeColor(Colors.Black);
 		
-		txtFldStatus.setFont(fnt);
-		txtFldStatus.setForeColor(Colors.Black);
+		lblFld06.setFont(fnt);
+		lblFld06.setForeColor(Colors.Black);
+		
+		lblFld07.setFont(fnt);
+		lblFld07.setForeColor(Colors.Black);
+	
+		lblFld08.setFont(fnt);
+		lblFld08.setForeColor(Colors.Black);
+		
+		lblFld09.setFont(fnt);
+		lblFld09.setForeColor(Colors.Black);
+		
+		lblFld10.setFont(fnt);
+		lblFld10.setForeColor(Colors.Black);
+		
+		lblFld11.setFont(fnt);
+		lblFld11.setForeColor(Colors.Black);
+		
+		lblFld12.setFont(fnt);
+		lblFld12.setForeColor(Colors.Black);
+
+		lblFld13.setFont(fnt);
+		lblFld13.setForeColor(Colors.Black);
+
+		lblFld14.setFont(fnt);
+		lblFld14.setForeColor(Colors.Black);		
 		
 		fnt.setBold();
 	
-		Label lblCode = new Label();
-		lblCode.setText("Nr. Ordine");
-		lblCode.setFont(fnt);
-		lblCode.setForeColor(Colors.Black);
-		pnlForm01.add(lblCode, "halign=right", txtFldCode, "halign=left,hfill=fill");
+		Label lbl01 = new Label();
+		lbl01.setText("Nr. Ordine");
+		lbl01.setFont(fnt);
+		lbl01.setForeColor(Colors.Black);
+		pnlForm01.add(lbl01, "halign=right", lblFld01, "halign=left,hfill=fill");
 		
-		Label lblDate = new Label();
-		lblDate.setText("Data Ordine");
-		lblDate.setFont(fnt);
-		lblDate.setForeColor(Colors.Black);
-		pnlForm01.add(lblDate, "halign=right", txtFldDate, "halign=left,hfill=fill");
+		Label lbl02 = new Label();
+		lbl02.setText("Data Ordine");
+		lbl02.setFont(fnt);
+		lbl02.setForeColor(Colors.Black);
+		pnlForm01.add(lbl02, "halign=right", lblFld02, "halign=left,hfill=fill");
 		
-		Label lblType = new Label();
-		lblType.setText("Tipo");
-		lblType.setFont(fnt);
-		lblType.setForeColor(Colors.Black);
-		pnlForm01.add(lblType, "halign=right", txtFldType, "halign=left,hfill=fill");
+		Label lbl03 = new Label();
+		lbl03.setText("Tipo");
+		lbl03.setFont(fnt);
+		lbl03.setForeColor(Colors.Black);
+		pnlForm01.add(lbl03, "halign=right", lblFld03, "halign=left,hfill=fill");
 		
-		Label lblAccountName = new Label();
-		lblAccountName.setText("Cliente");
-		lblAccountName.setFont(fnt);
-		lblAccountName.setForeColor(Colors.Black);
-		pnlForm01.add(lblAccountName, "halign=right", txtFldAccountName, "halign=left,hfill=fill");
+		Label lbl04 = new Label();
+		lbl04.setText("Cliente");
+		lbl04.setFont(fnt);
+		lbl04.setForeColor(Colors.Black);
+		pnlForm01.add(lbl04, "halign=right", lblFld04, "halign=left,hfill=fill");
 	
-		Label lblPriceList = new Label();
-		lblPriceList.setText("Listino");
-		lblPriceList.setFont(fnt);
-		lblPriceList.setForeColor(Colors.Black);
-		pnlForm01.add(lblPriceList, "halign=right", txtFldPriceList, "halign=left,hfill=fill");
+		Label lbl05 = new Label();
+		lbl05.setText("Listino");
+		lbl05.setFont(fnt);
+		lbl05.setForeColor(Colors.Black);
+		pnlForm01.add(lbl05, "halign=right", lblFld05, "halign=left,hfill=fill");
 		
-		Label lblStatus = new Label();
-		lblStatus.setText("Listino");
-		lblStatus.setFont(fnt);
-		lblStatus.setForeColor(Colors.Black);
-		pnlForm01.add(lblStatus, "halign=right", txtFldStatus, "halign=left,hfill=fill");
-		
+		Label lbl06 = new Label();
+		lbl06.setText("Stato");
+		lbl06.setFont(fnt);
+		lbl06.setForeColor(Colors.Black);
+		pnlForm01.add(lbl06, "halign=right", lblFld06, "halign=left,hfill=fill");
 		
 		pnlForm01.setInsets(8,8,8,8);
 		pnlForm01.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
-		pnlForm01.setLabelColumnWidth(Sizing.PERCENTS, 20);
+		pnlForm01.setLabelColumnWidth(Sizing.PERCENTS, 30);
 		pnlForm01.setControlColumnWidth(Sizing.PREFERRED, 1);
-		pnlScroll.add(pnlForm01,"hfill=fill");
 		
-		add(pnlScroll,"hfill=fill,vfill=fill");
-	
+		Label lbl07 = new Label();
+		lbl07.setText("Prima Consegna");
+		lbl07.setFont(fnt);
+		lbl07.setForeColor(Colors.Black);
+		pnlForm02.add(lbl07, "halign=right", lblFld07, "halign=left,hfill=fill");
+		
+		Label lbl08 = new Label();
+		lbl08.setText("Seconda Consegna");
+		lbl08.setFont(fnt);
+		lbl08.setForeColor(Colors.Black);
+		pnlForm02.add(lbl08, "halign=right", lblFld08, "halign=left,hfill=fill");
+		
+		Label lbl09 = new Label();
+		lbl09.setText("Terza Consegna");
+		lbl09.setFont(fnt);
+		lbl09.setForeColor(Colors.Black);
+		pnlForm02.add(lbl09, "halign=right", lblFld09, "halign=left,hfill=fill");
+		
+		Label lbl10 = new Label();
+		lbl10.setText("Metodo di Pagamento");
+		lbl10.setFont(fnt);
+		lbl10.setForeColor(Colors.Black);
+		pnlForm02.add(lbl10, "halign=right", lblFld10, "halign=left,hfill=fill");
+		
+		Label lbl11 = new Label();
+		lbl11.setText("Note");
+		lbl11.setFont(fnt);
+		lbl11.setForeColor(Colors.Black);
+		pnlForm02.add(lbl11, "halign=right", lblFld11, "halign=left,hfill=fill");
+		
+		pnlForm02.setInsets(8,8,8,8);
+		pnlForm02.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
+		pnlForm02.setLabelColumnWidth(Sizing.PERCENTS, 30);
+		pnlForm02.setControlColumnWidth(Sizing.PREFERRED, 1);
+
+		Label lbl12 = new Label();
+		lbl12.setText("Tot. Lordo");
+		lbl12.setFont(fnt);
+		lbl12.setForeColor(Colors.Black);
+		pnlForm03.add(lbl12, "halign=right", lblFld12, "halign=left,hfill=fill");
+		
+		Label lbl13 = new Label();
+		lbl13.setText("Tot. Netto");
+		lbl13.setFont(fnt);
+		lbl13.setForeColor(Colors.Black);
+		pnlForm03.add(lbl13, "halign=right", lblFld13, "halign=left,hfill=fill");
+		
+		Label lbl14 = new Label();
+		lbl14.setText("Tot. Sconto");
+		lbl14.setFont(fnt);
+		lbl14.setForeColor(Colors.Black);
+		pnlForm03.add(lbl14, "halign=right", lblFld14, "halign=left,hfill=fill");	
+		
+		pnlForm03.setInsets(8,8,8,8);
+		pnlForm03.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
+		pnlForm03.setLabelColumnWidth(Sizing.PERCENTS, 30);
+		pnlForm03.setControlColumnWidth(Sizing.PREFERRED, 1);			
+
 	}
+	 
+	String getFormattedDate(DateAttribute dtAtt, DataRow dtRw) {
+		
+		/*
+		Date startDate=vObjPriceList.PriceListStartDate.getDateValue(dtRw);
+		int m=startDate.month();
+		int d=startDate.day();
+		int y=startDate.year();
+		strStartDate=""+d+"/"+m+"/"+y;
+		*/
+		
+		DateFormatModel dtFormat = new DateFormatModel();
+		dtFormat.setStyle(DateStyles.DATE_MEDIUM);
+		dtFormat.addField(dtAtt);
+		dtFormat.setRow(dtRw);
+		
+		return dtFormat.getText();
+		
+	} 
 	 
 	void setRow(DataRow dtRw) {
 		
+		String str01 = (vObjOrder.OrderCode.getStringValue(dtRw) != null) ? vObjOrder.OrderCode.getStringValue(dtRw) : "Data not found!";
+		String str02 = (vObjOrder.OrderDate.getDateValue(dtRw) != null) ? vObjOrder.OrderDate.getDateValue(dtRw).toString() : "Data not found!";
+		String str03 = (vObjOrder.OrderType.getStringValue(dtRw) != null) ? vObjOrder.OrderType.getStringValue(dtRw) : "Data not found!";
+		String str04 = (vObjOrder.AccountName.getStringValue(dtRw) != null) ? vObjOrder.AccountName.getStringValue(dtRw) : "Data not found!";
+		String str05 = (vObjOrder.OrderPriceList.getStringValue(dtRw) != null) ? vObjOrder.OrderPriceList.getStringValue(dtRw) : "Data not found!";
+		String str06 = (vObjOrder.OrderStatus.getStringValue(dtRw) != null) ? vObjOrder.OrderStatus.getStringValue(dtRw) : "Data not found!";
+		
+		String str07 = (vObjOrder.Order1stDeliveryDate.getDateValue(dtRw) != null) ? vObjOrder.Order1stDeliveryDate.getDateValue(dtRw).toString() : "Data not found!";
+		String str08 = (vObjOrder.Order2ndDeliveryDate.getDateValue(dtRw) != null) ? vObjOrder.Order2ndDeliveryDate.getDateValue(dtRw).toString() : "Data not found!";
+		String str09= (vObjOrder.Order3rdDeliveryDate.getDateValue(dtRw) != null) ? vObjOrder.Order3rdDeliveryDate.getDateValue(dtRw).toString() : "Data not found!";
+		String str10 = (vObjOrder.OrderPaymentMode.getStringValue(dtRw) != null) ? vObjOrder.OrderPaymentMode.getStringValue(dtRw) : "Data not found!";
+		String str11 = (vObjOrder.OrderNote.getStringValue(dtRw) != null) ? vObjOrder.OrderNote.getStringValue(dtRw) : "Data not found!";
+		
+		String str12 = (vObjOrder.OrderTotalGross.getCurrencyValue(dtRw) != null) ? vObjOrder.OrderTotalGross.getCurrencyValue(dtRw).toString() : "Data not found!";
+		String str13 = (vObjOrder.OrderTotalNet.getCurrencyValue(dtRw) != null) ? vObjOrder.OrderTotalNet.getCurrencyValue(dtRw).toString() : "Data not found!";
+		String str14 = (vObjOrder.OrderTotalDiscount.getDoubleValue(dtRw) != null) ? vObjOrder.OrderTotalDiscount.getDoubleValue(dtRw).toString() : "Data not found!";
+		
 		currentRow = dtRw;	
 				
-		txtMdlCode.setRow(dtRw);
-		txtMdlCode.setText(vObjOrder.OrderCode.getStringValue(dtRw));
-		txtFldCode.setDataModel(txtMdlCode);
+		if(vObjOrder.OrderDate.getDateValue(dtRw) != null) {
+			str02 = getFormattedDate(vObjOrder.OrderDate, dtRw);	
+		}
+		
+		if(vObjOrder.Order1stDeliveryDate.getDateValue(dtRw) != null) {
+			str07 = getFormattedDate(vObjOrder.Order1stDeliveryDate, dtRw);
+		}
+		
+		if(vObjOrder.Order2ndDeliveryDate.getDateValue(dtRw) != null) {
+			str08 = getFormattedDate(vObjOrder.Order2ndDeliveryDate, dtRw);
+		}
+		
+		if(vObjOrder.Order3rdDeliveryDate.getDateValue(dtRw) != null) {
+			str09 = getFormattedDate(vObjOrder.Order3rdDeliveryDate, dtRw);
+		}
+		
+		lbl01.setText(str01);
+		lbl02.setText(str02);
+		
+		lblFld01.setText(str01);
+		lblFld02.setText(str02);
+		lblFld03.setText(str03);
+		lblFld04.setText(str04);
+		lblFld05.setText(str05);
+		lblFld06.setText(str06);
+		
+		lblFld07.setText(str07);
+		lblFld08.setText(str08);
+		lblFld09.setText(str09);
+		lblFld10.setText(str10);
+		lblFld11.setText(str11);
+		
+		lblFld12.setText(str12);
+		lblFld13.setText(str13);
+		lblFld14.setText(str14); 
 		
 	}
 

@@ -886,7 +886,7 @@ UIObject {
 	    vObjOrder.OrderPaymentMode.setStringValue("Ri.Ba.", row);
         vObjOrder.OrderTotalGross.setCurrencyValue(Platform.createDouble(100.00) , row);
         vObjOrder.OrderTotalNet.setCurrencyValue(Platform.createDouble(85.00), row);
-        vObjOrder.OrderTotalDiscount.setFloatValue(Platform.createFloat(10), row); 
+        vObjOrder.OrderTotalDiscount.setDoubleValue(Platform.createDouble(10.00), row); 
         row.applyUpdates();
 
         row = vObjOrder.getNewRow();
@@ -902,7 +902,7 @@ UIObject {
 	    vObjOrder.OrderPaymentMode.setStringValue("Ri.Ba.", row);
         vObjOrder.OrderTotalGross.setCurrencyValue(Platform.createDouble(150.00) , row);
         vObjOrder.OrderTotalNet.setCurrencyValue(Platform.createDouble(125.00), row);
-        vObjOrder.OrderTotalDiscount.setFloatValue(Platform.createFloat(15), row); 
+        vObjOrder.OrderTotalDiscount.setDoubleValue(Platform.createDouble(15.00), row); 
         row.applyUpdates();
 		
         row = vObjOrder.getNewRow();
@@ -918,7 +918,7 @@ UIObject {
 	    vObjOrder.OrderPaymentMode.setStringValue("Ri.Ba.", row);
         vObjOrder.OrderTotalGross.setCurrencyValue(Platform.createDouble(150.00) , row);
         vObjOrder.OrderTotalNet.setCurrencyValue(Platform.createDouble(125.00), row);
-        vObjOrder.OrderTotalDiscount.setFloatValue(Platform.createFloat(15), row); 
+        vObjOrder.OrderTotalDiscount.setDoubleValue(Platform.createDouble(20.00), row); 
         row.applyUpdates();		
 		
 	}
