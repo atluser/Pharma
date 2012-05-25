@@ -33,7 +33,8 @@ Screen {
 		Panels.Order.RootPanel pnlOrderRoot = new Panels.Order.RootPanel();
 		Panels.ServiceRequest.RootPanel pnlServiceRequestRoot = new Panels.ServiceRequest.RootPanel();
 		Panels.Catalog.RootPanel pnlCatalogRoot = new Panels.Catalog.RootPanel();
-		Panels.PriceList.RootPanel pnlPriceListRoot = new Panels.PriceList.RootPanel();
+		//Panels.PriceList.RootPanel pnlPriceListRoot = new Panels.PriceList.RootPanel();
+		Panels.PriceList.RootTablePanel pnlPriceListRoot = new Panels.PriceList.RootTablePanel();
 		
 		StackPanel stkPnlRoot = new StackPanel();
 		stkPnlRoot.add(pnlAccountRoot);

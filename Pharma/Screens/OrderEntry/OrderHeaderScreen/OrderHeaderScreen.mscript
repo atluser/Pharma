@@ -215,7 +215,7 @@ Screen {
 		//detail form
 		pnlDetailForm=(Panels.Account.ReadOnlyDetailFormPanel)accfp;				
 		stkTP=(Panels.Account.StickyTablePanel)tp;
-		fp.setRow(row);
+		//fp.setRow(row);
 		//refresh();		
 			
 	}

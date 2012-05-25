@@ -17,7 +17,8 @@ HorizontalPanel {
 	Panels.Order.RootPanel pnlOrderRoot;
 	Panels.ServiceRequest.RootPanel pnlServiceRequestRoot;
 	Panels.Catalog.RootPanel pnlCatalogRoot;
-	Panels.PriceList.RootPanel pnlPriceListRoot;
+	//Panels.PriceList.RootPanel pnlPriceListRoot;
+	Panels.PriceList.RootTablePanel pnlPriceListRoot;
 	Screens.HomeScreen scrHome;
 
 	Button btnHome = new Button();
