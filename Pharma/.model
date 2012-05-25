@@ -475,6 +475,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.box">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
         <properties/>
@@ -941,6 +947,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.box">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
         <properties/>
@@ -1396,6 +1408,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
         <properties/>
@@ -2408,6 +2426,9 @@
       <imagePaths name="VodafoneImages.ImgPick">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.box">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
       </imagePaths>
@@ -2638,6 +2659,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
@@ -3389,6 +3413,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.box">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
         <properties/>
@@ -3634,6 +3662,9 @@
       <imagePaths name="VodafoneImages.ImgPick">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.box">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
       </imagePaths>
@@ -3864,6 +3895,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
@@ -4098,6 +4132,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
@@ -4338,6 +4375,9 @@
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootTablePanel.mscript"/>
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
