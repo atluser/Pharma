@@ -42,30 +42,34 @@ ScrollableTablePanel {
 	
 	TablePanel mainTP=new TablePanel();
 	callback onCreate(Container c){
-		
 				
-		setUpHeaderSection("Dettaglio Listino");		
-		mainTP.startNewRow();
+		setUpHeaderSection("Dettaglio Listino");
+		startNewRow();		
+		
 		setUp1stSection();
-		mainTP.startNewRow();
-		add(new Separator(), "");
-		mainTP.startNewRow();
+		//mainTP.startNewRow();
+		//add(new Separator(), "");
+		//mainTP.startNewRow();
+		
 		
 		//enableScroll(true);
 		//setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-		//setColumnWidth(0, Sizing.PERCENTS, 60);
+		mainTP.setColumnWidth(0, Sizing.PERCENTS, 60);
 		appLog.log(Log.INFO,"OK finished");
-		setRowHeight(0, Sizing.PREFERRED, 0);
 		
+		/*
 		mainTP.setRowHeight(0, Sizing.PREFERRED, 0);
-		mainTP.setRowHeight(1, Sizing.PREFERRED, 0);
-		mainTP.setRowHeight(2, Sizing.PIXELS, 48);
+		mainTP.setRowHeight(1, Sizing.PREFERRED, 0);*/
+		//setRowHeight(2, Sizing.PIXELS, 48);
 		
-		setUp3rdSection();
+		//setUp3rdSection();
 		
-		mainTP.setColumnWidth(0,Sizing.PERCENTS,60);
+		//mainTP.setColumnWidth(0,Sizing.PERCENTS,60);
 		add(mainTP,"halign=center,vfill=fill");
-		setColumnWidth(0,Sizing.PERCENTS,100);
+		//add(mainTP,"");
+		setColumnWidth(0,Sizing.PREFERRED,1);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);
 	
 	}
 	
@@ -122,7 +126,19 @@ ScrollableTablePanel {
 		lbl.setFont(fnt);
 		lbl.setForeColor(Colors.Black);
 		
-		mainTP.add(lbl,"hfill=fill");
+		TablePanel pnlHeaderRoot = new TablePanel();
+		picBox.setImage(Images.VodafoneImages.box.getImage());
+		pnlHeaderRoot.add(picBox,"rowspan=2");
+		pnlHeaderRoot.add(lbl,"valign=bottom");
+		pnlHeaderRoot.startNewRow();
+		//pnlHeaderRoot.add(lbl02,"valign=top");
+		pnlHeaderRoot.setColumnWidth(0, Sizing.PERCENTS, 10);
+		//pnlHeaderRoot.setColumnWidth(1, Sizing.PERCENTS, 50);
+		pnlHeaderRoot.setRowHeight(0, Sizing.PREFERRED, 1);
+		pnlHeaderRoot.setRowHeight(1, Sizing.PREFERRED, 1);
+		
+		
+		add(pnlHeaderRoot,"hfill=fill");
 		appLog.log(Log.INFO,"HEADERSECTION ADDED");
 	
 	}
