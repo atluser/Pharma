@@ -32,20 +32,22 @@ ScrollableTablePanel {
 	Label lbl16=new Label();
 	Label lbl17=new Label();
 	
-	Label txtCode=new Label();
-	TextModel mdlCode =new TextModel();
+	
+	
+	Label txt01=new Label();
+	TextModel mdl01 =new TextModel();
 	
 	UppercaseField txtName=new UppercaseField();
 	TextModel mdlName =new TextModel();
 	
-	Label txtType=new Label();
-	TextModel mdlType =new TextModel();
+	Label txt02=new Label();
+	TextModel mdl02 =new TextModel();
 	
 	//TextField txtCategory=new TextField();
 	//Picker txtCategory=new Picker();
-	BackgroundButton btnCategoryPopup=new BackgroundButton();
+	//BackgroundButton btnCategoryPopup=new BackgroundButton();
 	//ChoiceModel mdlCategory=new ChoiceModel();
-	TextModel mdlCategory=new TextModel();
+	//TextModel mdlCategory=new TextModel();
 	
 	Label txtStatus=new Label();
 	TextModel mdlStatus=new TextModel();
@@ -113,7 +115,7 @@ ScrollableTablePanel {
 	Styles.FormStyle style = new Styles.FormStyle();
 	//Font titlefnt;
 	callback onCreate(Container c){
-		setUpPickPopover();
+	//	setUpPickPopover();
 		setLabel();
 		setModel();
 		
@@ -194,23 +196,24 @@ ScrollableTablePanel {
 		txtfnt.setSize(16);
 		txtfnt.setBold();
 											
-		lbl01.setText("Codice");
+		lbl01.setText("Nr. Ordine");
 		//lblCode.setFont(txtfnt);
-		lbl02.setText("Nome");
+		lbl02.setText("Data Ordine");
 		lbl02.setForeColor(Color.create(189,0,0));
 		//lblName.setFont(txtfnt);
 		lbl03.setText("Tipo");
 		//lblType.setFont(txtfnt);				
-		lbl04.setText("Categoria");
+		lbl04.setText("Cliente");
 		//lblCategory.setFont(txtfnt);
 		lbl04.setForeColor(Color.create(189,0,0));
-		lbl05.setText("Stato");
+		lbl05.setText("Listino");
 		//lblStatus.setFont(txtfnt);						
-		lbl06.setText("Indirizzo");
+		lbl06.setText("Stato");
 		//lblAddress.setFont(txtfnt);
 		lbl06.setForeColor(Color.create(189,0,0));
 		txtCity.setTextHint("Città");
-		lbl07.setText("Nazione");
+		
+		/*lbl07.setText("Nazione");
 		//lblCountry.setFont(txtfnt);
 		lbl07.setForeColor(Color.create(189,0,0));
 		lbl07.setText("Provincia");
@@ -234,10 +237,7 @@ ScrollableTablePanel {
 		lbl15.setText("Nr. Dipendenti");
 		//lbl03.setFont(txtfnt);
 		
-		//pulsante country				
-		/*btnCountryPopup.setBorder(Border.createSimpleBorder(Colors.Gray));
-		btnCountryPopup.setBackground(Background.create9PartImageRectangleBackground (Images.VodafoneImages.ImgPick , 0 , 50 , 0 , 0 ));
-		*/
+		//pulsante country						
 		
 		//btnCategoryPopup.setHorizontalTextAlignment(HorizontalAlignmentType.LEFT);
 		
@@ -249,6 +249,7 @@ ScrollableTablePanel {
 		
 		
 		//setdatamodel
+		/*
 		txtCode.setDataModel(mdlCode);
 		txtName.setDataModel(mdlName);
 		txtType.setDataModel(mdlType);
@@ -267,22 +268,11 @@ ScrollableTablePanel {
 		txtUrl.setDataModel(mdlUrl);
 		txtPrefix.setDataModel(mdlPrefix);
 		txtFaxPrefix.setDataModel(mdlPrefix);					
-		txtEmpNum.setDataModel(mdlEmpNum);	
+		txtEmpNum.setDataModel(mdlEmpNum);	*/
 	}
 	
 	void setModel(){		
-		/*Font txtfnt=new Font();
-		txtfnt.setFamily("Arial");
-		txtfnt.setSize(18);				
-		*/
-		//txtType.setFont(txtfnt);
-		//mdlType.setFont(txtfnt);
-		//mdlType.setForeColor(Colors.Black);
-		//txtStatus.setFont(txtfnt);
-		//mdlStatus.setFont(txtfnt);
-		//mdlStatus.setForeColor(Colors.Black);		
-		//mdlPrefix.setFont(txtfnt);
-		//mdlFaxPrefix.setFont(txtfnt);
+		/*
 		
 		mdlCode.addField(vObjAccount.AccountCode);
 		//mdlCode.setFont(txtfnt);
@@ -309,23 +299,7 @@ ScrollableTablePanel {
 		//mdlName.setText("pippo");
 		
 		setChoiceModel();
-		/*
-		//picker
-		PickerElement pkrEl1=new PickerElement();
-		PickerElement pkrEl2=new PickerElement();
-		PickerElement pkrEl3=new PickerElement();
-		pkrEl1.setText("Seleziona paese");
-		pkrEl2.setText("Seleziona provincia");
-		pkrEl3.setText("prova");
-		pkrCountry.setPlaceHolder(pkrEl1);
-		pkrProvince.setPlaceHolder(pkrEl2);
-		//pkrProvince.setMenuItemLabel("Provincia");
-		
-		pkrProvince.setBackColor(Colors.Blue);
-		
-		pkrProvince.addElement(pkrEl3);
-		pkrProvince.doneAddingElements();		
-		*****************************/
+		*/
 	}
 	
 	void setChoiceModel(){
@@ -357,10 +331,10 @@ ScrollableTablePanel {
 	}
 	
 	void setFormPanel01(){ 
-		anagraficaFP.add(lbl01,labelAlign,txtCode,controlAlign);
+		//anagraficaFP.add(lbl01,labelAlign,txtCode,controlAlign);
 		anagraficaFP.add(lbl02,labelAlign,txtName,controlAlign);
-		anagraficaFP.add(lbl03,labelAlign,txtType,controlAlign);
-		anagraficaFP.add(lbl04,labelAlign,btnCategoryPopup,controlAlign);
+		//anagraficaFP.add(lbl03,labelAlign,txtType,controlAlign);
+		//anagraficaFP.add(lbl04,labelAlign,btnCategoryPopup,controlAlign);
 		anagraficaFP.add(lbl05,labelAlign,txtStatus,controlAlign);
 		//anagraficaFP.setControlColumnWidth(Sizing.PERCENTS, 30);
 		anagraficaFP.setControlColumnWidth(Sizing.PREFERRED, 1);
@@ -440,7 +414,7 @@ ScrollableTablePanel {
 		additionalFP.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
 	
 	}
-	*/
+	
 	
 	void setRow(DataRow row){		
 		currentRow=row;			
@@ -505,18 +479,20 @@ ScrollableTablePanel {
 			currentRow.applyUpdates();
 		
 	}
-	
+*/	
 	
 	callback btnCountryPopup onClick(Control c){
-		showPopup((BackgroundButton)c,mdlPrefix,"COUNTRY","Nazioni");		
+	//	showPopup((BackgroundButton)c,mdlPrefix,"COUNTRY","Nazioni");		
 		
 	}
 	
 	callback btnProvincePopup onClick(Control c){
 		
-		showPopup((BackgroundButton)c,mdlProvince,"PROVINCE","Province");		
+		//showPopup((BackgroundButton)c,mdlProvince,"PROVINCE","Province");		
 		
 	}
+	
+	/*
 	
 	callback btnCategoryPopup onClick(Control c){
 		showPopup((BackgroundButton)c,mdlCategory,"CATEGORY","Categorie");		
@@ -547,16 +523,6 @@ ScrollableTablePanel {
 		titlefnt.setFamily("Arial");
 		titlefnt.setSize(22);
 		titlefnt.setBold();
-		/*
-		Font fnt=style.lblfnt.createCopy();
-		fnt.setBold();
-		
-		actClosePop.setText("Close");
-		actClosePop.setForeColor(Color.create(255,255,255));
-		actClosePop.setBackColor(Colors.Gray);		
-		actClosePop.setFont(fnt);	
-			
-		*/
 		
 		poPick.setAutoDismiss(false);
 		
@@ -576,10 +542,6 @@ ScrollableTablePanel {
 		//poPick.setLeftTitleBarAction ( actClosePop ); 
 		pnlPick.po=poPick;
 				
-		/*
-		poPick.add(lblPickTitle,"hfill=fill,vfill=fill");
-		poPick.startNewRow();
-		*/		
 		poPick.add(pnlPick, "hfill=fill,vfill=fill");		
 		
 	}
@@ -587,5 +549,5 @@ ScrollableTablePanel {
 	callback actClosePop onRun(Action a){
 		poPick.dismiss();
 	} 
-			
+		*/	
 }
