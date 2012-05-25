@@ -11,26 +11,26 @@ ScrollableTablePanel {
 	Action actClosePop=new Action();
 	//AnchorPosition ap=new AnchorPosition();
 	
-	Label lblCode=new Label();
-	Label lblName=new Label();
-	Label lblType=new Label();
-	Label lblCategory=new Label();
-	Label lblStatus=new Label();
-	Label lblAddress=new Label();
-	Label lblCity=new Label();
-	Label lblCap=new Label();
-	Label lblProvince=new Label();
-	Label lblCountry=new Label();
-	Label lblPhone=new Label();
-	Label lblCell=new Label();
-	//Label lblPrefix=new Label();
-	Label lblMail=new Label();
-	Label lblFax=new Label();
-	Label lblUrl=new Label();
-	
 	Label lbl01=new Label();
 	Label lbl02=new Label();
 	Label lbl03=new Label();
+	//Label lbl03=new Label();
+	Label lbl04=new Label();
+	Label lbl05=new Label();
+	Label lbl06=new Label();
+	Label lbl07=new Label();
+	Label lbl08=new Label();
+	Label lbl09=new Label();
+	Label lbl10=new Label();
+	Label lbl11=new Label();
+	//Label lblPrefix=new Label();
+	Label lbl12=new Label();
+	Label lbl13=new Label();
+	Label lbl14=new Label();
+	
+	Label lbl15=new Label();
+	Label lbl16=new Label();
+	Label lbl17=new Label();
 	
 	Label txtCode=new Label();
 	TextModel mdlCode =new TextModel();
@@ -133,7 +133,7 @@ ScrollableTablePanel {
 		lblTitle1.setFont(txtfnt);
 		mainTP.add(lblTitle1,"halign=center");
 		mainTP.startNewRow();//1
-		setAnagraficaFormPanel();
+		setFormPanel01();
 		anagraficaFP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));		
 		//add in table panel
 		mainTP.add(anagraficaFP,"halign=center,hfill=fill");		
@@ -150,8 +150,8 @@ ScrollableTablePanel {
 		lblTitle2.setFont(txtfnt);
 		mainTP.add(lblTitle2,"halign=center");
 		mainTP.startNewRow();//4
-		setAddressVerticalPanel();
-		setCommunicationVerticalPanel();
+		//setAddressVerticalPanel();
+		//setCommunicationVerticalPanel();
 		addressTP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
 		mainTP.add(addressTP,"halign=center,hfill=fill");
 		mainTP.startNewRow();//5		
@@ -163,7 +163,7 @@ ScrollableTablePanel {
 		mainTP.add(lblTitle3,"halign=center");	
 		lblTitle3.setFont(txtfnt);	
 		mainTP.startNewRow();//7		
-		setAdditionalFormPanel();
+		//setAdditionalFormPanel();
 		additionalFP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
 		mainTP.add(additionalFP,"halign=center,hfill=fill");
 		mainTP.startNewRow();//8		
@@ -194,44 +194,44 @@ ScrollableTablePanel {
 		txtfnt.setSize(16);
 		txtfnt.setBold();
 											
-		lblCode.setText("Codice");
+		lbl01.setText("Codice");
 		//lblCode.setFont(txtfnt);
-		lblName.setText("Nome");
-		lblName.setForeColor(Color.create(189,0,0));
+		lbl02.setText("Nome");
+		lbl02.setForeColor(Color.create(189,0,0));
 		//lblName.setFont(txtfnt);
-		lblType.setText("Tipo");
+		lbl03.setText("Tipo");
 		//lblType.setFont(txtfnt);				
-		lblCategory.setText("Categoria");
+		lbl04.setText("Categoria");
 		//lblCategory.setFont(txtfnt);
-		lblCategory.setForeColor(Color.create(189,0,0));
-		lblStatus.setText("Stato");
+		lbl04.setForeColor(Color.create(189,0,0));
+		lbl05.setText("Stato");
 		//lblStatus.setFont(txtfnt);						
-		lblAddress.setText("Indirizzo");
+		lbl06.setText("Indirizzo");
 		//lblAddress.setFont(txtfnt);
-		lblAddress.setForeColor(Color.create(189,0,0));
+		lbl06.setForeColor(Color.create(189,0,0));
 		txtCity.setTextHint("Città");
-		lblCountry.setText("Nazione");
+		lbl07.setText("Nazione");
 		//lblCountry.setFont(txtfnt);
-		lblCountry.setForeColor(Color.create(189,0,0));
-		lblProvince.setText("Provincia");
+		lbl07.setForeColor(Color.create(189,0,0));
+		lbl07.setText("Provincia");
 		//lblProvince.setFont(txtfnt);
 		txtCap.setTextHint("CAP");
-		lblPhone.setText("Telefono");
+		lbl08.setText("Telefono");
 		//lblPhone.setFont(txtfnt);		
-		lblMail.setText("e-Mail");
+		lbl09.setText("e-Mail");
 		//lblMail.setFont(txtfnt);
-		lblFax.setText("Fax");
+		lbl10.setText("Fax");
 		//lblFax.setFont(txtfnt);
-		lblCell.setText("Cellulare");
+		lbl11.setText("Cellulare");
 		//lblCell.setFont(txtfnt);
-		lblUrl.setText("Web site");
+		lbl12.setText("Web site");
 		//lblUrl.setFont(txtfnt);
 		
-		lbl01.setText("Rating");
+		lbl13.setText("Rating");
 		//lbl01.setFont(txtfnt);
-		lbl02.setText("Fatturato");
+		lbl14.setText("Fatturato");
 		//lbl02.setFont(txtfnt);
-		lbl03.setText("Nr. Dipendenti");
+		lbl15.setText("Nr. Dipendenti");
 		//lbl03.setFont(txtfnt);
 		
 		//pulsante country				
@@ -356,20 +356,20 @@ ScrollableTablePanel {
 	*/
 	}
 	
-	void setAnagraficaFormPanel(){ 
-		anagraficaFP.add(lblCode,labelAlign,txtCode,controlAlign);
-		anagraficaFP.add(lblName,labelAlign,txtName,controlAlign);
-		anagraficaFP.add(lblType,labelAlign,txtType,controlAlign);
-		anagraficaFP.add(lblCategory,labelAlign,btnCategoryPopup,controlAlign);
-		anagraficaFP.add(lblStatus,labelAlign,txtStatus,controlAlign);
+	void setFormPanel01(){ 
+		anagraficaFP.add(lbl01,labelAlign,txtCode,controlAlign);
+		anagraficaFP.add(lbl02,labelAlign,txtName,controlAlign);
+		anagraficaFP.add(lbl03,labelAlign,txtType,controlAlign);
+		anagraficaFP.add(lbl04,labelAlign,btnCategoryPopup,controlAlign);
+		anagraficaFP.add(lbl05,labelAlign,txtStatus,controlAlign);
 		//anagraficaFP.setControlColumnWidth(Sizing.PERCENTS, 30);
 		anagraficaFP.setControlColumnWidth(Sizing.PREFERRED, 1);
 		anagraficaFP.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);				 
 	}
-	
+	/*
 	void setAddressVerticalPanel(){		
 		FormPanel fp1=new FormPanel();
-		fp1.add(lblAddress,labelAlign,txtStreetAddress,controlAlign);
+		fp1.add(lbl06,labelAlign,txtStreetAddress,controlAlign);
 		//addressTP.add(lblAddress,"halign=left");
 		//hz1.add(txtStreetAddress,"halign=left,hfill=fill");
 		//hz1.setColumnWidth(0,Sizing.PREFERRED,0);
@@ -392,14 +392,11 @@ ScrollableTablePanel {
 		hz.setColumnWidth(1,Sizing.PREFERRED,1);
 		hz.setColumnWidth(2,Sizing.PREFERRED,1);
 		addressTP.add(hz);	
-		/*addressTP.startNewRow();
-		addressTP.add(lblCountry,"halign=left");
-		addressTP.add(txtCountry,"hfill=fill");*/
 		//addressTP.setColumnWidth(0,Sizing.PREFERRED,1);
 		//addressTP.setColumnWidth(1,Sizing.PREFERRED,1);
 		FormPanel fp2=new FormPanel();
 		//fp2.add(lblCountry,labelAlign,pkrCountry,"halign=left,vfill=fill,hfill=fill");
-		fp2.add(lblCountry,labelAlign,btnCountryPopup,"halign=left,vfill=fill,hfill=fill");
+		fp2.add(lbl07,labelAlign,btnCountryPopup,"halign=left,vfill=fill,hfill=fill");
 		fp2.setControlColumnWidth(Sizing.PREFERRED, 1);
 		fp2.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
 		addressTP.add(fp2);						
@@ -407,26 +404,9 @@ ScrollableTablePanel {
 	
 	void setCommunicationVerticalPanel(){
 		TablePanel phoneTP=new TablePanel();		
-		/*HorizontalPanel hz1=new HorizontalPanel();
-		hz1.add(lblPhone,labelAlign);
-		hz1.add(txtPrefix,"halign=left,hfill=fill");
-		hz1.add(txtPhone,"halign=left,hfill=fill");				
-		hz1.setColumnWidth(0,Sizing.PERCENTS,labelColumnSize);
-		hz1.setColumnWidth(1,Sizing.PREFERRED,1);
-		hz1.setColumnWidth(2,Sizing.PREFERRED,2);				
-		addressTP.add(hz1);
 		
-		HorizontalPanel hz2=new HorizontalPanel();
-		hz2.add(lblFax,labelAlign);
-		hz2.add(txtPrefix,"halign=left,hfill=fill");
-		hz2.add(txtFax,"halign=left,hfill=fill");				
-		hz2.setColumnWidth(0,Sizing.PERCENTS,labelColumnSize);
-		hz2.setColumnWidth(1,Sizing.PREFERRED,1);
-		hz2.setColumnWidth(2,Sizing.PREFERRED,2);				
-		addressTP.add(hz2);
-		*/
 		
-		phoneTP.add(lblPhone,labelAlign);
+		phoneTP.add(lbl08,labelAlign);
 		phoneTP.add(txtPrefix,"halign=left,hfill=fill");
 		phoneTP.add(txtPhone,"halign=left,hfill=fill");				
 		phoneTP.setColumnWidth(0,Sizing.PERCENTS,labelColumnSize);
@@ -435,7 +415,7 @@ ScrollableTablePanel {
 		
 		phoneTP.startNewRow();
 		HorizontalPanel hz2=new HorizontalPanel();
-		phoneTP.add(lblFax,labelAlign);
+		phoneTP.add(lbl09,labelAlign);
 		phoneTP.add(txtFaxPrefix,"halign=left,hfill=fill");
 		phoneTP.add(txtFax,"halign=left,hfill=fill");				
 		phoneTP.setColumnWidth(0,Sizing.PERCENTS,labelColumnSize);
@@ -445,8 +425,8 @@ ScrollableTablePanel {
 		addressTP.add(phoneTP);
 				
 		FormPanel fp=new FormPanel();
-		fp.add(lblMail,labelAlign,txtMail,"halign=left,hfill=fill");
-		fp.add(lblUrl,labelAlign,txtUrl,"halign=left,hfill=fill");
+		fp.add(lbl10,labelAlign,txtMail,"halign=left,hfill=fill");
+		fp.add(lbl11,labelAlign,txtUrl,"halign=left,hfill=fill");
 		fp.setControlColumnWidth(Sizing.PREFERRED, 1);
 		fp.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
 		addressTP.add(fp);															
@@ -460,7 +440,7 @@ ScrollableTablePanel {
 		additionalFP.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
 	
 	}
-	
+	*/
 	
 	void setRow(DataRow row){		
 		currentRow=row;			
@@ -490,25 +470,7 @@ ScrollableTablePanel {
 		
 		refresh();
 		
-		/*
-		int idx=mdlCountry.getSelectedIndex();
-		if(idx>=0)		pkrCountry.setSelectedIndex(mdlCountry.getSelectedIndex());		
-		idx=mdlProvince.getSelectedIndex();
-		if(idx>=0)		pkrProvince.setSelectedIndex(mdlProvince.getSelectedIndex());
-		idx=mdlCategory.getSelectedIndex();
-		if(idx>=0) txtCategory.setSelectedIndex(idx);
-		if(mdlCountry!=null){
-			String out=mdlCategory.getText();
-			idx=mdlCategory.getSelectedIndex();
-			appLog.log(Log.INFO,"mdlcotegory "+out+" "+idx);
-			out=mdlCountry.getText();
-			idx=mdlCountry.getSelectedIndex();
-			appLog.log(Log.INFO,"mdlcountry "+out+" "+idx);
-		}
-		else 
-			appLog.log(Log.INFO,"mdlcountry is null");
 		
-		*/
 		
 	}
 	
@@ -544,44 +506,16 @@ ScrollableTablePanel {
 		
 	}
 	
-	/*callback pkrCountry onValueChange(Control c){
-		String key=mdlCountry.getKeyValue();
-		mdlPrefix.setText(key);
-		mdlFaxPrefix.setText(key);
-	}*/
 	
-	/*callback btnProvinceSticky onClick(Control c){
-		Popups.ProvincePopup province=new Popups.ProvincePopup();
-		//province.stk.setDataModel(mdlProvince);
-		province.mdlChoice=mdlProvince;
-		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 1, Sizing.PERCENTS, 50, false);
-		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
-	
-	}*/
 	callback btnCountryPopup onClick(Control c){
 		showPopup((BackgroundButton)c,mdlPrefix,"COUNTRY","Nazioni");		
-		/*
-		Popups.ProvincePopup province=new Popups.ProvincePopup();
-		//province.stk.setDataModel(mdlProvince);
-		province.btnPopup=btnCountryPopup;
-		province.mdlPickMap=mdlPrefix;
-		province.setQuery(vObjLOV.getLOV("COUNTRY"));
-		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 1, Sizing.PERCENTS, 50, false);
-		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
-		*/
+		
 	}
 	
 	callback btnProvincePopup onClick(Control c){
 		
 		showPopup((BackgroundButton)c,mdlProvince,"PROVINCE","Province");		
-		/*
-		Popups.ProvincePopup province=new Popups.ProvincePopup();
-		//province.stk.setDataModel(mdlProvince);
-		province.btnPopup=btnProvincePopup;
-		province.mdlPickMap=mdlProvince;
-		province.setQuery(vObjLOV.getLOV("PROVINCE"));
-		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 1, Sizing.PERCENTS, 50, false);*/
-		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
+		
 	}
 	
 	callback btnCategoryPopup onClick(Control c){
@@ -649,26 +583,7 @@ ScrollableTablePanel {
 		poPick.add(pnlPick, "hfill=fill,vfill=fill");		
 		
 	}
-	
-	//SHOW POPOVER
-	/*
-	void showPopup(BackgroundButton button,TextModel model, String type,String title){
-		AnchorPosition ap=new AnchorPosition();
-		ap.setPositionType(AnchorPosition.HORIZONTAL_POSITION_RIGHT, AnchorPosition.VERTICAL_POSITION_CENTER);
-		ap.setAnchor(button);		
-							
-		pnlPick.btnPopup=button;
-		pnlPick.mdlPickMap=model;
-		pnlPick.setQuery(vObjLOV.getLOV(type));
-		pnlPick.TYPE=type;				
-		pnlPick.stk.reload();
 		
-		poPick.setTitle(title);
-		lblPickTitle.setText(title);				
-		scr.showPopover(poPick, true, ap);
-		
-	}
-	*/
 	callback actClosePop onRun(Action a){
 		poPick.dismiss();
 	} 

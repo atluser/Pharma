@@ -4386,6 +4386,9 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailHeaderHPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailHeaderHPanel.mscript"/>
       </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="EditFormScrollableTablePanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditFormScrollableTablePanel.mscript"/>
+      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderHeaderFP" sortOrder="1400" image="icons/form.png" superclass="FormPanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderHeaderFP.mscript"/>
       </children>
