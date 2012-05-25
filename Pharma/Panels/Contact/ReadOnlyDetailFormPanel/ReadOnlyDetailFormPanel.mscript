@@ -5,12 +5,15 @@ ScrollableTablePanel {
 	 */
 	DataRow currentRow = null;
 	
-	//Pannello Dettagli 
+	//Pannello Dati Anagrafici 
 	FormPanel pnlForm01 = new FormPanel();
-	//Pannello comunicazioni
+	//Pannello Localizzazione e Comunicazioni
 	FormPanel pnlForm02 = new FormPanel();
+	//Pannello Altre Info
+	FormPanel pnlForm03 = new FormPanel();
 	
-	//-- DETTAGLI --
+	
+	//-- DATI ANAGRAFICI --
 	
 	//Nome
 	TextModel txtMdlName = new TextModel();
@@ -24,11 +27,24 @@ ScrollableTablePanel {
 	TextModel txtMdlRelAccount = new TextModel();
 	Label txtFldRelAccount = new Label();
 	
+	//Titolo
+	TextModel txtMdlTitle = new TextModel();
+	Label txtFldTitle = new Label();
+	
+	//Titolo
+	TextModel txtMdlFunction = new TextModel();
+	Label txtFldFunction = new Label();
+	
 	//Stato Contatto (Attivo|Inattivo|Nuovo)
 	TextModel txtMdlStatus = new TextModel();
 	Label txtFldStatus = new Label();
 	
-	//-- COMUNICAZIONI --
+	//-- LOCALIZZAZIONE E COMUNICAZIONI --
+	
+	//Indirizzo
+	//Comprensivo di StreetAddress, Cap, StreetCity, Province, Country
+	TextModel txtMdlAddress = new TextModel();
+	Label txtFldAddress = new Label();
 	
 	//Telefono Personale
 	TextModel txtMdlPhone = new TextModel();
@@ -38,31 +54,45 @@ ScrollableTablePanel {
 	TextModel txtMdlOfficePhone = new TextModel();
 	Label txtFldOfficePhone = new Label();
 	
-	//Fax
-	TextModel txtMdlFax = new TextModel();
-	Label txtFldFax = new Label();
-	
 	//Email
 	TextModel txtMdlEmail = new TextModel();
 	Label txtFldEmail = new Label();
 	
-	//Indirizzo
-	//Comprensivo di StreetAddress, Cap, StreetCity, Province
-	TextModel txtMdlAddress = new TextModel();
-	Label txtFldAddress = new Label();
+	//-- ALTRE INFO --
+	//Email
+	TextModel txtMdlAge = new TextModel();
+	Label txtFldAge = new Label();
+	
+	//Sesso
+	TextModel txtMdlGender = new TextModel();
+	Label txtFldGender = new Label();
+	
+	//Note
+	TextModel txtMdlNote = new TextModel();
+	Label txtFldNote = new Label();
 		
 	/*
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
 		
-		setUpHeaderSection("Dettagli");
+		setUpHeaderSection("Anagrafica");
 		startNewRow();
 		setUpSection01();
 		startNewRow();
-		setUpHeaderSection("Comunicazioni");
+		add(new Separator(), "");
+		startNewRow();
+		
+		setUpHeaderSection("Localizzazione e Comunicazioni");
 		startNewRow();
 		setUpSection02();
+		startNewRow();
+		add(new Separator(), "");
+		startNewRow();
+		
+		setUpHeaderSection("Altre Informazioni");
+		startNewRow();
+		setUpSection03();
 		startNewRow();
 		add(new Separator(), "");
 		startNewRow();
@@ -137,6 +167,12 @@ ScrollableTablePanel {
 		txtFldRelAccount.setFont(fnt);
 		txtFldRelAccount.setForeColor(Colors.Black);
 		
+		txtFldTitle.setFont(fnt);
+		txtFldTitle.setForeColor(Colors.Black);
+		
+		txtFldFunction.setFont(fnt);
+		txtFldFunction.setForeColor(Colors.Black);
+		
 		txtFldStatus.setFont(fnt);
 		txtFldStatus.setForeColor(Colors.Black);
 		
@@ -160,6 +196,17 @@ ScrollableTablePanel {
 		lblRelAccount.setForeColor(Colors.Black);		
 		pnlForm01.add(lblRelAccount, "halign=right", txtFldRelAccount, "halign=left,hfill=fill");
 		
+		Label lblTitle = new Label();
+		lblTitle.setText("Titolo");
+		lblTitle.setFont(fnt);
+		lblTitle.setForeColor(Colors.Black);		
+		pnlForm01.add(lblTitle, "halign=right", txtFldTitle, "halign=left,hfill=fill");
+		
+		Label lblFunction = new Label();
+		lblFunction.setText("Funzione");
+		lblFunction.setFont(fnt);
+		lblFunction.setForeColor(Colors.Black);		
+		pnlForm01.add(lblFunction, "halign=right", txtFldFunction, "halign=left,hfill=fill");
 		
 		Label lblStatus = new Label();
 		lblStatus.setText("Stato");
@@ -188,20 +235,17 @@ ScrollableTablePanel {
 		fnt.setFamily("Arial");
 		fnt.setSize(20);
 		
+		txtFldAddress.setFont(fnt);
+		txtFldAddress.setForeColor(Colors.Black);
+		
 		txtFldPhone.setFont(fnt);
 		txtFldPhone.setForeColor(Colors.Black);
 		
 		txtFldOfficePhone.setFont(fnt);
 		txtFldOfficePhone.setForeColor(Colors.Black);
 		
-		txtFldFax.setFont(fnt);
-		txtFldFax.setForeColor(Colors.Black);
-		
 		txtFldEmail.setFont(fnt);
 		txtFldEmail.setForeColor(Colors.Black);
-		
-		txtFldAddress.setFont(fnt);
-		txtFldAddress.setForeColor(Colors.Black);
 		
 		fnt.setBold();
 		
@@ -216,12 +260,6 @@ ScrollableTablePanel {
 		lblOfficePhone.setFont(fnt);
 		lblOfficePhone.setForeColor(Colors.Black);		
 		pnlForm02.add(lblOfficePhone, "halign=right", txtFldOfficePhone, "halign=left,hfill=fill");
-		
-		Label lblFax = new Label();
-		lblFax.setText("Fax");
-		lblFax.setFont(fnt);
-		lblFax.setForeColor(Colors.Black);		
-		pnlForm02.add(lblFax, "halign=right", txtFldFax, "halign=left,hfill=fill");
 		
 		Label lblEmail = new Label();
 		lblEmail.setText("E-mail");
@@ -250,8 +288,56 @@ ScrollableTablePanel {
 		
 	}
 	
+	void setUpSection03() {
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(20);
+		
+		txtFldAge.setFont(fnt);
+		txtFldAge.setForeColor(Colors.Black);
+		
+		txtFldGender.setFont(fnt);
+		txtFldGender.setForeColor(Colors.Black);
+		
+		txtFldNote.setFont(fnt);
+		txtFldNote.setForeColor(Colors.Black);
+	
+		fnt.setBold();
+		
+		Label lblAge = new Label();
+		lblAge.setText("Età");
+		lblAge.setFont(fnt);
+		lblAge.setForeColor(Colors.Black);		
+		pnlForm03.add(lblAge, "halign=right", txtFldAge, "halign=left,hfill=fill");
+		
+		Label lblGender = new Label();
+		lblGender.setText("Sesso");
+		lblGender.setFont(fnt);
+		lblGender.setForeColor(Colors.Black);		
+		pnlForm03.add(lblGender, "halign=right", txtFldGender, "halign=left,hfill=fill");
+		
+		Label lblNote = new Label();
+		lblNote.setText("E-mail");
+		lblNote.setFont(fnt);
+		lblNote.setForeColor(Colors.Black);		
+		pnlForm03.add(lblNote, "halign=right", txtFldNote, "halign=left,hfill=fill");
+		
+		pnlForm03.setInsets(8,8,8,8);
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.Inform, 20, 20, 20, 20));
+		pnlForm03.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgFormBG, 20, 20, 20, 20));
+		//pnlForm0101.setBackground(Background.createGradientRoundedBackground(Color.create(222,222,222), Color.create(222,222,222), Color.create(196,196,196), Color.create(196,196,196)));
+		
+		pnlForm03.setLabelColumnWidth(Sizing.PERCENTS, 20);
+		//pnlForm0101.setLabelColumnWidth(Sizing.PREFERRED, 0);
+		pnlForm03.setControlColumnWidth(Sizing.PREFERRED, 1);
+		//pnlForm0101.setControlColumnWidth(Sizing.PERCENTS, 35);
+		
+		add(pnlForm03,"hfill=fill");
+	}
 	
 	
+	//retrieve data from virtal object
 	void setRow(DataRow dtRw) {
 			
 		currentRow = dtRw;	
@@ -259,13 +345,30 @@ ScrollableTablePanel {
 		txtMdlName.setRow(dtRw);
 		txtMdlName.setText(vObjContact.ContactName.getStringValue(dtRw));
 		txtFldName.setDataModel(txtMdlName);
-						
-		//logApp.log(Log.INFO, "ReadOnlyDetailFormPanel - setRow() - txtFldCode.getText: " + txtFldCode.getText());
-		//logApp.log(Log.INFO, "ReadOnlyDetailFormPanel - setRow() - getSize: " + vObjOrder.getOrderRowByContactCode(txtFldCode.getText()).getRowSet().getSize());
 		
 		txtMdlLastName.setRow(dtRw);
 		txtMdlLastName.setText(vObjContact.ContactLastName.getStringValue(dtRw));
 		txtFldLastName.setDataModel(txtMdlLastName);
+		
+		txtMdlRelAccount.setRow(dtRw);
+		txtMdlRelAccount.setText(vObjContact.RelAccountName.getStringValue(dtRw));
+		txtFldRelAccount.setDataModel(txtMdlRelAccount);
+		
+		txtMdlTitle.setRow(dtRw);
+		txtMdlTitle.setText(vObjContact.ContactTitle.getStringValue(dtRw));
+		txtFldTitle.setDataModel(txtMdlTitle);
+		
+		txtMdlFunction.setRow(dtRw);
+		txtMdlFunction.setText(vObjContact.ContactFunction.getStringValue(dtRw));
+		txtFldFunction.setDataModel(txtMdlFunction);
+		
+		txtMdlStatus.setRow(dtRw);
+		txtMdlStatus.setText(vObjContact.ContactStatus.getStringValue(dtRw));
+		txtFldStatus.setDataModel(txtMdlStatus);
+		
+		txtMdlAddress.setRow(dtRw);
+		txtMdlAddress.setText(vObjContact.ContactStreetAddress.getStringValue(dtRw) + "-" + vObjContact.ContactCap.getStringValue(dtRw) + " " + vObjContact.ContactStreetCity.getStringValue(dtRw) + "(" + vObjContact.ContactProvince.getStringValue(dtRw) + ")" + " " + vObjContact.ContactCountry.getStringValue(dtRw));
+		txtFldAddress.setDataModel(txtMdlAddress);
 		
 		txtMdlPhone.setRow(dtRw);
 		txtMdlPhone.setText(vObjContact.ContactPhone.getStringValue(dtRw));
@@ -279,18 +382,18 @@ ScrollableTablePanel {
 		txtMdlEmail.setText(vObjContact.ContactEmail.getStringValue(dtRw));
 		txtFldEmail.setDataModel(txtMdlEmail);
 		
-		txtMdlAddress.setRow(dtRw);
-		txtMdlAddress.setText(vObjContact.ContactStreetAddress.getStringValue(dtRw) + "-" + vObjContact.ContactCap.getStringValue(dtRw) + " " + vObjContact.ContactStreetCity.getStringValue(dtRw) + "(" + vObjContact.ContactProvince.getStringValue(dtRw) + ")");
-		txtFldAddress.setDataModel(txtMdlAddress);
+		txtMdlAge.setRow(dtRw);
+		txtMdlAge.setText(vObjContact.ContactAge.getStringValue(dtRw));
+		txtFldAge.setDataModel(txtMdlAge);
 		
-		txtMdlFax.setRow(dtRw);
-		txtMdlFax.setText(vObjContact.ContactFax.getStringValue(dtRw));
-		txtFldFax.setDataModel(txtMdlFax);
+		txtMdlGender.setRow(dtRw);
+		txtMdlGender.setText(vObjContact.ContactGender.getStringValue(dtRw));
+		txtFldGender.setDataModel(txtMdlGender);
 		
-		txtMdlStatus.setRow(dtRw);
-		txtMdlStatus.setText(vObjContact.ContactStatus.getStringValue(dtRw));
-		txtFldStatus.setDataModel(txtMdlStatus);
-		
+		txtMdlNote.setRow(dtRw);
+		txtMdlNote.setText(vObjContact.ContactNote.getStringValue(dtRw));
+		txtFldNote.setDataModel(txtMdlNote);
+
 		refresh();
 			
 	}
