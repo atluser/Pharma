@@ -59,7 +59,7 @@ VirtualObject {
 		return null;
 	}
 
-	FloatField OrderTotalDiscount {
+	DoubleField OrderTotalDiscount {
 		return null;
 	}
 

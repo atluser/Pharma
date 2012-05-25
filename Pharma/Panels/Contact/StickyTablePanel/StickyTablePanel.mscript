@@ -1,2 +1,245 @@
 TablePanel {
+	
+	/*
+	 * Attributes
+	 */
+	StickyTable stk = new StickyTable();
+	//RowSetModel rsm = new RowSetModel();
+	MultiRowSetModel rsm=new MultiRowSetModel();
+	
+	//Panels.DetailStickyTablePanel pnlDetailForm;
+	Panels.DetailPanel pnlDetail;
+	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
+	
+	
+	//ObjectArray rsmArray=new ObjectArray();	
+	Array arr = new Array();
+	
+	Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
+	SearchField tblSearch =pnlSearch.search;
+	Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
+	
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {		
+			
+		pnlIndex.setStickyTable(stk);
+		pnlIndex.setArray(arr);
+		
+		setInitQuery();
+		
+		//set the model for the sticky table
+		stk.setDataModel(rsm);
+		
+		add(pnlSearch,"colspan=2,hfill=fill");
+		startNewRow(); 
+		add(stk, "hfill=fill,valign=top");
+		add(pnlIndex, "hfill=fill,valign=top");	
+
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);		
+		setColumnWidth(0, Sizing.PERCENTS, 25);
+		//setColumnWidth(0, Sizing.PREFERRED, 1);
+		
+		setColumnWidth(1, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);
+	
+	}
+
+	///////////////////////////////
+	// Callback to configure cells
+	///////////////////////////////
+	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
+		info.setPanel(new Cells.TwoRowsTableViewCell());
+	}
+	
+	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
+		/* OK
+		Panels.Contacts.ContactTableViewCell tblVwCell = (Panels.Contacts.ContactTableViewCell) cell;
+		tblVwCell.setRow(info.getDataRow());
+		*/
+		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
+		
+		DataRow dtRw = info.getDataRow();
+		if(!dtRw.isDeleted()){		
+			String str01 = vObjContact.ContactLastName.getStringValue(dtRw) + " " + vObjContact.ContactName.getStringValue(dtRw);
+			String str02 = vObjContact.ContactStreetCity.getStringValue(dtRw);					
+	
+			tblVwCell.lbl01.setText(str01);
+			tblVwCell.lbl02.setText(str02);
+		}
+	}
+	
+	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
+		cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PREFERRED, 0);
+		cell.setCouldBeSelected(true);
+	}
+	
+	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
+		sizeInfo.setHeight(60);
+	}		
+	
+	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
+		
+		//pnlDetailForm.setRow(rsm.getRow());
+		//pnlDetail.setRow(rsm.getRow());
+		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(rsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(rsm.getRow()));
+		pnlDetailForm.setRow(rsm.getRow());
+		
+	}
+		
+	////////////////////////////
+	// Sticky Header (Optional)
+	////////////////////////////
+	
+	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		
+		//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
+		
+		//Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+		//if(rsm.getRowCount(group) > 0) {
+			//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
+			Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+			header.enableDirectionalScroll(true); 
+			//header.lbl.setText(letterList.getItem(group));
+			info.setPanel(header);
+		//}
+		
+	}
+	
+	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
+		cell.setCouldBeSelected(false);		
+		cell.setHeight(Sizing.PIXELS, 30);
+		//cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PERCENTS, 100);
+	}
+	
+	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
+	
+			Panels.Cells.SectionHeaderCell header = (Panels.Cells.SectionHeaderCell)cell;
+			header.lbl.setText(arr.getItem(grp));
+	
+		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+	}
+			
+		
+	////////////////////////////
+	// Footer (Optional)
+	////////////////////////////
+	/*
+	callback stk onFooterCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		info.setPanel(new Panels.Contacts.ContactFooterTableViewPanel());
+	}
+	
+	callback stk onFooterConfigure(TableView c, CellConfig cell, int group){
+		cell.setCouldBeSelected(false);
+		cell.setHeight(Sizing.PIXELS, 60);
+		cell.setWidth(Sizing.PERCENTS, 100);
+	}
+	
+	callback stk onFooterInfo(TableView c, TableViewPanel cell, Footer info, int grp) {
+		Panels.Contacts.ContactFooterTableViewPanel tblVwPanelFooter = (Panels.Contacts.ContactFooterTableViewPanel) cell;
+		tblVwPanelFooter.setRowCount(rsm.getRowCount(0));
+		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+	}
+	*/
+	
+		//search callback
+	callback tblSearch onValueChange ( Control c ) {
+		//appLog.log(Log.INFO,"change");
+		tblSearch.setOnValueChangingPausedDelay(500);
+	}
+	
+	callback tblSearch onValueChangingPaused(Control c){
+		//appLog.log(Log.INFO,"paused");
+		//Query q=vObjContact.getContactContains(tblSearch.getText());
+		executeQuery(tblSearch.getText());
+		stk.reload();
+	}
+	
+	
+	/*
+	 * Custom methods
+	 */
+	 
+	/* 
+	void setDetailPanel(Panels.DetailStickyTablePanel pnl) {
+		pnlDetailForm = pnl;
+	}
+	*/
+	void setDetailPanel(Panels.DetailPanel pnl) {
+		pnlDetail = pnl;
+	}
+	
+	void setDetailFormPanel(Panels.Contact.ReadOnlyDetailFormPanel pnl) {
+		pnlDetailForm = pnl;
+	}
+	
+	void executeQuery(String s){
+		//ricostruisco il multirow con la nuova query
+		rsm.clear();
+		arr.removeAllItems();
+		//rsmArray.removeAllItems();
+		setQuery(s);
+		/*
+		for (int i=0;i<rsm.getGroupCount();i++){
+			RowSetModel component=rsm.getComponent(i);
+			Query q=vObjContact.getContactContains(arr.getItem(i),s);
+			component.setRows(q);
+		}*/
+	}
+	
+	
+	void setInitQuery(){
+		//clean before start
+		rsm.clear();
+		arr.removeAllItems();
+				
+		for(int i = 0; i < letterList.length(); i++) {
+			
+			RowSetModel rsm1 = new RowSetModel();
+			rsm1.setRows(vObjContact.getContactStartsWith(letterList.getItem(i)));
+			
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - "+ i + " : " + rsm1.getRowCount(0));
+			
+			if(rsm1.getRowCount(0) > 0) {
+				
+				rsm.add(rsm1);
+				arr.insertItem(rsm.getGroupCount() - 1, letterList.getItem(i));	
+				pnlIndex.enableIndexLinks(i);	
+			}
+							
+			//rsmArray.insertItem(i, rsm1);
+		}
+		stk.setNumberOfGroups(letterList.length());	
+				
+	}
+	
+	void setQuery(String s){
+				
+		for(int i = 0; i < letterList.length(); i++) {
+			
+			RowSetModel rsm1 = new RowSetModel();
+			rsm1.setRows(vObjContact.getContactContains(letterList.getItem(i),s));
+			
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - "+ i + " : " + rsm1.getRowCount(0));
+			
+			if(rsm1.getRowCount(0) > 0) {
+				
+				rsm.add(rsm1);
+				arr.insertItem(rsm.getGroupCount() - 1, letterList.getItem(i));	
+				pnlIndex.enableIndexLinks(i);
+					
+			}
+						
+		//	rsmArray.insertItem(i, rsm1);
+		}
+		stk.setNumberOfGroups(letterList.length());	
+				
+	}	
+			
 }

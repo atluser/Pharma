@@ -101,6 +101,7 @@ UIProject {
 		
 		vObjUtil.loadCrmEntities();
 		vObjUtil.loadLOV();
+		vObjUtil.loadContact();
 		vObjUtil.loadAccount();
 		vObjUtil.loadProducts();
 		vObjUtil.loadListItem();

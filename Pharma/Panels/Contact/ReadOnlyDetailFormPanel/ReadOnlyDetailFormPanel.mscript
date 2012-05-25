@@ -1,0 +1,298 @@
+ScrollableTablePanel {
+
+	/*
+	 * Attributes
+	 */
+	DataRow currentRow = null;
+	
+	//Pannello Dettagli 
+	FormPanel pnlForm01 = new FormPanel();
+	//Pannello comunicazioni
+	FormPanel pnlForm02 = new FormPanel();
+	
+	//-- DETTAGLI --
+	
+	//Nome
+	TextModel txtMdlName = new TextModel();
+	Label txtFldName = new Label(); 
+	
+	//Cognome
+	TextModel txtMdlLastName = new TextModel();
+	Label txtFldLastName = new Label();
+	
+	//Cliente Relazionato
+	TextModel txtMdlRelAccount = new TextModel();
+	Label txtFldRelAccount = new Label();
+	
+	//Stato Contatto (Attivo|Inattivo|Nuovo)
+	TextModel txtMdlStatus = new TextModel();
+	Label txtFldStatus = new Label();
+	
+	//-- COMUNICAZIONI --
+	
+	//Telefono Personale
+	TextModel txtMdlPhone = new TextModel();
+	Label txtFldPhone = new Label();
+	
+	//Telefono Ufficio
+	TextModel txtMdlOfficePhone = new TextModel();
+	Label txtFldOfficePhone = new Label();
+	
+	//Fax
+	TextModel txtMdlFax = new TextModel();
+	Label txtFldFax = new Label();
+	
+	//Email
+	TextModel txtMdlEmail = new TextModel();
+	Label txtFldEmail = new Label();
+	
+	//Indirizzo
+	//Comprensivo di StreetAddress, Cap, StreetCity, Province
+	TextModel txtMdlAddress = new TextModel();
+	Label txtFldAddress = new Label();
+		
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {
+		
+		setUpHeaderSection("Dettagli");
+		startNewRow();
+		setUpSection01();
+		startNewRow();
+		setUpHeaderSection("Comunicazioni");
+		startNewRow();
+		setUpSection02();
+		startNewRow();
+		add(new Separator(), "");
+		startNewRow();
+		
+		enableScroll(true);
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+		setColumnWidth(0, Sizing.PERCENTS, 65);
+		
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 0);
+		setRowHeight(2, Sizing.PIXELS, 48);
+		
+		setRowHeight(3, Sizing.PREFERRED, 0);
+		setRowHeight(4, Sizing.PREFERRED, 0);
+		setRowHeight(5, Sizing.PIXELS, 48);
+		
+		setRowHeight(6, Sizing.PREFERRED, 0);
+		setRowHeight(7, Sizing.PREFERRED, 0);
+		setRowHeight(8, Sizing.PIXELS, 48);
+		
+		setRowHeight(9, Sizing.PREFERRED, 0);
+		setRowHeight(10, Sizing.PREFERRED, 0);
+		setRowHeight(11, Sizing.PREFERRED, 0);
+		setRowHeight(12, Sizing.PREFERRED, 0);
+		
+		/*
+		setRowHeight(9, Sizing.PIXELS, 48);
+		setRowHeight(10, Sizing.PREFERRED, 0);
+		setRowHeight(11, Sizing.PIXELS, 48);
+		setRowHeight(12, Sizing.PREFERRED, 0);
+		setRowHeight(13, Sizing.PREFERRED, 0);
+		*/
+		
+		DataRow firstRow = vObjContact.getContacts().getRowSet().first();
+		setRow(firstRow);
+		
+	}	
+	
+	/*
+	 * Custom methods
+	 */
+	void setUpHeaderSection(String str) {
+		Font fnt = new Font(); 
+		fnt.setFamily("Arial");
+		fnt.setSize(22);
+		fnt.setBold();
+	
+		Label lbl = new Label();
+		lbl.setText(str);
+		lbl.setFont(fnt);
+		lbl.setForeColor(Colors.Black);
+		//lbl.setBackColor(Color.create(189,0,0));
+		//picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
+		
+		//add(picBox);
+		add(lbl,"hfill=fill");
+	
+	}
+	
+	void setUpSection01() {
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(20);
+		
+		txtFldName.setFont(fnt);
+		txtFldName.setForeColor(Colors.Black);
+		
+		txtFldLastName.setFont(fnt);
+		txtFldLastName.setForeColor(Colors.Black);
+		
+		txtFldRelAccount.setFont(fnt);
+		txtFldRelAccount.setForeColor(Colors.Black);
+		
+		txtFldStatus.setFont(fnt);
+		txtFldStatus.setForeColor(Colors.Black);
+		
+		fnt.setBold();
+		
+		Label lblName = new Label();
+		lblName.setText("Nome");
+		lblName.setFont(fnt);
+		lblName.setForeColor(Colors.Black);		
+		pnlForm01.add(lblName, "halign=right", txtFldName, "halign=left,hfill=fill");
+		
+		Label lblLastName = new Label();
+		lblLastName.setText("Cognome");
+		lblLastName.setFont(fnt);
+		lblLastName.setForeColor(Colors.Black);		
+		pnlForm01.add(lblLastName, "halign=right", txtFldLastName, "halign=left,hfill=fill");
+		
+		Label lblRelAccount = new Label();
+		lblRelAccount.setText("Cliente");
+		lblRelAccount.setFont(fnt);
+		lblRelAccount.setForeColor(Colors.Black);		
+		pnlForm01.add(lblRelAccount, "halign=right", txtFldRelAccount, "halign=left,hfill=fill");
+		
+		
+		Label lblStatus = new Label();
+		lblStatus.setText("Stato");
+		lblStatus.setFont(fnt);
+		lblStatus.setForeColor(Colors.Black);		
+		pnlForm01.add(lblStatus, "halign=right", txtFldStatus, "halign=left,hfill=fill");
+		
+		pnlForm01.setInsets(8,8,8,8);
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.Inform, 20, 20, 20, 20));
+		pnlForm01.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgFormBG, 20, 20, 20, 20));
+		//pnlForm0101.setBackground(Background.createGradientRoundedBackground(Color.create(222,222,222), Color.create(222,222,222), Color.create(196,196,196), Color.create(196,196,196)));
+		
+		pnlForm01.setLabelColumnWidth(Sizing.PERCENTS, 20);
+		//pnlForm0101.setLabelColumnWidth(Sizing.PREFERRED, 0);
+		pnlForm01.setControlColumnWidth(Sizing.PREFERRED, 1);
+		//pnlForm0101.setControlColumnWidth(Sizing.PERCENTS, 35);
+		
+		add(pnlForm01,"hfill=fill");
+		
+	}
+	
+	void setUpSection02() {
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(20);
+		
+		txtFldPhone.setFont(fnt);
+		txtFldPhone.setForeColor(Colors.Black);
+		
+		txtFldOfficePhone.setFont(fnt);
+		txtFldOfficePhone.setForeColor(Colors.Black);
+		
+		txtFldFax.setFont(fnt);
+		txtFldFax.setForeColor(Colors.Black);
+		
+		txtFldEmail.setFont(fnt);
+		txtFldEmail.setForeColor(Colors.Black);
+		
+		txtFldAddress.setFont(fnt);
+		txtFldAddress.setForeColor(Colors.Black);
+		
+		fnt.setBold();
+		
+		Label lblPhone = new Label();
+		lblPhone.setText("Tel. Personale");
+		lblPhone.setFont(fnt);
+		lblPhone.setForeColor(Colors.Black);		
+		pnlForm02.add(lblPhone, "halign=right", txtFldPhone, "halign=left,hfill=fill");
+		
+		Label lblOfficePhone = new Label();
+		lblOfficePhone.setText("Tel. Ufficio");
+		lblOfficePhone.setFont(fnt);
+		lblOfficePhone.setForeColor(Colors.Black);		
+		pnlForm02.add(lblOfficePhone, "halign=right", txtFldOfficePhone, "halign=left,hfill=fill");
+		
+		Label lblFax = new Label();
+		lblFax.setText("Fax");
+		lblFax.setFont(fnt);
+		lblFax.setForeColor(Colors.Black);		
+		pnlForm02.add(lblFax, "halign=right", txtFldFax, "halign=left,hfill=fill");
+		
+		Label lblEmail = new Label();
+		lblEmail.setText("E-mail");
+		lblEmail.setFont(fnt);
+		lblEmail.setForeColor(Colors.Black);		
+		pnlForm02.add(lblEmail, "halign=right", txtFldEmail, "halign=left,hfill=fill");
+		
+		Label lblAddress = new Label();
+		lblAddress.setText("Indirizzo");
+		lblAddress.setFont(fnt);
+		lblAddress.setForeColor(Colors.Black);		
+		pnlForm02.add(lblAddress, "halign=right", txtFldAddress, "halign=left,hfill=fill");
+		
+		pnlForm02.setInsets(8,8,8,8);
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.Inform, 20, 20, 20, 20));
+		pnlForm02.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgFormBG, 20, 20, 20, 20));
+		//pnlForm0101.setBackground(Background.createGradientRoundedBackground(Color.create(222,222,222), Color.create(222,222,222), Color.create(196,196,196), Color.create(196,196,196)));
+		
+		pnlForm02.setLabelColumnWidth(Sizing.PERCENTS, 20);
+		//pnlForm0101.setLabelColumnWidth(Sizing.PREFERRED, 0);
+		pnlForm02.setControlColumnWidth(Sizing.PREFERRED, 1);
+		//pnlForm0101.setControlColumnWidth(Sizing.PERCENTS, 35);
+		
+		add(pnlForm02,"hfill=fill");
+		
+	}
+	
+	
+	
+	void setRow(DataRow dtRw) {
+			
+		currentRow = dtRw;	
+				
+		txtMdlName.setRow(dtRw);
+		txtMdlName.setText(vObjContact.ContactName.getStringValue(dtRw));
+		txtFldName.setDataModel(txtMdlName);
+						
+		//logApp.log(Log.INFO, "ReadOnlyDetailFormPanel - setRow() - txtFldCode.getText: " + txtFldCode.getText());
+		//logApp.log(Log.INFO, "ReadOnlyDetailFormPanel - setRow() - getSize: " + vObjOrder.getOrderRowByContactCode(txtFldCode.getText()).getRowSet().getSize());
+		
+		txtMdlLastName.setRow(dtRw);
+		txtMdlLastName.setText(vObjContact.ContactLastName.getStringValue(dtRw));
+		txtFldLastName.setDataModel(txtMdlLastName);
+		
+		txtMdlPhone.setRow(dtRw);
+		txtMdlPhone.setText(vObjContact.ContactPhone.getStringValue(dtRw));
+		txtFldPhone.setDataModel(txtMdlPhone);
+		
+		txtMdlOfficePhone.setRow(dtRw);
+		txtMdlOfficePhone.setText(vObjContact.ContactOfficePhone.getStringValue(dtRw));
+		txtFldOfficePhone.setDataModel(txtMdlOfficePhone);
+
+		txtMdlEmail.setRow(dtRw);
+		txtMdlEmail.setText(vObjContact.ContactEmail.getStringValue(dtRw));
+		txtFldEmail.setDataModel(txtMdlEmail);
+		
+		txtMdlAddress.setRow(dtRw);
+		txtMdlAddress.setText(vObjContact.ContactStreetAddress.getStringValue(dtRw) + "-" + vObjContact.ContactCap.getStringValue(dtRw) + " " + vObjContact.ContactStreetCity.getStringValue(dtRw) + "(" + vObjContact.ContactProvince.getStringValue(dtRw) + ")");
+		txtFldAddress.setDataModel(txtMdlAddress);
+		
+		txtMdlFax.setRow(dtRw);
+		txtMdlFax.setText(vObjContact.ContactFax.getStringValue(dtRw));
+		txtFldFax.setDataModel(txtMdlFax);
+		
+		txtMdlStatus.setRow(dtRw);
+		txtMdlStatus.setText(vObjContact.ContactStatus.getStringValue(dtRw));
+		txtFldStatus.setDataModel(txtMdlStatus);
+		
+		refresh();
+			
+	}
+
+}

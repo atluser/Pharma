@@ -1,2 +1,42 @@
 BorderPanel {
+	
+	/*
+	 * Attributes
+	 */
+	Panels.Contact.StickyTablePanel stk = new Panels.Contact.StickyTablePanel();
+	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Contact.ReadOnlyDetailFormPanel();	 
+	 
+	/*
+	 * Callback methods 
+	 */
+	callback onCreate(Container c) {
+		
+		// Master Panel		
+		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
+		pnlMaster.setContentPanel(stk);
+		
+		// Detail Panel
+		Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
+		pnlDetail.setContentPanel(pnlDetailForm);
+		
+		stk.setDetailPanel(pnlDetail);
+		stk.setDetailFormPanel(pnlDetailForm);
+		if(stk.rsm.hasMoreRows(0)){
+			stk.stk.scrollTo(0,0,TableView.SCROLL_POSITION_NONE);
+			stk.stk.select(0,0);
+		}		
+		
+	 	setWest(pnlMaster);
+	 	setEast(pnlDetail);
+	 	setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+	 	
+	}
+	
+	/*
+	 * Custom methods
+	 */  	
+	StickyTable getStickyTable(){
+		return stk.stk;	
+	}
+	
 }

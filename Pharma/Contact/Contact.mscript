@@ -1,11 +1,51 @@
 VirtualObject {
+	StringField ContactId{return null;}
+	StringField ContactCode{return null;}
 	StringField ContactName{return null;}
 	StringField ContactLastName{return null;}
 	StringField ContactStatus{return null;}
-	
 	StringField ContactPhone{return null;}
+	StringField ContactOfficePhone{ return null;}
+	StringField ContactFax {return null;}
 	StringField ContactEmail{return null;}
 	StringField ContactStreetAddress{return null;}
+	StringField ContactCap{return null;}
 	StringField ContactStreetCity{return null;}
+	StringField ContactProvince{return null;}
+	
+	//Relazione con Account
+	StringField RelAccountCode{return null;}
+	StringField RelAccountName{return vObjUtil.getAccountName(RelAccountCode);}
 
+Query getContacts() {
+		return contactRows();
+	}
+	
+	query contactRows<> {
+		ascendingBy ContactName;
+	}
+	
+Query getContactStartsWith(String strStart){
+		return ContactStartsWith(strStart);
+	}
+	query ContactStartsWith<String strStart>{
+		where ContactName startsWith strStart; 
+		ascendingBy ContactName;
+	}
+	
+Query getContactContains(String letter,String str){
+		return ContactContains(letter,str);
+	}
+	query ContactContains<String letter,String str>{
+		where ContactName startsWith letter;
+		where ContactName contains str;
+		ascendingBy ContactName;
+	}
+
+Query getContactRow(String ContactId){
+		return ContactRow(ContactId);
+	}
+	query ContactRow<String contactId>{
+		where ContactId==contactId;
+	}
 }
