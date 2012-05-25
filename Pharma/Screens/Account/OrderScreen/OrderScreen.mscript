@@ -68,7 +68,8 @@ Screen {
 		// Master Panel
 		Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
 		pnlMaster.setDetailPanel(pnlDetail);
-		pnlMaster.setQuery(sAccountCode,"");
+		pnlMaster.setAccountCode(getAccountCode());
+		pnlMaster.setQuery(getAccountCode(),"");
 		
 		// Root Panel
 		TablePanel pnlRoot = new TablePanel();
@@ -214,6 +215,10 @@ Screen {
 	
 	void setAccountCode(String str) {
 		sAccountCode = str;
+	}
+	
+	String getAccountCode() {
+		return sAccountCode;
 	}
 	
 }

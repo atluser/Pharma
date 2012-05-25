@@ -27,6 +27,7 @@
     <stringKeys>TBB_CATALOG_STR</stringKeys>
     <stringKeys>TBB_CONTACTS_STR</stringKeys>
     <stringKeys>TBB_ORDERS_STR</stringKeys>
+    <stringKeys>TBB_ORDER_ITEMS_STR</stringKeys>
     <stringKeys>TBB_PRICELIST_STR</stringKeys>
     <stringKeys>TBB_SERVICE_REQUESTS_STR</stringKeys>
   </children>

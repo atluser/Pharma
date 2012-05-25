@@ -2,7 +2,9 @@ TablePanel {
 
 	/*
 	 *
-	 */		
+	 */	
+	String sAccountCode = ""; 
+	 	
 	Label lbl = new Label();
 	
 	SearchField src = new SearchField();
@@ -44,22 +46,33 @@ TablePanel {
 	// Callback to configure cells
 	///////////////////////////////
 	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
-		info.setPanel(new Cells.TwoRowsTableViewCell());
+		info.setPanel(new Cells.TwoRowsTwoColsTableViewCell());
 	}
 	
 	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
 		//Panels.AccountTableViewCell tblVwCell = (Panels.AccountTableViewCell) cell;
 		//tblVwCell.populateData(info.getDataRow());
 		
-		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
+		Cells.TwoRowsTwoColsTableViewCell tblVwCell = (Cells.TwoRowsTwoColsTableViewCell)cell;
 		
 		DataRow dtRw = info.getDataRow();
-		if(!dtRw.isDeleted()){		
+		if(!dtRw.isDeleted()){
+			/*		
 			String str01 = vObjOrder.OrderCode.getStringValue(dtRw);
 			String str02 = vObjOrder.OrderStatus.getStringValue(dtRw);					
-	
+			String str03 = vObjOrder.OrderDate.getDateValue(dtRw);	
+			*/
+			String str01 = (vObjOrder.OrderCode.getStringValue(dtRw) != null) ? vObjOrder.OrderCode.getStringValue(dtRw) : "Data not found!";
+			String str02 = (vObjOrder.OrderStatus.getStringValue(dtRw) != null) ? vObjOrder.OrderStatus.getStringValue(dtRw) : "Data not found!";
+			String str03 = (vObjOrder.OrderDate.getDateValue(dtRw) != null) ? vObjOrder.OrderDate.getDateValue(dtRw).toString() : "Data not found!";
+			
+			if(vObjOrder.OrderDate.getDateValue(dtRw) != null) {
+				str03 = getFormattedDate(vObjOrder.OrderDate, dtRw);	
+			}
+			
 			tblVwCell.lbl01.setText(str01);
 			tblVwCell.lbl02.setText(str02);
+			tblVwCell.lbl03.setText(str03);
 		}
 		
 	}
@@ -125,8 +138,16 @@ TablePanel {
 	}
 	
 	callback src onValueChangingPaused(Control c){
-		setQuery(src.getText());
+		
+		String str = getAccountCode();
+		
+		if(str != "") {
+			setQuery(str,src.getText());
+		} else {
+			setQuery(src.getText());
+		}		
 		stk.reload();
+		
 	}	
 	
 	/*
@@ -149,6 +170,33 @@ TablePanel {
 	  
 	void setDetailPanel(Panels.Order.ReadOnlyDetailTablePanel pnl) {
 		pnlDetail = pnl;
+	}
+	
+	String getFormattedDate(DateAttribute dtAtt, DataRow dtRw) {
+		
+		/*
+		Date startDate=vObjPriceList.PriceListStartDate.getDateValue(dtRw);
+		int m=startDate.month();
+		int d=startDate.day();
+		int y=startDate.year();
+		strStartDate=""+d+"/"+m+"/"+y;
+		*/
+		
+		DateFormatModel dtFormat = new DateFormatModel();
+		dtFormat.setStyle(DateStyles.DATE_MEDIUM);
+		dtFormat.addField(dtAtt);
+		dtFormat.setRow(dtRw);
+		
+		return dtFormat.getText();
+		
+	} 
+	
+	void setAccountCode(String str) {
+		sAccountCode = str;
+	}
+	
+	String getAccountCode() {
+		return sAccountCode;
 	}
 		
 }
