@@ -11,6 +11,7 @@ TablePanel {
 	Panels.DetailPanel pnlDetail;
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
 	
+	TableViewCell tblViewCell = new TableViewCell();
 	
 	//ObjectArray rsmArray=new ObjectArray();	
 	Array arr = new Array();
@@ -31,7 +32,7 @@ TablePanel {
 		
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
-		
+		//tblViewCell = stk.
 		add(pnlSearch,"colspan=2,hfill=fill");
 		startNewRow(); 
 		add(stk, "hfill=fill,valign=top");
@@ -72,6 +73,7 @@ TablePanel {
 			tblVwCell.lbl01.setText(str01);
 			tblVwCell.lbl02.setText(str02);
 		}
+		//tblViewCell = cell;
 	}
 	
 	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
@@ -83,6 +85,7 @@ TablePanel {
 	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
 		sizeInfo.setHeight(60);
 	}		
+
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		
@@ -92,7 +95,13 @@ TablePanel {
 		pnlDetailForm.setRow(rsm.getRow());
 		
 	}
-		
+	
+/*
+	callback tblViewCell onSelected ( TableViewCell cell , boolean selected ) {
+		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(rsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(rsm.getRow()));
+		pnlDetailForm.setRow(rsm.getRow());
+	}
+*/
 	////////////////////////////
 	// Sticky Header (Optional)
 	////////////////////////////
@@ -127,7 +136,6 @@ TablePanel {
 		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
 	}
 			
-		
 	////////////////////////////
 	// Footer (Optional)
 	////////////////////////////
