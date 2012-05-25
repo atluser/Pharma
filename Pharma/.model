@@ -475,12 +475,6 @@
         <properties/>
         <properties/>
       </imagePaths>
-      <imagePaths name="VodafoneImages.box">
-        <properties/>
-        <properties/>
-        <properties/>
-        <properties/>
-      </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
         <properties/>
@@ -947,12 +941,6 @@
         <properties/>
         <properties/>
       </imagePaths>
-      <imagePaths name="VodafoneImages.box">
-        <properties/>
-        <properties/>
-        <properties/>
-        <properties/>
-      </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
         <properties/>
@@ -1408,12 +1396,6 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
-        <properties/>
-        <properties/>
-        <properties/>
-        <properties/>
-      </imagePaths>
-      <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
         <properties/>
@@ -1989,7 +1971,7 @@
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
-        <properties string="/Users/admin/Desktop/VF/templates/box.png" path="/USERS/ADMIN/DESKTOP/VF/TEMPLATES/BOX.PNG"/>
+        <properties string="/Users/admin/Desktop/VF/images/ordine48.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ORDINE48.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -2426,9 +2408,6 @@
       <imagePaths name="VodafoneImages.ImgPick">
         <properties/>
       </imagePaths>
-      <imagePaths name="VodafoneImages.box">
-        <properties/>
-      </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
       </imagePaths>
@@ -2659,9 +2638,6 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
-        <properties/>
-      </imagePaths>
-      <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
@@ -3032,7 +3008,7 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
-        <properties string="/Users/admin/Desktop/VF/templates/box.png" path="/USERS/ADMIN/DESKTOP/VF/TEMPLATES/BOX.PNG"/>
+        <properties string="/Users/admin/Desktop/VF/images/ordine48.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ORDINE48.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
@@ -3413,10 +3389,6 @@
         <properties/>
         <properties/>
       </imagePaths>
-      <imagePaths name="VodafoneImages.box">
-        <properties/>
-        <properties/>
-      </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
         <properties/>
@@ -3662,9 +3634,6 @@
       <imagePaths name="VodafoneImages.ImgPick">
         <properties/>
       </imagePaths>
-      <imagePaths name="VodafoneImages.box">
-        <properties/>
-      </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
         <properties/>
       </imagePaths>
@@ -3895,9 +3864,6 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
-        <properties/>
-      </imagePaths>
-      <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
@@ -4132,9 +4098,6 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
-        <properties/>
-      </imagePaths>
-      <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
