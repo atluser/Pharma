@@ -3,6 +3,8 @@ TablePanel {
 	/*
 	 * Attributes
 	 */
+	String sAccountCode = "";
+	
 	DataRow currentRow = null;
 	 
 	PictureBox picBox = new PictureBox();
@@ -159,8 +161,23 @@ TablePanel {
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
 		
-		//DataRow firstRow = vObjOrder.getOrders().getRowSet().first();
-		//setRow(firstRow);
+		/*
+		if(vObjOrder.getOrderContains("").getRowSet() != null && vObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
+			setRow(vObjOrder.getOrderContains("").getRowSet().first());
+		}	
+		*/
+		/*
+		if(sAccountCode != "") {
+			if(vObjOrder.getOrderContains(sAccountCode,"").getRowSet() != null && vObjOrder.getOrderContains(sAccountCode,"").getRowSet().getSize() > 0) {
+				setRow(vObjOrder.getOrderContains(sAccountCode,"").getRowSet().first());
+			}		
+		} else {
+			if(vObjOrder.getOrderContains("").getRowSet() != null && vObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
+				setRow(vObjOrder.getOrderContains("").getRowSet().first());
+			}		
+		}
+		*/
+		
 		
 	}	
 	
@@ -451,6 +468,28 @@ TablePanel {
 		lblFld12.setText(str12);
 		lblFld13.setText(str13);
 		lblFld14.setText(str14); 
+		
+	}
+
+	void setAccountCode(String str) {
+		sAccountCode = str;
+	}
+	
+	String getAccountCode() {
+		return sAccountCode;
+	}
+	
+	void setFirstRecord() {
+		
+		if(sAccountCode != "") {
+			if(vObjOrder.getOrderContains(sAccountCode,"").getRowSet() != null && vObjOrder.getOrderContains(sAccountCode,"").getRowSet().getSize() > 0) {
+				setRow(vObjOrder.getOrderContains(sAccountCode,"").getRowSet().first());
+			}		
+		} else {
+			if(vObjOrder.getOrderContains("").getRowSet() != null && vObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
+				setRow(vObjOrder.getOrderContains("").getRowSet().first());
+			}		
+		}
 		
 	}
 
