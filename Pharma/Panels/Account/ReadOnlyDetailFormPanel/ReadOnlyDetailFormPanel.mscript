@@ -154,7 +154,11 @@ ScrollableTablePanel {
 		
 		Screens.Account.OrderScreen scrOrder = new Screens.Account.OrderScreen();
 		scrOrder.lbl02.setText(txtFldName.getText());
-		scrOrder.setAccountCode(txtFldCode.getText());
+		//scrOrder.setAccountCode(txtFldCode.getText());
+		scrOrder.pnlMaster.setAccountCode(txtFldCode.getText());
+		scrOrder.pnlMaster.setQuery("");
+		scrOrder.pnlDetail.setAccountCode(txtFldCode.getText());
+		scrOrder.pnlDetail.setFirstRecord();
 		scrOrder.push(Animation.NONE, false);	
 	
 	}

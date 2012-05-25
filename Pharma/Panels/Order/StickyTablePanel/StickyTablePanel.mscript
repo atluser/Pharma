@@ -139,10 +139,8 @@ TablePanel {
 	
 	callback src onValueChangingPaused(Control c){
 		
-		String str = getAccountCode();
-		
-		if(str != "") {
-			setQuery(str,src.getText());
+		if(sAccountCode != "") {
+			setQuery(sAccountCode, src.getText());
 		} else {
 			setQuery(src.getText());
 		}		
@@ -155,12 +153,16 @@ TablePanel {
 	 */
 	void setQuery() {
 		rsm.setRows(vObjOrder.getOrders());
-		//lbl.setText(" " + vObjOrder.getOrders().getRowSet().getSize() + "Records");
 	} 
 	 
 	void setQuery(String str) {
-		rsm.setRows(vObjOrder.getOrderContains(str));
-		//lbl.setText(" " + vObjOrder.getOrderContains(str).getRowSet().getSize() + "Records");
+		
+		if(sAccountCode != "") {
+			rsm.setRows(vObjOrder.getOrderContains(sAccountCode,str));
+		} else {
+			rsm.setRows(vObjOrder.getOrderContains(str));
+		}
+		
 	} 
 	
 	void setQuery(String str01, String str02) {
