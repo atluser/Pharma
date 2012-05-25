@@ -161,7 +161,23 @@ TablePanel {
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
 		
-		setRow(vObjOrder.getOrderContains("").getRowSet().first());
+		/*
+		if(vObjOrder.getOrderContains("").getRowSet() != null && vObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
+			setRow(vObjOrder.getOrderContains("").getRowSet().first());
+		}	
+		*/
+		/*
+		if(sAccountCode != "") {
+			if(vObjOrder.getOrderContains(sAccountCode,"").getRowSet() != null && vObjOrder.getOrderContains(sAccountCode,"").getRowSet().getSize() > 0) {
+				setRow(vObjOrder.getOrderContains(sAccountCode,"").getRowSet().first());
+			}		
+		} else {
+			if(vObjOrder.getOrderContains("").getRowSet() != null && vObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
+				setRow(vObjOrder.getOrderContains("").getRowSet().first());
+			}		
+		}
+		*/
+		
 		
 	}	
 	
@@ -466,10 +482,13 @@ TablePanel {
 	void setFirstRecord() {
 		
 		if(sAccountCode != "") {
-			//rsm.setRows(vObjOrder.getOrderContains(sAccountCode,str));
-			setRow(vObjOrder.getOrderContains(sAccountCode,"").getRowSet().first());
+			if(vObjOrder.getOrderContains(sAccountCode,"").getRowSet() != null && vObjOrder.getOrderContains(sAccountCode,"").getRowSet().getSize() > 0) {
+				setRow(vObjOrder.getOrderContains(sAccountCode,"").getRowSet().first());
+			}		
 		} else {
-			setRow(vObjOrder.getOrderContains("").getRowSet().first());
+			if(vObjOrder.getOrderContains("").getRowSet() != null && vObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
+				setRow(vObjOrder.getOrderContains("").getRowSet().first());
+			}		
 		}
 		
 	}
