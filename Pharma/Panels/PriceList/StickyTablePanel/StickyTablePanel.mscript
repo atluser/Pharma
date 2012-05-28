@@ -8,29 +8,31 @@ TablePanel {
 	RowSetModel rsm=new RowSetModel();
 
 	//Panels.DetailStickyTablePanel pnlDetailForm;
-	Panels.DetailPanel pnlDetail;
-	ReadOnlyDetailFormPanel pnlDetailForm;
+	//Panels.DetailPanel pnlDetail;
+	ReadOnlyDetailTablePanel pnlDetailForm;
 	Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
-	SearchField tblSearch =pnlSearch.search;
+	SearchField src = new SearchField();
 	
 
 	callback onCreate(Container c){
+		setInsets(8,8,8,8);
 		rsm.setRows(vObjPriceList.createQuery());
 		
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
 		
-		add(pnlSearch,"colspan=2,hfill=fill");
+		add(src,"colspan=2,hfill=fill");
+		src.setTextHint("Search...");
 		startNewRow(); 
 		add(stk, "hfill=fill,valign=top");
 	//	add(pnlIndex, "hfill=fill,valign=top");	
 
 		stk.setGridLineThickness(1);
 		stk.setGridLineStyle(LineStyle.SOLID);
-		stk.setGridLineColor(Colors.Gray);		
-		setColumnWidth(0, Sizing.PERCENTS, 25);
-		//setColumnWidth(0, Sizing.PREFERRED, 1);
+		stk.setGridLineColor(Colors.Gray);				
 		
+		
+		setColumnWidth(0, Sizing.PREFERRED, 1);
 		setColumnWidth(1, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
@@ -73,7 +75,7 @@ TablePanel {
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		
-		pnlDetail.txtFldName.setText(vObjPriceList.PriceListName.getStringValue(rsm.getRow()));
+		//pnlDetail.txtFldName.setText(vObjPriceList.PriceListName.getStringValue(rsm.getRow()));
 		pnlDetailForm.setRow(rsm.getRow());
 		
 	}
@@ -113,24 +115,24 @@ TablePanel {
 	*/
 	
 		//search callback
-	callback tblSearch onValueChange ( Control c ) {
+	callback src onValueChange ( Control c ) {
 		//appLog.log(Log.INFO,"change");
-		tblSearch.setOnValueChangingPausedDelay(500);
+		src.setOnValueChangingPausedDelay(500);
 	}
 	
-	callback tblSearch onValueChangingPaused(Control c){
+	callback src onValueChangingPaused(Control c){
 		//appLog.log(Log.INFO,"paused");		
-		rsm.setRows(vObjPriceList.getPriceList(tblSearch.getText()));
+		rsm.setRows(vObjPriceList.getPriceList(src.getText()));
 		stk.reload();
 	}
 	
 			
 	void setDetailPanel(Panels.DetailPanel pnl) {
-		pnlDetail = pnl;
+	//	pnlDetail = pnl;
 	}
 
 	void setDetailFormPanel(ReadOnlyDetailFormPanel pnl) {
-		pnlDetailForm = pnl;
+	//	pnlDetailForm = pnl;
 	}
 
 

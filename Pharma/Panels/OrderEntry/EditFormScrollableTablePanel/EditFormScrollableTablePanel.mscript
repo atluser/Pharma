@@ -11,104 +11,42 @@ ScrollableTablePanel {
 	Action actClosePop=new Action();
 	//AnchorPosition ap=new AnchorPosition();
 	
-	Label lbl01=new Label();
-	Label lbl02=new Label();
-	Label lbl03=new Label();
+	Label lblCode=new Label();
+	Label lblOrderDate=new Label();
+	Label lblType=new Label();
 	//Label lbl03=new Label();
-	Label lbl04=new Label();
-	Label lbl05=new Label();
-	Label lbl06=new Label();
-	Label lbl07=new Label();
-	Label lbl08=new Label();
-	Label lbl09=new Label();
-	Label lbl10=new Label();
-	Label lbl11=new Label();
-	//Label lblPrefix=new Label();
-	Label lbl12=new Label();
-	Label lbl13=new Label();
-	Label lbl14=new Label();
+	Label lblAccountName=new Label();
+	Label lblPriceList=new Label();
+	Label lblStatus=new Label();
+	Label lblShipDate1=new Label();
+	Label lblShipDate2=new Label();
+	Label lblShipDate3=new Label();
+	Label lblPaymentMethod=new Label();
+	Label lblNote=new Label();
 	
-	Label lbl15=new Label();
-	Label lbl16=new Label();
-	Label lbl17=new Label();
+	Label lblAmount1=new Label();
+	Label lblAmount2=new Label();
+	Label lblDiscount=new Label();
 	
+	Label txtCode=new Label();
+	TextModel mdlCode=new TextModel();
 	
-	
-	Label txt01=new Label();
-	TextModel mdl01 =new TextModel();
-	
-	UppercaseField txtName=new UppercaseField();
-	TextModel mdlName =new TextModel();
-	
-	Label txt02=new Label();
-	TextModel mdl02 =new TextModel();
-	
-	//TextField txtCategory=new TextField();
-	//Picker txtCategory=new Picker();
-	//BackgroundButton btnCategoryPopup=new BackgroundButton();
-	//ChoiceModel mdlCategory=new ChoiceModel();
-	//TextModel mdlCategory=new TextModel();
+	Label txtAccount=new Label();
+	TextModel mdlAccount=new TextModel();
 	
 	Label txtStatus=new Label();
 	TextModel mdlStatus=new TextModel();
-
-	TextField txtStreetAddress=new TextField();
-	TextModel mdlStreetAddress=new TextModel();
-		
-	TextField txtCity=new TextField();
-	TextModel mdlCity=new TextModel();
 	
-	TextField txtCap=new TextField();
-	TextModel mdlCap=new TextModel();
-	
-	//ComboBox txtProvince=new ComboBox();
-	//ChoiceModel mdlProvince=new ChoiceModel();
-	TextModel mdlProvince=new TextModel();
-	BackgroundButton btnProvincePopup=new BackgroundButton();
-	//Picker btnProvinceSticky=new Picker();
-	BackgroundButton btnCountryPopup =new BackgroundButton();
-	
-	//ComboBox txtCountry=new ComboBox();
-	//ChoiceModel mdlCountry=new ChoiceModel();
-	TextModel mdlCountry=new TextModel();
+	BackgroundButton btnPriceList=new BackgroundButton();
 	
 	
-	PhoneField txtPhone=new PhoneField();
-	TextModel mdlPhone=new TextModel();
+	Label txtType=new Label();
+	TextModel mdlType=new TextModel();
 	
-	Label txtPrefix=new Label();
-	TextModel mdlPrefix=new TextModel();
+	Label txtDate=new Label();
+	DateFormatModel mdlDate=new DateFormatModel();
 	
-	PhoneField txtFax=new PhoneField();
-	TextModel mdlFax=new TextModel();
-	
-	Label txtFaxPrefix=new Label();
-	TextModel mdlFaxPrefix=new TextModel();
-	
-	PhoneField txtCell=new PhoneField();
-	TextModel mdlCell=new TextModel();
-	
-	EmailField txtMail=new EmailField();
-	TextModel mdlMail=new TextModel();
-	
-	UrlField txtUrl=new UrlField();
-	TextModel mdlUrl=new TextModel();
-	
-	//Picker txt01=new Picker();
-	BackgroundButton btnRatingPopup=new BackgroundButton();
-	TextModel mdlRating=new TextModel();
-	
-	//Picker txt02=new Picker();
-	BackgroundButton btnRevenuePopup=new BackgroundButton();
-	TextModel mdlRevenue=new TextModel();
-	
-	NumericField txtEmpNum=new NumericField();
-	NumberFormatModel mdlEmpNum=new NumberFormatModel();
-	/*
-	Picker pkrCountry=new Picker();
-	Picker pkrProvince=new Picker();
-	*/
-	FormPanel anagraficaFP=new FormPanel();
+	FormPanel formPanel01=new FormPanel();
 	VerticalPanel addressTP=new VerticalPanel();
 	FormPanel additionalFP=new FormPanel();
 	
@@ -136,9 +74,9 @@ ScrollableTablePanel {
 		mainTP.add(lblTitle1,"halign=center");
 		mainTP.startNewRow();//1
 		setFormPanel01();
-		anagraficaFP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));		
+		formPanel01.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));		
 		//add in table panel
-		mainTP.add(anagraficaFP,"halign=center,hfill=fill");		
+		mainTP.add(formPanel01,"halign=center,hfill=fill");		
 		
 		//setRowHeight(3,Sizing.PREFERRED,3);		
 		
@@ -196,149 +134,49 @@ ScrollableTablePanel {
 		txtfnt.setSize(16);
 		txtfnt.setBold();
 											
-		lbl01.setText("Nr. Ordine");
-		//lblCode.setFont(txtfnt);
-		lbl02.setText("Data Ordine");
-		lbl02.setForeColor(Color.create(189,0,0));
-		//lblName.setFont(txtfnt);
-		lbl03.setText("Tipo");
-		//lblType.setFont(txtfnt);				
-		lbl04.setText("Cliente");
-		//lblCategory.setFont(txtfnt);
-		lbl04.setForeColor(Color.create(189,0,0));
-		lbl05.setText("Listino");
-		//lblStatus.setFont(txtfnt);						
-		lbl06.setText("Stato");
-		//lblAddress.setFont(txtfnt);
-		lbl06.setForeColor(Color.create(189,0,0));
-		txtCity.setTextHint("Città");
+		lblCode.setText("Nr. Ordine");
+		lblCode.setForeColor(Color.create(189,0,0));		
+		lblOrderDate.setText("Data Ordine");
+		lblOrderDate.setForeColor(Color.create(189,0,0));		
+		lblType.setText("Tipo");
+		lblType.setForeColor(Color.create(189,0,0));					
+		lblAccountName.setText("Cliente");
+		lblAccountName.setForeColor(Color.create(189,0,0));				
+		lblPriceList.setText("Listino");
+		lblPriceList.setForeColor(Color.create(189,0,0));								
+		lblStatus.setText("Stato");
+		lblStatus.setForeColor(Color.create(189,0,0));
 		
-		/*lbl07.setText("Nazione");
-		//lblCountry.setFont(txtfnt);
-		lbl07.setForeColor(Color.create(189,0,0));
-		lbl07.setText("Provincia");
-		//lblProvince.setFont(txtfnt);
-		txtCap.setTextHint("CAP");
-		lbl08.setText("Telefono");
-		//lblPhone.setFont(txtfnt);		
-		lbl09.setText("e-Mail");
-		//lblMail.setFont(txtfnt);
-		lbl10.setText("Fax");
-		//lblFax.setFont(txtfnt);
-		lbl11.setText("Cellulare");
-		//lblCell.setFont(txtfnt);
-		lbl12.setText("Web site");
-		//lblUrl.setFont(txtfnt);
+		lblShipDate1.setText("1° Data Consegna");
+		lblShipDate1.setForeColor(Color.create(189,0,0));
+		lblShipDate2.setText("2° Data Consegna");
+		lblShipDate3.setText("3° Data Consegna");
+		lblPaymentMethod.setText("Metodo di pagamento");
+		lblNote.setText("Note");
 		
-		lbl13.setText("Rating");
-		//lbl01.setFont(txtfnt);
-		lbl14.setText("Fatturato");
-		//lbl02.setFont(txtfnt);
-		lbl15.setText("Nr. Dipendenti");
-		//lbl03.setFont(txtfnt);
+		lblAmount1.setText("Totale Ordine Lordo");
+		lblAmount2.setText("Totale Ordine Netto");
+		lblDiscount.setText("Totale Sconto %");
 		
-		//pulsante country						
-		
-		//btnCategoryPopup.setHorizontalTextAlignment(HorizontalAlignmentType.LEFT);
-		
-		btnCountryPopup.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
-		btnProvincePopup.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
-		
-	/**************tentativi picker ************/
-		//btnProvinceSticky.setTextHint("Province");
-		
-		
-		//setdatamodel
-		/*
-		txtCode.setDataModel(mdlCode);
-		txtName.setDataModel(mdlName);
-		txtType.setDataModel(mdlType);
-		//txtCategory.setDataModel(mdlCategory);
-		txtStatus.setDataModel(mdlStatus);
-		txtStreetAddress.setDataModel(mdlStreetAddress);
-		txtCity.setDataModel(mdlCity);
-		txtCap.setDataModel(mdlCap);
-		//txtProvince.setDataModel(mdlProvince);
-		//pkrProvince.setDataModel(mdlProvince);
-		//txtCountry.setDataModel(mdlCountry);
-		//pkrCountry.setDataModel(mdlCountry);
-		txtPhone.setDataModel(mdlPhone);		
-		txtFax.setDataModel(mdlFax);
-		txtMail.setDataModel(mdlMail);
-		txtUrl.setDataModel(mdlUrl);
-		txtPrefix.setDataModel(mdlPrefix);
-		txtFaxPrefix.setDataModel(mdlPrefix);					
-		txtEmpNum.setDataModel(mdlEmpNum);	*/
 	}
 	
 	void setModel(){		
-		/*
+		Font txtfnt=new Font();
+		mdlDate.addField(vObjOrder.OrderDate);
 		
-		mdlCode.addField(vObjAccount.AccountCode);
-		//mdlCode.setFont(txtfnt);
-		mdlName.addField(vObjAccount.AccountName);
-		mdlType.addField(vObjAccount.AccountType);
-		mdlCategory.addField(vObjAccount.AccountCategory);
-		mdlStatus.addField(vObjAccount.AccountStatus);
-		mdlStreetAddress.addField(vObjAccount.AccountStreetAddress);
-		mdlCity.addField(vObjAccount.AccountCity);
-		mdlCap.addField(vObjAccount.AccountPostalCode);
-		mdlProvince.addField(vObjAccount.AccountProvince);
-		mdlCountry.addField(vObjAccount.AccountCountry);
-		mdlPhone.addField(vObjAccount.AccountPhone);
-		mdlFax.addField(vObjAccount.AccountFax);
-		mdlMail.addField(vObjAccount.AccountEmail);
-		mdlUrl.addField(vObjAccount.AccountWebSite);
-		mdlPrefix.addField(vObjAccount.AccountPrefix);
-		mdlRating.addField(vObjAccount.AccountRating);
-		mdlRevenue.addField(vObjAccount.AccountRevenue);
-		mdlEmpNum.addField(vObjAccount.AccountNumberOfEmployee);
 		
-		//btnProvinceSticky.setText("Provincia");
-		//btnProvinceSticky.setDataModel(mdlProvince);
-		//mdlName.setText("pippo");
-		
-		setChoiceModel();
-		*/
 	}
 	
-	void setChoiceModel(){
-	/*	
-		
-		mdlCountry.setChoicesAttribute(vObjLOV.Value);
-		mdlCountry.setChoicesKeyAttribute(vObjLOV.Name);
-		mdlCountry.setRows(vObjLOV.getLOV("COUNTRY"));		
-		//mdlCountry.setSelectedIndex(1);		
-				
-		mdlProvince.setChoicesAttribute(vObjLOV.Name);
-		mdlProvince.setChoicesKeyAttribute(vObjLOV.Name);
-		mdlProvince.setRows(vObjLOV.getLOV("PROVINCE"));
-		
-		/*Font fnt2=new Font();
-		fnt2.setFamily("Arial");
-		fnt2.setSize(19);
-		mdlProvince.setFont(fnt2);
-		mdlProvince.setFocusedBackColor(Colors.Red);
-		mdlProvince.setBackColor(Colors.Gray); 
-		mdlProvince.setSelectedIndex(1);*/
-		
-		/*List catList=new List();			
-		txtCategory.setChoices(catList.split(";Ospedale;ASL;Farmacia;Altro",";"));
-		
-		txt01.setChoices(catList.split(" ;Platinum;Gold;Silver",";"));
-		txt02.setChoices(catList.split(" ;0 - 100 K;100 - 500 K;500 - 1000 K",";"));
-	*/
-	}
 	
 	void setFormPanel01(){ 
-		//anagraficaFP.add(lbl01,labelAlign,txtCode,controlAlign);
-		anagraficaFP.add(lbl02,labelAlign,txtName,controlAlign);
-		//anagraficaFP.add(lbl03,labelAlign,txtType,controlAlign);
-		//anagraficaFP.add(lbl04,labelAlign,btnCategoryPopup,controlAlign);
-		anagraficaFP.add(lbl05,labelAlign,txtStatus,controlAlign);
-		//anagraficaFP.setControlColumnWidth(Sizing.PERCENTS, 30);
-		anagraficaFP.setControlColumnWidth(Sizing.PREFERRED, 1);
-		anagraficaFP.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);				 
+		formPanel01.add(lblCode,labelAlign,txtCode,controlAlign);
+		//formPanel01.add(lblOrderDate,labelAlign,txtName,controlAlign);
+		formPanel01.add(lblType,labelAlign,txtType,controlAlign);
+		formPanel01.add(lblAccountName,labelAlign,txtAccount,controlAlign);
+		formPanel01.add(lblPriceList,labelAlign,btnPriceList,controlAlign);
+		formPanel01.add(lblStatus,labelAlign,txtStatus,controlAlign);		
+		formPanel01.setControlColumnWidth(Sizing.PREFERRED, 1);
+		formPanel01.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);				 
 	}
 	/*
 	void setAddressVerticalPanel(){		
@@ -415,39 +253,24 @@ ScrollableTablePanel {
 	
 	}
 	
-	
+	*/
 	void setRow(DataRow row){		
 		currentRow=row;			
+		txtCode.setText(vObjOrder.OrderCode.getStringValue(row));
+		txtType.setText(vObjOrder.OrderType.getStringValue(row));
+		txtAccount.setText(vObjOrder.AccountName.getStringValue(row));
+		txtStatus.setText(vObjOrder.OrderStatus.getStringValue(row));
 		
-		mdlCode.setRow(row);
-		mdlName.setRow(row);
-		mdlType.setRow(row);
-		mdlCategory.setRow(row);
-		mdlStatus.setRow(row);
-		mdlStreetAddress.setRow(row);
-		mdlCity.setRow(row);
-		mdlCap.setRow(row);
-		mdlCountry.setRow(row);
-		mdlProvince.setRow(row);
-		mdlPhone.setRow(row);
-		mdlCell.setRow(row);
-		mdlMail.setRow(row);
-		mdlUrl.setRow(row);
-		mdlPrefix.setRow(row);
-		mdlRevenue.setRow(row);
-		mdlRating.setRow(row);
-		mdlEmpNum.setRow(row);
 		
-		btnCountryPopup.setText(mdlCountry.getText());
-		btnProvincePopup.setText(mdlProvince.getText());
-		btnCategoryPopup.setText(mdlCategory.getText());
+		
+		btnPriceList.setText(vObjOrder.OrderPriceList.getStringValue(row));
 		
 		refresh();
 		
 		
 		
 	}
-	
+	/*
 	void save(){
 			vObjAccount.AccountName.setStringValue(txtName.getText(),currentRow);
 			//int idx=txtCategory.getSelectedIndex();
@@ -481,16 +304,7 @@ ScrollableTablePanel {
 	}
 */	
 	
-	callback btnCountryPopup onClick(Control c){
-	//	showPopup((BackgroundButton)c,mdlPrefix,"COUNTRY","Nazioni");		
-		
-	}
 	
-	callback btnProvincePopup onClick(Control c){
-		
-		//showPopup((BackgroundButton)c,mdlProvince,"PROVINCE","Province");		
-		
-	}
 	
 	/*
 	

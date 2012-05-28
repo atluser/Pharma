@@ -2,10 +2,11 @@ TablePanel {
 	
 	callback onCreate(Container c){
 		// Detail Panel
-		ReadOnlyDetailFormPanel pnlDetail = new ReadOnlyDetailFormPanel();
+		ReadOnlyDetailTablePanel pnlDetail = new ReadOnlyDetailTablePanel();
 		
 		// Master Panel
 		StickyTablePanel pnlMaster = new StickyTablePanel();
+		pnlMaster.pnlDetailForm=pnlDetail;
 		//pnlMaster.setDetailPanel(pnlDetail);
 		//pnlMaster.setAccountCode(getAccountCode());
 		//pnlMaster.setQuery(getAccountCode(),"");
