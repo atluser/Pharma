@@ -38,26 +38,38 @@ ScrollableTablePanel {
 	String labelAlign="halign=left";
 	String controlAlign="halign=left,hfill=fill";
 	
-	callback onCreate(Container c){		
-		setUpHeaderSection("Dettaglio Listino");		
-		startNewRow();
+	PictureBox picBox = new PictureBox();
+	
+	TablePanel mainTP=new TablePanel();
+	callback onCreate(Container c){
+				
+		setUpHeaderSection("Dettaglio Listino");
+		startNewRow();		
+		
 		setUp1stSection();
-		startNewRow();
-		add(new Separator(), "");
-		startNewRow();
+		//mainTP.startNewRow();
+		//add(new Separator(), "");
+		//mainTP.startNewRow();
 		
-		enableScroll(true);
-		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-		setColumnWidth(0, Sizing.PERCENTS, 65);
+		
+		//enableScroll(true);
+		//setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+		mainTP.setColumnWidth(0, Sizing.PERCENTS, 60);
 		appLog.log(Log.INFO,"OK finished");
+		
+		/*
+		mainTP.setRowHeight(0, Sizing.PREFERRED, 0);
+		mainTP.setRowHeight(1, Sizing.PREFERRED, 0);*/
+		//setRowHeight(2, Sizing.PIXELS, 48);
+		
+		//setUp3rdSection();
+		
+		//mainTP.setColumnWidth(0,Sizing.PERCENTS,60);
+		add(mainTP,"halign=center,vfill=fill");
+		//add(mainTP,"");
+		setColumnWidth(0,Sizing.PREFERRED,1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
-		setRowHeight(1, Sizing.PREFERRED, 0);
-		setRowHeight(2, Sizing.PIXELS, 48);
-		setUp3rdSection();
-		
-		
-		/*DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
-		setRow(firstRow);*/
+		setRowHeight(1, Sizing.PREFERRED, 1);
 	
 	}
 	
@@ -82,13 +94,7 @@ ScrollableTablePanel {
 		String endDate=(vObjPriceList.PriceListEndDate.getDateValue(dtRw)!=null)?vObjPriceList.PriceListEndDate.getDateValue(dtRw).toString() : null;
 		String strStartDate= (vObjPriceList.PriceListStartDate.getDateValue(dtRw)!=null )? vObjPriceList.PriceListStartDate.getDateValue(dtRw).toString():null;
 		
-		if(vObjPriceList.PriceListStartDate.getDateValue(dtRw)!=null){
-			Date startDate=vObjPriceList.PriceListStartDate.getDateValue(dtRw);
-			int m=startDate.month();
-			int d=startDate.day();
-			int y=startDate.year();
-			strStartDate=""+d+"/"+m+"/"+y;
-			
+		if(vObjPriceList.PriceListStartDate.getDateValue(dtRw)!=null){			
 			DateFormatModel dtFormat=new DateFormatModel();
 			dtFormat.setStyle(DateStyles.DATE_MEDIUM );
 			dtFormat.addField(vObjPriceList.PriceListStartDate);
@@ -119,11 +125,21 @@ ScrollableTablePanel {
 		lbl.setText(str);
 		lbl.setFont(fnt);
 		lbl.setForeColor(Colors.Black);
-		//lbl.setBackColor(Color.create(189,0,0));
-		//picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
 		
-		//add(picBox);
-		add(lbl,"hfill=fill");
+		TablePanel pnlHeaderRoot = new TablePanel();
+		picBox.setImage(Images.VodafoneImages.box.getImage());
+		pnlHeaderRoot.add(picBox,"rowspan=2");
+		pnlHeaderRoot.add(lbl,"valign=bottom");
+		pnlHeaderRoot.startNewRow();
+		//pnlHeaderRoot.add(lbl02,"valign=top");
+		pnlHeaderRoot.setColumnWidth(0, Sizing.PERCENTS, 10);
+		//pnlHeaderRoot.setColumnWidth(1, Sizing.PERCENTS, 50);
+		pnlHeaderRoot.setRowHeight(0, Sizing.PREFERRED, 1);
+		pnlHeaderRoot.setRowHeight(1, Sizing.PREFERRED, 1);
+		
+		
+		add(pnlHeaderRoot,"hfill=fill");
+		appLog.log(Log.INFO,"HEADERSECTION ADDED");
 	
 	}
 	
@@ -228,8 +244,8 @@ ScrollableTablePanel {
 		pnlForm01.setControlColumnWidth(Sizing.PREFERRED, 1);
 		//pnlForm01.setControlColumnWidth(Sizing.PERCENTS, 35);
 		
-		add(pnlForm01,"hfill=fill");
-		
+		mainTP.add(pnlForm01,"hfill=fill");
+		appLog.log(Log.INFO,"SECTION1 ADDED");
 	}
 	
 	
@@ -249,8 +265,8 @@ ScrollableTablePanel {
 		btnItem.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgContactsList, 50, 30, 0, 0));
 		//btn01.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		
-		add(btnItem,"hfill=fill");
-		
+		mainTP.add(btnItem,"hfill=fill");
+		appLog.log(Log.INFO,"SECTION2 ADDED");
 	}
 	
 

@@ -1,0 +1,28 @@
+TablePanel {
+	
+	callback onCreate(Container c){
+		// Detail Panel
+		ReadOnlyDetailTablePanel pnlDetail = new ReadOnlyDetailTablePanel();
+		
+		// Master Panel
+		StickyTablePanel pnlMaster = new StickyTablePanel();
+		pnlMaster.pnlDetailForm=pnlDetail;
+		//pnlMaster.setDetailPanel(pnlDetail);
+		//pnlMaster.setAccountCode(getAccountCode());
+		//pnlMaster.setQuery(getAccountCode(),"");
+				
+		
+		//pnlRoot.add(pnlHeader,"colspan=2,hfill=fill");
+		//pnlRoot.startNewRow();
+		add(pnlMaster,"hfill=fill,vfill=fill");
+		add(pnlDetail,"hfill=fill,vfill=fill");
+		setColumnWidth(0, Sizing.PIXELS, 300);
+		setColumnWidth(1, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 0);	
+		setRowHeight(1, Sizing.PREFERRED, 1);
+		
+		//add(pnlRoot,"hfill=fill,vfill=fill");
+		
+	}
+
+}
