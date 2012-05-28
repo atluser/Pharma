@@ -29,19 +29,19 @@ ScrollableTablePanel {
 	Label lblDiscount=new Label();
 	
 	Label txtCode=new Label();
-	TextModel mdlCode=new TextModel();
+	//TextModel mdlCode=new TextModel();
 	
 	Label txtAccount=new Label();
-	TextModel mdlAccount=new TextModel();
+	//TextModel mdlAccount=new TextModel();
 	
 	Label txtStatus=new Label();
-	TextModel mdlStatus=new TextModel();
+	//TextModel mdlStatus=new TextModel();
 	
 	BackgroundButton btnPriceList=new BackgroundButton();
 	
 	
 	Label txtType=new Label();
-	TextModel mdlType=new TextModel();
+	//TextModel mdlType=new TextModel();
 	
 	Label txtDate=new Label();
 	DateFormatModel mdlDate=new DateFormatModel();
@@ -111,13 +111,6 @@ ScrollableTablePanel {
 		mainTP.setRowHeight(8,Sizing.PERCENTS,3);
 		
 				
-		/*setRowHeight(0,Sizing.PREFERRED,0);
-		setRowHeight(1,Sizing.PREFERRED,0);
-		setRowHeight(3,Sizing.PREFERRED,0);
-		setRowHeight(4,Sizing.PREFERRED,0);
-		setRowHeight(6,Sizing.PREFERRED,0);
-		setRowHeight(7,Sizing.PREFERRED,0);		
-		*/
 		mainTP.setColumnWidth(0,Sizing.PIXELS,550);
 		add(mainTP,"halign=center,vfill=fill");
 		setColumnWidth(0,Sizing.PERCENTS,100);
@@ -261,6 +254,7 @@ ScrollableTablePanel {
 		txtAccount.setText(vObjOrder.AccountName.getStringValue(row));
 		txtStatus.setText(vObjOrder.OrderStatus.getStringValue(row));
 		
+		mdlDate.setRow(row);
 		
 		
 		btnPriceList.setText(vObjOrder.OrderPriceList.getStringValue(row));
