@@ -6,11 +6,11 @@ TablePanel {
 	StickyTable stk = new StickyTable();
 	//RowSetModel rsm = new RowSetModel();
 	MultiRowSetModel rsm=new MultiRowSetModel();
+	//TableViewCell tblViewCell = new TableViewCell();
 	
 	//Panels.DetailStickyTablePanel pnlDetailForm;
 	Panels.DetailPanel pnlDetail;
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
-	
 	
 	//ObjectArray rsmArray=new ObjectArray();	
 	Array arr = new Array();
@@ -31,7 +31,7 @@ TablePanel {
 		
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
-		
+		//tblViewCell = stk.
 		add(pnlSearch,"colspan=2,hfill=fill");
 		startNewRow(); 
 		add(stk, "hfill=fill,valign=top");
@@ -61,6 +61,8 @@ TablePanel {
 		Panels.Contacts.ContactTableViewCell tblVwCell = (Panels.Contacts.ContactTableViewCell) cell;
 		tblVwCell.setRow(info.getDataRow());
 		*/
+		//tblViewCell = new TableViewCell();
+		//tblViewCell = cell;
 		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
 		
 		DataRow dtRw = info.getDataRow();
@@ -83,7 +85,8 @@ TablePanel {
 	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
 		sizeInfo.setHeight(60);
 	}		
-	
+
+
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		
 		//pnlDetailForm.setRow(rsm.getRow());
@@ -92,7 +95,7 @@ TablePanel {
 		pnlDetailForm.setRow(rsm.getRow());
 		
 	}
-		
+
 	////////////////////////////
 	// Sticky Header (Optional)
 	////////////////////////////
@@ -127,7 +130,6 @@ TablePanel {
 		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
 	}
 			
-		
 	////////////////////////////
 	// Footer (Optional)
 	////////////////////////////
@@ -160,6 +162,11 @@ TablePanel {
 		//Query q=vObjContact.getContactContains(tblSearch.getText());
 		executeQuery(tblSearch.getText());
 		stk.reload();
+		if (rsm.getRowCount(0)>0) {
+			stk.select(0,0);
+			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(rsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(rsm.getRow()));
+			pnlDetailForm.setRow(rsm.getRow());
+		}
 	}
 	
 	
@@ -242,5 +249,5 @@ TablePanel {
 		stk.setNumberOfGroups(letterList.length());	
 				
 	}	
-			
+
 }

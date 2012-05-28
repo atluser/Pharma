@@ -317,7 +317,7 @@ ScrollableTablePanel {
 		pnlForm03.add(lblGender, "halign=right", txtFldGender, "halign=left,hfill=fill");
 		
 		Label lblNote = new Label();
-		lblNote.setText("E-mail");
+		lblNote.setText("Note");
 		lblNote.setFont(fnt);
 		lblNote.setForeColor(Colors.Black);		
 		pnlForm03.add(lblNote, "halign=right", txtFldNote, "halign=left,hfill=fill");

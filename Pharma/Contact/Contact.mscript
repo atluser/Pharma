@@ -34,14 +34,14 @@ Query getContacts() {
 	}
 	
 	query contactRows<> {
-		ascendingBy ContactName;
+		ascendingBy ContactLastName;
 	}
 	
 Query getContactStartsWith(String strStart){
 		return ContactStartsWith(strStart);
 	}
 	query ContactStartsWith<String strStart>{
-		where ContactName startsWith strStart; 
+		where ContactLastName startsWith strStart; 
 		ascendingBy ContactLastName;
 	}
 	
@@ -50,8 +50,7 @@ Query getContactContains(String letter,String str){
 	}
 	query ContactContains<String letter,String str>{
 		where ContactLastName startsWith letter;
-		where ContactLastName contains str; 
-		where ContactName contains str;
+		where ContactLastName contains str;
 		ascendingBy ContactLastName;
 	}
 
