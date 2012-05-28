@@ -35,7 +35,6 @@ TableViewCell {
 	
 	}
 	
-	
 	void setRow(DataRow dtRw) {
 		
 		/*OK
@@ -60,5 +59,10 @@ TableViewCell {
 	
 	}
 	
-
+	 callback onSelected (TableViewCell cell, boolean selected) {
+		appLog.log(Log.INFO, "TwoRowsTableViewCell - onSelected - cell clicked " + lbl01.getText() + " selected: " + selected);
+		//pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(rsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(rsm.getRow()));
+		//pnlDetailForm.setRow(rsm.getRow());	
+	} 
+	
 }
