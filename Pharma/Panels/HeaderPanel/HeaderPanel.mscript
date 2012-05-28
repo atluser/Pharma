@@ -110,7 +110,7 @@ HorizontalPanel {
 
 	callback btnNew onClick(Control c) {
 
-		logApp.log(Log.INFO, "HeaderPanel - btnNew onClick()");
+		logApp.log(Log.INFO, "HeaderPanel - btnNew onClick()" + rg.getSelectedIndex());
 		poCrmMenu.dismiss();
 		//void showPopup ( Popup popup , int popupType , int heightType , int height , int widthType , int width , boolean showTitleBar , boolean useDeviceOrientation , Background screenOverlayBackground )
 		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PREFERRED, 0, false, true, Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgRedBackground, 0, 0, 0, 0));
@@ -126,6 +126,7 @@ HorizontalPanel {
 		//StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
 		TablePanel pnlDetailForm=null;
 		TablePanel stkTP=null;
+		int currentEntitiy=rg.getSelectedIndex();
 		switch(currentEntity){
 			case 0:
 				entity="Account";
@@ -134,12 +135,25 @@ HorizontalPanel {
 				originStk=pnlAccountRoot.getStickyTable();
 				pnlDetailForm=pnlAccountRoot.pnlDetailForm;
 				stkTP=pnlAccountRoot.stk;
+				Screens.Account.EditScreen scrNewOrEditRecordAcc = new Screens.Account.EditScreen();
+				scrNewOrEditRecordAcc.init(row,stkTP,pnlDetailForm);
+				scrNewOrEditRecordAcc.push(Animation.PUSH_FROM_BOTTOM, false);
+			break;
+			
+			case 2:
+				entity="Contact";
+				//obj=vObjAccount;
+				row=vObjUtil.getNewContactRow();
+				originStk=pnlContactRoot.getStickyTable();
+				pnlDetailForm=pnlContactRoot.pnlDetailForm;
+				stkTP=pnlContactRoot.stk;
+				Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();
+				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);
+				scrNewOrEditRecordCon.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 		}
 
-		Screens.Account.EditScreen scrNewOrEditRecord = new Screens.Account.EditScreen();
-		scrNewOrEditRecord.init(row,stkTP,pnlDetailForm);
-		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
+		
 	}
 
 

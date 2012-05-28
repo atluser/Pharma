@@ -275,6 +275,7 @@ UIObject {
         return row  ;
 
 	}
+	
 	DataRow getNewContactRow(){
 		int id=vObjContact.createQuery().getRowSet().getSize()+1;
 		DataRow row = vObjContact.getNewRow();
@@ -287,6 +288,7 @@ UIObject {
         return row  ;
 
 	}
+	
 	void loadLOV(){
 		DataRow row ;
 		row= vObjLOV.getNewRow();		

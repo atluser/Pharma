@@ -1,0 +1,239 @@
+Screen {
+	//DataRow currentRow;
+	
+	Button btnHome = new Button();
+	Button btnDone = new Button();
+	Button btnUndo = new Button();
+	Button btnMenu = new Button();
+	
+	Panels.Contact.EditFormScrollableTablePanel fp = new Panels.Contact.EditFormScrollableTablePanel();
+	//StickyTable originListStk;
+	Panels.Contact.StickyTablePanel stkTP;
+	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
+	VirtualObject dataObject;
+	
+	Query q;//=null;
+	
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
+		Styles.FormStyle style = new Styles.FormStyle();
+		styleReceptor.applyVisualStyle(style);
+	}
+
+	callback onActivate(Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onBeginChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onClose(Container container){
+		//TODO: add code
+	}
+
+	callback onCreate(Container container){
+		fp.scr=(Screen)container;
+		setUpButtons();
+		
+		// Header Panel
+		HorizontalPanel pnlHeader = new HorizontalPanel();
+		pnlHeader.add(btnHome);
+		pnlHeader.add(new Separator(), "");
+		pnlHeader.add(btnDone);
+		pnlHeader.add(btnUndo);
+		pnlHeader.add(btnMenu);
+		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+
+		pnlHeader.setColumnWidth(0, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(1, Sizing.PREFERRED,1);
+		pnlHeader.setColumnWidth(2, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(4, Sizing.PREFERRED,0);			
+		
+		add(pnlHeader,"hfill=fill");
+//		ScrollableTablePanel pnl = new ScrollableTablePanel();
+//header		
+//	pnl.add(pnlHeader,"hfill=fill");
+//		pnl.setColumnWidth(0,Sizing.PERCENTS,100);
+//	pnl.startNewRow();
+//		pnl.add(fp,"halign=center,valign=center");		
+		add(fp,"halign=center,valign=center,vfill=fill");
+		
+		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));						
+//		pnl.setRowHeight(0, Sizing.PREFERRED, 1);
+		//pnl.setRowHeight(1, Sizing.PREFERRED, 1);
+		
+//		add(pnl,"halign=center,vfill=fill");
+		setRowHeight(0, Sizing.PREFERRED, 0);	
+		setRowHeight(1, Sizing.PREFERRED, 1);
+	}
+
+	callback onDeactivate(Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeFromFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndChangeToFullScreen(Screen screen, Container container){
+		//TODO: add code
+	}
+
+	callback onEndOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onInputEvent(Screen screen, InputEvent inputEvent){
+		//TODO: add code
+	}
+
+	callback onMenuDisplay(Screen screen){
+		//TODO: add code
+	}
+
+	callback onOpen(Container container){
+		//TODO: add code
+	}
+
+	callback onOrientationLayoutChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenKeyboardVisibilityChange(Screen screen, boolean boolean_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback onScreenOrientationChange(Screen screen, int int_, int int_1){
+		//TODO: add code
+	}
+
+	callback onStartOrientationChange(Screen screen, int int_){
+		//TODO: add code
+	}
+
+	callback btnHome onClick(Control c) {
+		close(Animation.PUSH_FROM_TOP);
+	}
+	
+	callback btnDone onClick(Control c) {
+		if(checkRequired()){
+			//stk.save(dataObject);		
+			fp.save();
+			//ricarico sticky
+			//svuoto rsm
+			stkTP.setInitQuery();
+			//RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
+			//rsm.setRows(vObjAccount.getAccounts());
+			//reset query
+			/*
+			MultiRowSetModel mrsm=(MultiRowSetModel) originListStk.getDataModel();
+			for (int i=0;i<mrsm.getGroupCount();i++){
+				RowSetModel rsm=mrsm.getComponent(i);
+				//rsm.setRows(vObjAccount.getAccountStartsWith(originListStk.arr.getItem(i)));
+			}
+			originListStk.reload();*/
+			//detailStk.reload();
+			pnlDetailForm.setRow(fp.currentRow);
+			close(Animation.PUSH_FROM_TOP);
+		}
+	}
+	
+	callback btnUndo onClick(Control c) {
+//		stk.currentRow.cancelUpdates();
+		if(fp.currentRow!=null)
+			fp.currentRow.cancelUpdates();
+		close(Animation.PUSH_FROM_TOP);
+	}
+	
+	callback btnMenu onClick(Control c) {
+		close(Animation.PUSH_FROM_TOP);
+	}
+					
+
+	/*
+	 * Custom methods
+	 */
+	 
+	 boolean checkRequired(){
+	 	boolean result=false;
+	 	//check required field
+		String message="Valirizzare campo ";
+		MessageBox msgBox=new MessageBox();		
+		if(fp.txtName.getText()==""){
+			message+=fp.lblName.getText();
+			msgBox.error(1,message);			
+		}
+		else if(fp.mdlCategory.getText()==""){
+			message+=fp.lblCategory.getText();
+			msgBox.error(1,message);			
+		}
+		else if(fp.txtStreetAddress.getText()==""){
+			message+=fp.lblAddress.getText();
+			msgBox.error(1,message);
+		}
+		else if(fp.txtCity.getText()==""){
+			message+="Città";
+			msgBox.error(1,message);
+		}
+		else if(fp.mdlProvince.getText()==""){
+				message+="Provincia";
+				msgBox.error(1,message);		
+		}
+		else if(fp.mdlCountry.getText()==""){
+				message+="Paese";		
+				msgBox.error(1,message);
+		}
+		else result=true;
+		
+		return result;
+	 }
+	 
+	void setUpButtons() {
+				
+		btnHome.setImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnHome.setFocusedImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnHome.setSelectedImage(Images.VodafoneImages.img_logo_vodafone.getImage());	
+
+		btnDone.setImage(Images.VodafoneImages.btn_done_normal.getImage());
+		btnDone.setFocusedImage(Images.VodafoneImages.btn_done_normal.getImage());
+		btnDone.setSelectedImage(Images.VodafoneImages.btn_done_normal.getImage());
+		
+		btnUndo.setImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		btnUndo.setFocusedImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		btnUndo.setSelectedImage(Images.VodafoneImages.btn_undo_normal.getImage());
+
+		btnMenu.setImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+		btnMenu.setFocusedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+		btnMenu.setSelectedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+	
+	}
+	
+	void init(DataRow row, TablePanel tp,TablePanel accfp){
+		//sticky table origine dati				
+		//detail form
+		pnlDetailForm=(Panels.Account.ReadOnlyDetailFormPanel)accfp;				
+		stkTP=(Panels.Account.StickyTablePanel)tp;
+		fp.setRow(row);
+		//refresh();		
+			
+	}
+	
+	/*void init(DataRow row,StickyTable originStk, Panels.Account.ReadOnlyDetailFormPanel accfp){
+		//sticky table origine dati
+		originListStk=originStk;		
+		//detail form
+		pnlDetailForm=accfp;						
+		fp.setRow(row);
+		//refresh();		
+			
+	}*/
+}
