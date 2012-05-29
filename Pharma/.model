@@ -78,7 +78,9 @@
       <images name="btn_delete_normal"/>
       <images name="btn_done_normal"/>
       <images name="btn_edit_normal"/>
+      <images name="btn_less_info"/>
       <images name="btn_menu_normal"/>
+      <images name="btn_more_info"/>
       <images name="btn_new_normal"/>
       <images name="btn_undo_normal"/>
       <images name="DettaglioCliente"/>
@@ -496,6 +498,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgProductsList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
@@ -526,7 +534,19 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_less_info">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_more_info">
         <properties/>
         <properties/>
         <properties/>
@@ -986,6 +1006,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgProductsList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
@@ -1016,7 +1042,19 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_less_info">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_more_info">
         <properties/>
         <properties/>
         <properties/>
@@ -1470,6 +1508,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgProductsList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
@@ -1500,7 +1544,19 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_less_info">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_more_info">
         <properties/>
         <properties/>
         <properties/>
@@ -2116,9 +2172,21 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_less_info">
+        <properties/>
+        <properties string="/Users/admin/Documents/Images/MobileApp/Artsana/Images/Buttons/1338308119_format-indent-less copy.png" path="/USERS/ADMIN/DOCUMENTS/IMAGES/MOBILEAPP/ARTSANA/IMAGES/BUTTONS/1338308119_FORMAT-INDENT-LESS COPY.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_menu_normal">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_menu_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_MENU_NORMAL.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_more_info">
+        <properties/>
+        <properties string="/Users/admin/Documents/Images/MobileApp/Artsana/Images/Buttons/1338307993_format-indent-more copy.png" path="/USERS/ADMIN/DOCUMENTS/IMAGES/MOBILEAPP/ARTSANA/IMAGES/BUTTONS/1338307993_FORMAT-INDENT-MORE COPY.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -2224,7 +2292,19 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="btn_less_info">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="btn_menu_normal">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_more_info">
         <properties/>
         <properties/>
         <properties/>
@@ -2534,6 +2614,9 @@
       <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgProductsList">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
@@ -2549,7 +2632,13 @@
       <imagePaths name="VodafoneImages.btn_edit_normal">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_less_info">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_more_info">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_new_normal">
@@ -2778,6 +2867,9 @@
       <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgProductsList">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
@@ -2793,7 +2885,13 @@
       <imagePaths name="VodafoneImages.btn_edit_normal">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_less_info">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_more_info">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_new_normal">
@@ -3196,8 +3294,16 @@
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_edit_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_EDIT_NORMAL.PNG"/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_less_info">
+        <properties string="/Users/admin/Documents/Images/MobileApp/Artsana/Images/Buttons/1338308119_format-indent-less copy.png" path="/USERS/ADMIN/DOCUMENTS/IMAGES/MOBILEAPP/ARTSANA/IMAGES/BUTTONS/1338308119_FORMAT-INDENT-LESS COPY.PNG"/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_menu_normal">
         <properties string="/Users/admin/Desktop/VF/images/actionbar/btn_menu_normal.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/BTN_MENU_NORMAL.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_more_info">
+        <properties string="/Users/admin/Documents/Images/MobileApp/Artsana/Images/Buttons/1338307993_format-indent-more copy.png" path="/USERS/ADMIN/DOCUMENTS/IMAGES/MOBILEAPP/ARTSANA/IMAGES/BUTTONS/1338307993_FORMAT-INDENT-MORE COPY.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_new_normal">
@@ -3249,6 +3355,14 @@
         <properties/>
       </imagePaths>
       <imagePaths name="btn_edit_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_less_info">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="btn_more_info">
         <properties/>
         <properties/>
       </imagePaths>
@@ -3570,6 +3684,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgProductsList">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
         <properties/>
@@ -3590,7 +3708,15 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_less_info">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_more_info">
         <properties/>
         <properties/>
       </imagePaths>
@@ -3828,6 +3954,9 @@
       <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgProductsList">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
@@ -3843,7 +3972,13 @@
       <imagePaths name="VodafoneImages.btn_edit_normal">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_less_info">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_more_info">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_new_normal">
@@ -4072,6 +4207,9 @@
       <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgProductsList">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
@@ -4087,7 +4225,13 @@
       <imagePaths name="VodafoneImages.btn_edit_normal">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_less_info">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_more_info">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_new_normal">
@@ -4318,6 +4462,9 @@
       <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgProductsList">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.box">
         <properties/>
       </imagePaths>
@@ -4333,7 +4480,13 @@
       <imagePaths name="VodafoneImages.btn_edit_normal">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.btn_less_info">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.btn_menu_normal">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.btn_more_info">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_new_normal">

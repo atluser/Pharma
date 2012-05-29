@@ -15,9 +15,9 @@ TablePanel {
 	FormPanel pnlForm02 = new FormPanel();
 	FormPanel pnlForm03 = new FormPanel();
 	
+	BackgroundButton btn00 = new BackgroundButton();
 	BackgroundButton btn01 = new BackgroundButton();
 	
-
 	// Dettaglio Ordine
 	Label lblFld01 = new Label();
 	Label lblFld02 = new Label();
@@ -87,6 +87,10 @@ TablePanel {
 		setFormTitle(pnlBodyRoot, "Dettaglio Ordine");
 		pnlBodyRoot.startNewRow();
 		pnlBodyRoot.add(pnlForm01,"hfill=fill,halign=center,valign=top");
+		
+		pnlBodyRoot.startNewRow();
+		pnlBodyRoot.add(btn00,"halign=right");
+		
 		pnlBodyRoot.startNewRow();
 		pnlBodyRoot.add(new Separator(), "");
 		pnlBodyRoot.startNewRow();
@@ -110,19 +114,23 @@ TablePanel {
 		//pnlBodyRoot.setInsets(48,0,0,0);
 		//pnlBodyRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
 		pnlBodyRoot.setColumnWidth(0, Sizing.PERCENTS, 60);
+		
 		pnlBodyRoot.setRowHeight(0, Sizing.PIXELS, 40);
 		pnlBodyRoot.setRowHeight(1, Sizing.PREFERRED, 0);
 		pnlBodyRoot.setRowHeight(2, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(3, Sizing.PIXELS, 48);
-		pnlBodyRoot.setRowHeight(4, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(5, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(6, Sizing.PIXELS, 48);
-		pnlBodyRoot.setRowHeight(7, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(8, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(9, Sizing.PIXELS, 48);
 		
-		pnlBodyRoot.setRowHeight(10, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(3, Sizing.PREFERRED, 0);
+		
+		pnlBodyRoot.setRowHeight(4, Sizing.PIXELS, 48);
+		pnlBodyRoot.setRowHeight(5, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(6, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(7, Sizing.PIXELS, 48);
+		pnlBodyRoot.setRowHeight(8, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(9, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(10, Sizing.PIXELS, 48);
+		
 		pnlBodyRoot.setRowHeight(11, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(12, Sizing.PREFERRED, 0);
 		//pnlBodyRoot.setRowHeight(11, Sizing.PIXELS, 48);
 		
 		
@@ -383,6 +391,8 @@ TablePanel {
 		fnt.setSize(20);
 		fnt.setFamily("Arial");
 		fnt.setBold();
+		
+		btn00.setImage(Images.VodafoneImages.btn_more_info.getImage());
 		
 		btn01.setFont(fnt);
 		btn01.setText(StringConstants.TBB_ORDER_ITEMS_STR.getString() + " (" + iNumberOfOrderItems + ")");
