@@ -136,6 +136,8 @@ TablePanel {
 		setColumnWidth(0, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
+		
+		setRow(vObjPriceList.createQuery().getRowSet().first());
 				
 		
 	}	
@@ -179,7 +181,7 @@ TablePanel {
 		Label lbl = new Label();
 		lbl.setText(str);
 		lbl.setFont(fnt);
-		lbl.setForeColor(Colors.Black);
+		lbl.setForeColor(Color.create(189,0,0));
 		
 		pnl.add(lbl,"hfill=fill");
 		
@@ -389,6 +391,9 @@ TablePanel {
 			strStartDate=dtFormat.getText();
 			
 		}	
+		
+		lbl02.setText(vObjPriceList.PriceListName.getStringValue(dtRw));
+		lbl01.setText(vObjPriceList.PriceListDescription.getStringValue(dtRw));
 		
 		txtFldCode.setText(vObjPriceList.PriceListCode.getStringValue(dtRw));	
 		txtFldName.setText(vObjPriceList.PriceListName.getStringValue(dtRw));
