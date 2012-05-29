@@ -70,6 +70,9 @@ ScrollableTablePanel {
 		setColumnWidth(0,Sizing.PREFERRED,1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
+		
+		
+		setRow(vObjPriceList.createQuery().getRowSet().first());
 	
 	}
 	
@@ -127,7 +130,7 @@ ScrollableTablePanel {
 		lbl.setForeColor(Colors.Black);
 		
 		TablePanel pnlHeaderRoot = new TablePanel();
-		picBox.setImage(Images.VodafoneImages.box.getImage());
+		picBox.setImage(Images.VodafoneImages.ImgOrder.getImage());
 		pnlHeaderRoot.add(picBox,"rowspan=2");
 		pnlHeaderRoot.add(lbl,"valign=bottom");
 		pnlHeaderRoot.startNewRow();

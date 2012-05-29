@@ -136,6 +136,8 @@ TablePanel {
 		setColumnWidth(0, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
+		
+		setRow(vObjPriceList.createQuery().getRowSet().first());
 				
 		
 	}	
@@ -165,7 +167,7 @@ TablePanel {
 		lbl01.setFont(fnt);
 		lbl01.setForeColor(Color.create(189,0,0));
 	
-		picBox.setImage(Images.VodafoneImages.box.getImage());
+		picBox.setImage(Images.VodafoneImages.ImgPriceList.getImage());
 	
 	} 
 	
@@ -179,7 +181,7 @@ TablePanel {
 		Label lbl = new Label();
 		lbl.setText(str);
 		lbl.setFont(fnt);
-		lbl.setForeColor(Colors.Black);
+		lbl.setForeColor(Color.create(189,0,0));
 		
 		pnl.add(lbl,"hfill=fill");
 		
@@ -349,8 +351,8 @@ TablePanel {
 		btn01.setLeftSpacing(48);
 		btn01.setForeColor(Colors.Black);
 		btn01.setFocusedForeColor(Colors.Black);
-		btn01.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
-		btn01.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
+		btn01.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgProductsList, 50, 30, 0, 0));
+		btn01.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgProductsList, 50, 30, 0, 0));
 		//btn01.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		
 	} 
@@ -389,6 +391,9 @@ TablePanel {
 			strStartDate=dtFormat.getText();
 			
 		}	
+		
+		lbl02.setText(vObjPriceList.PriceListName.getStringValue(dtRw));
+		lbl01.setText(vObjPriceList.PriceListDescription.getStringValue(dtRw));
 		
 		txtFldCode.setText(vObjPriceList.PriceListCode.getStringValue(dtRw));	
 		txtFldName.setText(vObjPriceList.PriceListName.getStringValue(dtRw));
@@ -504,7 +509,9 @@ TablePanel {
 		pnlForm01.setControlColumnWidth(Sizing.PREFERRED, 1);
 		//pnlForm01.setControlColumnWidth(Sizing.PERCENTS, 35);
 		
-		//mainTP.add(pnlForm01,"hfill=fill");		
+		//mainTP.add(pnlForm01,"hfill=fill");	
+		
+			//pnlForm01.setVisible(false);
 	}
 	
 
