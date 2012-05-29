@@ -37,7 +37,7 @@ TablePanel {
 		fnt.setSize(24);
 		fnt.setBold();
 		
-		picBox.setImage(Images.VodafoneImages.box.getImage());
+		picBox.setImage(Images.VodafoneImages.ImgOrder.getImage());
 		txtFldName.setFont(fnt);
 		txtFldName.setForeColor(Color.create(189,0,0));
 		

@@ -11,7 +11,7 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_OS_VERSION_STR" string="OS Version:"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_SW_VERSION_STR" string="Software Version:"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACCOUNTS_STR" string="Accounts"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACTIVITIES_STR" string="Activities"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACTIVITIES_STR" string="Agenda"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CATALOG_STR" string="Catalog"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CONTACTS_STR" string="Contacts"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ORDERS_STR" string="Orders"/>

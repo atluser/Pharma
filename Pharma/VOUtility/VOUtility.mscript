@@ -238,7 +238,8 @@ UIObject {
 	void loadCrmEntities() {
 		
 		insertCrmEntity(6, StringConstants.TBB_SERVICE_REQUESTS_STR.getString());
-		insertCrmEntity(5, StringConstants.TBB_PRICELIST_STR.getString());
+		//insertCrmEntity(5, StringConstants.TBB_PRICELIST_STR.getString());
+		insertCrmEntity(5, StringConstants.TBB_ACTIVITIES_STR.getString());
 		insertCrmEntity(4, StringConstants.TBB_CATALOG_STR.getString());		
 
 	}

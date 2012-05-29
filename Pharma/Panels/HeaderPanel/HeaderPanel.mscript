@@ -61,9 +61,9 @@ HorizontalPanel {
 		setUpPopup();
 
 		rg.addButton(tbb01);
-		rg.addButton(tbb02);
 		rg.addButton(tbb03);
-		rg.addButton(tbb04);	
+		rg.addButton(tbb04);
+		rg.addButton(tbb02);	
 		rg.addButton(tbb05);
 		rg.addButton(tbb06);
 		rg.addButton(tbb07);
@@ -278,7 +278,8 @@ HorizontalPanel {
 		tbb01.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 
 		tbb02.setFont(fnt);
-		tbb02.setText(StringConstants.TBB_ACTIVITIES_STR.getString());
+		//tbb02.setText(StringConstants.TBB_ACTIVITIES_STR.getString());
+		tbb02.setText(StringConstants.TBB_PRICELIST_STR.getString());
 		tbb02.setForeColor(Color.create(255,255,255));
 		tbb02.setFocusedForeColor(Color.create(255,255,255));
 		tbb02.setSelectedForeColor(Color.create(255,255,255));
@@ -318,7 +319,8 @@ HorizontalPanel {
 		tbb05.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);	
 
 		tbb06.setFont(fnt);
-		tbb06.setText(StringConstants.TBB_PRICELIST_STR.getString());
+		//tbb06.setText(StringConstants.TBB_PRICELIST_STR.getString());
+		tbb06.setText(StringConstants.TBB_ACTIVITIES_STR.getString());
 		tbb06.setForeColor(Color.create(255,255,255));
 		tbb06.setFocusedForeColor(Color.create(255,255,255));
 		tbb06.setSelectedForeColor(Color.create(255,255,255));
@@ -480,17 +482,21 @@ HorizontalPanel {
 		} else if (idxClicked == 1) {
 
 			poCrmMenu.dismiss();
-			stkPnl.select(pnlActivityRoot);
+			//stkPnl.select(pnlActivityRoot);
+			//stkPnl.select(pnlPriceListRoot);
+			stkPnl.select(pnlContactRoot);
 
 		} else if (idxClicked == 2) {
 
 			poCrmMenu.dismiss();
-			stkPnl.select(pnlContactRoot);
+			//stkPnl.select(pnlContactRoot);
+			stkPnl.select(pnlOrderRoot);
 
 		} else if (idxClicked == 3) {
 
 			poCrmMenu.dismiss();
-			stkPnl.select(pnlOrderRoot);
+			//stkPnl.select(pnlOrderRoot);
+			stkPnl.select(pnlPriceListRoot);
 
 		} else if (idxClicked == 4) {
 
@@ -501,7 +507,8 @@ HorizontalPanel {
 
 			poCrmMenu.dismiss();
 			stkPnl.select(pnlPriceListRoot);
-			appLog.log(Log.INFO,"PriceList");				
+			//appLog.log(Log.INFO,"PriceList");
+			stkPnl.select(pnlActivityRoot);				
 
 		} else if (idxClicked == 6) {
 		//priceList

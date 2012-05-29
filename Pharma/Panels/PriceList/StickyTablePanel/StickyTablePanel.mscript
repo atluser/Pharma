@@ -15,25 +15,25 @@ TablePanel {
 	
 
 	callback onCreate(Container c){
-		setInsets(8,8,8,8);
-		rsm.setRows(vObjPriceList.createQuery());
 		
-		//set the model for the sticky table
+		//rsm.setRows(vObjPriceList.createQuery());
+		setQuery();
+		
 		stk.setDataModel(rsm);
-		
-		add(src,"colspan=2,hfill=fill");
-		src.setTextHint("Search...");
-		startNewRow(); 
-		add(stk, "hfill=fill,valign=top");
-	//	add(pnlIndex, "hfill=fill,valign=top");	
-
 		stk.setGridLineThickness(1);
 		stk.setGridLineStyle(LineStyle.SOLID);
-		stk.setGridLineColor(Colors.Gray);				
+		stk.setGridLineColor(Colors.Gray);
 		
+		src.setTextHint("Search...");
+		
+		add(src,"hfill=fill");
+		startNewRow(); 
+		add(stk, "hfill=fill,vfill=fill");
+
+		setInsets(8,8,8,8);
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
 		
 		setColumnWidth(0, Sizing.PREFERRED, 1);
-		setColumnWidth(1, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
 	
@@ -135,5 +135,8 @@ TablePanel {
 	//	pnlDetailForm = pnl;
 	}
 
+	void setQuery() {
+		rsm.setRows(vObjPriceList.createQuery());
+	}
 
 }

@@ -165,7 +165,7 @@ TablePanel {
 		lbl01.setFont(fnt);
 		lbl01.setForeColor(Color.create(189,0,0));
 	
-		picBox.setImage(Images.VodafoneImages.box.getImage());
+		picBox.setImage(Images.VodafoneImages.ImgOrder.getImage());
 	
 	} 
 	

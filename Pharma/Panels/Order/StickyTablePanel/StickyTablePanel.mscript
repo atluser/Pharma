@@ -145,6 +145,10 @@ TablePanel {
 			setQuery(src.getText());
 		}		
 		stk.reload();
+		if (rsm.getRowCount(0)>0) {
+			stk.select(0,0);
+			pnlDetail.setRow(rsm.getRow());
+		}
 		
 	}	
 	
