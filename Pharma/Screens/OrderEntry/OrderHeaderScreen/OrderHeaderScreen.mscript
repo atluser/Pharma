@@ -1,15 +1,18 @@
 Screen {
 	//DataRow currentRow;
-	
+	Breadcrumbs brdCrumbs=new Breadcrumbs ();
+
 	Button btnHome = new Button();
 	Button btnDone = new Button();
 	Button btnUndo = new Button();
 	Button btnMenu = new Button();
 	
+	Button btnNext=new Button();
+	
 	Panels.OrderEntry.EditFormScrollableTablePanel fp = new Panels.OrderEntry.EditFormScrollableTablePanel();
 	//StickyTable originListStk;
-	Panels.Account.StickyTablePanel stkTP;
-	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm;
+	Panels.Order.StickyTablePanel stkTP;
+	Panels.Order.ReadOnlyDetailTablePanel pnlDetailForm;
 	VirtualObject dataObject;
 	
 	Query q;//=null;
@@ -36,12 +39,37 @@ Screen {
 	}
 
 	callback onCreate(Container container){
+					
+		brdCrumbs.setBackground(Background.createColorRectangleBackground(Colors.Blue));
+	 	brdCrumbs.setBorder(Border.createRoundedBorder());
+		Breadcrumb	brdCrumb1 = new Breadcrumb();
+	 	//brdCrumb1.setFont(brdCrmb.setSize(20));
+	 	brdCrumb1.setValue("A");
+	  	brdCrumb1.setFocusedBackColor(Colors.MediumOrchid);
+	  	brdCrumb1.setBackColor(Colors.MediumSlateBlue);
+	  	brdCrumb1.setSelectedBackColor(Colors.Magenta);
+	  	brdCrumb1.setSelectedForeColor(Colors.White);
+	  	brdCrumb1.setText("Header");
+		brdCrumbs.add(brdCrumb1);
+		Breadcrumb brdCrumb2=new Breadcrumb();
+		
+		/*brdCrumb2.setFocusedBackColor(Colors.MediumOrchid);
+	  	brdCrumb2.setBackColor(Colors.MediumSlateBlue);
+	  	brdCrumb2.setSelectedBackColor(Colors.Magenta);
+	  	brdCrumb2.setSelectedForeColor(Colors.White);
+	  	brdCrumb2.setText("Item");
+		brdCrumb2.setValue("B");				
+		brdCrumbs.add(brdCrumb2);*/
+		
+		//brdCrumbs.navigateTo(0);		
+		
 		fp.scr=(Screen)container;
 		setUpButtons();
 		
 		// Header Panel
 		HorizontalPanel pnlHeader = new HorizontalPanel();
 		pnlHeader.add(btnHome);
+		pnlHeader.add(brdCrumbs);
 		pnlHeader.add(new Separator(), "");
 		pnlHeader.add(btnDone);
 		pnlHeader.add(btnUndo);
@@ -49,10 +77,11 @@ Screen {
 		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
 
 		pnlHeader.setColumnWidth(0, Sizing.PREFERRED,0);
-		pnlHeader.setColumnWidth(1, Sizing.PREFERRED,1);
-		pnlHeader.setColumnWidth(2, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(1, Sizing.PERCENTS,5);
+		pnlHeader.setColumnWidth(2, Sizing.PREFERRED,1);
 		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,0);
 		pnlHeader.setColumnWidth(4, Sizing.PREFERRED,0);			
+		pnlHeader.setColumnWidth(5, Sizing.PREFERRED,0);
 		
 		add(pnlHeader,"hfill=fill");
 //		ScrollableTablePanel pnl = new ScrollableTablePanel();
@@ -68,8 +97,12 @@ Screen {
 		//pnl.setRowHeight(1, Sizing.PREFERRED, 1);
 		
 //		add(pnl,"halign=center,vfill=fill");
+btnNext.setText("Next");
+add(btnNext,null);
 		setRowHeight(0, Sizing.PREFERRED, 0);	
-		setRowHeight(1, Sizing.PREFERRED, 1);
+		setRowHeight(1, Sizing.PREFERRED, 0);
+		setRowHeight(2, Sizing.PREFERRED, 1);
+		setRowHeight(3, Sizing.PREFERRED, 0);
 	}
 
 	callback onDeactivate(Container container){
@@ -124,29 +157,23 @@ Screen {
 		close(Animation.PUSH_FROM_TOP);
 	}
 	
-	/*callback btnDone onClick(Control c) {
-		if(checkRequired()){
-			//stk.save(dataObject);		
+	callback btnDone onClick(Control c) {
 			fp.save();
-			//ricarico sticky
-			//svuoto rsm
-			stkTP.setInitQuery();
-			//RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
-			//rsm.setRows(vObjAccount.getAccounts());
+			//ricarico sticky			
+			stkTP.setQuery("");			
 			//reset query
-			//detailStk.reload();
-			pnlDetailForm.setRow(fp.currentRow);
+			stkTP.stk.reload();
+			pnlDetailForm.setFirstRecord();
 			close(Animation.PUSH_FROM_TOP);
-		}
+	
 	}
 	
-	callback btnUndo onClick(Control c) {
-//		stk.currentRow.cancelUpdates();
+	callback btnUndo onClick(Control c) {		
 		if(fp.currentRow!=null)
 			fp.currentRow.cancelUpdates();
 		close(Animation.PUSH_FROM_TOP);
 	}
-	*/
+	
 	callback btnMenu onClick(Control c) {
 		close(Animation.PUSH_FROM_TOP);
 	}
@@ -213,9 +240,9 @@ Screen {
 	void init(DataRow row, TablePanel tp,TablePanel accfp){
 		//sticky table origine dati				
 		//detail form
-		pnlDetailForm=(Panels.Account.ReadOnlyDetailFormPanel)accfp;				
-		stkTP=(Panels.Account.StickyTablePanel)tp;
-		//fp.setRow(row);
+		pnlDetailForm=(Panels.Order.ReadOnlyDetailTablePanel)accfp;				
+		stkTP=(Panels.Order.StickyTablePanel)tp;
+		fp.setRow(row);
 		//refresh();		
 			
 	}
@@ -229,4 +256,17 @@ Screen {
 		//refresh();		
 			
 	}*/
+	
+	
+	callback btnNext onClick(Control c){
+		Breadcrumb brdCrumb2=new Breadcrumb();
+		brdCrumb2.setFocusedBackColor(Colors.MediumOrchid);
+	  	brdCrumb2.setBackColor(Colors.MediumSlateBlue);
+	  	brdCrumb2.setSelectedBackColor(Colors.Magenta);
+	  	brdCrumb2.setSelectedForeColor(Colors.White);
+	  	brdCrumb2.setText("Item");
+		brdCrumb2.setValue("B");				
+		brdCrumbs.add(brdCrumb2);
+		brdCrumbs.navigateTo(1);
+	}
 }

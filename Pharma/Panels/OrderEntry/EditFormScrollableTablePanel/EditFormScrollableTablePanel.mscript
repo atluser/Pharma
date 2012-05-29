@@ -37,8 +37,10 @@ ScrollableTablePanel {
 	Label txtStatus=new Label();
 	//TextModel mdlStatus=new TextModel();
 	
-	BackgroundButton btnPriceList=new BackgroundButton();
+	//BackgroundButton btnPriceList=new BackgroundButton();
+	Label txtPriceList=new Label();
 	
+	BackgroundButton btnPaymentMethod=new BackgroundButton();
 	
 	Label txtType=new Label();
 	//TextModel mdlType=new TextModel();
@@ -46,9 +48,21 @@ ScrollableTablePanel {
 	Label txtDate=new Label();
 	DateFormatModel mdlDate=new DateFormatModel();
 	
+	DateBox dtShipDate1=new DateBox();
+	DateFormatModel mdlShipDate1=new DateFormatModel();
+	
+	DateBox dtShipDate2=new DateBox();
+	DateFormatModel mdlShipDate2=new DateFormatModel();
+	
+	DateBox dtShipDate3=new DateBox();
+	DateFormatModel mdlShipDate3=new DateFormatModel();
+	
+	TextArea txtNote=new TextArea();
+	TextModel mdlNote=new TextModel();
+	
+	
 	FormPanel formPanel01=new FormPanel();
-	VerticalPanel addressTP=new VerticalPanel();
-	FormPanel additionalFP=new FormPanel();
+	FormPanel formPanel02=new FormPanel();
 	
 	Styles.FormStyle style = new Styles.FormStyle();
 	//Font titlefnt;
@@ -69,11 +83,12 @@ ScrollableTablePanel {
 		//sezione anagrafica		
 		setInsets(8,8,8,8);						
 		Label lblTitle1=new Label();
-		lblTitle1.setText("Dati Anagrafici");
+		lblTitle1.setText("Dettaglio Ordine");
 		lblTitle1.setFont(txtfnt);
 		mainTP.add(lblTitle1,"halign=center");
 		mainTP.startNewRow();//1
 		setFormPanel01();
+		setFormPanel02();
 		formPanel01.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));		
 		//add in table panel
 		mainTP.add(formPanel01,"halign=center,hfill=fill");		
@@ -86,26 +101,24 @@ ScrollableTablePanel {
 		mainTP.setRowHeight(2,Sizing.PERCENTS,3);
 		mainTP.startNewRow();//3
 		Label lblTitle2=new Label();
-		lblTitle2.setText("Sede e Comunicazioni");
+		lblTitle2.setText("Consegna e Pagamento");
 		lblTitle2.setFont(txtfnt);
 		mainTP.add(lblTitle2,"halign=center");
 		mainTP.startNewRow();//4
-		//setAddressVerticalPanel();
-		//setCommunicationVerticalPanel();
-		addressTP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
-		mainTP.add(addressTP,"halign=center,hfill=fill");
+		formPanel02.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
+		mainTP.add(formPanel02,"halign=center,hfill=fill");
 		mainTP.startNewRow();//5		
 		mainTP.add(new Separator(),"");
 		mainTP.setRowHeight(5,Sizing.PERCENTS,3);
-		mainTP.startNewRow();//6
+		/*mainTP.startNewRow();//6
 		Label lblTitle3=new Label();
-		lblTitle3.setText("Profilazione");
+		lblTitle3.setText("Totali Ordine");
 		mainTP.add(lblTitle3,"halign=center");	
 		lblTitle3.setFont(txtfnt);	
 		mainTP.startNewRow();//7		
 		//setAdditionalFormPanel();
-		additionalFP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
-		mainTP.add(additionalFP,"halign=center,hfill=fill");
+		//formPanel03.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
+		//mainTP.add(additionalFP,"halign=center,hfill=fill");*/
 		mainTP.startNewRow();//8		
 		mainTP.add(new Separator(),"");
 		mainTP.setRowHeight(8,Sizing.PERCENTS,3);
@@ -156,97 +169,40 @@ ScrollableTablePanel {
 	void setModel(){		
 		Font txtfnt=new Font();
 		mdlDate.addField(vObjOrder.OrderDate);
+		mdlShipDate1.addField(vObjOrder.Order1stDeliveryDate);
+		mdlShipDate2.addField(vObjOrder.Order2ndDeliveryDate);
+		mdlShipDate3.addField(vObjOrder.Order3rdDeliveryDate);
+		mdlNote.addField(vObjOrder.OrderNote);
 		
+		txtNote.setDataModel(mdlNote);
+		txtDate.setDataModel(mdlDate);
+		
+		dtShipDate1.setDataModel(mdlShipDate1);
+		dtShipDate2.setDataModel(mdlShipDate2);
+		dtShipDate3.setDataModel(mdlShipDate3);		
 		
 	}
 	
 	
 	void setFormPanel01(){ 
 		formPanel01.add(lblCode,labelAlign,txtCode,controlAlign);
-		//formPanel01.add(lblOrderDate,labelAlign,txtName,controlAlign);
+		formPanel01.add(lblOrderDate,labelAlign,txtDate,controlAlign);
 		formPanel01.add(lblType,labelAlign,txtType,controlAlign);
 		formPanel01.add(lblAccountName,labelAlign,txtAccount,controlAlign);
-		formPanel01.add(lblPriceList,labelAlign,btnPriceList,controlAlign);
+		formPanel01.add(lblPriceList,labelAlign,txtPriceList,controlAlign);
 		formPanel01.add(lblStatus,labelAlign,txtStatus,controlAlign);		
 		formPanel01.setControlColumnWidth(Sizing.PREFERRED, 1);
 		formPanel01.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);				 
 	}
-	/*
-	void setAddressVerticalPanel(){		
-		FormPanel fp1=new FormPanel();
-		fp1.add(lbl06,labelAlign,txtStreetAddress,controlAlign);
-		//addressTP.add(lblAddress,"halign=left");
-		//hz1.add(txtStreetAddress,"halign=left,hfill=fill");
-		//hz1.setColumnWidth(0,Sizing.PREFERRED,0);
-		//hz1.setColumnWidth(1,Sizing.PREFERRED,1);
-		//addressTP.add(txtStreetAddress,"hfill=fill");
-		fp1.setControlColumnWidth(Sizing.PREFERRED, 1);
-		fp1.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
-		addressTP.add(fp1);				
-		//addressTP.startNewRow();
-		
-		//horizontal Panel
-		HorizontalPanel hz=new HorizontalPanel();
-		hz.setInsets(0,6,0,0);
-		hz.setHGap(3);
-		hz.add(txtCity,"hfill=fill");		
-		hz.add(txtCap,"hfill=fill");		
-		//hz.add(pkrProvince,"halign=left,vfill=fill,hfill=fill");
-		hz.add(btnProvincePopup,"halign=left,vfill=fill,hfill=fill");
-		hz.setColumnWidth(0,Sizing.PREFERRED,2);
-		hz.setColumnWidth(1,Sizing.PREFERRED,1);
-		hz.setColumnWidth(2,Sizing.PREFERRED,1);
-		addressTP.add(hz);	
-		//addressTP.setColumnWidth(0,Sizing.PREFERRED,1);
-		//addressTP.setColumnWidth(1,Sizing.PREFERRED,1);
-		FormPanel fp2=new FormPanel();
-		//fp2.add(lblCountry,labelAlign,pkrCountry,"halign=left,vfill=fill,hfill=fill");
-		fp2.add(lbl07,labelAlign,btnCountryPopup,"halign=left,vfill=fill,hfill=fill");
-		fp2.setControlColumnWidth(Sizing.PREFERRED, 1);
-		fp2.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
-		addressTP.add(fp2);						
+	
+	void setFormPanel02(){ 
+		formPanel02.add(lblShipDate1,labelAlign,dtShipDate1,controlAlign);
+		formPanel02.add(lblShipDate2,labelAlign,dtShipDate2,controlAlign);
+		formPanel02.add(lblShipDate3,labelAlign,dtShipDate3,controlAlign);
+		formPanel02.add(lblPaymentMethod,labelAlign,btnPaymentMethod,controlAlign);
+		formPanel02.add(lblNote,labelAlign,txtNote,controlAlign);						
 	}
 	
-	void setCommunicationVerticalPanel(){
-		TablePanel phoneTP=new TablePanel();		
-		
-		
-		phoneTP.add(lbl08,labelAlign);
-		phoneTP.add(txtPrefix,"halign=left,hfill=fill");
-		phoneTP.add(txtPhone,"halign=left,hfill=fill");				
-		phoneTP.setColumnWidth(0,Sizing.PERCENTS,labelColumnSize);
-		phoneTP.setColumnWidth(1,Sizing.PREFERRED,1);
-		phoneTP.setColumnWidth(2,Sizing.PREFERRED,2);				
-		
-		phoneTP.startNewRow();
-		HorizontalPanel hz2=new HorizontalPanel();
-		phoneTP.add(lbl09,labelAlign);
-		phoneTP.add(txtFaxPrefix,"halign=left,hfill=fill");
-		phoneTP.add(txtFax,"halign=left,hfill=fill");				
-		phoneTP.setColumnWidth(0,Sizing.PERCENTS,labelColumnSize);
-		phoneTP.setColumnWidth(1,Sizing.PREFERRED,1);
-		phoneTP.setColumnWidth(2,Sizing.PREFERRED,2);				
-		
-		addressTP.add(phoneTP);
-				
-		FormPanel fp=new FormPanel();
-		fp.add(lbl10,labelAlign,txtMail,"halign=left,hfill=fill");
-		fp.add(lbl11,labelAlign,txtUrl,"halign=left,hfill=fill");
-		fp.setControlColumnWidth(Sizing.PREFERRED, 1);
-		fp.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
-		addressTP.add(fp);															
-	}
-	
-	void setAdditionalFormPanel(){
-		additionalFP.add(lbl01,labelAlign,btnRatingPopup,"halign=left,hfill=fill");
-		additionalFP.add(lbl02,labelAlign,btnRevenuePopup,"halign=left,hfill=fill");
-		additionalFP.add(lbl03,labelAlign,txtEmpNum,"halign=left,hfill=fill");
-		additionalFP.setControlColumnWidth(Sizing.PREFERRED, 1);
-		additionalFP.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
-	
-	}
-	
-	*/
 	void setRow(DataRow row){		
 		currentRow=row;			
 		txtCode.setText(vObjOrder.OrderCode.getStringValue(row));
@@ -256,47 +212,29 @@ ScrollableTablePanel {
 		
 		mdlDate.setRow(row);
 		
+		mdlShipDate1.setRow(row);
+		mdlShipDate2.setRow(row);
+		mdlShipDate3.setRow(row);
 		
-		btnPriceList.setText(vObjOrder.OrderPriceList.getStringValue(row));
+		txtPriceList.setText(vObjOrder.OrderPriceList.getStringValue(row));
+		btnPaymentMethod.setText(vObjOrder.OrderPaymentMode.getStringValue(row));
+		
+		mdlNote.setRow(row);
 		
 		refresh();
 		
 		
 		
 	}
-	/*
-	void save(){
-			vObjAccount.AccountName.setStringValue(txtName.getText(),currentRow);
-			//int idx=txtCategory.getSelectedIndex();
-			//String key=mdlCategory.getKeyValue();
-			//vObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);
-			vObjAccount.AccountCategory.setStringValue(btnCategoryPopup.getText(),currentRow);			
-			vObjAccount.AccountStreetAddress.setStringValue(txtStreetAddress.getText(),currentRow);
-			vObjAccount.AccountCity.setStringValue(txtCity.getText(),currentRow);
-			vObjAccount.AccountPostalCode.setStringValue(txtCap.getText(),currentRow);
-			//idx=pkrProvince.getSelectedIndex();
-			//vObjAccount.AccountProvince.setStringValue(pkrProvince.getChoice(idx),currentRow);
-			vObjAccount.AccountProvince.setStringValue(btnProvincePopup.getText(),currentRow);
-			//idx=pkrCountry.getSelectedIndex();
-			//String key =mdlCountry.getKeyValue();
-			//vObjAccount.AccountCountry.setStringValue(pkrCountry.getChoice(idx),currentRow);
-			//vObjAccount.AccountCountry.setStringValue(mdlCountry.getKeyValue(),currentRow);
-			vObjAccount.AccountCountry.setStringValue(btnCountryPopup.getText(),currentRow);
-					
-			vObjAccount.AccountPhone.setStringValue(txtPhone.getText(),currentRow);
-			vObjAccount.AccountFax.setStringValue(txtFax.getText(),currentRow);
-			vObjAccount.AccountEmail.setStringValue(txtMail.getText(),currentRow);
-			vObjAccount.AccountWebSite.setStringValue(txtUrl.getText(),currentRow);
-			vObjAccount.AccountPrefix.setStringValue(mdlPrefix.getText(),currentRow);
-			vObjAccount.AccountRating.setStringValue(btnRatingPopup.getText(),currentRow);
-			vObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
-			vObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
-			vObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(txtEmpNum.getText()),currentRow);
-			
+	
+	void save(){		
+			vObjOrder.Order1stDeliveryDate.setDateValue(dtShipDate1.getDate(),currentRow);
+			vObjOrder.Order2ndDeliveryDate.setDateValue(dtShipDate2.getDate(),currentRow);
+			vObjOrder.Order3rdDeliveryDate.setDateValue(dtShipDate3.getDate(),currentRow);
 			currentRow.applyUpdates();
 		
 	}
-*/	
+	
 	
 	
 	

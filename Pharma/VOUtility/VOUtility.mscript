@@ -918,8 +918,7 @@ UIObject {
 	 DataRow getNewOrder(String accountCode){
 		
 		DataRow dt = vObjOrder.getNewRow();
-		
-		//vObjOrder.OrderCode.setStringValue(orderCode,dt);
+				
 		vObjOrder.AccountCode.setStringValue(accountCode,dt);
 		vObjOrder.OrderCode.setStringValue(Platform.toString(Platform.createDate().getTime()),dt);
 		vObjOrder.OrderStatus.setStringValue("Bozza",dt);
