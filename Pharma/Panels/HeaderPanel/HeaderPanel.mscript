@@ -14,7 +14,8 @@ HorizontalPanel {
 	Panels.Account.RootPanel pnlAccountRoot;
 	Panels.Activity.RootPanel pnlActivityRoot;
 	Panels.Contact.RootPanel pnlContactRoot;
-	Panels.Order.RootPanel pnlOrderRoot;
+	//Panels.Order.RootPanel pnlOrderRoot;
+	Panels.Order.RootTablePanel pnlOrderRoot;
 	Panels.ServiceRequest.RootPanel pnlServiceRequestRoot;
 	Panels.Catalog.RootPanel pnlCatalogRoot;
 	//Panels.PriceList.RootPanel pnlPriceListRoot;
@@ -427,7 +428,7 @@ HorizontalPanel {
 		pnlContactRoot = contact;	
 	}
 
-	void setOrderRootPanel(Panels.Order.RootPanel order){
+	void setOrderRootPanel(Panels.Order.RootTablePanel order){
 		pnlOrderRoot = order;	
 	}		
 
