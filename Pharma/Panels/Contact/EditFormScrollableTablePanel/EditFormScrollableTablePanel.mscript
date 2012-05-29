@@ -240,7 +240,6 @@ ScrollableTablePanel {
 		//txtCountry.setDataModel(mdlCountry);
 		//pkrCountry.setDataModel(mdlCountry);
 		txtPhone.setDataModel(mdlPhone);		
-		txtFax.setDataModel(mdlFax);
 		txtMail.setDataModel(mdlMail);
 	}
 	
@@ -263,7 +262,7 @@ ScrollableTablePanel {
 		mdlStatus.addField(vObjContact.ContactStatus);
 		mdlStreetAddress.addField(vObjContact.ContactStreetAddress);
 		mdlCity.addField(vObjContact.ContactStreetCity);
-		mdlCap.addField(vObjCOntact.ContactCap);
+		mdlCap.addField(vObjContact.ContactCap);
 		mdlProvince.addField(vObjContact.ContactProvince);
 		mdlCountry.addField(vObjContact.ContactCountry);
 		mdlPhone.addField(vObjContact.ContactPhone);
@@ -332,7 +331,7 @@ ScrollableTablePanel {
 	
 	void setAddressVerticalPanel(){		
 		FormPanel fp1=new FormPanel();
-		fp1.add(lblAddress,labelAlign,txtStreetAddress,controlAlign);
+		fp1.add(lblStreetAddress,labelAlign,txtStreetAddress,controlAlign);
 		//addressTP.add(lblAddress,"halign=left");
 		//hz1.add(txtStreetAddress,"halign=left,hfill=fill");
 		//hz1.setColumnWidth(0,Sizing.PREFERRED,0);
@@ -471,14 +470,12 @@ ScrollableTablePanel {
 			vObjContact.ContactCountry.setStringValue(btnCountryPopup.getText(),currentRow);
 					
 			vObjContact.ContactPhone.setStringValue(txtPhone.getText(),currentRow);
-			vObjContact.Co.setStringValue(txtFax.getText(),currentRow);
 			vObjAccount.AccountEmail.setStringValue(txtMail.getText(),currentRow);
-			vObjAccount.AccountWebSite.setStringValue(txtUrl.getText(),currentRow);
 			vObjAccount.AccountPrefix.setStringValue(mdlPrefix.getText(),currentRow);
 			vObjAccount.AccountRating.setStringValue(btnRatingPopup.getText(),currentRow);
 			vObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
 			vObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
-			vObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(txtEmpNum.getText()),currentRow);
+
 			
 			currentRow.applyUpdates();
 		
@@ -613,4 +610,4 @@ ScrollableTablePanel {
 		poPick.dismiss();
 	} 
 			
-}
+} 

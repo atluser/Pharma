@@ -172,12 +172,8 @@ Screen {
 			message+=fp.lblName.getText();
 			msgBox.error(1,message);			
 		}
-		else if(fp.mdlCategory.getText()==""){
-			message+=fp.lblCategory.getText();
-			msgBox.error(1,message);			
-		}
 		else if(fp.txtStreetAddress.getText()==""){
-			message+=fp.lblAddress.getText();
+			message+=fp.lblStreetAddress.getText();
 			msgBox.error(1,message);
 		}
 		else if(fp.txtCity.getText()==""){
@@ -220,8 +216,9 @@ Screen {
 	void init(DataRow row, TablePanel tp,TablePanel accfp){
 		//sticky table origine dati				
 		//detail form
-		pnlDetailForm=(Panels.Account.ReadOnlyDetailFormPanel)accfp;				
-		stkTP=(Panels.Account.StickyTablePanel)tp;
+		
+		//pnlDetailForm=(Panels.Account.ReadOnlyDetailFormPanel)accfp;				
+		//stkTP=(Panels.Account.StickyTablePanel)tp;
 		fp.setRow(row);
 		//refresh();		
 			
