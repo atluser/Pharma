@@ -1,0 +1,318 @@
+DataStoreObject {
+	
+	StringField AccountId {
+		return null;
+	}
+	
+	StringField AccountCode {
+		return null;
+	}
+	
+	StringField AccountName {
+		return null;
+	}
+	
+	StringField AccountType {
+		return null;
+	}
+	StringField AccountCategory {
+		return null;
+	}	
+
+	StringField AccountStreetAddress {
+		return null;
+	}
+
+	StringField AccountCity {
+		return null;
+	}	
+
+	StringField AccountProvince {
+		return null;
+	}
+
+	StringField AccountPostalCode {
+		return null;
+	}
+
+	StringField AccountCountry {
+		return null;
+	}
+	
+	StringField AccountStatus {
+		return null;
+	}
+	
+	StringField AccountPhone {
+		return null;
+	}
+	
+	StringField AccountPrefix{return null;}
+	
+	StringField AccountFax {
+		return null;
+	}
+	
+	StringField AccountEmail {
+		return null;
+	}
+	StringField AccountWebSite {
+		return null;
+	}
+	
+	StringField AccountRating {
+		return null;
+	}
+	
+	StringField AccountRevenue {
+		return null;
+	}
+	
+	IntegerField AccountNumberOfEmployee {
+		return Platform.createInteger(0);
+	}	
+	
+	Query getAccounts() {
+		return accountRows();
+	}
+	query accountRows<> {
+		ascendingBy AccountName;
+	}
+	
+	Query getAccountStartsWith(String strStart){
+		return accountStartsWith(strStart);
+	}
+	query accountStartsWith<String strStart>{
+		where AccountName startsWith strStart; 
+		ascendingBy AccountName;
+	}
+	
+	Query getAccountContains(String letter,String str){
+		return accountContains(letter,str);
+	}
+	query accountContains<String letter,String str>{
+		where AccountName startsWith letter;
+		where AccountName contains str;
+		ascendingBy AccountName;
+	}
+	Query getAccountRow(String accountId){
+		return accountRow(accountId);
+	}
+	query accountRow<String accountId>{
+		where AccountId==accountId;
+	}
+	/*
+	 * For StickyTable Grouped
+	 */
+	 /*
+	Query getAccountsStartWithA() {
+		return startsWithA();
+	}
+	query startsWithA<> {
+		where AccountName startsWith "A";
+		ascendingBy AccountName;
+	}
+	
+	Query getAccountsStartWithB() {
+		return startsWithB();
+	}
+	query startsWithB<> {
+		where AccountName startsWith "B";
+		ascendingBy AccountName;
+	}	
+	
+	Query getAccountsStartsWithC() {
+		return startsWithC();
+	}
+	query startsWithC<> {
+		where AccountName startsWith "C";
+		ascendingBy AccountName;
+	}	
+	
+	Query getAccountsStartsWithD() {
+		return startsWithD();
+	}
+	query startsWithD<> {
+		where AccountName startsWith "D";
+		ascendingBy AccountName;
+	}	
+	
+	Query getAccountsStartsWithE() {
+		return startsWithE();
+	}
+	query startsWithE<> {
+		where AccountName startsWith "E";
+		ascendingBy AccountName;
+	}	
+	
+	Query getAccountsStartsWithF() {
+		return startsWithF();
+	}
+	query startsWithF<> {
+		where AccountName startsWith "F";
+		ascendingBy AccountName;
+	}	
+	
+	Query getAccountsStartsWithG() {
+		return startsWithG();
+	}
+	query startsWithG<> {
+		where AccountName startsWith "G";
+		ascendingBy AccountName;
+	}	
+
+	Query getAccountsStartsWithH() {
+		return startsWithH();
+	}
+	query startsWithH<> {
+		where AccountName startsWith "H";
+		ascendingBy AccountName;
+	}
+
+	Query getAccountsStartsWithI() {
+		return startsWithI();
+	}
+	query startsWithI<> {
+		where AccountName startsWith "I";
+		ascendingBy AccountName;
+	}
+
+	Query getAccountsStartsWithJ() {
+		return startsWithJ();
+	}
+	query startsWithJ<> {
+		where AccountName startsWith "J";
+		ascendingBy AccountName;
+	}
+
+	Query getAccountsStartsWithK() {
+		return startsWithK();
+	}
+	query startsWithK<> {
+		where AccountName startsWith "K";
+		ascendingBy AccountName;
+	}
+
+	Query getAccountsStartsWithL() {
+		return startsWithL();
+	}
+	query startsWithL<> {
+		where AccountName startsWith "L";
+		ascendingBy AccountName;
+	}
+
+	Query getAccountsStartsWithM() {
+		return startsWithM();
+	}
+	query startsWithM<> {
+		where AccountName startsWith "M";
+		ascendingBy AccountName;
+	}
+
+	Query getAccountsStartsWithN() {
+		return startsWithN();
+	}
+	query startsWithN<> {
+		where AccountName startsWith "N";
+		ascendingBy AccountName;
+	}	
+	
+	Query getAccountsStartsWithO() {
+		return startsWithO();
+	}
+	query startsWithO<> {
+		where AccountName startsWith "O";
+		ascendingBy AccountName;
+	}	
+	
+	Query getAccountsStartsWithP() {
+		return startsWithP();
+	}
+	query startsWithP<> {
+		where AccountName startsWith "P";
+		ascendingBy AccountName;
+	}	
+	
+	Query getAccountsStartsWithQ() {
+		return startsWithQ();
+	}
+	query startsWithQ<> {
+		where AccountName startsWith "Q";
+		ascendingBy AccountName;
+	}	
+	
+	Query getAccountsStartsWithR() {
+		return startsWithR();
+	}
+	query startsWithR<> {
+		where AccountName startsWith "R";
+		ascendingBy AccountName;
+	}
+
+	Query getAccountsStartsWithS() {
+		return startsWithS();
+	}
+	query startsWithS<> {
+		where AccountName startsWith "S";
+		ascendingBy AccountName;
+	}
+
+	Query getAccountsStartsWithT() {
+		return startsWithT();
+	}
+	query startsWithT<> {
+		where AccountName startsWith "T";
+		ascendingBy AccountName;
+	}
+
+	Query getAccountsStartsWithU() {
+		return startsWithU();
+	}
+	query startsWithU<> {
+		where AccountName startsWith "U";
+		ascendingBy AccountName;
+	}
+
+	Query getAccountsStartsWithV() {
+		return startsWithV();
+	}
+	query startsWithV<> {
+		where AccountName startsWith "V";
+		ascendingBy AccountName;
+	}
+
+	Query getAccountsStartsWithW() {
+		return startsWithW();
+	}
+	query startsWithW<> {
+		where AccountName startsWith "W";
+		ascendingBy AccountName;
+	}
+	
+	Query getAccountsStartsWithX() {
+		return startsWithX();
+	}
+	query startsWithX<> {
+		where AccountName startsWith "X";
+		ascendingBy AccountName;
+	}	
+	
+	Query getAccountsStartsWithY() {
+		return startsWithY();
+	}
+	query startsWithY<> {
+		where AccountName startsWith "Y";
+		ascendingBy AccountName;
+	}	
+
+	Query getAccountsStartsWithZ() {
+		return startsWithZ();
+	}
+	query startsWithZ<> {
+		where AccountName startsWith "Z";
+		ascendingBy AccountName;
+	}	
+	*/
+	
+
+}

@@ -1,0 +1,115 @@
+DataStoreObject {
+	
+	// Dettaglio Ordine
+	StringField OrderCode {
+		return null;
+	}
+	
+	DateField OrderDate {
+		return Platform.createDate();
+	}	
+	
+	StringField OrderType {
+		return "Ordine di Vendita";
+	}
+	
+	StringField AccountCode{
+		return null;
+	}
+	
+	StringField AccountName{
+		//return vObjUtil.getAccountName(AccountCode);
+		return null;		
+	}
+	
+	StringField OrderPriceList {
+		return "Listino Base";
+	}	
+	
+	StringField OrderStatus{
+		return null;
+	}
+	
+	// Consegna e Pagamento
+	DateField Order1stDeliveryDate {
+		return Platform.createDate();
+	}
+
+	DateField Order2ndDeliveryDate {
+		return Platform.createDate();
+	}	
+		
+	DateField Order3rdDeliveryDate {
+		return Platform.createDate();
+	}	
+	
+	StringField OrderPaymentMode {
+		return null;
+	}
+		
+	StringField OrderNote {
+		return null;
+	}	
+		
+	// Totali Ordine
+	CurrencyField OrderTotalGross {
+		return null;
+	}
+
+	CurrencyField OrderTotalNet {
+		return null;
+	}
+
+	DoubleField OrderTotalDiscount {
+		return null;
+	}
+
+	//Da Eliminare	
+	StringField PromotionCode{
+		return null;
+	}
+	
+	IntegerField PromotionMinQty{
+		return Platform.createInteger(0);
+	}
+	//
+	
+	Query getOrders() {
+		return orderRows();
+	}
+	query orderRows<> {
+		ascendingBy OrderCode;
+	}
+	
+	Query getOrderRow(String orderCode){
+		return orderRow(orderCode);
+	}
+	query orderRow<String orderCode>{
+		where OrderCode==orderCode;
+	}
+	
+	Query getOrderRowByAccountCode(String accountCode) {
+		return orderRowByAccountCode(accountCode);
+	}
+	query orderRowByAccountCode<String accountCode>{
+		where AccountCode==accountCode;
+	}	
+
+	Query getOrderContains(String str1){
+		return orderContains1(str1);
+	}
+	query orderContains1<String str2> {
+		where OrderCode contains str2;
+		ascendingBy OrderCode;
+	}
+	
+	Query getOrderContains(String str01, String str02){
+		return orderContains(str01, str02);
+	}
+	query orderContains<String str01, String str02>{
+		where AccountCode == str01;
+		where OrderCode contains str02;
+		ascendingBy OrderCode;
+	}	
+	
+}

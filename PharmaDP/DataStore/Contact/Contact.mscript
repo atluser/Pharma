@@ -1,0 +1,66 @@
+DataStoreObject {
+	StringField ContactId{return null;}
+	
+	//-- Dati Anagrafici --
+	StringField ContactName{return null;}
+	StringField ContactLastName{return null;}
+	
+	//Relazione con Account Cliente
+	StringField RelAccountCode{return null;}
+	//StringField RelAccountName{return vObjUtil.getAccountName(RelAccountCode);}
+	
+	StringField ContactTitle{return null;}
+	StringField ContactFunction {return null;}
+	StringField ContactStatus{return null;}
+	
+	//-- Localizzazione e Comunicazione
+	StringField ContactStreetAddress{return null;}
+	StringField ContactStreetCity{return null;}
+	StringField ContactProvince{return null;}
+	StringField ContactCap{return null;}
+	StringField ContactCountry{return null;}
+	StringField ContactPhone{return null;}
+	StringField ContactOfficePhone{ return null;}
+	StringField ContactEmail{return null;}
+	
+	//-- Altre Info --
+	StringField ContactAge{return null;}
+	StringField ContactGender{return null;}
+	StringField ContactNote{return null;}
+	
+	
+Query getContacts() {
+		return contactRows();
+	}
+	
+	query contactRows<> {
+		ascendingBy ContactLastName;
+	}
+	
+Query getContactStartsWith(String strStart){
+		return ContactStartsWith(strStart);
+	}
+	query ContactStartsWith<String strStart>{
+		where ContactLastName startsWith strStart; 
+		ascendingBy ContactLastName;
+	}
+	
+Query getContactContains(String letter,String str){
+		return ContactContains(letter,str);
+	}
+	query ContactContains<String letter,String str>{
+		where ContactLastName startsWith letter;
+		where ContactLastName contains str;
+		ascendingBy ContactLastName;
+	}
+
+Query getContactRow(String ContactId){
+		return ContactRow(ContactId);
+	}
+	query ContactRow<String contactId>{
+		where ContactId==contactId;
+	}
+
+	
+
+}
