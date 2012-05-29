@@ -37,7 +37,7 @@ Screen {
 
 	callback onCreate(Container container){
 		fp.scr=(Screen)container;
-		//setUpButtons();
+		setUpButtons();
 		
 		// Header Panel
 		HorizontalPanel pnlHeader = new HorizontalPanel();
@@ -164,7 +164,7 @@ Screen {
 	 */
 	 
 	 boolean checkRequired(){
-	 	boolean result=false;/*
+	 	boolean result=false;
 	 	//check required field
 		String message="Valirizzare campo ";
 		MessageBox msgBox=new MessageBox();		
@@ -172,12 +172,8 @@ Screen {
 			message+=fp.lblName.getText();
 			msgBox.error(1,message);			
 		}
-		else if(fp.mdlCategory.getText()==""){
-			message+=fp.lblCategory.getText();
-			msgBox.error(1,message);			
-		}
 		else if(fp.txtStreetAddress.getText()==""){
-			message+=fp.lblAddress.getText();
+			message+=fp.lblStreetAddress.getText();
 			msgBox.error(1,message);
 		}
 		else if(fp.txtCity.getText()==""){
@@ -193,12 +189,12 @@ Screen {
 				msgBox.error(1,message);
 		}
 		else result=true;
-		*/
+		
 		return result;
 	 }
 	 
 	void setUpButtons() {
-	/*			
+				
 		btnHome.setImage(Images.VodafoneImages.img_logo_vodafone.getImage());
 		btnHome.setFocusedImage(Images.VodafoneImages.img_logo_vodafone.getImage());
 		btnHome.setSelectedImage(Images.VodafoneImages.img_logo_vodafone.getImage());	
@@ -214,14 +210,17 @@ Screen {
 		btnMenu.setImage(Images.VodafoneImages.img_logo_atlantic.getImage());
 		btnMenu.setFocusedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
 		btnMenu.setSelectedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
-	*/
+	
 	}
 	
 	void init(DataRow row, TablePanel tp,TablePanel accfp){
-		/*pnlDetailForm=(Panels.Account.ReadOnlyDetailFormPanel)accfp;				
-		stkTP=(Panels.Account.StickyTablePanel)tp;
+		//sticky table origine dati				
+		//detail form
+		
+		//pnlDetailForm=(Panels.Account.ReadOnlyDetailFormPanel)accfp;				
+		//stkTP=(Panels.Account.StickyTablePanel)tp;
 		fp.setRow(row);
-		*/		
+		//refresh();		
 			
 	}
 	
