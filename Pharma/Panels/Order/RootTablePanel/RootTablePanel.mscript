@@ -1,2 +1,19 @@
 TablePanel {
+
+	callback onCreate(Container c) {
+		// Detail Panel
+		Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
+			
+		// Master Panel
+		Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
+		pnlMaster.setDetailPanel(pnlDetail);
+			
+		add(pnlMaster,"hfill=fill,vfill=fill");
+		add(pnlDetail,"hfill=fill,vfill=fill");
+		setColumnWidth(0, Sizing.PIXELS, 300);
+		setColumnWidth(1, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 0);	
+		setRowHeight(1, Sizing.PREFERRED, 1);
+	}
+	
 }
