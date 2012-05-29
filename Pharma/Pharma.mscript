@@ -13,16 +13,20 @@ UIProject {
 	 * Virtual objects
 	 */
 	CrmEntity vObjCrmEntity = new CrmEntity();
-	Account vObjAccount = new Account();
+	PharmaDP.DataStore dp=new PharmaDP.DataStore();
+	 PharmaDP.DataStore.Account vObjAccount=dp.Account;
+	//Account vObjAccount = new Account();
 	Contact vObjContact = new Contact();
 	ListOfValues vObjLOV = new ListOfValues();
 	Order vObjOrder=new Order();
 	ListItem vObjListItem=new ListItem();
+	//PharmaDP.DataStore.PriceListItem vObjPriceListItem=dp.PriceListItem;
 	PriceListItem vObjPriceListItem=new PriceListItem();
 	PriceList vObjList=new PriceList();
 	ProductList vObjProductList=new ProductList();
 	PriceList vObjPriceList=new PriceList();
 	Products vObjProducts=new Products();
+	//PharmaDP.DataStore.Products vObjProducts=dp.Products;
 		
 	/*
 	 * VOUtility
@@ -98,30 +102,32 @@ UIProject {
 
 	callback onStart(PushedData pushedData){
 		letterList=List.split(letter,";");
-		
+		if(!dp.isOpened())
+			open(dp,Password.create(""),true);		
+		dp.clearData();
 		vObjUtil.loadCrmEntities();
 		vObjUtil.loadLOV();
 		vObjUtil.loadContact();
 		vObjUtil.loadAccount();
 		vObjUtil.loadProducts();
-		vObjUtil.loadListItem();
+		//vObjUtil.loadListItem();
 		vObjUtil.loadPriceList();
 		vObjUtil.loadPriceListItem();
-		vObjUtil.loadOrder();
-		
+		vObjUtil.loadOrder();		
 		vObjUtil.loadImage();
 		
 		//test join
 		appLog.log(Log.INFO,"LANCIO QUERY ");
-		Query q=vObjProductList.getProductList(vObjProducts,vObjListItem,"");
+		Query q=vObjProductList.getProductList2(vObjProducts,vObjPriceListItem,"");
 		if(q!=null){
+			DataRowSet rs=q.getRowSet();
 			appLog.log(Log.INFO,"query OK");
-			if(q.getRowSet()!=null){
+			if(rs!=null){
 				appLog.log(Log.INFO,"ROWSET not null");
-				appLog.log(Log.INFO,"SIZE "+""+q.getRowSet().getSize());
-				//DataRow row=q.getRowSet().first();
-				//String productName=vObjListItem.ProductName.getStringValue(row);
-				//appLog.log(Log.INFO,"PRODUCTNAME "+productName);
+				appLog.log(Log.INFO,"SIZE "+""+rs.getSize());
+				DataRow row=q.getRowSet().first();
+				String productName=vObjProductList.myProductName.getStringValue(row);
+				appLog.log(Log.INFO,"PRODUCTNAME "+productName);
 			}
 			else appLog.log(Log.INFO,"rowset null ");
 		
@@ -152,7 +158,7 @@ UIProject {
 	}
 
 	callback onStop(){
-		//TODO: add code
+		dp.saveData();
 	}
 
 	callback onUserChanged(){
@@ -162,6 +168,11 @@ UIProject {
 	callback onUserInactivity(){
 		//TODO: add code
 	}
+	
+	callback dp onError ( ErrorSource source , Error error ){
+		appLog.log(Log.ERROR,"errore apertura DP");
+	} 
+
 	
 	/*
 	 * Custom methods

@@ -3,6 +3,7 @@
 	<name>Pharma</name>
 	<comment></comment>
 	<projects>
+		<project>PharmaDP</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

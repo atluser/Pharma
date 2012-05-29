@@ -240,7 +240,7 @@ ScrollableTablePanel {
 		//txtCountry.setDataModel(mdlCountry);
 		//pkrCountry.setDataModel(mdlCountry);
 		txtPhone.setDataModel(mdlPhone);		
-		txtFax.setDataModel(mdlFax);
+		//txtFax.setDataModel(mdlFax);
 		txtMail.setDataModel(mdlMail);
 	}
 	
@@ -259,7 +259,7 @@ ScrollableTablePanel {
 		//mdlFaxPrefix.setFont(txtfnt);
 		
 		//mdlCode.setFont(txtfnt);
-		mdlName.addField(vObjContact.ContactName);
+		/*mdlName.addField(vObjContact.ContactName);
 		mdlStatus.addField(vObjContact.ContactStatus);
 		mdlStreetAddress.addField(vObjContact.ContactStreetAddress);
 		mdlCity.addField(vObjContact.ContactStreetCity);
@@ -268,7 +268,7 @@ ScrollableTablePanel {
 		mdlCountry.addField(vObjContact.ContactCountry);
 		mdlPhone.addField(vObjContact.ContactPhone);
 		mdlMail.addField(vObjAccount.AccountEmail);
-		
+		*/
 		//btnProvinceSticky.setText("Provincia");
 		//btnProvinceSticky.setDataModel(mdlProvince);
 		//mdlName.setText("pippo");
@@ -331,7 +331,7 @@ ScrollableTablePanel {
 	}
 	
 	void setAddressVerticalPanel(){		
-		FormPanel fp1=new FormPanel();
+	/*	FormPanel fp1=new FormPanel();
 		fp1.add(lblAddress,labelAlign,txtStreetAddress,controlAlign);
 		//addressTP.add(lblAddress,"halign=left");
 		//hz1.add(txtStreetAddress,"halign=left,hfill=fill");
@@ -355,17 +355,13 @@ ScrollableTablePanel {
 		hz.setColumnWidth(1,Sizing.PREFERRED,1);
 		hz.setColumnWidth(2,Sizing.PREFERRED,1);
 		addressTP.add(hz);	
-		/*addressTP.startNewRow();
-		addressTP.add(lblCountry,"halign=left");
-		addressTP.add(txtCountry,"hfill=fill");*/
-		//addressTP.setColumnWidth(0,Sizing.PREFERRED,1);
-		//addressTP.setColumnWidth(1,Sizing.PREFERRED,1);
 		FormPanel fp2=new FormPanel();
 		//fp2.add(lblCountry,labelAlign,pkrCountry,"halign=left,vfill=fill,hfill=fill");
 		fp2.add(lblCountry,labelAlign,btnCountryPopup,"halign=left,vfill=fill,hfill=fill");
 		fp2.setControlColumnWidth(Sizing.PREFERRED, 1);
 		fp2.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
-		addressTP.add(fp2);						
+		addressTP.add(fp2);
+		*/						
 	}
 	
 	void setCommunicationVerticalPanel(){
@@ -454,7 +450,7 @@ ScrollableTablePanel {
 	}
 	
 	void save(){
-			vObjContact.ContactName.setStringValue(txtName.getText(),currentRow);
+		/*	vObjContact.ContactName.setStringValue(txtName.getText(),currentRow);
 			//int idx=txtCategory.getSelectedIndex();
 			//String key=mdlCategory.getKeyValue();
 			//vObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);		
@@ -481,7 +477,7 @@ ScrollableTablePanel {
 			vObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(txtEmpNum.getText()),currentRow);
 			
 			currentRow.applyUpdates();
-		
+		*/
 	}
 	
 	/*callback pkrCountry onValueChange(Control c){
