@@ -1,0 +1,613 @@
+ScrollableTablePanel {	
+	DataRow currentRow;
+	int labelColumnSize=11;//dimensione % label column
+	String labelAlign="halign=left";
+	String controlAlign="halign=left,hfill=fill";
+	Screen scr=null;
+	
+	Popover poPick=new Popover();
+	Panels.PickLOVStickyTablePanel pnlPick = new Panels.PickLOVStickyTablePanel();
+	Label lblPickTitle=new Label();
+	Action actClosePop=new Action();
+	//AnchorPosition ap=new AnchorPosition();
+	
+	//Anagrafica
+	Label lblName=new Label();
+	Label lblLastName=new Label();
+	Label lblRelAccount=new Label();
+	Label lblTitle=new Label();
+	Label lblFunction=new Label();
+	Label lblStatus=new Label();
+	
+	//Localizzazione e Comunicazioni
+	//Indirizzo
+	Label lblStreetAddress=new Label();
+	Label lblCity=new Label();
+	Label lblCap=new Label();
+	Label lblProvince=new Label();
+	Label lblCountry=new Label();
+	Label lblPhone=new Label();
+	Label lblOfficePhone=new Label();
+	Label lblMail=new Label();
+	
+	//Altre info
+	Label lblAge=new Label();
+	Label lblGender=new Label();
+	Label lblNote=new Label();
+	
+	Label txtCode=new Label();
+	TextModel mdlCode =new TextModel();
+	
+	UppercaseField txtName=new UppercaseField();
+	TextModel mdlName =new TextModel();
+	
+	Label txtType=new Label();
+	TextModel mdlType =new TextModel();
+	
+	//TextField txtCategory=new TextField();
+	//Picker txtCategory=new Picker();
+	BackgroundButton btnCategoryPopup=new BackgroundButton();
+	//ChoiceModel mdlCategory=new ChoiceModel();
+	TextModel mdlCategory=new TextModel();
+	
+	Label txtStatus=new Label();
+	TextModel mdlStatus=new TextModel();
+
+	TextField txtStreetAddress=new TextField();
+	TextModel mdlStreetAddress=new TextModel();
+		
+	TextField txtCity=new TextField();
+	TextModel mdlCity=new TextModel();
+	
+	TextField txtCap=new TextField();
+	TextModel mdlCap=new TextModel();
+	
+	//ComboBox txtProvince=new ComboBox();
+	//ChoiceModel mdlProvince=new ChoiceModel();
+	TextModel mdlProvince=new TextModel();
+	BackgroundButton btnProvincePopup=new BackgroundButton();
+	//Picker btnProvinceSticky=new Picker();
+	BackgroundButton btnCountryPopup =new BackgroundButton();
+	
+	//ComboBox txtCountry=new ComboBox();
+	//ChoiceModel mdlCountry=new ChoiceModel();
+	TextModel mdlCountry=new TextModel();
+	
+	
+	PhoneField txtPhone=new PhoneField();
+	TextModel mdlPhone=new TextModel();
+	
+	Label txtPrefix=new Label();
+	TextModel mdlPrefix=new TextModel();
+	
+	PhoneField txtOfficePhone=new PhoneField();
+	TextModel mdlOfficePhone=new TextModel();
+	
+	EmailField txtMail=new EmailField();
+	TextModel mdlMail=new TextModel();
+	
+	//Picker txt01=new Picker();
+	BackgroundButton btnRatingPopup=new BackgroundButton();
+	TextModel mdlRating=new TextModel();
+	
+	//Picker txt02=new Picker();
+	BackgroundButton btnRevenuePopup=new BackgroundButton();
+	TextModel mdlRevenue=new TextModel();
+	
+	/*
+	Picker pkrCountry=new Picker();
+	Picker pkrProvince=new Picker();
+	*/
+	FormPanel anagraficaFP=new FormPanel();
+	VerticalPanel addressTP=new VerticalPanel();
+	FormPanel additionalFP=new FormPanel();
+	
+	Styles.FormStyle style = new Styles.FormStyle();
+	//Font titlefnt;
+	
+	callback onCreate(Container c){
+		setUpPickPopover();
+		setLabel();
+		setModel();
+		
+		Font txtfnt=new Font();
+		txtfnt.setFamily("Arial");
+		txtfnt.setSize(22);		
+		txtfnt.setBold();
+		//titlefnt=txtfnt.createCopy();
+		
+		//tablepanel
+		TablePanel mainTP=new TablePanel();
+											
+		//sezione anagrafica		
+		setInsets(8,8,8,8);						
+		Label lblTitle1=new Label();
+		lblTitle1.setText("Anagrafica");
+		lblTitle1.setFont(txtfnt);
+		mainTP.add(lblTitle1,"halign=center");
+		mainTP.startNewRow();//1
+		setAnagraficaFormPanel();
+		anagraficaFP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));		
+		//add in table panel
+		mainTP.add(anagraficaFP,"halign=center,hfill=fill");		
+		
+		//setRowHeight(3,Sizing.PREFERRED,3);		
+		
+		//sezione indirizzo
+		mainTP.startNewRow();//2
+		mainTP.add(new Separator(),"");
+		mainTP.setRowHeight(2,Sizing.PERCENTS,3);
+		mainTP.startNewRow();//3
+		Label lblTitle2=new Label();
+		lblTitle2.setText("Localizzazione e Comunicazioni");
+		lblTitle2.setFont(txtfnt);
+		mainTP.add(lblTitle2,"halign=center");
+		mainTP.startNewRow();//4
+		setAddressVerticalPanel();
+		setCommunicationVerticalPanel();
+		addressTP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
+		mainTP.add(addressTP,"halign=center,hfill=fill");
+		
+		mainTP.startNewRow();//5		
+		mainTP.add(new Separator(),"");
+		mainTP.setRowHeight(5,Sizing.PERCENTS,3);
+		mainTP.startNewRow();//6
+		Label lblTitle3=new Label();
+		lblTitle3.setText("Altre Informazioni");
+		mainTP.add(lblTitle3,"halign=center");	
+		lblTitle3.setFont(txtfnt);	
+		mainTP.startNewRow();//7		
+		setAdditionalFormPanel();
+		additionalFP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
+		mainTP.add(additionalFP,"halign=center,hfill=fill");
+		mainTP.startNewRow();//8		
+		mainTP.add(new Separator(),"");
+		mainTP.setRowHeight(8,Sizing.PERCENTS,3);
+		
+				
+		/*setRowHeight(0,Sizing.PREFERRED,0);
+		setRowHeight(1,Sizing.PREFERRED,0);
+		setRowHeight(3,Sizing.PREFERRED,0);
+		setRowHeight(4,Sizing.PREFERRED,0);
+		setRowHeight(6,Sizing.PREFERRED,0);
+		setRowHeight(7,Sizing.PREFERRED,0);		
+		*/
+		mainTP.setColumnWidth(0,Sizing.PIXELS,550);
+		add(mainTP,"halign=center,vfill=fill");
+		setColumnWidth(0,Sizing.PERCENTS,100);
+	}
+	
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){		
+		styleReceptor.applyVisualStyle(style);
+	}
+	
+	
+	void setLabel(){
+		Font txtfnt=new Font();
+		txtfnt.setFamily("Arial");
+		txtfnt.setSize(16);
+		txtfnt.setBold();
+											
+		//Anagrafica
+		lblName.setText("Nome");
+		lblName.setForeColor(Color.create(189,0,0));
+		lblLastName.setText("Cognome");
+		lblLastName.setForeColor(Color.create(189,0,0));				
+		lblRelAccount.setText("Cliente");
+		lblTitle.setText("Titolo");
+		
+		//Localizzazione e Comunicazioni
+		lblStreetAddress.setText("Indirizzo");
+		lblCity.setText("Città");
+		lblProvince.setText("Provincia");
+		lblCap.setText("CAP");
+		lblCountry.setText("Nazione");
+		lblPhone.setText("Tel. Personale");
+		lblOfficePhone.setText("Tel. Ufficio");
+		lblMail.setText("E-Mail");
+		lblMail.setForeColor(Color.create(189,0,0));
+		
+		//Altre info
+		lblAge.setText("Età");
+		lblGender.setText("Sesso");
+		lblNote.setText("Note");
+		
+		//pulsante country				
+		/*btnCountryPopup.setBorder(Border.createSimpleBorder(Colors.Gray));
+		btnCountryPopup.setBackground(Background.create9PartImageRectangleBackground (Images.VodafoneImages.ImgPick , 0 , 50 , 0 , 0 ));
+		*/
+		
+		//btnCategoryPopup.setHorizontalTextAlignment(HorizontalAlignmentType.LEFT);
+		
+		btnCountryPopup.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+		btnProvincePopup.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+		
+	/**************tentativi picker ************/
+		//btnProvinceSticky.setTextHint("Province");
+		
+		
+		//setdatamodel
+		txtCode.setDataModel(mdlCode);
+		txtName.setDataModel(mdlName);
+		txtType.setDataModel(mdlType);
+		//txtCategory.setDataModel(mdlCategory);
+		txtStatus.setDataModel(mdlStatus);
+		txtStreetAddress.setDataModel(mdlStreetAddress);
+		txtCity.setDataModel(mdlCity);
+		txtCap.setDataModel(mdlCap);
+		//txtProvince.setDataModel(mdlProvince);
+		//pkrProvince.setDataModel(mdlProvince);
+		//txtCountry.setDataModel(mdlCountry);
+		//pkrCountry.setDataModel(mdlCountry);
+		txtPhone.setDataModel(mdlPhone);		
+		txtMail.setDataModel(mdlMail);
+	}
+	
+	void setModel(){		
+		/*Font txtfnt=new Font();
+		txtfnt.setFamily("Arial");
+		txtfnt.setSize(18);				
+		*/
+		//txtType.setFont(txtfnt);
+		//mdlType.setFont(txtfnt);
+		//mdlType.setForeColor(Colors.Black);
+		//txtStatus.setFont(txtfnt);
+		//mdlStatus.setFont(txtfnt);
+		//mdlStatus.setForeColor(Colors.Black);		
+		//mdlPrefix.setFont(txtfnt);
+		//mdlFaxPrefix.setFont(txtfnt);
+		
+		//mdlCode.setFont(txtfnt);
+		mdlName.addField(vObjContact.ContactName);
+		mdlStatus.addField(vObjContact.ContactStatus);
+		mdlStreetAddress.addField(vObjContact.ContactStreetAddress);
+		mdlCity.addField(vObjContact.ContactStreetCity);
+		mdlCap.addField(vObjContact.ContactCap);
+		mdlProvince.addField(vObjContact.ContactProvince);
+		mdlCountry.addField(vObjContact.ContactCountry);
+		mdlPhone.addField(vObjContact.ContactPhone);
+		mdlMail.addField(vObjAccount.AccountEmail);
+		
+		//btnProvinceSticky.setText("Provincia");
+		//btnProvinceSticky.setDataModel(mdlProvince);
+		//mdlName.setText("pippo");
+		
+		setChoiceModel();
+		/*
+		//picker
+		PickerElement pkrEl1=new PickerElement();
+		PickerElement pkrEl2=new PickerElement();
+		PickerElement pkrEl3=new PickerElement();
+		pkrEl1.setText("Seleziona paese");
+		pkrEl2.setText("Seleziona provincia");
+		pkrEl3.setText("prova");
+		pkrCountry.setPlaceHolder(pkrEl1);
+		pkrProvince.setPlaceHolder(pkrEl2);
+		//pkrProvince.setMenuItemLabel("Provincia");
+		
+		pkrProvince.setBackColor(Colors.Blue);
+		
+		pkrProvince.addElement(pkrEl3);
+		pkrProvince.doneAddingElements();		
+		*****************************/
+	}
+	
+	void setChoiceModel(){
+	/*	
+		
+		mdlCountry.setChoicesAttribute(vObjLOV.Value);
+		mdlCountry.setChoicesKeyAttribute(vObjLOV.Name);
+		mdlCountry.setRows(vObjLOV.getLOV("COUNTRY"));		
+		//mdlCountry.setSelectedIndex(1);		
+				
+		mdlProvince.setChoicesAttribute(vObjLOV.Name);
+		mdlProvince.setChoicesKeyAttribute(vObjLOV.Name);
+		mdlProvince.setRows(vObjLOV.getLOV("PROVINCE"));
+		
+		/*Font fnt2=new Font();
+		fnt2.setFamily("Arial");
+		fnt2.setSize(19);
+		mdlProvince.setFont(fnt2);
+		mdlProvince.setFocusedBackColor(Colors.Red);
+		mdlProvince.setBackColor(Colors.Gray); 
+		mdlProvince.setSelectedIndex(1);*/
+		
+		/*List catList=new List();			
+		txtCategory.setChoices(catList.split(";Ospedale;ASL;Farmacia;Altro",";"));
+		
+		txt01.setChoices(catList.split(" ;Platinum;Gold;Silver",";"));
+		txt02.setChoices(catList.split(" ;0 - 100 K;100 - 500 K;500 - 1000 K",";"));
+	*/
+	}
+	
+	void setAnagraficaFormPanel(){ 
+		
+		anagraficaFP.add(lblName,labelAlign,txtName,controlAlign);
+		anagraficaFP.add(lblStatus,labelAlign,txtStatus,controlAlign);
+		//anagraficaFP.setControlColumnWidth(Sizing.PERCENTS, 30);
+		anagraficaFP.setControlColumnWidth(Sizing.PREFERRED, 1);
+		anagraficaFP.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);				 
+	}
+	
+	void setAddressVerticalPanel(){		
+		FormPanel fp1=new FormPanel();
+		fp1.add(lblStreetAddress,labelAlign,txtStreetAddress,controlAlign);
+		//addressTP.add(lblAddress,"halign=left");
+		//hz1.add(txtStreetAddress,"halign=left,hfill=fill");
+		//hz1.setColumnWidth(0,Sizing.PREFERRED,0);
+		//hz1.setColumnWidth(1,Sizing.PREFERRED,1);
+		//addressTP.add(txtStreetAddress,"hfill=fill");
+		fp1.setControlColumnWidth(Sizing.PREFERRED, 1);
+		fp1.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
+		addressTP.add(fp1);				
+		//addressTP.startNewRow();
+		
+		//horizontal Panel
+		HorizontalPanel hz=new HorizontalPanel();
+		hz.setInsets(0,6,0,0);
+		hz.setHGap(3);
+		hz.add(txtCity,"hfill=fill");		
+		hz.add(txtCap,"hfill=fill");		
+		//hz.add(pkrProvince,"halign=left,vfill=fill,hfill=fill");
+		hz.add(btnProvincePopup,"halign=left,vfill=fill,hfill=fill");
+		hz.setColumnWidth(0,Sizing.PREFERRED,2);
+		hz.setColumnWidth(1,Sizing.PREFERRED,1);
+		hz.setColumnWidth(2,Sizing.PREFERRED,1);
+		addressTP.add(hz);	
+		/*addressTP.startNewRow();
+		addressTP.add(lblCountry,"halign=left");
+		addressTP.add(txtCountry,"hfill=fill");*/
+		//addressTP.setColumnWidth(0,Sizing.PREFERRED,1);
+		//addressTP.setColumnWidth(1,Sizing.PREFERRED,1);
+		FormPanel fp2=new FormPanel();
+		//fp2.add(lblCountry,labelAlign,pkrCountry,"halign=left,vfill=fill,hfill=fill");
+		fp2.add(lblCountry,labelAlign,btnCountryPopup,"halign=left,vfill=fill,hfill=fill");
+		fp2.setControlColumnWidth(Sizing.PREFERRED, 1);
+		fp2.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
+		addressTP.add(fp2);						
+	}
+	
+	void setCommunicationVerticalPanel(){
+		TablePanel phoneTP=new TablePanel();		
+		/*HorizontalPanel hz1=new HorizontalPanel();
+		hz1.add(lblPhone,labelAlign);
+		hz1.add(txtPrefix,"halign=left,hfill=fill");
+		hz1.add(txtPhone,"halign=left,hfill=fill");				
+		hz1.setColumnWidth(0,Sizing.PERCENTS,labelColumnSize);
+		hz1.setColumnWidth(1,Sizing.PREFERRED,1);
+		hz1.setColumnWidth(2,Sizing.PREFERRED,2);				
+		addressTP.add(hz1);
+		
+		HorizontalPanel hz2=new HorizontalPanel();
+		hz2.add(lblFax,labelAlign);
+		hz2.add(txtPrefix,"halign=left,hfill=fill");
+		hz2.add(txtFax,"halign=left,hfill=fill");				
+		hz2.setColumnWidth(0,Sizing.PERCENTS,labelColumnSize);
+		hz2.setColumnWidth(1,Sizing.PREFERRED,1);
+		hz2.setColumnWidth(2,Sizing.PREFERRED,2);				
+		addressTP.add(hz2);
+		*/
+		
+		phoneTP.add(lblPhone,labelAlign);
+		phoneTP.add(txtPhone,"halign=left,hfill=fill");				
+		phoneTP.setColumnWidth(0,Sizing.PERCENTS,labelColumnSize);
+		phoneTP.setColumnWidth(1,Sizing.PREFERRED,1);
+		phoneTP.setColumnWidth(2,Sizing.PREFERRED,2);							
+		
+		addressTP.add(phoneTP);
+				
+		FormPanel fp=new FormPanel();
+		fp.add(lblMail,labelAlign,txtMail,"halign=left,hfill=fill");
+		fp.setControlColumnWidth(Sizing.PREFERRED, 1);
+		fp.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
+		addressTP.add(fp);															
+	}
+	
+	void setAdditionalFormPanel(){
+		
+		additionalFP.setControlColumnWidth(Sizing.PREFERRED, 1);
+		additionalFP.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
+	
+	}
+	
+	
+	void setRow(DataRow row){		
+		currentRow=row;			
+		
+		mdlName.setRow(row);
+		mdlStatus.setRow(row);
+		mdlStreetAddress.setRow(row);
+		mdlCity.setRow(row);
+		mdlCap.setRow(row);
+		mdlCountry.setRow(row);
+		mdlProvince.setRow(row);
+		mdlPhone.setRow(row);
+		mdlOfficePhone.setRow(row);
+		mdlMail.setRow(row);
+		
+		btnCountryPopup.setText(mdlCountry.getText());
+		btnProvincePopup.setText(mdlProvince.getText());
+		
+		refresh();
+		
+		/*
+		int idx=mdlCountry.getSelectedIndex();
+		if(idx>=0)		pkrCountry.setSelectedIndex(mdlCountry.getSelectedIndex());		
+		idx=mdlProvince.getSelectedIndex();
+		if(idx>=0)		pkrProvince.setSelectedIndex(mdlProvince.getSelectedIndex());
+		idx=mdlCategory.getSelectedIndex();
+		if(idx>=0) txtCategory.setSelectedIndex(idx);
+		if(mdlCountry!=null){
+			String out=mdlCategory.getText();
+			idx=mdlCategory.getSelectedIndex();
+			appLog.log(Log.INFO,"mdlcotegory "+out+" "+idx);
+			out=mdlCountry.getText();
+			idx=mdlCountry.getSelectedIndex();
+			appLog.log(Log.INFO,"mdlcountry "+out+" "+idx);
+		}
+		else 
+			appLog.log(Log.INFO,"mdlcountry is null");
+		
+		*/
+		
+	}
+	
+	void save(){
+			vObjContact.ContactName.setStringValue(txtName.getText(),currentRow);
+			//int idx=txtCategory.getSelectedIndex();
+			//String key=mdlCategory.getKeyValue();
+			//vObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);		
+			vObjContact.ContactStreetAddress.setStringValue(txtStreetAddress.getText(),currentRow);
+			vObjContact.ContactStreetCity.setStringValue(txtCity.getText(),currentRow);
+			vObjContact.ContactCap.setStringValue(txtCap.getText(),currentRow);
+			//idx=pkrProvince.getSelectedIndex();
+			//vObjAccount.AccountProvince.setStringValue(pkrProvince.getChoice(idx),currentRow);
+			vObjContact.ContactProvince.setStringValue(btnProvincePopup.getText(),currentRow);
+			//idx=pkrCountry.getSelectedIndex();
+			//String key =mdlCountry.getKeyValue();
+			//vObjAccount.AccountCountry.setStringValue(pkrCountry.getChoice(idx),currentRow);
+			//vObjAccount.AccountCountry.setStringValue(mdlCountry.getKeyValue(),currentRow);
+			vObjContact.ContactCountry.setStringValue(btnCountryPopup.getText(),currentRow);
+					
+			vObjContact.ContactPhone.setStringValue(txtPhone.getText(),currentRow);
+			vObjAccount.AccountEmail.setStringValue(txtMail.getText(),currentRow);
+			vObjAccount.AccountPrefix.setStringValue(mdlPrefix.getText(),currentRow);
+			vObjAccount.AccountRating.setStringValue(btnRatingPopup.getText(),currentRow);
+			vObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
+			vObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
+
+			
+			currentRow.applyUpdates();
+		
+	}
+	
+	/*callback pkrCountry onValueChange(Control c){
+		String key=mdlCountry.getKeyValue();
+		mdlPrefix.setText(key);
+		mdlFaxPrefix.setText(key);
+	}*/
+	
+	/*callback btnProvinceSticky onClick(Control c){
+		Popups.ProvincePopup province=new Popups.ProvincePopup();
+		//province.stk.setDataModel(mdlProvince);
+		province.mdlChoice=mdlProvince;
+		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 1, Sizing.PERCENTS, 50, false);
+		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
+	
+	}*/
+	callback btnCountryPopup onClick(Control c){
+		showPopup((BackgroundButton)c,mdlPrefix,"COUNTRY","Nazioni");		
+		/*
+		Popups.ProvincePopup province=new Popups.ProvincePopup();
+		//province.stk.setDataModel(mdlProvince);
+		province.btnPopup=btnCountryPopup;
+		province.mdlPickMap=mdlPrefix;
+		province.setQuery(vObjLOV.getLOV("COUNTRY"));
+		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 1, Sizing.PERCENTS, 50, false);
+		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
+		*/
+	}
+	
+	callback btnProvincePopup onClick(Control c){
+		
+		showPopup((BackgroundButton)c,mdlProvince,"PROVINCE","Province");		
+		/*
+		Popups.ProvincePopup province=new Popups.ProvincePopup();
+		//province.stk.setDataModel(mdlProvince);
+		province.btnPopup=btnProvincePopup;
+		province.mdlPickMap=mdlProvince;
+		province.setQuery(vObjLOV.getLOV("PROVINCE"));
+		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 1, Sizing.PERCENTS, 50, false);*/
+		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
+	}
+	
+	callback btnCategoryPopup onClick(Control c){
+		showPopup((BackgroundButton)c,mdlCategory,"CATEGORY","Categorie");		
+	}
+	
+	callback btnRevenuePopup onClick(Control c){
+		showPopup((BackgroundButton)c,mdlRevenue,"REVENUE","Fatturato");		
+	}
+	
+	callback btnRatingPopup onClick(Control c){
+		showPopup((BackgroundButton)c,mdlRating,"RATING","Rating");		
+	}
+	//SHOW POPUP
+	
+	void showPopup(BackgroundButton button,TextModel model, String type,String title){
+		Popups.ProvincePopup province=new Popups.ProvincePopup();	
+		province.btnPopup=button;
+		province.mdlPickMap=model;
+		province.lblTitle.setText(title);
+		province.setQuery(vObjLOV.getLOV(type));
+		province.TYPE=type;				
+		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);		 
+		
+	}
+	
+	void setUpPickPopover(){
+		Font titlefnt=new Font();
+		titlefnt.setFamily("Arial");
+		titlefnt.setSize(22);
+		titlefnt.setBold();
+		/*
+		Font fnt=style.lblfnt.createCopy();
+		fnt.setBold();
+		
+		actClosePop.setText("Close");
+		actClosePop.setForeColor(Color.create(255,255,255));
+		actClosePop.setBackColor(Colors.Gray);		
+		actClosePop.setFont(fnt);	
+			
+		*/
+		
+		poPick.setAutoDismiss(false);
+		
+		TitleBarStyle titleBarStyle=new TitleBarStyle();
+		
+		titleBarStyle.setFont(titlefnt);
+		titleBarStyle.setBackColor(Colors.Gray);
+		//titleBarStyle.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
+		titleBarStyle.setForeColor(Color.create(255,255,255));
+		titleBarStyle.setTitleAlignment(HorizontalAlignmentType.RIGHT);
+		
+		//style.TitleBar.setFont(titlefnt);
+		poPick.setTitleBarStyle(titleBarStyle);
+		poPick.setSize( Sizing.PIXELS, 400, Sizing.PIXELS, 400);		
+		//poPick.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
+		poPick.setBackColor(Colors.BackgroundGray);
+		//poPick.setLeftTitleBarAction ( actClosePop ); 
+		pnlPick.po=poPick;
+				
+		/*
+		poPick.add(lblPickTitle,"hfill=fill,vfill=fill");
+		poPick.startNewRow();
+		*/		
+		poPick.add(pnlPick, "hfill=fill,vfill=fill");		
+		
+	}
+	
+	//SHOW POPOVER
+	/*
+	void showPopup(BackgroundButton button,TextModel model, String type,String title){
+		AnchorPosition ap=new AnchorPosition();
+		ap.setPositionType(AnchorPosition.HORIZONTAL_POSITION_RIGHT, AnchorPosition.VERTICAL_POSITION_CENTER);
+		ap.setAnchor(button);		
+							
+		pnlPick.btnPopup=button;
+		pnlPick.mdlPickMap=model;
+		pnlPick.setQuery(vObjLOV.getLOV(type));
+		pnlPick.TYPE=type;				
+		pnlPick.stk.reload();
+		
+		poPick.setTitle(title);
+		lblPickTitle.setText(title);				
+		scr.showPopover(poPick, true, ap);
+		
+	}
+	*/
+	callback actClosePop onRun(Action a){
+		poPick.dismiss();
+	} 
+			
+} 

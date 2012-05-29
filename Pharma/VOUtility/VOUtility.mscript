@@ -9,7 +9,7 @@ UIObject {
 		row.applyUpdates();
 	}
 	
-	void loadListItem(){
+/*	void loadListItem(){
 		DataRow row=null;
 		row=vObjListItem.getNewRow();		
 		vObjListItem.ProductCode.setStringValue("018622175",row);
@@ -19,7 +19,7 @@ UIObject {
 		
 		row.applyUpdates();
 	}
-	
+	*/
 	void loadImage(){
 		productImageMap.putValue("Supradin",Images.Products.Supradin);
 		productImageMap.putValue("Lasonil",Images.Products.Lasonil);
@@ -275,6 +275,7 @@ UIObject {
         return row  ;
 
 	}
+	
 	DataRow getNewContactRow(){
 		int id=vObjContact.createQuery().getRowSet().getSize()+1;
 		DataRow row = vObjContact.getNewRow();
@@ -287,6 +288,7 @@ UIObject {
         return row  ;
 
 	}
+	
 	void loadLOV(){
 		DataRow row ;
 		row= vObjLOV.getNewRow();		
@@ -1088,7 +1090,7 @@ UIObject {
         row = vObjContact.getNewRow();
 	        vObjContact.ContactId.setStringValue("00000003", row);
 			vObjContact.ContactName.setStringValue("Elena", row);
-			vObjContact.ContactLastName.setStringValue("Mirò", row);
+			vObjContact.ContactLastName.setStringValue("Mirï¿½", row);
 			vObjContact.RelAccountCode.setStringValue("00100398", row);
 			vObjContact.ContactTitle.setStringValue("Dott.", row);
 			vObjContact.ContactFunction.setStringValue("Medico", row);

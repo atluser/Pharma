@@ -159,6 +159,11 @@ TablePanel {
 		//Query q=vObjAccount.getAccountContains(tblSearch.getText());
 		executeQuery(tblSearch.getText());
 		stk.reload();
+		if (rsm.getRowCount(0)>0) {
+			stk.select(0,0);
+			pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(rsm.getRow()));
+			pnlDetailForm.setRow(rsm.getRow());
+		}
 	}
 	
 	
