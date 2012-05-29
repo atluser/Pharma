@@ -7,7 +7,7 @@ Screen {
 	Button btnUndo = new Button();
 	Button btnMenu = new Button();
 	
-	Button btnNext=new Button();
+	BackgroundButton btnNext=new BackgroundButton();
 	
 	Panels.OrderEntry.EditFormScrollableTablePanel fp = new Panels.OrderEntry.EditFormScrollableTablePanel();
 	//StickyTable originListStk;
@@ -68,8 +68,9 @@ Screen {
 		
 		// Header Panel
 		HorizontalPanel pnlHeader = new HorizontalPanel();
-		pnlHeader.add(btnHome);
-		pnlHeader.add(brdCrumbs);
+		pnlHeader.add(btnHome);		
+		pnlHeader.add(new Separator(), "");
+		pnlHeader.add(brdCrumbs,"halign=center");
 		pnlHeader.add(new Separator(), "");
 		pnlHeader.add(btnDone);
 		pnlHeader.add(btnUndo);
@@ -77,32 +78,24 @@ Screen {
 		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
 
 		pnlHeader.setColumnWidth(0, Sizing.PREFERRED,0);
-		pnlHeader.setColumnWidth(1, Sizing.PERCENTS,5);
-		pnlHeader.setColumnWidth(2, Sizing.PREFERRED,1);
-		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(1, Sizing.PREFERRED,1);
+		pnlHeader.setColumnWidth(2, Sizing.PERCENTS,10);
+		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,1);
 		pnlHeader.setColumnWidth(4, Sizing.PREFERRED,0);			
 		pnlHeader.setColumnWidth(5, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(6, Sizing.PREFERRED,0);
 		
-		add(pnlHeader,"hfill=fill");
-//		ScrollableTablePanel pnl = new ScrollableTablePanel();
-//header		
-//	pnl.add(pnlHeader,"hfill=fill");
-//		pnl.setColumnWidth(0,Sizing.PERCENTS,100);
-//	pnl.startNewRow();
-//		pnl.add(fp,"halign=center,valign=center");		
+		add(pnlHeader,"hfill=fill");		
 		add(fp,"halign=center,valign=center,vfill=fill");
 		
 		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));						
-//		pnl.setRowHeight(0, Sizing.PREFERRED, 1);
-		//pnl.setRowHeight(1, Sizing.PREFERRED, 1);
-		
-//		add(pnl,"halign=center,vfill=fill");
-btnNext.setText("Next");
-add(btnNext,null);
+
+		btnNext.setText("Next");
+		add(btnNext,null);
 		setRowHeight(0, Sizing.PREFERRED, 0);	
-		setRowHeight(1, Sizing.PREFERRED, 0);
-		setRowHeight(2, Sizing.PREFERRED, 1);
-		setRowHeight(3, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);
+		setRowHeight(2, Sizing.PREFERRED, 0);
+		//setRowHeight(3, Sizing.PREFERRED, 0);
 	}
 
 	callback onDeactivate(Container container){
