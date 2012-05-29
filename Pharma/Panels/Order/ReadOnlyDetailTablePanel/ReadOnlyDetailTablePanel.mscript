@@ -38,6 +38,8 @@ TablePanel {
 	Label lblFld13 = new Label();
 	Label lblFld14 = new Label();
 	
+	int iNumberOfOrderItems = 0;
+	
 	/*
 	 * Callback methods
 	 */	
@@ -125,6 +127,7 @@ TablePanel {
 		
 		
 		ScrollableTablePanel pnlBody = new ScrollableTablePanel();
+		pnlBody.enableScroll(true);
 		pnlBody.add(pnlBodyRoot,"halign=center,valign=top");
 		pnlBody.setColumnWidth(0, Sizing.PREFERRED, 1);
 		
@@ -202,7 +205,7 @@ TablePanel {
 		lbl01.setFont(fnt);
 		lbl01.setForeColor(Color.create(189,0,0));
 	
-		picBox.setImage(Images.VodafoneImages.box.getImage());
+		picBox.setImage(Images.VodafoneImages.ImgOrder.getImage());
 	
 	} 
 	
@@ -216,7 +219,7 @@ TablePanel {
 		Label lbl = new Label();
 		lbl.setText(str);
 		lbl.setFont(fnt);
-		lbl.setForeColor(Colors.Black);
+		lbl.setForeColor(Color.create(189,0,0));
 		
 		pnl.add(lbl,"hfill=fill");
 		
@@ -382,13 +385,13 @@ TablePanel {
 		fnt.setBold();
 		
 		btn01.setFont(fnt);
-		btn01.setText(StringConstants.TBB_ORDER_ITEMS_STR.getString());
+		btn01.setText(StringConstants.TBB_ORDER_ITEMS_STR.getString() + " (" + iNumberOfOrderItems + ")");
 		//btn01.setText("Contatti");
-		btn01.setLeftSpacing(48);
+		btn01.setLeftSpacing(56);
 		btn01.setForeColor(Colors.Black);
 		btn01.setFocusedForeColor(Colors.Black);
-		btn01.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
-		btn01.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
+		btn01.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrderItemsList, 50, 30, 0, 0));
+		btn01.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrderItemsList, 50, 30, 0, 0));
 		//btn01.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		
 	} 
@@ -432,6 +435,12 @@ TablePanel {
 		String str14 = (vObjOrder.OrderTotalDiscount.getDoubleValue(dtRw) != null) ? vObjOrder.OrderTotalDiscount.getDoubleValue(dtRw).toString() : "Data not found!";
 		
 		currentRow = dtRw;	
+		
+		/* DA VERIFICARE
+		if(vObjOrderItem.getOrderItemsByOrderCode(str01).getRowSet() != null)
+			iNumberOfOrderItems = vObjOrderItem.getOrderItemsByOrderCode(str01).getRowSet().getSize();
+			btn01.setText(StringConstants.TBB_ORDER_ITEMS_STR.getString() + " (" + iNumberOfOrderItems + ")");
+		*/
 				
 		if(vObjOrder.OrderDate.getDateValue(dtRw) != null) {
 			str02 = getFormattedDate(vObjOrder.OrderDate, dtRw);	

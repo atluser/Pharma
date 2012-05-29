@@ -221,7 +221,8 @@ ScrollableTablePanel {
 		Label lbl = new Label();
 		lbl.setText(str);
 		lbl.setFont(fnt);
-		lbl.setForeColor(Colors.Black);
+		//lbl.setForeColor(Colors.Black);
+		lbl.setForeColor(Color.create(189,0,0));
 		//lbl.setBackColor(Color.create(189,0,0));
 		//picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
 		
@@ -405,7 +406,7 @@ ScrollableTablePanel {
 		btn03.setFont(fnt);
 		btn03.setText(StringConstants.TBB_ORDERS_STR.getString() + " (" + iNumberOfOrders + ")");
 		//btn03.setText("ORDINI");
-		btn03.setLeftSpacing(48);
+		btn03.setLeftSpacing(56);
 		btn03.setForeColor(Colors.Black);
 		btn03.setFocusedForeColor(Colors.Black);
 		btn03.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));

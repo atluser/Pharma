@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <com.vaultus.ecore.properties:Properties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.vaultus.ecore.properties="http:///com/vaultus/ecore/properties.ecore" xmlns:com.vaultus.studio.ecore.strings="http:///com/vaultus/studio/ecore/strings.ecore">
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_ABOUT_STR" string="Informazioni su"/>
@@ -19,3 +20,26 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_PRICELIST_STR" string="Listino"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_SERVICE_REQUESTS_STR" string="Servizio"/>
 </com.vaultus.ecore.properties:Properties>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<com.vaultus.ecore.properties:Properties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.vaultus.ecore.properties="http:///com/vaultus/ecore/properties.ecore" xmlns:com.vaultus.studio.ecore.strings="http:///com/vaultus/studio/ecore/strings.ecore">
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_ABOUT_STR" string="Informazioni su"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_CLOSE_STR" string="Chiudi"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_EXIT_STR" string="Esci"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_OK_STR" string="OK"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_START_STR" string="Avvia"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_APP_NAME_STR" string="Pharma"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_DEVICE_NAME_STR" string="Device Name:"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_MSG_STR" string="Pharma is designed by Atlantic Technologies S.p.A."/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_OS_VERSION_STR" string="OS Version:"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_SW_VERSION_STR" string="Software Version:"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACCOUNTS_STR" string="Clienti"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACTIVITIES_STR" string="Agenda"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CATALOG_STR" string="Catalogo"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CONTACTS_STR" string="Contatti"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ORDERS_STR" string="Ordini"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ORDER_ITEMS_STR" string="Righe Ordine"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_PRICELIST_STR" string="Listino"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_SERVICE_REQUESTS_STR" string="Servizio"/>
+</com.vaultus.ecore.properties:Properties>
+>>>>>>> refs/remotes/origin/santi3
