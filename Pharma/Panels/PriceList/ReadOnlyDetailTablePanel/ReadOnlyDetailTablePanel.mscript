@@ -167,7 +167,7 @@ TablePanel {
 		lbl01.setFont(fnt);
 		lbl01.setForeColor(Color.create(189,0,0));
 	
-		picBox.setImage(Images.VodafoneImages.ImgOrder.getImage());
+		picBox.setImage(Images.VodafoneImages.ImgPriceList.getImage());
 	
 	} 
 	
@@ -351,8 +351,8 @@ TablePanel {
 		btn01.setLeftSpacing(48);
 		btn01.setForeColor(Colors.Black);
 		btn01.setFocusedForeColor(Colors.Black);
-		btn01.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
-		btn01.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
+		btn01.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgProductsList, 50, 30, 0, 0));
+		btn01.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgProductsList, 50, 30, 0, 0));
 		//btn01.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		
 	} 
@@ -509,7 +509,9 @@ TablePanel {
 		pnlForm01.setControlColumnWidth(Sizing.PREFERRED, 1);
 		//pnlForm01.setControlColumnWidth(Sizing.PERCENTS, 35);
 		
-		//mainTP.add(pnlForm01,"hfill=fill");		
+		//mainTP.add(pnlForm01,"hfill=fill");	
+		
+			//pnlForm01.setVisible(false);
 	}
 	
 

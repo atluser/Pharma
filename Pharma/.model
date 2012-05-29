@@ -92,6 +92,8 @@
       <images name="ImgOrderItemsList"/>
       <images name="ImgOrdersList"/>
       <images name="ImgPick"/>
+      <images name="ImgPriceList"/>
+      <images name="ImgProductsList"/>
       <images name="tbb_normal"/>
       <images name="tbb_pressed"/>
     </children>
@@ -470,6 +472,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgOrderItemsList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgOrdersList">
         <properties/>
         <properties/>
@@ -477,6 +485,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
         <properties/>
         <properties/>
@@ -948,6 +962,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgOrderItemsList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgOrdersList">
         <properties/>
         <properties/>
@@ -955,6 +975,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
         <properties/>
         <properties/>
@@ -1420,6 +1446,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgOrderItemsList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgOrdersList">
         <properties/>
         <properties/>
@@ -1427,6 +1459,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
         <properties/>
         <properties/>
@@ -1641,6 +1679,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgPick">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgPriceList">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgProductsList">
         <properties/>
         <properties/>
         <properties/>
@@ -2027,6 +2077,18 @@
       <imagePaths name="VodafoneImages.ImgPick">
         <properties/>
         <properties string="C:/Users/mcolombo.ATL01/Pictures/Vodafone/arrow_down.png" path="C:/USERS/MCOLOMBO.ATL01/PICTURES/VODAFONE/ARROW_DOWN.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPriceList">
+        <properties/>
+        <properties string="/Users/admin/Documents/Images/MobileApp/Artsana/Images/Icons/1337980432_currency_red_euro.png" path="/USERS/ADMIN/DOCUMENTS/IMAGES/MOBILEAPP/ARTSANA/IMAGES/ICONS/1337980432_CURRENCY_RED_EURO.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgProductsList">
+        <properties/>
+        <properties string="/Users/admin/Documents/Images/MobileApp/Artsana/Images/Buttons/btn_products_u.png" path="/USERS/ADMIN/DOCUMENTS/IMAGES/MOBILEAPP/ARTSANA/IMAGES/BUTTONS/BTN_PRODUCTS_U.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -2460,10 +2522,16 @@
       <imagePaths name="VodafoneImages.ImgOrder">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgOrderItemsList">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgOrdersList">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
@@ -2698,10 +2766,16 @@
       <imagePaths name="VodafoneImages.ImgOrder">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgOrderItemsList">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgOrdersList">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
@@ -2831,6 +2905,14 @@
         <properties/>
       </imagePaths>
       <imagePaths name="ImgPick">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgPriceList">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="ImgProductsList">
         <properties/>
         <properties/>
       </imagePaths>
@@ -3088,6 +3170,14 @@
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
         <properties string="C:/Users/mcolombo.ATL01/Pictures/Vodafone/arrow_down.png" path="C:/USERS/MCOLOMBO.ATL01/PICTURES/VODAFONE/ARROW_DOWN.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPriceList">
+        <properties string="/Users/admin/Documents/Images/MobileApp/Artsana/Images/Icons/1337980432_currency_red_euro.png" path="/USERS/ADMIN/DOCUMENTS/IMAGES/MOBILEAPP/ARTSANA/IMAGES/ICONS/1337980432_CURRENCY_RED_EURO.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgProductsList">
+        <properties string="/Users/admin/Documents/Images/MobileApp/Artsana/Images/Buttons/btn_products_u.png" path="/USERS/ADMIN/DOCUMENTS/IMAGES/MOBILEAPP/ARTSANA/IMAGES/BUTTONS/BTN_PRODUCTS_U.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.btn_back_normal">
@@ -3464,11 +3554,19 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgOrderItemsList">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgOrdersList">
         <properties/>
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
         <properties/>
       </imagePaths>
@@ -3718,10 +3816,16 @@
       <imagePaths name="VodafoneImages.ImgOrder">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgOrderItemsList">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgOrdersList">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
@@ -3956,10 +4060,16 @@
       <imagePaths name="VodafoneImages.ImgOrder">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgOrderItemsList">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgOrdersList">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
@@ -4196,10 +4306,16 @@
       <imagePaths name="VodafoneImages.ImgOrder">
         <properties/>
       </imagePaths>
+      <imagePaths name="VodafoneImages.ImgOrderItemsList">
+        <properties/>
+      </imagePaths>
       <imagePaths name="VodafoneImages.ImgOrdersList">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.ImgPick">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="VodafoneImages.ImgPriceList">
         <properties/>
       </imagePaths>
       <imagePaths name="VodafoneImages.box">
