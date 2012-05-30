@@ -1,0 +1,106 @@
+HorizontalPanel {
+	
+	DataRow cellRow=null;
+	
+	Label lblProductCode=new Label();
+	TextModel txtMdlProdCode=new TextModel();
+	
+	IntegerNumericField  txtQuantity=new IntegerNumericField ();		
+	NumberFormatModel numMdlQuantity =new NumberFormatModel();	
+	/*TextField txtQuantity=new TextField ();
+	TextModel numMdlQuantity =new TextModel();
+	*/
+	Label lblDescription=new Label();
+	TextModel txtMdlDescription=new TextModel();
+	
+	Label lblName=new Label();
+	TextModel txtMdlName=new TextModel();
+	
+	Label lblUnitPrice=new Label();
+	TextModel txtMdlUnitPrice=new TextModel();
+	
+	Label lblType=new Label();
+	TextModel txtMdlType=new TextModel();
+	
+	Label lblMinQty=new Label();
+	NumberFormatModel numMdlMinQty =new NumberFormatModel();
+	
+	boolean canvass=false;
+	int ncol=5;
+	//PictureBox picBox=new PictureBox();
+	/*Browser picture=new Browser();
+	BrowserModel picMdl=new BrowserModel();	
+	Button btnPicture=new Button();
+	*/
+	callback onCreate(Container container){		
+		setBackground(Background.createVerticalGradientRectangleBackground(Color.create(255,255,255), Color.create(222,222,222)));
+		//setFocusedBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+		appLog.log(Log.INFO,"NCOL "+ncol);						
+		
+		//altezza pannello
+		setPanelHeight(Sizing.PIXELS,60);
+		setBackColor(Colors.White);
+		
+		add(lblProductCode,"halign=center");
+		add(lblName,"halign=center");
+		add(lblUnitPrice,"halign=center");
+		add(txtQuantity,"hfill=fill,halign=center");	
+		//if(canvass)	
+		add(lblMinQty,"halign=center");	
+		add(lblType,"halign=center");	
+		//hzPanel.add(picture,"hfill=fill,vfill=fill,halign=center");
+		//picture.start();
+		
+		//add(hzPanel,"hfill=fill, vfill=fill,valign=center");
+		//setBackColor(Colors.Coral);
+						
+	}
+	
+	
+	
+	void setMdl(DataRow row){
+		cellRow=row;
+				
+		txtMdlProdCode.setRow(row);
+		txtMdlDescription.setRow(row);
+		txtMdlUnitPrice.setRow(row);
+		txtMdlName.setRow(row);
+		numMdlQuantity.setRow(row);
+		numMdlMinQty.setRow(row);
+		txtMdlType.setRow(row);								
+		
+		lblProductCode.setDataModel(txtMdlProdCode);
+		txtQuantity.setDataModel(numMdlQuantity);
+		lblMinQty.setDataModel(numMdlMinQty);						
+		lblUnitPrice.setDataModel(txtMdlUnitPrice);
+		lblName.setDataModel(txtMdlName);
+		lblType.setDataModel(txtMdlType);		
+		
+		numMdlMinQty.setForeColor(Colors.Red);
+		
+		if(Platform.parseInt(lblUnitPrice.getText())==0)
+			txtQuantity.setEditable(false);
+		
+		for (int i=0;i<ncol;i++)						
+			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
+						
+	}
+	String getProductCode(){
+		return 	txtMdlProdCode.getText();		
+	}
+	String getDescription(){
+		return txtMdlDescription.getText();
+	}
+	String getQuantity(){
+		return txtQuantity.getText();		
+	}
+	String getUnitPrice(){
+		return lblUnitPrice.getText();
+	}
+	String getProductName(){
+		return lblName.getText();
+	}
+	
+	
+
+}

@@ -7,8 +7,6 @@ Screen {
 	Button btnUndo = new Button();
 	Button btnMenu = new Button();
 	
-	BackgroundButton btnNext=new BackgroundButton();
-	
 	Panels.OrderEntry.EditFormScrollableTablePanel fp = new Panels.OrderEntry.EditFormScrollableTablePanel();
 	//StickyTable originListStk;
 	Panels.Order.StickyTablePanel stkTP;
@@ -53,17 +51,7 @@ Screen {
 		brdCrumbs.add(brdCrumb1);
 		Breadcrumb brdCrumb2=new Breadcrumb();
 		
-		/*brdCrumb2.setFocusedBackColor(Colors.MediumOrchid);
-	  	brdCrumb2.setBackColor(Colors.MediumSlateBlue);
-	  	brdCrumb2.setSelectedBackColor(Colors.Magenta);
-	  	brdCrumb2.setSelectedForeColor(Colors.White);
-	  	brdCrumb2.setText("Item");
-		brdCrumb2.setValue("B");				
-		brdCrumbs.add(brdCrumb2);*/
-		
-		//brdCrumbs.navigateTo(0);		
-		
-		fp.scr=(Screen)container;
+		fp.scr=(Screens.OrderEntry.OrderHeaderScreen)container;
 		setUpButtons();
 		
 		// Header Panel
@@ -85,17 +73,21 @@ Screen {
 		pnlHeader.setColumnWidth(5, Sizing.PREFERRED,0);
 		pnlHeader.setColumnWidth(6, Sizing.PREFERRED,0);
 		
-		add(pnlHeader,"hfill=fill");		
-		add(fp,"halign=center,valign=center,vfill=fill");
+		add(pnlHeader,"hfill=fill");
+		
+		StackPanel stk=new StackPanel();
+				
+		stk.add(fp);
+		stk.select(fp);
+		
+		add(stk,"halign=center,valign=center,vfill=fill");
 		
 		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));						
 
-		btnNext.setText("Next");
-		add(btnNext,null);
+		
 		setRowHeight(0, Sizing.PREFERRED, 0);	
 		setRowHeight(1, Sizing.PREFERRED, 1);
-		setRowHeight(2, Sizing.PREFERRED, 0);
-		//setRowHeight(3, Sizing.PREFERRED, 0);
+		setRowHeight(2, Sizing.PREFERRED, 0);		
 	}
 
 	callback onDeactivate(Container container){
@@ -251,15 +243,5 @@ Screen {
 	}*/
 	
 	
-	callback btnNext onClick(Control c){
-		Breadcrumb brdCrumb2=new Breadcrumb();
-		brdCrumb2.setFocusedBackColor(Colors.MediumOrchid);
-	  	brdCrumb2.setBackColor(Colors.MediumSlateBlue);
-	  	brdCrumb2.setSelectedBackColor(Colors.Magenta);
-	  	brdCrumb2.setSelectedForeColor(Colors.White);
-	  	brdCrumb2.setText("Item");
-		brdCrumb2.setValue("B");				
-		brdCrumbs.add(brdCrumb2);
-		brdCrumbs.navigateTo(1);
-	}
+	
 }

@@ -1,0 +1,49 @@
+ScrollableTablePanel {
+	GridPanel cvDtlTP=new GridPanel();
+	
+	
+	callback onCreate(Container c){
+		
+	
+	}
+	
+	//disegno pannello
+	void drowDetailItem(String priceListCode){
+		//get Category
+		Query q=vObjLOV.getLOV("PRODUCT_CATEGORY");
+		DataRowSet set=q.getRowSet();
+		DataRow dtRow=set.first();		
+		while(dtRow!=null){//ciclo category
+			String category=vObjLOV.Value.getStringValue(dtRow);
+			Query q1=vObjPriceListItem.getListItemByCategory(priceListCode,category,"");
+			DataRowSet rowSet=q1.getRowSet();
+			DataRow found=rowSet.first();
+			
+			if(found==null) continue; //record not found skip next category
+			//sezione header x category
+			Panels.OrderEntry.DetailHeaderHPanel header=new Panels.OrderEntry.DetailHeaderHPanel();			
+			/*
+			cvDtlTP.setRowHeight(0,Sizing.PIXELS,40);
+			cvDtlTP.add(header,"hfill=fill");
+			cvDtlTP.startNewRow();*/
+			int i=1;
+			while(found!=null){
+				Panels.OrderEntry.DetailCellHPanel cell=new Panels.OrderEntry.DetailCellHPanel(); 
+				//cell.populateData(found,canvassDetailObj);
+			/*	
+				cvDtlTP.add(cell,"hfill=fill");
+				cvDtlTP.startNewRow();
+				
+				*/
+				//arrObj.addItem(cell);
+				//cvDtlTP.setRowHeight(i,Sizing.PIXELS,60);
+				found=rowSet.next();
+				i++	;	
+			}		
+		}	
+	}
+
+}
+	
+
+

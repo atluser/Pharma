@@ -1,9 +1,12 @@
 ScrollableTablePanel {	
 	DataRow currentRow;
+	
+	BackgroundButton btnNext=new BackgroundButton();
+	
 	int labelColumnSize=11;//dimensione % label column
 	String labelAlign="halign=left";
 	String controlAlign="halign=left,hfill=fill";
-	Screen scr=null;
+	Screens.OrderEntry.OrderHeaderScreen scr=null;
 	
 	Popover poPick=new Popover();
 	Panels.PickLOVStickyTablePanel pnlPick = new Panels.PickLOVStickyTablePanel();
@@ -110,18 +113,15 @@ ScrollableTablePanel {
 		mainTP.startNewRow();//5		
 		mainTP.add(new Separator(),"");
 		mainTP.setRowHeight(5,Sizing.PERCENTS,3);
-		/*mainTP.startNewRow();//6
-		Label lblTitle3=new Label();
-		lblTitle3.setText("Totali Ordine");
-		mainTP.add(lblTitle3,"halign=center");	
-		lblTitle3.setFont(txtfnt);	
+		mainTP.startNewRow();//6
+		btnNext.setText("Configura");
+		btnNext.setLeftSpacing(56);
+		btnNext.setBackground(Background.create9PartImageRectangleBackground (Images.VodafoneImages.ImgOrderItemsList , 50 , 30 , 0 , 0 ));
+		
+		mainTP.add(btnNext,"hfill=fill");			
 		mainTP.startNewRow();//7		
-		//setAdditionalFormPanel();
-		//formPanel03.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
-		//mainTP.add(additionalFP,"halign=center,hfill=fill");*/
-		mainTP.startNewRow();//8		
 		mainTP.add(new Separator(),"");
-		mainTP.setRowHeight(8,Sizing.PERCENTS,3);
+		mainTP.setRowHeight(7,Sizing.PERCENTS,3);
 		
 				
 		mainTP.setColumnWidth(0,Sizing.PIXELS,550);
@@ -236,7 +236,17 @@ ScrollableTablePanel {
 	}
 	
 	
-	
+	callback btnNext onClick(Control c){
+		Breadcrumb brdCrumb2=new Breadcrumb();
+		brdCrumb2.setFocusedBackColor(Colors.MediumOrchid);
+	  	brdCrumb2.setBackColor(Colors.MediumSlateBlue);
+	  	brdCrumb2.setSelectedBackColor(Colors.Magenta);
+	  	brdCrumb2.setSelectedForeColor(Colors.White);
+	  	brdCrumb2.setText("Item");
+		brdCrumb2.setValue("B");				
+		scr.brdCrumbs.add(brdCrumb2);
+		scr.brdCrumbs.navigateTo(1);
+	}
 	
 	/*
 	
