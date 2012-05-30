@@ -1,12 +1,17 @@
 TablePanel {
 
+	//Panels.HeaderPanel pnlHeader;
+	Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
+	Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
+	
 	callback onCreate(Container c) {
 		
 		// Detail Panel
-		Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
+		//Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
+		//pnlDetail.setHeaderPanel(pnlHeader);
 			
 		// Master Panel
-		Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
+		//Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
 		pnlMaster.setDetailPanel(pnlDetail);
 		
 		pnlMaster.setAccountCode("");
@@ -21,5 +26,9 @@ TablePanel {
 		setRowHeight(0, Sizing.PREFERRED, 1);	
 		
 	}
-	
+	/*
+	void setHeaderPanel(Panels.HeaderPanel pnl) {
+		pnlHeader = pnl;
+	}
+	*/
 }

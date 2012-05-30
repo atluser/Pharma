@@ -58,6 +58,8 @@ Screen {
 		pnlHeader.pnlPriceListRoot=pnlPriceListRoot;
 		pnlHeader.setHomeScreen((Screens.HomeScreen) container);				
 		
+		pnlOrderRoot.pnlDetail.setHeaderPanel(pnlHeader);
+		
 		// Root Panel
 		BorderPanel brdPnlRoot = new BorderPanel();
 		brdPnlRoot.setNorth(pnlHeader);
