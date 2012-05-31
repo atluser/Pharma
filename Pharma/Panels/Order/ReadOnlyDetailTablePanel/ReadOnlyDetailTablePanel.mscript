@@ -239,8 +239,28 @@ TablePanel {
 	callback lblFld04 onClick(Control c) {
 		logApp.log(Log.INFO, "ReadOnlyDeatilTablePanel - lblFld04 onClick()");
 		
-		pnlHeader.rg.setSelectedIndex(0);
-		pnlHeader.btnToolbarClick(0);
+		RowSetModel rsm = new RowSetModel();
+		rsm.setRows(vObjAccount.getAccountRow(sAccountCode));
+		
+		logApp.log(Log.INFO, "ReadOnlyDeatilTablePanel - lblFld04 onClick() - rowCount: " + rsm.getRowCount(0));
+			
+		if(rsm.getRowCount(0) > 0) {
+	
+			pnlHeader.rg.setSelectedIndex(0);
+			pnlHeader.btnToolbarClick(0);
+					
+			pnlHeader.pnlAccountRoot.stk.tblSearch.setText(lblFld04.getText());
+			pnlHeader.pnlAccountRoot.stk.executeQuery(lblFld04.getText());
+			pnlHeader.pnlAccountRoot.stk.stk.reload();
+			
+			if (pnlHeader.pnlAccountRoot.stk.rsm.getRowCount(0)>0) {
+				pnlHeader.pnlAccountRoot.stk.stk.select(0,0);
+				pnlHeader.pnlAccountRoot.pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(pnlHeader.pnlAccountRoot.stk.rsm.getRow()));
+				pnlHeader.pnlAccountRoot.pnlDetailForm.setRow(pnlHeader.pnlAccountRoot.stk.rsm.getRow());
+			}
+		
+		}
+		
 		
 	}
 	
@@ -297,7 +317,8 @@ TablePanel {
 		lblFld03.setForeColor(Colors.Black);
 		
 		lblFld04.setFont(fnt);
-		lblFld04.setForeColor(Colors.Black);
+		//lblFld04.setForeColor(Colors.Black);
+		lblFld04.setForeColor(Colors.Blue);
 		
 		lblFld05.setFont(fnt);
 		lblFld05.setForeColor(Colors.Black);
@@ -478,6 +499,8 @@ TablePanel {
 	} 
 	 
 	void setRow(DataRow dtRw) {
+		
+		sAccountCode = (vObjOrder.AccountCode.getStringValue(dtRw) != null) ? vObjOrder.AccountCode.getStringValue(dtRw) : "";
 		
 		String str01 = (vObjOrder.OrderCode.getStringValue(dtRw) != null) ? vObjOrder.OrderCode.getStringValue(dtRw) : "Data not found!";
 		String str02 = (vObjOrder.OrderDate.getDateValue(dtRw) != null) ? vObjOrder.OrderDate.getDateValue(dtRw).toString() : "Data not found!";
