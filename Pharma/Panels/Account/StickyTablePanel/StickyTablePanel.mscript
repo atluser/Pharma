@@ -37,7 +37,6 @@ TablePanel {
 		add(stk, "hfill=fill,valign=top");
 		add(pnlIndex, "hfill=fill,valign=top");	
 
-		
 		stk.setGridLineThickness(1);
 		stk.setGridLineStyle(LineStyle.SOLID);
 		stk.setGridLineColor(Colors.Gray);		

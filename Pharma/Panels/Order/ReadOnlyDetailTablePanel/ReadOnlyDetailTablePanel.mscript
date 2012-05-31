@@ -10,11 +10,6 @@ TablePanel {
 	PictureBox picBox = new PictureBox();
 	Label lbl01 = new Label();
 	Label lbl02 = new Label();
-	Label lbl03 = new Label();
-	
-	Label lblFormTitle01 = new Label();
-	Label lblFormTitle02 = new Label();
-	Label lblFormTitle03 = new Label();
 	
 	FormPanel pnlForm01 = new FormPanel();
 	FormPanel pnlForm02 = new FormPanel();
@@ -27,8 +22,7 @@ TablePanel {
 	Label lblFld01 = new Label();
 	Label lblFld02 = new Label();
 	Label lblFld03 = new Label();
-	//Label lblFld04 = new Label();
-	Link lblFld04 = new Link();
+	Label lblFld04 = new Label();
 	Label lblFld05 = new Label();	
 	Label lblFld06 = new Label();
 	
@@ -45,10 +39,6 @@ TablePanel {
 	Label lblFld14 = new Label();
 	
 	int iNumberOfOrderItems = 0;
-	
-	TablePanel pnlBodyRoot = new TablePanel();
-	
-	Panels.HeaderPanel pnlHeader;
 	
 	/*
 	 * Callback methods
@@ -91,34 +81,32 @@ TablePanel {
 		*/
 		
 		// Body Panel
-		//TablePanel pnlBodyRoot = new TablePanel();
+		TablePanel pnlBodyRoot = new TablePanel();
 		pnlBodyRoot.add(new Separator(), "");
 		pnlBodyRoot.startNewRow();
-		setFormTitle(pnlBodyRoot, lblFormTitle01, "Dettaglio Ordine");
+		setFormTitle(pnlBodyRoot, "Dettaglio Ordine");
 		pnlBodyRoot.startNewRow();
 		pnlBodyRoot.add(pnlForm01,"hfill=fill,halign=center,valign=top");
 		
-		pnlBodyRoot.startNewRow();
-		pnlBodyRoot.add(new Separator(), "");
 		pnlBodyRoot.startNewRow();
 		pnlBodyRoot.add(btn00,"halign=right");
 		
 		pnlBodyRoot.startNewRow();
 		pnlBodyRoot.add(new Separator(), "");
 		pnlBodyRoot.startNewRow();
-		setFormTitle(pnlBodyRoot, lblFormTitle02, "Consegna e Pagamento");
+		setFormTitle(pnlBodyRoot, "Consegna e Pagamento");
 		pnlBodyRoot.startNewRow();
 		pnlBodyRoot.add(pnlForm02,"hfill=fill,halign=center,valign=top");
 		pnlBodyRoot.startNewRow();
 		pnlBodyRoot.add(new Separator(), "");
 		pnlBodyRoot.startNewRow();
-		setFormTitle(pnlBodyRoot, lblFormTitle03, "Totali Ordine");
+		setFormTitle(pnlBodyRoot, "Totali Ordine");
 		pnlBodyRoot.startNewRow();
 		pnlBodyRoot.add(pnlForm03,"hfill=fill,halign=center,valign=top");
 		pnlBodyRoot.startNewRow();
 		pnlBodyRoot.add(new Separator(), "");
 		pnlBodyRoot.startNewRow();
-		setFormTitle(pnlBodyRoot, lbl03, "Elementi Correlati");
+		setFormTitle(pnlBodyRoot, "Elementi Correlati");
 		pnlBodyRoot.startNewRow();
 		pnlBodyRoot.add(btn01, "hfill=fill,halign=center,valign=top");
 		
@@ -131,22 +119,18 @@ TablePanel {
 		pnlBodyRoot.setRowHeight(1, Sizing.PREFERRED, 0);
 		pnlBodyRoot.setRowHeight(2, Sizing.PREFERRED, 0);
 		
-		pnlBodyRoot.setRowHeight(3, Sizing.PIXELS, 8);
-		pnlBodyRoot.setRowHeight(4, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(3, Sizing.PREFERRED, 0);
 		
-		pnlBodyRoot.setRowHeight(5, Sizing.PIXELS, 8);
-		//pnlBodyRoot.setRowHeight(4, Sizing.PIXELS, 0);
+		pnlBodyRoot.setRowHeight(4, Sizing.PIXELS, 48);
+		pnlBodyRoot.setRowHeight(5, Sizing.PREFERRED, 0);
 		pnlBodyRoot.setRowHeight(6, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(7, Sizing.PREFERRED, 0);
-		//pnlBodyRoot.setRowHeight(7, Sizing.PIXELS, 48);
-		pnlBodyRoot.setRowHeight(8, Sizing.PIXELS, 0);
+		pnlBodyRoot.setRowHeight(7, Sizing.PIXELS, 48);
+		pnlBodyRoot.setRowHeight(8, Sizing.PREFERRED, 0);
 		pnlBodyRoot.setRowHeight(9, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(10, Sizing.PREFERRED, 0);
-		//pnlBodyRoot.setRowHeight(10, Sizing.PIXELS, 48);
-		pnlBodyRoot.setRowHeight(11, Sizing.PIXELS, 0);
+		pnlBodyRoot.setRowHeight(10, Sizing.PIXELS, 48);
 		
+		pnlBodyRoot.setRowHeight(11, Sizing.PREFERRED, 0);
 		pnlBodyRoot.setRowHeight(12, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(13, Sizing.PREFERRED, 0);
 		//pnlBodyRoot.setRowHeight(11, Sizing.PIXELS, 48);
 		
 		
@@ -208,60 +192,8 @@ TablePanel {
 		
 	}	
 	
-	callback btn00 onClick(Control c) {
-		
-		if(pnlForm02.isVisible() && pnlForm03.isVisible()) {
-			//pnlBodyRoot.setRowHeight(4, Sizing.PIXELS, 0);
-			lblFormTitle02.setVisible(false);
-			pnlForm02.setVisible(false);
-			pnlBodyRoot.setRowHeight(8, Sizing.PIXELS, 0);
-			lblFormTitle03.setVisible(false);
-			pnlForm03.setVisible(false);
-			pnlBodyRoot.setRowHeight(11, Sizing.PIXELS, 0);
-			btn00.setImage(Images.VodafoneImages.btn_more_info.getImage());
-		} else {
-			//pnlBodyRoot.setRowHeight(4, Sizing.PIXELS, 48);
-			lblFormTitle02.setVisible(true);
-			pnlForm02.setVisible(true);
-			pnlBodyRoot.setRowHeight(8, Sizing.PIXELS, 48);
-			lblFormTitle03.setVisible(true);
-			pnlForm03.setVisible(true);
-			pnlBodyRoot.setRowHeight(11, Sizing.PIXELS, 48);
-			btn00.setImage(Images.VodafoneImages.btn_less_info.getImage());			
-		}	
-		
-	}
-	
 	callback btn01 onClick(Control c) {
 			
-	}
-	
-	callback lblFld04 onClick(Control c) {
-		logApp.log(Log.INFO, "ReadOnlyDeatilTablePanel - lblFld04 onClick()");
-		
-		RowSetModel rsm = new RowSetModel();
-		rsm.setRows(vObjAccount.getAccountRow(sAccountCode));
-		
-		logApp.log(Log.INFO, "ReadOnlyDeatilTablePanel - lblFld04 onClick() - rowCount: " + rsm.getRowCount(0));
-			
-		if(rsm.getRowCount(0) > 0) {
-	
-			pnlHeader.rg.setSelectedIndex(0);
-			pnlHeader.btnToolbarClick(0);
-					
-			pnlHeader.pnlAccountRoot.stk.tblSearch.setText(lblFld04.getText());
-			pnlHeader.pnlAccountRoot.stk.executeQuery(lblFld04.getText());
-			pnlHeader.pnlAccountRoot.stk.stk.reload();
-			
-			if (pnlHeader.pnlAccountRoot.stk.rsm.getRowCount(0)>0) {
-				pnlHeader.pnlAccountRoot.stk.stk.select(0,0);
-				pnlHeader.pnlAccountRoot.pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(pnlHeader.pnlAccountRoot.stk.rsm.getRow()));
-				pnlHeader.pnlAccountRoot.pnlDetailForm.setRow(pnlHeader.pnlAccountRoot.stk.rsm.getRow());
-			}
-		
-		}
-		
-		
 	}
 	
 	/*
@@ -285,14 +217,14 @@ TablePanel {
 	
 	} 
 	
-	void setFormTitle(TablePanel pnl, Label lbl, String str) {
+	void setFormTitle(TablePanel pnl, String str) {
 		
 		Font fnt = new Font(); 
 		fnt.setFamily("Arial");
 		fnt.setSize(22);
 		fnt.setBold();
 	
-		//Label lbl = new Label();
+		Label lbl = new Label();
 		lbl.setText(str);
 		lbl.setFont(fnt);
 		lbl.setForeColor(Color.create(189,0,0));
@@ -317,8 +249,7 @@ TablePanel {
 		lblFld03.setForeColor(Colors.Black);
 		
 		lblFld04.setFont(fnt);
-		//lblFld04.setForeColor(Colors.Black);
-		lblFld04.setForeColor(Colors.Blue);
+		lblFld04.setForeColor(Colors.Black);
 		
 		lblFld05.setFont(fnt);
 		lblFld05.setForeColor(Colors.Black);
@@ -424,8 +355,6 @@ TablePanel {
 		lbl11.setForeColor(Colors.Black);
 		pnlForm02.add(lbl11, "halign=right,valign=top", lblFld11, "halign=left,hfill=fill");
 		
-		lblFormTitle02.setVisible(false);
-		pnlForm02.setVisible(false);
 		pnlForm02.setInsets(8,8,8,8);
 		pnlForm02.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
 		pnlForm02.setLabelColumnWidth(Sizing.PERCENTS, 30);
@@ -449,8 +378,6 @@ TablePanel {
 		lbl14.setForeColor(Colors.Black);
 		pnlForm03.add(lbl14, "halign=right", lblFld14, "halign=left,hfill=fill");	
 		
-		lblFormTitle03.setVisible(false);
-		pnlForm03.setVisible(false);
 		pnlForm03.setInsets(8,8,8,8);
 		pnlForm03.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
 		pnlForm03.setLabelColumnWidth(Sizing.PERCENTS, 30);
@@ -499,8 +426,6 @@ TablePanel {
 	} 
 	 
 	void setRow(DataRow dtRw) {
-		
-		sAccountCode = (vObjOrder.AccountCode.getStringValue(dtRw) != null) ? vObjOrder.AccountCode.getStringValue(dtRw) : "";
 		
 		String str01 = (vObjOrder.OrderCode.getStringValue(dtRw) != null) ? vObjOrder.OrderCode.getStringValue(dtRw) : "Data not found!";
 		String str02 = (vObjOrder.OrderDate.getDateValue(dtRw) != null) ? vObjOrder.OrderDate.getDateValue(dtRw).toString() : "Data not found!";
@@ -586,10 +511,5 @@ TablePanel {
 		}
 		
 	}
-	
-	void setHeaderPanel(Panels.HeaderPanel pnl) {
-		pnlHeader = pnl;
-	}
-	
 
 }

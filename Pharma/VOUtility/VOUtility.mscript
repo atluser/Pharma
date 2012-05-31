@@ -265,9 +265,8 @@ UIObject {
         /*vObjAccount.AccountStreetAddress.setStringValue("StreetAddress", row);
         vObjAccount.AccountCity.setStringValue("City", row);
         vObjAccount.AccountProvince.setStringValue("Province", row);
-        vObjAccount.AccountPostalCode.setStringValue("Postalcode", row);*/
+        vObjAccount.AccountPostalCode.setStringValue("Postalcode", row);
         vObjAccount.AccountCountry.setStringValue("I", row);
-        /*
         vObjAccount.AccountPhone.setStringValue("Telefono", row);
         vObjAccount.AccountFax.setStringValue("Fax", row);
         vObjAccount.AccountEmail.setStringValue("mail", row);
@@ -281,16 +280,16 @@ UIObject {
 		int id=vObjContact.createQuery().getRowSet().getSize()+1;
 		DataRow row = vObjContact.getNewRow();
 		vObjContact.ContactId.setStringValue(""+id, row);
-		vObjContact.ContactName.setStringValue("Name",row);
-		vObjContact.ContactLastName.setStringValue("LastName",row);
-		vObjContact.ContactPhone.setStringValue("Phone",row);	
-		vObjContact.ContactStatus.setStringValue("Status",row);	
-        row.applyUpdates();
+		//vObjContact.ContactStreetCity.setStringValue("Città",row);	
+		vObjContact.ContactStatus.setStringValue("Nuovo",row);	
+        //row.applyUpdates();
         return row  ;
 
 	}
 	
 	void loadLOV(){
+		
+		//PROVINCE
 		DataRow row ;
 		row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("PROVINCE", row);
@@ -313,6 +312,7 @@ UIObject {
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
+        //STATI
         row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("COUNTRY", row);
         vObjLOV.Name.setStringValue("+39", row);
@@ -433,6 +433,7 @@ UIObject {
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
+        //CATEGORIE
         row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("CATEGORY", row);
         vObjLOV.Name.setStringValue("Farmacia", row);
@@ -454,6 +455,7 @@ UIObject {
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
+        //RATING
         row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("RATING", row);
         vObjLOV.Name.setStringValue("Gold", row);
@@ -475,6 +477,7 @@ UIObject {
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
+        //REVENUE
         row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("REVENUE", row);
         vObjLOV.Name.setStringValue("0 - 100 K", row);
@@ -496,6 +499,7 @@ UIObject {
         vObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
+        //CATEGORIE PRODOTTI
         row= vObjLOV.getNewRow();		
         vObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
         vObjLOV.Name.setStringValue("COLD & PAIN", row);
@@ -522,7 +526,80 @@ UIObject {
         vObjLOV.Name.setStringValue("NUTRITIONAL", row);
         vObjLOV.Value.setStringValue("NUTRITIONAL", row);
         vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();                                                   
+        row.applyUpdates();  
+        
+        //TITOLI (contatti)
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("TITLE", row);
+        vObjLOV.Name.setStringValue("Ing.", row);
+        vObjLOV.Value.setStringValue("Ing.", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("TITLE", row);
+        vObjLOV.Name.setStringValue("Sig.", row);
+        vObjLOV.Value.setStringValue("Sig.", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();        
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("TITLE", row);
+        vObjLOV.Name.setStringValue("Sig.ra", row);
+        vObjLOV.Value.setStringValue("SIG.ra.", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("TITLE", row);
+        vObjLOV.Name.setStringValue("Dott.", row);
+        vObjLOV.Value.setStringValue("Dott.", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();               
+        
+        //FUNZIONI (contatti)
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("FUNCTION", row);
+        vObjLOV.Name.setStringValue("Medico", row);
+        vObjLOV.Value.setStringValue("Medico", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates(); 
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("FUNCTION", row);
+        vObjLOV.Name.setStringValue("Titolare", row);
+        vObjLOV.Value.setStringValue("Titolare", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("FUNCTION", row);
+        vObjLOV.Name.setStringValue("Responsabile", row);
+        vObjLOV.Value.setStringValue("Responsabile", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();  
+        
+        //SESSO (contatti)
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("GENDER", row);
+        vObjLOV.Name.setStringValue("Maschio", row);
+        vObjLOV.Value.setStringValue("Maschio", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates(); 
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("GENDER", row);
+        vObjLOV.Name.setStringValue("Femmina", row);
+        vObjLOV.Value.setStringValue("Femmina", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates(); 
+        
+        row= vObjLOV.getNewRow();		
+        vObjLOV.Type.setStringValue("GENDER", row);
+        vObjLOV.Name.setStringValue("Non Definito", row);
+        vObjLOV.Value.setStringValue("Non Definito", row);
+        vObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();                                                                
 	}
 	
 	void loadAccount(){
@@ -1202,5 +1279,3 @@ String getContactName(String contactId){
 	}
 	
 }
-
-

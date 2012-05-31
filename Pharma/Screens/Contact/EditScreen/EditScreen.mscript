@@ -10,6 +10,7 @@ Screen {
 	//StickyTable originListStk;
 	Panels.Contact.StickyTablePanel stkTP;
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
+	Panels.DetailPanel pnlDetail;
 	VirtualObject dataObject;
 	
 	Query q;//=null;
@@ -126,6 +127,8 @@ Screen {
 	
 	callback btnDone onClick(Control c) {
 		if(checkRequired()){
+			String message="Operazione effettuata con successo";
+			MessageBox msgBox=new MessageBox();
 			//stk.save(dataObject);		
 			fp.save();
 			//ricarico sticky
@@ -143,7 +146,10 @@ Screen {
 			originListStk.reload();*/
 			//detailStk.reload();
 			pnlDetailForm.setRow(fp.currentRow);
+			//pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(fp.currentRow) + " " + vObjContact.ContactLastName.getStringValue(fp.currentRow));
+			//pnlDetail.txtFldName.setText("ciao");
 			close(Animation.PUSH_FROM_TOP);
+			msgBox.info(1, message);
 		}
 	}
 	
@@ -169,24 +175,16 @@ Screen {
 		String message="Valirizzare campo ";
 		MessageBox msgBox=new MessageBox();		
 		if(fp.txtName.getText()==""){
-			message+=fp.lblName.getText();
+			message+="Nome";
 			msgBox.error(1,message);			
 		}
-		else if(fp.txtStreetAddress.getText()==""){
-			message+=fp.lblStreetAddress.getText();
+		else if(fp.txtLastName.getText()==""){
+			message+="Cognome";
 			msgBox.error(1,message);
 		}
-		else if(fp.txtCity.getText()==""){
-			message+="Città";
+		else if(fp.txtMail.getText()==""){
+			message+="Email";
 			msgBox.error(1,message);
-		}
-		else if(fp.mdlProvince.getText()==""){
-				message+="Provincia";
-				msgBox.error(1,message);		
-		}
-		else if(fp.mdlCountry.getText()==""){
-				message+="Paese";		
-				msgBox.error(1,message);
 		}
 		else result=true;
 		
@@ -217,8 +215,8 @@ Screen {
 		//sticky table origine dati				
 		//detail form
 		
-		//pnlDetailForm=(Panels.Account.ReadOnlyDetailFormPanel)accfp;				
-		//stkTP=(Panels.Account.StickyTablePanel)tp;
+		pnlDetailForm=(Panels.Contact.ReadOnlyDetailFormPanel)accfp;				
+		stkTP=(Panels.Contact.StickyTablePanel)tp;
 		fp.setRow(row);
 		//refresh();		
 			
