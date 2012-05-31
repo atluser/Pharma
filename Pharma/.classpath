@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/DEV/workspace/mobistudio.preferences/com.antennasoftware.amp.runtime/library.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dspagnuolo.ATL01/Desktop/eclipse/workspace/mobistudio.preferences/com.antennasoftware.amp.runtime/library.jar"/>
 	<classpathentry exported="true" kind="src" path="/PharmaDP"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
