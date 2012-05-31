@@ -141,7 +141,7 @@ HorizontalPanel {
 				scrNewOrEditRecordAcc.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 			
-			case 2:
+			case 1:
 				entity="Contact";
 				//obj=vObjAccount;
 				row=vObjUtil.getNewContactRow();
@@ -182,12 +182,24 @@ HorizontalPanel {
 				stkTP=pnlAccountRoot.stk;
 				//detailStk=pnlAccountRoot.getDetailStickyTable();
 				pnlDetailForm=pnlAccountRoot.pnlDetailForm;
+				Screens.Account.EditScreen scrNewOrEditRecordAcc = new Screens.Account.EditScreen();
+				scrNewOrEditRecordAcc.init(row,stkTP,pnlDetailForm);		
+				scrNewOrEditRecordAcc.push(Animation.PUSH_FROM_BOTTOM, false);
+			break;
+			case 1:
+				entity="Contact";
+				//obj=vObjAccount;
+				//row=pnlAccountRoot.getCurrentRow();
+				row=pnlContactRoot.pnlDetailForm.currentRow;
+				originStk=pnlContactRoot.getStickyTable();
+				stkTP=pnlContactRoot.stk;
+				//detailStk=pnlAccountRoot.getDetailStickyTable();
+				pnlDetailForm=pnlContactRoot.pnlDetailForm;
+				Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();
+				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);		
+				scrNewOrEditRecordCon.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 		}
-
-		Screens.Account.EditScreen scrNewOrEditRecord = new Screens.Account.EditScreen();
-		scrNewOrEditRecord.init(row,stkTP,pnlDetailForm);		
-		scrNewOrEditRecord.push(Animation.PUSH_FROM_BOTTOM, false);
 
 
 	}	

@@ -35,21 +35,24 @@ ScrollableTablePanel {
 	Label lblGender=new Label();
 	Label lblNote=new Label();
 	
-	Label txtCode=new Label();
-	TextModel mdlCode =new TextModel();
-	
-	UppercaseField txtName=new UppercaseField();
+	//Impostiamo i modelli dei campi
+	TextField txtName=new TextField();
 	TextModel mdlName =new TextModel();
 	
-	Label txtType=new Label();
-	TextModel mdlType =new TextModel();
+	TextField txtLastName=new TextField();
+	TextModel mdlLastName =new TextModel();
 	
-	//TextField txtCategory=new TextField();
-	//Picker txtCategory=new Picker();
-	BackgroundButton btnCategoryPopup=new BackgroundButton();
-	//ChoiceModel mdlCategory=new ChoiceModel();
-	TextModel mdlCategory=new TextModel();
+	TextField txtRelAccount = new TextField();
+	TextModel mdlRelAccount = new TextModel();
 	
+	//TextField txtTitle=new TextField();
+	TextModel mdlTitle =new TextModel();
+	BackgroundButton btnTitlePopup=new BackgroundButton();
+	
+	//TextField txtFunction=new TextField();
+	TextModel mdlFunction=new TextModel();
+	BackgroundButton btnFunctionPopup=new BackgroundButton();
+		
 	Label txtStatus=new Label();
 	TextModel mdlStatus=new TextModel();
 
@@ -62,23 +65,14 @@ ScrollableTablePanel {
 	TextField txtCap=new TextField();
 	TextModel mdlCap=new TextModel();
 	
-	//ComboBox txtProvince=new ComboBox();
-	//ChoiceModel mdlProvince=new ChoiceModel();
 	TextModel mdlProvince=new TextModel();
 	BackgroundButton btnProvincePopup=new BackgroundButton();
-	//Picker btnProvinceSticky=new Picker();
-	BackgroundButton btnCountryPopup =new BackgroundButton();
 	
-	//ComboBox txtCountry=new ComboBox();
-	//ChoiceModel mdlCountry=new ChoiceModel();
 	TextModel mdlCountry=new TextModel();
-	
+	BackgroundButton btnCountryPopup =new BackgroundButton();
 	
 	PhoneField txtPhone=new PhoneField();
 	TextModel mdlPhone=new TextModel();
-	
-	Label txtPrefix=new Label();
-	TextModel mdlPrefix=new TextModel();
 	
 	PhoneField txtOfficePhone=new PhoneField();
 	TextModel mdlOfficePhone=new TextModel();
@@ -86,13 +80,15 @@ ScrollableTablePanel {
 	EmailField txtMail=new EmailField();
 	TextModel mdlMail=new TextModel();
 	
-	//Picker txt01=new Picker();
-	BackgroundButton btnRatingPopup=new BackgroundButton();
-	TextModel mdlRating=new TextModel();
+	TextField txtAge=new TextField();
+	TextModel mdlAge=new TextModel();
 	
-	//Picker txt02=new Picker();
-	BackgroundButton btnRevenuePopup=new BackgroundButton();
-	TextModel mdlRevenue=new TextModel();
+	//TextField txtGender=new TextField();
+	TextModel mdlGender=new TextModel();
+	BackgroundButton btnGenderPopup =new BackgroundButton();
+	
+	TextField txtNote=new TextField();
+	TextModel mdlNote=new TextModel();
 	
 	/*
 	Picker pkrCountry=new Picker();
@@ -160,6 +156,7 @@ ScrollableTablePanel {
 		setAdditionalFormPanel();
 		additionalFP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
 		mainTP.add(additionalFP,"halign=center,hfill=fill");
+		
 		mainTP.startNewRow();//8		
 		mainTP.add(new Separator(),"");
 		mainTP.setRowHeight(8,Sizing.PERCENTS,3);
@@ -189,12 +186,14 @@ ScrollableTablePanel {
 		txtfnt.setBold();
 											
 		//Anagrafica
-		lblName.setText("Nome");
+		lblName.setText("Nome*");
 		lblName.setForeColor(Color.create(189,0,0));
-		lblLastName.setText("Cognome");
+		lblLastName.setText("Cognome*");
 		lblLastName.setForeColor(Color.create(189,0,0));				
 		lblRelAccount.setText("Cliente");
 		lblTitle.setText("Titolo");
+		lblFunction.setText("Funzione");
+		lblStatus.setText("Stato");
 		
 		//Localizzazione e Comunicazioni
 		lblStreetAddress.setText("Indirizzo");
@@ -204,7 +203,7 @@ ScrollableTablePanel {
 		lblCountry.setText("Nazione");
 		lblPhone.setText("Tel. Personale");
 		lblOfficePhone.setText("Tel. Ufficio");
-		lblMail.setText("E-Mail");
+		lblMail.setText("E-Mail*");
 		lblMail.setForeColor(Color.create(189,0,0));
 		
 		//Altre info
@@ -221,16 +220,20 @@ ScrollableTablePanel {
 		
 		btnCountryPopup.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		btnProvincePopup.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+		btnTitlePopup.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+		btnFunctionPopup.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
+		btnGenderPopup.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);
 		
 	/**************tentativi picker ************/
 		//btnProvinceSticky.setTextHint("Province");
 		
 		
 		//setdatamodel
-		txtCode.setDataModel(mdlCode);
 		txtName.setDataModel(mdlName);
-		txtType.setDataModel(mdlType);
-		//txtCategory.setDataModel(mdlCategory);
+		txtLastName.setDataModel(mdlLastName);
+		txtRelAccount.setDataModel(mdlRelAccount);
+		//txtTitle.setDataModel(mdlTitle);
+		//txtFunction.setDataModel(mdlFunction);
 		txtStatus.setDataModel(mdlStatus);
 		txtStreetAddress.setDataModel(mdlStreetAddress);
 		txtCity.setDataModel(mdlCity);
@@ -240,7 +243,11 @@ ScrollableTablePanel {
 		//txtCountry.setDataModel(mdlCountry);
 		//pkrCountry.setDataModel(mdlCountry);
 		txtPhone.setDataModel(mdlPhone);		
+		txtOfficePhone.setDataModel(mdlOfficePhone);
 		txtMail.setDataModel(mdlMail);
+		txtAge.setDataModel(mdlAge);
+		//txtGender.setDataModel(mdlGender);
+		txtNote.setDataModel(mdlNote);
 	}
 	
 	void setModel(){		
@@ -259,6 +266,10 @@ ScrollableTablePanel {
 		
 		//mdlCode.setFont(txtfnt);
 		mdlName.addField(vObjContact.ContactName);
+		mdlLastName.addField(vObjContact.ContactLastName);
+		mdlRelAccount.addField(vObjContact.RelAccountName);
+		mdlTitle.addField(vObjContact.ContactTitle);
+		mdlFunction.addField(vObjContact.ContactFunction);
 		mdlStatus.addField(vObjContact.ContactStatus);
 		mdlStreetAddress.addField(vObjContact.ContactStreetAddress);
 		mdlCity.addField(vObjContact.ContactStreetCity);
@@ -266,8 +277,11 @@ ScrollableTablePanel {
 		mdlProvince.addField(vObjContact.ContactProvince);
 		mdlCountry.addField(vObjContact.ContactCountry);
 		mdlPhone.addField(vObjContact.ContactPhone);
+		mdlOfficePhone.addField(vObjContact.ContactOfficePhone);
 		mdlMail.addField(vObjAccount.AccountEmail);
-		
+		mdlAge.addField(vObjContact.ContactAge);
+		mdlGender.addField(vObjContact.ContactGender);
+		mdlNote.addField(vObjContact.ContactNote);
 		//btnProvinceSticky.setText("Provincia");
 		//btnProvinceSticky.setDataModel(mdlProvince);
 		//mdlName.setText("pippo");
@@ -323,6 +337,9 @@ ScrollableTablePanel {
 	void setAnagraficaFormPanel(){ 
 		
 		anagraficaFP.add(lblName,labelAlign,txtName,controlAlign);
+		anagraficaFP.add(lblLastName,labelAlign,txtLastName,controlAlign);
+		anagraficaFP.add(lblTitle,labelAlign,btnTitlePopup,controlAlign);
+		anagraficaFP.add(lblFunction,labelAlign,btnFunctionPopup,controlAlign);
 		anagraficaFP.add(lblStatus,labelAlign,txtStatus,controlAlign);
 		//anagraficaFP.setControlColumnWidth(Sizing.PERCENTS, 30);
 		anagraficaFP.setControlColumnWidth(Sizing.PREFERRED, 1);
@@ -395,6 +412,12 @@ ScrollableTablePanel {
 		phoneTP.setColumnWidth(2,Sizing.PREFERRED,2);							
 		
 		addressTP.add(phoneTP);
+		
+		FormPanel phoneFP=new FormPanel();
+		phoneFP.add(lblOfficePhone,labelAlign,txtOfficePhone,"halign=left,hfill=fill");
+		phoneFP.setControlColumnWidth(Sizing.PREFERRED, 1);
+		phoneFP.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
+		addressTP.add(phoneFP);
 				
 		FormPanel fp=new FormPanel();
 		fp.add(lblMail,labelAlign,txtMail,"halign=left,hfill=fill");
@@ -404,7 +427,9 @@ ScrollableTablePanel {
 	}
 	
 	void setAdditionalFormPanel(){
-		
+		additionalFP.add(lblAge,labelAlign, txtAge, controlAlign);
+		additionalFP.add(lblGender,labelAlign, btnGenderPopup, controlAlign);
+		additionalFP.add(lblNote,labelAlign, txtNote, controlAlign);
 		additionalFP.setControlColumnWidth(Sizing.PREFERRED, 1);
 		additionalFP.setLabelColumnWidth(Sizing.PERCENTS,labelColumnSize);
 	
@@ -415,6 +440,9 @@ ScrollableTablePanel {
 		currentRow=row;			
 		
 		mdlName.setRow(row);
+		mdlLastName.setRow(row);
+		mdlTitle.setRow(row);
+		mdlFunction.setRow(row);
 		mdlStatus.setRow(row);
 		mdlStreetAddress.setRow(row);
 		mdlCity.setRow(row);
@@ -424,9 +452,15 @@ ScrollableTablePanel {
 		mdlPhone.setRow(row);
 		mdlOfficePhone.setRow(row);
 		mdlMail.setRow(row);
+		mdlAge.setRow(row);
+		mdlGender.setRow(row);
+		mdlNote.setRow(row);
 		
 		btnCountryPopup.setText(mdlCountry.getText());
 		btnProvincePopup.setText(mdlProvince.getText());
+		btnTitlePopup.setText(mdlTitle.getText());
+		btnFunctionPopup.setText(mdlFunction.getText());
+		btnGenderPopup.setText(mdlGender.getText());
 		
 		refresh();
 		
@@ -454,6 +488,10 @@ ScrollableTablePanel {
 	
 	void save(){
 			vObjContact.ContactName.setStringValue(txtName.getText(),currentRow);
+			vObjContact.ContactLastName.setStringValue(txtLastName.getText(),currentRow);
+			vObjContact.ContactTitle.setStringValue(btnTitlePopup.getText(),currentRow);
+			vObjContact.ContactFunction.setStringValue(btnFunctionPopup.getText(),currentRow);
+			vObjContact.ContactStatus.setStringValue(txtStatus.getText(),currentRow);
 			//int idx=txtCategory.getSelectedIndex();
 			//String key=mdlCategory.getKeyValue();
 			//vObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);		
@@ -470,15 +508,15 @@ ScrollableTablePanel {
 			vObjContact.ContactCountry.setStringValue(btnCountryPopup.getText(),currentRow);
 					
 			vObjContact.ContactPhone.setStringValue(txtPhone.getText(),currentRow);
-			vObjAccount.AccountEmail.setStringValue(txtMail.getText(),currentRow);
-			vObjAccount.AccountPrefix.setStringValue(mdlPrefix.getText(),currentRow);
-			vObjAccount.AccountRating.setStringValue(btnRatingPopup.getText(),currentRow);
-			vObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
-			vObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
-
+			vObjContact.ContactOfficePhone.setStringValue(txtOfficePhone.getText(),currentRow);
+			vObjContact.ContactEmail.setStringValue(txtMail.getText(),currentRow);
+			//vObjAccount.AccountPrefix.setStringValue(mdlPrefix.getText(),currentRow);
 			
+			vObjContact.ContactAge.setStringValue(txtAge.getText(),currentRow);
+			vObjContact.ContactGender.setStringValue(btnGenderPopup.getText(),currentRow);
+			vObjContact.ContactNote.setStringValue(txtNote.getText(),currentRow);
+
 			currentRow.applyUpdates();
-		
 	}
 	
 	/*callback pkrCountry onValueChange(Control c){
@@ -496,7 +534,7 @@ ScrollableTablePanel {
 	
 	}*/
 	callback btnCountryPopup onClick(Control c){
-		showPopup((BackgroundButton)c,mdlPrefix,"COUNTRY","Nazioni");		
+		showPopup((BackgroundButton)c,mdlCountry,"COUNTRY","Nazioni");		
 		/*
 		Popups.ProvincePopup province=new Popups.ProvincePopup();
 		//province.stk.setDataModel(mdlProvince);
@@ -506,6 +544,18 @@ ScrollableTablePanel {
 		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 1, Sizing.PERCENTS, 50, false);
 		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
 		*/
+	}
+	
+	callback btnTitlePopup onClick(Control c){
+		showPopup((BackgroundButton)c,mdlTitle,"TITLE","Titoli");
+	}
+	
+	callback btnFunctionPopup onClick(Control c){
+		showPopup((BackgroundButton)c,mdlTitle,"FUNCTION","Funzioni");
+	}
+	
+	callback btnGenderPopup onClick(Control c){
+		showPopup((BackgroundButton)c,mdlTitle,"GENDER","Sesso");
 	}
 	
 	callback btnProvincePopup onClick(Control c){
@@ -521,17 +571,7 @@ ScrollableTablePanel {
 		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
 	}
 	
-	callback btnCategoryPopup onClick(Control c){
-		showPopup((BackgroundButton)c,mdlCategory,"CATEGORY","Categorie");		
-	}
 	
-	callback btnRevenuePopup onClick(Control c){
-		showPopup((BackgroundButton)c,mdlRevenue,"REVENUE","Fatturato");		
-	}
-	
-	callback btnRatingPopup onClick(Control c){
-		showPopup((BackgroundButton)c,mdlRating,"RATING","Rating");		
-	}
 	//SHOW POPUP
 	
 	void showPopup(BackgroundButton button,TextModel model, String type,String title){
