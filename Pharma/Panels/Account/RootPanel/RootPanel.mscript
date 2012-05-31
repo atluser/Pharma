@@ -12,6 +12,8 @@ BorderPanel {
 	 */
 	callback onCreate(Container c) {
 		
+		logApp.log(Log.INFO, "RootPanel - onCreate()");
+		
 		// Master Panel		
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
 		pnlMaster.setContentPanel(stk);

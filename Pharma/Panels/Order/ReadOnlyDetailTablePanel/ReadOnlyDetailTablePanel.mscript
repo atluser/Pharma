@@ -233,7 +233,7 @@ TablePanel {
 	}
 	
 	callback btn01 onClick(Control c) {
-			
+		logApp.log(Log.INFO, "ReadOnlyDeatilTablePanel - btn01 onClick()");
 	}
 	
 	callback lblFld04 onClick(Control c) {
