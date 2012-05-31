@@ -1,6 +1,6 @@
 Screen {
 	//DataRow currentRow;
-	
+		
 	Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
 	Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
 	
@@ -147,7 +147,11 @@ Screen {
 	}
 	
 	callback btnNew onClick(Control c) {
-		close(Animation.NONE);
+		Screens.OrderEntry.OrderHeaderScreen scr=new Screens.OrderEntry.OrderHeaderScreen();
+		appLog.log(Log.INFO,"account code "+sAccountCode);
+		DataRow row=vObjUtil.getNewOrder(sAccountCode);
+		scr.init(row,pnlMaster,pnlDetail);
+		scr.push(0,false); 
 	}
 
 	callback btnEdit onClick(Control c) {

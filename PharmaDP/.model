@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.vaultus.studio.ecore.studio:DataProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.vaultus.ecore.properties="http:///com/vaultus/ecore/properties.ecore" xmlns:com.vaultus.studio.ecore.data="http:///com/vaultus/studio/ecore/data.ecore" xmlns:com.vaultus.studio.ecore.log="http:///com/vaultus/studio/ecore/log.ecore" xmlns:com.vaultus.studio.ecore.studio="http:///com/vaultus/studio/ecore/studio.ecore">
+  <properties xsi:type="com.vaultus.ecore.properties:StringProperty" name="connector"/>
+  <properties xsi:type="com.vaultus.ecore.properties:StringProperty" name="connectorClass"/>
+  <properties xsi:type="com.vaultus.ecore.properties:StringProperty" name="connectorId"/>
+  <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="connectorUsesUTC"/>
+  <properties xsi:type="com.vaultus.ecore.properties:PasswordProperty" name="dataPassword"/>
+  <properties xsi:type="com.vaultus.ecore.properties:BooleanProperty" name="isSecondLoginRequired"/>
+  <properties xsi:type="com.vaultus.studio.ecore.log:LogLevelProperty" name="logLevel"/>
+  <properties xsi:type="com.vaultus.ecore.properties:IntegerProperty" name="majorVersion" integer="1"/>
+  <properties xsi:type="com.vaultus.ecore.properties:IntegerProperty" name="microVersion"/>
+  <properties xsi:type="com.vaultus.ecore.properties:IntegerProperty" name="minorVersion"/>
+  <properties xsi:type="com.vaultus.ecore.properties:StringProperty" name="projectId"/>
+  <children xsi:type="com.vaultus.studio.ecore.studio:PropertiesNode" name="Properties"/>
+  <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseNode" name="DataStore">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DataStore.mscript"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="Account">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Account.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="Contact">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="ListOfValues">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListOfValues.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="Order">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Order.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="PriceListItem">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceListItem.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="Products">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Products.mscript"/>
+    </children>
+    <dataSource xsi:type="com.vaultus.studio.ecore.data:Database">
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="Account" displayName="Account"/>
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="Contact" displayName="Contact"/>
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="ListOfValues" displayName="ListOfValues"/>
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="Order" displayName="Order"/>
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="Products" displayName="Products"/>
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="PriceListItem" displayName="PriceListItem"/>
+    </dataSource>
+  </children>
+</com.vaultus.studio.ecore.studio:DataProject>

@@ -419,7 +419,7 @@ HorizontalPanel {
 		DataRow dtRw =  vObjUtil.getNewAccountRow();
 		pnl.init("Account", dtRw);
 
-		puNew.init(pnl, vObjAccount);
+		//puNew.init(pnl, vObjAccount);
 
 		//puNew.add(pnl, "halign=center,vfill=fill");
 		//puNew.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgRedBackground, 0, 0, 0, 0));	
