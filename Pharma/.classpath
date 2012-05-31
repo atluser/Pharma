@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/DEV/workspace/mobistudio.preferences/com.antennasoftware.amp.runtime/library.jar"/>
-	<classpathentry exported="true" kind="src" path="/PharmaDP"/>
+	<classpathentry kind="lib" path="/Users/admin/Documents/workspace/vodafone/mobistudio.preferences/com.vaultus.studio.support/library.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
