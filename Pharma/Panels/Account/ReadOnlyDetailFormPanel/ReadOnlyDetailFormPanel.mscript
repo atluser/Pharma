@@ -157,6 +157,7 @@ ScrollableTablePanel {
 		scrOrder.setAccountCode(txtFldCode.getText());
 		scrOrder.pnlMaster.setAccountCode(txtFldCode.getText());
 		scrOrder.pnlMaster.setQuery("");
+		scrOrder.pnlDetail.setFromAccountFlag(true);
 		scrOrder.pnlDetail.setAccountCode(txtFldCode.getText());
 		scrOrder.pnlDetail.setFirstRecord();		
 		scrOrder.push(Animation.NONE, false);	

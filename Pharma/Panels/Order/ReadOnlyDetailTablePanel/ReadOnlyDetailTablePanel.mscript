@@ -49,6 +49,8 @@ TablePanel {
 	TablePanel pnlBodyRoot = new TablePanel();
 	
 	Panels.HeaderPanel pnlHeader;
+	Screens.Account.OrderScreen scrOrder;
+	boolean fromAccountFlag = false;
 	
 	/*
 	 * Callback methods
@@ -237,30 +239,40 @@ TablePanel {
 	}
 	
 	callback lblFld04 onClick(Control c) {
+		
 		logApp.log(Log.INFO, "ReadOnlyDeatilTablePanel - lblFld04 onClick()");
 		
-		RowSetModel rsm = new RowSetModel();
-		rsm.setRows(vObjAccount.getAccountRow(sAccountCode));
 		
-		logApp.log(Log.INFO, "ReadOnlyDeatilTablePanel - lblFld04 onClick() - rowCount: " + rsm.getRowCount(0));
+		
+		
+		if(fromAccountFlag == true) {
+			scrOrder.close();
+			fromAccountFlag = false;
+		} else {	
 			
-		if(rsm.getRowCount(0) > 0) {
-	
-			pnlHeader.rg.setSelectedIndex(0);
-			pnlHeader.btnToolbarClick(0);
-					
-			pnlHeader.pnlAccountRoot.stk.tblSearch.setText(lblFld04.getText());
-			pnlHeader.pnlAccountRoot.stk.executeQuery(lblFld04.getText());
-			pnlHeader.pnlAccountRoot.stk.stk.reload();
+			RowSetModel rsm = new RowSetModel();
+			rsm.setRows(vObjAccount.getAccountRow(sAccountCode));
 			
-			if (pnlHeader.pnlAccountRoot.stk.rsm.getRowCount(0)>0) {
-				pnlHeader.pnlAccountRoot.stk.stk.select(0,0);
-				pnlHeader.pnlAccountRoot.pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(pnlHeader.pnlAccountRoot.stk.rsm.getRow()));
-				pnlHeader.pnlAccountRoot.pnlDetailForm.setRow(pnlHeader.pnlAccountRoot.stk.rsm.getRow());
+			logApp.log(Log.INFO, "ReadOnlyDeatilTablePanel - lblFld04 onClick() - rowCount: " + rsm.getRowCount(0));
+			
+				
+			if(rsm.getRowCount(0) > 0) {
+		
+				pnlHeader.rg.setSelectedIndex(0);
+				pnlHeader.btnToolbarClick(0);
+						
+				pnlHeader.pnlAccountRoot.stk.tblSearch.setText(lblFld04.getText());
+				pnlHeader.pnlAccountRoot.stk.executeQuery(lblFld04.getText());
+				pnlHeader.pnlAccountRoot.stk.stk.reload();
+				
+				if (pnlHeader.pnlAccountRoot.stk.rsm.getRowCount(0)>0) {
+					pnlHeader.pnlAccountRoot.stk.stk.select(0,0);
+					pnlHeader.pnlAccountRoot.pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(pnlHeader.pnlAccountRoot.stk.rsm.getRow()));
+					pnlHeader.pnlAccountRoot.pnlDetailForm.setRow(pnlHeader.pnlAccountRoot.stk.rsm.getRow());
+				}
+				
 			}
-		
 		}
-		
 		
 	}
 	
@@ -591,6 +603,14 @@ TablePanel {
 		pnlHeader = pnl;
 	}
 	
-
+	void setOrderScreen(Screens.Account.OrderScreen scr) {
+		scrOrder = scr;
+	}
+	
+	void setFromAccountFlag(boolean b) {
+		fromAccountFlag = b;
+	
+	}
+	
 }
 

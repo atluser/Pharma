@@ -67,6 +67,7 @@ Screen {
 		
 		// Detail Panel
 		//Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
+		pnlDetail.setOrderScreen((Screens.Account.OrderScreen) container);
 		
 		// Master Panel
 		//Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
