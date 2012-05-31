@@ -5,6 +5,7 @@ BorderPanel {
 	 */
 	StickyTablePanel stk = new StickyTablePanel();
 	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Account.ReadOnlyDetailFormPanel();	 
+	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 	 
 	/*
 	 * Callback methods 
@@ -18,7 +19,7 @@ BorderPanel {
 		pnlMaster.setContentPanel(stk);
 		
 		// Detail Panel
-		Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
+		//Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 		pnlDetail.setContentPanel(pnlDetailForm);
 		
 		stk.setDetailPanel(pnlDetail);
