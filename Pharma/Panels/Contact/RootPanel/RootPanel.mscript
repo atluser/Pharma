@@ -4,7 +4,8 @@ BorderPanel {
 	 * Attributes
 	 */
 	Panels.Contact.StickyTablePanel stk = new Panels.Contact.StickyTablePanel();
-	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Contact.ReadOnlyDetailFormPanel();	 
+	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Contact.ReadOnlyDetailFormPanel();
+	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();	 
 	 
 	/*
 	 * Callback methods 
@@ -16,7 +17,6 @@ BorderPanel {
 		pnlMaster.setContentPanel(stk);
 		
 		// Detail Panel
-		Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 		pnlDetail.setContentPanel(pnlDetailForm);
 		
 		stk.setDetailPanel(pnlDetail);
@@ -38,5 +38,5 @@ BorderPanel {
 	StickyTable getStickyTable(){
 		return stk.stk;	
 	}
-	
 }
+

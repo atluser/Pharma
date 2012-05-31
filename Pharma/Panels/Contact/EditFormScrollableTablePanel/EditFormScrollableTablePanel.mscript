@@ -211,6 +211,9 @@ ScrollableTablePanel {
 		lblGender.setText("Sesso");
 		lblNote.setText("Note");
 		
+		txtCity.setText("Città");
+		txtCap.setText("CAP");
+		
 		//pulsante country				
 		/*btnCountryPopup.setBorder(Border.createSimpleBorder(Colors.Gray));
 		btnCountryPopup.setBackground(Background.create9PartImageRectangleBackground (Images.VodafoneImages.ImgPick , 0 , 50 , 0 , 0 ));
@@ -278,7 +281,7 @@ ScrollableTablePanel {
 		mdlCountry.addField(vObjContact.ContactCountry);
 		mdlPhone.addField(vObjContact.ContactPhone);
 		mdlOfficePhone.addField(vObjContact.ContactOfficePhone);
-		mdlMail.addField(vObjAccount.AccountEmail);
+		mdlMail.addField(vObjContact.ContactEmail);
 		mdlAge.addField(vObjContact.ContactAge);
 		mdlGender.addField(vObjContact.ContactGender);
 		mdlNote.addField(vObjContact.ContactNote);

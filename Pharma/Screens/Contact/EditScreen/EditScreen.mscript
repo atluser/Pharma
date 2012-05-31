@@ -146,8 +146,7 @@ Screen {
 			originListStk.reload();*/
 			//detailStk.reload();
 			pnlDetailForm.setRow(fp.currentRow);
-			//pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(fp.currentRow) + " " + vObjContact.ContactLastName.getStringValue(fp.currentRow));
-			//pnlDetail.txtFldName.setText("ciao");
+			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(fp.currentRow) + " " + vObjContact.ContactLastName.getStringValue(fp.currentRow));
 			close(Animation.PUSH_FROM_TOP);
 			msgBox.info(1, message);
 		}
@@ -211,12 +210,13 @@ Screen {
 	
 	}
 	
-	void init(DataRow row, TablePanel tp,TablePanel accfp){
+	void init(DataRow row, TablePanel tp,TablePanel accfp, TablePanel condp){
 		//sticky table origine dati				
 		//detail form
 		
 		pnlDetailForm=(Panels.Contact.ReadOnlyDetailFormPanel)accfp;				
 		stkTP=(Panels.Contact.StickyTablePanel)tp;
+		pnlDetail=(Panels.DetailPanel)condp;
 		fp.setRow(row);
 		//refresh();		
 			

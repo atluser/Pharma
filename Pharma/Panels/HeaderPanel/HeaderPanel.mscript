@@ -127,6 +127,7 @@ HorizontalPanel {
 		//StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
 		TablePanel pnlDetailForm=null;
 		TablePanel stkTP=null;
+		TablePanel pnlDetail=null;
 		int currentEntitiy=rg.getSelectedIndex();
 		switch(currentEntity){
 			case 0:
@@ -147,9 +148,10 @@ HorizontalPanel {
 				row=vObjUtil.getNewContactRow();
 				originStk=pnlContactRoot.getStickyTable();
 				pnlDetailForm=pnlContactRoot.pnlDetailForm;
+				pnlDetail=pnlContactRoot.pnlDetail;
 				stkTP=pnlContactRoot.stk;
 				Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();
-				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);
+				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm, pnlDetail);
 				scrNewOrEditRecordCon.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 		}
@@ -171,6 +173,7 @@ HorizontalPanel {
 		StickyTable originStk=pnlAccountRoot.getStickyTable();
 		TablePanel stkTP=null;
 		TablePanel pnlDetailForm=null;
+		TablePanel pnlDetail=null;
 		//StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
 		switch(currentEntity){
 			case 0:
@@ -193,10 +196,11 @@ HorizontalPanel {
 				row=pnlContactRoot.pnlDetailForm.currentRow;
 				originStk=pnlContactRoot.getStickyTable();
 				stkTP=pnlContactRoot.stk;
+				pnlDetail=pnlContactRoot.pnlDetail;
 				//detailStk=pnlAccountRoot.getDetailStickyTable();
 				pnlDetailForm=pnlContactRoot.pnlDetailForm;
 				Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();
-				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);		
+				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm,pnlDetail);		
 				scrNewOrEditRecordCon.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 		}
