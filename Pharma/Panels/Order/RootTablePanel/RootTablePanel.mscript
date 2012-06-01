@@ -1,12 +1,17 @@
 TablePanel {
 
+	// Detail Panel
+	Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
+	// Master Panel
+	Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
+	
 	callback onCreate(Container c) {
 		
 		// Detail Panel
-		Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
+		//Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
 			
 		// Master Panel
-		Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
+		//Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
 		pnlMaster.setDetailPanel(pnlDetail);
 		
 		pnlMaster.setAccountCode("");
