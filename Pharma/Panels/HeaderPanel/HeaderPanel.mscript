@@ -136,9 +136,10 @@ HorizontalPanel {
 				row=vObjUtil.getNewAccountRow();
 				originStk=pnlAccountRoot.getStickyTable();
 				pnlDetailForm=pnlAccountRoot.pnlDetailForm;
+				pnlDetail=pnlAccountRoot.pnlDetail;
 				stkTP=pnlAccountRoot.stk;
 				Screens.Account.EditScreen scrNewOrEditRecordAcc = new Screens.Account.EditScreen();
-				scrNewOrEditRecordAcc.init(row,stkTP,pnlDetailForm);
+				scrNewOrEditRecordAcc.init(row,stkTP,pnlDetailForm,pnlDetail);
 				scrNewOrEditRecordAcc.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 			
@@ -175,6 +176,7 @@ HorizontalPanel {
 		TablePanel pnlDetailForm=null;
 		TablePanel pnlDetail=null;
 		//StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
+		int currentEntitiy=rg.getSelectedIndex();
 		switch(currentEntity){
 			case 0:
 				entity="Account";
@@ -183,10 +185,11 @@ HorizontalPanel {
 				row=pnlAccountRoot.pnlDetailForm.currentRow;
 				originStk=pnlAccountRoot.getStickyTable();
 				stkTP=pnlAccountRoot.stk;
+				pnlDetail=pnlAccountRoot.pnlDetail;
 				//detailStk=pnlAccountRoot.getDetailStickyTable();
 				pnlDetailForm=pnlAccountRoot.pnlDetailForm;
 				Screens.Account.EditScreen scrNewOrEditRecordAcc = new Screens.Account.EditScreen();
-				scrNewOrEditRecordAcc.init(row,stkTP,pnlDetailForm);		
+				scrNewOrEditRecordAcc.init(row,stkTP,pnlDetailForm,pnlDetail);		
 				scrNewOrEditRecordAcc.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 			case 1:
@@ -220,17 +223,28 @@ HorizontalPanel {
  
 	callback msg onDismissed ( MessageBox messageBox , int contextId , int dismissalType , int result , String value ){
 		if(result==MessageBox.RESULT_OK){
-			appLog.log(Log.INFO,"POPUP OK "+value);					
+			appLog.log(Log.INFO,"POPUP OK "+value);		
+			int currentEntitiy=rg.getSelectedIndex();			
 			switch(currentEntity){
 				case 0:
-				//Account								
-				DataRow row=pnlAccountRoot.pnlDetailForm.currentRow;
-				Panels.Account.StickyTablePanel stkTP=pnlAccountRoot.stk;
-				row.delete();
-				stkTP.setInitQuery();
-				stkTP.stk.scrollTo ( 0 , 0 , TableView.SCROLL_POSITION_NONE ); 
-				stkTP.stk.select(0,0);												
-			break;			
+					//Account								
+					DataRow rowAcc=pnlAccountRoot.pnlDetailForm.currentRow;
+					Panels.Account.StickyTablePanel stkTPAcc=pnlAccountRoot.stk;
+					rowAcc.delete();
+					stkTPAcc.setInitQuery();
+					stkTPAcc.stk.scrollTo ( 0 , 0 , TableView.SCROLL_POSITION_NONE ); 
+					stkTPAcc.stk.select(0,0);												
+				break;
+				case 1:
+					//Contact								
+					DataRow rowCon=pnlContactRoot.pnlDetailForm.currentRow;
+					Panels.Contact.StickyTablePanel stkTPCon=pnlContactRoot.stk;
+					rowCon.delete();
+					stkTPCon.setQuery();
+					stkTPCon.stk.scrollTo ( 0 , 0 , TableView.SCROLL_POSITION_NONE ); 
+					stkTPCon.stk.select(0,0);												
+				break;		
+				
 			}
 		//	appLog.log(Log.INFO,"ROW "+row.isDeleted());						
 		}

@@ -52,7 +52,7 @@ ScrollableTablePanel {
 		//mainTP.startNewRow();
 		
 		
-		//enableScroll(true);
+		enableScroll(true);
 		//setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
 		mainTP.setColumnWidth(0, Sizing.PERCENTS, 60);
 		appLog.log(Log.INFO,"OK finished");

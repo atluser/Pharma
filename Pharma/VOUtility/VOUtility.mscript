@@ -1007,6 +1007,19 @@ UIObject {
 		return dt;	
 			
 	}
+	
+	DataRow getNewContact(String accountCode){
+		
+		int id=vObjContact.createQuery().getRowSet().getSize()+1;
+		DataRow row = vObjContact.getNewRow();
+		vObjContact.ContactId.setStringValue(""+id, row);
+		//vObjContact.ContactStreetCity.setStringValue("Città",row);	
+		vObjContact.ContactStatus.setStringValue("Nuovo",row);	
+		vObjContact.RelAccountCode.setStringValue(accountCode,row);
+        //row.applyUpdates();
+        return row  ;
+			
+	}
 /*	
 	void setItem(String orderCode,String productCode,String description,String productName, Integer qty,String unitPrice){
 		
@@ -1219,6 +1232,7 @@ UIObject {
 	        vObjContact.ContactId.setStringValue("00000006", row);
 			vObjContact.ContactName.setStringValue("Pietro", row);
 			vObjContact.ContactLastName.setStringValue("Calvellini", row);
+			vObjContact.RelAccountCode.setStringValue("00100052", row);
 			vObjContact.ContactStatus.setStringValue("Attivo", row);
 			vObjContact.ContactPhone.setStringValue("0541-785179", row);
 			vObjContact.ContactOfficePhone.setStringValue("0541-732437", row);
@@ -1234,6 +1248,7 @@ UIObject {
 	        vObjContact.ContactId.setStringValue("00000007", row);
 			vObjContact.ContactName.setStringValue("Omar", row);
 			vObjContact.ContactLastName.setStringValue("Perini", row);
+			vObjContact.RelAccountCode.setStringValue("00100052", row);
 			vObjContact.ContactStatus.setStringValue("Attivo", row);
 			vObjContact.ContactPhone.setStringValue("041-5342296", row);
 			vObjContact.ContactOfficePhone.setStringValue("041-715977", row);

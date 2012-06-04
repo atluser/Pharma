@@ -143,7 +143,15 @@ ScrollableTablePanel {
 	}	
 	
 	callback btn01 onClick(Control c) {
-			
+		Screens.Account.ContactScreen scrContact = new Screens.Account.ContactScreen();
+		scrContact.lbl02.setText(txtFldName.getText());
+		scrContact.setAccountCode(txtFldCode.getText());
+		scrContact.stk.setAccountCode(txtFldCode.getText());
+		scrContact.stk.setQuery();
+		//scrContact.pnlDetail.setFromAccountFlag(true);
+		scrContact.pnlDetailForm.setAccountCode(txtFldCode.getText());
+		//scrContact.pnlDetail.setFirstRecord();		
+		scrContact.push(Animation.NONE, false);		
 	}
 	
 	callback btn02 onClick(Control c) {

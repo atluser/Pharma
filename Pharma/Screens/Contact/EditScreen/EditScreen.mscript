@@ -13,6 +13,8 @@ Screen {
 	Panels.DetailPanel pnlDetail;
 	VirtualObject dataObject;
 	
+	String sAccountCode = "";
+	
 	Query q;//=null;
 	
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
@@ -133,7 +135,8 @@ Screen {
 			fp.save();
 			//ricarico sticky
 			//svuoto rsm
-			stkTP.setInitQuery();
+			stkTP.setAccountCode(sAccountCode);
+			stkTP.setQuery();
 			//RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
 			//rsm.setRows(vObjAccount.getAccounts());
 			//reset query
@@ -231,4 +234,8 @@ Screen {
 		//refresh();		
 			
 	}*/
+	
+	void setAccountCode (String str) {
+		sAccountCode = str;
+	}
 }

@@ -10,6 +10,7 @@ Screen {
 	//StickyTable originListStk;
 	Panels.Account.StickyTablePanel stkTP;
 	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm;
+	Panels.DetailPanel pnlDetail;
 	VirtualObject dataObject;
 	
 	Query q;//=null;
@@ -126,6 +127,8 @@ Screen {
 	
 	callback btnDone onClick(Control c) {
 		if(checkRequired()){
+			String message="Operazione effettuata con successo";
+			MessageBox msgBox=new MessageBox();
 			//stk.save(dataObject);		
 			fp.save();
 			//ricarico sticky
@@ -143,7 +146,9 @@ Screen {
 			originListStk.reload();*/
 			//detailStk.reload();
 			pnlDetailForm.setRow(fp.currentRow);
+			//pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(fp.currentRow));
 			close(Animation.PUSH_FROM_TOP);
+			msgBox.info(1, message);
 		}
 	}
 	
@@ -217,11 +222,12 @@ Screen {
 	
 	}
 	
-	void init(DataRow row, TablePanel tp,TablePanel accfp){
+	void init(DataRow row, TablePanel tp,TablePanel accfp, TablePanel accdp){
 		//sticky table origine dati				
 		//detail form
 		pnlDetailForm=(Panels.Account.ReadOnlyDetailFormPanel)accfp;				
 		stkTP=(Panels.Account.StickyTablePanel)tp;
+		pnlDetail=(Panels.DetailPanel)accdp;
 		fp.setRow(row);
 		//refresh();		
 			

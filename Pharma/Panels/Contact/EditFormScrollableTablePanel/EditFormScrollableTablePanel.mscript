@@ -42,7 +42,7 @@ ScrollableTablePanel {
 	TextField txtLastName=new TextField();
 	TextModel mdlLastName =new TextModel();
 	
-	TextField txtRelAccount = new TextField();
+	Label txtRelAccount = new Label();
 	TextModel mdlRelAccount = new TextModel();
 	
 	//TextField txtTitle=new TextField();
@@ -341,6 +341,7 @@ ScrollableTablePanel {
 		
 		anagraficaFP.add(lblName,labelAlign,txtName,controlAlign);
 		anagraficaFP.add(lblLastName,labelAlign,txtLastName,controlAlign);
+		anagraficaFP.add(lblRelAccount,labelAlign,txtRelAccount,controlAlign);
 		anagraficaFP.add(lblTitle,labelAlign,btnTitlePopup,controlAlign);
 		anagraficaFP.add(lblFunction,labelAlign,btnFunctionPopup,controlAlign);
 		anagraficaFP.add(lblStatus,labelAlign,txtStatus,controlAlign);
@@ -444,6 +445,7 @@ ScrollableTablePanel {
 		
 		mdlName.setRow(row);
 		mdlLastName.setRow(row);
+		mdlRelAccount.setRow(row);
 		mdlTitle.setRow(row);
 		mdlFunction.setRow(row);
 		mdlStatus.setRow(row);
