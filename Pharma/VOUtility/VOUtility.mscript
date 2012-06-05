@@ -280,7 +280,7 @@ UIObject {
 		int id=vObjContact.createQuery().getRowSet().getSize()+1;
 		DataRow row = vObjContact.getNewRow();
 		vObjContact.ContactId.setStringValue(""+id, row);
-		//vObjContact.ContactStreetCity.setStringValue("Città",row);	
+		//vObjContact.ContactStreetCity.setStringValue("Cittï¿½",row);	
 		vObjContact.ContactStatus.setStringValue("Nuovo",row);	
         //row.applyUpdates();
         return row  ;
@@ -1032,40 +1032,24 @@ UIObject {
 		
 	}
 	
-	void insertListItem(String promotionCode,String productCode, String productName,String  brand,String unitPrice,int minQty,String image){
+	DataRow insertListItem(String orderCode,String productCode, String productName,String  category,String image, Double unitPrice){
 		
 		DataRow dt = vObjListItem.getNewRow();
 		
 		vObjListItem.ProductCode.setStringValue(productCode,dt);
-		vObjListItem.ListCode.setStringValue(promotionCode,dt);
-//		bObjListItem.ProductDescription.setStringValue(description,dt);
+		vObjListItem.OrderCode.setStringValue(orderCode,dt);
 		vObjListItem.ProductName.setStringValue(productName,dt);
-		vObjListItem.ProductBrand.setStringValue(brand,dt);
-		vObjListItem.UnitPrice.setStringValue(unitPrice,dt);				
+		vObjListItem.ProductCategory.setStringValue(category,dt);
+		vObjListItem.UnitPrice.setCurrencyValue(unitPrice,dt);				
 		//canvassDetailObj.MinQty.setIntegerValue(Platform.createInteger(minQty),dt);
 		//canvassDetailObj.Image.setStringValue(image,dt);
 		dt.applyUpdates();
 		
+		return dt;
+		
 	}
 	
-	void loadList(){
-		
-		insertList("0","Speciale Prive",10);
-		insertListItem("0","01tA0000003HQs3","HC7 cl.70","HAVANA CLUB","10",3,"https://c.na7.content.force.com/servlet/servlet.FileDownload?file=015A0000001jkrN");
-		insertListItem("0","01tA0000003HRPB","ABSOLUT VODKA cl 70","ABSOLUT VODKA","15",0,"https://c.na7.content.force.com/servlet/servlet.FileDownload?file=015A0000001jkrD");
-		insertListItem("0","01tA0000003HSj7","BEEFEATER 24","BEEFEATER","15",0,"");
-		insertListItem("0","01tA0000003HSj2","MALIBU","MALIBU","10",0,"");
-		insertListItem("0","01tA0000003HRPB","ABSOLUT VODKA cl 70","ABSOLUT VODKA","0",3,"");
-		
-		insertList("1","Super Prive",20);
-		insertListItem("1","01tA0000003HRPB","ABSOLUT VODKA cl 70","ABSOLUT VODKA","15",0,"");
-		insertListItem("1","01tA0000003HSj7","BEEFEATER 24","BEEFEATER","15",0,"");
-		insertListItem("1","01tA0000003HSj2","MALIBU","MALIBU","10",0,"");
-		insertListItem("1","01tA0000003HQs3","HC7 cl.70","HAVANA CLUB","10",6,"");
-		insertListItem("1","01tA0000003HQs8","HC7 cl.300","HAVANA CLUB","0",1,"");
-		
-		//insertCanvass("C","TEST",0);
-	}
+	
 
 	void loadOrder() {
 		

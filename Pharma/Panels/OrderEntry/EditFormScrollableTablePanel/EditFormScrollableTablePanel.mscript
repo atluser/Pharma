@@ -235,7 +235,7 @@ ScrollableTablePanel {
 		
 	}
 	
-	
+	/*
 	callback btnNext onClick(Control c){
 		Breadcrumb brdCrumb2=new Breadcrumb();
 		brdCrumb2.setFocusedBackColor(Colors.MediumOrchid);
@@ -246,6 +246,17 @@ ScrollableTablePanel {
 		brdCrumb2.setValue("B");				
 		scr.brdCrumbs.add(brdCrumb2);
 		scr.brdCrumbs.navigateTo(1);
+	}*/
+	
+	callback btnNext onClick(Control c){
+		//salvo testata
+		save();
+		Screens.OrderEntry.ListItemScreen scr=new Screens.OrderEntry.ListItemScreen();
+		//imposto testata
+		scr.orderCode=lblCode.getText();		
+		scr.drowDetailItem("0001");
+		scr.push(0,false);
+	
 	}
 	
 	/*

@@ -4742,6 +4742,9 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ItemsScrollableTablePanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ItemsScrollableTablePanel.mscript"/>
       </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ItemsScrollableVerticalPanel" sortOrder="1400" image="icons/scrollable_vertical.png" superclass="ScrollableVerticalPanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ItemsScrollableVerticalPanel.mscript"/>
+      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderHeaderFP" sortOrder="1400" image="icons/form.png" superclass="FormPanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderHeaderFP.mscript"/>
       </children>

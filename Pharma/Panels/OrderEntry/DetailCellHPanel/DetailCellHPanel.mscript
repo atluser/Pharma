@@ -5,30 +5,21 @@ HorizontalPanel {
 	//HorizontalPanel hzPanel = new HorizontalPanel();
 	
 	Label lblProductCode=new Label();
-	TextModel txtMdlProdCode=new TextModel();
 	
-	IntegerNumericField  txtQuantity=new IntegerNumericField ();		
-	NumberFormatModel numMdlQuantity =new NumberFormatModel();	
-	/*TextField txtQuantity=new TextField ();
-	TextModel numMdlQuantity =new TextModel();
-	*/
-	Label lblDescription=new Label();
-	TextModel txtMdlDescription=new TextModel();
+	IntegerNumericField  txtQuantity1=new IntegerNumericField ();		
+	NumberFormatModel numMdlQuantity1 =new NumberFormatModel();	
 	
-	Label lblName=new Label();
-	TextModel txtMdlName=new TextModel();
+	
+	Label lblName=new Label();	
 	
 	Label lblUnitPrice=new Label();
-	TextModel txtMdlUnitPrice=new TextModel();
 	
-	Label lblType=new Label();
-	TextModel txtMdlType=new TextModel();
 	
-	Label lblMinQty=new Label();
-	NumberFormatModel numMdlMinQty =new NumberFormatModel();
+	Label lblCategory=new Label();	
 	
-	boolean canvass=false;
+
 	int ncol=6;
+
 	callback onCreate(Container container){		
 		setBackground(Background.createVerticalGradientRectangleBackground(Color.create(255,255,255), Color.create(222,222,222)));
 		//setFocusedBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
@@ -40,78 +31,40 @@ HorizontalPanel {
 		
 		add(lblProductCode,"halign=center");
 		add(lblName,"halign=center");
+		add(lblCategory,"halign=center");
 		add(lblUnitPrice,"halign=center");
-		add(txtQuantity,"hfill=fill,halign=center");	
-		//if(canvass)	
-		add(lblMinQty,"halign=center");	
-		add(lblType,"halign=center");	
-		//hzPanel.add(picture,"hfill=fill,vfill=fill,halign=center");
-		//picture.start();
+		add(txtQuantity1,"hfill=fill,halign=center");						
 		
-		//add(hzPanel,"hfill=fill, vfill=fill,valign=center");
-		//setBackColor(Colors.Coral);
-						
-	}
-			
-	void populateData(DataRow row){					
-		txtMdlProdCode.addField(vObjListItem.ProductCode);
-		//txtMdlDescription.addField(sourceObj.ProductDescription);
-		txtMdlName.addField(vObjListItem.ProductName);
-		numMdlQuantity.addField(vObjListItem.Qty);
-		//numMdlMinQty.addField(sourceObj.MinQty);
-		txtMdlUnitPrice.addField(vObjListItem.UnitPrice);
-		txtMdlType.addField(vObjListItem.Type);
-					
-		canvass=true;
-		ncol=6;
-		setMdl(row);		
-		appLog.log(Log.INFO,"CANVASS  "+canvass+" col "+ncol);
-		
-	}
-	
-	void setMdl(DataRow row){
-		cellRow=row;
-				
-		txtMdlProdCode.setRow(row);
-		txtMdlDescription.setRow(row);
-		txtMdlUnitPrice.setRow(row);
-		txtMdlName.setRow(row);
-		numMdlQuantity.setRow(row);
-		numMdlMinQty.setRow(row);
-		txtMdlType.setRow(row);								
-		
-		lblProductCode.setDataModel(txtMdlProdCode);
-		txtQuantity.setDataModel(numMdlQuantity);
-		lblMinQty.setDataModel(numMdlMinQty);						
-		lblUnitPrice.setDataModel(txtMdlUnitPrice);
-		lblName.setDataModel(txtMdlName);
-		lblType.setDataModel(txtMdlType);		
-		
-		numMdlMinQty.setForeColor(Colors.Red);
-		
-		if(Platform.parseInt(lblUnitPrice.getText())==0)
-			txtQuantity.setEditable(false);
 		
 		for (int i=0;i<ncol;i++)						
 			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
-						
+			
+		setInsets (0, 8, 0, 8);
+		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));											
 	}
-	String getProductCode(){
-		return 	txtMdlProdCode.getText();		
-	}
-	String getDescription(){
-		return txtMdlDescription.getText();
-	}
-	String getQuantity(){
-		return txtQuantity.getText();		
-	}
-	String getUnitPrice(){
-		return lblUnitPrice.getText();
-	}
-	String getProductName(){
-		return lblName.getText();
+			
+	void populateData(DataRow row){					
+		lblProductCode.setText(vObjListItem.ProductCode.getStringValue(row));
+		lblName.setText(vObjListItem.ProductName.getStringValue(row));
+		lblCategory.setText(vObjListItem.ProductCategory.getStringValue(row));
+		Double unitPrice=vObjListItem.UnitPrice.getCurrencyValue(row);
+		if(unitPrice!=null)	lblCategory.setText(unitPrice.toString());
+		numMdlQuantity1.addField(vObjListItem.Qty1);
+		
+					
+		
+		setRow(row);		
+		
+		
 	}
 	
+	void setRow(DataRow row){
+		cellRow=row;
+				
+		numMdlQuantity1.setRow(row);
+						
+	}
+		
 	
 
 }

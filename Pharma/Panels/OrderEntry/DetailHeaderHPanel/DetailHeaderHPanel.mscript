@@ -9,7 +9,7 @@ HorizontalPanel {
 	
 	//HorizontalPanel hzPanel=new HorizontalPanel();
 	boolean canvass=false;
-	int ncol=5;
+	int ncol=6;
 	callback onCreate(Container c) {		
 		//setBackColor(Colors.White);
 		setBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
@@ -26,6 +26,10 @@ HorizontalPanel {
 		//hzPanel.add(lblImage, "halign=center");				
 		
 		//add(hzPanel,"hfill=fill,vfill=fill");
+		
+			for (int i=0;i<ncol;i++)						
+			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
+	
 	}
 
 	void setLabel(){
@@ -36,13 +40,6 @@ HorizontalPanel {
 		lblMinQty.setText("Qtà minima");
 		lblType.setText("Tipo");
 		//lblImage.setText("Immagine");		
-	}
-	void setCanvass(){
-		canvass=true;
-		ncol=6;
-		for (int i=0;i<ncol;i++)						
-			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
-		//if(canvass)	add(lblMinQty, "halign=center");
 	}
 }
 

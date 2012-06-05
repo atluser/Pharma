@@ -1,19 +1,28 @@
 Screen {
 	
-	String promotionCode=null;
+	String listCode=null;
 	String orderCode=null;
 	DataRow orderRow=null;
 	
 	//costruisco contenitore item
 	ObjectArray arrObj=new ObjectArray();
-	ScrollableTablePanel cvDtlTP=new ScrollableTablePanel();
+	ScrollableVerticalPanel cvDtlTP=new ScrollableVerticalPanel();
 	//Panels.OrderEntry.DetailTP cvDtlTP=new Panels.OrderEntry.DetailTP();	
 	
 //	Panels.OrderEntry.HeaderPanel hp=new Panels.OrderEntry.HeaderPanel(); 
 	Button btnConfirm=new Button();
 	
-	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
-		//TODO: add code
+	Button btnBack = new Button();
+	Button btnHome = new Button();
+	Button btnMenu = new Button();
+	
+	Label lbl01 = new Label();
+	Label lbl02 = new Label();//codice listino
+	
+	
+	Styles.FormStyle style = new Styles.FormStyle();
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){		
+		styleReceptor.applyVisualStyle(style);
 	}
 
 	callback onActivate(Container container){
@@ -33,23 +42,47 @@ Screen {
 	}
 
 	callback onCreate(Container container){	
-		
+		setUpLabels();
+		setUpButtons();
+		// Header Panel
+		HorizontalPanel pnlHeader = new HorizontalPanel();
+		//pnlHeader.add(btnHome);
+		pnlHeader.add(btnBack);
+		pnlHeader.add(lbl01);
+		pnlHeader.add(lbl02);
+		pnlHeader.add(new Separator(), "");
+		pnlHeader.add(btnMenu);
+		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,1);
+		add(pnlHeader,"hfill=fill");
+	
+	Panels.ItemHeaderHorizontalPanel pnlHeader2= new Panels.ItemHeaderHorizontalPanel();
+		add(pnlHeader2,null);
 		TablePanel pnl = new TablePanel();
-		
-//		pnl.add(hp,"hfill=fill");
+		//pnl.add(pnlHeader,"hfill=fill");
 		//pnl.startNewRow();
-		pnl.add(cvDtlTP,"vfill=fill,hfill=fill");
-		pnl.startNewRow();
+		//pnl.add(pnlHeader2,"hfill=fill");
+		//pnl.startNewRow();		
+		//pnl.add(cvDtlTP,"vfill=fill,hfill=fill");
+		add(cvDtlTP,"vfill=fill,hfill=fill");
+		//pnl.startNewRow();
 		btnConfirm.setText("Conferma");	
 		pnl.add(btnConfirm,"halign=center");
 		
+		setRowHeight(0, Sizing.PREFERRED,0);
+		setRowHeight(1, Sizing.PREFERRED,0);
+		setRowHeight(2, Sizing.PREFERRED,1);
+		setRowHeight(3, Sizing.PREFERRED,0);
+		
 		pnl.setColumnWidth(0, Sizing.PREFERRED,1);
-		pnl.setRowHeight(0, Sizing.PREFERRED,0);
-		pnl.setRowHeight(1, Sizing.PREFERRED,1);
-		pnl.setRowHeight(2, Sizing.PERCENTS,20);
+		/*pnl.setRowHeight(0, Sizing.PREFERRED,0);
+		pnl.setRowHeight(1, Sizing.PREFERRED,0);
+		pnl.setRowHeight(2, Sizing.PREFERRED,1);
+		pnl.setRowHeight(3, Sizing.PREFERRED,0);*/		
 		add(pnl,"hfill=fill, vfill=fill");
 			
 		//hp.setContainer((Screen)container);
+		
 		
 		
 		appLog.log(Log.INFO,"CanvassDetail orderCode "+orderCode);
@@ -119,43 +152,93 @@ Screen {
 	}
 	
 	
-	//disegno pannello
-	void drowDetailItem(String listCode){
-		Query q=vObjListItem.getList(listCode);
-		DataRowSet rowSet=q.getRowSet();
-		DataRow found=rowSet.first();
-		Panels.OrderEntry.DetailHeaderHPanel header=new Panels.OrderEntry.DetailHeaderHPanel();
-		header.setCanvass();
-		cvDtlTP.setRowHeight(0,Sizing.PIXELS,40);
-		cvDtlTP.add(header,"hfill=fill");
-		cvDtlTP.startNewRow();
-		int i=1;
-		while(found!=null){
-			Panels.OrderEntry.DetailCellHPanel cell=new Panels.OrderEntry.DetailCellHPanel(); 
-			cell.populateData(found);
-			cvDtlTP.add(cell,"hfill=fill");
-			cvDtlTP.startNewRow();
-			arrObj.addItem(cell);
-			cvDtlTP.setRowHeight(i,Sizing.PIXELS,60);
-			found=rowSet.next();
-			i++	;	
-		}		
-	}	
 	
+	//disegno pannello
+	void drowDetailItem(String priceListCode){		
+		//get Category
+		Query q=vObjLOV.getLOV("PRODUCT_CATEGORY");
+		DataRowSet set=q.getRowSet();
+		DataRow dtRow=set.first();		
+		while(dtRow!=null){//ciclo category
+			String category=vObjLOV.Value.getStringValue(dtRow);
+			Query q1=vObjPriceListItem.getListItemByCategory(priceListCode,category,"");
+			DataRowSet rowSet=q1.getRowSet();
+			DataRow found=rowSet.first();
+			appLog.log(Log.INFO,"analizzo category "+category);
+			if(found==null){
+				appLog.log(Log.INFO,"non ci sono item "+category);
+				//record not found skip next category
+				dtRow=set.next();					
+			 	continue; 
+			}
+			//sezione header x category
+			//Panels.OrderEntry.DetailHeaderHPanel header=new Panels.OrderEntry.DetailHeaderHPanel();			
+			HorizontalPanel hz=new HorizontalPanel();
+			Label lbl=new Label();
+			lbl.setText(category);
+			Font fn=lbl.getFont().createCopy();
+			fn.setBold();
+			lbl.setFont(fn);
+			lbl.setForeColor(Colors.White);
+			hz.add(lbl);
+			hz.setInsets (0, 8, 0, 8);
+			hz.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+			cvDtlTP.add(hz);
+			//setRowHeight(0,Sizing.PIXELS,40);
+			//add(header,"hfill=fill");
+			//startNewRow();
+			
+			int i=1;
+			
+			//scorro pricelist
+			while(found!=null){				
+				Panels.OrderEntry.DetailCellHPanel cell=new Panels.OrderEntry.DetailCellHPanel();
+				appLog.log(Log.INFO,"dentro while eseguo query ");
+				//check if row already exists
+				String productCode=vObjPriceListItem.ProductCode.getStringValue(found);
+				String productName=vObjPriceListItem.ProductName.getStringValue(found);
+				String productImage=vObjPriceListItem.ProductImage.getStringValue(found);
+				Double unitPrice=vObjPriceListItem.UnitPrice.getCurrencyValue(found);
+				Query q2=vObjListItem.getListItem2(orderCode,productCode);
+				DataRow qtRow;
+				if(q2!=null){		
+					DataRowSet rowSet2=q2.getRowSet();
+					qtRow=rowSet2.first();				
+					if(qtRow==null){					
+						//creo nuovo quoteitem
+						appLog.log(Log.INFO,"Creo nuovo quoteitem "+productCode);											
+						qtRow=vObjUtil.insertListItem(orderCode, productCode,  productName,  category, productImage,unitPrice);
+					}
+				}
+				else qtRow=vObjUtil.insertListItem(orderCode, productCode,  productName,  category, productImage,unitPrice);
+				appLog.log(Log.INFO,"Creo cella");
+				cell.populateData(qtRow);			
+				appLog.log(Log.INFO,"cella creata");
+				cvDtlTP.add(cell);
+				
+				//arrObj.addItem(cell);
+				//cvDtlTP.setRowHeight(i,Sizing.PIXELS,60);
+				found=rowSet.next();
+				i++	;	
+			}
+			dtRow=set.next();
+		}		
+	}
+
 	//called orderheaderscreem
 	void setOrderRow(DataRow row){
 		orderRow=row;		
 		orderCode=vObjOrder.OrderCode.getStringValue(orderRow);
-		promotionCode=vObjOrder.PromotionCode.getStringValue(orderRow);		
+		listCode=vObjOrder.PromotionCode.getStringValue(orderRow);		
 		appLog.log(Log.INFO,"costruisco canvassDetail "+vObjOrder.PromotionCode.getStringValue(orderRow));
-		drowDetailItem(promotionCode);
+		//drowDetailItem(promotionCode);
 		//cvDtlTP.setQuery(canvassDetailObj.getDetailfromCanvass(orderObj.PromotionCode.getStringValue(orderRow)),canvassDetailObj);
 		//cvDtlTP.setQuery(canvassDetailObj.getDetailfromCanvass(promotionCode),canvassDetailObj);
 	}
 	
 
 	void createItem(String orderCode,ObjectArray arrObj){			
-		//ObjectArray arrObj=cvDtlTP.getCells();			
+/*		//ObjectArray arrObj=cvDtlTP.getCells();			
 		for(int i=0;i<arrObj.length();i++){
 			Panels.OrderEntry.DetailCellHPanel cell=(Panels.OrderEntry.DetailCellHPanel) arrObj.getItem(i);
 			Integer qty=Platform.createInteger(cell.getQuantity());
@@ -169,5 +252,46 @@ Screen {
 				//vObjUtil.setItem(orderCode, productCode, "", productName,qty,unitPrice);
 			}			
 		}
+		*/
 	}
+	
+	
+	void setUpButtons() {
+				
+		btnHome.setImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnHome.setFocusedImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnHome.setSelectedImage(Images.VodafoneImages.img_logo_vodafone.getImage());	
+
+		btnBack.setImage(Images.VodafoneImages.btn_back_normal.getImage());
+		btnBack.setFocusedImage(Images.VodafoneImages.btn_back_normal.getImage());
+		btnBack.setSelectedImage(Images.VodafoneImages.btn_back_normal.getImage());
+	
+		btnMenu.setImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+		btnMenu.setFocusedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+		btnMenu.setSelectedImage(Images.VodafoneImages.img_logo_atlantic.getImage());
+	
+	}
+	
+	void setUpLabels() {
+		
+		Font fnt01 = new Font();
+		fnt01.setSize(24);
+		fnt01.setFamily("Arial");
+		//fnt01.setBold();
+		
+		Font fnt02 = new Font();
+		fnt02.setSize(24);
+		fnt02.setFamily("Arial");
+		fnt02.setBold();
+		
+		//Label lbl = new Label();
+		lbl01.setText(" Ordine: ");
+		lbl01.setFont(fnt01);
+		lbl01.setForeColor(Color.create(255,255,255));
+	
+		lbl02.setFont(fnt02);
+		lbl02.setForeColor(Color.create(255,255,255));
+	
+	}		
+	
 }

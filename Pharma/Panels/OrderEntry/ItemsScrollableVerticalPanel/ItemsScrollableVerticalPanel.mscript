@@ -1,9 +1,5 @@
-GridPanel {
+ScrollableVerticalPanel {
 	
-	callback onCreate(Container c){
-		
-	
-	}
 	
 	//disegno pannello
 	void drowDetailItem(String priceListCode){
@@ -25,26 +21,25 @@ GridPanel {
 			Label lbl=new Label();
 			lbl.setText(category);
 			hz.add(lbl);
-			/*add(hz,null);
-			setRowHeight(0,Sizing.PIXELS,40);
-			add(header,"hfill=fill");
-			startNewRow();
-			*/
+			add(hz);
+			//setRowHeight(0,Sizing.PIXELS,40);
+			//add(header,"hfill=fill");
+			//startNewRow();
+			
 			int i=1;
+			
+			//scorro pricelist
 			while(found!=null){
 				Panels.OrderEntry.DetailCellHPanel cell=new Panels.OrderEntry.DetailCellHPanel(); 
-				//cell.populateData(found,canvassDetailObj);
-			/*	
-				cvDtlTP.add(cell,"hfill=fill");
-				cvDtlTP.startNewRow();
+				cell.populateData(found);			
+				add(cell);
 				
-				*/
 				//arrObj.addItem(cell);
 				//cvDtlTP.setRowHeight(i,Sizing.PIXELS,60);
 				found=rowSet.next();
 				i++	;	
-			}		
-		}	
+			}
+		}		
 	}
 
 }

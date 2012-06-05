@@ -1,6 +1,6 @@
 Screen {
 	//DataRow currentRow;
-	Breadcrumbs brdCrumbs=new Breadcrumbs ();
+	//Breadcrumbs brdCrumbs=new Breadcrumbs ();
 
 	Button btnHome = new Button();
 	Button btnDone = new Button();
@@ -37,7 +37,7 @@ Screen {
 	}
 
 	callback onCreate(Container container){
-					
+	/*				
 		brdCrumbs.setBackground(Background.createColorRectangleBackground(Colors.Blue));
 	 	brdCrumbs.setBorder(Border.createRoundedBorder());
 		Breadcrumb	brdCrumb1 = new Breadcrumb();
@@ -50,7 +50,7 @@ Screen {
 	  	brdCrumb1.setText("Header");
 		brdCrumbs.add(brdCrumb1);
 		Breadcrumb brdCrumb2=new Breadcrumb();
-		
+		*/
 		fp.scr=(Screens.OrderEntry.OrderHeaderScreen)container;
 		setUpButtons();
 		
@@ -58,7 +58,7 @@ Screen {
 		HorizontalPanel pnlHeader = new HorizontalPanel();
 		pnlHeader.add(btnHome);		
 		pnlHeader.add(new Separator(), "");
-		pnlHeader.add(brdCrumbs,"halign=center");
+		//pnlHeader.add(brdCrumbs,"halign=center");
 		pnlHeader.add(new Separator(), "");
 		pnlHeader.add(btnDone);
 		pnlHeader.add(btnUndo);
