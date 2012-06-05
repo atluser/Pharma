@@ -1,6 +1,8 @@
 Screen {
 	//DataRow currentRow;
-		
+	
+	MessageBox msg = new MessageBox();
+	
 	Panels.Contact.StickyTablePanel stk = new Panels.Contact.StickyTablePanel();
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Contact.ReadOnlyDetailFormPanel();
 	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
@@ -180,7 +182,15 @@ Screen {
 	}		
 	
 	callback btnDelete onClick(Control c) {
-		close(Animation.NONE);
+		msg.ask ( 1 ,false , "ATTENZIONE!" , "Sei sicuro di cancellare i record?" , "OK" , "Cancel" );
+	}
+	
+	callback msg onDismissed ( MessageBox messageBox , int contextId , int dismissalType , int result , String value ){
+		DataRow rowCon=pnlDetailForm.currentRow;
+		rowCon.delete();
+		stk.setQuery();
+		stk.stk.scrollTo ( 0 , 0 , TableView.SCROLL_POSITION_NONE ); 
+		stk.stk.select(0,0);		
 	}
 	
 	callback btnMenu onClick(Control c) {

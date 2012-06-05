@@ -36,7 +36,8 @@ VirtualObject {
 		query contactRows<> {
 			ascendingBy ContactLastName;
 		}
-		
+	
+	//Retrieve all contacts that start with a given letter	
 	Query getContactStartsWith(String strStart){
 			return ContactStartsWith(strStart);
 		}
@@ -109,6 +110,7 @@ VirtualObject {
 			ascendingBy ContactLastName;
 		}
 	
+	//Retrieve contacts from the related Account
 	Query getContactsFromAccount(String acode){
 		return contactFromAccount(acode);
 	}
@@ -116,4 +118,36 @@ VirtualObject {
 			where RelAccountCode == acode;
 			ascendingBy ContactLastName;
 		}
+	
+	//Retrieve contacts that start with a given letter and related to a given account
+	Query getContactStartsWithFromAccount(String letter, String acode) {
+		return contactStartsWithFromAccount(letter,acode);
+	}
+		query contactStartsWithFromAccount<String letter, String acode> {
+			where ContactLastName startsWith letter; 
+			where RelAccountCode==acode;
+			ascendingBy ContactLastName;
+		}
+	
+	//Retrieve contacts that starts with a given letter and caontains a given string
+	Query getContactContainsStartsWith(String letter, String src) {
+		return contactContainsStartsWith(letter,src);
+	}
+		query contactContainsStartsWith<String letter, String src> {
+			where ContactLastName startsWith letter; 
+			where ContactLastName contains src;
+			ascendingBy ContactLastName;
+		}
+		
+	//Retrieve contacts that starts with a given letter, contains a given string and are related with an Account
+	Query getContactContainsStartsWithFromAccount(String letter, String src, String acode) {
+		return contactContainsStartsWithFromAccount(letter,src,acode);
+	}
+		query contactContainsStartsWithFromAccount<String letter, String src, String acode> {
+			where RelAccountCode == acode;
+			where ContactLastName startsWith letter; 
+			where ContactLastName contains src;
+			ascendingBy ContactLastName;
+		}
+
 }

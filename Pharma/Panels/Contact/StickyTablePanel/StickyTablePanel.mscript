@@ -22,16 +22,17 @@ TablePanel {
 	 */
 	callback onCreate(Container c) {
 		
-		//pnlIndex.setStickyTable(stk);
-		//pnlIndex.setArray(arr);
+		pnlIndex.setStickyTable(stk);
+		pnlIndex.setArray(arr);
 		
 		setQuery();
 		
 		//stk.setDataModel(rsm);
-		stk.setDataModel(rsm);
+		stk.setDataModel(mrsm);
 		stk.setGridLineThickness(1);
 		stk.setGridLineStyle(LineStyle.SOLID);
 		stk.setGridLineColor(Colors.Gray);
+		setColumnWidth(0, Sizing.PERCENTS, 25);
 		
 		src.setTextHint("Search...");
 		//src.setBackColor(Colors.Gray);
@@ -39,13 +40,13 @@ TablePanel {
 		add(src, "hfill=fill");
 		startNewRow();
 		add(stk, "hfill=fill,vfill=fill");
-		//add(pnlIndex, "hfill=fill,valign=top");	
+		add(pnlIndex, "hfill=fill,valign=top");	
 		
 		setInsets(8,8,8,8);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
 		
 		//set size (note: this is required)
-		setColumnWidth(0, Sizing.PREFERRED, 1);
+		setColumnWidth(1, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);		
 		
@@ -93,8 +94,8 @@ TablePanel {
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		logApp.log(Log.INFO, "ContactStickyTablePanel::onSelectionChanged - Row: "+ row);
-		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(rsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(rsm.getRow()));
-		pnlDetailForm.setRow(rsm.getRow());
+		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(mrsm.getRow()));
+		pnlDetailForm.setRow(mrsm.getRow());
 	}
 		
 	////////////////////////////
@@ -102,17 +103,17 @@ TablePanel {
 	////////////////////////////
 	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
 		//info.setPanel(new Panels.AccountHeaderTableViewPanel());
-		Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+		 Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
 			header.enableDirectionalScroll(true); 
 			//header.lbl.setText(letterList.getItem(group));
-			info.setPanel(header);
+			info.setPanel(header); 
 	}
 	
 	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
-		cell.setCouldBeSelected(false);		
+		 cell.setCouldBeSelected(false);		
 		cell.setHeight(Sizing.PIXELS, 30);
 		//cell.setHeight(Sizing.PREFERRED, 0);
-		cell.setWidth(Sizing.PERCENTS, 100);
+		cell.setWidth(Sizing.PERCENTS, 100); 
 	}
 	
 	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
@@ -151,10 +152,10 @@ TablePanel {
 	callback src onValueChangingPaused(Control c){
 		setQuery(src.getText());	
 		stk.reload();
-		if (rsm.getRowCount(0)>0) {
+		if (mrsm.getRowCount(0)>0) {
 			stk.select(0,0);
-			pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(rsm.getRow()));
-			pnlDetailForm.setRow(rsm.getRow());
+			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(mrsm.getRow()));
+			pnlDetailForm.setRow(mrsm.getRow());
 		}
 		
 	}	
@@ -163,22 +164,45 @@ TablePanel {
 	 * Custom methods
 	 */
 	void setQuery() {
-		if(sAccountCode != "") {
-			rsm.setRows(vObjContact.getContactsFromAccount(sAccountCode));
-		} else {
-			rsm.setRows(vObjContact.getContacts());
+		mrsm.clear();
+		for(int i = 0; i < letterList.length(); i++) {
+			RowSetModel rsm1 = new RowSetModel();
+			if (sAccountCode != "") {
+				rsm1.setRows(vObjContact.getContactStartsWithFromAccount(letterList.getItem(i),sAccountCode));
+				}
+			else { 
+				rsm1.setRows(vObjContact.getContactStartsWith(letterList.getItem(i)));
+			}
+			
+			if(rsm1.getRowCount(0) > 0) {
+				
+				mrsm.add(rsm1);
+				arr.insertItem(mrsm.getGroupCount() - 1, letterList.getItem(i));	
+				pnlIndex.enableIndexLinks(i);	
+			}
 		}
+		stk.setNumberOfGroups(letterList.length());	
 	} 
 	 
 	void setQuery(String str) {
-		
-		
-		if(sAccountCode != "") {
-			rsm.setRows(vObjContact.getContactContainsFromAccount(str,sAccountCode));
-		} else {
-			rsm.setRows(vObjContact.getContactContains(str));
+		mrsm.clear();
+		for(int i = 0; i < letterList.length(); i++) {
+			RowSetModel rsm1 = new RowSetModel();
+			if (sAccountCode != "") {
+				rsm1.setRows(vObjContact.getContactContainsStartsWithFromAccount(letterList.getItem(i),str,sAccountCode));
+				}
+			else { 
+				rsm1.setRows(vObjContact.getContactContainsStartsWith(letterList.getItem(i),str));
+			}
+			
+			if(rsm1.getRowCount(0) > 0) {
+				
+				mrsm.add(rsm1);
+				arr.insertItem(mrsm.getGroupCount() - 1, letterList.getItem(i));	
+				pnlIndex.enableIndexLinks(i);	
+			}
 		}
-		
+		stk.setNumberOfGroups(letterList.length());	
 	} 
 	
 	void setAccountCode(String str) {
