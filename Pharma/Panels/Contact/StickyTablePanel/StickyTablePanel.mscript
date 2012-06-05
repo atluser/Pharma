@@ -22,13 +22,13 @@ TablePanel {
 	 */
 	callback onCreate(Container c) {
 		
-		pnlIndex.setStickyTable(stk);
-		pnlIndex.setArray(arr);
+		//pnlIndex.setStickyTable(stk);
+		//pnlIndex.setArray(arr);
 		
 		setQuery();
 		
 		//stk.setDataModel(rsm);
-		stk.setDataModel(mrsm);
+		stk.setDataModel(rsm);
 		stk.setGridLineThickness(1);
 		stk.setGridLineStyle(LineStyle.SOLID);
 		stk.setGridLineColor(Colors.Gray);
@@ -39,7 +39,7 @@ TablePanel {
 		add(src, "hfill=fill");
 		startNewRow();
 		add(stk, "hfill=fill,vfill=fill");
-		add(pnlIndex, "hfill=fill,valign=top");	
+		//add(pnlIndex, "hfill=fill,valign=top");	
 		
 		setInsets(8,8,8,8);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
@@ -102,6 +102,10 @@ TablePanel {
 	////////////////////////////
 	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
 		//info.setPanel(new Panels.AccountHeaderTableViewPanel());
+		Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+			header.enableDirectionalScroll(true); 
+			//header.lbl.setText(letterList.getItem(group));
+			info.setPanel(header);
 	}
 	
 	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
