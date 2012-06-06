@@ -4797,6 +4797,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="SectionFormPopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SectionFormPopup.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="ZoomImagePopup">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ZoomImagePopup.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="ZoomPopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ZoomPopup.mscript"/>
     </children>
