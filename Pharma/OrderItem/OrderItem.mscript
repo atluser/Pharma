@@ -1,6 +1,10 @@
 VirtualObject {
 
 	// Dettaglio Riga
+	StringField OrderCode{
+		return null;
+	}
+	
 	StringField OrderItemProductCode {
 		return null;
 	}
@@ -17,9 +21,13 @@ VirtualObject {
 		return null;
 	}
 	
-	StringField OrderItemProductPrice {
+	CurrencyField OrderItemProductPrice {
 		return null;
 	}
+	
+	IntegerField OrderItemQty1{return Platform.createInteger(0);}
+	IntegerField OrderItemQty2{return Platform.createInteger(0);}
+	IntegerField OrderItemQty3{return Platform.createInteger(0);}
 	
 	DateField OrderItem1stDeliveryDate {
 		return Platform.createDate();

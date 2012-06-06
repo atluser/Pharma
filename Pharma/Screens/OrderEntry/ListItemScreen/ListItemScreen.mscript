@@ -91,7 +91,7 @@ Screen {
 		//setRowHeight(3, Sizing.PREFERRED,0);
 		//setRowHeight(4, Sizing.PREFERRED,0);
 				
-		pnl.setColumnWidth(0, Sizing.PREFERRED,1);
+		pnl.setColumnWidth(0, Sizing.PERCENTS,50);
 		/*pnl.setRowHeight(0, Sizing.PREFERRED,0);
 		pnl.setRowHeight(1, Sizing.PREFERRED,0);
 		pnl.setRowHeight(2, Sizing.PREFERRED,1);
@@ -316,7 +316,42 @@ Screen {
 	}
 */	
 
-	void createItem(String orderCode,ObjectArray arrObj){			
+	void createItem(String orderCode,ObjectArray arrObj){	
+		
+		Query q1=vObjListItem.getListItem(orderCode);
+		DataRowSet rowSet=q1.getRowSet();
+		DataRow found=rowSet.first();
+		while(found!=null){						
+			found.applyUpdates();
+			
+			String productCode=vObjListItem.ProductCode.getStringValue(found);
+			String productName=vObjListItem.ProductName.getStringValue(found);
+			String productImage=vObjListItem.ProductImage.getStringValue(found);
+			String productCategory=vObjListItem.ProductCategory.getStringValue(found);
+			Double unitPrice=vObjListItem.UnitPrice.getCurrencyValue(found);
+			Integer qty1=vObjListItem.Qty1.getIntegerValue(found);
+			Integer qty2=vObjListItem.Qty1.getIntegerValue(found);	
+			Integer qty3=vObjListItem.Qty1.getIntegerValue(found);					
+			
+			if(qty1==null && qty1.intValue()==0){
+				found=rowSet.next();
+				continue;
+			}
+							
+			DataRow row=vObjOrderItem.getNewRow();			
+			vObjOrderItem.OrderCode.setStringValue(orderCode,row);
+			vObjOrderItem.OrderItemProductCode.setStringValue(productCode,row);
+			vObjOrderItem.OrderItemProductName.setStringValue(productName,row);
+			vObjOrderItem.OrderItemProductImage.setStringValue(productImage,row);
+			vObjOrderItem.OrderItemProductCategory.setStringValue(productCategory,row);
+			vObjOrderItem.OrderItemProductPrice.setCurrencyValue(unitPrice,row);
+			vObjOrderItem.OrderItemQty1.setIntegerValue(qty1,row);
+			vObjOrderItem.OrderItemQty2.setIntegerValue(qty2,row);
+			vObjOrderItem.OrderItemQty3.setIntegerValue(qty3,row);
+			row.applyUpdates();
+		}
+			
+				
 /*		//ObjectArray arrObj=cvDtlTP.getCells();			
 		for(int i=0;i<arrObj.length();i++){
 			Panels.OrderEntry.DetailCellHPanel cell=(Panels.OrderEntry.DetailCellHPanel) arrObj.getItem(i);

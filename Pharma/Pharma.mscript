@@ -19,6 +19,7 @@ UIProject {
 	Contact vObjContact = new Contact();
 	ListOfValues vObjLOV = new ListOfValues();
 	Order vObjOrder=new Order();
+	OrderItem vObjOrderItem=new OrderItem();
 	ListItem vObjListItem=new ListItem();
 	//PharmaDP.DataStore.PriceListItem vObjPriceListItem=dp.PriceListItem;
 	PriceListItem vObjPriceListItem=new PriceListItem();
