@@ -1,4 +1,4 @@
-HorizontalPanel {
+TableViewCell {
 	PictureBox picBox=new PictureBox();
 	DataRow cellRow=null;
 	
@@ -34,7 +34,7 @@ HorizontalPanel {
 		appLog.log(Log.INFO,"NCOL "+ncol);						
 		
 		//altezza pannello
-		setPanelHeight(Sizing.PIXELS,60);
+		setRowHeight(0,Sizing.PIXELS,60);
 		setBackColor(Colors.White);
 		add(picBox,"halign=center");
 		add(lblProductCode,"halign=center");

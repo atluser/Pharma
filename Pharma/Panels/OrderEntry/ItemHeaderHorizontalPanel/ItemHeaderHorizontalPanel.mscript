@@ -1,0 +1,81 @@
+HorizontalPanel {
+	Font fnt = new Font();
+	Label lblImage=new Label();
+	Label lblCode = new Label();
+	Label lblName=new Label();	
+	Label lblPrice=new Label();
+	Label lblDiscount1=new Label();
+	Label lblDiscount2=new Label();	
+	Label lblQty1=new Label();
+	Label lblQty2=new Label();
+	Label lblQty3=new Label();
+	Label lblTotal1=new Label();
+	
+	//TextModel txtMdl = new TextModel();
+	Styles.FormStyle style = new Styles.FormStyle();
+	String alignment="halign=center";
+	int ncol=10;
+	
+	callback onCreate(Container container){
+
+		fnt.setFamily("Arial");
+		fnt.setSize(18);
+		//fnt.setBold();
+	//	lbl.setFont(fnt);
+//		lbl.setForeColor(Colors.Black);
+		//lbl.setFocusedForeColor(Colors.Black);
+		
+		//txtMdl.setForeColor(Colors.Black);
+		//txtMdl.setFocusedForeColor(Colors.Black);
+		//lbl.setDataModel(txtMdl);
+		
+		setLabel();
+		add(lblImage, alignment);	
+		add(lblCode, alignment);
+		add(lblName, alignment);		
+		add(lblPrice, alignment);			
+		add(lblQty1,alignment);
+		add(lblQty2,alignment);
+		add(lblQty3,alignment);		
+		add(lblDiscount1, alignment);
+		add(lblDiscount2, alignment);
+		add(lblTotal1, alignment);
+		setInsets (8, 8, 8, 8);
+		
+		//setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));		
+		setBackground(Background.createColorRectangleBackground(Colors.BackgroundGray,Colors.Gray,LineStyle.SOLID));			
+		for (int i=0;i<ncol;i++)
+			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
+		setPanelHeight(Sizing.PIXELS,60);
+		
+	}
+	
+	
+	
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){		
+		styleReceptor.applyVisualStyle(style);
+	}
+	
+	void setLabel(){
+		lblCode.setText("Codice");		
+		lblName.setText("Nome");
+		
+		lblPrice.setText("Prezzo");
+		lblImage.setText("Immagine");
+		lblDiscount1.setText("Sconto %");
+		lblDiscount1.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
+		lblDiscount2.setText("Sconto merce");
+		lblDiscount2.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
+		lblQty1.setText("Quantità 1° Data Consegna");
+		lblQty1.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
+		lblQty2.setText("Quantità 2° Data Consegna");
+		lblQty2.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
+		lblQty3.setText("Quantità 3° Data Consegna");
+		lblQty3.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
+		lblTotal1.setText("Totale Lordo");
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,232 @@
+TablePanel {
+	
+	/*
+	 * Attributes
+	 */
+	 String listCode="0001";
+	 String orderCode="";
+	 
+	StickyTable stk = new StickyTable();
+	//RowSetModel rsm = new RowSetModel();
+	MultiRowSetModel rsm=new MultiRowSetModel();
+	
+	//Panels.DetailStickyTablePanel pnlDetailForm;
+	Panels.DetailPanel pnlDetail;
+	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm;
+	
+	Array arr = new Array();
+	
+	Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
+	SearchField tblSearch =pnlSearch.search;
+	//Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
+	
+	
+	Panels.OrderEntry.ItemHeaderHorizontalPanel pnlHeader= new Panels.OrderEntry.ItemHeaderHorizontalPanel();
+	
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {		
+			
+		/*pnlIndex.setStickyTable(stk);
+		pnlIndex.setArray(arr);
+		*/
+		//setInitQuery();
+		
+		//set the model for the sticky table
+		stk.setDataModel(rsm);
+	
+		//HEADER
+		add(pnlHeader,"hfill=fill");
+		startNewRow();
+		
+		add(pnlSearch,"hfill=fill");
+		startNewRow();
+		
+	 
+		add(stk, "hfill=fill,valign=top");
+		//add(pnlIndex, "hfill=fill,valign=top");	
+
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);		
+		setColumnWidth(0, Sizing.PERCENTS, 100);
+		//setColumnWidth(0, Sizing.PREFERRED, 1);
+				
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 0);
+		setRowHeight(2, Sizing.PREFERRED, 1);
+		setBackColor(Colors.BackgroundGray);
+	
+	}
+
+	///////////////////////////////
+	// Callback to configure cells
+	///////////////////////////////
+	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
+		info.setPanel(new Cells.ItemTableViewCell());
+	}
+	
+	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
+		/* OK
+		Panels.Accounts.AccountTableViewCell tblVwCell = (Panels.Accounts.AccountTableViewCell) cell;
+		tblVwCell.setRow(info.getDataRow());
+		*/
+		Cells.OrderItemTableViewCell tblVwCell = (Cells.OrderItemTableViewCell)cell;
+		
+		DataRow dtRw = info.getDataRow();
+		if(!dtRw.isDeleted()){		
+			tblVwCell.populateData(dtRw);
+	
+		/*
+			String strCode = vObjPriceListItem.ProductCode.getStringValue(dtRw);
+			String strName = vObjPriceListItem.ProductName.getStringValue(dtRw);					
+			String strUOM = vObjPriceListItem.UOM.getStringValue(dtRw);
+			String strPrice = vObjPriceListItem.UnitPrice.getCurrencyValue(dtRw).toString();
+			Boolean bScount1=vObjPriceListItem.DiscountProduct.getBooleanValue(dtRw);
+			Boolean bScount2=vObjPriceListItem.DiscountNumber.getBooleanValue(dtRw);
+	
+			tblVwCell.lblCode.setText(strCode);
+			tblVwCell.lblName.setText(strName);
+			tblVwCell.lblUOM.setText(strUOM);
+			tblVwCell.mdlPrice.setValue(vObjPriceListItem.UnitPrice.getCurrencyValue(dtRw));
+			
+			tblVwCell.picDiscount1.setChecked(bScount1);			
+			tblVwCell.picDiscount2.setChecked(bScount2);
+			ImageReference img=(ImageReference)productImageMap.getValue(vObjPriceListItem.ProductImage.getStringValue(dtRw));
+			if(img!=null)	tblVwCell.picBox.setImage(img);
+			appLog.log(Log.INFO,"PRODUCT "+vObjPriceListItem.ProductName.getStringValue(dtRw)+" Image "+vObjPriceListItem.ProductImage.getStringValue(dtRw));
+			
+			tblVwCell.lblQtyMin.setText(vObjPriceListItem.QtyMin.getIntegerValue(dtRw).toString());
+			tblVwCell.lblQtyMax.setText(vObjPriceListItem.QtyMax.getIntegerValue(dtRw).toString());*/
+		}
+	}
+	
+	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
+		cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PREFERRED, 0);
+		cell.setCouldBeSelected(true);
+	}
+	
+	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
+		sizeInfo.setHeight(60);
+	}		
+	
+	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
+		
+		//pnlDetailForm.setRow(rsm.getRow());
+		//pnlDetail.setRow(rsm.getRow());
+		//pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(rsm.getRow()));
+		//pnlDetailForm.setRow(rsm.getRow());
+		
+	}
+		
+	////////////////////////////
+	// Sticky Header (Optional)
+	////////////////////////////
+	
+	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		
+		//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
+		
+		//Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+		//if(rsm.getRowCount(group) > 0) {
+			//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
+			Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+			header.enableDirectionalScroll(true); 
+			//header.lbl.setText(letterList.getItem(group));
+			info.setPanel(header);
+		//}
+		
+	}
+	
+	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
+		cell.setCouldBeSelected(false);		
+		cell.setHeight(Sizing.PIXELS, 30);
+		//cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PERCENTS, 100);
+	}
+	
+	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {	
+			Panels.Cells.SectionHeaderCell header = (Panels.Cells.SectionHeaderCell)cell;
+			header.lbl.setText(arr.getItem(grp));			
+	}
+			
+		
+	////////////////////////////
+	// Footer (Optional)
+	////////////////////////////
+	/*
+	callback stk onFooterCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		info.setPanel(new Panels.Accounts.AccountFooterTableViewPanel());
+	}
+	
+	callback stk onFooterConfigure(TableView c, CellConfig cell, int group){
+		cell.setCouldBeSelected(false);
+		cell.setHeight(Sizing.PIXELS, 60);
+		cell.setWidth(Sizing.PERCENTS, 100);
+	}
+	
+	callback stk onFooterInfo(TableView c, TableViewPanel cell, Footer info, int grp) {
+		Panels.Accounts.AccountFooterTableViewPanel tblVwPanelFooter = (Panels.Accounts.AccountFooterTableViewPanel) cell;
+		tblVwPanelFooter.setRowCount(rsm.getRowCount(0));
+		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+	}
+	*/
+	
+		//search callback
+	callback tblSearch onValueChange ( Control c ) {
+		//appLog.log(Log.INFO,"change");
+		tblSearch.setOnValueChangingPausedDelay(500);
+	}
+	
+	callback tblSearch onValueChangingPaused(Control c){
+		setQuery(tblSearch.getText());
+		stk.reload();
+	}
+	
+	
+	/*
+	 * Custom methods
+	 */
+	 
+	/* 
+	void setDetailPanel(Panels.DetailStickyTablePanel pnl) {
+		pnlDetailForm = pnl;
+	}
+	*/
+	void setDetailPanel(Panels.DetailPanel pnl) {
+		pnlDetail = pnl;
+	}
+	
+	void setDetailFormPanel(Panels.Account.ReadOnlyDetailFormPanel pnl) {
+		pnlDetailForm = pnl;
+	}
+	
+	void setQuery(String val){
+		//clean before start
+		rsm.clear();
+		arr.removeAllItems();
+		Query q=vObjLOV.getLOV("PRODUCT_CATEGORY");
+		DataRowSet set=q.getRowSet();
+		DataRow dtRow=set.first();		
+		while(dtRow!=null){
+			String category=vObjLOV.Value.getStringValue(dtRow);
+			RowSetModel rsm1 = new RowSetModel();
+			rsm1.setRows(vObjListItem.getListItem(orderCode,val));
+			
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - " + category+" : " + rsm1.getRowCount(0));
+			
+			if(rsm1.getRowCount(0) > 0) {
+				
+				rsm.add(rsm1);
+				arr.insertItem(rsm.getGroupCount() - 1, category);	
+				//pnlIndex.enableIndexLinks(i);	
+			}
+							
+			dtRow=set.next();
+		}
+		stk.setNumberOfGroups(set.getSize());	
+				
+	}					
+}

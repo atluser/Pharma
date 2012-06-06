@@ -4,6 +4,7 @@ VirtualObject {
 	StringField ProductCode{return null;}		
 	StringField ProductName{return null;}	
 	StringField ProductCategory{return null;}
+	StringField ProductCalc{return ProductCode+ProductName;}
 	StringField ProductImage{return null;}	
 	IntegerField Qty1{return Platform.createInteger(0);}
 	IntegerField Qty2{return Platform.createInteger(0);}
@@ -11,13 +12,22 @@ VirtualObject {
 	CurrencyField UnitPrice{return null;}
 	DoubleField Discount1{return Platform.createDouble(0.0);}
 	DoubleField Discount2{return Platform.createDouble(0.0);}
-	//DoubleField Total1{return (Qty1+Qty2+Qty3)}
+	CurrencyField Total1{return Platform.createDouble(1.0*(Qty1.intValue()+Qty2.intValue()+Qty3.intValue())*UnitPrice.doubleValue());}
 	
-	query getListItem<String orderCode>{		
+	query getListItem<String orderCode,String val>{		
 		where OrderCode==orderCode;
+		where ProductCode==val;
 	}
+	
 	query getListItem2<String orderCode, String productCode>{		
 		where OrderCode==orderCode;
 		where ProductCode==productCode;
 	}
+	
+	query getListItemByCategory<String orderCode,String category,String val>{
+		where OrderCode==orderCode;
+		where ProductCategory==category;
+		where ProductCalc contains val;
+	}
+	
 }

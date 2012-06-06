@@ -1039,6 +1039,7 @@ UIObject {
 		vObjListItem.ProductCode.setStringValue(productCode,dt);
 		vObjListItem.OrderCode.setStringValue(orderCode,dt);
 		vObjListItem.ProductName.setStringValue(productName,dt);
+		vObjListItem.ProductImage.setStringValue(image,dt);
 		vObjListItem.ProductCategory.setStringValue(category,dt);
 		vObjListItem.UnitPrice.setCurrencyValue(unitPrice,dt);				
 		//canvassDetailObj.MinQty.setIntegerValue(Platform.createInteger(minQty),dt);

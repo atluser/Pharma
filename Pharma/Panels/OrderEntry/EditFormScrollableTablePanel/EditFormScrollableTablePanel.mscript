@@ -254,7 +254,7 @@ ScrollableTablePanel {
 		Screens.OrderEntry.ListItemScreen scr=new Screens.OrderEntry.ListItemScreen();
 		//imposto testata
 		scr.orderCode=lblCode.getText();		
-		scr.drowDetailItem("0001");
+		scr.init(lblCode.getText(),"0001");
 		scr.push(0,false);
 	
 	}

@@ -19,6 +19,10 @@ Screen {
 	Label lbl01 = new Label();
 	Label lbl02 = new Label();//codice listino
 	
+	Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
+	SearchField tblSearch =pnlSearch.search;
+	
+	Panels.OrderEntry.OrderItemStickyTablePanel stk=new Panels.OrderEntry.OrderItemStickyTablePanel(); 
 	
 	Styles.FormStyle style = new Styles.FormStyle();
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){		
@@ -54,26 +58,36 @@ Screen {
 		pnlHeader.add(btnMenu);
 		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
 		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,1);
-		add(pnlHeader,"hfill=fill");
+		add(pnlHeader,"hfill=fill");		
 	
-	Panels.ItemHeaderHorizontalPanel pnlHeader2= new Panels.ItemHeaderHorizontalPanel();
-		add(pnlHeader2,null);
+		Panels.OrderEntry.ItemHeaderHorizontalPanel pnlHeader2= new Panels.OrderEntry.ItemHeaderHorizontalPanel();
+		//add(pnlHeader2,null);
+		//add(pnlSearch,"hfill=fill");
+		
 		TablePanel pnl = new TablePanel();
 		//pnl.add(pnlHeader,"hfill=fill");
 		//pnl.startNewRow();
 		//pnl.add(pnlHeader2,"hfill=fill");
 		//pnl.startNewRow();		
 		//pnl.add(cvDtlTP,"vfill=fill,hfill=fill");
-		add(cvDtlTP,"vfill=fill,hfill=fill");
+		
+		ScrollIndicator indicator=new ScrollIndicator();
+		//indicator.setTrackerBackground(Background.setBackColor(Colors.Black));
+		cvDtlTP.setScrollIndicator(indicator);
+		//add(cvDtlTP,"vfill=fill,hfill=fill");
+		add(stk,"vfill=fill,hfill=fill");
+		
+		
 		//pnl.startNewRow();
 		btnConfirm.setText("Conferma");	
 		pnl.add(btnConfirm,"halign=center");
 		
 		setRowHeight(0, Sizing.PREFERRED,0);
 		setRowHeight(1, Sizing.PREFERRED,0);
-		setRowHeight(2, Sizing.PREFERRED,1);
-		setRowHeight(3, Sizing.PREFERRED,0);
-		
+		setRowHeight(2, Sizing.PREFERRED,0);
+		setRowHeight(3, Sizing.PREFERRED,1);
+		setRowHeight(4, Sizing.PREFERRED,0);
+				
 		pnl.setColumnWidth(0, Sizing.PREFERRED,1);
 		/*pnl.setRowHeight(0, Sizing.PREFERRED,0);
 		pnl.setRowHeight(1, Sizing.PREFERRED,0);
@@ -152,9 +166,14 @@ Screen {
 	}
 	
 	
+	void init(String code,String priceListCode){
+		listCode=priceListCode;	
+		orderCode=code;
+		loadListItem(priceListCode);
+		stk.setQuery("");
+	}
 	
-	//disegno pannello
-	void drowDetailItem(String priceListCode){		
+	void loadListItem(String priceListCode){
 		//get Category
 		Query q=vObjLOV.getLOV("PRODUCT_CATEGORY");
 		DataRowSet set=q.getRowSet();
@@ -162,6 +181,59 @@ Screen {
 		while(dtRow!=null){//ciclo category
 			String category=vObjLOV.Value.getStringValue(dtRow);
 			Query q1=vObjPriceListItem.getListItemByCategory(priceListCode,category,"");
+			DataRowSet rowSet=q1.getRowSet();
+			DataRow found=rowSet.first();
+			appLog.log(Log.INFO,"analizzo category "+category);
+			if(found==null){
+				appLog.log(Log.INFO,"non ci sono item "+category);
+				//record not found skip next category
+				dtRow=set.next();					
+			 	continue; 
+			}
+			
+			int i=1;
+			
+			//scorro pricelist
+			while(found!=null){							
+				appLog.log(Log.INFO,"dentro while eseguo query ");
+				//check if row already exists
+				String productCode=vObjPriceListItem.ProductCode.getStringValue(found);
+				String productName=vObjPriceListItem.ProductName.getStringValue(found);
+				String productImage=vObjPriceListItem.ProductImage.getStringValue(found);
+				Double unitPrice=vObjPriceListItem.UnitPrice.getCurrencyValue(found);				
+				Query q2=vObjListItem.getListItem2(orderCode,productCode);
+				DataRow qtRow;
+				if(q2!=null){		
+					DataRowSet rowSet2=q2.getRowSet();
+					qtRow=rowSet2.first();				
+					if(qtRow==null){					
+						//creo nuovo quoteitem
+						appLog.log(Log.INFO,"Creo nuovo quoteitem "+productCode);											
+						qtRow=vObjUtil.insertListItem(orderCode, productCode,  productName,  category, productImage,unitPrice);
+					}
+				}
+				else 
+					qtRow=vObjUtil.insertListItem(orderCode, productCode,  productName,  category, productImage,unitPrice);
+				appLog.log(Log.INFO,"Creo cella");														
+				found=rowSet.next();
+				i++	;	
+			}
+			dtRow=set.next();
+		}		
+		
+	}
+	
+	//disegno pannello
+	/*
+	void drawDetailItem(String priceListCode,String expr){
+		listCode=priceListCode;		
+		//get Category
+		Query q=vObjLOV.getLOV("PRODUCT_CATEGORY");
+		DataRowSet set=q.getRowSet();
+		DataRow dtRow=set.first();		
+		while(dtRow!=null){//ciclo category
+			String category=vObjLOV.Value.getStringValue(dtRow);
+			Query q1=vObjPriceListItem.getListItemByCategory(priceListCode,category,expr);
 			DataRowSet rowSet=q1.getRowSet();
 			DataRow found=rowSet.first();
 			appLog.log(Log.INFO,"analizzo category "+category);
@@ -184,9 +256,8 @@ Screen {
 			hz.setInsets (0, 8, 0, 8);
 			hz.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
 			cvDtlTP.add(hz);
-			//setRowHeight(0,Sizing.PIXELS,40);
-			//add(header,"hfill=fill");
-			//startNewRow();
+			
+			
 			
 			int i=1;
 			
@@ -198,7 +269,7 @@ Screen {
 				String productCode=vObjPriceListItem.ProductCode.getStringValue(found);
 				String productName=vObjPriceListItem.ProductName.getStringValue(found);
 				String productImage=vObjPriceListItem.ProductImage.getStringValue(found);
-				Double unitPrice=vObjPriceListItem.UnitPrice.getCurrencyValue(found);
+				Double unitPrice=vObjPriceListItem.UnitPrice.getCurrencyValue(found);				
 				Query q2=vObjListItem.getListItem2(orderCode,productCode);
 				DataRow qtRow;
 				if(q2!=null){		
@@ -224,9 +295,10 @@ Screen {
 			dtRow=set.next();
 		}		
 	}
+	*/
 
 	//called orderheaderscreem
-	void setOrderRow(DataRow row){
+	/*void setOrderRow(DataRow row){
 		orderRow=row;		
 		orderCode=vObjOrder.OrderCode.getStringValue(orderRow);
 		listCode=vObjOrder.PromotionCode.getStringValue(orderRow);		
@@ -235,7 +307,7 @@ Screen {
 		//cvDtlTP.setQuery(canvassDetailObj.getDetailfromCanvass(orderObj.PromotionCode.getStringValue(orderRow)),canvassDetailObj);
 		//cvDtlTP.setQuery(canvassDetailObj.getDetailfromCanvass(promotionCode),canvassDetailObj);
 	}
-	
+*/	
 
 	void createItem(String orderCode,ObjectArray arrObj){			
 /*		//ObjectArray arrObj=cvDtlTP.getCells();			
@@ -292,6 +364,20 @@ Screen {
 		lbl02.setFont(fnt02);
 		lbl02.setForeColor(Color.create(255,255,255));
 	
-	}		
+	}	
 	
+	//search callback
+	/*
+	callback tblSearch onValueChange ( Control c ) {
+		//appLog.log(Log.INFO,"change");
+		tblSearch.setOnValueChangingPausedDelay(500);
+	}
+	
+	callback tblSearch onValueChangingPaused(Control c){
+		
+		presentAsFullScreen(cvDtlTP);
+		cvDtlTP=new ScrollableVerticalPanel();
+		drawDetailItem(listCode,tblSearch.getText());		
+	}	
+	*/
 }
