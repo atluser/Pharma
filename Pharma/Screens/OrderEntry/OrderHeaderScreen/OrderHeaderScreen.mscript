@@ -57,7 +57,7 @@ Screen {
 		// Header Panel
 		HorizontalPanel pnlHeader = new HorizontalPanel();
 		pnlHeader.add(btnHome);		
-		pnlHeader.add(new Separator(), "");
+		//pnlHeader.add(new Separator(), "");
 		//pnlHeader.add(brdCrumbs,"halign=center");
 		pnlHeader.add(new Separator(), "");
 		pnlHeader.add(btnDone);

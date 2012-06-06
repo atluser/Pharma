@@ -10,7 +10,7 @@ Screen {
 	//Panels.OrderEntry.DetailTP cvDtlTP=new Panels.OrderEntry.DetailTP();	
 	
 //	Panels.OrderEntry.HeaderPanel hp=new Panels.OrderEntry.HeaderPanel(); 
-	Button btnConfirm=new Button();
+	BackgroundButton btnConfirm=new BackgroundButton();
 	
 	Button btnBack = new Button();
 	Button btnHome = new Button();
@@ -80,12 +80,15 @@ Screen {
 		
 		//pnl.startNewRow();
 		btnConfirm.setText("Conferma");	
+		btnConfirm.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
+		btnConfirm.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
+
 		pnl.add(btnConfirm,"halign=center");
 		
 		setRowHeight(0, Sizing.PREFERRED,0);
-		setRowHeight(1, Sizing.PREFERRED,0);
-		setRowHeight(2, Sizing.PREFERRED,1);
-		setRowHeight(3, Sizing.PREFERRED,0);
+		setRowHeight(1, Sizing.PREFERRED,1);
+		setRowHeight(2, Sizing.PREFERRED,0);
+		//setRowHeight(3, Sizing.PREFERRED,0);
 		//setRowHeight(4, Sizing.PREFERRED,0);
 				
 		pnl.setColumnWidth(0, Sizing.PREFERRED,1);
@@ -153,6 +156,9 @@ Screen {
 		//TODO: add code
 	}
 
+	callback btnBack onClick(Control c){
+		close();
+	}
 	
 	callback btnConfirm onClick(Control c){
 		//costruiscoItem

@@ -22,12 +22,13 @@ TablePanel {
 	
 	
 	Panels.OrderEntry.ItemHeaderHorizontalPanel pnlHeader= new Panels.OrderEntry.ItemHeaderHorizontalPanel();
-	
+	Font fnt=new Font();
 	/*
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {		
-			
+		fnt.setFamily("Arial");
+		fnt.setSize(18);	
 		/*pnlIndex.setStickyTable(stk);
 		pnlIndex.setArray(arr);
 		*/

@@ -153,10 +153,10 @@ ScrollableTablePanel {
 		lblStatus.setText("Stato");
 		lblStatus.setForeColor(Color.create(189,0,0));
 		
-		lblShipDate1.setText("1� Data Consegna");
+		lblShipDate1.setText("1° Data Consegna");
 		lblShipDate1.setForeColor(Color.create(189,0,0));
-		lblShipDate2.setText("2� Data Consegna");
-		lblShipDate3.setText("3� Data Consegna");
+		lblShipDate2.setText("2° Data Consegna");
+		lblShipDate3.setText("3° Data Consegna");
 		lblPaymentMethod.setText("Metodo di pagamento");
 		lblNote.setText("Note");
 		

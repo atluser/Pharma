@@ -2,9 +2,7 @@ TableViewCell {
 	PictureBox picBox=new PictureBox();
 	DataRow cellRow=null;
 	
-	//HorizontalPanel hzPanel = new HorizontalPanel();
-	
-	
+	Font fnt=new Font();
 	
 	IntegerNumericField  txtQuantity1=new IntegerNumericField ();		
 	NumberFormatModel numMdlQuantity1 =new NumberFormatModel();	
@@ -23,12 +21,21 @@ TableViewCell {
 	Label lblProductCode=new Label();
 	Label lblName=new Label();		
 	Label lblUnitPrice=new Label();
-	Label lblTotal1=new Label();	
+	Label lblTotal1=new Label();
+	Label lblTotal2=new Label();	
 	
 
-	int ncol=10;
+	int ncol=11;
 
-	callback onCreate(Container container){		
+	Styles.FormStyle style = new Styles.FormStyle();
+	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){		
+		styleReceptor.applyVisualStyle(style);
+	}
+	
+	callback onCreate(Container container){
+		fnt.setFamily("Arial");
+		fnt.setSize(18);
+				
 		setBackground(Background.createVerticalGradientRectangleBackground(Color.create(255,255,255), Color.create(222,222,222)));
 		//setFocusedBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
 		appLog.log(Log.INFO,"NCOL "+ncol);						
@@ -46,6 +53,7 @@ TableViewCell {
 		add(txtDiscount1,"hfill=fill,halign=center");
 		add(txtDiscount2,"hfill=fill,halign=center");
 		add(lblTotal1,"halign=center");
+		add(lblTotal2,"halign=center");
 		
 		for (int i=0;i<ncol;i++)						
 			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
@@ -57,13 +65,37 @@ TableViewCell {
 		txtQuantity2.setDataModel(numMdlQuantity2);
 		txtQuantity3.setDataModel(numMdlQuantity3);
 		
+		txtDiscount1.setDataModel(numMdlDiscount1);
+		txtDiscount2.setDataModel(numMdlDiscount2);
+		
+		
 		numMdlQuantity1.addField(vObjListItem.Qty1);
 		numMdlQuantity2.addField(vObjListItem.Qty2);
 		numMdlQuantity3.addField(vObjListItem.Qty3);
 		
 		numMdlDiscount1.addField(vObjListItem.Discount1);
 		numMdlDiscount2.addField(vObjListItem.Discount2);
-													
+			
+		lblProductCode.setFont(fnt);
+		lblProductCode.setForeColor(Colors.Black);	
+		lblName.setFont(fnt);
+		lblName.setForeColor(Colors.Black);
+		lblUnitPrice.setFont(fnt);
+		lblUnitPrice.setForeColor(Colors.Black);
+		txtQuantity1.setFont(fnt);
+		txtQuantity1.setForeColor(Colors.Black);
+		txtQuantity2.setFont(fnt);
+		txtQuantity2.setForeColor(Colors.Black);
+		txtQuantity3.setFont(fnt);
+		txtQuantity3.setForeColor(Colors.Black);		
+		txtDiscount1.setFont(fnt);
+		txtDiscount1.setForeColor(Colors.Black);
+		txtDiscount2.setFont(fnt);		
+		txtDiscount2.setForeColor(Colors.Black);
+		lblTotal1.setFont(fnt);
+		lblTotal1.setForeColor(Colors.Black);
+		lblTotal2.setFont(fnt);		
+		lblTotal2.setForeColor(Colors.Black);				
 	}
 			
 	void populateData(DataRow row){		
@@ -81,6 +113,7 @@ TableViewCell {
 		if(unitPrice!=null)	lblUnitPrice.setText(unitPrice.toString());
 		
 		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(row).toString());
+		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(row).toString());
 		setRow(row);		
 			
 	}
@@ -96,12 +129,42 @@ TableViewCell {
 		numMdlDiscount2.setRow(row);
 	}
 		
+	void setQty(Control c,IntegerAttribute att){
+		TextField txtQuantity=(TextField) c;
+		String qty=txtQuantity.getText();
+		if(qty!=null && qty!="")		
+			//vObjListItem.Qty1.setIntegerValue(Platform.createInteger(qty),cellRow);
+			att.setIntegerValue(Platform.createInteger(qty),cellRow);
+		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(cellRow).toString());
+		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(cellRow).toString());
+	}
+	
+	
+	void cleanQty(Control c){
+		TextField txtQuantity=(TextField) c;
+		String qty=txtQuantity.getText();
+		if(qty=="0")		
+			txtQuantity.setText("");
+	}
+	
+	void setDiscount(Control c,DoubleAttribute att){
+		TextField txtQuantity=(TextField) c;
+		String qty=txtQuantity.getText();
+		if(qty!=null && qty!="")		
+			//vObjListItem.Qty1.setIntegerValue(Platform.createInteger(qty),cellRow);
+			att.setDoubleValue(Platform.createDouble(qty),cellRow);
+		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(cellRow).toString());
+		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(cellRow).toString());
+	}
+	
+	/*
 	callback txtQuantity1 onFocusLost(Control c){
 		String qty=txtQuantity1.getText();
 		if(qty!=null && qty!="")		
 			vObjListItem.Qty1.setIntegerValue(Platform.createInteger(qty),cellRow);
 		
 		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(cellRow).toString());
+		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(cellRow).toString());
 		//refresh();
 	}
 	callback txtQuantity1 onFocusGained(Control c){
@@ -109,6 +172,44 @@ TableViewCell {
 		if(qty=="0")		
 			txtQuantity1.setText("");
 	}
+	*/
 	
-
+	callback txtQuantity1 onFocusLost(Control c){
+		setQty(c,vObjListItem.Qty1);
+	
+	}
+	callback txtQuantity1 onFocusGained(Control c){
+		cleanQty(c);
+	}
+	
+	callback txtQuantity2 onFocusLost(Control c){
+		setQty(c,vObjListItem.Qty2);
+	
+	}
+	callback txtQuantity2 onFocusGained(Control c){
+		cleanQty(c);
+	}
+	
+	callback txtQuantity3 onFocusLost(Control c){
+		setQty(c,vObjListItem.Qty3);
+	
+	}
+	callback txtQuantity3 onFocusGained(Control c){
+		cleanQty(c);
+	}
+	
+	
+	callback txtDiscount1 onFocusLost(Control c){
+		setDiscount(c,vObjListItem.Discount1);
+	}
+	callback txtDiscount1 onFocusGained(Control c){
+		cleanQty(c);
+	}
+	callback txtDiscount2 onFocusLost(Control c){
+		setDiscount(c,vObjListItem.Discount2);
+	}
+	callback txtDiscount2 onFocusGained(Control c){
+		cleanQty(c);
+	}
+	
 }
