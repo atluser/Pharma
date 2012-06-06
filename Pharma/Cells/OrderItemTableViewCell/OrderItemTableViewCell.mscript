@@ -51,7 +51,19 @@ TableViewCell {
 			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
 			
 		setInsets (0, 8, 0, 8);
-		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));											
+		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));
+		
+		txtQuantity1.setDataModel(numMdlQuantity1);
+		txtQuantity2.setDataModel(numMdlQuantity2);
+		txtQuantity3.setDataModel(numMdlQuantity3);
+		
+		numMdlQuantity1.addField(vObjListItem.Qty1);
+		numMdlQuantity2.addField(vObjListItem.Qty2);
+		numMdlQuantity3.addField(vObjListItem.Qty3);
+		
+		numMdlDiscount1.addField(vObjListItem.Discount1);
+		numMdlDiscount2.addField(vObjListItem.Discount2);
+													
 	}
 			
 	void populateData(DataRow row){		
@@ -67,12 +79,6 @@ TableViewCell {
 		//lblCategory.setText(vObjListItem.ProductCategory.getStringValue(row));
 		Double unitPrice=vObjListItem.UnitPrice.getCurrencyValue(row);
 		if(unitPrice!=null)	lblUnitPrice.setText(unitPrice.toString());
-		numMdlQuantity1.addField(vObjListItem.Qty1);
-		numMdlQuantity2.addField(vObjListItem.Qty2);
-		numMdlQuantity3.addField(vObjListItem.Qty3);
-		
-		numMdlDiscount1.addField(vObjListItem.Discount1);
-		numMdlDiscount2.addField(vObjListItem.Discount2);
 		
 		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(row).toString());
 		setRow(row);		
@@ -90,6 +96,19 @@ TableViewCell {
 		numMdlDiscount2.setRow(row);
 	}
 		
+	callback txtQuantity1 onFocusLost(Control c){
+		String qty=txtQuantity1.getText();
+		if(qty!=null && qty!="")		
+			vObjListItem.Qty1.setIntegerValue(Platform.createInteger(qty),cellRow);
+		
+		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(cellRow).toString());
+		//refresh();
+	}
+	callback txtQuantity1 onFocusGained(Control c){
+		String qty=txtQuantity1.getText();
+		if(qty=="0")		
+			txtQuantity1.setText("");
+	}
 	
 
 }

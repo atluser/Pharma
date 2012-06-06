@@ -84,9 +84,9 @@ Screen {
 		
 		setRowHeight(0, Sizing.PREFERRED,0);
 		setRowHeight(1, Sizing.PREFERRED,0);
-		setRowHeight(2, Sizing.PREFERRED,0);
-		setRowHeight(3, Sizing.PREFERRED,1);
-		setRowHeight(4, Sizing.PREFERRED,0);
+		setRowHeight(2, Sizing.PREFERRED,1);
+		setRowHeight(3, Sizing.PREFERRED,0);
+		//setRowHeight(4, Sizing.PREFERRED,0);
 				
 		pnl.setColumnWidth(0, Sizing.PREFERRED,1);
 		/*pnl.setRowHeight(0, Sizing.PREFERRED,0);
@@ -170,6 +170,7 @@ Screen {
 		listCode=priceListCode;	
 		orderCode=code;
 		loadListItem(priceListCode);
+		stk.orderCode=orderCode;
 		stk.setQuery("");
 	}
 	

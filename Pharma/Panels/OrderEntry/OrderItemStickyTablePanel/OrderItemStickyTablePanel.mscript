@@ -64,7 +64,7 @@ TablePanel {
 	// Callback to configure cells
 	///////////////////////////////
 	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
-		info.setPanel(new Cells.ItemTableViewCell());
+		info.setPanel(new Cells.OrderItemTableViewCell());
 	}
 	
 	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
@@ -213,7 +213,7 @@ TablePanel {
 		while(dtRow!=null){
 			String category=vObjLOV.Value.getStringValue(dtRow);
 			RowSetModel rsm1 = new RowSetModel();
-			rsm1.setRows(vObjListItem.getListItem(orderCode,val));
+			rsm1.setRows(vObjListItem.getListItemByCategory(orderCode,category,val));
 			
 			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - " + category+" : " + rsm1.getRowCount(0));
 			
