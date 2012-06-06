@@ -1,0 +1,19 @@
+Popup {
+	
+	BackgroundButton btnClose = new BackgroundButton();
+	ImageReference img;
+	PictureBox picBox = new PictureBox();
+	
+	callback onCreate(Container c) {
+		picBox.setImage(img);
+		add(picBox,"halign=center");	
+	}
+	
+	callback btnClose onClick(Control c) {
+		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
+	}
+	
+	void setImageReference(ImageReference ref) {
+		img = ref;
+	}
+}

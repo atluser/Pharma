@@ -8,6 +8,7 @@ TablePanel {
 	StickyTable stk = new StickyTable();
 	//RowSetModel rsm = new RowSetModel();
 	MultiRowSetModel rsm=new MultiRowSetModel();
+	PictureBox picBox = new PictureBox();
 	
 	//Panels.DetailStickyTablePanel pnlDetailForm;
 	Panels.DetailPanel pnlDetail;
@@ -21,6 +22,7 @@ TablePanel {
 	SearchField tblSearch =pnlSearch.search;
 	//Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
 	
+	ImageReference img = new ImageReference();
 	
 	Panels.ItemHeaderHorizontalPanel pnlHeader= new Panels.ItemHeaderHorizontalPanel();
 	
@@ -91,7 +93,7 @@ TablePanel {
 			
 			tblVwCell.picDiscount1.setChecked(bScount1);			
 			tblVwCell.picDiscount2.setChecked(bScount2);
-			ImageReference img=(ImageReference)productImageMap.getValue(vObjPriceListItem.ProductImage.getStringValue(dtRw));
+			img=(ImageReference)productImageMap.getValue(vObjPriceListItem.ProductImage.getStringValue(dtRw));
 			if(img!=null)	tblVwCell.picBox.setImage(img);
 			appLog.log(Log.INFO,"PRODUCT "+vObjPriceListItem.ProductName.getStringValue(dtRw)+" Image "+vObjPriceListItem.ProductImage.getStringValue(dtRw));
 			
@@ -228,6 +230,12 @@ TablePanel {
 				
 	}
 	
+	//Shows the popup with the item's zoomed image
+	callback picBox onClick(Control c) {
+		Popups.ZoomPopup popZoom = new Popups.ZoomPopup();
+		popZoom.setImageReference(img);
+		//showPopup(popZoom,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);
+	}
 	/*
 	void setQuery(String s){
 				
