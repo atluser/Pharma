@@ -70,6 +70,8 @@ Screen {
 		
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();		 		
 		pnlMaster.setContentPanel(stk);
+		pnlDetailForm.setFromAccountFlag(true);
+		pnlDetailForm.setContactScreen((Screens.Account.ContactScreen) container);
 		
 		pnlDetail.setContentPanel(pnlDetailForm);			
 		

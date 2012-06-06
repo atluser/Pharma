@@ -37,6 +37,7 @@ Screen {
 		//Panels.PriceList.RootPanel pnlPriceListRoot = new Panels.PriceList.RootPanel();
 		Panels.PriceList.RootTablePanel pnlPriceListRoot = new Panels.PriceList.RootTablePanel();
 		
+		
 		StackPanel stkPnlRoot = new StackPanel();
 		stkPnlRoot.add(pnlAccountRoot);
 		stkPnlRoot.add(pnlActivityRoot);
@@ -59,6 +60,7 @@ Screen {
 		pnlHeader.setHomeScreen((Screens.HomeScreen) container);				
 		
 		pnlOrderRoot.pnlDetail.setHeaderPanel(pnlHeader);
+		pnlContactRoot.pnlDetailForm.setHeaderPanel(pnlHeader);
 		
 		// Root Panel
 		BorderPanel brdPnlRoot = new BorderPanel();

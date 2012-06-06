@@ -18,6 +18,7 @@ ScrollableTablePanel {
 	//Pannello Altre Info
 	FormPanel pnlForm03 = new FormPanel();
 	
+	Panels.HeaderPanel pnlHeader;
 	
 	//-- DATI ANAGRAFICI --
 	
@@ -31,7 +32,7 @@ ScrollableTablePanel {
 	
 	//Cliente Relazionato
 	TextModel txtMdlRelAccount = new TextModel();
-	Label txtFldRelAccount = new Label();
+	Link txtFldRelAccount = new Link();
 	
 	//Titolo
 	TextModel txtMdlTitle = new TextModel();
@@ -194,6 +195,39 @@ ScrollableTablePanel {
 	
 	}
 	
+	callback txtFldRelAccount onClick(Control c) {
+		logApp.log(Log.INFO, "txtFldRelAccount Clicked...");
+		logApp.log(Log.INFO, "FromAccountFlag = " + fromAccountFlag);
+		if(fromAccountFlag == true) {
+			scrContact.close();
+			fromAccountFlag = false;
+		} else {	
+			
+			sAccountCode = vObjContact.RelAccountCode.getStringValue(currentRow);
+			logApp.log(Log.INFO, "RelAccountCode = " + sAccountCode);
+			RowSetModel rsm = new RowSetModel();
+			rsm.setRows(vObjAccount.getAccountRow(sAccountCode));
+			logApp.log(Log.INFO, "Data Row Loaded " + sAccountCode);
+			if(rsm.getRowCount(0) > 0) {
+		
+				pnlHeader.rg.setSelectedIndex(0);
+				pnlHeader.btnToolbarClick(0);
+				logApp.log(Log.INFO, "Header - currentEntity " + pnlHeader.currentEntity);
+						
+				pnlHeader.pnlAccountRoot.stk.tblSearch.setText(txtFldRelAccount.getText());
+				pnlHeader.pnlAccountRoot.stk.executeQuery(txtFldRelAccount.getText());
+				pnlHeader.pnlAccountRoot.stk.stk.reload();
+				logApp.log(Log.INFO, "Header - Sticky Table reloaded ");
+				
+				if (pnlHeader.pnlAccountRoot.stk.rsm.getRowCount(0)>0) {
+					pnlHeader.pnlAccountRoot.stk.stk.select(0,0);
+					pnlHeader.pnlAccountRoot.pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(pnlHeader.pnlAccountRoot.stk.rsm.getRow()));
+					pnlHeader.pnlAccountRoot.pnlDetailForm.setRow(pnlHeader.pnlAccountRoot.stk.rsm.getRow());
+				}
+			}
+		}
+	}
+	
 	/*
 	 * Custom methods
 	 */
@@ -229,7 +263,7 @@ ScrollableTablePanel {
 		txtFldLastName.setForeColor(Colors.Black);
 		
 		txtFldRelAccount.setFont(fnt);
-		txtFldRelAccount.setForeColor(Colors.Black);
+		txtFldRelAccount.setForeColor(Colors.Blue);
 		
 		txtFldTitle.setFont(fnt);
 		txtFldTitle.setForeColor(Colors.Black);
@@ -490,6 +524,17 @@ ScrollableTablePanel {
 	void setAccountCode(String str) {
 		sAccountCode = str;
 	}
+	
+	void setHeaderPanel(Panels.HeaderPanel pnl) {
+		pnlHeader = pnl;
+		logApp.log(Log.INFO, "Header setted");
+	}
+	
+	void setFromAccountFlag(boolean b) {
+		fromAccountFlag = b;
+	}
+	
+	
 	
 	/*
 	void setFirstRecord() {

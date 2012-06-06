@@ -514,6 +514,7 @@ HorizontalPanel {
 			poCrmMenu.dismiss();
 			//stkPnl.select(pnlActivityRoot);
 			//stkPnl.select(pnlPriceListRoot);
+			pnlContactRoot.pnlDetailForm.setFromAccountFlag(false);
 			stkPnl.select(pnlContactRoot);
 
 		} else if (idxClicked == 2) {
