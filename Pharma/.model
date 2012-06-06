@@ -4571,6 +4571,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ItemTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ItemTableViewCell.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderItemTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItemTableViewCell.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SectionHeaderCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewPanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SectionHeaderCell.mscript"/>
     </children>
@@ -4744,6 +4747,9 @@
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderHeaderFP" sortOrder="1400" image="icons/form.png" superclass="FormPanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderHeaderFP.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderItemStickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItemStickyTablePanel.mscript"/>
       </children>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="PriceList">

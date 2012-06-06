@@ -9,17 +9,26 @@ UIObject {
 		row.applyUpdates();
 	}
 	
-/*	void loadListItem(){
-		DataRow row=null;
-		row=vObjListItem.getNewRow();		
-		vObjListItem.ProductCode.setStringValue("018622175",row);
-		vObjListItem.ListCode.setStringValue("001",row);
-		//vObjProducts.ProductName.setStringValue("SUPRADYN",row);
-		//vObjProducts.ProductCategory.setStringValue("COLD & PAIN",row);
-		
-		row.applyUpdates();
+	DataRow insertListItem(String orderCode,String productCode, String productName,String  category,String image, Double unitPrice){
+
+		DataRow dt = vObjListItem.getNewRow();
+
+		vObjListItem.ProductCode.setStringValue(productCode,dt);
+		vObjListItem.OrderCode.setStringValue(orderCode,dt);
+		vObjListItem.ProductName.setStringValue(productName,dt);
+		vObjListItem.ProductImage.setStringValue(image,dt);
+		vObjListItem.ProductCategory.setStringValue(category,dt);
+		vObjListItem.UnitPrice.setCurrencyValue(unitPrice,dt);				
+		//canvassDetailObj.MinQty.setIntegerValue(Platform.createInteger(minQty),dt);
+		//canvassDetailObj.Image.setStringValue(image,dt);
+		dt.applyUpdates();
+
+		return dt;
+
 	}
-	*/
+
+	
+	
 	void loadImage(){
 		productImageMap.putValue("Supradin",Images.Products.Supradin);
 		productImageMap.putValue("Lasonil",Images.Products.Lasonil);
@@ -1045,22 +1054,7 @@ UIObject {
 		
 	}
 	
-	void insertListItem(String promotionCode,String productCode, String productName,String  brand,String unitPrice,int minQty,String image){
-		
-		DataRow dt = vObjListItem.getNewRow();
-		
-		vObjListItem.ProductCode.setStringValue(productCode,dt);
-		vObjListItem.ListCode.setStringValue(promotionCode,dt);
-//		bObjListItem.ProductDescription.setStringValue(description,dt);
-		vObjListItem.ProductName.setStringValue(productName,dt);
-		vObjListItem.ProductBrand.setStringValue(brand,dt);
-		vObjListItem.UnitPrice.setStringValue(unitPrice,dt);				
-		//canvassDetailObj.MinQty.setIntegerValue(Platform.createInteger(minQty),dt);
-		//canvassDetailObj.Image.setStringValue(image,dt);
-		dt.applyUpdates();
-		
-	}
-	
+		/*
 	void loadList(){
 		
 		insertList("0","Speciale Prive",10);
@@ -1079,7 +1073,7 @@ UIObject {
 		
 		//insertCanvass("C","TEST",0);
 	}
-
+*/
 	void loadOrder() {
 		
 		DataRow row = vObjOrder.getNewRow();

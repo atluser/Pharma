@@ -1,26 +1,33 @@
 VirtualObject {
 	StringField ListCode{return null;}
+	StringField OrderCode{return null;}
 	StringField ProductCode{return null;}		
 	StringField ProductName{return null;}	
-	StringField ProductBrand{return null;}	
-	IntegerField Qty{return Platform.createInteger(0);}		
-	StringField UnitPrice{return null;}
+	StringField ProductCategory{return null;}
+	StringField ProductCalc{return ProductCode+ProductName;}
+	StringField ProductImage{return null;}	
+	IntegerField Qty1{return Platform.createInteger(0);}
+	IntegerField Qty2{return Platform.createInteger(0);}
+	IntegerField Qty3{return Platform.createInteger(0);}		
+	CurrencyField UnitPrice{return null;}
+	DoubleField Discount1{return Platform.createDouble(0.0);}
+	DoubleField Discount2{return Platform.createDouble(0.0);}
+	CurrencyField Total1{return Platform.createDouble(1.0*(Qty1.intValue()+Qty2.intValue()+Qty3.intValue())*UnitPrice.doubleValue());}
 	
-	StringField Type{
-		if(Platform.createInteger(UnitPrice).intValue()>0)
-			return "Vendita";
-		else 
-			return "Omaggio";		
+	query getListItem<String orderCode,String val>{		
+		where OrderCode==orderCode;
+		where ProductCode==val;
 	}
 	
-	StringField Image{return null;}
-	
-	
-	Query getList(String listCode){
-		return getList2(listCode);	
+	query getListItem2<String orderCode, String productCode>{		
+		where OrderCode==orderCode;
+		where ProductCode==productCode;
 	}
-	query getList2<String listCode>{		
-		where ListCode==listCode;
+	
+	query getListItemByCategory<String orderCode,String category,String val>{
+		where OrderCode==orderCode;
+		where ProductCategory==category;
+		where ProductCalc contains val;
 	}
-
+	
 }
