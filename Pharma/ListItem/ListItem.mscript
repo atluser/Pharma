@@ -15,9 +15,8 @@ VirtualObject {
 	CurrencyField Total1{return Platform.createDouble(1.0*(Qty1.intValue()+Qty2.intValue()+Qty3.intValue())*UnitPrice.doubleValue());}
 	CurrencyField Total2{return Platform.createDouble(Total1.doubleValue()*(1.0-Discount2.doubleValue()*0.01));}
 	
-	query getListItem<String orderCode,String val>{		
-		where OrderCode==orderCode;
-		where ProductCode==val;
+	query getListItem<String orderCode>{		
+		where OrderCode==orderCode;		
 	}
 	
 	query getListItem2<String orderCode, String productCode>{		

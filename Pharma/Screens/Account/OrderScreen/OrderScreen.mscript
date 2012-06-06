@@ -156,7 +156,11 @@ Screen {
 	}
 
 	callback btnEdit onClick(Control c) {
-		close(Animation.NONE);
+		Screens.OrderEntry.OrderHeaderScreen scr=new Screens.OrderEntry.OrderHeaderScreen();
+		appLog.log(Log.INFO,"account code "+sAccountCode);
+		DataRow row=pnlDetail.currentRow;
+		scr.init(row,pnlMaster,pnlDetail);
+		scr.push(0,false); 
 	}		
 	
 	callback btnDelete onClick(Control c) {
