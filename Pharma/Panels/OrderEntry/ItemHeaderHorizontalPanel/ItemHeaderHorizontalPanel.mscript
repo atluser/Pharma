@@ -68,11 +68,11 @@ HorizontalPanel {
 		lblDiscount1.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
 		lblDiscount2.setText("Sconto merce");
 		lblDiscount2.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
-		lblQty1.setText("QtÃ  1Â° Data Consegna");
+		lblQty1.setText("Qtà  1° Data Consegna");
 		lblQty1.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
-		lblQty2.setText("QtÃ  2Â° Data Consegna");
+		lblQty2.setText("Qtà  2° Data Consegna");
 		lblQty2.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
-		lblQty3.setText("QtÃ  3Â° Data Consegna");
+		lblQty3.setText("Qtà  3° Data Consegna");
 		lblQty3.setWordWrapWidth (Sizing.PERCENTS,100/ncol);
 		lblTotal1.setText("Totale Lordo");
 		lblTotal1.setWordWrapWidth (Sizing.PERCENTS,100/ncol);

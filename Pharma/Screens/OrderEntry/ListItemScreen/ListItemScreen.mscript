@@ -61,7 +61,7 @@ Screen {
 		add(pnlHeader,"hfill=fill");		
 	
 		Panels.OrderEntry.ItemHeaderHorizontalPanel pnlHeader2= new Panels.OrderEntry.ItemHeaderHorizontalPanel();
-		//add(pnlHeader2,null);
+		add(pnlHeader2,null);
 		//add(pnlSearch,"hfill=fill");
 		
 		TablePanel pnl = new TablePanel();
@@ -74,29 +74,31 @@ Screen {
 		ScrollIndicator indicator=new ScrollIndicator();
 		//indicator.setTrackerBackground(Background.setBackColor(Colors.Black));
 		cvDtlTP.setScrollIndicator(indicator);
-		//add(cvDtlTP,"vfill=fill,hfill=fill");
-		add(stk,"vfill=fill,hfill=fill");
+		add(cvDtlTP,"vfill=fill,hfill=fill");
+		//add(stk,"vfill=fill,hfill=fill");
 		
 		
 		//pnl.startNewRow();
-		btnConfirm.setText("Conferma");	
+		btnConfirm.setText("Conferma");
+		btnConfirm.setLeftSpacing(50);	
 		btnConfirm.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
 		btnConfirm.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
 
-		pnl.add(btnConfirm,"halign=center");
+		pnl.add(btnConfirm,"hfill=fill");
 		
 		setRowHeight(0, Sizing.PREFERRED,0);
-		setRowHeight(1, Sizing.PREFERRED,1);
-		setRowHeight(2, Sizing.PREFERRED,0);
-		//setRowHeight(3, Sizing.PREFERRED,0);
-		//setRowHeight(4, Sizing.PREFERRED,0);
+		setRowHeight(1, Sizing.PREFERRED,0);
+		setRowHeight(2, Sizing.PREFERRED,1);
+		setRowHeight(3, Sizing.PREFERRED,0);
+		setRowHeight(4, Sizing.PIXELS,50);
 				
 		pnl.setColumnWidth(0, Sizing.PERCENTS,50);
 		/*pnl.setRowHeight(0, Sizing.PREFERRED,0);
 		pnl.setRowHeight(1, Sizing.PREFERRED,0);
 		pnl.setRowHeight(2, Sizing.PREFERRED,1);
-		pnl.setRowHeight(3, Sizing.PREFERRED,0);*/		
-		add(pnl,"hfill=fill, vfill=fill");
+		pnl.setRowHeight(3, Sizing.PREFERRED,0);*/
+		add(new Separator(),"");		
+		add(pnl,"halign=center");
 			
 		//hp.setContainer((Screen)container);
 		
@@ -175,9 +177,10 @@ Screen {
 	void init(String code,String priceListCode){
 		listCode=priceListCode;	
 		orderCode=code;
-		loadListItem(priceListCode);
+		drawDetailItem(priceListCode,"");
+	/*	loadListItem(priceListCode);
 		stk.orderCode=orderCode;
-		stk.setQuery("");
+		stk.setQuery("");*/
 	}
 	
 	void loadListItem(String priceListCode){
@@ -230,8 +233,7 @@ Screen {
 		
 	}
 	
-	//disegno pannello
-	/*
+	//disegno pannello	
 	void drawDetailItem(String priceListCode,String expr){
 		listCode=priceListCode;		
 		//get Category
@@ -302,7 +304,7 @@ Screen {
 			dtRow=set.next();
 		}		
 	}
-	*/
+	
 
 	//called orderheaderscreem
 	/*void setOrderRow(DataRow row){

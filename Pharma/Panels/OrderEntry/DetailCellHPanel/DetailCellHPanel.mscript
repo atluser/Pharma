@@ -24,9 +24,9 @@ HorizontalPanel {
 	Label lblName=new Label();		
 	Label lblUnitPrice=new Label();
 	Label lblTotal1=new Label();	
-	
+	Label lblTotal2=new Label();	
 
-	int ncol=10;
+	int ncol=11;
 
 	callback onCreate(Container container){		
 		setBackground(Background.createVerticalGradientRectangleBackground(Color.create(255,255,255), Color.create(222,222,222)));
@@ -46,12 +46,29 @@ HorizontalPanel {
 		add(txtDiscount1,"hfill=fill,halign=center");
 		add(txtDiscount2,"hfill=fill,halign=center");
 		add(lblTotal1,"halign=center");
+		add(lblTotal2,"halign=center");
 		
 		for (int i=0;i<ncol;i++)						
 			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
 			
 		setInsets (0, 8, 0, 8);
-		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));											
+		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));
+		
+		
+		numMdlQuantity1.addField(vObjListItem.Qty1);
+		numMdlQuantity2.addField(vObjListItem.Qty2);
+		numMdlQuantity3.addField(vObjListItem.Qty3);
+		
+		numMdlDiscount1.addField(vObjListItem.Discount1);
+		numMdlDiscount2.addField(vObjListItem.Discount2);
+		
+		txtQuantity1.setDataModel(numMdlQuantity1);
+		txtQuantity2.setDataModel(numMdlQuantity2);
+		txtQuantity3.setDataModel(numMdlQuantity3);
+		
+		txtDiscount1.setDataModel(numMdlDiscount1);
+		txtDiscount2.setDataModel(numMdlDiscount2);
+													
 	}
 			
 	void populateData(DataRow row){		
@@ -67,14 +84,9 @@ HorizontalPanel {
 		//lblCategory.setText(vObjListItem.ProductCategory.getStringValue(row));
 		Double unitPrice=vObjListItem.UnitPrice.getCurrencyValue(row);
 		if(unitPrice!=null)	lblUnitPrice.setText(unitPrice.toString());
-		numMdlQuantity1.addField(vObjListItem.Qty1);
-		numMdlQuantity2.addField(vObjListItem.Qty2);
-		numMdlQuantity3.addField(vObjListItem.Qty3);
-		
-		numMdlDiscount1.addField(vObjListItem.Discount1);
-		numMdlDiscount2.addField(vObjListItem.Discount2);
 		
 		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(row).toString());
+		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(row).toString());
 		setRow(row);		
 			
 	}
@@ -90,6 +102,88 @@ HorizontalPanel {
 		numMdlDiscount2.setRow(row);
 	}
 		
+	void setQty(Control c,IntegerAttribute att){
+		TextField txtQuantity=(TextField) c;
+		String qty=txtQuantity.getText();
+		if(qty!=null && qty!="")		
+			//vObjListItem.Qty1.setIntegerValue(Platform.createInteger(qty),cellRow);
+			att.setIntegerValue(Platform.createInteger(qty),cellRow);
+		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(cellRow).toString());
+		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(cellRow).toString());
+	}
+	
+	
+	void cleanQty(Control c){
+		TextField txtQuantity=(TextField) c;
+		String qty=txtQuantity.getText();
+		if(qty=="0")		
+			txtQuantity.setText("");
+	}
+	
+	void setDiscount(Control c,DoubleAttribute att){
+		TextField txtQuantity=(TextField) c;
+		String qty=txtQuantity.getText();
+		if(qty!=null && qty!="")		
+			//vObjListItem.Qty1.setIntegerValue(Platform.createInteger(qty),cellRow);
+			att.setDoubleValue(Platform.createDouble(qty),cellRow);
+		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(cellRow).toString());
+		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(cellRow).toString());
+	}
+	
+	/*
+	callback txtQuantity1 onFocusLost(Control c){
+		String qty=txtQuantity1.getText();
+		if(qty!=null && qty!="")		
+			vObjListItem.Qty1.setIntegerValue(Platform.createInteger(qty),cellRow);
+		
+		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(cellRow).toString());
+		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(cellRow).toString());
+		//refresh();
+	}
+	callback txtQuantity1 onFocusGained(Control c){
+		String qty=txtQuantity1.getText();
+		if(qty=="0")		
+			txtQuantity1.setText("");
+	}
+	*/
+	
+	callback txtQuantity1 onFocusLost(Control c){
+		setQty(c,vObjListItem.Qty1);
+	
+	}
+	callback txtQuantity1 onFocusGained(Control c){
+		cleanQty(c);
+	}
+	
+	callback txtQuantity2 onFocusLost(Control c){
+		setQty(c,vObjListItem.Qty2);
+	
+	}
+	callback txtQuantity2 onFocusGained(Control c){
+		cleanQty(c);
+	}
+	
+	callback txtQuantity3 onFocusLost(Control c){
+		setQty(c,vObjListItem.Qty3);
+	
+	}
+	callback txtQuantity3 onFocusGained(Control c){
+		cleanQty(c);
+	}
+	
+	
+	callback txtDiscount1 onFocusLost(Control c){
+		setDiscount(c,vObjListItem.Discount1);
+	}
+	callback txtDiscount1 onFocusGained(Control c){
+		cleanQty(c);
+	}
+	callback txtDiscount2 onFocusLost(Control c){
+		setDiscount(c,vObjListItem.Discount2);
+	}
+	callback txtDiscount2 onFocusGained(Control c){
+		cleanQty(c);
+	}
 	
 
 }
