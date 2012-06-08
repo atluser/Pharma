@@ -15,10 +15,10 @@ Popup {
 		
 		//set the row with the close button
 		pnl.setRowHeight(0, Sizing.PIXELS, 48);		
-		pnl.setColumnWidth(0, Sizing.PIXELS, 175);
+		pnl.setColumnWidth(0, Sizing.PIXELS, 380);
 		pnl.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
 		
-		//setInsets (4,4,4,4);
+		setInsets (4,4,4,4);
 		
 		lblName.setForeColor(Colors.White);
 		pnl.add(lblName,"halign=left");
@@ -50,7 +50,7 @@ Popup {
 		//set size of the part of the table panel that contains the image
 		pnl.setRowHeight(1, Sizing.PIXELS, 350);
 		pnl.setColumnWidth(1, Sizing.PIXELS, 350);
-		pnl.add(picBox,"hfill=fill, vfill=fill");
+		pnl.add(picBox,"colspan=2, hfill=fill, vfill=fill");
 		
 		add(pnl, "halign=center,valign=center,hfill=fill, vfill=fill");
 	}
