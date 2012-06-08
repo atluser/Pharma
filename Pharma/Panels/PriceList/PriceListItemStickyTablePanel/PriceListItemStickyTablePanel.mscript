@@ -22,7 +22,9 @@ TablePanel {
 	SearchField tblSearch =pnlSearch.search;
 	//Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
 	
-	ImageReference img = new ImageReference();
+	//ImageReference img = new ImageReference();
+	
+	Screens.PriceList.PriceListItemScreen scrPriceList;
 	
 	Panels.ItemHeaderHorizontalPanel pnlHeader= new Panels.ItemHeaderHorizontalPanel();
 	
@@ -93,8 +95,13 @@ TablePanel {
 			
 			tblVwCell.picDiscount1.setChecked(bScount1);			
 			tblVwCell.picDiscount2.setChecked(bScount2);
-			img=(ImageReference)productImageMap.getValue(vObjPriceListItem.ProductImage.getStringValue(dtRw));
-			if(img!=null)	tblVwCell.picBox.setImage(img);
+			ImageReference img=(ImageReference)productImageMap.getValue(vObjPriceListItem.ProductImage.getStringValue(dtRw));
+			if(img!=null)	{
+				tblVwCell.btnImage.setBackground(Background.create9PartImageRectangleBackground(img,0,0,0,0));
+				//calls methods to enable the zoom popup over the image
+				tblVwCell.setPriceListScreen(scrPriceList);
+				tblVwCell.setImageReference(img);
+			}
 			appLog.log(Log.INFO,"PRODUCT "+vObjPriceListItem.ProductName.getStringValue(dtRw)+" Image "+vObjPriceListItem.ProductImage.getStringValue(dtRw));
 			
 			tblVwCell.lblQtyMin.setText(vObjPriceListItem.QtyMin.getIntegerValue(dtRw).toString());
@@ -185,7 +192,6 @@ TablePanel {
 		stk.reload();
 	}
 	
-	
 	/*
 	 * Custom methods
 	 */
@@ -230,12 +236,12 @@ TablePanel {
 				
 	}
 	
-	//Shows the popup with the item's zoomed image
-	callback picBox onClick(Control c) {
-		Popups.ZoomPopup popZoom = new Popups.ZoomPopup();
-		popZoom.setImageReference(img);
-		//showPopup(popZoom,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);
+	void setPriceListScreen (Screens.PriceList.PriceListItemScreen scr) {
+		scrPriceList=scr;
 	}
+	
+	
+	
 	/*
 	void setQuery(String s){
 				

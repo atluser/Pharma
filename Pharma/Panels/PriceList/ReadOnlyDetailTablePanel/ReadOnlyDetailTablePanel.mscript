@@ -145,7 +145,7 @@ TablePanel {
 	callback btn01 onClick(Control c){
 		Screens.PriceList.PriceListItemScreen scr=new Screens.PriceList.PriceListItemScreen();
 		scr.lbl02.setText(txtFldName.getText());
-		scr.listCode=txtFldCode.getText();
+		scr.setListCode(txtFldCode.getText());
 		scr.push(0,false);
 	
 	}

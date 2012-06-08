@@ -1,12 +1,36 @@
 Popup {
 	
-	BackgroundButton btnClose = new BackgroundButton();
+	Button btnClose = new Button();
 	ImageReference img;
 	PictureBox picBox = new PictureBox();
+	TablePanel pnl = new TablePanel();
+	Label lblName = new Label();
 	
 	callback onCreate(Container c) {
-		picBox.setImage(img);
-		add(picBox,"halign=center");	
+		
+		appLog.log(Log.INFO,"PopZoom - Creating Popup ");
+		
+		//set sizes of the popup for each row it contains
+		//setRowHeight(0, Sizing.PIXELS, 0);
+		
+		//set the row with the close button
+		pnl.setRowHeight(0, Sizing.PIXELS, 48);		
+		pnl.setColumnWidth(0, Sizing.PIXELS, 175);
+		pnl.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		
+		//setInsets (4,4,4,4);
+		
+		lblName.setForeColor(Colors.White);
+		pnl.add(lblName,"halign=left");
+		
+		//set the button to close the popup on the first row
+		btnClose.setImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		btnClose.setFocusedImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		btnClose.setSelectedImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		pnl.add(btnClose, "halign=right");
+		
+		//startNewRow();
+		
 	}
 	
 	callback btnClose onClick(Control c) {
@@ -15,5 +39,24 @@ Popup {
 	
 	void setImageReference(ImageReference ref) {
 		img = ref;
+		//Image img1 = img.getImage();
+		//picBox.setImage(img.getImage());
+		//add(picBox,"halign=center, vfill=fill, hfill=fill");	
+		//pnl.setBackground(Background.create9PartImageRectangleBackground(img,5,5,5,5));
+		//add(pnlImg,"hfill=fill, vfill=fill");
+		pnl.startNewRow();
+		picBox.setImage(img);
+		
+		//set size of the part of the table panel that contains the image
+		pnl.setRowHeight(1, Sizing.PIXELS, 350);
+		pnl.setColumnWidth(1, Sizing.PIXELS, 350);
+		pnl.add(picBox,"hfill=fill, vfill=fill");
+		
+		add(pnl, "halign=center,valign=center,hfill=fill, vfill=fill");
 	}
+	
+	void setLabelName(String str){
+		lblName.setText(str);
+	}
+	
 }
