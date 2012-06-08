@@ -236,6 +236,10 @@ TablePanel {
 	
 	callback btn01 onClick(Control c) {
 		logApp.log(Log.INFO, "ReadOnlyDeatilTablePanel - btn01 onClick()");
+		Screens.Order.OrderItemScreen scr=new Screens.Order.OrderItemScreen();
+		scr.init(lbl01.getText(),null,null);
+		scr.push(0,false);  
+		appLog.log(Log.INFO," open order item for "+lbl01.getText());
 	}
 	
 	callback lblFld04 onClick(Control c) {

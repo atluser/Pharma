@@ -4571,6 +4571,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ItemTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ItemTableViewCell.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderItemReadOnlyTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItemReadOnlyTableViewCell.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderItemTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItemTableViewCell.mscript"/>
     </children>
@@ -4716,6 +4719,9 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
       </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderItemStickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItemStickyTablePanel.mscript"/>
+      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ReadOnlyDetailTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ReadOnlyDetailTablePanel.mscript"/>
       </children>
@@ -4834,6 +4840,11 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Contact">
       <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="EditScreen">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditScreen.mscript"/>
+      </children>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Order">
+      <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="OrderItemScreen">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItemScreen.mscript"/>
       </children>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="OrderEntry">

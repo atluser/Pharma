@@ -31,15 +31,15 @@ VirtualObject {
 	
 	// Consegna e Pagamento
 	DateField Order1stDeliveryDate {
-		return Platform.createDate();
+		return null;
 	}
 
 	DateField Order2ndDeliveryDate {
-		return Platform.createDate();
+		return null;
 	}	
 		
 	DateField Order3rdDeliveryDate {
-		return Platform.createDate();
+		return null;
 	}	
 	
 	StringField OrderPaymentMode {
@@ -52,15 +52,15 @@ VirtualObject {
 		
 	// Totali Ordine
 	CurrencyField OrderTotalGross {
-		return null;
+		return Platform.createDouble(vObjUtil.getOrderTotalGross(OrderCode));
 	}
 
 	CurrencyField OrderTotalNet {
-		return null;
+		return Platform.createDouble(vObjUtil.getOrderTotalNet(OrderCode));
 	}
 
 	DoubleField OrderTotalDiscount {
-		return null;
+		return Platform.createDouble(100.0*OrderTotalNet.doubleValue()/OrderTotalGross.doubleValue());
 	}
 
 	//Da Eliminare	
