@@ -48,7 +48,7 @@ HorizontalPanel {
 		setBackground(Background.createColorRectangleBackground(Colors.BackgroundGray,Colors.Gray,LineStyle.SOLID));			
 		for (int i=0;i<ncol;i++)
 			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
-		setPanelHeight(Sizing.PIXELS,60);
+		setPanelHeight(Sizing.PIXELS,70);
 		
 	}
 	

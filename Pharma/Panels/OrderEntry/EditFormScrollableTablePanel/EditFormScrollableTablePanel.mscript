@@ -21,9 +21,9 @@ ScrollableTablePanel {
 	Label lblAccountName=new Label();
 	Label lblPriceList=new Label();
 	Label lblStatus=new Label();
-	Label lblShipDate1=new Label();
-	Label lblShipDate2=new Label();
-	Label lblShipDate3=new Label();
+	Label txtShipDate1=new Label();
+	Label txtShipDate2=new Label();	
+	Label txtShipDate3=new Label();
 	Label lblPaymentMethod=new Label();
 	Label lblNote=new Label();
 	
@@ -44,6 +44,13 @@ ScrollableTablePanel {
 	Label txtPriceList=new Label();
 	
 	BackgroundButton btnPaymentMethod=new BackgroundButton();
+	BackgroundButton lblShipDate1=new BackgroundButton();
+	BackgroundButton lblShipDate2=new BackgroundButton();		
+	BackgroundButton lblShipDate3=new BackgroundButton();
+	
+	Popover popShipDate1=new Popover();
+	Popover popShipDate2=new Popover();
+	Popover popShipDate3=new Popover();
 	
 	Label txtType=new Label();
 	//TextModel mdlType=new TextModel();
@@ -163,7 +170,13 @@ ScrollableTablePanel {
 		lblAmount1.setText("Totale Ordine Lordo");
 		lblAmount2.setText("Totale Ordine Netto");
 		lblDiscount.setText("Totale Sconto %");
+		popShipDate2.add(dtShipDate2,null);		
+		popShipDate3.add(dtShipDate3,null);
 		
+		lblShipDate1.setBackground(Background.createColorRoundedBackground ( Colors.BackgroundGray )) ;
+		lblShipDate2.setBackground(Background.createColorRoundedBackground ( Colors.BackgroundGray )) ;
+		lblShipDate3.setBackground(Background.createColorRoundedBackground ( Colors.BackgroundGray )) ;
+								
 	}
 	
 	void setModel(){		
@@ -181,6 +194,12 @@ ScrollableTablePanel {
 		dtShipDate2.setDataModel(mdlShipDate2);
 		dtShipDate3.setDataModel(mdlShipDate3);		
 		
+		mdlShipDate1.setStyle(DateStyles.DATE_MEDIUM );
+		txtShipDate1.setDataModel(mdlShipDate1);
+		mdlShipDate2.setStyle(DateStyles.DATE_MEDIUM );
+		txtShipDate2.setDataModel(mdlShipDate2);		
+		mdlShipDate3.setStyle(DateStyles.DATE_MEDIUM );
+		txtShipDate3.setDataModel(mdlShipDate3);
 	}
 	
 	
@@ -196,9 +215,9 @@ ScrollableTablePanel {
 	}
 	
 	void setFormPanel02(){ 
-		formPanel02.add(lblShipDate1,labelAlign,dtShipDate1,controlAlign);
-		formPanel02.add(lblShipDate2,labelAlign,dtShipDate2,controlAlign);
-		formPanel02.add(lblShipDate3,labelAlign,dtShipDate3,controlAlign);
+		formPanel02.add(lblShipDate1,labelAlign,txtShipDate1,controlAlign);
+		formPanel02.add(lblShipDate2,labelAlign,txtShipDate2,controlAlign);
+		formPanel02.add(lblShipDate3,labelAlign,txtShipDate3,controlAlign);
 		formPanel02.add(lblPaymentMethod,labelAlign,btnPaymentMethod,controlAlign);
 		formPanel02.add(lblNote,labelAlign,txtNote,controlAlign);						
 	}
@@ -250,14 +269,36 @@ ScrollableTablePanel {
 	
 	callback btnNext onClick(Control c){
 		//salvo testata
-		save();
-		Screens.OrderEntry.ListItemScreen scr=new Screens.OrderEntry.ListItemScreen();
+		scr.saveRefreshSticky();
+		Screens.OrderEntry.ListItemScreen scr1=new Screens.OrderEntry.ListItemScreen();
 		//imposto testata
-		scr.orderCode=lblCode.getText();		
-		scr.init(lblCode.getText(),"0001");
-		scr.push(0,false);
-	
+		scr1.orderCode=txtCode.getText();		
+		scr1.init(txtCode.getText(),"0001");
+		scr1.push(0,false);
+		//scr.close();
 	}
+	
+	callback lblShipDate1 onClick(Control c){		
+		AnchorPosition anchor=new AnchorPosition();
+		anchor.setAnchor(c);
+		scr.showPopover(popShipDate1,true,anchor);
+	}
+	callback lblShipDate2 onClick(Control c){		
+		AnchorPosition anchor=new AnchorPosition();
+		anchor.setAnchor(c);
+		scr.showPopover(popShipDate2,true,anchor);
+	}
+	callback lblShipDate3 onClick(Control c){						
+		AnchorPosition anchor=new AnchorPosition();
+		anchor.setAnchor(c);
+		scr.showPopover(popShipDate3,true,anchor);
+	}
+	
+	
+	callback popShipDate2 onDismiss ( Screen owner , Popover popup ){
+		
+	} 
+	
 	
 	/*
 	

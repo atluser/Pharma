@@ -16,7 +16,9 @@ VirtualObject {
 	StringField OrderItemProductCategory {
 		return null;
 	}
-	
+	StringField OrderItemProductCalc {
+		return OrderItemProductCode+OrderItemProductName;
+	}
 	StringField OrderItemProductImage {
 		return null;
 	}
@@ -41,20 +43,37 @@ VirtualObject {
 		return Platform.createDate();
 	}	
 	
-	IntegerField OrderItemProductDiscount {
-		return null;
+	DoubleField OrderItemProductDiscount1 {
+		return Platform.createDouble(0.0);
+	}
+	
+	DoubleField OrderItemProductDiscount2 {
+		return Platform.createDouble(0.0);
 	}
 	
 	CurrencyField OrderItemTotalGross {
-		return null;
+		return Platform.createDouble(1.0*(OrderItemQty1.intValue()+OrderItemQty2.intValue()+OrderItemQty3.intValue())*OrderItemProductPrice.doubleValue());
 	}
 
 	CurrencyField OrderItemTotalNet {
-		return null;
+		return Platform.createDouble(OrderItemTotalGross.doubleValue()*(1.0-OrderItemProductDiscount1.doubleValue()*0.01));
 	}
 
 	FloatField OrderItemTotalDiscount {
 		return null;
+	}
+	
+	query getOrderItem<String orderCode>{
+		where OrderCode==orderCode;
+		
+	}
+	
+	
+	query getListItemByCategory<String orderCode,String category,String val>{
+		where OrderCode==orderCode;
+		where OrderItemProductCategory==category;
+		where OrderItemProductCalc contains val;
+		ascendingBy OrderItemProductCalc;
 	}
 	
 	

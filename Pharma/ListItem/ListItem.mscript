@@ -13,7 +13,7 @@ VirtualObject {
 	DoubleField Discount1{return Platform.createDouble(0.0);}
 	DoubleField Discount2{return Platform.createDouble(0.0);}
 	CurrencyField Total1{return Platform.createDouble(1.0*(Qty1.intValue()+Qty2.intValue()+Qty3.intValue())*UnitPrice.doubleValue());}
-	CurrencyField Total2{return Platform.createDouble(Total1.doubleValue()*(1.0-Discount2.doubleValue()*0.01));}
+	CurrencyField Total2{return Platform.createDouble(Total1.doubleValue()*(1.0-Discount1.doubleValue()*0.01));}
 	
 	query getListItem<String orderCode>{		
 		where OrderCode==orderCode;		
@@ -28,6 +28,7 @@ VirtualObject {
 		where OrderCode==orderCode;
 		where ProductCategory==category;
 		where ProductCalc contains val;
+		ascendingBy ProductCalc;
 	}
 	
 }

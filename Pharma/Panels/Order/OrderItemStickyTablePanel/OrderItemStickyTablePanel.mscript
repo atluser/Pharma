@@ -65,12 +65,16 @@ TablePanel {
 	// Callback to configure cells
 	///////////////////////////////
 	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
-		info.setPanel(new Cells.OrderItemTableViewCell());
+		info.setPanel(new Cells.OrderItemReadOnlyTableViewCell());
 	}
 	
 	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
+		/* OK
+		Panels.Accounts.AccountTableViewCell tblVwCell = (Panels.Accounts.AccountTableViewCell) cell;
+		tblVwCell.setRow(info.getDataRow());
+		*/
+		Cells.OrderItemReadOnlyTableViewCell tblVwCell = (Cells.OrderItemReadOnlyTableViewCell)cell;
 		
-		Cells.OrderItemTableViewCell tblVwCell = (Cells.OrderItemTableViewCell)cell;		
 		DataRow dtRw = info.getDataRow();
 		if(!dtRw.isDeleted()){		
 			tblVwCell.populateData(dtRw);
@@ -102,7 +106,7 @@ TablePanel {
 	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
 		cell.setHeight(Sizing.PREFERRED, 0);
 		cell.setWidth(Sizing.PREFERRED, 0);
-		cell.setCouldBeSelected(false);
+		cell.setCouldBeSelected(true);
 	}
 	
 	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
@@ -210,7 +214,7 @@ TablePanel {
 		while(dtRow!=null){
 			String category=vObjLOV.Value.getStringValue(dtRow);
 			RowSetModel rsm1 = new RowSetModel();
-			rsm1.setRows(vObjListItem.getListItemByCategory(orderCode,category,val));
+			rsm1.setRows(vObjOrderItem.getListItemByCategory(orderCode,category,val));
 			
 			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - " + category+" : " + rsm1.getRowCount(0));
 			

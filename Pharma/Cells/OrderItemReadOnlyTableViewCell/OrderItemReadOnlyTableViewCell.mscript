@@ -4,18 +4,18 @@ TableViewCell {
 	
 	Font fnt=new Font();
 	
-	IntegerNumericField  txtQuantity1=new IntegerNumericField ();		
+	Label  txtQuantity1=new Label ();		
 	NumberFormatModel numMdlQuantity1 =new NumberFormatModel();	
 	
-	IntegerNumericField  txtQuantity2=new IntegerNumericField ();
+	Label  txtQuantity2=new Label ();
 	NumberFormatModel numMdlQuantity2 =new NumberFormatModel();
-	IntegerNumericField  txtQuantity3=new IntegerNumericField ();
+	Label  txtQuantity3=new Label ();
 	NumberFormatModel numMdlQuantity3 =new NumberFormatModel();
 	
-	NumericField txtDiscount1=new NumericField ();
+	Label txtDiscount1=new Label ();
 	NumberFormatModel numMdlDiscount1 =new NumberFormatModel();
 	
-	NumericField txtDiscount2=new NumericField ();
+	Label txtDiscount2=new Label ();
 	NumberFormatModel numMdlDiscount2 =new NumberFormatModel();
 	
 	Label lblProductCode=new Label();
@@ -69,13 +69,12 @@ TableViewCell {
 		txtDiscount2.setDataModel(numMdlDiscount2);
 		
 		
-		numMdlQuantity1.addField(vObjListItem.Qty1);
-		numMdlQuantity1.setForeColor(Colors.Black);
-		numMdlQuantity2.addField(vObjListItem.Qty2);
-		numMdlQuantity3.addField(vObjListItem.Qty3);
+		numMdlQuantity1.addField(vObjOrderItem.OrderItemQty1);
+		numMdlQuantity2.addField(vObjOrderItem.OrderItemQty2);
+		numMdlQuantity3.addField(vObjOrderItem.OrderItemQty3);
 		
-		numMdlDiscount1.addField(vObjListItem.Discount1);
-		numMdlDiscount2.addField(vObjListItem.Discount2);
+		numMdlDiscount1.addField(vObjOrderItem.OrderItemProductDiscount1);
+		numMdlDiscount2.addField(vObjOrderItem.OrderItemProductDiscount2);
 			
 		lblProductCode.setFont(fnt);
 		lblProductCode.setForeColor(Colors.Black);	
@@ -100,25 +99,24 @@ TableViewCell {
 	}
 			
 	void populateData(DataRow row){		
-		String image=vObjListItem.ProductImage.getStringValue(row);
+		String image=vObjOrderItem.OrderItemProductImage.getStringValue(row);
 		appLog.log(Log.INFO,"getting image "+image);
 		ImageReference img=(ImageReference)productImageMap.getValue(image);
 		appLog.log(Log.INFO,"setting image "+image);
 		if(img!=null)	picBox.setImage(img);
 		appLog.log(Log.INFO,"set image "+image);
 					
-		lblProductCode.setText(vObjListItem.ProductCode.getStringValue(row));
-		lblName.setText(vObjListItem.ProductName.getStringValue(row));
-		//lblCategory.setText(vObjListItem.ProductCategory.getStringValue(row));
-		Double unitPrice=vObjListItem.UnitPrice.getCurrencyValue(row);
+		lblProductCode.setText(vObjOrderItem.OrderItemProductCode.getStringValue(row));
+		appLog.log(Log.INFO,"set productCode ");
+		lblName.setText(vObjOrderItem.OrderItemProductName.getStringValue(row));
+		appLog.log(Log.INFO,"set productName ");
+		Double unitPrice=vObjOrderItem.OrderItemProductPrice.getCurrencyValue(row);
 		if(unitPrice!=null)	lblUnitPrice.setText(unitPrice.toString());
-		
-		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(row).toString());
-		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(row).toString());
-		
-	/*	Integer qty1=vObjListItem.Qty1.getIntegerValue(row);
-		if(qty1!=null)	txtQuantity1.setText(qty1.toString());
-		*/
+		appLog.log(Log.INFO,"set productPrice ");
+		lblTotal1.setText(vObjOrderItem.OrderItemTotalGross.getCurrencyValue(row).toString());
+		appLog.log(Log.INFO,"set total1 ");
+		lblTotal2.setText(vObjOrderItem.OrderItemTotalNet.getCurrencyValue(row).toString());
+		appLog.log(Log.INFO,"set total2 ");
 		setRow(row);		
 			
 	}
@@ -148,7 +146,8 @@ TableViewCell {
 	void cleanQty(Control c){
 		TextField txtQuantity=(TextField) c;
 		String qty=txtQuantity.getText();
-		if(qty=="0") txtQuantity.setText("");
+		if(qty=="0")		
+			txtQuantity.setText("");
 	}
 	
 	void setDiscount(Control c,DoubleAttribute att){
@@ -160,8 +159,8 @@ TableViewCell {
 		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(cellRow).toString());
 		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(cellRow).toString());
 	}
+		
 	
-
 	callback txtQuantity1 onFocusLost(Control c){
 		setQty(c,vObjListItem.Qty1);
 	

@@ -1,4 +1,6 @@
 Screen {
+	Screens.OrderEntry.ListItemScreen listItemScreen=null;
+	Screen orderHeaderScreen =null;
 	
 	String listCode=null;
 	String orderCode=null;
@@ -46,6 +48,7 @@ Screen {
 	}
 
 	callback onCreate(Container container){	
+		listItemScreen=(Screens.OrderEntry.ListItemScreen) container;
 		setUpLabels();
 		setUpButtons();
 		// Header Panel
@@ -61,7 +64,7 @@ Screen {
 		add(pnlHeader,"hfill=fill");		
 	
 		Panels.OrderEntry.ItemHeaderHorizontalPanel pnlHeader2= new Panels.OrderEntry.ItemHeaderHorizontalPanel();
-		add(pnlHeader2,null);
+		//add(pnlHeader2,null);
 		//add(pnlSearch,"hfill=fill");
 		
 		TablePanel pnl = new TablePanel();
@@ -74,8 +77,8 @@ Screen {
 		ScrollIndicator indicator=new ScrollIndicator();
 		//indicator.setTrackerBackground(Background.setBackColor(Colors.Black));
 		cvDtlTP.setScrollIndicator(indicator);
-		add(cvDtlTP,"vfill=fill,hfill=fill");
-		//add(stk,"vfill=fill,hfill=fill");
+		//add(cvDtlTP,"vfill=fill,hfill=fill");
+		add(stk,"vfill=fill,hfill=fill");
 		
 		
 		//pnl.startNewRow();
@@ -87,10 +90,10 @@ Screen {
 		pnl.add(btnConfirm,"hfill=fill");
 		
 		setRowHeight(0, Sizing.PREFERRED,0);
-		setRowHeight(1, Sizing.PREFERRED,0);
-		setRowHeight(2, Sizing.PREFERRED,1);
+		setRowHeight(1, Sizing.PREFERRED,1);
+		setRowHeight(2, Sizing.PIXELS,50);
 		setRowHeight(3, Sizing.PREFERRED,0);
-		setRowHeight(4, Sizing.PIXELS,50);
+		//setRowHeight(4, Sizing.PIXELS,50);
 				
 		pnl.setColumnWidth(0, Sizing.PERCENTS,50);
 		/*pnl.setRowHeight(0, Sizing.PREFERRED,0);
@@ -165,11 +168,10 @@ Screen {
 	callback btnConfirm onClick(Control c){
 		//costruiscoItem
 			createItem(orderCode,arrObj);					
-			/*Screens.OrderEntry.OrderSummaryScreen scr=new Screens.OrderEntry.OrderSummaryScreen();
-		//recupero linea ordine
-			scr.setData(orderRow);
-			scr.push(0,false);*/
-			close();		
+			Screens.Order.OrderItemScreen scr=new Screens.Order.OrderItemScreen();		
+			scr.init(orderCode,listItemScreen,orderHeaderScreen);
+			scr.push(0,false);
+			//close();		
 						
 	}
 	
@@ -177,10 +179,10 @@ Screen {
 	void init(String code,String priceListCode){
 		listCode=priceListCode;	
 		orderCode=code;
-		drawDetailItem(priceListCode,"");
-	/*	loadListItem(priceListCode);
+		//drawDetailItem(priceListCode,"");
+		loadListItem(priceListCode);
 		stk.orderCode=orderCode;
-		stk.setQuery("");*/
+		stk.setQuery("");
 	}
 	
 	void loadListItem(String priceListCode){
@@ -221,6 +223,8 @@ Screen {
 						appLog.log(Log.INFO,"Creo nuovo quoteitem "+productCode);											
 						qtRow=vObjUtil.insertListItem(orderCode, productCode,  productName,  category, productImage,unitPrice);
 					}
+					else 
+						appLog.log(Log.INFO,"quoteitem esistente "+productCode+" "+orderCode);
 				}
 				else 
 					qtRow=vObjUtil.insertListItem(orderCode, productCode,  productName,  category, productImage,unitPrice);
@@ -306,19 +310,18 @@ Screen {
 	}
 	
 
-	//called orderheaderscreem
-	/*void setOrderRow(DataRow row){
-		orderRow=row;		
-		orderCode=vObjOrder.OrderCode.getStringValue(orderRow);
-		listCode=vObjOrder.PromotionCode.getStringValue(orderRow);		
-		appLog.log(Log.INFO,"costruisco canvassDetail "+vObjOrder.PromotionCode.getStringValue(orderRow));
-		//drowDetailItem(promotionCode);
-		//cvDtlTP.setQuery(canvassDetailObj.getDetailfromCanvass(orderObj.PromotionCode.getStringValue(orderRow)),canvassDetailObj);
-		//cvDtlTP.setQuery(canvassDetailObj.getDetailfromCanvass(promotionCode),canvassDetailObj);
-	}
-*/	
 
 	void createItem(String orderCode,ObjectArray arrObj){	
+		//cancello orderitem creato
+		Query q2=vObjOrderItem.getOrderItem(orderCode);
+		if(q2!=null){
+			DataRowSet rowSet2=q2.getRowSet();
+			DataRow found2=rowSet2.first();
+			while(found2!=null) {
+				found2.delete();
+				found2=rowSet2.next();
+			}
+		}
 		
 		Query q1=vObjListItem.getListItem(orderCode);
 		DataRowSet rowSet=q1.getRowSet();
@@ -332,14 +335,17 @@ Screen {
 			String productCategory=vObjListItem.ProductCategory.getStringValue(found);
 			Double unitPrice=vObjListItem.UnitPrice.getCurrencyValue(found);
 			Integer qty1=vObjListItem.Qty1.getIntegerValue(found);
-			Integer qty2=vObjListItem.Qty1.getIntegerValue(found);	
-			Integer qty3=vObjListItem.Qty1.getIntegerValue(found);					
+			Integer qty2=vObjListItem.Qty2.getIntegerValue(found);	
+			Integer qty3=vObjListItem.Qty3.getIntegerValue(found);					
+			Double discount1=vObjListItem.Discount1.getDoubleValue(found);
+			Double discount2=vObjListItem.Discount2.getDoubleValue(found);
 			
-			if(qty1==null && qty1.intValue()==0){
+			if(qty1==null || qty1.intValue()==0){
+				appLog.log(Log.INFO,"qty 0"+productCode);
 				found=rowSet.next();
 				continue;
 			}
-							
+						
 			DataRow row=vObjOrderItem.getNewRow();			
 			vObjOrderItem.OrderCode.setStringValue(orderCode,row);
 			vObjOrderItem.OrderItemProductCode.setStringValue(productCode,row);
@@ -350,25 +356,13 @@ Screen {
 			vObjOrderItem.OrderItemQty1.setIntegerValue(qty1,row);
 			vObjOrderItem.OrderItemQty2.setIntegerValue(qty2,row);
 			vObjOrderItem.OrderItemQty3.setIntegerValue(qty3,row);
+			vObjOrderItem.OrderItemProductDiscount1.setDoubleValue(discount1,row);
+			vObjOrderItem.OrderItemProductDiscount2.setDoubleValue(discount2,row);
+			
 			row.applyUpdates();
+			found=rowSet.next();
 		}
 			
-				
-/*		//ObjectArray arrObj=cvDtlTP.getCells();			
-		for(int i=0;i<arrObj.length();i++){
-			Panels.OrderEntry.DetailCellHPanel cell=(Panels.OrderEntry.DetailCellHPanel) arrObj.getItem(i);
-			Integer qty=Platform.createInteger(cell.getQuantity());
-			appLog.log(Log.INFO,"quantit� selezionata "+qty.toString());			
-			String productCode=cell.getProductCode();			
-			String unitPrice=cell.getUnitPrice();
-			String productName=cell.getProductName();
-			appLog.log(Log.INFO,"valori "+productCode);
-			if(qty.intValue()>0) {
-				appLog.log(Log.INFO,"inserisco "+orderCode);			
-				//vObjUtil.setItem(orderCode, productCode, "", productName,qty,unitPrice);
-			}			
-		}
-		*/
 	}
 	
 	

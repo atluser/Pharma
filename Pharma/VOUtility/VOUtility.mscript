@@ -27,8 +27,32 @@ UIObject {
 
 	}
 
-	
-	
+	double getOrderTotalGross(String orderCode){
+		Query q=vObjOrderItem.getOrderItem(orderCode);
+		double sum=0.0;
+		if(q!=null){
+			DataRowSet set=q.getRowSet();
+			DataRow found=set.first();			
+			while(found!=null){
+				sum=sum+vObjOrderItem.OrderItemTotalGross.getCurrencyValue(found).doubleValue();
+				found=set.next();
+			}			
+		}
+		return sum;
+	}
+	double getOrderTotalNet(String orderCode){
+		Query q=vObjOrderItem.getOrderItem(orderCode);
+		double sum=0.0;
+		if(q!=null){
+			DataRowSet set=q.getRowSet();
+			DataRow found=set.first();			
+			while(found!=null){
+				sum=sum+vObjOrderItem.OrderItemTotalNet.getCurrencyValue(found).doubleValue();
+				found=set.next();
+			}			
+		}
+		return sum;
+	}
 	void loadImage(){
 		productImageMap.putValue("Supradin",Images.Products.Supradin);
 		productImageMap.putValue("Lasonil",Images.Products.Lasonil);
@@ -1010,6 +1034,7 @@ UIObject {
 		vObjOrder.OrderCode.setStringValue(Platform.toString(Platform.createDate().getTime()),dt);
 		vObjOrder.OrderStatus.setStringValue("Bozza",dt);
 		vObjOrder.OrderDate.setDateValue(Platform.createDate(),dt);
+		vObjOrder.Order1stDeliveryDate.setDateValue(Platform.createDate(Platform.getCurrentTime()+86400000),dt);
 //		vObjOrder.Type.setStringValue("Sales");
 		
 		dt.applyUpdates();	
