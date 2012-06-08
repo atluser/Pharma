@@ -70,6 +70,8 @@ Screen {
 		setBackColor(Colors.White);
 		setRowHeight(1,Sizing.PREFERRED,1);
 		
+		stk.setPriceListScreen((Screens.PriceList.PriceListItemScreen) container);
+		
 	}
 
 	callback onDeactivate(Container container){
@@ -167,6 +169,10 @@ Screen {
 		lbl02.setForeColor(Color.create(255,255,255));
 	
 	}		
+	
+	void setListCode(String code) {
+		listCode=code;
+	}
 	
 
 }

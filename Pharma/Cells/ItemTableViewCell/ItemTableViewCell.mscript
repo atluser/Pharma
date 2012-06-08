@@ -8,8 +8,11 @@ TableViewCell {
 	CheckBox picDiscount1=new CheckBox();
 	CheckBox picDiscount2=new CheckBox();
 	
-	PictureBox picBox=new PictureBox();
-	
+	//PictureBox picBox=new PictureBox();
+	BackgroundButton btnImage = new BackgroundButton();
+	Screens.PriceList.PriceListItemScreen scrPriceList;
+	ImageReference img;
+	 
 	Label lblQtyMin=new Label();
 	Label lblQtyMax=new Label();
 	NumberFormatModel mdlPrice=new NumberFormatModel();
@@ -23,6 +26,8 @@ TableViewCell {
 	Styles.FormStyle style = new Styles.FormStyle();
 	String alignment="halign=center";
 	int ncol=9;
+	
+	
 	
 	callback onCreate(Container container){
 
@@ -38,7 +43,8 @@ TableViewCell {
 		//lbl.setDataModel(txtMdl);
 		
 		setLabel();
-		hz.add(picBox,alignment);	
+		//hz.add(picBox,alignment);
+		hz.add(btnImage,alignment);	
 		hz.add(lblCode, alignment);
 		hz.add(lblName, alignment);
 		hz.add(lblUOM, alignment);
@@ -63,6 +69,21 @@ TableViewCell {
 	
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){		
 		styleReceptor.applyVisualStyle(style);
+	}
+	
+	//Shows the popup with the item's zoomed image
+	/* 
+	callback picBox onClick(Control c) {
+		appLog.log(Log.INFO,"PicBox Clicked - ImageRefernce: " );
+		scrPriceList.showPopup(popZoom,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);
+	} */
+	
+	callback btnImage onClick(Control c) {
+		appLog.log(Log.INFO,"PicBox Clicked - ImageRefernce: " );
+		Popups.ZoomPopup popZoom = new Popups.ZoomPopup();
+		popZoom.setImageReference(img);
+		popZoom.setLabelName(lblName.getText());
+		scrPriceList.showPopup(popZoom,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);
 	}
 	
 	
@@ -94,6 +115,15 @@ TableViewCell {
 		lblPrice.setDataModel(mdlPrice);
 		mdlPrice.setPrecision(2);	
 	}
+	
+	void setPriceListScreen(Screens.PriceList.PriceListItemScreen scr) {
+		scrPriceList=scr;
+	}
+	
+	void setImageReference(ImageReference ref) {
+		img=ref;
+	}
+	
 	
 
 }
