@@ -37,6 +37,13 @@ VirtualObject {
 			ascendingBy ContactLastName;
 		}
 	
+	Query getFirstRow() {
+		return firstRow();
+	}
+		query firstRow<>{
+			where ContactId == "00000001";
+		}
+		
 	//Retrieve all contacts that start with a given letter	
 	Query getContactStartsWith(String strStart){
 			return ContactStartsWith(strStart);

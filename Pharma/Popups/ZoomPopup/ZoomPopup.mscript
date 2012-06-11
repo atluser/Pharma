@@ -5,35 +5,60 @@ Popup {
 	PictureBox picBox = new PictureBox();
 	TablePanel pnl = new TablePanel();
 	Label lblName = new Label();
+	//HorizontalPanel pnlWhite = new HorizontalPanel();
+	HorizontalPanel pnlButtonContainer = new HorizontalPanel();
 	
 	callback onCreate(Container c) {
 		
 		appLog.log(Log.INFO,"PopZoom - Creating Popup ");
 		
+		//set the font of the label
+		/*
+		 Font fnt = new Font();
+		fnt.setSize(16);
+		fnt.setFamily("Arial");
+		fnt.setBold();
+		lblName.setFont(fnt);
+		*/
+		
+		//pnlWhite.setBackColor(Colors.White);
+		pnlButtonContainer.setBackColor(Color.create(222,222,222));
+		
 		//set sizes of the popup for each row it contains
 		//setRowHeight(0, Sizing.PIXELS, 0);
 		
 		//set the row with the close button
-		pnl.setRowHeight(0, Sizing.PIXELS, 48);		
-		pnl.setColumnWidth(0, Sizing.PIXELS, 380);
-		pnl.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		pnl.setRowHeight(0, Sizing.PIXELS, 35);		
+		pnl.setColumnWidth(0, Sizing.PIXELS, 315);
+		pnl.setColumnWidth(1, Sizing.PIXELS, 35);
+		//pnl.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		//pnl.add(pnlWhite, "hfill=fill, vfill=fill");
+		pnl.setBackColor(Colors.White);
+		pnl.add(lblName,null);
 		
 		setInsets (4,4,4,4);
 		
-		lblName.setForeColor(Colors.White);
-		pnl.add(lblName,"halign=left");
-		
+		/*
+		 lblName.setForeColor(Colors.White);
+		pnl.add(lblName,"halign=right");
+		*/
 		//set the button to close the popup on the first row
 		btnClose.setImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		//btnClose.setBackColor(Color.create(222,222,222));
 		btnClose.setFocusedImage(Images.VodafoneImages.btn_undo_normal.getImage());
 		btnClose.setSelectedImage(Images.VodafoneImages.btn_undo_normal.getImage());
-		pnl.add(btnClose, "halign=right");
+		pnlButtonContainer.add(btnClose, "hfill=fill, vfill=fill");
+		pnl.add(pnlButtonContainer, "hfill=fill, vfill=fill");
 		
 		//startNewRow();
 		
 	}
 	
 	callback btnClose onClick(Control c) {
+		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
+	}
+	
+	callback lblName onClick(Control c) {
 		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
 	}
 	
@@ -49,14 +74,15 @@ Popup {
 		
 		//set size of the part of the table panel that contains the image
 		pnl.setRowHeight(1, Sizing.PIXELS, 350);
-		pnl.setColumnWidth(1, Sizing.PIXELS, 350);
+		
 		pnl.add(picBox,"colspan=2, hfill=fill, vfill=fill");
 		
 		add(pnl, "halign=center,valign=center,hfill=fill, vfill=fill");
 	}
 	
 	void setLabelName(String str){
-		lblName.setText(str);
+		lblName.setText("");
 	}
+
 	
 }

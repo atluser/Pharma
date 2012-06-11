@@ -157,6 +157,8 @@ ScrollableTablePanel {
 		*/
 		
 		DataRow firstRow = vObjContact.getContacts().getRowSet().first();
+		logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: number of rows: " + vObjContact.getContacts().getRowSet().getSize());
+		logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjContact.ContactName.getStringValue(firstRow));
 		setRow(firstRow);
 		
 	}	

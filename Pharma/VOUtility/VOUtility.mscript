@@ -1299,6 +1299,85 @@ UIObject {
 			vObjContact.ContactGender.setStringValue("Maschio", row);
         row.applyUpdates();
         
+        row = vObjContact.getNewRow();
+			vObjContact.ContactId.setStringValue("00000009", row);
+			vObjContact.ContactName.setStringValue("Daniele", row);
+			vObjContact.ContactLastName.setStringValue("Paoli", row);
+			vObjContact.RelAccountCode.setStringValue("00100988", row);
+			vObjContact.ContactTitle.setStringValue("Sig.", row);
+			vObjContact.ContactFunction.setStringValue("Titolare", row);
+			vObjContact.ContactStatus.setStringValue("Attivo", row);
+			vObjContact.ContactStreetAddress.setStringValue("Via Washington Giorgio, 79", row);
+			vObjContact.ContactCountry.setStringValue("Italia", row);
+			vObjContact.ContactStreetCity.setStringValue("Milano", row);
+			vObjContact.ContactProvince.setStringValue("MI", row);
+			vObjContact.ContactCap.setStringValue("20146", row);
+			vObjContact.ContactPhone.setStringValue("02-89302846", row);
+			vObjContact.ContactOfficePhone.setStringValue("02-48954411", row);
+			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
+			vObjContact.ContactAge.setStringValue("41", row);
+			vObjContact.ContactGender.setStringValue("Maschio", row);
+        row.applyUpdates();
+        
+        row = vObjContact.getNewRow();
+			vObjContact.ContactId.setStringValue("00000010", row);
+			vObjContact.ContactName.setStringValue("Daniela", row);
+			vObjContact.ContactLastName.setStringValue("Astori", row);
+			vObjContact.RelAccountCode.setStringValue("00100988", row);
+			vObjContact.ContactTitle.setStringValue("Sig.", row);
+			vObjContact.ContactFunction.setStringValue("Titolare", row);
+			vObjContact.ContactStatus.setStringValue("Attivo", row);
+			vObjContact.ContactStreetAddress.setStringValue("Via Washington Giorgio, 79", row);
+			vObjContact.ContactCountry.setStringValue("Italia", row);
+			vObjContact.ContactStreetCity.setStringValue("Milano", row);
+			vObjContact.ContactProvince.setStringValue("MI", row);
+			vObjContact.ContactCap.setStringValue("20146", row);
+			vObjContact.ContactPhone.setStringValue("02-89302846", row);
+			vObjContact.ContactOfficePhone.setStringValue("02-48954411", row);
+			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
+			vObjContact.ContactAge.setStringValue("41", row);
+			vObjContact.ContactGender.setStringValue("Femmina", row);
+        row.applyUpdates();
+        
+        row = vObjContact.getNewRow();
+			vObjContact.ContactId.setStringValue("00000011", row);
+			vObjContact.ContactName.setStringValue("Daniele", row);
+			vObjContact.ContactLastName.setStringValue("Paoli", row);
+			vObjContact.RelAccountCode.setStringValue("00100988", row);
+			vObjContact.ContactTitle.setStringValue("Sig.", row);
+			vObjContact.ContactFunction.setStringValue("Titolare", row);
+			vObjContact.ContactStatus.setStringValue("Attivo", row);
+			vObjContact.ContactStreetAddress.setStringValue("Via Washington Giorgio, 79", row);
+			vObjContact.ContactCountry.setStringValue("Italia", row);
+			vObjContact.ContactStreetCity.setStringValue("Milano", row);
+			vObjContact.ContactProvince.setStringValue("MI", row);
+			vObjContact.ContactCap.setStringValue("20146", row);
+			vObjContact.ContactPhone.setStringValue("02-89302846", row);
+			vObjContact.ContactOfficePhone.setStringValue("02-48954411", row);
+			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
+			vObjContact.ContactAge.setStringValue("41", row);
+			vObjContact.ContactGender.setStringValue("Maschio", row);
+        row.applyUpdates();
+        
+        row = vObjContact.getNewRow();
+			vObjContact.ContactId.setStringValue("00000012", row);
+			vObjContact.ContactName.setStringValue("Marco", row);
+			vObjContact.ContactLastName.setStringValue("Bignardi", row);
+			vObjContact.RelAccountCode.setStringValue("00100988", row);
+			vObjContact.ContactTitle.setStringValue("Sig.", row);
+			vObjContact.ContactFunction.setStringValue("Titolare", row);
+			vObjContact.ContactStatus.setStringValue("Attivo", row);
+			vObjContact.ContactStreetAddress.setStringValue("Via Washington Giorgio, 79", row);
+			vObjContact.ContactCountry.setStringValue("Italia", row);
+			vObjContact.ContactStreetCity.setStringValue("Milano", row);
+			vObjContact.ContactProvince.setStringValue("MI", row);
+			vObjContact.ContactCap.setStringValue("20146", row);
+			vObjContact.ContactPhone.setStringValue("02-89302846", row);
+			vObjContact.ContactOfficePhone.setStringValue("02-48954411", row);
+			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
+			vObjContact.ContactAge.setStringValue("41", row);
+			vObjContact.ContactGender.setStringValue("Maschio", row);
+        row.applyUpdates();
 	}
 	
 

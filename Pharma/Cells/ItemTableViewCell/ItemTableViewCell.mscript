@@ -10,6 +10,7 @@ TableViewCell {
 	
 	//PictureBox picBox=new PictureBox();
 	BackgroundButton btnImage = new BackgroundButton();
+	TablePanel pnlBtnImageCont = new TablePanel();
 	Screens.PriceList.PriceListItemScreen scrPriceList;
 	ImageReference img;
 	 
@@ -42,9 +43,14 @@ TableViewCell {
 		//txtMdl.setFocusedForeColor(Colors.White);
 		//lbl.setDataModel(txtMdl);
 		
+		//set the table pnel wich contains the btnImage
+		pnlBtnImageCont.setRowHeight(0,Sizing.PIXELS,50);
+		pnlBtnImageCont.setColumnWidth(0,Sizing.PIXELS,50);
+		pnlBtnImageCont.add(btnImage,"hfill=fill, vfill=fill");
+		
 		setLabel();
 		//hz.add(picBox,alignment);
-		hz.add(btnImage,alignment);	
+		hz.add(pnlBtnImageCont,"hfill=fill, vfill=fill, halign=center, valign=center");	
 		hz.add(lblCode, alignment);
 		hz.add(lblName, alignment);
 		hz.add(lblUOM, alignment);
@@ -54,7 +60,7 @@ TableViewCell {
 		hz.add(lblQtyMin, alignment);
 		hz.add(lblQtyMax, alignment);
 		add(hz,"hfill=fill");
-		
+			
 		setInsets (0, 8, 0, 8);
 		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));
 		setFocusedBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgRedBackground, 0, 0, 0, 0));
@@ -123,7 +129,5 @@ TableViewCell {
 	void setImageReference(ImageReference ref) {
 		img=ref;
 	}
-	
-	
 
 }
