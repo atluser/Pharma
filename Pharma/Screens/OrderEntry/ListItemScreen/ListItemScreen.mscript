@@ -1,5 +1,5 @@
 Screen {
-	Screens.OrderEntry.ListItemScreen listItemScreen=null;
+	Screen listItemScreen=null;
 	Screen orderHeaderScreen =null;
 	
 	String listCode=null;
@@ -176,7 +176,8 @@ Screen {
 	}
 	
 	
-	void init(String code,String priceListCode){
+	void init(String code,String priceListCode,Screen scr){
+		orderHeaderScreen=scr;
 		listCode=priceListCode;	
 		orderCode=code;
 		//drawDetailItem(priceListCode,"");
@@ -326,6 +327,7 @@ Screen {
 		Query q1=vObjListItem.getListItem(orderCode);
 		DataRowSet rowSet=q1.getRowSet();
 		DataRow found=rowSet.first();
+		appLog.log(Log.INFO,"creating orderitem");
 		while(found!=null){						
 			found.applyUpdates();
 			
@@ -339,7 +341,7 @@ Screen {
 			Integer qty3=vObjListItem.Qty3.getIntegerValue(found);					
 			Double discount1=vObjListItem.Discount1.getDoubleValue(found);
 			Double discount2=vObjListItem.Discount2.getDoubleValue(found);
-			
+			appLog.log(Log.INFO,"orderitem product "+productCode+" qty ");
 			if(qty1==null || qty1.intValue()==0){
 				appLog.log(Log.INFO,"qty 0"+productCode);
 				found=rowSet.next();
@@ -361,6 +363,7 @@ Screen {
 			
 			row.applyUpdates();
 			found=rowSet.next();
+			appLog.log(Log.INFO,"saved orderitem for "+orderCode+ " "+productCode+" qty ");
 		}
 			
 	}
@@ -401,6 +404,7 @@ Screen {
 	
 		lbl02.setFont(fnt02);
 		lbl02.setForeColor(Color.create(255,255,255));
+		lbl02.setText(orderCode);
 	
 	}	
 	

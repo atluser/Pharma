@@ -247,9 +247,9 @@ ScrollableTablePanel {
 	}
 	
 	void save(){		
-			vObjOrder.Order1stDeliveryDate.setDateValue(dtShipDate1.getDate(),currentRow);
-			vObjOrder.Order2ndDeliveryDate.setDateValue(dtShipDate2.getDate(),currentRow);
-			vObjOrder.Order3rdDeliveryDate.setDateValue(dtShipDate3.getDate(),currentRow);
+			vObjOrder.Order1stDeliveryDate.setDateValue(mdlShipDate1.getDate(),currentRow);
+			vObjOrder.Order2ndDeliveryDate.setDateValue(mdlShipDate2.getDate(),currentRow);
+			vObjOrder.Order3rdDeliveryDate.setDateValue(mdlShipDate3.getDate(),currentRow);
 			currentRow.applyUpdates();
 		
 	}
@@ -273,24 +273,28 @@ ScrollableTablePanel {
 		Screens.OrderEntry.ListItemScreen scr1=new Screens.OrderEntry.ListItemScreen();
 		//imposto testata
 		scr1.orderCode=txtCode.getText();		
-		scr1.init(txtCode.getText(),"0001");
+		scr1.init(txtCode.getText(),"0001",scr);
 		scr1.push(0,false);
 		//scr.close();
 	}
 	
 	callback lblShipDate1 onClick(Control c){		
 		AnchorPosition anchor=new AnchorPosition();
-		anchor.setAnchor(c);
+		anchor.setAnchor(c);		
 		scr.showPopover(popShipDate1,true,anchor);
 	}
 	callback lblShipDate2 onClick(Control c){		
 		AnchorPosition anchor=new AnchorPosition();
 		anchor.setAnchor(c);
+		long date=mdlShipDate1.getDate().getTime()+86400000;
+		mdlShipDate2.setDate(Platform.createDate(date));
 		scr.showPopover(popShipDate2,true,anchor);
 	}
 	callback lblShipDate3 onClick(Control c){						
 		AnchorPosition anchor=new AnchorPosition();
 		anchor.setAnchor(c);
+		long date=mdlShipDate2.getDate().getTime()+86400000;
+		mdlShipDate3.setDate(Platform.createDate(date));		
 		scr.showPopover(popShipDate3,true,anchor);
 	}
 	

@@ -60,7 +60,7 @@ VirtualObject {
 	}
 
 	DoubleField OrderTotalDiscount {
-		return Platform.createDouble(100.0*OrderTotalNet.doubleValue()/OrderTotalGross.doubleValue());
+		return Platform.createDouble(100.0*(1.0-OrderTotalNet.doubleValue()/OrderTotalGross.doubleValue()));
 	}
 
 	//Da Eliminare	

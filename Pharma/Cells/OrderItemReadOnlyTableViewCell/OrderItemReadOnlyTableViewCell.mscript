@@ -25,7 +25,7 @@ TableViewCell {
 	Label lblTotal2=new Label();	
 	Label lblCategory=new Label();
 
-	int ncol=9;
+	int ncol=8;
 
 	Styles.FormStyle style = new Styles.FormStyle();
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){		
@@ -48,13 +48,13 @@ TableViewCell {
 		add(lblName,"halign=center");
 		add(lblCategory,"halign=center");				
 		add(lblUnitPrice,"halign=center");
-		add(txtQuantity1,"hfill=fill,halign=center");
+		add(txtQuantity1,"halign=center");
 		//add(txtQuantity2,"hfill=fill,halign=center");						
 		//add(txtQuantity3,"hfill=fill,halign=center");
-		add(txtDiscount1,"hfill=fill,halign=center");
-		add(txtDiscount2,"hfill=fill,halign=center");
-		add(lblTotal1,"halign=center");
-		add(lblTotal2,"halign=center");
+		add(txtDiscount1,"halign=center");
+		add(txtDiscount2,"halign=center");
+		//add(lblTotal1,"halign=center");
+		//add(lblTotal2,"halign=center");
 		
 		for (int i=0;i<ncol;i++)						
 			setColumnWidth(i, Sizing.PERCENTS, 100/ncol);
@@ -82,6 +82,9 @@ TableViewCell {
 		lblProductCode.setForeColor(Colors.Black);	
 		lblName.setFont(fnt);
 		lblName.setForeColor(Colors.Black);
+		lblCategory.setFont(fnt);
+		lblCategory.setForeColor(Colors.Black);
+		
 		lblUnitPrice.setFont(fnt);
 		lblUnitPrice.setForeColor(Colors.Black);
 		txtQuantity1.setFont(fnt);
@@ -115,14 +118,38 @@ TableViewCell {
 		Double unitPrice=vObjOrderItem.OrderItemProductPrice.getCurrencyValue(row);
 		if(unitPrice!=null)	lblUnitPrice.setText(unitPrice.toString());
 		appLog.log(Log.INFO,"set productPrice ");
+		/*
+		
 		lblTotal1.setText(vObjOrderItem.OrderItemTotalGross.getCurrencyValue(row).toString());
 		appLog.log(Log.INFO,"set total1 ");
 		lblTotal2.setText(vObjOrderItem.OrderItemTotalNet.getCurrencyValue(row).toString());
 		appLog.log(Log.INFO,"set total2 ");
 		
-		switch(grp){
-			case 0:
+		*/
+		lblCategory.setText(vObjOrderItem.OrderItemProductCategory.getStringValue(row));
+		/*
+		
+		Double TOT2=vObjOrderItem.OrderItemTotalGross.getCurrencyValue(row);
+		double tot2=0.0;
+		if(TOT2!=null) tot2=TOT2.doubleValue();
+		
+		
+		Double TOT1=vObjOrderItem.OrderItemTotalNet.getCurrencyValue(row);
+		double tot1=0.0;
+		if(TOT1!=null) tot1=TOT1.doubleValue();
+		
+		int totQty=vObjOrderItem.OrderItemTotalQty.getIntegerValue(row).intValue();
+		*/
+		switch(grp){			
+			case 0:							
 				txtQuantity1.setDataModel(numMdlQuantity1);
+				/*
+				int qty=vObjOrderItem.OrderItemQty1.getIntegerValue(row).intValue();
+				double tot=tot2/totQty*qty;				
+				lblTotal1.setText(""+tot);				
+				tot=tot1/totQty*qty;
+				lblTotal2.setText(""+tot);
+				*/
 				break;
 			case 1:
 				txtQuantity1.setDataModel(numMdlQuantity2);
@@ -131,6 +158,7 @@ TableViewCell {
 				txtQuantity1.setDataModel(numMdlQuantity3);
 				break;		
 		}
+		
 		
 		setRow(row);		
 			
