@@ -4719,6 +4719,9 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
       </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderItemHeaderHorizontalPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItemHeaderHorizontalPanel.mscript"/>
+      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderItemStickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItemStickyTablePanel.mscript"/>
       </children>

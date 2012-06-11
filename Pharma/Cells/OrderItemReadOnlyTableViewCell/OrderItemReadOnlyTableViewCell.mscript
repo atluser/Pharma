@@ -23,9 +23,9 @@ TableViewCell {
 	Label lblUnitPrice=new Label();
 	Label lblTotal1=new Label();
 	Label lblTotal2=new Label();	
-	
+	Label lblCategory=new Label();
 
-	int ncol=11;
+	int ncol=9;
 
 	Styles.FormStyle style = new Styles.FormStyle();
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){		
@@ -45,11 +45,12 @@ TableViewCell {
 		setBackColor(Colors.White);
 		add(picBox,"halign=center");
 		add(lblProductCode,"halign=center");
-		add(lblName,"halign=center");		
+		add(lblName,"halign=center");
+		add(lblCategory,"halign=center");				
 		add(lblUnitPrice,"halign=center");
 		add(txtQuantity1,"hfill=fill,halign=center");
-		add(txtQuantity2,"hfill=fill,halign=center");						
-		add(txtQuantity3,"hfill=fill,halign=center");
+		//add(txtQuantity2,"hfill=fill,halign=center");						
+		//add(txtQuantity3,"hfill=fill,halign=center");
 		add(txtDiscount1,"hfill=fill,halign=center");
 		add(txtDiscount2,"hfill=fill,halign=center");
 		add(lblTotal1,"halign=center");
@@ -61,10 +62,11 @@ TableViewCell {
 		setInsets (0, 8, 0, 8);
 		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));
 		
+		/*
 		txtQuantity1.setDataModel(numMdlQuantity1);
 		txtQuantity2.setDataModel(numMdlQuantity2);
 		txtQuantity3.setDataModel(numMdlQuantity3);
-		
+		*/
 		txtDiscount1.setDataModel(numMdlDiscount1);
 		txtDiscount2.setDataModel(numMdlDiscount2);
 		
@@ -98,7 +100,7 @@ TableViewCell {
 		lblTotal2.setForeColor(Colors.Black);				
 	}
 			
-	void populateData(DataRow row){		
+	void populateData(DataRow row, int grp){		
 		String image=vObjOrderItem.OrderItemProductImage.getStringValue(row);
 		appLog.log(Log.INFO,"getting image "+image);
 		ImageReference img=(ImageReference)productImageMap.getValue(image);
@@ -117,6 +119,19 @@ TableViewCell {
 		appLog.log(Log.INFO,"set total1 ");
 		lblTotal2.setText(vObjOrderItem.OrderItemTotalNet.getCurrencyValue(row).toString());
 		appLog.log(Log.INFO,"set total2 ");
+		
+		switch(grp){
+			case 0:
+				txtQuantity1.setDataModel(numMdlQuantity1);
+				break;
+			case 1:
+				txtQuantity1.setDataModel(numMdlQuantity2);
+				break;
+			case 2:
+				txtQuantity1.setDataModel(numMdlQuantity3);
+				break;		
+		}
+		
 		setRow(row);		
 			
 	}
