@@ -6,6 +6,9 @@ TablePanel {
 	 String listCode="0001";
 	 String orderCode="";
 	 
+	 //array to  group shipDate
+	 ObjectArray dateObjArray=new ObjectArray();
+	 
 	StickyTable stk = new StickyTable();
 	//RowSetModel rsm = new RowSetModel();
 	MultiRowSetModel rsm=new MultiRowSetModel();
@@ -77,7 +80,7 @@ TablePanel {
 		
 		DataRow dtRw = info.getDataRow();
 		if(!dtRw.isDeleted()){		
-			tblVwCell.populateData(dtRw);
+			tblVwCell.populateData(dtRw,grp);
 	
 		/*
 			String strCode = vObjPriceListItem.ProductCode.getStringValue(dtRw);
@@ -203,31 +206,49 @@ TablePanel {
 	void setDetailFormPanel(Panels.Account.ReadOnlyDetailFormPanel pnl) {
 		pnlDetailForm = pnl;
 	}
-	
+	void init (String code){
+		orderCode=code;
+		Query q=vObjOrder.getOrderRow(orderCode);
+		if(q!=null){
+			DataRowSet set=q.getRowSet();
+			DataRow dtRow=set.first();				
+			if(dtRow!=null){								
+				dateObjArray.insertItem(0,vObjOrder.Order1stDeliveryDate.getDateValue(dtRow));
+				if (vObjOrder.Order2ndDeliveryDate.getDateValue(dtRow)!=null) 
+					dateObjArray.insertItem(1,vObjOrder.Order2ndDeliveryDate.getDateValue(dtRow));
+				if (vObjOrder.Order3rdDeliveryDate.getDateValue(dtRow)!=null) dateObjArray.insertItem(2,vObjOrder.Order3rdDeliveryDate.getDateValue(dtRow));
+			}
+		}
+		
+	}
 	void setQuery(String val){
 		//clean before start
 		rsm.clear();
 		arr.removeAllItems();
-		Query q=vObjLOV.getLOV("PRODUCT_CATEGORY");
-		DataRowSet set=q.getRowSet();
-		DataRow dtRow=set.first();		
-		while(dtRow!=null){
-			String category=vObjLOV.Value.getStringValue(dtRow);
+		for (int i=0;i<dateObjArray.length();i++){
+			Date date=(Date)dateObjArray.getItem(i);		
 			RowSetModel rsm1 = new RowSetModel();
-			rsm1.setRows(vObjOrderItem.getListItemByCategory(orderCode,category,val));
-			
-			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - " + category+" : " + rsm1.getRowCount(0));
+			switch(i){
+				case 0:
+					rsm1.setRows(vObjOrderItem.getListItemByDate1(orderCode,val));
+					break;
+				case 1:
+					rsm1.setRows(vObjOrderItem.getListItemByDate2(orderCode,val));
+					break;
+				case 2:
+					rsm1.setRows(vObjOrderItem.getListItemByDate3(orderCode,val));
+					break;					
+			}								
 			
 			if(rsm1.getRowCount(0) > 0) {
 				
 				rsm.add(rsm1);
-				arr.insertItem(rsm.getGroupCount() - 1, category);	
+				arr.insertItem(rsm.getGroupCount() - 1, date.toString());	
 				//pnlIndex.enableIndexLinks(i);	
 			}
-							
-			dtRow=set.next();
+											
 		}
-		stk.setNumberOfGroups(set.getSize());	
+		stk.setNumberOfGroups(dateObjArray.length());	
 				
 	}					
 }

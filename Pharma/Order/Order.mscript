@@ -111,4 +111,8 @@ VirtualObject {
 		ascendingBy OrderCode;
 	}	
 	
+	query getOrder<String orderCode>{
+		where OrderCode==orderCode;		
+	
+	}
 }

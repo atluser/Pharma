@@ -76,5 +76,22 @@ VirtualObject {
 		ascendingBy OrderItemProductCalc;
 	}
 	
-	
+	query getListItemByDate1<String orderCode,String val>{
+		where OrderCode==orderCode;
+		where OrderItemQty1>0;
+		where OrderItemProductCalc contains val;
+		ascendingBy OrderItemProductCalc;
+	}
+	query getListItemByDate2<String orderCode,String val>{
+		where OrderCode==orderCode;
+		where OrderItemQty2>0;
+		where OrderItemProductCalc contains val;
+		ascendingBy OrderItemProductCalc;
+	}
+	query getListItemByDate3<String orderCode,String val>{
+		where OrderCode==orderCode;
+		where OrderItemQty3>0;
+		where OrderItemProductCalc contains val;
+		ascendingBy OrderItemProductCalc;
+	}
 }
