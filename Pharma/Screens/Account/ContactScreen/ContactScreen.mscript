@@ -72,14 +72,18 @@ Screen {
 		pnlMaster.setContentPanel(stk);
 		pnlDetailForm.setFromAccountFlag(true);
 		pnlDetailForm.setContactScreen((Screens.Account.ContactScreen) container);
+		pnlDetailForm.setFirstRecord();
 		
-		pnlDetail.setContentPanel(pnlDetailForm);			
+		pnlDetail.setContentPanel(pnlDetailForm);	
+		DataRow firstRow = vObjContact.getContactsFromAccount(sAccountCode).getRowSet().first();
+		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow) + " " + vObjContact.ContactLastName.getStringValue(firstRow));		
 		
 		stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);
+
 		if(stk.rsm.hasMoreRows(0)){
-			stk.stk.scrollTo(0,0,TableView.SCROLL_POSITION_NONE);
-			stk.stk.select(0,0);
+		 stk.stk.scrollTo(0,0,TableView.SCROLL_POSITION_NONE);
+		 stk.stk.select(0,0);
 		}		
 		
 	 	

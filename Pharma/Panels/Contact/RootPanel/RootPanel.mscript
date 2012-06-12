@@ -17,10 +17,11 @@ BorderPanel {
 		pnlMaster.setContentPanel(stk);
 		
 		pnlDetailForm.setDetailPanel(pnlDetail);
-		
+		pnlDetailForm.setFirstRecord();
 		// Detail Panel
 		pnlDetail.setContentPanel(pnlDetailForm);
-		
+		DataRow firstRow = vObjContact.getContacts().getRowSet().first();
+		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow) + " " + vObjContact.ContactLastName.getStringValue(firstRow));
 		
 		
 		stk.setDetailPanel(pnlDetail);

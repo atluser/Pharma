@@ -57,6 +57,8 @@ TablePanel {
 		 *	pnlDetailForm.setRow(mrsm.getRow());
 		*/
 		//stk.select(1,1);
+		stk.select(0,0);
+		
 	}
 	
 	///////////////////////////////
@@ -110,7 +112,7 @@ TablePanel {
 	////////////////////////////
 	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
 		//info.setPanel(new Panels.AccountHeaderTableViewPanel());
-		 Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+		 Cells.SectionHeaderCell header=new Cells.SectionHeaderCell();
 			header.enableDirectionalScroll(true); 
 			//header.lbl.setText(letterList.getItem(group));
 			info.setPanel(header); 
@@ -124,7 +126,7 @@ TablePanel {
 	}
 	
 	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
-		Panels.Cells.SectionHeaderCell header = (Panels.Cells.SectionHeaderCell)cell;
+		Cells.SectionHeaderCell header = (Cells.SectionHeaderCell)cell;
 		header.lbl.setText(arr.getItem(grp));
 	}		
 		
