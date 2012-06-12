@@ -225,6 +225,30 @@ Screen {
 		return result;
 	 }
 	 */
+	 
+	 void setUpLabels() {
+		
+		Font fnt01 = new Font();
+		fnt01.setSize(24);
+		fnt01.setFamily("Arial");
+		//fnt01.setBold();
+		
+		Font fnt02 = new Font();
+		fnt02.setSize(24);
+		fnt02.setFamily("Arial");
+		fnt02.setBold();
+		
+		//Label lbl = new Label();
+		lbl01.setText(" Cliente: ");
+		lbl01.setFont(fnt01);
+		lbl01.setForeColor(Color.create(255,255,255));
+	
+		lbl02.setFont(fnt02);
+		lbl02.setForeColor(Color.create(255,255,255));
+		lbl02.setText(fp.lblAccountName.getText());
+	
+	}
+	 
 	void setUpButtons() {
 				
 		btnHome.setImage(Images.VodafoneImages.img_logo_vodafone.getImage());
