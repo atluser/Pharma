@@ -6,6 +6,7 @@ Screen {
 	Panels.Contact.StickyTablePanel stk = new Panels.Contact.StickyTablePanel();
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Contact.ReadOnlyDetailFormPanel();
 	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
+	BorderPanel brdPanelRoot = new BorderPanel();
 	
 	Button btnHome = new Button();
 	Button btnBack = new Button();
@@ -18,6 +19,8 @@ Screen {
 	Label lbl02 = new Label();
 	
 	String sAccountCode = "";
+	
+	String fill = "hfill=fill, vfill=fill";
 	
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
 		//Styles.FormStyle style = new Styles.FormStyle();
@@ -89,12 +92,24 @@ Screen {
 	 	
 		
 		// Root Panel
-		BorderPanel pnlRoot = new BorderPanel();
-		pnlRoot.setNorth(pnlHeader);
-		pnlRoot.setWest(pnlMaster);
-	 	pnlRoot.setEast(pnlDetail);
+		TablePanel pnlRoot = new TablePanel();
+		
+		//set rootpanel dimensions and layout
+		pnlRoot.setRowHeight(0,Sizing.PREFERRED,1);
+		pnlRoot.setColumnWidth(0, Sizing.PIXELS, 350);
+		pnlRoot.setColumnWidth(1, Sizing.PREFERRED, 1);
+		
+		//adding  panesls to root panel
+		pnlRoot.add(pnlMaster, fill);
+	 	pnlRoot.add(pnlDetail, fill);
 	 	pnlRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-	 	add(pnlRoot, "hfill=fill, vfill=fill");
+	 	
+	 	//put the header and the root in the border panel
+	 	brdPanelRoot.setNorth(pnlHeader);
+	 	brdPanelRoot.setCenter(pnlRoot);
+	 	
+	 	add(brdPanelRoot, fill);
+	 	
 		/*pnlRoot.add(pnlHeader,"colspan=2,hfill=fill");
 		pnlRoot.startNewRow();
 		pnlRoot.add(pnlMaster,"hfill=fill,vfill=fill");

@@ -27,9 +27,11 @@ Screen {
 		logApp.log(Log.INFO, "HomeScreen - onCreate()");
 				
 		// Body Panel
-		Panels.Account.RootPanel pnlAccountRoot = new Panels.Account.RootPanel();
+		//Panels.Account.RootPanel pnlAccountRoot = new Panels.Account.RootPanel();
+		Panels.Account.RootTablePanel pnlAccountRoot = new Panels.Account.RootTablePanel();
 		Panels.Activity.RootPanel pnlActivityRoot = new Panels.Activity.RootPanel();
-		Panels.Contact.RootPanel pnlContactRoot = new Panels.Contact.RootPanel();
+		//Panels.Contact.RootPanel pnlContactRoot = new Panels.Contact.RootPanel();
+		Panels.Contact.RootTablePanel pnlContactRoot = new Panels.Contact.RootTablePanel();
 		//Panels.Order.RootPanel pnlOrderRoot = new Panels.Order.RootPanel();
 		Panels.Order.RootTablePanel pnlOrderRoot = new Panels.Order.RootTablePanel();
 		Panels.ServiceRequest.RootPanel pnlServiceRequestRoot = new Panels.ServiceRequest.RootPanel();

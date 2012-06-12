@@ -1,0 +1,41 @@
+TablePanel {
+	
+	Panels.Contact.StickyTablePanel stk = new Panels.Contact.StickyTablePanel();
+	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Contact.ReadOnlyDetailFormPanel();
+	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();	 
+	
+	String fill = "hfill=fill, vfill=fill";
+	
+	callback onCreate(Container c) {
+		
+		//setting the layout of the root panel
+		setRowHeight(0,Sizing.PREFERRED,1);
+		setColumnWidth(0, Sizing.PIXELS, 350);
+		setColumnWidth(1, Sizing.PREFERRED, 1);
+		
+		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();		 		
+		pnlMaster.setContentPanel(stk);
+		
+		pnlDetailForm.setDetailPanel(pnlDetail);
+		pnlDetailForm.setFirstRecord();
+		// Detail Panel
+		pnlDetail.setContentPanel(pnlDetailForm);
+		DataRow firstRow = vObjContact.getContacts().getRowSet().first();
+		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow) + " " + vObjContact.ContactLastName.getStringValue(firstRow));
+		
+		
+		stk.setDetailPanel(pnlDetail);
+		stk.setDetailFormPanel(pnlDetailForm);
+		if(stk.rsm.hasMoreRows(0)){
+			stk.stk.scrollTo(0,0,TableView.SCROLL_POSITION_NONE);
+			stk.stk.select(0,0);
+		}	
+		add(pnlMaster, fill);
+		add(pnlDetail, fill);
+	}
+	
+	StickyTable getStickyTable(){
+		return stk.stk;	
+	}
+	
+}

@@ -58,6 +58,7 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Products.mscript" hidden="true"/>
       <images name="Aspirina"/>
       <images name="Defenflu"/>
+      <images name="Info"/>
       <images name="Lasonil"/>
       <images name="Lenigola"/>
       <images name="Lenitos"/>
@@ -259,6 +260,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Info">
         <properties/>
         <properties/>
         <properties/>
@@ -772,6 +779,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Info">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Products.Lasonil">
         <properties/>
         <properties/>
@@ -1269,6 +1282,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Info">
         <properties/>
         <properties/>
         <properties/>
@@ -1776,6 +1795,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Info">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Inform">
         <properties/>
         <properties/>
@@ -1902,6 +1927,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Info">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/info.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/INFO.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Products.Lasonil">
         <properties/>
         <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/lasonil.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LASONIL.PNG"/>
@@ -1945,6 +1976,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Products.defenflu">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.image">
         <properties/>
         <properties/>
         <properties/>
@@ -2497,6 +2534,9 @@
       <imagePaths name="Products.Defenflu">
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Info">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Products.Lasonil">
         <properties/>
       </imagePaths>
@@ -2748,6 +2788,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Info">
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Lasonil">
@@ -3030,6 +3073,10 @@
         <properties string="/Users/admin/Desktop/VF/images/popover/img_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_BACKGROUND.PNG"/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Info">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Inform">
         <properties/>
         <properties/>
@@ -3114,6 +3161,10 @@
         <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/defenflu.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/DEFENFLU.PNG"/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Info">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/info.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/INFO.PNG"/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Products.Lasonil">
         <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/lasonil.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LASONIL.PNG"/>
         <properties/>
@@ -3143,6 +3194,10 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Products.defenflu">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.image">
         <properties/>
         <properties/>
       </imagePaths>
@@ -3528,6 +3583,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Info">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Products.Lasonil">
         <properties/>
         <properties/>
@@ -3837,6 +3896,9 @@
       <imagePaths name="Products.Defenflu">
         <properties/>
       </imagePaths>
+      <imagePaths name="Products.Info">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Products.Lasonil">
         <properties/>
       </imagePaths>
@@ -4088,6 +4150,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Info">
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Lasonil">
@@ -4343,6 +4408,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Defenflu">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Products.Info">
         <properties/>
       </imagePaths>
       <imagePaths name="Products.Lasonil">
@@ -4660,6 +4728,9 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
       </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootTablePanel.mscript"/>
+      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
       </children>
@@ -4707,6 +4778,9 @@
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootTablePanel.mscript"/>
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
@@ -4800,6 +4874,9 @@
     </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Popups">
+    <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="ProductInfo">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ProductInfo.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="ProvincePopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ProvincePopup.mscript"/>
     </children>

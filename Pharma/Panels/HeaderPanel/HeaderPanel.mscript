@@ -11,9 +11,9 @@ HorizontalPanel {
 	int currentEntity=0; 
 
 	StackPanel stkPnl;
-	Panels.Account.RootPanel pnlAccountRoot;
+	Panels.Account.RootTablePanel pnlAccountRoot;
 	Panels.Activity.RootPanel pnlActivityRoot;
-	Panels.Contact.RootPanel pnlContactRoot;
+	Panels.Contact.RootTablePanel pnlContactRoot;
 	//Panels.Order.RootPanel pnlOrderRoot;
 	Panels.Order.RootTablePanel pnlOrderRoot;
 	Panels.ServiceRequest.RootPanel pnlServiceRequestRoot;
@@ -462,7 +462,7 @@ HorizontalPanel {
 		stkPnl = stk;	
 	}
 
-	void setAccountRootPanel(Panels.Account.RootPanel account){
+	void setAccountRootPanel(Panels.Account.RootTablePanel account){
 		pnlAccountRoot = account;	
 	}
 
@@ -470,7 +470,7 @@ HorizontalPanel {
 		pnlActivityRoot = activity;	
 	}
 
-	void setContactRootPanel(Panels.Contact.RootPanel contact){
+	void setContactRootPanel(Panels.Contact.RootTablePanel contact){
 		pnlContactRoot = contact;	
 	}
 

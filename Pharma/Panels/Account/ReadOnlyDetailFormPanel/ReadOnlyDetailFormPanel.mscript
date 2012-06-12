@@ -75,6 +75,7 @@ ScrollableTablePanel {
 	Label txtFldNumberOfEmployee = new Label();
 	
 	int iNumberOfOrders = 0;
+	int iNumberOfContacts = 0;
 		
 	/*
 	 * Callback methods
@@ -395,7 +396,7 @@ ScrollableTablePanel {
 		fnt.setBold();
 		
 		btn01.setFont(fnt);
-		btn01.setText(StringConstants.TBB_CONTACTS_STR.getString());
+		btn01.setText(StringConstants.TBB_CONTACTS_STR.getString() + " (" + iNumberOfContacts + ")");
 		//btn01.setText("Contatti");
 		btn01.setLeftSpacing(48);
 		btn01.setForeColor(Colors.Black);
@@ -494,7 +495,12 @@ ScrollableTablePanel {
 		if(vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet() != null)
 			iNumberOfOrders = vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet().getSize();
 			btn03.setText(StringConstants.TBB_ORDERS_STR.getString() + " (" + iNumberOfOrders + ")");
-		
+			
+		if(vObjContact.getContactsFromAccount(txtFldCode.getText()).getRowSet() != null) {
+			iNumberOfContacts = vObjContact.getContactsFromAccount(txtFldCode.getText()).getRowSet().getSize();
+		}
+		btn01.setText(StringConstants.TBB_CONTACTS_STR.getString() + " (" + iNumberOfContacts + ")");
+	
 		txtMdlName.setRow(dtRw);
 		txtMdlName.setText(vObjAccount.AccountName.getStringValue(dtRw));
 		txtFldName.setDataModel(txtMdlName);

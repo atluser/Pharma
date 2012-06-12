@@ -1,0 +1,46 @@
+TablePanel {
+	
+	StickyTablePanel stk = new StickyTablePanel();
+	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Account.ReadOnlyDetailFormPanel();	 
+	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
+	
+	String fill = "hfill=fill, vfill=fill";
+
+	callback onCreate(Container c) {
+		
+		logApp.log(Log.INFO, "RootPanel - onCreate()");
+		
+		// Master Panel		
+		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
+		pnlMaster.setContentPanel(stk);
+		
+		// Detail Panel
+		//Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
+		pnlDetail.setContentPanel(pnlDetailForm);
+		
+		stk.setDetailPanel(pnlDetail);
+		stk.setDetailFormPanel(pnlDetailForm);
+		if(stk.rsm.hasMoreRows(0)){
+			stk.stk.scrollTo(0,0,TableView.SCROLL_POSITION_NONE);
+			stk.stk.select(0,0);
+		}		
+		
+		//setting the layout of the root panel
+		setRowHeight(0,Sizing.PREFERRED,1);
+		setColumnWidth(0, Sizing.PIXELS, 350);
+		setColumnWidth(1, Sizing.PREFERRED, 1);
+		
+	 	add(pnlMaster, fill);
+	 	add(pnlDetail, fill);
+	 	setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+	 	
+	}
+	
+	/*
+	 * Custom methods
+	 */  	
+	StickyTable getStickyTable(){
+		return stk.stk;	
+	}
+	
+}
