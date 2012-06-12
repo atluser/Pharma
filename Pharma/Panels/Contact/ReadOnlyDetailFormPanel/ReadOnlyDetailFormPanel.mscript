@@ -19,6 +19,7 @@ ScrollableTablePanel {
 	FormPanel pnlForm03 = new FormPanel();
 	
 	Panels.HeaderPanel pnlHeader;
+	Panels.DetailPanel pnlDetail;
 	
 	//-- DATI ANAGRAFICI --
 	
@@ -156,11 +157,14 @@ ScrollableTablePanel {
 		setRowHeight(13, Sizing.PREFERRED, 0);
 		*/
 		
-		DataRow firstRow = vObjContact.getContacts().getRowSet().first();
+		/*
+		 DataRow firstRow = vObjContact.getContacts().getRowSet().first();
 		logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: number of rows: " + vObjContact.getContacts().getRowSet().getSize());
 		logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjContact.ContactName.getStringValue(firstRow));
 		setRow(firstRow);
-		
+		logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: row setted");
+		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow));
+		*/
 	}	
 	
 	callback rchBtnAddress onClick(Control c) {
@@ -536,6 +540,9 @@ ScrollableTablePanel {
 		fromAccountFlag = b;
 	}
 	
+	void setDetailPanel (Panels.DetailPanel pnl) {
+		pnlDetail = pnl;
+	}
 	
 	
 	/*

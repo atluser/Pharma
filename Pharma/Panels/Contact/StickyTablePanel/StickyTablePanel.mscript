@@ -52,11 +52,11 @@ TablePanel {
 		
 		/*	stk.scrollTo(0,0,StickyTable.SCROLL_POSITION_TOP);
 		 *	stk.select(0,0);
-		 *	logApp.log(Log.INFO, "ContactStickyTablePanel::onCreated - Row 0,0 selected: "+ vObjContact.ContactName.getStringValue(mrsm.getRow()));
+		 *	logApp.log(Log.INFO, "ContactStickyTablePanel::onCreate - Row 0,0 selected: "+ vObjContact.ContactName.getStringValue(mrsm.getRow()));
 		 *	pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(mrsm.getRow()));
 		 *	pnlDetailForm.setRow(mrsm.getRow());
 		*/
-		
+		//stk.select(1,1);
 	}
 	
 	///////////////////////////////

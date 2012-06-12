@@ -138,6 +138,8 @@ ScrollableTablePanel {
 		*/
 		
 		DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
+		logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: number of rows: " + vObjAccount.getAccounts().getRowSet().getSize());
+		logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjAccount.AccountName.getStringValue(firstRow));
 		setRow(firstRow);
 		
 	}	

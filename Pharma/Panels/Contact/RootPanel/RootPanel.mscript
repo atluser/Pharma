@@ -16,8 +16,12 @@ BorderPanel {
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();		 		
 		pnlMaster.setContentPanel(stk);
 		
+		pnlDetailForm.setDetailPanel(pnlDetail);
+		
 		// Detail Panel
 		pnlDetail.setContentPanel(pnlDetailForm);
+		
+		
 		
 		stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);

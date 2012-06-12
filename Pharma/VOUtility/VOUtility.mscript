@@ -1154,7 +1154,7 @@ UIObject {
 	
 	void loadContact() {
 		
-		DataRow row = vObjContact.getNewRow();
+		DataRow row;
 		
 		row = vObjContact.getNewRow();
 			vObjContact.ContactId.setStringValue("00000001", row);
