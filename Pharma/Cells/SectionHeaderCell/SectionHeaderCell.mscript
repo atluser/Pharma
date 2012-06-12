@@ -1,10 +1,10 @@
 TableViewPanel {
 	
 	Label lbl = new Label(); 
-	
+	Font fnt = new Font();
 	callback onCreate(Container c){
 		
-		Font fnt = new Font();
+		
 		fnt.setSize(18);
 		fnt.setFamily("Arial");
 		fnt.setBold();

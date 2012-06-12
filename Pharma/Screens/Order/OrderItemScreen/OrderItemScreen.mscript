@@ -1,5 +1,5 @@
 Screen {
-	Screen lineItemScreen=null;
+	Screen listItemScreen=null;
 	Screen orderHeaderScreen=null;
 	String listCode=null;
 	String orderCode=null;
@@ -61,7 +61,7 @@ Screen {
 		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,1);
 		add(pnlHeader,"hfill=fill");		
 	
-		Panels.OrderEntry.ItemHeaderHorizontalPanel pnlHeader2= new Panels.OrderEntry.ItemHeaderHorizontalPanel();
+		//Panels.Order.OrderItemHeaderHorizontalPanel pnlHeader2= new Panels.Order.OrderItemHeaderHorizontalPanel();
 		//add(pnlHeader2,null);
 		//add(pnlSearch,"hfill=fill");
 		
@@ -80,7 +80,7 @@ Screen {
 		
 		
 		//pnl.startNewRow();
-		btnConfirm.setText("Conferma");
+		btnConfirm.setText("Sottometti");
 		btnConfirm.setLeftSpacing(50);	
 		btnConfirm.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
 		btnConfirm.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgOrdersList, 50, 30, 0, 0));
@@ -99,7 +99,7 @@ Screen {
 		pnl.setRowHeight(2, Sizing.PREFERRED,1);
 		pnl.setRowHeight(3, Sizing.PREFERRED,0);*/
 		add(new Separator(),"");		
-		//add(pnl,"halign=center");
+		add(pnl,"halign=center");
 			
 		//hp.setContainer((Screen)container);
 		
@@ -163,16 +163,25 @@ Screen {
 		close();
 	}
 	
-	
+	callback btnConfirm onClick(Control c){
+		close();
+		appLog.log(Log.INFO,"closing listItem");
+		listItemScreen.close();
+		appLog.log(Log.INFO,"listItem closed");
+		appLog.log(Log.INFO,"closing headerscreen");
+		orderHeaderScreen.close();
+		appLog.log(Log.INFO,"headerscreen closed");
+	}
 	
 	void init(String code,Screen scr,Screen scr2){
-		lineItemScreen=scr;		
+		listItemScreen=scr;		
 		orderHeaderScreen=scr2;
 		orderCode=code;
 	//	drawDetailItem(priceListCode,"");
 	//	loadListItem(priceListCode);
-		stk.orderCode=orderCode;
-		stk.setQuery("");
+	//	stk.orderCode=orderCode;		
+	//	stk.setQuery("");
+		stk.init(orderCode);
 	}
 	
 		
@@ -213,7 +222,7 @@ Screen {
 	
 		lbl02.setFont(fnt02);
 		lbl02.setForeColor(Color.create(255,255,255));
-	
+		lbl02.setText(orderCode);
 	}	
 	
 }

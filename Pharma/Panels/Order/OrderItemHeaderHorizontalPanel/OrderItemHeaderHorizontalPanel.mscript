@@ -11,11 +11,11 @@ HorizontalPanel {
 	Label lblQty3=new Label();
 	Label lblTotal1=new Label();
 	Label lblTotal2=new Label();
-	
+	Label lblCategory=new Label();
 	//TextModel txtMdl = new TextModel();
 	Styles.FormStyle style = new Styles.FormStyle();
 	String alignment="halign=center";
-	int ncol=9;
+	int ncol=8;
 	
 	callback onCreate(Container container){
 
@@ -34,14 +34,15 @@ HorizontalPanel {
 		add(lblImage, alignment);	
 		add(lblCode, alignment);
 		add(lblName, alignment);		
+		add(lblCategory, alignment);
 		add(lblPrice, alignment);			
 		add(lblQty1,alignment);
-		add(lblQty2,alignment);
-		add(lblQty3,alignment);		
+		//add(lblQty2,alignment);
+		//add(lblQty3,alignment);		
 		add(lblDiscount1, alignment);
 		add(lblDiscount2, alignment);
-		add(lblTotal1, alignment);
-		add(lblTotal2, alignment);
+		//add(lblTotal1, alignment);
+		//add(lblTotal2, alignment);
 		setInsets (8, 8, 8, 8);
 		
 		//setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));		
@@ -61,7 +62,7 @@ HorizontalPanel {
 	void setLabel(){
 		lblCode.setText("Codice");		
 		lblName.setText("Nome");
-		
+		lblCategory.setText("Category");
 		lblPrice.setText("Prezzo");
 		lblImage.setText("Immagine");
 		lblDiscount1.setText("Sconto %");

@@ -51,6 +51,10 @@ VirtualObject {
 		return Platform.createDouble(0.0);
 	}
 	
+	IntegerField OrderItemTotalQty{
+		return Platform.createInteger(OrderItemQty1.intValue()+OrderItemQty2.intValue()+OrderItemQty3.intValue());
+	}
+	
 	CurrencyField OrderItemTotalGross {
 		return Platform.createDouble(1.0*(OrderItemQty1.intValue()+OrderItemQty2.intValue()+OrderItemQty3.intValue())*OrderItemProductPrice.doubleValue());
 	}

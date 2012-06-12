@@ -17,14 +17,14 @@ TablePanel {
 	Panels.DetailPanel pnlDetail;
 	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm;
 	
-	Array arr = new Array();
+	ObjectArray arr = new ObjectArray();
 	
 	Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
 	SearchField tblSearch =pnlSearch.search;
 	//Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
 	
 	
-	Panels.OrderEntry.ItemHeaderHorizontalPanel pnlHeader= new Panels.OrderEntry.ItemHeaderHorizontalPanel();
+	Panels.Order.OrderItemHeaderHorizontalPanel pnlHeader= new Panels.Order.OrderItemHeaderHorizontalPanel();
 	Font fnt=new Font();
 	/*
 	 * Callback methods
@@ -151,9 +151,14 @@ TablePanel {
 		cell.setWidth(Sizing.PERCENTS, 100);
 	}
 	
-	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {	
+	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
+		appLog.log(Log.INFO,"date group "+grp);	
 			Panels.Cells.SectionHeaderCell header = (Panels.Cells.SectionHeaderCell)cell;
-			header.lbl.setText(arr.getItem(grp));			
+		
+			DateModel mdlDate=(DateModel)arr.getItem(grp);
+			Date date=mdlDate.getDate();			
+			header.lbl.setText(date.toString());
+			//header.lbl.setDataModel(mdlDate);			
 	}
 			
 		
@@ -219,14 +224,20 @@ TablePanel {
 				if (vObjOrder.Order3rdDeliveryDate.getDateValue(dtRow)!=null) dateObjArray.insertItem(2,vObjOrder.Order3rdDeliveryDate.getDateValue(dtRow));
 			}
 		}
-		
+		setQuery("");
 	}
 	void setQuery(String val){
 		//clean before start
 		rsm.clear();
 		arr.removeAllItems();
+		appLog.log(Log.INFO," query for order "+orderCode);
 		for (int i=0;i<dateObjArray.length();i++){
-			Date date=(Date)dateObjArray.getItem(i);		
+			Date date=(Date)dateObjArray.getItem(i);	
+			DateModel mdlDate=new DateModel();
+		
+			mdlDate.setForeColor(Color.create(255,255,255));
+			mdlDate.setDate(date);
+			mdlDate.setStyle(DateStyles.DATE_MEDIUM	);	
 			RowSetModel rsm1 = new RowSetModel();
 			switch(i){
 				case 0:
@@ -243,7 +254,7 @@ TablePanel {
 			if(rsm1.getRowCount(0) > 0) {
 				
 				rsm.add(rsm1);
-				arr.insertItem(rsm.getGroupCount() - 1, date.toString());	
+				arr.insertItem(rsm.getGroupCount() - 1, mdlDate);	
 				//pnlIndex.enableIndexLinks(i);	
 			}
 											

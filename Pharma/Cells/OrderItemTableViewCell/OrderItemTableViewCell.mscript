@@ -23,7 +23,7 @@ TableViewCell {
 	Label lblUnitPrice=new Label();
 	Label lblTotal1=new Label();
 	Label lblTotal2=new Label();	
-	
+	Label lblCategory=new Label();
 
 	int ncol=11;
 
@@ -45,7 +45,8 @@ TableViewCell {
 		setBackColor(Colors.White);
 		add(picBox,"halign=center");
 		add(lblProductCode,"halign=center");
-		add(lblName,"halign=center");		
+		add(lblName,"halign=center");
+		//add(lblCategory,"halign=center");		
 		add(lblUnitPrice,"halign=center");
 		add(txtQuantity1,"hfill=fill,halign=center");
 		add(txtQuantity2,"hfill=fill,halign=center");						
@@ -85,14 +86,19 @@ TableViewCell {
 		lblUnitPrice.setForeColor(Colors.Black);
 		txtQuantity1.setFont(fnt);
 		txtQuantity1.setForeColor(Colors.Black);
+		txtQuantity1.setFocusedForeColor(Colors.Black);
 		txtQuantity2.setFont(fnt);
 		txtQuantity2.setForeColor(Colors.Black);
+		txtQuantity2.setFocusedForeColor(Colors.Black);
 		txtQuantity3.setFont(fnt);
-		txtQuantity3.setForeColor(Colors.Black);		
+		txtQuantity3.setForeColor(Colors.Black);	
+		txtQuantity3.setFocusedForeColor(Colors.Black);	
 		txtDiscount1.setFont(fnt);
 		txtDiscount1.setForeColor(Colors.Black);
+		txtDiscount1.setFocusedForeColor(Colors.Black);
 		txtDiscount2.setFont(fnt);		
 		txtDiscount2.setForeColor(Colors.Black);
+		txtDiscount2.setFocusedForeColor(Colors.Black);
 		lblTotal1.setFont(fnt);
 		lblTotal1.setForeColor(Colors.Black);
 		lblTotal2.setFont(fnt);		
@@ -109,7 +115,7 @@ TableViewCell {
 					
 		lblProductCode.setText(vObjListItem.ProductCode.getStringValue(row));
 		lblName.setText(vObjListItem.ProductName.getStringValue(row));
-		//lblCategory.setText(vObjListItem.ProductCategory.getStringValue(row));
+		lblCategory.setText(vObjListItem.ProductCategory.getStringValue(row));
 		Double unitPrice=vObjListItem.UnitPrice.getCurrencyValue(row);
 		if(unitPrice!=null)	lblUnitPrice.setText(unitPrice.toString());
 		
