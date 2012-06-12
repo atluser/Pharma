@@ -1,2 +1,28 @@
 Popup {
+	
+	Button btnClose = new Button();
+	TablePanel pnl = new TablePanel();
+	HorizontalPanel pnlButtonContainer = new HorizontalPanel();
+	DataRow prodRow;
+	ImageReference img;
+	Text detail;
+	
+	callback onCreate(Container c) {
+		pnl.setRowHeight(0, Sizing.PIXELS, 315);
+		pnl.setRowHeight(1, Sizing.PIXELS, 100);
+		pnl.setRowHeight(2, Sizing.PREFERRED, 1);	
+		pnl.setColumnWidth(0, Sizing.PIXELS, 315);
+		pnl.setColumnWidth(1, Sizing.PREFERRED, 1);
+		pnl.setColumnWidth(2, Sizing.PREFERRED, 1);
+		
+		detail.setText("Questo è il testo del dettaglio..");
+	}
+	
+	void setProductRow(DataRow row) {
+		prodRow=row;
+	}
+	
+	void setImageReference(ImageReference ref) {
+		img=ref;
+	}
 }

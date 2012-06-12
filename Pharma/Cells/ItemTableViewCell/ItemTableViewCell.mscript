@@ -10,7 +10,9 @@ TableViewCell {
 	
 	//PictureBox picBox=new PictureBox();
 	BackgroundButton btnImage = new BackgroundButton();
+	BackgroundButton btnInfo = new BackgroundButton();
 	TablePanel pnlBtnImageCont = new TablePanel();
+	TablePanel pnlBtnInfoCont = new TablePanel();
 	Screens.PriceList.PriceListItemScreen scrPriceList;
 	ImageReference img;
 	 
@@ -28,6 +30,7 @@ TableViewCell {
 	String alignment="halign=center";
 	int ncol=9;
 	
+	DataRow row;
 	
 	
 	callback onCreate(Container container){
@@ -43,16 +46,24 @@ TableViewCell {
 		//txtMdl.setFocusedForeColor(Colors.White);
 		//lbl.setDataModel(txtMdl);
 		
-		//set the table pnel wich contains the btnImage
+		//set the table pnel which contains the btnImage
 		pnlBtnImageCont.setRowHeight(0,Sizing.PIXELS,50);
 		pnlBtnImageCont.setColumnWidth(0,Sizing.PIXELS,50);
 		pnlBtnImageCont.add(btnImage,"hfill=fill, vfill=fill");
+		
+		btnInfo.setBackground(Background.create9PartImageRectangleBackground(Images.Products.Info,0,0,0,0));
+		
+		//set the table panel which contains the info button
+		pnlBtnInfoCont.setRowHeight(0,Sizing.PIXELS,30);
+		pnlBtnInfoCont.setColumnWidth(0,Sizing.PIXELS,30);
+		pnlBtnInfoCont.add(btnInfo, "hfill=fill, vfill=fill");
 		
 		setLabel();
 		//hz.add(picBox,alignment);
 		hz.add(pnlBtnImageCont,"hfill=fill, vfill=fill, halign=center, valign=center");	
 		hz.add(lblCode, alignment);
 		hz.add(lblName, alignment);
+		hz.add(pnlBtnInfoCont,"hfill=fill, vfill=fill, halign=center, valign=center");
 		hz.add(lblUOM, alignment);
 		hz.add(lblPrice, alignment);
 		hz.add(picDiscount1, alignment);
@@ -92,6 +103,14 @@ TableViewCell {
 		scrPriceList.showPopup(popZoom,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);
 	}
 	
+	callback btnInfo onClick(Control c) {
+		appLog.log(Log.INFO,"btnInfo Clicked " );
+		Popups.ProductInfo popInfo = new Popups.ProductInfo();
+		popInfo.setImageReference(img);
+		popInfo.setProductRow(row);
+		scrPriceList.showPopup(popInfo,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,600 , Sizing.PREFERRED, 0,true,true);
+	}
+	
 	
 	void setLabel(){
 		lblCode.setFont(fnt);
@@ -128,6 +147,10 @@ TableViewCell {
 	
 	void setImageReference(ImageReference ref) {
 		img=ref;
+	}
+	
+	void setProductRow(DataRow row) {
+		row=row;
 	}
 
 }
