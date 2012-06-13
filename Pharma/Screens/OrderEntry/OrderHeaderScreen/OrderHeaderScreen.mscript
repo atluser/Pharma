@@ -57,7 +57,7 @@ Screen {
 		*/
 		fp.scr=(Screens.OrderEntry.OrderHeaderScreen)container;
 		setUpButtons();
-		
+		setUpLabels();
 		// Header Panel
 		
 		/*
