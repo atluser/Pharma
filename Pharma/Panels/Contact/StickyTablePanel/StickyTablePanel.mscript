@@ -11,7 +11,7 @@ TablePanel {
 	
 	SearchField src = new SearchField();
 	StickyTable stk = new StickyTable();
-	RowSetModel rsm = new RowSetModel();
+	//RowSetModel rsm = new RowSetModel();
 	Panels.DetailPanel pnlDetail;
 	MultiRowSetModel mrsm = new MultiRowSetModel();
 
@@ -57,7 +57,7 @@ TablePanel {
 		 *	pnlDetailForm.setRow(mrsm.getRow());
 		*/
 		//stk.select(1,1);
-		stk.select(0,0);
+		//stk.select(0,0);		
 		
 	}
 	
@@ -127,7 +127,10 @@ TablePanel {
 	
 	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
 		Cells.SectionHeaderCell header = (Cells.SectionHeaderCell)cell;
-		header.lbl.setText(arr.getItem(grp));
+		if(grp<arr.length()){
+			header.lbl.setText(arr.getItem(grp));				
+			appLog.log(Log.INFO,"CONTACT Header lecter section "+grp+" "+arr.getItem(grp));
+		}
 	}		
 		
 	////////////////////////////
@@ -173,6 +176,7 @@ TablePanel {
 	 * Custom methods
 	 */
 	void setQuery() {
+		arr.removeAllItems();
 		mrsm.clear();
 		for(int i = 0; i < letterList.length(); i++) {
 			RowSetModel rsm1 = new RowSetModel();
@@ -190,10 +194,12 @@ TablePanel {
 				pnlIndex.enableIndexLinks(i);	
 			}
 		}
-		stk.setNumberOfGroups(letterList.length());	
+		arr.insertItem(mrsm.getGroupCount() , "");
+		stk.setNumberOfGroups(mrsm.getGroupCount());	
 	} 
 	 
 	void setQuery(String str) {
+		arr.removeAllItems();
 		mrsm.clear();
 		for(int i = 0; i < letterList.length(); i++) {
 			RowSetModel rsm1 = new RowSetModel();
@@ -211,7 +217,8 @@ TablePanel {
 				pnlIndex.enableIndexLinks(i);	
 			}
 		}
-		stk.setNumberOfGroups(letterList.length());	
+		stk.setNumberOfGroups(mrsm.getGroupCount());
+		arr.insertItem(mrsm.getGroupCount() , "");	
 	} 
 	
 	void setAccountCode(String str) {
