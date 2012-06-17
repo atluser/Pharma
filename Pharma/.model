@@ -4917,6 +4917,11 @@
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderScreen.mscript"/>
       </children>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Agenda">
+      <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="EditScreen">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditScreen.mscript"/>
+      </children>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Contact">
       <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="EditScreen">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditScreen.mscript"/>
