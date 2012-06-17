@@ -27,6 +27,7 @@ UIProject {
 	ProductList vObjProductList=new ProductList();
 	PriceList vObjPriceList=new PriceList();
 	Products vObjProducts=new Products();
+	Event vObjEvent=new Event();
 	//PharmaDP.DataStore.Products vObjProducts=dp.Products;
 		
 	/*
@@ -115,6 +116,7 @@ UIProject {
 		vObjUtil.loadPriceListItem();
 		vObjUtil.loadOrder();		
 		vObjUtil.loadImage();
+		vObjUtil.loadEvent();
 		
 		//test join
 		appLog.log(Log.INFO,"LANCIO QUERY ");

@@ -217,8 +217,7 @@ TablePanel {
 				pnlIndex.enableIndexLinks(i);	
 			}
 		}
-		stk.setNumberOfGroups(mrsm.getGroupCount());
-		arr.insertItem(mrsm.getGroupCount() , "");	
+		stk.setNumberOfGroups(mrsm.getGroupCount());	
 	} 
 	
 	void setAccountCode(String str) {

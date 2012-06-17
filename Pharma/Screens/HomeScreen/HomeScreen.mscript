@@ -29,7 +29,8 @@ Screen {
 		// Body Panel
 		//Panels.Account.RootPanel pnlAccountRoot = new Panels.Account.RootPanel();
 		Panels.Account.RootTablePanel pnlAccountRoot = new Panels.Account.RootTablePanel();
-		Panels.Activity.RootPanel pnlActivityRoot = new Panels.Activity.RootPanel();
+		//Panels.Activity.RootPanel pnlActivityRoot = new Panels.Activity.RootPanel();
+		Panels.Activity.RootTablePanel pnlActivityRoot = new Panels.Activity.RootTablePanel();
 		//Panels.Contact.RootPanel pnlContactRoot = new Panels.Contact.RootPanel();
 		Panels.Contact.RootTablePanel pnlContactRoot = new Panels.Contact.RootTablePanel();
 		//Panels.Order.RootPanel pnlOrderRoot = new Panels.Order.RootPanel();
@@ -40,8 +41,8 @@ Screen {
 		Panels.PriceList.RootTablePanel pnlPriceListRoot = new Panels.PriceList.RootTablePanel();
 		
 		
-		StackPanel stkPnlRoot = new StackPanel();
-		stkPnlRoot.add(pnlAccountRoot);
+		StackPanel stkPnlRoot = new StackPanel();		
+		stkPnlRoot.add(pnlAccountRoot);		
 		stkPnlRoot.add(pnlActivityRoot);
 		stkPnlRoot.add(pnlContactRoot);
 		stkPnlRoot.add(pnlOrderRoot);

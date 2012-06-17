@@ -12,7 +12,7 @@ HorizontalPanel {
 
 	StackPanel stkPnl;
 	Panels.Account.RootTablePanel pnlAccountRoot;
-	Panels.Activity.RootPanel pnlActivityRoot;
+	Panels.Activity.RootTablePanel pnlActivityRoot;
 	Panels.Contact.RootTablePanel pnlContactRoot;
 	//Panels.Order.RootPanel pnlOrderRoot;
 	Panels.Order.RootTablePanel pnlOrderRoot;
@@ -466,7 +466,7 @@ HorizontalPanel {
 		pnlAccountRoot = account;	
 	}
 
-	void setActivityRootPanel(Panels.Activity.RootPanel activity){
+	void setActivityRootPanel(Panels.Activity.RootTablePanel activity){
 		pnlActivityRoot = activity;	
 	}
 
@@ -516,6 +516,8 @@ HorizontalPanel {
 			//stkPnl.select(pnlPriceListRoot);
 			pnlContactRoot.pnlDetailForm.setFromAccountFlag(false);
 			stkPnl.select(pnlContactRoot);
+			//pnlContactRoot.refresh();
+			pnlContactRoot.stk.stk.reload();
 
 		} else if (idxClicked == 2) {
 
@@ -537,7 +539,7 @@ HorizontalPanel {
 		} else if (idxClicked == 5) {
 
 			poCrmMenu.dismiss();
-			stkPnl.select(pnlPriceListRoot);
+			//stkPnl.select(pnlPriceListRoot);
 			//appLog.log(Log.INFO,"PriceList");
 			stkPnl.select(pnlActivityRoot);				
 

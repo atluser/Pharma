@@ -9,7 +9,7 @@ TablePanel {
 	
 	//Panels.DetailStickyTablePanel pnlDetailForm;
 	Panels.DetailPanel pnlDetail;
-	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm;
+	ReadOnlyDetailFormPanel pnlDetailForm;
 	
 	
 	//ObjectArray rsmArray=new ObjectArray();	
@@ -184,7 +184,7 @@ TablePanel {
 		pnlDetail = pnl;
 	}
 	
-	void setDetailFormPanel(Panels.Account.ReadOnlyDetailFormPanel pnl) {
+	void setDetailFormPanel(Panels.Account.ReadOnlyDetailFormPanel  pnl) {
 		pnlDetailForm = pnl;
 	}
 	
@@ -247,7 +247,7 @@ TablePanel {
 						
 		//	rsmArray.insertItem(i, rsm1);
 		}
-		stk.setNumberOfGroups(letterList.length());	
+		stk.setNumberOfGroups(arr.length());	
 				
 	}	
 			

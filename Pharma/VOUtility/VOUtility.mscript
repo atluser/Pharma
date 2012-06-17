@@ -1391,4 +1391,15 @@ String getContactName(String contactId){
 		return contactName;		
 	}
 	
+	
+	void loadEvent(){
+		DataRow row;
+		row=vObjEvent.getNewRow();		
+		vObjEvent.Code.setStringValue("1",row);
+		vObjEvent.Subject.setStringValue("Presentazione SOVREPIN",row);
+		vObjEvent.Description.setStringValue("nuovo prodotto di punta",row);
+		vObjEvent.StartDate.setDateValue(Platform.createDate(),row);
+		row.applyUpdates();
+	}
+	
 }
