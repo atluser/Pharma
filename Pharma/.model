@@ -4907,6 +4907,9 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartScreen.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Account">
+      <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="AgendaScreen">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="AgendaScreen.mscript"/>
+      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="ContactScreen">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ContactScreen.mscript"/>
       </children>
@@ -4915,6 +4918,11 @@
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="OrderScreen">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderScreen.mscript"/>
+      </children>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Agenda">
+      <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="EditScreen">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditScreen.mscript"/>
       </children>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Contact">

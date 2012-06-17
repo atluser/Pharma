@@ -121,7 +121,11 @@ TablePanel {
 	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
 	
 			Panels.Cells.SectionHeaderCell header = (Panels.Cells.SectionHeaderCell)cell;
-			header.lbl.setText(arr.getItem(grp));
+			if(grp<arr.length()){
+				header.lbl.setText(arr.getItem(grp));				
+				appLog.log(Log.INFO,"ACCOUNT Header lecter section "+grp+" "+arr.getItem(grp));
+			}
+		
 	
 		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
 	}

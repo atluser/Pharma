@@ -26,10 +26,10 @@ TablePanel {
 		
 		stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);
-		if(stk.rsm.hasMoreRows(0)){
+		/*if(stk.rsm.hasMoreRows(0)){
 			stk.stk.scrollTo(0,0,TableView.SCROLL_POSITION_NONE);
 			stk.stk.select(0,0);
-		}	
+		}*/	
 		add(pnlMaster, fill);
 		add(pnlDetail, fill);
 	}
