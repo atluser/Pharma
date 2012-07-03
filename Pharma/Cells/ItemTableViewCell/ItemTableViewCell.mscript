@@ -100,15 +100,17 @@ TableViewCell {
 		Popups.ZoomPopup popZoom = new Popups.ZoomPopup();
 		popZoom.setImageReference(img);
 		popZoom.setLabelName(lblName.getText());
-		scrPriceList.showPopup(popZoom,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);
+		scrPriceList.showPopup(popZoom,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED ,0 , Sizing.PREFERRED, 0 ,false,true);
 	}
 	
 	callback btnInfo onClick(Control c) {
 		appLog.log(Log.INFO,"btnInfo Clicked " );
 		Popups.ProductInfo popInfo = new Popups.ProductInfo();
-		popInfo.setImageReference(img);
 		popInfo.setProductRow(row);
-		scrPriceList.showPopup(popInfo,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,600 , Sizing.PREFERRED, 0,true,true);
+		appLog.log(Log.INFO,"ProductInfo - ItemTableViewCell -- popup datarow setted, product NAME: " + vObjPriceListItem.ProductName.getStringValue(row));
+		popInfo.setImageReference(img);
+		appLog.log(Log.INFO,"ProductInfo - popup Image reference setted");
+		scrPriceList.showPopup(popInfo,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED ,0 , Sizing.PREFERRED, 0 ,false,true);
 	}
 	
 	
@@ -149,8 +151,8 @@ TableViewCell {
 		img=ref;
 	}
 	
-	void setProductRow(DataRow row) {
-		row=row;
+	void setProductRow(DataRow dtRw) {
+		row=dtRw;
 	}
 
 }

@@ -48,6 +48,7 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="PopoverImages">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PopoverImages.mscript" hidden="true"/>
       <images name="ImgBlackBackground"/>
+      <images name="ImgPdf"/>
       <images name="ImgRedBackground"/>
       <images name="ImgRedBorderBackground"/>
       <images name="ImgRedLineBackground"/>
@@ -218,6 +219,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgPdf">
         <properties/>
         <properties/>
         <properties/>
@@ -737,6 +744,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgPdf">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgRedBackground">
         <properties/>
         <properties/>
@@ -1240,6 +1253,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgPdf">
         <properties/>
         <properties/>
         <properties/>
@@ -1753,6 +1772,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgPdf">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/pdfimg.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PDFIMG.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgPick">
         <properties/>
         <properties/>
@@ -1882,6 +1907,12 @@
       <imagePaths name="PopoverImages.ImgBlackBackground">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/popover/img_03_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_03_BACKGROUND.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgPdf">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/pdfimg_min.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PDFIMG_MIN.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -2513,6 +2544,9 @@
       <imagePaths name="PopoverImages.ImgBlackBackground">
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgPdf">
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgRedBackground">
         <properties/>
       </imagePaths>
@@ -2767,6 +2801,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgPdf">
         <properties/>
       </imagePaths>
       <imagePaths name="PopoverImages.ImgRedBackground">
@@ -3045,6 +3082,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ImgPdf">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/pdfimg.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PDFIMG.PNG"/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgPick">
         <properties/>
         <properties/>
@@ -3131,6 +3172,10 @@
       </imagePaths>
       <imagePaths name="PopoverImages.ImgBlackBackground">
         <properties string="/Users/admin/Desktop/VF/images/popover/img_03_background.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/POPOVER/IMG_03_BACKGROUND.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgPdf">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/pdfimg_min.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PDFIMG_MIN.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="PopoverImages.ImgRedBackground">
@@ -3555,6 +3600,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgPdf">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgRedBackground">
         <properties/>
         <properties/>
@@ -3875,6 +3924,9 @@
       <imagePaths name="PopoverImages.ImgBlackBackground">
         <properties/>
       </imagePaths>
+      <imagePaths name="PopoverImages.ImgPdf">
+        <properties/>
+      </imagePaths>
       <imagePaths name="PopoverImages.ImgRedBackground">
         <properties/>
       </imagePaths>
@@ -4129,6 +4181,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgPdf">
         <properties/>
       </imagePaths>
       <imagePaths name="PopoverImages.ImgRedBackground">
@@ -4387,6 +4442,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="PopoverImages.ImgBlackBackground">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PopoverImages.ImgPdf">
         <properties/>
       </imagePaths>
       <imagePaths name="PopoverImages.ImgRedBackground">

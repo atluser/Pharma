@@ -2,27 +2,132 @@ Popup {
 	
 	Button btnClose = new Button();
 	TablePanel pnl = new TablePanel();
+	//TablePanel pnlLabelContainer = new TablePanel();
+	HorizontalPanel pnlLabelContainer = new HorizontalPanel();
 	HorizontalPanel pnlButtonContainer = new HorizontalPanel();
+	HorizontalPanel pnlDetailContainer = new HorizontalPanel();
+	
+	PictureBox picBox = new PictureBox();
+	
 	DataRow prodRow;
 	ImageReference img;
-	Text detail;
+	String detail;
+
+	Label empty1 = new Label();
+	Label empty2 = new Label();
+	
+	Label lblName = new Label();
+	Label lblPdf = new Label();
+	Label lblDetail = new Label();
+	PictureBox imgPdfBox = new PictureBox();
+	String fill = "hfill=fill, vfill=fill";
+	String align = "halign=center, valign=center";
 	
 	callback onCreate(Container c) {
-		pnl.setRowHeight(0, Sizing.PIXELS, 315);
-		pnl.setRowHeight(1, Sizing.PIXELS, 100);
-		pnl.setRowHeight(2, Sizing.PREFERRED, 1);	
-		pnl.setColumnWidth(0, Sizing.PIXELS, 315);
-		pnl.setColumnWidth(1, Sizing.PREFERRED, 1);
-		pnl.setColumnWidth(2, Sizing.PREFERRED, 1);
 		
-		detail.setText("Questo è il testo del dettaglio..");
+		//setInsets(4,4,4,4);
+		
+		empty1.setText("");
+		empty2.setText("");
+		
+		//set the dimensions of the 3x3 global table panel 
+		pnl.setRowHeight(0, Sizing.PIXELS, 48);
+		pnl.setRowHeight(1, Sizing.PIXELS, 400);
+		pnl.setRowHeight(2, Sizing.PREFERRED, 0);	
+		pnl.setColumnWidth(0, Sizing.PIXELS, 400);
+		pnl.setColumnWidth(1, Sizing.PIXELS, 200);
+		pnl.setColumnWidth(2, Sizing.PIXELS, 48);
+		
+		/* setting the dimension of the 1x3 cell which contains the name of the product
+		 * we will put the lblName in the center cell
+		 *
+		 *		pnlLabelContainer.setRowHeight(0, Sizing.PIXELS, 35);
+		 *		pnlLabelContainer.setColumnWidth(0, Sizing.PERCENTS, 1/3);
+		 *		pnlLabelContainer.setColumnWidth(1, Sizing.PERCENTS, 1/3);
+		 *		pnlLabelContainer.setColumnWidth(2, Sizing.PERCENTS, 1/3);
+		*/
+		
+		/*
+		 * while (prodRow==null) {
+		 *	logApp.log("ProductInfo - row not setted.");
+		 * }
+		 * logApp.log("ProductInfo - row setted, name: " + vObjPriceListItem.ProductName.getStringValue(prodRow));
+		*/
+		
+		//setting the header panel with title and close button
+		
+		pnl.setBackColor(Colors.White);
+		detail = "ABDUL!!! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+		lblDetail.setText(detail);
+		lblDetail.setWordWrapWidth(Sizing.PIXELS,600);
+		lblDetail = setLabel(lblDetail, "Arial", Colors.Black, 18);
+		logApp.log(Log.INFO, "ProductInfo - onCreate finished.");	
 	}
+	
+	callback btnClose onClick(Control c) {
+		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
+	}
+	
+	
+	//custom methods
 	
 	void setProductRow(DataRow row) {
 		prodRow=row;
+		setHeader();
+	}
+	
+	void setHeader() {
+		lblName.setText(vObjPriceListItem.ProductName.getStringValue(prodRow));
+		lblName = setLabel(lblName, "Arial", Colors.White, 22);
+		logApp.log(Log.INFO, "ProductInfo - lblName font setted.");
+		
+		pnlLabelContainer.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		//jump to the 2nd cell of the panel adding null to the first cell, and then add the label
+		pnlLabelContainer.add(lblName,align);
+		logApp.log(Log.INFO, "ProductInfo - Row setted name: " + vObjPriceListItem.ProductName.getStringValue(prodRow));
+		//add the label container in the cell (0,0)+(0,1) of the root table panel
+		pnl.add(pnlLabelContainer,"colspan=2," + fill + "," + align);
+		
+		btnClose.setImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		pnlButtonContainer.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		pnlButtonContainer.add(btnClose, fill);
+		//add the button container to the cell (0,3) of the root panel
+		pnl.add(pnlButtonContainer, fill);		
+	}
+	
+	Label setLabel(Label lbl, String fml, Color clr, int size) {
+		Font fnt = new Font();
+		fnt.setFamily(fml);
+		fnt.setSize(size);
+		lbl.setFont(fnt);
+		lbl.setForeColor(clr);
+		return lbl;
 	}
 	
 	void setImageReference(ImageReference ref) {
 		img=ref;
+		picBox.setImage(img);
+		pnl.startNewRow();
+		pnl.add(picBox, fill);
+		imgPdfBox.setImage(Images.PopoverImages.ImgPdf);
+		pnl.add(imgPdfBox, "colspan=2," + align);
+		setDetail();
+	}
+	
+	/*  void setContent() {
+	 *	logApp.log(Log.INFO, "ProductInfo - Setting the label");
+	 *	lblName.setText(vObjPriceListItem.ProductName.getStringValue(prodRow));
+	 *	logApp.log(Log.INFO, "ProductInfo - Label setted - text: " + vObjPriceListItem.ProductName.getStringValue(prodRow));
+	 *  }
+	*/   
+	
+	
+	
+	
+	void setDetail() {
+		pnl.startNewRow();
+		pnlDetailContainer.add(lblDetail,fill);
+		pnl.add(pnlDetailContainer,"colspan=3," + align);
+		add(pnl,fill);
 	}
 }

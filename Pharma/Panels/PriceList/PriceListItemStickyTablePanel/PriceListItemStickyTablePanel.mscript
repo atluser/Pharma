@@ -103,7 +103,8 @@ TablePanel {
 				tblVwCell.setImageReference(img);
 			}
 			appLog.log(Log.INFO,"PRODUCT "+vObjPriceListItem.ProductName.getStringValue(dtRw)+" Image "+vObjPriceListItem.ProductImage.getStringValue(dtRw));
-			
+			tblVwCell.setProductRow(dtRw);
+			appLog.log(Log.INFO,"ProductInfo - Data row in Table View Cell setted, PRODUCT NAME: "+ vObjPriceListItem.ProductName.getStringValue(dtRw));
 			tblVwCell.lblQtyMin.setText(vObjPriceListItem.QtyMin.getIntegerValue(dtRw).toString());
 			tblVwCell.lblQtyMax.setText(vObjPriceListItem.QtyMax.getIntegerValue(dtRw).toString());
 		}
