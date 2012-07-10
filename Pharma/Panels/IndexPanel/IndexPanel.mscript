@@ -3,6 +3,7 @@ TablePanel {
 	StickyTable stkTbl;
 	Array arr;
 	
+	Link lnkNum = new Link();
 	Link lnkA = new Link();
 	Link lnkB = new Link();
 	Link lnkC = new Link();
@@ -62,9 +63,11 @@ TablePanel {
 		setRowHeight(22, Sizing.PREFERRED, 0);
 		setRowHeight(23, Sizing.PREFERRED, 0);
 		setRowHeight(24, Sizing.PREFERRED, 0);
-		setRowHeight(25, Sizing.PREFERRED, 1);
+		setRowHeight(25, Sizing.PREFERRED, 0);
+		setRowHeight(26, Sizing.PREFERRED, 1);
 		
 	}
+	
 	
 	callback lnkA onClick(Control c) {
 		if(lnkA.isEnabled()) {
@@ -272,8 +275,15 @@ TablePanel {
 			stkTbl.scrollTo(arr.findItem("Z"), 0, StickyTable.SCROLL_POSITION_NONE);
 			stkTbl.select(arr.findItem("Z"),0);
 		}
-	}	
+	}
 	
+	callback lnkNum onClick(Control c) {
+		if(lnkNum.isEnabled()) {
+			appLog.log(Log.INFO, "IndexPanel - lnkNum onClick()");
+			stkTbl.scrollTo(arr.findItem("#"), 0, StickyTable.SCROLL_POSITION_NONE);
+			stkTbl.select(arr.findItem("#"),0);
+		}
+	}
 	
 	void setUpLinks() {
 		
@@ -437,7 +447,13 @@ TablePanel {
 		lnkZ.setText("Z");
 		lnkZ.setEnabled(false);
 		lnkZ.setDisabledForeColor(Colors.Gray);
-				
+		
+		lnkNum.setFont(fnt);
+		lnkNum.setForeColor(Colors.Black);
+		lnkNum.setText("#");
+		lnkNum.setEnabled(false);
+		lnkNum.setDisabledForeColor(Colors.Gray);	
+		
 		add(lnkA, "halign=center,valign=top");
 		startNewRow();
 		add(lnkB, "halign=center,valign=top");
@@ -489,7 +505,8 @@ TablePanel {
 		add(lnkY, "halign=center,valign=top");
 		startNewRow();
 		add(lnkZ, "halign=center,valign=top");
-		
+		startNewRow();
+		add(lnkNum, "halign=center,valign=top");
 	}
 	
 	
@@ -500,9 +517,7 @@ TablePanel {
 	}
 	
 	void setArray(Array a){
-		
 		arr = a;
-	
 	}	
 	
 	void enableIndexLinks(int i) {
@@ -585,6 +600,9 @@ TablePanel {
 					break;
 			case 25:
 					lnkZ.setEnabled(true);
+					break;	
+			case 26:
+					lnkNum.setEnabled(true);
 					break;																																																																																																																																	
 		}	
 		
