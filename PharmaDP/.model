@@ -20,14 +20,29 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="Contact">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="Event">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Event.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="ListItem">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListItem.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="ListOfValues">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListOfValues.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="Order">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Order.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="OrderItem">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItem.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="PriceList">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceList.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="PriceListItem">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceListItem.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="ProductList">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ProductList.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="Products">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Products.mscript"/>
@@ -39,6 +54,11 @@
       <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="Order" displayName="Order"/>
       <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="Products" displayName="Products"/>
       <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="PriceListItem" displayName="PriceListItem"/>
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="Event" displayName="Event"/>
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="ListItem" displayName="ListItem"/>
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="OrderItem" displayName="OrderItem"/>
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="PriceList" displayName="PriceList"/>
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="ProductList" displayName="ProductList"/>
     </dataSource>
   </children>
 </com.vaultus.studio.ecore.studio:DataProject>

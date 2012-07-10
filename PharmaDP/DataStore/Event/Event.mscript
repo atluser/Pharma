@@ -1,0 +1,11 @@
+DataStoreObject {
+	StringField Code{return null;}
+	DateField StartDate{return null;}
+	DateField EndDate{return null;}
+	StringField Location{return null;}
+	StringField Status{return null;}
+	StringField Type{return null;}
+	StringField Subject{return null;}
+	StringField Description{return null;}
+
+}
