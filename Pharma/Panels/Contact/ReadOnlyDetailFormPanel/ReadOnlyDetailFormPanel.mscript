@@ -222,7 +222,7 @@ ScrollableTablePanel {
 				pnlHeader.btnToolbarClick(0);
 				logApp.log(Log.INFO, "Header - currentEntity " + pnlHeader.currentEntity);
 						
-				pnlHeader.pnlAccountRoot.stk.tblSearch.setText(txtFldRelAccount.getText());
+				pnlHeader.pnlAccountRoot.stk.src.setText(txtFldRelAccount.getText());
 				pnlHeader.pnlAccountRoot.stk.executeQuery(txtFldRelAccount.getText());
 				pnlHeader.pnlAccountRoot.stk.stk.reload();
 				logApp.log(Log.INFO, "Header - Sticky Table reloaded ");

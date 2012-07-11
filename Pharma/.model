@@ -33,6 +33,16 @@
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:PropertiesNode" name="Properties"/>
   <children xsi:type="com.vaultus.studio.ecore.studio:ImagesNode" name="Images">
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="Backgrounds">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Backgrounds.mscript" hidden="true"/>
+      <images name="BCK_SEARCH"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="Buttons">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Buttons.mscript" hidden="true"/>
+      <images name="BTN_32x32_SEARCH_u"/>
+      <images name="BTN_CANCEL_s"/>
+      <images name="BTN_CANCEL_u"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Images.mscript" hidden="true"/>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="MainScreenImages">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MainScreenImages.mscript" hidden="true"/>
@@ -111,6 +121,24 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_s">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_u">
         <properties/>
         <properties/>
         <properties/>
@@ -636,6 +664,24 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_s">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
         <properties/>
@@ -1145,6 +1191,24 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_s">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_u">
         <properties/>
         <properties/>
         <properties/>
@@ -1661,6 +1725,54 @@
       <imagePaths name="Aspirina">
         <properties/>
         <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/defenflu.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/DEFENFLU.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BCK_SEARCH">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BTN_32x32_SEARCH_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BTN_CANCEL_s">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BTN_CANCEL_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_SEARCH">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Backgrounds/BCK_SEARCH.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BACKGROUNDS/BCK_SEARCH.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Buttons/BTN_32x32_SEARCH_u.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BUTTONS/BTN_32X32_SEARCH_U.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_s">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Buttons/BTN_CANCEL_s.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BUTTONS/BTN_CANCEL_S.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_u">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Buttons/BTN_CANCEL_u.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BUTTONS/BTN_CANCEL_U.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -2490,6 +2602,15 @@
       <imagePaths name="Aspirina">
         <properties/>
       </imagePaths>
+      <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_s">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
@@ -2747,6 +2868,15 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_s">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_u">
         <properties/>
       </imagePaths>
       <imagePaths name="Icon">
@@ -3008,6 +3138,38 @@
       </imagePaths>
       <imagePaths name="Aspirina">
         <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/defenflu.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/DEFENFLU.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BCK_SEARCH">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BTN_32x32_SEARCH_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BTN_CANCEL_s">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BTN_CANCEL_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_SEARCH">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Backgrounds/BCK_SEARCH.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BACKGROUNDS/BCK_SEARCH.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Buttons/BTN_32x32_SEARCH_u.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BUTTONS/BTN_32X32_SEARCH_U.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_s">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Buttons/BTN_CANCEL_s.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BUTTONS/BTN_CANCEL_S.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_u">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Buttons/BTN_CANCEL_u.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BUTTONS/BTN_CANCEL_U.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="Defenflu">
@@ -3528,6 +3690,18 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_s">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_u">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
         <properties/>
@@ -3870,6 +4044,15 @@
       <imagePaths name="Aspirina">
         <properties/>
       </imagePaths>
+      <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_s">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_u">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
@@ -4127,6 +4310,15 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_s">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_u">
         <properties/>
       </imagePaths>
       <imagePaths name="Icon">
@@ -4388,6 +4580,15 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_s">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Buttons.BTN_CANCEL_u">
         <properties/>
       </imagePaths>
       <imagePaths name="Icon">

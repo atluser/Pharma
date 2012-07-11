@@ -11,13 +11,21 @@ TablePanel {
 	Panels.DetailPanel pnlDetail;
 	ReadOnlyDetailFormPanel pnlDetailForm;
 	
+	PictureBox picBoxSearch = new PictureBox();
 	
 	//ObjectArray rsmArray=new ObjectArray();	
 	Array arr = new Array();
 	
-	Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
-	SearchField tblSearch =pnlSearch.search;
+	//Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
+	//SearchField tblSearch =pnlSearch.search;
+	SearchField src = new SearchField();
+	BackgroundButton btnClearSearch = new BackgroundButton();
 	Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
+	
+	Label lblRowCount = new Label();
+	int iRowCount = 0;
+	
+	String fill= "hfill=fill, vfill=fill";
 	
 	/*
 	 * Callback methods
@@ -28,25 +36,52 @@ TablePanel {
 		pnlIndex.setArray(arr);
 		
 		setInitQuery();
+		setUpButtons();
 		
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);	
 		
-		add(pnlSearch,"colspan=2,hfill=fill");
+		Font fnt = new Font();
+		fnt.setSize(18);
+		fnt.setFamily("Arial");
+		
+		src.setFont(fnt);
+		src.setTextHint("Search...");
+		src.setFocusedForeColor(Color.create(58,58,58));
+		src.setDisabledForeColor(Color.create(58,58,58));
+		src.setBackColor(Colors.White);
+		
+		TablePanel pnl = new TablePanel();
+		picBoxSearch.setImage(Images.Buttons.BTN_32x32_SEARCH_u.getImage());
+		//pnl.setInsets(0,8,0,0);
+		pnl.setRowHeight(0, Sizing.PIXELS, 48);
+		pnl.setColumnWidth(0, Sizing.PIXELS, 48);
+		pnl.setColumnWidth(1, Sizing.PIXELS, 300);
+		pnl.setColumnWidth(2, Sizing.PIXELS, 48);
+		pnl.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.Backgrounds.BCK_SEARCH.getImage(),5,5));
+		//pnl.setBackColor(Colors.White);
+		pnl.add(picBoxSearch,fill);
+		pnl.add(src,"hfill=fill");
+		pnl.add(btnClearSearch,fill);
+		
+		add(pnl, "colspan=2,hfill=fill, valign=top, halign=center");
+		
 		startNewRow(); 
 		add(stk, "hfill=fill,valign=top");
 		add(pnlIndex, "hfill=fill,valign=top");	
 
-		stk.setGridLineThickness(1);
-		stk.setGridLineStyle(LineStyle.SOLID);
-		stk.setGridLineColor(Colors.Gray);		
-		setColumnWidth(0, Sizing.PERCENTS, 25);
+			
+		//setColumnWidth(0, Sizing.PERCENTS, 25);
 		//setColumnWidth(0, Sizing.PREFERRED, 1);
 		
-		setColumnWidth(1, Sizing.PREFERRED, 1);
-		setRowHeight(0, Sizing.PREFERRED, 0);
+		setColumnWidth(0, Sizing.PIXELS, 400);
+		setColumnWidth(1, Sizing.PREFERRED,0);
+		setRowHeight(0, Sizing.PIXELS, 60);
 		setRowHeight(1, Sizing.PREFERRED, 1);
-	
+		setRowHeight(2, Sizing.PIXELS, 60);
 	}
 
 	///////////////////////////////
@@ -153,15 +188,15 @@ TablePanel {
 	*/
 	
 		//search callback
-	callback tblSearch onValueChange ( Control c ) {
+	callback src onValueChange ( Control c ) {
 		//appLog.log(Log.INFO,"change");
-		tblSearch.setOnValueChangingPausedDelay(500);
+		src.setOnValueChangingPausedDelay(500);
 	}
 	
-	callback tblSearch onValueChangingPaused(Control c){
+	callback src onValueChangingPaused(Control c){
 		//appLog.log(Log.INFO,"paused");
 		//Query q=vObjAccount.getAccountContains(tblSearch.getText());
-		executeQuery(tblSearch.getText());
+		executeQuery(src.getText());
 		stk.reload();
 		if (rsm.getRowCount(0)>0) {
 			stk.select(0,0);
@@ -170,6 +205,29 @@ TablePanel {
 		}
 	}
 	
+	callback btnClearSearch onClick(Control c) {
+		src.setText("")	;	
+		//pnlDetail.setQuery();
+		executeQuery(src.getText());
+		stk.reload();
+		if (rsm.getRowCount(0)>0) {
+			stk.select(0,0);
+			pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(rsm.getRow()));
+			pnlDetailForm.setRow(rsm.getRow());
+		}
+		//iRowCount = pnlDetail.getRowCount();
+		switch(iRowCount) {
+			
+			case 0:
+				lblRowCount.setText("No Accounts");
+				break;
+			case 1:	
+				lblRowCount.setText("" + iRowCount + " Account/s");
+				break;
+			default:
+				lblRowCount.setText("" + iRowCount + " Account/s");
+		}
+	}
 	
 	/*
 	 * Custom methods
@@ -249,6 +307,17 @@ TablePanel {
 		}
 		stk.setNumberOfGroups(arr.length());	
 				
+	}
+	
+	void setUpButtons() {
+		btnClearSearch.setImage(Images.Buttons.BTN_CANCEL_u.getImage());
+		btnClearSearch.setFocusedImage(Images.Buttons.BTN_CANCEL_s.getImage());
+		btnClearSearch.setSelectedImage(Images.Buttons.BTN_CANCEL_s.getImage());	
 	}	
-			
+	
+	/* 
+	void fillDetailPanel() {
+		
+	}
+	*/
 }

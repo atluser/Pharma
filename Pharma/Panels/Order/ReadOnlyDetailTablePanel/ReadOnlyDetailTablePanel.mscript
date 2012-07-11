@@ -265,7 +265,7 @@ TablePanel {
 				pnlHeader.rg.setSelectedIndex(0);
 				pnlHeader.btnToolbarClick(0);
 						
-				pnlHeader.pnlAccountRoot.stk.tblSearch.setText(lblFld04.getText());
+				pnlHeader.pnlAccountRoot.stk.src.setText(lblFld04.getText());
 				pnlHeader.pnlAccountRoot.stk.executeQuery(lblFld04.getText());
 				pnlHeader.pnlAccountRoot.stk.stk.reload();
 				

@@ -14,6 +14,9 @@ TablePanel {
 	//RowSetModel rsm = new RowSetModel();
 	Panels.DetailPanel pnlDetail;
 	MultiRowSetModel mrsm = new MultiRowSetModel();
+	
+	BackgroundButton btnClearSearch = new BackgroundButton();
+	String fill = "hfill=fill, vfill=fill";
 
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
 	Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
@@ -34,10 +37,32 @@ TablePanel {
 		stk.setGridLineColor(Colors.Gray);
 		setColumnWidth(0, Sizing.PERCENTS, 25);
 		
-		src.setTextHint("Search...");
-		//src.setBackColor(Colors.Gray);
+		Font fnt = new Font();
+		fnt.setSize(18);
+		fnt.setFamily("Arial");
 		
-		add(src, "hfill=fill");
+		src.setFont(fnt);
+		src.setTextHint("Search...");
+		src.setFocusedForeColor(Color.create(58,58,58));
+		src.setDisabledForeColor(Color.create(58,58,58));
+		src.setBackColor(Colors.White);
+		
+		TablePanel pnl = new TablePanel();
+		PictureBox picBoxSearch = new PictureBox();
+		picBoxSearch.setImage(Images.Buttons.BTN_32x32_SEARCH_u.getImage());
+		//pnl.setInsets(0,8,0,0);
+		pnl.setRowHeight(0, Sizing.PIXELS, 48);
+		pnl.setColumnWidth(0, Sizing.PIXELS, 0);
+		pnl.setColumnWidth(1, Sizing.PIXELS, 300);
+		pnl.setColumnWidth(2, Sizing.PIXELS, 0);
+		pnl.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.Backgrounds.BCK_SEARCH.getImage(),5,5));
+		//pnl.setBackColor(Colors.White);
+		pnl.add(picBoxSearch,fill);
+		pnl.add(src,"hfill=fill");
+		pnl.add(btnClearSearch,fill);
+		
+		add(pnl, "hfill=fill, valign=top");
+		
 		startNewRow();
 		add(stk, "hfill=fill,vfill=fill");
 		add(pnlIndex, "hfill=fill,valign=top");	

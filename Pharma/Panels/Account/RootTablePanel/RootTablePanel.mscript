@@ -26,9 +26,9 @@ TablePanel {
 		}*/		
 		
 		//setting the layout of the root panel
-		setRowHeight(0,Sizing.PREFERRED,1);
-		setColumnWidth(0, Sizing.PIXELS, 350);
-		setColumnWidth(1, Sizing.PREFERRED, 1);
+		setColumnWidth(0, Sizing.PREFERRED, 0);
+		setColumnWidth(1, Sizing.PERCENTS, 100);
+		setRowHeight(0, Sizing.PREFERRED, 1);
 		
 	 	add(pnlMaster, fill);
 	 	add(pnlDetail, fill);
