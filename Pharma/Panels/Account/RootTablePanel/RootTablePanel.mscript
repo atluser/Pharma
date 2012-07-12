@@ -10,6 +10,11 @@ TablePanel {
 		
 		logApp.log(Log.INFO, "RootPanel - onCreate()");
 		
+		//setting the layout of the root panel
+		setRowHeight(0,Sizing.PREFERRED,1);
+		setColumnWidth(0, Sizing.PREFERRED, 0);
+		setColumnWidth(1, Sizing.PREFERRED, 1);
+		
 		// Master Panel		
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
 		pnlMaster.setContentPanel(stk);
@@ -30,10 +35,6 @@ TablePanel {
 			stk.stk.select(0,0);
 		}*/		
 		
-		//setting the layout of the root panel
-		setRowHeight(0,Sizing.PREFERRED,1);
-		setColumnWidth(0, Sizing.PIXELS, 370);
-		setColumnWidth(1, Sizing.PREFERRED, 1);
 		
 	 	add(pnlMaster, fill);
 	 	add(pnlDetail, fill);

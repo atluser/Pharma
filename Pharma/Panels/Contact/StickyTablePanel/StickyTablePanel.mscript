@@ -5,6 +5,8 @@ TablePanel {
 	 */	
 	String sAccountCode = ""; 
 	 	
+	Screens.HomeScreen scrHome;
+	
 	Label lbl = new Label();
 	
 	Array arr = new Array();
@@ -16,6 +18,7 @@ TablePanel {
 	MultiRowSetModel mrsm = new MultiRowSetModel();
 	
 	BackgroundButton btnClearSearch = new BackgroundButton();
+	//Button btnClearSearch = new Button();
 	String fill = "hfill=fill, vfill=fill";
 
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
@@ -30,12 +33,13 @@ TablePanel {
 	callback onCreate(Container c) {
 		
 		//set size (note: this is required)
-		setColumnWidth(0, Sizing.PIXELS, 326);
-		setColumnWidth(1, Sizing.PREFERRED,0);
-		setRowHeight(0, Sizing.PREFERRED, 0);
+		setColumnWidth(0, Sizing.PIXELS, 346);
+		setColumnWidth(1, Sizing.PREFERRED, 0);
+		setRowHeight(0, Sizing.PIXELS, 60);
 		setRowHeight(1, Sizing.PREFERRED, 1);	
 		//setRowHeight(2, Sizing.PREFERRED, 0);
 		
+		pnlIndex.setHomeScreen(scrHome);
 		pnlIndex.setStickyTable(stk);
 		pnlIndex.setArray(arr);
 		
@@ -63,17 +67,17 @@ TablePanel {
 		PictureBox picBoxSearch = new PictureBox();
 		picBoxSearch.setImage(Images.Buttons.BTN_32x32_SEARCH_u.getImage());
 		//pnl.setInsets(0,8,0,0);
-		pnl.setRowHeight(0, Sizing.PIXELS, 48);
-		pnl.setColumnWidth(0, Sizing.PIXELS, 48);
+		pnl.setRowHeight(0, Sizing.PIXELS, 40);
+		pnl.setColumnWidth(0, Sizing.PIXELS, 40);
 		pnl.setColumnWidth(1, Sizing.PIXELS, 250);
-		pnl.setColumnWidth(2, Sizing.PIXELS, 48);
-		pnl.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.Backgrounds.BCK_SEARCH.getImage(),5,5));
-		//pnl.setBackColor(Colors.White);
+		pnl.setColumnWidth(2, Sizing.PIXELS, 40);
+		//pnl.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.Backgrounds.BCK_SEARCH.getImage(),5,5));
+		pnl.setBackColor(Colors.White);
 		pnl.add(picBoxSearch,fill);
 		pnl.add(src,"hfill=fill");
 		pnl.add(btnClearSearch,fill);
 		
-		add(pnl, "hfill=fill, valign=top");
+		add(pnl, "colspan=2, valign=center, halign=center");
 		
 		startNewRow();
 		add(stk, "hfill=fill,vfill=fill");
@@ -279,9 +283,15 @@ TablePanel {
 	} 
 	
 	void setUpButtons() {
-		btnClearSearch.setImage(Images.Buttons.BTN_CANCEL_u.getImage());
-		btnClearSearch.setFocusedImage(Images.Buttons.BTN_CANCEL_s.getImage());
-		btnClearSearch.setSelectedImage(Images.Buttons.BTN_CANCEL_s.getImage());	
+		btnClearSearch.setBackground(Background.create9PartImageRectangleBackground(Images.Buttons.BTN_CANCEL_u,0,0,0,0));
+		btnClearSearch.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.Buttons.BTN_CANCEL_s,0,0,0,0));
+		btnClearSearch.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.Buttons.BTN_CANCEL_s,0,0,0,0));
+		
+		/*
+		 * btnClearSearch.setImage(Images.Buttons.BTN_CANCEL_u.getImage());
+		 * btnClearSearch.setFocusedImage(Images.Buttons.BTN_CANCEL_s.getImage());
+	 	 * btnClearSearch.setSelectedImage(Images.Buttons.BTN_CANCEL_s.getImage());	
+	 	*/
 	}
 	
 	void setAccountCode(String str) {
@@ -299,5 +309,8 @@ TablePanel {
 	void setDetailFormPanel(Panels.Contact.ReadOnlyDetailFormPanel pnl) {
 		pnlDetailForm = pnl;
 	}
-		
+
+	void setHomeScreen(Screen scr) {
+		scrHome=(Screens.HomeScreen) scr;
+	}
 }

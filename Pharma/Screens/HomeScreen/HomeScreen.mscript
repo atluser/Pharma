@@ -40,6 +40,7 @@ Screen {
 		//Panels.PriceList.RootPanel pnlPriceListRoot = new Panels.PriceList.RootPanel();
 		Panels.PriceList.RootTablePanel pnlPriceListRoot = new Panels.PriceList.RootTablePanel();
 		
+		pnlContactRoot.setHomeScreen((Screen)container);
 		
 		StackPanel stkPnlRoot = new StackPanel();		
 		stkPnlRoot.add(pnlAccountRoot);		

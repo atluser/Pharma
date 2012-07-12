@@ -1,6 +1,7 @@
 TablePanel {
 	
 	StickyTable stkTbl;
+	Screens.HomeScreen scrHome;
 	Array arr;
 	
 	Link lnkNum = new Link();
@@ -68,7 +69,21 @@ TablePanel {
 		
 	}
 	
+	callback lnkA onClick (Control c) {
+		if (lnkA.isEnabled()) {
+			Popover popLetter = new Popover();
+			Size sizePopLetter = new Size();
+			sizePopLetter.setHeight(Sizing.PIXELS, 100);
+			sizePopLetter.setWidth(Sizing.PIXELS, 100);
+			popLetter.setBackColor(Color.create(222,222,222));
+			AnchorPosition position = new AnchorPosition();
+			position.setAnchor(stkTbl);
+			position.setOffset(100,200);
+			scrHome.showPopover(popLetter,false,null);
+		}
+	}
 	
+	/*
 	callback lnkA onClick(Control c) {
 		if(lnkA.isEnabled()) {
 			appLog.log(Log.INFO, "IndexPanel - lnkA onClick()");
@@ -76,6 +91,7 @@ TablePanel {
 			stkTbl.select(arr.findItem("A"),0);
 		}
 	}
+	*/
 
 	callback lnkB onClick(Control c) {
 		if(lnkB.isEnabled()) {
@@ -607,5 +623,9 @@ TablePanel {
 		}	
 		
 	}	
+	
+	void setHomeScreen(Screen scr) {
+		scrHome=(Screens.HomeScreen) scr;
+	}
 	
 }

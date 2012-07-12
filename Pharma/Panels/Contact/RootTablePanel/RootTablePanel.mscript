@@ -3,6 +3,7 @@ TablePanel {
 	Panels.Contact.StickyTablePanel stk = new Panels.Contact.StickyTablePanel();
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Contact.ReadOnlyDetailFormPanel();
 	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();	 
+	Screens.HomeScreen scrHome;
 	
 	String fill = "hfill=fill, vfill=fill";
 	
@@ -10,8 +11,10 @@ TablePanel {
 		
 		//setting the layout of the root panel
 		setRowHeight(0,Sizing.PREFERRED,1);
-		setColumnWidth(0, Sizing.PIXELS, 370);
+		setColumnWidth(0, Sizing.PREFERRED, 0);
 		setColumnWidth(1, Sizing.PREFERRED, 1);
+		
+		stk.setHomeScreen(scrHome);
 		
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();		 		
 		pnlMaster.setContentPanel(stk);
@@ -45,4 +48,7 @@ TablePanel {
 		return stk.stk;	
 	}
 	
+	void setHomeScreen(Screen scr) {
+		scrHome = (Screens.HomeScreen) scr;
+	}
 }
