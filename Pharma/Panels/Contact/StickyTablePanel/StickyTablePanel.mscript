@@ -29,6 +29,13 @@ TablePanel {
 	 */
 	callback onCreate(Container c) {
 		
+		//set size (note: this is required)
+		setColumnWidth(0, Sizing.PIXELS, 326);
+		setColumnWidth(1, Sizing.PREFERRED,0);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);	
+		//setRowHeight(2, Sizing.PREFERRED, 0);
+		
 		pnlIndex.setStickyTable(stk);
 		pnlIndex.setArray(arr);
 		
@@ -39,8 +46,7 @@ TablePanel {
 		stk.setDataModel(mrsm);
 		stk.setGridLineThickness(1);
 		stk.setGridLineStyle(LineStyle.SOLID);
-		stk.setGridLineColor(Colors.Gray);
-		setColumnWidth(0, Sizing.PERCENTS, 25);
+		stk.setGridLineColor(Colors.Gray); 
 		
 		Font fnt = new Font();
 		fnt.setSize(18);
@@ -52,6 +58,7 @@ TablePanel {
 		src.setDisabledForeColor(Color.create(58,58,58));
 		src.setBackColor(Colors.White);
 		
+		/* create the panel which contains the search bar */
 		TablePanel pnl = new TablePanel();
 		PictureBox picBoxSearch = new PictureBox();
 		picBoxSearch.setImage(Images.Buttons.BTN_32x32_SEARCH_u.getImage());
@@ -72,15 +79,10 @@ TablePanel {
 		add(stk, "hfill=fill,vfill=fill");
 		add(pnlIndex, "hfill=fill,valign=top");	
 		
-		setInsets(8,8,8,8);
+		setInsets(0,0,0,0);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
 		
-		//set size (note: this is required)
-		setColumnWidth(0, Sizing.PIXELS, 360);
-		setColumnWidth(1, Sizing.PREFERRED,0);
-		setRowHeight(0, Sizing.PREFERRED, 0);
-		setRowHeight(1, Sizing.PREFERRED, 1);	
-		setRowHeight(2, Sizing.PREFERRED, 0);	
+			
 		
 		/*	stk.scrollTo(0,0,StickyTable.SCROLL_POSITION_TOP);
 		 *	stk.select(0,0);

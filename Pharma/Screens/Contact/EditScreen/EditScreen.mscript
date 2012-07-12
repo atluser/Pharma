@@ -132,7 +132,7 @@ Screen {
 			String message="Operazione effettuata con successo";
 			MessageBox msgBox=new MessageBox();
 			//stk.save(dataObject);		
-			fp.save();
+			//fp.save();
 			//Salvo i dati!
 			DataRow ContactRowContext = null;
 			if(fp.currentRow==null)
