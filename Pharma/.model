@@ -126,6 +126,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_SEARCH">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
         <properties/>
         <properties/>
@@ -664,6 +670,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_SEARCH">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
         <properties/>
         <properties/>
@@ -1191,6 +1203,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_SEARCH">
         <properties/>
         <properties/>
         <properties/>
@@ -2602,6 +2620,9 @@
       <imagePaths name="Aspirina">
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_SEARCH">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
         <properties/>
       </imagePaths>
@@ -2868,6 +2889,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_SEARCH">
         <properties/>
       </imagePaths>
       <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
@@ -3690,6 +3714,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_SEARCH">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
         <properties/>
         <properties/>
@@ -4044,6 +4072,9 @@
       <imagePaths name="Aspirina">
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_SEARCH">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
         <properties/>
       </imagePaths>
@@ -4310,6 +4341,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_SEARCH">
         <properties/>
       </imagePaths>
       <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
@@ -4580,6 +4614,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_SEARCH">
         <properties/>
       </imagePaths>
       <imagePaths name="Buttons.BTN_32x32_SEARCH_u">
@@ -4950,9 +4987,6 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="EditStickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditStickyTablePanel.mscript"/>
     </children>
-    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="FooterPanel" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewPanel">
-      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="FooterPanel.mscript"/>
-    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="HeaderPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="HeaderPanel.mscript"/>
     </children>
@@ -4983,9 +5017,6 @@
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ReadOnlyDetailFormPanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ReadOnlyDetailFormPanel.mscript"/>
-      </children>
-      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
-        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootTablePanel.mscript"/>
@@ -5032,20 +5063,11 @@
       </children>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Contact">
-      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
-        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailPanel.mscript"/>
-      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="EditFormScrollableTablePanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditFormScrollableTablePanel.mscript"/>
       </children>
-      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
-        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
-      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ReadOnlyDetailFormPanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ReadOnlyDetailFormPanel.mscript"/>
-      </children>
-      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
-        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootTablePanel.mscript"/>

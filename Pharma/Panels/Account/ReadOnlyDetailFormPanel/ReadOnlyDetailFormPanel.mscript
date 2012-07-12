@@ -13,6 +13,8 @@ ScrollableTablePanel {
 	BackgroundButton btn02 = new BackgroundButton();
 	BackgroundButton btn03 = new BackgroundButton();
 	
+	Panels.DetailPanel pnlDetail;
+	
 	// Anagrafica
 	TextModel txtMdlCode = new TextModel();
 	Label txtFldCode = new Label(); 
@@ -111,7 +113,7 @@ ScrollableTablePanel {
 		
 		enableScroll(true);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-		setColumnWidth(0, Sizing.PREFERRED, 1);
+		setColumnWidth(0, Sizing.PERCENTS, 65);
 		
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 0);
@@ -138,11 +140,12 @@ ScrollableTablePanel {
 		setRowHeight(13, Sizing.PREFERRED, 0);
 		*/
 		
-		DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
-		logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: number of rows: " + vObjAccount.getAccounts().getRowSet().getSize());
-		logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjAccount.AccountName.getStringValue(firstRow));
-		setRow(firstRow);
-		
+		/*
+		 * DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
+		 * logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: number of rows: " + vObjAccount.getAccounts().getRowSet().getSize());
+		 * logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjAccount.AccountName.getStringValue(firstRow));
+		 * setRow(firstRow);
+		*/
 	}	
 	
 	callback btn01 onClick(Control c) {
@@ -582,6 +585,20 @@ ScrollableTablePanel {
 		
 		refresh();
 			
+	}
+	
+	void setDetailPanel (Panels.DetailPanel pnl) {
+		pnlDetail = pnl;
+	}
+	
+	
+	void setFirstRecord() {
+		
+	
+			if(vObjAccount.getAccounts().getRowSet() != null && vObjAccount.getAccounts().getRowSet().getSize() > 0) {
+				setRow(vObjAccount.getAccounts().getRowSet().first());
+			}		
+		
 	}
 
 }

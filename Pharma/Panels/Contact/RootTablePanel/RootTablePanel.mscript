@@ -10,7 +10,7 @@ TablePanel {
 		
 		//setting the layout of the root panel
 		setRowHeight(0,Sizing.PREFERRED,1);
-		setColumnWidth(0, Sizing.PIXELS, 350);
+		setColumnWidth(0, Sizing.PIXELS, 370);
 		setColumnWidth(1, Sizing.PREFERRED, 1);
 		
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();		 		

@@ -20,6 +20,10 @@ TablePanel {
 
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
 	Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
+	
+	int iRowCount = 0;
+	Label lblRowCount = new Label();
+	
 	/*
 	 *
 	 */
@@ -29,6 +33,7 @@ TablePanel {
 		pnlIndex.setArray(arr);
 		
 		setQuery();
+		setUpButtons();
 		
 		//stk.setDataModel(rsm);
 		stk.setDataModel(mrsm);
@@ -52,9 +57,9 @@ TablePanel {
 		picBoxSearch.setImage(Images.Buttons.BTN_32x32_SEARCH_u.getImage());
 		//pnl.setInsets(0,8,0,0);
 		pnl.setRowHeight(0, Sizing.PIXELS, 48);
-		pnl.setColumnWidth(0, Sizing.PIXELS, 0);
-		pnl.setColumnWidth(1, Sizing.PIXELS, 300);
-		pnl.setColumnWidth(2, Sizing.PIXELS, 0);
+		pnl.setColumnWidth(0, Sizing.PIXELS, 48);
+		pnl.setColumnWidth(1, Sizing.PIXELS, 250);
+		pnl.setColumnWidth(2, Sizing.PIXELS, 48);
 		pnl.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.Backgrounds.BCK_SEARCH.getImage(),5,5));
 		//pnl.setBackColor(Colors.White);
 		pnl.add(picBoxSearch,fill);
@@ -71,9 +76,11 @@ TablePanel {
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
 		
 		//set size (note: this is required)
-		setColumnWidth(1, Sizing.PREFERRED, 1);
+		setColumnWidth(0, Sizing.PIXELS, 360);
+		setColumnWidth(1, Sizing.PREFERRED,0);
 		setRowHeight(0, Sizing.PREFERRED, 0);
-		setRowHeight(1, Sizing.PREFERRED, 1);		
+		setRowHeight(1, Sizing.PREFERRED, 1);	
+		setRowHeight(2, Sizing.PREFERRED, 0);	
 		
 		/*	stk.scrollTo(0,0,StickyTable.SCROLL_POSITION_TOP);
 		 *	stk.select(0,0);
@@ -197,6 +204,30 @@ TablePanel {
 		
 	}	
 	
+	callback btnClearSearch onClick(Control c) {
+		src.setText("")	;	
+		//pnlDetail.setQuery();
+		setQuery();
+		stk.reload();
+		if (mrsm.getRowCount(0)>0) {
+			stk.select(0,0);
+			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(mrsm.getRow()));
+			pnlDetailForm.setRow(mrsm.getRow());
+		}
+		//iRowCount = pnlDetail.getRowCount();
+		switch(iRowCount) {
+			
+			case 0:
+				lblRowCount.setText("No Accounts");
+				break;
+			case 1:	
+				lblRowCount.setText("" + iRowCount + " Account/s");
+				break;
+			default:
+				lblRowCount.setText("" + iRowCount + " Account/s");
+		}
+	}
+	
 	/*
 	 * Custom methods
 	 */
@@ -244,6 +275,12 @@ TablePanel {
 		}
 		stk.setNumberOfGroups(mrsm.getGroupCount());	
 	} 
+	
+	void setUpButtons() {
+		btnClearSearch.setImage(Images.Buttons.BTN_CANCEL_u.getImage());
+		btnClearSearch.setFocusedImage(Images.Buttons.BTN_CANCEL_s.getImage());
+		btnClearSearch.setSelectedImage(Images.Buttons.BTN_CANCEL_s.getImage());	
+	}
 	
 	void setAccountCode(String str) {
 		sAccountCode = str;

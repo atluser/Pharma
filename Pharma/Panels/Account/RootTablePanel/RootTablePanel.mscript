@@ -18,6 +18,11 @@ TablePanel {
 		//Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 		pnlDetail.setContentPanel(pnlDetailForm);
 		
+		pnlDetailForm.setDetailPanel(pnlDetail);
+		pnlDetailForm.setFirstRecord();
+		
+		DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
+		pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(firstRow));
 		stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);
 		/*if(stk.rsm.hasMoreRows(0)){
@@ -26,9 +31,9 @@ TablePanel {
 		}*/		
 		
 		//setting the layout of the root panel
-		setColumnWidth(0, Sizing.PREFERRED, 0);
-		setColumnWidth(1, Sizing.PERCENTS, 100);
-		setRowHeight(0, Sizing.PREFERRED, 1);
+		setRowHeight(0,Sizing.PREFERRED,1);
+		setColumnWidth(0, Sizing.PIXELS, 370);
+		setColumnWidth(1, Sizing.PREFERRED, 1);
 		
 	 	add(pnlMaster, fill);
 	 	add(pnlDetail, fill);
