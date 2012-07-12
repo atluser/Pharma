@@ -1,4 +1,7 @@
 DataStoreObject {
+	StringField myProductCode{return null;}
+	StringField myProductName{return null;}
+	StringField myListCode{return null;}
 	/*
 	mapping productList<PharmaDP.DataStore.Products products,PharmaDP.DataStore.PriceListItem listItem >{
 		join products.ProductCode==listItem.ProductCode;
@@ -13,7 +16,7 @@ DataStoreObject {
 	
 	}*/
 	
-	mapping productList<Products products,PriceListItem listItem >{
+	/*mapping productList<Products products,PriceListItem listItem >{
 		join products.ProductCode==listItem.ProductCode;
 		map products.ProductName as myProductName;
 		map products.ProductCode as myProductCode;
@@ -25,11 +28,7 @@ DataStoreObject {
 		ascendingBy myProductCode;
 	
 	}
-	
-	StringField myProductCode{return null;}
-	StringField myProductName{return null;}
-	StringField myListCode{return null;}
-		
+*/
 	/*
 	Query getProductList(PharmaDP.DataStore.Products products,PharmaDP.DataStore.PriceListItem listItem,String str){
 		return getProductList2(products,listItem,"");

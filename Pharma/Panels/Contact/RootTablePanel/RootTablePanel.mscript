@@ -20,9 +20,16 @@ TablePanel {
 		pnlDetailForm.setFirstRecord();
 		// Detail Panel
 		pnlDetail.setContentPanel(pnlDetailForm);
-		DataRow firstRow = vObjContact.getContacts().getRowSet().first();
-		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow) + " " + vObjContact.ContactLastName.getStringValue(firstRow));
 		
+		if(dpRowSetContact.getSize()>1) //uno c'è sempre (Fittizio...)
+		{
+			DataRow firstRow = vObjContact.getContacts().getRowSet().first();
+			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow) + " " + vObjContact.ContactLastName.getStringValue(firstRow));
+		}
+		else
+		{
+			pnlDetail.txtFldName.setText("Non sono presenti contatti. Crearne di nuovi!");
+		}
 		
 		stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);

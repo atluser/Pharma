@@ -1,5 +1,4 @@
 UIObject {
-	
 	void loadProducts(){
 		DataRow row=null;
 		row=vObjProducts.getNewRow();		
@@ -626,22 +625,41 @@ UIObject {
 	}
 	
 	void loadAccount(){
-		//DataRow row = vObjAccount.getNewRow();
-		//DataRowSet setAccnt = vObjAccount.getRowSet();
-		DataRow row = vObjAccount.getNewRow();
-		Query q = vObjAccount.createQuery();
-		DataRowSet rowSet = q.getRowSet();
-		row = rowSet.first();
-		
-		if(row == null)
+		int iSize;
+		iSize = dpRowSetAccnt.getSize();
+		if(iSize>0)
 		{
-			Platform.println("non sono stati trovati Account!!");
+			dpRowSetAccnt.first();
+			while(dpRowSetAccnt != null){
+				dpRowAccnt = vObjAccount.getNewRow();
+				vObjAccount.AccountId.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountId"),dpRowAccnt);
+				vObjAccount.AccountCode.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountCode"),dpRowAccnt);
+				vObjAccount.AccountName.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountName"),dpRowAccnt);
+				vObjAccount.AccountType.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountType"),dpRowAccnt);
+				vObjAccount.AccountCategory.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountCategory"),dpRowAccnt);
+				vObjAccount.AccountStreetAddress.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountStreetAddress"),dpRowAccnt);
+				vObjAccount.AccountCity.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountCity"),dpRowAccnt);
+				vObjAccount.AccountProvince.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountProvince"),dpRowAccnt);
+				vObjAccount.AccountPostalCode.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountPostalCode"),dpRowAccnt);
+				vObjAccount.AccountCountry.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountCountry"),dpRowAccnt);
+				vObjAccount.AccountStatus.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountStatus"),dpRowAccnt);
+				vObjAccount.AccountPhone.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountPhone"),dpRowAccnt);
+				vObjAccount.AccountPrefix.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountPrefix"),dpRowAccnt);
+				vObjAccount.AccountFax.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountFax"),dpRowAccnt);
+				vObjAccount.AccountEmail.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountEmail"),dpRowAccnt);
+				vObjAccount.AccountWebSite.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountWebSite"),dpRowAccnt);
+				vObjAccount.AccountRating.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountRating"),dpRowAccnt);
+				vObjAccount.AccountRevenue.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountRevenue"),dpRowAccnt);
+				vObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(dpRowSetAccnt.getCurrentRow().getString("AccountNumberOfEmployee")),dpRowAccnt);
+				dpRowAccnt.applyUpdates();
+				dpRowSetAccnt.next();
+			}
 		}
-		/*while(row != null){
-			vObjAccount.AccountId.setStringValue("00000001", row);
-			//Platform.println(row.toString());
-			row = rowSet.next();
-		}*/
+		else
+		{
+			dpRowAccnt = vObjAccount.getNewRow();
+			dpRowAccnt.applyUpdates();
+		}
 	}
 	
 	String getAccountName(String accountId){
@@ -781,231 +799,38 @@ UIObject {
 	}
 	
 	void loadContact() {
-		
-		DataRow row;
-		
-		row = vObjContact.getNewRow();
-			vObjContact.ContactId.setStringValue("00000001", row);
-			vObjContact.ContactName.setStringValue("Mario", row);
-			vObjContact.ContactLastName.setStringValue("Rossi", row);
-			vObjContact.RelAccountCode.setStringValue("00100988", row);
-			vObjContact.ContactTitle.setStringValue("Sig.", row);
-			vObjContact.ContactFunction.setStringValue("Titolare", row);
-			vObjContact.ContactStatus.setStringValue("Attivo", row);
-			vObjContact.ContactStreetAddress.setStringValue("Via Washington Giorgio, 79", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactStreetCity.setStringValue("Milano", row);
-			vObjContact.ContactProvince.setStringValue("MI", row);
-			vObjContact.ContactCap.setStringValue("20146", row);
-			vObjContact.ContactPhone.setStringValue("02-89302846", row);
-			vObjContact.ContactOfficePhone.setStringValue("02-48954411", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactAge.setStringValue("41", row);
-			vObjContact.ContactGender.setStringValue("Maschio", row);
-        row.applyUpdates();
-        
-        row = vObjContact.getNewRow();
-	        vObjContact.ContactId.setStringValue("00000002", row);
-			vObjContact.ContactName.setStringValue("Bruno", row);
-			vObjContact.ContactLastName.setStringValue("Verdi", row);
-			vObjContact.RelAccountCode.setStringValue("00100398", row);
-			vObjContact.ContactTitle.setStringValue("Ing.", row);
-			vObjContact.ContactFunction.setStringValue("Responsabile", row);
-			vObjContact.ContactStatus.setStringValue("Nuovo", row);
-			vObjContact.ContactStreetAddress.setStringValue("Via Colli Della Farnesina, 56", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactStreetCity.setStringValue("Roma", row);
-			vObjContact.ContactProvince.setStringValue("RM", row);
-			vObjContact.ContactCap.setStringValue("00135", row);
-			vObjContact.ContactPhone.setStringValue("06-37353341", row);
-			vObjContact.ContactOfficePhone.setStringValue("06-45550149", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactAge.setStringValue("37", row);
-			vObjContact.ContactGender.setStringValue("Maschio", row);
-        row.applyUpdates();
-        
-        row = vObjContact.getNewRow();
-	        vObjContact.ContactId.setStringValue("00000003", row);
-			vObjContact.ContactName.setStringValue("Elena", row);
-			vObjContact.ContactLastName.setStringValue("Mir�", row);
-			vObjContact.RelAccountCode.setStringValue("00100398", row);
-			vObjContact.ContactTitle.setStringValue("Dott.", row);
-			vObjContact.ContactFunction.setStringValue("Medico", row);
-			vObjContact.ContactStatus.setStringValue("Inattivo", row);
-			vObjContact.ContactPhone.setStringValue("035-242802", row);
-			vObjContact.ContactOfficePhone.setStringValue("035-215154", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactStreetAddress.setStringValue("Via Venti Settembre, 70", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactCap.setStringValue("24122", row);
-			vObjContact.ContactStreetCity.setStringValue("Bergamo", row);
-			vObjContact.ContactProvince.setStringValue("BG", row);
-        row.applyUpdates();
-        
-        row = vObjContact.getNewRow();
-	        vObjContact.ContactId.setStringValue("00000004", row);
-			vObjContact.ContactName.setStringValue("Marco", row);
-			vObjContact.ContactLastName.setStringValue("Estella", row);
-			vObjContact.RelAccountCode.setStringValue("00100398", row);
-			vObjContact.ContactTitle.setStringValue("Sig.", row);
-			vObjContact.ContactFunction.setStringValue("Responsabile", row);
-			vObjContact.ContactStatus.setStringValue("Attivo", row);
-			vObjContact.ContactPhone.setStringValue("0321-695292", row);
-			vObjContact.ContactOfficePhone.setStringValue("0321-694979", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactStreetAddress.setStringValue("Corso Trieste, 55", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactCap.setStringValue("28100", row);
-			vObjContact.ContactStreetCity.setStringValue("Novara", row);
-			vObjContact.ContactProvince.setStringValue("NO", row);
-        row.applyUpdates();
-        
-        row = vObjContact.getNewRow();
-	        vObjContact.ContactId.setStringValue("00000005", row);
-			vObjContact.ContactName.setStringValue("Gianluca", row);
-			vObjContact.ContactLastName.setStringValue("Pasero", row);
-			vObjContact.ContactStatus.setStringValue("Attivo", row);
-			vObjContact.ContactPhone.setStringValue("011-7730703", row);
-			vObjContact.ContactOfficePhone.setStringValue("011-836632", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactStreetAddress.setStringValue("Via Trencate, 38", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactCap.setStringValue("10141", row);
-			vObjContact.ContactStreetCity.setStringValue("Torino", row);
-			vObjContact.ContactProvince.setStringValue("TO", row);
-        row.applyUpdates();
-        
-        row = vObjContact.getNewRow();
-	        vObjContact.ContactId.setStringValue("00000006", row);
-			vObjContact.ContactName.setStringValue("Pietro", row);
-			vObjContact.ContactLastName.setStringValue("Calvellini", row);
-			vObjContact.RelAccountCode.setStringValue("00100052", row);
-			vObjContact.ContactStatus.setStringValue("Attivo", row);
-			vObjContact.ContactPhone.setStringValue("0541-785179", row);
-			vObjContact.ContactOfficePhone.setStringValue("0541-732437", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactStreetAddress.setStringValue("Via Sigismondo, 20", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactCap.setStringValue("47900", row);
-			vObjContact.ContactStreetCity.setStringValue("Rimini", row);
-			vObjContact.ContactProvince.setStringValue("RN", row);
-        row.applyUpdates();
-        
-        row = vObjContact.getNewRow();
-	        vObjContact.ContactId.setStringValue("00000007", row);
-			vObjContact.ContactName.setStringValue("Omar", row);
-			vObjContact.ContactLastName.setStringValue("Perini", row);
-			vObjContact.RelAccountCode.setStringValue("00100052", row);
-			vObjContact.ContactStatus.setStringValue("Attivo", row);
-			vObjContact.ContactPhone.setStringValue("041-5342296", row);
-			vObjContact.ContactOfficePhone.setStringValue("041-715977", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactStreetAddress.setStringValue("Via Casona, 112", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactCap.setStringValue("30173", row);
-			vObjContact.ContactStreetCity.setStringValue("Venezia", row);
-			vObjContact.ContactProvince.setStringValue("VE", row);
-        row.applyUpdates();
-        
-        row = vObjContact.getNewRow();
-			vObjContact.ContactId.setStringValue("00000008", row);
-			vObjContact.ContactName.setStringValue("Paolo", row);
-			vObjContact.ContactLastName.setStringValue("Arnaldi", row);
-			vObjContact.RelAccountCode.setStringValue("00100052", row);
-			vObjContact.ContactTitle.setStringValue("Dott.", row);
-			vObjContact.ContactFunction.setStringValue("Titolare", row);
-			vObjContact.ContactStatus.setStringValue("Nuovo", row);
-			vObjContact.ContactStreetAddress.setStringValue("Via Beato Angelico, 33", row);
-			vObjContact.ContactStreetCity.setStringValue("Pescara", row);
-			vObjContact.ContactProvince.setStringValue("PE", row);
-			vObjContact.ContactCap.setStringValue("65124", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactPhone.setStringValue("085-4216256", row);
-			vObjContact.ContactOfficePhone.setStringValue("085-4215856", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactAge.setStringValue("54", row);
-			vObjContact.ContactGender.setStringValue("Maschio", row);
-        row.applyUpdates();
-        
-        row = vObjContact.getNewRow();
-			vObjContact.ContactId.setStringValue("00000009", row);
-			vObjContact.ContactName.setStringValue("Daniele", row);
-			vObjContact.ContactLastName.setStringValue("Paoli", row);
-			vObjContact.RelAccountCode.setStringValue("00100988", row);
-			vObjContact.ContactTitle.setStringValue("Sig.", row);
-			vObjContact.ContactFunction.setStringValue("Titolare", row);
-			vObjContact.ContactStatus.setStringValue("Attivo", row);
-			vObjContact.ContactStreetAddress.setStringValue("Via Washington Giorgio, 79", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactStreetCity.setStringValue("Milano", row);
-			vObjContact.ContactProvince.setStringValue("MI", row);
-			vObjContact.ContactCap.setStringValue("20146", row);
-			vObjContact.ContactPhone.setStringValue("02-89302846", row);
-			vObjContact.ContactOfficePhone.setStringValue("02-48954411", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactAge.setStringValue("41", row);
-			vObjContact.ContactGender.setStringValue("Maschio", row);
-        row.applyUpdates();
-        
-        row = vObjContact.getNewRow();
-			vObjContact.ContactId.setStringValue("00000010", row);
-			vObjContact.ContactName.setStringValue("Daniela", row);
-			vObjContact.ContactLastName.setStringValue("Astori", row);
-			vObjContact.RelAccountCode.setStringValue("00100988", row);
-			vObjContact.ContactTitle.setStringValue("Sig.", row);
-			vObjContact.ContactFunction.setStringValue("Titolare", row);
-			vObjContact.ContactStatus.setStringValue("Attivo", row);
-			vObjContact.ContactStreetAddress.setStringValue("Via Washington Giorgio, 79", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactStreetCity.setStringValue("Milano", row);
-			vObjContact.ContactProvince.setStringValue("MI", row);
-			vObjContact.ContactCap.setStringValue("20146", row);
-			vObjContact.ContactPhone.setStringValue("02-89302846", row);
-			vObjContact.ContactOfficePhone.setStringValue("02-48954411", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactAge.setStringValue("41", row);
-			vObjContact.ContactGender.setStringValue("Femmina", row);
-        row.applyUpdates();
-        
-        row = vObjContact.getNewRow();
-			vObjContact.ContactId.setStringValue("00000011", row);
-			vObjContact.ContactName.setStringValue("Daniele", row);
-			vObjContact.ContactLastName.setStringValue("Paoli", row);
-			vObjContact.RelAccountCode.setStringValue("00100988", row);
-			vObjContact.ContactTitle.setStringValue("Sig.", row);
-			vObjContact.ContactFunction.setStringValue("Titolare", row);
-			vObjContact.ContactStatus.setStringValue("Attivo", row);
-			vObjContact.ContactStreetAddress.setStringValue("Via Washington Giorgio, 79", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactStreetCity.setStringValue("Milano", row);
-			vObjContact.ContactProvince.setStringValue("MI", row);
-			vObjContact.ContactCap.setStringValue("20146", row);
-			vObjContact.ContactPhone.setStringValue("02-89302846", row);
-			vObjContact.ContactOfficePhone.setStringValue("02-48954411", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactAge.setStringValue("41", row);
-			vObjContact.ContactGender.setStringValue("Maschio", row);
-        row.applyUpdates();
-        
-        row = vObjContact.getNewRow();
-			vObjContact.ContactId.setStringValue("00000012", row);
-			vObjContact.ContactName.setStringValue("Marco", row);
-			vObjContact.ContactLastName.setStringValue("Bignardi", row);
-			vObjContact.RelAccountCode.setStringValue("00100988", row);
-			vObjContact.ContactTitle.setStringValue("Sig.", row);
-			vObjContact.ContactFunction.setStringValue("Titolare", row);
-			vObjContact.ContactStatus.setStringValue("Attivo", row);
-			vObjContact.ContactStreetAddress.setStringValue("Via Washington Giorgio, 79", row);
-			vObjContact.ContactCountry.setStringValue("Italia", row);
-			vObjContact.ContactStreetCity.setStringValue("Milano", row);
-			vObjContact.ContactProvince.setStringValue("MI", row);
-			vObjContact.ContactCap.setStringValue("20146", row);
-			vObjContact.ContactPhone.setStringValue("02-89302846", row);
-			vObjContact.ContactOfficePhone.setStringValue("02-48954411", row);
-			vObjContact.ContactEmail.setStringValue("abcde@atlantic.it", row);
-			vObjContact.ContactAge.setStringValue("41", row);
-			vObjContact.ContactGender.setStringValue("Maschio", row);
-        row.applyUpdates();
+		if(dpRowSetContact.getSize()>0)
+		{
+			dpRowSetContact.first();
+			while(dpRowSetContact != null){
+				dpRowContact = vObjContact.getNewRow();
+				vObjContact.ContactId.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactId"),dpRowContact);
+				vObjContact.ContactName.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactName"),dpRowContact);
+				vObjContact.ContactLastName.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactLastName"),dpRowContact);
+				vObjContact.RelAccountCode.setStringValue(dpRowSetContact.getCurrentRow().getString("RelAccountCode"),dpRowContact);
+				vObjContact.ContactTitle.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactTitle"),dpRowContact);
+				vObjContact.ContactFunction.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactFunction"),dpRowContact);
+				vObjContact.ContactStatus.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactStatus"),dpRowContact);
+				vObjContact.ContactStreetAddress.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactStreetAddress"),dpRowContact);
+				vObjContact.ContactStreetCity.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactStreetCity"),dpRowContact);
+				vObjContact.ContactProvince.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactProvince"),dpRowContact);
+				vObjContact.ContactCap.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactCap"),dpRowContact);
+				vObjContact.ContactCountry.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactCountry"),dpRowContact);
+				vObjContact.ContactPhone.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactPhone"),dpRowContact);
+				vObjContact.ContactOfficePhone.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactOfficePhone"),dpRowContact);
+				vObjContact.ContactEmail.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactEmail"),dpRowContact);
+				vObjContact.ContactAge.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactAge"),dpRowContact);
+				vObjContact.ContactGender.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactGender"),dpRowContact);
+				vObjContact.ContactNote.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactNote"),dpRowContact);
+				dpRowContact.applyUpdates();
+				dpRowSetContact.next();
+			}
+		}
+		else
+		{
+			dpRowContact = vObjContact.getNewRow();
+			dpRowContact.applyUpdates();
+		}
 	}
 	
 
