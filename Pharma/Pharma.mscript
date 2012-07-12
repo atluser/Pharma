@@ -1,5 +1,4 @@
 UIProject {
-	
 	Screens.StartScreen scrStart;
 	Screens.HomeScreen scrHome;
 	
@@ -13,10 +12,24 @@ UIProject {
 	 * Virtual objects
 	 */
 	CrmEntity vObjCrmEntity = new CrmEntity();
-	//PharmaDP.DataStore dp=new PharmaDP.DataStore();
-	//PharmaDP.DataStore.Account vObjAccount=dp.Account;
-	Account vObjAccount = new Account();
-	Contact vObjContact = new Contact();
+	//Account vObjAccount = new Account();
+	
+	/*********************************************
+	LEGGO GLI OGGETTI PRESENTI NEL DATASTORE
+	*********************************************/
+	PharmaDP.DataStore dp = new PharmaDP.DataStore(); //istanzio il dataproject
+	boolean sOpenDP = open(dp, null, true); //Apro il dataproject
+	
+	PharmaDP.DataStore.Account vObjAccount = dp.Account; //istanzio l'Account del dp
+	PharmaDP.DataStore.Contact vObjContact = dp.Contact; //istanzio i Contact del dp
+		
+	DataRowSet dpRowSetAccnt = vObjAccount.getRowSet(); //Recupero gli account presenti
+	DataRow dpRowAccnt = null; //used in VOUtility
+	
+	DataRowSet dpRowSetContact = vObjContact.getRowSet(); //Recupero gli account presenti
+	DataRow dpRowContact = null; //used in VOUtility
+	
+	//Contact vObjContact = new Contact();
 	ListOfValues vObjLOV = new ListOfValues();
 	Order vObjOrder=new Order();
 	OrderItem vObjOrderItem=new OrderItem();
@@ -34,8 +47,6 @@ UIProject {
 	 * VOUtility
 	 */
 	VOUtility vObjUtil = new VOUtility();
-	
-	
 	Config.AccountConfig accountConfig=new Config.AccountConfig(); 
 	Config.ContactConfig contactConfig=new Config.ContactConfig();
 	Config.Field cfg=new Config.Field();
@@ -103,13 +114,17 @@ UIProject {
 	}
 
 	callback onStart(PushedData pushedData){
+		if(sOpenDP)
+		{
+			vObjUtil.loadAccount();
+			vObjUtil.loadContact();
+		}
 		letterList=List.split(letter,";");
 		//if(!dp.isOpened())	open(dp,Password.create(""),true);		
 		//dp.clearData();
 		vObjUtil.loadCrmEntities();
 		vObjUtil.loadLOV();
-		vObjUtil.loadContact();
-		vObjUtil.loadAccount();
+		//vObjUtil.loadAccount();
 		vObjUtil.loadProducts();
 		//vObjUtil.loadListItem();
 		vObjUtil.loadPriceList();

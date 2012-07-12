@@ -79,7 +79,7 @@ Screen {
 		mn.add(actExit);
 		setMenu(mn);
 		
-		setBackColor(Colors.White);
+		setBackColor(Colors.Red);
 		
 	}
 

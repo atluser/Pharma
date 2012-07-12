@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.vaultus.ecore.properties:Properties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.vaultus.ecore.properties="http:///com/vaultus/ecore/properties.ecore" xmlns:com.vaultus.studio.ecore.strings="http:///com/vaultus/studio/ecore/strings.ecore">
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_ABOUT_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_CLOSE_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_EXIT_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_OK_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_START_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_APP_NAME_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_DEVICE_NAME_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_MSG_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_OS_VERSION_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_SW_VERSION_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACCOUNTS_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACTIVITIES_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CATALOG_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CONTACTS_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ORDERS_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ORDER_ITEMS_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_PRICELIST_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_SERVICE_REQUESTS_STR"/>
+</com.vaultus.ecore.properties:Properties>

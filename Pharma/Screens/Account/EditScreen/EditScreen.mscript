@@ -131,6 +131,38 @@ Screen {
 			MessageBox msgBox=new MessageBox();
 			//stk.save(dataObject);		
 			fp.save();
+			//Salvo i dati!
+			DataRow AccntRowContext = null;
+			if(fp.currentRow==null)
+			{
+				AccntRowContext = vObjAccount.getNewRow();
+			}
+			else
+			{
+				AccntRowContext = fp.currentRow;
+			}
+			//vObjAccount.AccountId.setStringValue(fp.txtName.getText(),AccntRowContext);
+			//vObjAccount.AccountCategory.setStringValue(fp.txtName.getText(),AccntRowContext);
+			//vObjAccount.AccountProvince.setStringValue(fp.txtName.getText(),AccntRowContext);
+			//vObjAccount.AccountCountry.setStringValue(fp.txtName.getText(),AccntRowContext);
+			//vObjAccount.AccountRating.setStringValue(fp.txtName.getText(),AccntRowContext);
+			//vObjAccount.AccountRevenue.setStringValue(fp.txtName.getText(),AccntRowContext);
+			vObjAccount.AccountCode.setStringValue(fp.txtCode.getText(),AccntRowContext);
+			vObjAccount.AccountName.setStringValue(fp.txtName.getText(),AccntRowContext);
+			vObjAccount.AccountType.setStringValue(fp.txtType.getText(),AccntRowContext);
+			vObjAccount.AccountStatus.setStringValue(fp.txtStatus.getText(),AccntRowContext);
+			vObjAccount.AccountStreetAddress.setStringValue(fp.txtStreetAddress.getText(),AccntRowContext);
+			vObjAccount.AccountCity.setStringValue(fp.txtCity.getText(),AccntRowContext);
+			vObjAccount.AccountPostalCode.setStringValue(fp.txtCap.getText(),AccntRowContext);
+			vObjAccount.AccountPhone.setStringValue(fp.txtPhone.getText(),AccntRowContext);
+			vObjAccount.AccountFax.setStringValue(fp.txtFax.getText(),AccntRowContext);
+			vObjAccount.AccountEmail.setStringValue(fp.txtMail.getText(),AccntRowContext);
+			vObjAccount.AccountWebSite.setStringValue(fp.txtUrl.getText(),AccntRowContext);
+			vObjAccount.AccountPrefix.setStringValue(fp.txtPrefix.getText(),AccntRowContext);
+			vObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(fp.txtEmpNum.getText()),AccntRowContext);
+			AccntRowContext.applyUpdates();
+			dp.saveData();
+			
 			//ricarico sticky
 			//svuoto rsm
 			stkTP.setInitQuery();
@@ -171,7 +203,7 @@ Screen {
 	 boolean checkRequired(){
 	 	boolean result=false;
 	 	//check required field
-		String message="Valirizzare campo ";
+		String message="Valorizzare campo ";
 		MessageBox msgBox=new MessageBox();		
 		if(fp.txtName.getText()==""){
 			message+=fp.lblName.getText();

@@ -2,7 +2,7 @@
 <VDSC_PROVIDER>
   <VDSC>
     <UID>5544899311306412543</UID>
-    <VERSION>-6863768266997582224</VERSION>
+    <VERSION>7890389292729360040</VERSION>
     <DOCUMENT>
       <NAME>PharmaDP.1.0.0</NAME>
     </DOCUMENT>
@@ -355,6 +355,324 @@
         <LINKS/>
       </OBJECT>
       <OBJECT>
+        <NAME>Event</NAME>
+        <DISPLAY_NAME>Event</DISPLAY_NAME>
+        <ATTRIBUTES>
+          <ATTRIBUTE>
+            <NAME>Event.Code</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Event.Description</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Event.EndDate</NAME>
+            <TYPE>
+              <DATE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Event.Location</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Event.StartDate</NAME>
+            <TYPE>
+              <DATE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Event.Status</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Event.Subject</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Event.Type</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+        </ATTRIBUTES>
+        <LINKS/>
+      </OBJECT>
+      <OBJECT>
+        <NAME>ListItem</NAME>
+        <DISPLAY_NAME>ListItem</DISPLAY_NAME>
+        <ATTRIBUTES>
+          <ATTRIBUTE>
+            <NAME>ListItem.Discount1</NAME>
+            <TYPE>
+              <DOUBLE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.Discount2</NAME>
+            <TYPE>
+              <DOUBLE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.ListCode</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.OrderCode</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.ProductCalc</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.ProductCategory</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.ProductCode</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.ProductImage</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.ProductName</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.Qty1</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.Qty2</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.Qty3</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.Total1</NAME>
+            <TYPE>
+              <CURRENCY_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.Total2</NAME>
+            <TYPE>
+              <CURRENCY_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ListItem.UnitPrice</NAME>
+            <TYPE>
+              <CURRENCY_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+        </ATTRIBUTES>
+        <LINKS>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.ProductCalc</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.ProductCode</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.ProductCalc</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.ProductName</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.Total1</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.Qty1</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.Total1</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.Qty2</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.Total1</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.Qty3</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.Total1</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.UnitPrice</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.Total2</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.Discount1</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.Total2</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.Qty1</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.Total2</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.Qty2</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.Total2</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.Qty3</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.Total2</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.Total1</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>ListItem.Total2</FROM_ATTRIBUTE>
+            <TO_OBJECT>ListItem</TO_OBJECT>
+            <TO_ATTRIBUTE>ListItem.UnitPrice</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+        </LINKS>
+      </OBJECT>
+      <OBJECT>
         <NAME>ListOfValues</NAME>
         <DISPLAY_NAME>ListOfValues</DISPLAY_NAME>
         <ATTRIBUTES>
@@ -558,6 +876,402 @@
         <LINKS/>
       </OBJECT>
       <OBJECT>
+        <NAME>OrderItem</NAME>
+        <DISPLAY_NAME>OrderItem</DISPLAY_NAME>
+        <ATTRIBUTES>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderCode</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItem1stDeliveryDate</NAME>
+            <TYPE>
+              <DATE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItem2ndDeliveryDate</NAME>
+            <TYPE>
+              <DATE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItem3rdDeliveryDate</NAME>
+            <TYPE>
+              <DATE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemProductCalc</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemProductCategory</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemProductCode</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemProductDiscount1</NAME>
+            <TYPE>
+              <DOUBLE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemProductDiscount2</NAME>
+            <TYPE>
+              <DOUBLE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemProductImage</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemProductName</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemProductPrice</NAME>
+            <TYPE>
+              <CURRENCY_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemQty1</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemQty2</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemQty3</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemTotalDiscount</NAME>
+            <TYPE>
+              <FLOAT_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemTotalGross</NAME>
+            <TYPE>
+              <CURRENCY_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemTotalNet</NAME>
+            <TYPE>
+              <CURRENCY_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>OrderItem.OrderItemTotalQty</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+        </ATTRIBUTES>
+        <LINKS>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemProductCalc</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemProductCode</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemProductCalc</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemProductName</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalGross</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemProductPrice</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalGross</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemQty1</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalGross</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemQty2</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalGross</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemQty3</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalNet</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemProductDiscount1</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalNet</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemProductPrice</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalNet</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemQty1</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalNet</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemQty2</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalNet</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemQty3</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalNet</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemTotalGross</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalQty</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemQty1</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalQty</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemQty2</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>OrderItem.OrderItemTotalQty</FROM_ATTRIBUTE>
+            <TO_OBJECT>OrderItem</TO_OBJECT>
+            <TO_ATTRIBUTE>OrderItem.OrderItemQty3</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+        </LINKS>
+      </OBJECT>
+      <OBJECT>
+        <NAME>PriceList</NAME>
+        <DISPLAY_NAME>PriceList</DISPLAY_NAME>
+        <ATTRIBUTES>
+          <ATTRIBUTE>
+            <NAME>PriceList.PriceListCode</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>PriceList.PriceListCurrencyCode</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>PriceList.PriceListDescription</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>PriceList.PriceListDivision</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>PriceList.PriceListEndDate</NAME>
+            <TYPE>
+              <DATE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>PriceList.PriceListMinOrder</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>PriceList.PriceListName</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>PriceList.PriceListStartDate</NAME>
+            <TYPE>
+              <DATE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>PriceList.PriceListStatus</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>PriceList.PriceListType</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+        </ATTRIBUTES>
+        <LINKS/>
+      </OBJECT>
+      <OBJECT>
         <NAME>PriceListItem</NAME>
         <DISPLAY_NAME>PriceListItem</DISPLAY_NAME>
         <ATTRIBUTES>
@@ -690,6 +1404,40 @@
         </LINKS>
       </OBJECT>
       <OBJECT>
+        <NAME>ProductList</NAME>
+        <DISPLAY_NAME>ProductList</DISPLAY_NAME>
+        <ATTRIBUTES>
+          <ATTRIBUTE>
+            <NAME>ProductList.myListCode</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ProductList.myProductCode</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>ProductList.myProductName</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+        </ATTRIBUTES>
+        <LINKS/>
+      </OBJECT>
+      <OBJECT>
         <NAME>Products</NAME>
         <DISPLAY_NAME>Products</DISPLAY_NAME>
         <ATTRIBUTES>
@@ -749,6 +1497,15 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
+        <NAME>Contact10</NAME>
+        <OBJECT>Contact</OBJECT>
+        <CONTAINS_ATTRIBUTE>Contact.ContactLastName</CONTAINS_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
         <NAME>Contact4</NAME>
         <OBJECT>Contact</OBJECT>
         <ATTRIBUTES>
@@ -765,13 +1522,56 @@
       <INDEX>
         <NAME>Contact6</NAME>
         <OBJECT>Contact</OBJECT>
+        <ATTRIBUTES>
+          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>Contact7</NAME>
+        <OBJECT>Contact</OBJECT>
         <STARTS_WITH_ATTRIBUTE>Contact.ContactLastName</STARTS_WITH_ATTRIBUTE>
         <ATTRIBUTES>
           <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListOfValues7</NAME>
+        <NAME>Contact8</NAME>
+        <OBJECT>Contact</OBJECT>
+        <STARTS_WITH_ATTRIBUTE>Contact.ContactLastName</STARTS_WITH_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>Contact9</NAME>
+        <OBJECT>Contact</OBJECT>
+        <CONTAINS_ATTRIBUTE>Contact.ContactLastName</CONTAINS_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>ListItem11</NAME>
+        <OBJECT>ListItem</OBJECT>
+        <ATTRIBUTES>
+          <ATTRIBUTE>ListItem.OrderCode</ATTRIBUTE>
+          <ATTRIBUTE>ListItem.ProductCode</ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>ListItem12</NAME>
+        <OBJECT>ListItem</OBJECT>
+        <CONTAINS_ATTRIBUTE>ListItem.ProductCalc</CONTAINS_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ATTRIBUTE>ListItem.OrderCode</ATTRIBUTE>
+          <ATTRIBUTE>ListItem.ProductCategory</ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>ListItem.ProductCalc</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>ListOfValues13</NAME>
         <OBJECT>ListOfValues</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>ListOfValues.Type</ATTRIBUTE>
@@ -779,7 +1579,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListOfValues8</NAME>
+        <NAME>ListOfValues14</NAME>
         <OBJECT>ListOfValues</OBJECT>
         <CONTAINS_ATTRIBUTE>ListOfValues.Value</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -788,14 +1588,21 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Order10</NAME>
+        <NAME>Order15</NAME>
+        <OBJECT>Order</OBJECT>
+        <ATTRIBUTES>
+          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>Order16</NAME>
         <OBJECT>Order</OBJECT>
         <ATTRIBUTES>
           <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Order11</NAME>
+        <NAME>Order17</NAME>
         <OBJECT>Order</OBJECT>
         <CONTAINS_ATTRIBUTE>Order.OrderCode</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -804,7 +1611,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Order12</NAME>
+        <NAME>Order18</NAME>
         <OBJECT>Order</OBJECT>
         <CONTAINS_ATTRIBUTE>Order.OrderCode</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -812,28 +1619,55 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Order9</NAME>
-        <OBJECT>Order</OBJECT>
+        <NAME>OrderItem19</NAME>
+        <OBJECT>OrderItem</OBJECT>
         <ATTRIBUTES>
-          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
+          <ATTRIBUTE>OrderItem.OrderCode</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem13</NAME>
+        <NAME>OrderItem20</NAME>
+        <OBJECT>OrderItem</OBJECT>
+        <CONTAINS_ATTRIBUTE>OrderItem.OrderItemProductCalc</CONTAINS_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ATTRIBUTE>OrderItem.OrderCode</ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>OrderItem.OrderItemProductCalc</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>OrderItem21</NAME>
+        <OBJECT>OrderItem</OBJECT>
+        <CONTAINS_ATTRIBUTE>OrderItem.OrderItemProductCalc</CONTAINS_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ATTRIBUTE>OrderItem.OrderCode</ATTRIBUTE>
+          <ATTRIBUTE>OrderItem.OrderItemProductCategory</ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>OrderItem.OrderItemProductCalc</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>PriceList22</NAME>
+        <OBJECT>PriceList</OBJECT>
+        <CONTAINS_ATTRIBUTE>PriceList.PriceListName</CONTAINS_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ASCENDING_ATTRIBUTE>PriceList.PriceListCode</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>PriceListItem23</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>PriceListItem.PriceListCode</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem14</NAME>
+        <NAME>PriceListItem24</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <ATTRIBUTES>
           <ASCENDING_ATTRIBUTE>PriceListItem.ProductCode</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem15</NAME>
+        <NAME>PriceListItem25</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <CONTAINS_ATTRIBUTE>PriceListItem.ProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -842,7 +1676,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Products16</NAME>
+        <NAME>Products26</NAME>
         <OBJECT>Products</OBJECT>
         <ATTRIBUTES>
           <ASCENDING_ATTRIBUTE>Products.ProductCode</ASCENDING_ATTRIBUTE>

@@ -1,0 +1,101 @@
+DataStoreObject {
+
+	// Dettaglio Riga
+	StringField OrderCode{
+		return null;
+	}
+	
+	StringField OrderItemProductCode {
+		return null;
+	}
+	
+	StringField OrderItemProductName {
+		return null;
+	}
+	
+	StringField OrderItemProductCategory {
+		return null;
+	}
+	StringField OrderItemProductCalc {
+		return OrderItemProductCode+OrderItemProductName;
+	}
+	StringField OrderItemProductImage {
+		return null;
+	}
+	
+	CurrencyField OrderItemProductPrice {
+		return null;
+	}
+	
+	IntegerField OrderItemQty1{return Platform.createInteger(0);}
+	IntegerField OrderItemQty2{return Platform.createInteger(0);}
+	IntegerField OrderItemQty3{return Platform.createInteger(0);}
+	
+	DateField OrderItem1stDeliveryDate {
+		return Platform.createDate();
+	}
+
+	DateField OrderItem2ndDeliveryDate {
+		return Platform.createDate();
+	}	
+		
+	DateField OrderItem3rdDeliveryDate {
+		return Platform.createDate();
+	}	
+	
+	DoubleField OrderItemProductDiscount1 {
+		return Platform.createDouble(0.0);
+	}
+	
+	DoubleField OrderItemProductDiscount2 {
+		return Platform.createDouble(0.0);
+	}
+	
+	IntegerField OrderItemTotalQty{
+		return Platform.createInteger(OrderItemQty1.intValue()+OrderItemQty2.intValue()+OrderItemQty3.intValue());
+	}
+	
+	CurrencyField OrderItemTotalGross {
+		return Platform.createDouble(1.0*(OrderItemQty1.intValue()+OrderItemQty2.intValue()+OrderItemQty3.intValue())*OrderItemProductPrice.doubleValue());
+	}
+
+	CurrencyField OrderItemTotalNet {
+		return Platform.createDouble(OrderItemTotalGross.doubleValue()*(1.0-OrderItemProductDiscount1.doubleValue()*0.01));
+	}
+
+	FloatField OrderItemTotalDiscount {
+		return null;
+	}
+	
+	query getOrderItem<String orderCode>{
+		where OrderCode==orderCode;
+		
+	}
+	
+	
+	query getListItemByCategory<String orderCode,String category,String val>{
+		where OrderCode==orderCode;
+		where OrderItemProductCategory==category;
+		where OrderItemProductCalc contains val;
+		ascendingBy OrderItemProductCalc;
+	}
+	
+	query getListItemByDate1<String orderCode,String val>{
+		where OrderCode==orderCode;
+		where OrderItemQty1>0;
+		where OrderItemProductCalc contains val;
+		ascendingBy OrderItemProductCalc;
+	}
+	query getListItemByDate2<String orderCode,String val>{
+		where OrderCode==orderCode;
+		where OrderItemQty2>0;
+		where OrderItemProductCalc contains val;
+		ascendingBy OrderItemProductCalc;
+	}
+	query getListItemByDate3<String orderCode,String val>{
+		where OrderCode==orderCode;
+		where OrderItemQty3>0;
+		where OrderItemProductCalc contains val;
+		ascendingBy OrderItemProductCalc;
+	}
+}

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/dspagnuolo.ATL01/Desktop/eclipse/workspace/mobistudio.preferences/com.antennasoftware.amp.runtime/library.jar"/>
+=======
+	<classpathentry kind="lib" path="C:/EclipseWorkspace/AppVodafone01/mobistudio.preferences/com.antennasoftware.amp.runtime/library.jar"/>
+>>>>>>> 8d6e324d9b613afa5dda8303dfd93684edcebd93
 	<classpathentry kind="output" path="bin"/>
 </classpath>

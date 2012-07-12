@@ -106,7 +106,6 @@ ScrollableTablePanel {
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
-		
 		setUpHeaderSection("Anagrafica");
 		startNewRow();
 		setUpSection01();
@@ -127,7 +126,7 @@ ScrollableTablePanel {
 		startNewRow();
 		add(new Separator(), "");
 		startNewRow();
-		
+
 		enableScroll(true);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
 		setColumnWidth(0, Sizing.PERCENTS, 65);
@@ -135,7 +134,7 @@ ScrollableTablePanel {
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 0);
 		setRowHeight(2, Sizing.PIXELS, 48);
-		
+	
 		setRowHeight(3, Sizing.PREFERRED, 0);
 		setRowHeight(4, Sizing.PREFERRED, 0);
 		setRowHeight(5, Sizing.PIXELS, 48);
@@ -459,7 +458,7 @@ ScrollableTablePanel {
 		txtFldLastName.setDataModel(txtMdlLastName);
 		
 		txtMdlRelAccount.setRow(dtRw);
-		txtMdlRelAccount.setText(vObjContact.RelAccountName.getStringValue(dtRw));
+		//txtMdlRelAccount.setText(vObjContact.RelAccountName.getStringValue(dtRw));
 		txtFldRelAccount.setDataModel(txtMdlRelAccount);
 		
 		txtMdlTitle.setRow(dtRw);
