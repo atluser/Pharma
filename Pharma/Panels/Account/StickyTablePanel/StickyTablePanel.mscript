@@ -50,30 +50,12 @@ TablePanel {
 		stk.setGridLineStyle(LineStyle.SOLID);
 		stk.setGridLineColor(Colors.Gray);	
 		
-		Font fnt = new Font();
-		fnt.setSize(18);
-		fnt.setFamily("Arial");
 		
-		src.setFont(fnt);
-		src.setTextHint("Search...");
-		src.setFocusedForeColor(Color.create(58,58,58));
-		src.setDisabledForeColor(Color.create(58,58,58));
-		src.setBackColor(Colors.White);
-		
-		TablePanel pnl = new TablePanel();
-		picBoxSearch.setImage(Images.Buttons.BTN_32x32_SEARCH_u.getImage());
-		//pnl.setInsets(0,8,0,0);
-		pnl.setRowHeight(0, Sizing.PIXELS, 40);
-		pnl.setColumnWidth(0, Sizing.PIXELS, 40);
-		pnl.setColumnWidth(1, Sizing.PIXELS, 250);
-		pnl.setColumnWidth(2, Sizing.PIXELS, 40);
-		//pnl.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.Backgrounds.BCK_SEARCH.getImage(),5,5));
-		pnl.setBackColor(Colors.White);
-		pnl.add(picBoxSearch,fill);
-		pnl.add(src,"hfill=fill");
-		pnl.add(btnClearSearch,fill);
-		
-		add(pnl, "colspan=2, halign=center, valign=center");
+        src = setUpSearchField(src);
+
+        TablePanel pnl = new TablePanel();
+        pnl=setUpSearchBar(pnl,src,btnClearSearch,330,40);
+        add(pnl, "colspan=2, halign=center, valign=center");
 		
 		startNewRow(); 
 		add(stk, "hfill=fill,vfill=fill");
@@ -326,4 +308,39 @@ TablePanel {
 		
 	}
 	*/
+	
+	 SearchField setUpSearchField(SearchField src) {
+                Font fnt = new Font();
+                fnt.setSize(18);
+                fnt.setFamily("Arial");
+                src.setFont(fnt);
+                src.setTextHint("Search...");
+                src.setFocusedForeColor(Color.create(58,58,58));
+                src.setDisabledForeColor(Color.create(58,58,58));
+                src.setBackColor(Colors.White);
+                return src;
+        }
+        
+        /* usage:
+         *
+         *      setUpSearchBar(TablePanel pnl, SearchField src, BackgroundButton btnClearSearch, int width, int height);
+         *
+         * returns a 1x3 table panel with lens image, the specified search field and the clear search button
+        */
+      TablePanel setUpSearchBar(TablePanel pnl, SearchField src, BackgroundButton btnClearSearch, int width, int height) {
+                PictureBox picBoxSearch = new PictureBox();
+                picBoxSearch.setImage(Images.Buttons.BTN_32x32_SEARCH_u.getImage());
+                //pnl.setInsets(0,8,0,0);
+                pnl.setRowHeight(0, Sizing.PIXELS, height);
+                pnl.setColumnWidth(0, Sizing.PIXELS, height);
+                pnl.setColumnWidth(1, Sizing.PIXELS, (width-(2*height)));
+                pnl.setColumnWidth(2, Sizing.PIXELS, height);
+                //pnl.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.Backgrounds.BCK_SEARCH.getImage(),5,5));
+                pnl.setBackColor(Colors.White);
+                pnl.add(picBoxSearch,fill);
+                pnl.add(src,"hfill=fill");
+                pnl.add(btnClearSearch,fill);
+                return pnl;
+        }
+        
 }

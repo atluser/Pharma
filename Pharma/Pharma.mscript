@@ -43,6 +43,10 @@ UIProject {
 	Event vObjEvent=new Event();
 	//PharmaDP.DataStore.Products vObjProducts=dp.Products;
 		
+	// Documents Viewer
+    DocumentPreview docPreview; 
+    Screens.PdfScreen scrPdf; 	
+	
 	/*
 	 * VOUtility
 	 */
@@ -151,7 +155,7 @@ UIProject {
 		}else 
 			appLog.log(Log.INFO,"query is null");
 		
-		
+		docPreview = new DocumentPreview();
 		
 		//configura account
 		accountConfig.fillAccountConfig();

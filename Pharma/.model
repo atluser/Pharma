@@ -4907,10 +4907,15 @@
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:DocumentsNode" name="Documents">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Documents.mscript" hidden="true"/>
-    <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="ANDROID" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="ANDROID" hidden="true">
+      <documentPaths name="AspirinaC_FI" string="C:/Users/dspagnuolo.ATL01/Desktop/foglietto_illustrativo_AspirinaC.pdf" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/FOGLIETTO_ILLUSTRATIVO_ASPIRINAC.PDF"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="BLACKBERRY" hidden="true"/>
     <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="NET" hidden="true"/>
-    <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="OBJC" hidden="true"/>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="OBJC" hidden="true">
+      <documentPaths name="AspirinaC_FI" string="C:/Users/dspagnuolo.ATL01/Desktop/foglietto_illustrativo_AspirinaC.pdf" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/FOGLIETTO_ILLUSTRATIVO_ASPIRINAC.PDF"/>
+    </children>
+    <documents name="AspirinaC_FI"/>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:ColorsNode" name="Colors">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Colors.mscript" hidden="true"/>
@@ -5192,6 +5197,9 @@
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="NewOrEditRecordScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="NewOrEditRecordScreen.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="PdfScreen">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PdfScreen.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="StartScreen">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartScreen.mscript"/>
