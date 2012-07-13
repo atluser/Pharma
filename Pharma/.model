@@ -35,6 +35,10 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:ImagesNode" name="Images">
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="Backgrounds">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Backgrounds.mscript" hidden="true"/>
+      <images name="BCK_BTN_HIDE"/>
+      <images name="BCK_BTN_HIDE_ON"/>
+      <images name="BCK_BTN_SHOW"/>
+      <images name="BCK_BTN_SHOW_ON"/>
       <images name="BCK_SEARCH"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="Buttons">
@@ -121,6 +125,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW">
         <properties/>
         <properties/>
         <properties/>
@@ -670,6 +686,18 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">
         <properties/>
         <properties/>
@@ -1203,6 +1231,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW">
         <properties/>
         <properties/>
         <properties/>
@@ -1746,6 +1786,30 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="BCK_BTN_HIDE">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BCK_BTN_HIDE_ON">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BCK_BTN_SHOW">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BCK_BTN_SHOW_ON">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="BCK_SEARCH">
         <properties/>
         <properties/>
@@ -1767,6 +1831,30 @@
       <imagePaths name="BTN_CANCEL_u">
         <properties/>
         <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/bck2minus.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BCK2MINUS.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE_ON">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/bck2Minon.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BCK2MINON.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/bck2more.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BCK2MORE.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW_ON">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/bck2moreon.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BCK2MOREON.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -2620,6 +2708,12 @@
       <imagePaths name="Aspirina">
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">
         <properties/>
       </imagePaths>
@@ -2889,6 +2983,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW">
         <properties/>
       </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">
@@ -3164,6 +3264,22 @@
         <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/defenflu.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/DEFENFLU.PNG"/>
         <properties/>
       </imagePaths>
+      <imagePaths name="BCK_BTN_HIDE">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BCK_BTN_HIDE_ON">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BCK_BTN_SHOW">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="BCK_BTN_SHOW_ON">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="BCK_SEARCH">
         <properties/>
         <properties/>
@@ -3178,6 +3294,22 @@
       </imagePaths>
       <imagePaths name="BTN_CANCEL_u">
         <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/bck2minus.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BCK2MINUS.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE_ON">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/bck2Minon.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BCK2MINON.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/bck2more.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BCK2MORE.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW_ON">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/bck2moreon.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/BCK2MOREON.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">
@@ -3714,6 +3846,14 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">
         <properties/>
         <properties/>
@@ -4072,6 +4212,12 @@
       <imagePaths name="Aspirina">
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">
         <properties/>
       </imagePaths>
@@ -4341,6 +4487,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW">
         <properties/>
       </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">
@@ -4614,6 +4766,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Aspirina">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW">
         <properties/>
       </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">

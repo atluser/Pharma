@@ -18,8 +18,14 @@ ScrollableTablePanel {
 	//Pannello Altre Info
 	FormPanel pnlForm03 = new FormPanel();
 	
+	BackgroundButton btnAnagrafica = new BackgroundButton();
+	BackgroundButton btnLoc = new BackgroundButton();
+	BackgroundButton btnInfo = new BackgroundButton();
+	
 	Panels.HeaderPanel pnlHeader;
 	Panels.DetailPanel pnlDetail;
+	
+	//Aggiungiamo i bottoni per le intestazioni
 	
 	//-- DATI ANAGRAFICI --
 	
@@ -106,21 +112,25 @@ ScrollableTablePanel {
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
-		setUpHeaderSection("Anagrafica");
+		//setUpHeaderSection("Anagrafica");
+		setUpButton(btnAnagrafica,"Anagrafica");
+		add(btnAnagrafica, "hfill=fill");
 		startNewRow();
 		setUpSection01();
 		startNewRow();
 		add(new Separator(), "");
 		startNewRow();
 		
-		setUpHeaderSection("Localizzazione e Comunicazioni");
+		setUpButton(btnLoc,"Localizzazione e Comunicazioni");
+		add(btnLoc, "hfill=fill");
 		startNewRow();
 		setUpSection02();
 		startNewRow();
 		add(new Separator(), "");
 		startNewRow();
 		
-		setUpHeaderSection("Altre Informazioni");
+		setUpButton(btnInfo,"Altre Informazioni");
+		add(btnInfo, "hfill=fill");
 		startNewRow();
 		setUpSection03();
 		startNewRow();
@@ -166,6 +176,11 @@ ScrollableTablePanel {
 		*/
 		
 		//DataRow firstRow = new DataRow();
+		
+		pnlForm01.setVisible(false);
+		pnlForm02.setVisible(false);
+		pnlForm03.setVisible(false);
+		
 	}	
 	
 	callback rchBtnAddress onClick(Control c) {
@@ -235,27 +250,56 @@ ScrollableTablePanel {
 		}
 	}
 	
+	callback btnAnagrafica onClick (Control c) {
+		if (pnlForm01.isVisible()) {
+			pnlForm01.setVisible(false);
+		} else {
+			pnlForm01.setVisible(true);
+		}
+		flipBackground(btnAnagrafica,pnlForm01.isVisible());
+	}
+	
+	callback btnLoc onClick (Control c) {
+		if (pnlForm02.isVisible()) {
+			pnlForm02.setVisible(false);
+		} else {
+			pnlForm02.setVisible(true);
+		}
+		flipBackground(btnAnagrafica,pnlForm02.isVisible());
+	}
+	
+	callback btnInfo onClick (Control c) {
+		if (pnlForm03.isVisible()) {
+			pnlForm03.setVisible(false);
+		} else {
+			pnlForm03.setVisible(true);
+		}
+		flipBackground(btnAnagrafica,pnlForm03.isVisible());
+	}
+	
 	/*
 	 * Custom methods
 	 */
-	void setUpHeaderSection(String str) {
-		Font fnt = new Font(); 
-		fnt.setFamily("Arial");
-		fnt.setSize(22);
-		fnt.setBold();
-	
-		Label lbl = new Label();
-		lbl.setText(str);
-		lbl.setFont(fnt);
-		//lbl.setForeColor(Colors.Black);
-		lbl.setForeColor(Color.create(189,0,0));
-		//lbl.setBackColor(Color.create(189,0,0));
-		//picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
-		
-		//add(picBox);
-		add(lbl,"hfill=fill");
-	
-	}
+	 
+	/*
+	 *	void setUpHeaderSection(String str) {
+	 *		Font fnt = new Font(); 
+	 *		fnt.setFamily("Arial");
+	 *		fnt.setSize(22);
+	 *		fnt.setBold();
+	 *		
+	 *			Label lblIntestation = new Label();
+	 *			lblIntestation.setText(str);
+	 *			lblIntestation.setFont(fnt);
+	 *			//lbl.setForeColor(Colors.Black);
+	 *			lblIntestation.setForeColor(Color.create(189,0,0));
+	 *			//lbl.setBackColor(Color.create(189,0,0));
+	 *			//picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
+	 *			
+	 *			//add(picBox);
+	 *			add(lblIntestation,"hfill=fill");
+	 *	}
+	*/
 	
 	void setUpSection01() {
 		
@@ -559,5 +603,35 @@ ScrollableTablePanel {
 		}
 		
 	}
-
+	
+	void setUpButton(BackgroundButton btn, String str) {
+		
+		//setting the font of the inside label
+		Font fnt = new Font(); 
+		fnt.setFamily("Arial");
+		fnt.setSize(22);
+		fnt.setBold();
+		
+		//general features of the buttons
+		btn.setFont(fnt);
+		btn.setText(str);
+		btn.setForeColor(Color.create(189,0,0));
+		
+		btn.setBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW, 0, 46, 0, 0));
+		btn.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
+		btn.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
+	}
+	
+	void flipBackground(BackgroundButton btn, boolean visible) {
+		if (visible==true) {
+			btn.setBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_HIDE, 0, 46, 0, 0));
+			btn.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_HIDE_ON, 0, 46, 0, 0));
+			btn.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_HIDE_ON, 0, 46, 0, 0));
+		} else {
+			btn.setBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW, 0, 46, 0, 0));
+			btn.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
+			btn.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
+		}
+	}
+	
 }

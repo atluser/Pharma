@@ -138,7 +138,7 @@ Popup {
                 pdfImgCont.setColumnWidth(0,Sizing.PREFERRED, 0);
                 pdfImgCont.setRowHeight(1,Sizing.PIXELS,75);
                 pdfImgCont.setColumnWidth(1,Sizing.PIXELS,75);
-                lblFI = setLabel(lblFI, "Arial", Colors.Black, 18);
+                lblFI = setLabel(lblFI, "Arial", Colors.Black, 12);
                 lblFI.setText("Foglietto Illustrativo");
                 lblFI.setWordWrapWidth(Sizing.PIXELS,75);
                 pdfImgCont.add(lblFI,align);
