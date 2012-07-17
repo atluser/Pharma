@@ -121,8 +121,10 @@ TablePanel {
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		logApp.log(Log.INFO, "ContactStickyTablePanel::onSelectionChanged - Row: "+ row);
-		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(mrsm.getRow()));
+		
+		//pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(mrsm.getRow()));
 		pnlDetailForm.setRow(mrsm.getRow());
+		
 	}
 		
 	////////////////////////////

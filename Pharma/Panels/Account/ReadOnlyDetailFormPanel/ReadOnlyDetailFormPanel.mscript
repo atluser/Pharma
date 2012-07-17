@@ -600,5 +600,35 @@ ScrollableTablePanel {
 			}		
 		
 	}
+	
+	void setUpButton(BackgroundButton btn, String str) {
+		
+		//setting the font of the inside label
+		Font fnt = new Font(); 
+		fnt.setFamily("Arial");
+		fnt.setSize(22);
+		fnt.setBold();
+		
+		//general features of the buttons
+		btn.setFont(fnt);
+		btn.setText(str);
+		btn.setForeColor(Color.create(189,0,0));
+		
+		btn.setBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW, 0, 46, 0, 0));
+		btn.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
+		btn.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
+	}
+	
+	void flipBackground(BackgroundButton btn, boolean visible) {
+		if (visible==true) {
+			btn.setBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_HIDE, 0, 46, 0, 0));
+			btn.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_HIDE_ON, 0, 46, 0, 0));
+			btn.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_HIDE_ON, 0, 46, 0, 0));
+		} else {
+			btn.setBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW, 0, 46, 0, 0));
+			btn.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
+			btn.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
+		}
+	}
 
 }

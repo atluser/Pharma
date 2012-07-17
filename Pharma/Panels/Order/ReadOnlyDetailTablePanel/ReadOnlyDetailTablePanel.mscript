@@ -230,9 +230,10 @@ TablePanel {
 			pnlForm03.setVisible(true);
 			pnlBodyRoot.setRowHeight(11, Sizing.PIXELS, 48);
 			btn00.setImage(Images.VodafoneImages.btn_less_info.getImage());			
-		}	
+		}
+	
+	}	
 		
-	}
 	
 	callback btn01 onClick(Control c) {
 		logApp.log(Log.INFO, "ReadOnlyDeatilTablePanel - btn01 onClick()");

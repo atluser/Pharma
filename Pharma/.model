@@ -47,6 +47,10 @@
       <images name="BTN_CANCEL_s"/>
       <images name="BTN_CANCEL_u"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="Icons">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Icons.mscript" hidden="true"/>
+      <images name="ICN_CONTACT"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Images.mscript" hidden="true"/>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="MainScreenImages">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MainScreenImages.mscript" hidden="true"/>
@@ -136,7 +140,19 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE_ON">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW_ON">
         <properties/>
         <properties/>
         <properties/>
@@ -692,7 +708,19 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE_ON">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW_ON">
         <properties/>
         <properties/>
         <properties/>
@@ -1242,7 +1270,19 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE_ON">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW_ON">
         <properties/>
         <properties/>
         <properties/>
@@ -1894,9 +1934,21 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ICN_CONTACT">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Icons/ICN_CONTACT.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ICONS/ICN_CONTACT.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
         <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app_orig.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP_ORIG.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Icons/ICN_CONTACT.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ICONS/ICN_CONTACT.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -2711,7 +2763,13 @@
       <imagePaths name="Backgrounds.BCK_BTN_HIDE">
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE_ON">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW_ON">
         <properties/>
       </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">
@@ -2988,7 +3046,13 @@
       <imagePaths name="Backgrounds.BCK_BTN_HIDE">
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE_ON">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW_ON">
         <properties/>
       </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">
@@ -3336,8 +3400,16 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="ICN_CONTACT">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties string="/Users/admin/Desktop/VF/images/login/img_logo_app.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_APP.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.ICN_CONTACT">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Icons/ICN_CONTACT.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ICONS/ICN_CONTACT.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="ImgActiviitesList">
@@ -3850,7 +3922,15 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE_ON">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW_ON">
         <properties/>
         <properties/>
       </imagePaths>
@@ -4215,7 +4295,13 @@
       <imagePaths name="Backgrounds.BCK_BTN_HIDE">
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE_ON">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW_ON">
         <properties/>
       </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">
@@ -4492,7 +4578,13 @@
       <imagePaths name="Backgrounds.BCK_BTN_HIDE">
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE_ON">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW_ON">
         <properties/>
       </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">
@@ -4771,7 +4863,13 @@
       <imagePaths name="Backgrounds.BCK_BTN_HIDE">
         <properties/>
       </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_HIDE_ON">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Backgrounds.BCK_BTN_SHOW">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Backgrounds.BCK_BTN_SHOW_ON">
         <properties/>
       </imagePaths>
       <imagePaths name="Backgrounds.BCK_SEARCH">

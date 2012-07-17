@@ -5,6 +5,14 @@ ScrollableTablePanel {
 	 */
 	DataRow currentRow = null;
 	
+	/* this section will be used in place of the detail panel 
+	 * so we will have the header inside this panel and no more in the detail panel
+	*/
+	// PANEL HEADER SECTION
+	Label lblTitleName = new Label();
+	Label lblTitleMail = new Label();
+	PictureBox picTitleIcon = new PictureBox();
+	
 	String sAccountCode = "";
 	boolean fromAccountFlag = false;
 	
@@ -107,56 +115,86 @@ ScrollableTablePanel {
 	//Note
 	TextModel txtMdlNote = new TextModel();
 	Label txtFldNote = new Label();
+	
+	TablePanel pnlBodyRoot = new TablePanel();
 		
 	/*
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
+		setUpHeader();
+		
+		// Header Panel
+		TablePanel pnlHeaderRoot = new TablePanel();
+		pnlHeaderRoot.add(picTitleIcon,"rowspan=2");
+		pnlHeaderRoot.add(lblTitleName,"valign=bottom");
+		pnlHeaderRoot.startNewRow();
+		pnlHeaderRoot.add(lblTitleMail,"valign=top");
+		//pnlHeaderRoot.setInsets(0,48,0,0);
+		//pnlHeaderRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
+		pnlHeaderRoot.setColumnWidth(0, Sizing.PERCENTS, 10);
+		pnlHeaderRoot.setColumnWidth(1, Sizing.PERCENTS, 50);
+		pnlHeaderRoot.setRowHeight(0, Sizing.PREFERRED, 1);
+		pnlHeaderRoot.setRowHeight(1, Sizing.PREFERRED, 1);
+		
+		TablePanel pnlHeader = new TablePanel();
+		pnlHeader.add(pnlHeaderRoot,"halign=center,valign=top");
+		pnlHeader.setColumnWidth(0, Sizing.PREFERRED, 1);
+		
+		/*
+		pnlBodyRoot.add(new Separator(), "");
+		pnlBodyRoot.startNewRow();
+		*/
 		//setUpHeaderSection("Anagrafica");
-		setUpButton(btnAnagrafica,"Anagrafica");
-		add(btnAnagrafica, "hfill=fill");
-		startNewRow();
+		setUpButton(btnAnagrafica,"Anagrafica", true);
+		pnlBodyRoot.add(btnAnagrafica, "hfill=fill");
+		pnlBodyRoot.startNewRow();
 		setUpSection01();
-		startNewRow();
-		add(new Separator(), "");
-		startNewRow();
+		pnlBodyRoot.startNewRow();
+		pnlBodyRoot.add(new Separator(), "");
+		pnlBodyRoot.startNewRow();
 		
-		setUpButton(btnLoc,"Localizzazione e Comunicazioni");
-		add(btnLoc, "hfill=fill");
-		startNewRow();
+		setUpButton(btnLoc,"Localizzazione e Comunicazioni",false);
+		pnlBodyRoot.add(btnLoc, "hfill=fill");
+		pnlBodyRoot.startNewRow();
 		setUpSection02();
-		startNewRow();
-		add(new Separator(), "");
-		startNewRow();
+		pnlBodyRoot.startNewRow();
+		pnlBodyRoot.add(new Separator(), "");
+		pnlBodyRoot.startNewRow();
 		
-		setUpButton(btnInfo,"Altre Informazioni");
-		add(btnInfo, "hfill=fill");
-		startNewRow();
+		setUpButton(btnInfo,"Altre Informazioni",false);
+		pnlBodyRoot.add(btnInfo, "hfill=fill");
+		pnlBodyRoot.startNewRow();
 		setUpSection03();
-		startNewRow();
-		add(new Separator(), "");
-		startNewRow();
+		pnlBodyRoot.startNewRow();
+		pnlBodyRoot.add(new Separator(), "");
+		pnlBodyRoot.startNewRow();
 
-		enableScroll(true);
-		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-		setColumnWidth(0, Sizing.PERCENTS, 65);
+		pnlBodyRoot.enableScroll(true);
+		//pnlBodyRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+		pnlBodyRoot.setColumnWidth(0, Sizing.PERCENTS, 65);
 		
-		setRowHeight(0, Sizing.PREFERRED, 0);
-		setRowHeight(1, Sizing.PREFERRED, 0);
-		setRowHeight(2, Sizing.PIXELS, 48);
+		pnlBodyRoot.setRowHeight(0, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(1, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(2, Sizing.PIXELS, 48);
 	
-		setRowHeight(3, Sizing.PREFERRED, 0);
-		setRowHeight(4, Sizing.PREFERRED, 0);
-		setRowHeight(5, Sizing.PIXELS, 48);
+		pnlBodyRoot.setRowHeight(3, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(4, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(5, Sizing.PIXELS, 48);
 		
-		setRowHeight(6, Sizing.PREFERRED, 0);
-		setRowHeight(7, Sizing.PREFERRED, 0);
-		setRowHeight(8, Sizing.PIXELS, 48);
+		pnlBodyRoot.setRowHeight(6, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(7, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(8, Sizing.PIXELS, 48);
 		
-		setRowHeight(9, Sizing.PREFERRED, 0);
-		setRowHeight(10, Sizing.PREFERRED, 0);
-		setRowHeight(11, Sizing.PREFERRED, 0);
-		setRowHeight(12, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(9, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(10, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(11, Sizing.PREFERRED, 0);
+		pnlBodyRoot.setRowHeight(12, Sizing.PREFERRED, 0);
+		
+		ScrollableTablePanel pnlBody = new ScrollableTablePanel();
+		pnlBody.enableScroll(true);
+		pnlBody.add(pnlBodyRoot,"halign=center,valign=top");
+		pnlBody.setColumnWidth(0, Sizing.PREFERRED, 1);
 		
 		/*
 		setRowHeight(9, Sizing.PIXELS, 48);
@@ -177,7 +215,24 @@ ScrollableTablePanel {
 		
 		//DataRow firstRow = new DataRow();
 		
-		pnlForm01.setVisible(false);
+		add(pnlHeader,"hfill=fill,vfill=fill");
+		startNewRow();
+		/*
+		add(new Separator(), "");
+		startNewRow();
+		*/
+		add(pnlBody,"hfill=fill,vfill=fill");
+		enableScroll(true);
+		
+		setInsets(48,0,48,0);
+		//setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+		setBackColor(Colors.White);
+		setColumnWidth(0, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);
+		//setRowHeight(2, Sizing.PREFERRED, 1);
+		
+		pnlForm01.setVisible(true);
 		pnlForm02.setVisible(false);
 		pnlForm03.setVisible(false);
 		
@@ -265,7 +320,7 @@ ScrollableTablePanel {
 		} else {
 			pnlForm02.setVisible(true);
 		}
-		flipBackground(btnAnagrafica,pnlForm02.isVisible());
+		flipBackground(btnLoc,pnlForm02.isVisible());
 	}
 	
 	callback btnInfo onClick (Control c) {
@@ -274,7 +329,7 @@ ScrollableTablePanel {
 		} else {
 			pnlForm03.setVisible(true);
 		}
-		flipBackground(btnAnagrafica,pnlForm03.isVisible());
+		flipBackground(btnInfo,pnlForm03.isVisible());
 	}
 	
 	/*
@@ -374,7 +429,7 @@ ScrollableTablePanel {
 		pnlForm01.setControlColumnWidth(Sizing.PREFERRED, 1);
 		//pnlForm0101.setControlColumnWidth(Sizing.PERCENTS, 35);
 		
-		add(pnlForm01,"hfill=fill");
+		pnlBodyRoot.add(pnlForm01,"hfill=fill");
 		
 	}
 	
@@ -435,7 +490,7 @@ ScrollableTablePanel {
 		pnlForm02.setControlColumnWidth(Sizing.PREFERRED, 1);
 		//pnlForm0101.setControlColumnWidth(Sizing.PERCENTS, 35);
 		
-		add(pnlForm02,"hfill=fill");
+		pnlBodyRoot.add(pnlForm02,"hfill=fill");
 		
 	}
 	
@@ -484,7 +539,7 @@ ScrollableTablePanel {
 		pnlForm03.setControlColumnWidth(Sizing.PREFERRED, 1);
 		//pnlForm0101.setControlColumnWidth(Sizing.PERCENTS, 35);
 		
-		add(pnlForm03,"hfill=fill");
+		pnlBodyRoot.add(pnlForm03,"hfill=fill");
 	}
 	
 	
@@ -492,7 +547,10 @@ ScrollableTablePanel {
 	void setRow(DataRow dtRw) {
 			
 		currentRow = dtRw;	
-				
+		
+		lblTitleName.setText(vObjContact.ContactLastName.getStringValue(dtRw) + " " + vObjContact.ContactName.getStringValue(dtRw));
+		lblTitleMail.setText(vObjContact.ContactEmail.getStringValue(dtRw));
+		 
 		txtMdlName.setRow(dtRw);
 		txtMdlName.setText(vObjContact.ContactName.getStringValue(dtRw));
 		txtFldName.setDataModel(txtMdlName);
@@ -604,7 +662,7 @@ ScrollableTablePanel {
 		
 	}
 	
-	void setUpButton(BackgroundButton btn, String str) {
+	void setUpButton(BackgroundButton btn, String str, boolean visible) {
 		
 		//setting the font of the inside label
 		Font fnt = new Font(); 
@@ -616,10 +674,9 @@ ScrollableTablePanel {
 		btn.setFont(fnt);
 		btn.setText(str);
 		btn.setForeColor(Color.create(189,0,0));
+		btn.setLeftSpacing(30);
 		
-		btn.setBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW, 0, 46, 0, 0));
-		btn.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
-		btn.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
+		flipBackground(btn,visible);
 	}
 	
 	void flipBackground(BackgroundButton btn, boolean visible) {
@@ -634,4 +691,21 @@ ScrollableTablePanel {
 		}
 	}
 	
+	void setUpHeader() {
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		
+		fnt.setSize(18);
+		lblTitleMail.setFont(fnt);
+		lblTitleMail.setForeColor(Colors.Black);
+
+		fnt.setSize(22);
+		fnt.setBold();
+		lblTitleName.setFont(fnt);
+		lblTitleName.setForeColor(Color.create(189,0,0));
+	
+		picTitleIcon.setImage(Images.Icons.ICN_CONTACT);
+	
+	} 
 }

@@ -22,26 +22,29 @@ TablePanel {
 		pnlDetailForm.setDetailPanel(pnlDetail);
 		pnlDetailForm.setFirstRecord();
 		// Detail Panel
-		pnlDetail.setContentPanel(pnlDetailForm);
+		//pnlDetail.setContentPanel(pnlDetailForm);
 		
 		if(dpRowSetContact.getSize()>1) //uno c'è sempre (Fittizio...)
 		{
 			DataRow firstRow = vObjContact.getContacts().getRowSet().first();
-			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow) + " " + vObjContact.ContactLastName.getStringValue(firstRow));
+			//pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow) + " " + vObjContact.ContactLastName.getStringValue(firstRow));
+			pnlDetailForm.lblTitleName.setText(vObjContact.ContactLastName.getStringValue(firstRow) + " " + vObjContact.ContactName.getStringValue(firstRow));
+			pnlDetailForm.lblTitleMail.setText(vObjContact.ContactEmail.getStringValue(firstRow));
 		}
 		else
 		{
-			pnlDetail.txtFldName.setText("Non sono presenti contatti. Crearne di nuovi!");
+			//pnlDetail.txtFldName.setText("Non sono presenti contatti. Crearne di nuovi!");
 		}
 		
-		stk.setDetailPanel(pnlDetail);
+		//stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);
 		/*if(stk.rsm.hasMoreRows(0)){
 			stk.stk.scrollTo(0,0,TableView.SCROLL_POSITION_NONE);
 			stk.stk.select(0,0);
 		}*/	
 		add(pnlMaster, fill);
-		add(pnlDetail, fill);
+		//add(pnlDetail, fill);
+		add(pnlDetailForm,fill);
 	}
 	
 	StickyTable getStickyTable(){

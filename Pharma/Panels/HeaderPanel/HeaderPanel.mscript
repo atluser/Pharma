@@ -215,7 +215,7 @@ HorizontalPanel {
 
 		logApp.log(Log.INFO, "HeaderPanel - btnDelete onClick()");
 		poCrmMenu.dismiss();				
-		msg.ask ( 1 ,false , "ATTENZIONE!" , "Sei sicuro di cancellare i record?" , "OK" , "Cancel" );
+		msg.ask ( 1 ,false , "ATTENZIONE!" , "Sei sicuro di cancellare il record?" , "OK" , "Cancel" );
 
 	}	
 
