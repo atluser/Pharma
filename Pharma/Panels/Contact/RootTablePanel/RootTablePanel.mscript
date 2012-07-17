@@ -2,8 +2,12 @@ TablePanel {
 	
 	Panels.Contact.StickyTablePanel stk = new Panels.Contact.StickyTablePanel();
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Contact.ReadOnlyDetailFormPanel();
+<<<<<<< HEAD
 	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();	 
 	Screens.HomeScreen scrHome;
+=======
+	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
+>>>>>>> c10f586989396e595fec32029ef4ab2d64fc9a33
 	
 	String fill = "hfill=fill, vfill=fill";
 	
@@ -14,18 +18,28 @@ TablePanel {
 		setColumnWidth(0, Sizing.PREFERRED, 0);
 		setColumnWidth(1, Sizing.PREFERRED, 1);
 		
+<<<<<<< HEAD
 		stk.setHomeScreen(scrHome);
 		
+=======
+		//Contiene la sticchio table
+>>>>>>> c10f586989396e595fec32029ef4ab2d64fc9a33
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();		 		
 		pnlMaster.setContentPanel(stk);
 		
+		//Contiene il dettagli del contatto
 		pnlDetailForm.setDetailPanel(pnlDetail);
-		pnlDetailForm.setFirstRecord();
+		
+		//if(iNumContacts>0)
+		//	pnlDetailForm.setFirstRecord();
+		
 		// Detail Panel
 		//pnlDetail.setContentPanel(pnlDetailForm);
 		
-		if(dpRowSetContact.getSize()>1) //uno c'è sempre (Fittizio...)
+		DataRow firstRow = vObjContact.getContacts().getRowSet().first();
+		if(iNumContacts>0)
 		{
+<<<<<<< HEAD
 			DataRow firstRow = vObjContact.getContacts().getRowSet().first();
 			//pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow) + " " + vObjContact.ContactLastName.getStringValue(firstRow));
 			pnlDetailForm.lblTitleName.setText(vObjContact.ContactLastName.getStringValue(firstRow) + " " + vObjContact.ContactName.getStringValue(firstRow));
@@ -35,6 +49,13 @@ TablePanel {
 		{
 			//pnlDetail.txtFldName.setText("Non sono presenti contatti. Crearne di nuovi!");
 		}
+=======
+			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(dpRowSetContact.first()) + " " + vObjContact.ContactLastName.getStringValue(dpRowSetContact.first()));
+			pnlDetailForm.setFirstRecord();
+		}
+		else
+			pnlDetail.txtFldName.setText("Non sono presenti contatti. Crearne di nuovi!");
+>>>>>>> c10f586989396e595fec32029ef4ab2d64fc9a33
 		
 		//stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);

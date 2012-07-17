@@ -30,7 +30,9 @@ ScrollableTablePanel {
 	 
 	TextModel txtMdlStatus = new TextModel();
 	Label txtFldStatus = new Label(); 
-
+	
+	Label txtFldMessageNoAcc = new Label();
+	
 	// Sede e comunicazioni	 
 	TextModel txtMdlAddress = new TextModel();
 	Label txtFldAddress = new Label();
@@ -83,6 +85,7 @@ ScrollableTablePanel {
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
+<<<<<<< HEAD
 		
 		setUpHeaderSection("Anagrafica");
 		startNewRow();
@@ -146,6 +149,72 @@ ScrollableTablePanel {
 		 * logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjAccount.AccountName.getStringValue(firstRow));
 		 * setRow(firstRow);
 		*/
+=======
+		logApp.log(Log.INFO,"dtullo onCreate Accnt RODetailFormPanel: " + iNumAccounts);
+		if(iNumAccounts>0)
+		{
+			setUpHeaderSection("Anagrafica");
+			startNewRow();
+			setUp1stSection();
+			startNewRow();
+			add(new Separator(), "");
+			startNewRow();
+			
+			setUpHeaderSection("Sede e Comunicazioni");
+			startNewRow();
+			setUp2ndSection();
+			startNewRow();
+			add(new Separator(), "");
+			startNewRow();
+			
+			setUpHeaderSection("Profilazione");
+			startNewRow();
+			//setUp3rdSection();
+			setUp4thSection();
+			startNewRow();
+			add(new Separator(), "");
+			startNewRow();
+			
+			setUpHeaderSection("Elementi correlati");
+			startNewRow();
+			//setUp4thSection();
+			setUp3rdSection();
+			
+			enableScroll(true);
+			setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+			setColumnWidth(0, Sizing.PERCENTS, 65);
+			
+			setRowHeight(0, Sizing.PREFERRED, 0);
+			setRowHeight(1, Sizing.PREFERRED, 0);
+			setRowHeight(2, Sizing.PIXELS, 48);
+			
+			setRowHeight(3, Sizing.PREFERRED, 0);
+			setRowHeight(4, Sizing.PREFERRED, 0);
+			setRowHeight(5, Sizing.PIXELS, 48);
+			
+			setRowHeight(6, Sizing.PREFERRED, 0);
+			setRowHeight(7, Sizing.PREFERRED, 0);
+			setRowHeight(8, Sizing.PIXELS, 48);
+			
+			setRowHeight(9, Sizing.PREFERRED, 0);
+			setRowHeight(10, Sizing.PREFERRED, 0);
+			setRowHeight(11, Sizing.PREFERRED, 0);
+			setRowHeight(12, Sizing.PREFERRED, 0);
+			
+			/*
+			setRowHeight(9, Sizing.PIXELS, 48);
+			setRowHeight(10, Sizing.PREFERRED, 0);
+			setRowHeight(11, Sizing.PIXELS, 48);
+			setRowHeight(12, Sizing.PREFERRED, 0);
+			setRowHeight(13, Sizing.PREFERRED, 0);
+			*/
+			
+			DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
+			logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: number of rows: " + vObjAccount.getAccounts().getRowSet().getSize());
+			logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjAccount.AccountName.getStringValue(firstRow));
+			setRow(firstRow);
+		}
+>>>>>>> c10f586989396e595fec32029ef4ab2d64fc9a33
 	}	
 	
 	callback btn01 onClick(Control c) {
@@ -586,6 +655,7 @@ ScrollableTablePanel {
 		refresh();
 			
 	}
+<<<<<<< HEAD
 	
 	void setDetailPanel (Panels.DetailPanel pnl) {
 		pnlDetail = pnl;
@@ -631,4 +701,6 @@ ScrollableTablePanel {
 		}
 	}
 
+=======
+>>>>>>> c10f586989396e595fec32029ef4ab2d64fc9a33
 }

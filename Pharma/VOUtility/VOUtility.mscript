@@ -625,7 +625,7 @@ UIObject {
 	}
 	
 	void loadAccount(){
-		int iSize;
+		/*int iSize;
 		iSize = dpRowSetAccnt.getSize();
 		if(iSize>0)
 		{
@@ -659,7 +659,24 @@ UIObject {
 		{
 			dpRowAccnt = vObjAccount.getNewRow();
 			dpRowAccnt.applyUpdates();
+		}*/
+		
+		dpRowSetAccnt = dp.Account.getRowSet(); //Apro il rowset
+		//mi rendo conto che è una porcata, ma non si riesce a fare andare il count... in futuro, ci riproveremo!
+		if(dpRowSetAccnt.first() == null)
+			iNumAccounts = 0;
+		else
+		{
+			logApp.log(Log.INFO,"dtullo voUtility LoadAccount got First: " + iNumAccounts);
+			iNumAccounts = 0;
+			DataRow row = dpRowSetAccnt.first();
+			while(row != null){
+				iNumAccounts = iNumAccounts + 1;
+				row = dpRowSetAccnt.next();
+			}
+			logApp.log(Log.INFO,"dtullo voUtility LoadAccount got First 2: " + iNumAccounts);
 		}
+		logApp.log(Log.INFO,"dtullo voUtility LoadAccount: " + iNumAccounts);
 	}
 	
 	String getAccountName(String accountId){
@@ -799,37 +816,19 @@ UIObject {
 	}
 	
 	void loadContact() {
-		if(dpRowSetContact.getSize()>0)
-		{
-			dpRowSetContact.first();
-			while(dpRowSetContact != null){
-				dpRowContact = vObjContact.getNewRow();
-				vObjContact.ContactId.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactId"),dpRowContact);
-				vObjContact.ContactName.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactName"),dpRowContact);
-				vObjContact.ContactLastName.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactLastName"),dpRowContact);
-				vObjContact.RelAccountCode.setStringValue(dpRowSetContact.getCurrentRow().getString("RelAccountCode"),dpRowContact);
-				vObjContact.ContactTitle.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactTitle"),dpRowContact);
-				vObjContact.ContactFunction.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactFunction"),dpRowContact);
-				vObjContact.ContactStatus.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactStatus"),dpRowContact);
-				vObjContact.ContactStreetAddress.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactStreetAddress"),dpRowContact);
-				vObjContact.ContactStreetCity.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactStreetCity"),dpRowContact);
-				vObjContact.ContactProvince.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactProvince"),dpRowContact);
-				vObjContact.ContactCap.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactCap"),dpRowContact);
-				vObjContact.ContactCountry.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactCountry"),dpRowContact);
-				vObjContact.ContactPhone.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactPhone"),dpRowContact);
-				vObjContact.ContactOfficePhone.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactOfficePhone"),dpRowContact);
-				vObjContact.ContactEmail.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactEmail"),dpRowContact);
-				vObjContact.ContactAge.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactAge"),dpRowContact);
-				vObjContact.ContactGender.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactGender"),dpRowContact);
-				vObjContact.ContactNote.setStringValue(dpRowSetContact.getCurrentRow().getString("ContactNote"),dpRowContact);
-				dpRowContact.applyUpdates();
-				dpRowSetContact.next();
-			}
-		}
+		dpRowSetContact = dp.Contact.getRowSet(); //Apro il rowset
+		
+		//mi rendo conto che è una porcata, ma non si riesce a fare andare il count... in futuro, ci riproveremo!
+		if(dpRowSetContact.first() == null)
+			iNumContacts = 0;
 		else
 		{
-			dpRowContact = vObjContact.getNewRow();
-			dpRowContact.applyUpdates();
+			iNumContacts = 0;
+			DataRow row = dpRowSetContact.first();
+			while(row != null){
+				iNumContacts = iNumContacts + 1;
+				row = dpRowSetContact.next();
+			}
 		}
 	}
 	

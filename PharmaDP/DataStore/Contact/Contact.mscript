@@ -27,7 +27,15 @@ DataStoreObject {
 	StringField ContactAge{return null;}
 	StringField ContactGender{return null;}
 	StringField ContactNote{return null;}
+	StringField NumContact{return null;}
+	//StringField ContactAlways{return "always";}
 	
+	Query getAllContacts()
+	{
+		return getAllContactRows();
+	}
+	
+	query getAllContactRows<> {}
 	
 	Query getContacts() {
 			return contactRows();
@@ -171,5 +179,11 @@ DataStoreObject {
 			where ContactLastName contains src;
 			ascendingBy ContactLastName;
 		}
-
+	
+	Query ContactCount(){
+		return getContactCount();
+	}
+	query getContactCount<>{
+		unique count NumContact;
+	}
 }
