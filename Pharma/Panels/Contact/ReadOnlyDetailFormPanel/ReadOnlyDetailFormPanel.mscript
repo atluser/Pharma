@@ -19,6 +19,8 @@ ScrollableTablePanel {
 	//Set the screen from the account
 	Screens.Account.ContactScreen scrContact;
 	
+	String fill = "hfill=fill, vfill=fill";
+	
 	//Pannello Dati Anagrafici 
 	FormPanel pnlForm01 = new FormPanel();
 	//Pannello Localizzazione e Comunicazioni
@@ -166,30 +168,41 @@ ScrollableTablePanel {
 		pnlBodyRoot.add(btnInfo, "hfill=fill");
 		pnlBodyRoot.startNewRow();
 		setUpSection03();
+		/*
 		pnlBodyRoot.startNewRow();
 		pnlBodyRoot.add(new Separator(), "");
 		pnlBodyRoot.startNewRow();
-
+		*/
+		
 		pnlBodyRoot.enableScroll(true);
 		//pnlBodyRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
 		pnlBodyRoot.setColumnWidth(0, Sizing.PERCENTS, 65);
 		
+		//section header button
 		pnlBodyRoot.setRowHeight(0, Sizing.PREFERRED, 0);
+		//section form
 		pnlBodyRoot.setRowHeight(1, Sizing.PREFERRED, 0);
+		//separator
 		pnlBodyRoot.setRowHeight(2, Sizing.PIXELS, 48);
-	
+		
+		//and so on...
+		
 		pnlBodyRoot.setRowHeight(3, Sizing.PREFERRED, 0);
 		pnlBodyRoot.setRowHeight(4, Sizing.PREFERRED, 0);
 		pnlBodyRoot.setRowHeight(5, Sizing.PIXELS, 48);
 		
 		pnlBodyRoot.setRowHeight(6, Sizing.PREFERRED, 0);
 		pnlBodyRoot.setRowHeight(7, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(8, Sizing.PIXELS, 48);
+		//pnlBodyRoot.setRowHeight(8, Sizing.PIXELS, 48);
 		
-		pnlBodyRoot.setRowHeight(9, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(10, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(11, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(12, Sizing.PREFERRED, 0);
+		/* Rows for the correlated items buttons
+		 *
+		 *	pnlBodyRoot.setRowHeight(9, Sizing.PREFERRED, 0);
+		 *	pnlBodyRoot.setRowHeight(10, Sizing.PREFERRED, 0);
+		 *	pnlBodyRoot.setRowHeight(11, Sizing.PREFERRED, 0);
+		 *	pnlBodyRoot.setRowHeight(12, Sizing.PREFERRED, 0);
+		 *
+		*/
 		
 		ScrollableTablePanel pnlBody = new ScrollableTablePanel();
 		pnlBody.enableScroll(true);
@@ -215,14 +228,9 @@ ScrollableTablePanel {
 		
 		//DataRow firstRow = new DataRow();
 		
-		add(pnlHeader,"hfill=fill,vfill=fill");
+		add(pnlHeader,fill);
 		startNewRow();
-		/*
-		add(new Separator(), "");
-		startNewRow();
-		*/
-		add(pnlBody,"hfill=fill,vfill=fill");
-		enableScroll(true);
+		add(pnlBody,fill);
 		
 		setInsets(48,0,48,0);
 		//setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));

@@ -100,7 +100,7 @@ TableViewCell {
 		Popups.ZoomPopup popZoom = new Popups.ZoomPopup();
 		popZoom.setImageReference(img);
 		popZoom.setLabelName(lblName.getText());
-		scrPriceList.showPopup(popZoom,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED ,0 , Sizing.PREFERRED, 0 ,false,true);
+		scrPriceList.showPopup(popZoom,Popup.POPUP_TYPE_NONE, Sizing.PREFERRED ,0 , Sizing.PREFERRED, 0 ,false,true);
 	}
 	
 	callback btnInfo onClick(Control c) {
@@ -110,7 +110,7 @@ TableViewCell {
 		appLog.log(Log.INFO,"ProductInfo - ItemTableViewCell -- popup datarow setted, product NAME: " + vObjPriceListItem.ProductName.getStringValue(row));
 		popInfo.setImageReference(img);
 		appLog.log(Log.INFO,"ProductInfo - popup Image reference setted");
-		scrPriceList.showPopup(popInfo,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED ,0 , Sizing.PREFERRED, 0 ,false,true);
+		scrPriceList.showPopup(popInfo,Popup.POPUP_TYPE_NONE, Sizing.PREFERRED ,0 , Sizing.PREFERRED, 0 ,false,true);
 	}
 	
 	
