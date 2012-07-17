@@ -2,7 +2,7 @@ TablePanel {
 	
 	Panels.Contact.StickyTablePanel stk = new Panels.Contact.StickyTablePanel();
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Contact.ReadOnlyDetailFormPanel();
-	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();	 
+	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 	
 	String fill = "hfill=fill, vfill=fill";
 	
@@ -13,23 +13,27 @@ TablePanel {
 		setColumnWidth(0, Sizing.PIXELS, 350);
 		setColumnWidth(1, Sizing.PREFERRED, 1);
 		
+		//Contiene la sticchio table
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();		 		
 		pnlMaster.setContentPanel(stk);
 		
+		//Contiene il dettagli del contatto
 		pnlDetailForm.setDetailPanel(pnlDetail);
-		pnlDetailForm.setFirstRecord();
+		
+		//if(iNumContacts>0)
+		//	pnlDetailForm.setFirstRecord();
+		
 		// Detail Panel
 		pnlDetail.setContentPanel(pnlDetailForm);
 		
-		if(dpRowSetContact.getSize()>1) //uno c'è sempre (Fittizio...)
+		DataRow firstRow = vObjContact.getContacts().getRowSet().first();
+		if(iNumContacts>0)
 		{
-			DataRow firstRow = vObjContact.getContacts().getRowSet().first();
-			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow) + " " + vObjContact.ContactLastName.getStringValue(firstRow));
+			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(dpRowSetContact.first()) + " " + vObjContact.ContactLastName.getStringValue(dpRowSetContact.first()));
+			pnlDetailForm.setFirstRecord();
 		}
 		else
-		{
 			pnlDetail.txtFldName.setText("Non sono presenti contatti. Crearne di nuovi!");
-		}
 		
 		stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);

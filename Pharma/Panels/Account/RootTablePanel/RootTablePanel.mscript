@@ -7,9 +7,6 @@ TablePanel {
 	String fill = "hfill=fill, vfill=fill";
 
 	callback onCreate(Container c) {
-		
-		logApp.log(Log.INFO, "RootPanel - onCreate()");
-		
 		// Master Panel		
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
 		pnlMaster.setContentPanel(stk);
@@ -17,6 +14,9 @@ TablePanel {
 		// Detail Panel
 		//Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 		pnlDetail.setContentPanel(pnlDetailForm);
+		logApp.log(Log.INFO,"dtullo onCreate Accnt RootTablePanel: " + iNumAccounts);
+		if(iNumAccounts<1)
+			pnlDetail.txtFldName.setText("Non sono presenti accounts. Crearne di nuovi!");
 		
 		stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);

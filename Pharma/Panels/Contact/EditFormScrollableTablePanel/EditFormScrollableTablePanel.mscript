@@ -89,6 +89,8 @@ ScrollableTablePanel {
 	
 	TextField txtNote=new TextField();
 	TextModel mdlNote=new TextModel();
+	//TextField txtAlways=new TextField();
+	//TextModel mdlAlways=new TextModel();
 	
 	/*
 	Picker pkrCountry=new Picker();
@@ -251,7 +253,8 @@ ScrollableTablePanel {
 		txtMail.setDataModel(mdlMail);
 		txtAge.setDataModel(mdlAge);
 		//txtGender.setDataModel(mdlGender);
-		txtNote.setDataModel(mdlNote);
+		//txtNote.setDataModel(mdlNote);
+		//txtAlways.setDataModel(mdlAlways);
 	}
 	
 	void setModel(){		
@@ -286,6 +289,7 @@ ScrollableTablePanel {
 		mdlAge.addField(vObjContact.ContactAge);
 		mdlGender.addField(vObjContact.ContactGender);
 		mdlNote.addField(vObjContact.ContactNote);
+		//mdlAlways.addField(vObjContact.ContactAlways);
 		//btnProvinceSticky.setText("Provincia");
 		//btnProvinceSticky.setDataModel(mdlProvince);
 		//mdlName.setText("pippo");
@@ -461,6 +465,7 @@ ScrollableTablePanel {
 		mdlAge.setRow(row);
 		mdlGender.setRow(row);
 		mdlNote.setRow(row);
+		//mdlAlways.setRow(row);
 		
 		btnCountryPopup.setText(mdlCountry.getText());
 		btnProvincePopup.setText(mdlProvince.getText());
@@ -493,6 +498,7 @@ ScrollableTablePanel {
 	}
 	
 	void save(){
+		/*
 			vObjContact.ContactName.setStringValue(txtName.getText(),currentRow);
 			vObjContact.ContactLastName.setStringValue(txtLastName.getText(),currentRow);
 			vObjContact.ContactTitle.setStringValue(btnTitlePopup.getText(),currentRow);
@@ -523,6 +529,40 @@ ScrollableTablePanel {
 			vObjContact.ContactNote.setStringValue(txtNote.getText(),currentRow);
 
 			currentRow.applyUpdates();
+			*/
+		DataRow ContactRowContext = null;
+		if(currentRow==null)
+			ContactRowContext = vObjContact.getNewRow(); //Insert
+		else
+			ContactRowContext = currentRow; //Update
+		
+		//vObjContact.ContactId.setStringValue(.getText(),ContactRowContext);
+		//vObjContact.ContactTitle.setStringValue(.getText(),ContactRowContext);
+		//vObjContact.ContactFunction.setStringValue(.getText(),ContactRowContext);
+		//vObjContact.ContactProvince.setStringValue(.getText(),ContactRowContext);
+		//vObjContact.ContactCountry.setStringValue(.getText(),ContactRowContext);
+		//vObjContact.ContactGender.setStringValue(.getText(),ContactRowContext);
+		
+		vObjContact.ContactName.setStringValue(txtName.getText(),ContactRowContext);
+		vObjContact.ContactLastName.setStringValue(txtLastName.getText(),ContactRowContext);
+		vObjContact.RelAccountCode.setStringValue(txtRelAccount.getText(),ContactRowContext);
+		vObjContact.ContactStatus.setStringValue(txtStatus.getText(),ContactRowContext);
+		vObjContact.ContactStreetAddress.setStringValue(txtStreetAddress.getText(),ContactRowContext);
+		vObjContact.ContactStreetCity.setStringValue(txtCity.getText(),ContactRowContext);
+		vObjContact.ContactCap.setStringValue(txtCap.getText(),ContactRowContext);
+		vObjContact.ContactPhone.setStringValue(txtPhone.getText(),ContactRowContext);
+		vObjContact.ContactOfficePhone.setStringValue(txtOfficePhone.getText(),ContactRowContext);
+		vObjContact.ContactEmail.setStringValue(txtMail.getText(),ContactRowContext);
+		vObjContact.ContactAge.setStringValue(txtAge.getText(),ContactRowContext);
+		vObjContact.ContactNote.setStringValue(txtNote.getText(),ContactRowContext);
+		ContactRowContext.applyUpdates();
+		
+		if(sOpenDP==true)
+		{
+			dp.saveData();
+			dpRowSetContact.close();
+			vObjUtil.loadContact();
+		}
 	}
 	
 	/*callback pkrCountry onValueChange(Control c){

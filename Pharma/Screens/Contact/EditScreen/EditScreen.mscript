@@ -132,38 +132,7 @@ Screen {
 			String message="Operazione effettuata con successo";
 			MessageBox msgBox=new MessageBox();
 			//stk.save(dataObject);		
-			fp.save();
-			//Salvo i dati!
-			DataRow ContactRowContext = null;
-			if(fp.currentRow==null)
-			{
-				ContactRowContext = vObjContact.getNewRow();
-			}
-			else
-			{
-				ContactRowContext = fp.currentRow;
-			}
-			//vObjContact.ContactId.setStringValue(fp..getText(),ContactRowContext);
-			//vObjContact.ContactTitle.setStringValue(fp..getText(),ContactRowContext);
-			//vObjContact.ContactFunction.setStringValue(fp..getText(),ContactRowContext);
-			//vObjContact.ContactProvince.setStringValue(fp..getText(),ContactRowContext);
-			//vObjContact.ContactCountry.setStringValue(fp..getText(),ContactRowContext);
-			//vObjContact.ContactGender.setStringValue(fp..getText(),ContactRowContext);
-			
-			vObjContact.ContactName.setStringValue(fp.txtName.getText(),ContactRowContext);
-			vObjContact.ContactLastName.setStringValue(fp.txtLastName.getText(),ContactRowContext);
-			vObjContact.RelAccountCode.setStringValue(fp.txtRelAccount.getText(),ContactRowContext);
-			vObjContact.ContactStatus.setStringValue(fp.txtStatus.getText(),ContactRowContext);
-			vObjContact.ContactStreetAddress.setStringValue(fp.txtStreetAddress.getText(),ContactRowContext);
-			vObjContact.ContactStreetCity.setStringValue(fp.txtCity.getText(),ContactRowContext);
-			vObjContact.ContactCap.setStringValue(fp.txtCap.getText(),ContactRowContext);
-			vObjContact.ContactPhone.setStringValue(fp.txtPhone.getText(),ContactRowContext);
-			vObjContact.ContactOfficePhone.setStringValue(fp.txtOfficePhone.getText(),ContactRowContext);
-			vObjContact.ContactEmail.setStringValue(fp.txtMail.getText(),ContactRowContext);
-			vObjContact.ContactAge.setStringValue(fp.txtAge.getText(),ContactRowContext);
-			vObjContact.ContactNote.setStringValue(fp.txtNote.getText(),ContactRowContext);
-			ContactRowContext.applyUpdates();
-			dp.saveData();
+			fp.save();//Salvo i dati!
 			//ricarico sticky
 			//svuoto rsm
 			//stkTP.setAccountCode(sAccountCode);

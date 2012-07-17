@@ -5016,9 +5016,6 @@
       </children>
     </children>
   </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Account">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Account.mscript"/>
-  </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="CrmEntity">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="CrmEntity.mscript"/>
   </children>
@@ -5027,9 +5024,6 @@
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Order">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Order.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Contact">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListItem">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListItem.mscript"/>

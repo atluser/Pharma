@@ -2,7 +2,7 @@
 <VDSC_PROVIDER>
   <VDSC>
     <UID>5544899311306412543</UID>
-    <VERSION>7890389292729360040</VERSION>
+    <VERSION>7197794933671120255</VERSION>
     <DOCUMENT>
       <NAME>PharmaDP.1.0.0</NAME>
     </DOCUMENT>
@@ -335,6 +335,15 @@
           </ATTRIBUTE>
           <ATTRIBUTE>
             <NAME>Contact.ContactTitle</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Contact.NumContact</NAME>
             <TYPE>
               <STRING_TYPE/>
             </TYPE>
