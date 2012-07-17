@@ -7,7 +7,6 @@ TablePanel {
 	String fill = "hfill=fill, vfill=fill";
 
 	callback onCreate(Container c) {
-<<<<<<< HEAD
 		
 		logApp.log(Log.INFO, "RootPanel - onCreate()");
 		
@@ -16,8 +15,6 @@ TablePanel {
 		setColumnWidth(0, Sizing.PREFERRED, 0);
 		setColumnWidth(1, Sizing.PREFERRED, 1);
 		
-=======
->>>>>>> c10f586989396e595fec32029ef4ab2d64fc9a33
 		// Master Panel		
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
 		pnlMaster.setContentPanel(stk);

@@ -132,7 +132,7 @@ Screen {
 			String message="Operazione effettuata con successo";
 			MessageBox msgBox=new MessageBox();
 			//stk.save(dataObject);		
-<<<<<<< HEAD
+
 			//fp.save();
 			//Salvo i dati!
 			DataRow ContactRowContext = null;
@@ -165,9 +165,8 @@ Screen {
 			vObjContact.ContactNote.setStringValue(fp.txtNote.getText(),ContactRowContext);
 			ContactRowContext.applyUpdates();
 			dp.saveData();
-=======
 			fp.save();//Salvo i dati!
->>>>>>> c10f586989396e595fec32029ef4ab2d64fc9a33
+
 			//ricarico sticky
 			//svuoto rsm
 			//stkTP.setAccountCode(sAccountCode);

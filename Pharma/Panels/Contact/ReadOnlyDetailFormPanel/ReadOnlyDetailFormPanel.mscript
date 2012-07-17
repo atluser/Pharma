@@ -118,20 +118,19 @@ ScrollableTablePanel {
 	TextModel txtMdlNote = new TextModel();
 	Label txtFldNote = new Label();
 	
-<<<<<<< HEAD
 	TablePanel pnlBodyRoot = new TablePanel();
 		
-=======
+
 	//Always
 	//TextModel txtMdlAlways = new TextModel();
 	//Label txtFldAlways = new Label();
 	
->>>>>>> c10f586989396e595fec32029ef4ab2d64fc9a33
+
 	/*
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
-<<<<<<< HEAD
+
 		setUpHeader();
 		
 		// Header Panel
@@ -252,7 +251,7 @@ ScrollableTablePanel {
 		pnlForm02.setVisible(false);
 		pnlForm03.setVisible(false);
 		
-=======
+		/*
 		if(iNumContacts>0)
 		{
 			setUpHeaderSection("Anagrafica");
@@ -296,7 +295,7 @@ ScrollableTablePanel {
 			setRowHeight(10, Sizing.PREFERRED, 0);
 			setRowHeight(11, Sizing.PREFERRED, 0);
 			setRowHeight(12, Sizing.PREFERRED, 0);
-			
+			*/
 			/*
 			setRowHeight(9, Sizing.PIXELS, 48);
 			setRowHeight(10, Sizing.PREFERRED, 0);
@@ -315,8 +314,8 @@ ScrollableTablePanel {
 			*/
 			
 			//DataRow firstRow = new DataRow();
-		}
->>>>>>> c10f586989396e595fec32029ef4ab2d64fc9a33
+		//}
+
 	}	
 	
 	callback rchBtnAddress onClick(Control c) {

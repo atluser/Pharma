@@ -85,7 +85,6 @@ ScrollableTablePanel {
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
-<<<<<<< HEAD
 		
 		setUpHeaderSection("Anagrafica");
 		startNewRow();
@@ -149,8 +148,8 @@ ScrollableTablePanel {
 		 * logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjAccount.AccountName.getStringValue(firstRow));
 		 * setRow(firstRow);
 		*/
-=======
 		logApp.log(Log.INFO,"dtullo onCreate Accnt RODetailFormPanel: " + iNumAccounts);
+		
 		if(iNumAccounts>0)
 		{
 			setUpHeaderSection("Anagrafica");
@@ -213,8 +212,9 @@ ScrollableTablePanel {
 			logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: number of rows: " + vObjAccount.getAccounts().getRowSet().getSize());
 			logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjAccount.AccountName.getStringValue(firstRow));
 			setRow(firstRow);
+			
 		}
->>>>>>> c10f586989396e595fec32029ef4ab2d64fc9a33
+
 	}	
 	
 	callback btn01 onClick(Control c) {
@@ -655,7 +655,6 @@ ScrollableTablePanel {
 		refresh();
 			
 	}
-<<<<<<< HEAD
 	
 	void setDetailPanel (Panels.DetailPanel pnl) {
 		pnlDetail = pnl;
@@ -701,6 +700,4 @@ ScrollableTablePanel {
 		}
 	}
 
-=======
->>>>>>> c10f586989396e595fec32029ef4ab2d64fc9a33
 }
