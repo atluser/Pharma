@@ -78,8 +78,8 @@ Screen {
 		pnlDetailForm.setFirstRecord();
 		
 		pnlDetail.setContentPanel(pnlDetailForm);	
-		DataRow firstRow = vObjContact.getContactsFromAccount(sAccountCode).getRowSet().first();
-		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow) + " " + vObjContact.ContactLastName.getStringValue(firstRow));		
+		DataRow firstRow = dpObjContact.getContactsFromAccount(sAccountCode).getRowSet().first();
+		pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(firstRow) + " " + dpObjContact.ContactLastName.getStringValue(firstRow));		
 		
 		stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);

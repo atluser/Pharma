@@ -12,7 +12,7 @@ Screen {
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
 	Panels.DetailPanel pnlDetail;
 	VirtualObject dataObject;
-	
+	Container sReloadCnt = null;
 	String sAccountCode = "";
 	
 	Query q;//=null;
@@ -40,6 +40,7 @@ Screen {
 
 	callback onCreate(Container container){
 		fp.scr=(Screen)container;
+		sReloadCnt = container;
 		setUpButtons();
 		
 		// Header Panel
@@ -132,39 +133,36 @@ Screen {
 			String message="Operazione effettuata con successo";
 			MessageBox msgBox=new MessageBox();
 			//stk.save(dataObject);		
-
+			/*
 			//fp.save();
 			//Salvo i dati!
 			DataRow ContactRowContext = null;
 			if(fp.currentRow==null)
-			{
-				ContactRowContext = vObjContact.getNewRow();
-			}
+				ContactRowContext = dpObjContact.getNewRow();
 			else
-			{
 				ContactRowContext = fp.currentRow;
-			}
-			//vObjContact.ContactId.setStringValue(fp..getText(),ContactRowContext);
-			//vObjContact.ContactTitle.setStringValue(fp..getText(),ContactRowContext);
-			//vObjContact.ContactFunction.setStringValue(fp..getText(),ContactRowContext);
-			//vObjContact.ContactProvince.setStringValue(fp..getText(),ContactRowContext);
-			//vObjContact.ContactCountry.setStringValue(fp..getText(),ContactRowContext);
-			//vObjContact.ContactGender.setStringValue(fp..getText(),ContactRowContext);
 			
-			vObjContact.ContactName.setStringValue(fp.txtName.getText(),ContactRowContext);
-			vObjContact.ContactLastName.setStringValue(fp.txtLastName.getText(),ContactRowContext);
-			vObjContact.RelAccountCode.setStringValue(fp.txtRelAccount.getText(),ContactRowContext);
-			vObjContact.ContactStatus.setStringValue(fp.txtStatus.getText(),ContactRowContext);
-			vObjContact.ContactStreetAddress.setStringValue(fp.txtStreetAddress.getText(),ContactRowContext);
-			vObjContact.ContactStreetCity.setStringValue(fp.txtCity.getText(),ContactRowContext);
-			vObjContact.ContactCap.setStringValue(fp.txtCap.getText(),ContactRowContext);
-			vObjContact.ContactPhone.setStringValue(fp.txtPhone.getText(),ContactRowContext);
-			vObjContact.ContactOfficePhone.setStringValue(fp.txtOfficePhone.getText(),ContactRowContext);
-			vObjContact.ContactEmail.setStringValue(fp.txtMail.getText(),ContactRowContext);
-			vObjContact.ContactAge.setStringValue(fp.txtAge.getText(),ContactRowContext);
-			vObjContact.ContactNote.setStringValue(fp.txtNote.getText(),ContactRowContext);
+			//dpObjContact.ContactId.setStringValue(fp..getText(),ContactRowContext);
+			//dpObjContact.ContactTitle.setStringValue(fp..getText(),ContactRowContext);
+			//dpObjContact.ContactFunction.setStringValue(fp..getText(),ContactRowContext);
+			//dpObjContact.ContactProvince.setStringValue(fp..getText(),ContactRowContext);
+			//dpObjContact.ContactCountry.setStringValue(fp..getText(),ContactRowContext);
+			//dpObjContact.ContactGender.setStringValue(fp..getText(),ContactRowContext);
+			
+			dpObjContact.ContactName.setStringValue(fp.txtName.getText(),ContactRowContext);
+			dpObjContact.ContactLastName.setStringValue(fp.txtLastName.getText(),ContactRowContext);
+			dpObjContact.RelAccountCode.setStringValue(fp.txtRelAccount.getText(),ContactRowContext);
+			dpObjContact.ContactStatus.setStringValue(fp.txtStatus.getText(),ContactRowContext);
+			dpObjContact.ContactStreetAddress.setStringValue(fp.txtStreetAddress.getText(),ContactRowContext);
+			dpObjContact.ContactStreetCity.setStringValue(fp.txtCity.getText(),ContactRowContext);
+			dpObjContact.ContactCap.setStringValue(fp.txtCap.getText(),ContactRowContext);
+			dpObjContact.ContactPhone.setStringValue(fp.txtPhone.getText(),ContactRowContext);
+			dpObjContact.ContactOfficePhone.setStringValue(fp.txtOfficePhone.getText(),ContactRowContext);
+			dpObjContact.ContactEmail.setStringValue(fp.txtMail.getText(),ContactRowContext);
+			dpObjContact.ContactAge.setStringValue(fp.txtAge.getText(),ContactRowContext);
+			dpObjContact.ContactNote.setStringValue(fp.txtNote.getText(),ContactRowContext);
 			ContactRowContext.applyUpdates();
-			dp.saveData();
+			dp.saveData();*/
 			fp.save();//Salvo i dati!
 
 			//ricarico sticky
@@ -182,8 +180,13 @@ Screen {
 			}
 			originListStk.reload();*/
 			//detailStk.reload();
-			pnlDetailForm.setRow(fp.currentRow);
-			//pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(fp.currentRow) + " " + vObjContact.ContactLastName.getStringValue(fp.currentRow));
+			//pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(fp.currentRow) + " " + dpObjContact.ContactLastName.getStringValue(fp.currentRow));
+			//if(sOpenDP==true)
+			//	vObjUtil.loadContact();
+			//pnlDetailForm.setRow(ContactRowContext);
+			//pnlDetailForm.refresh();
+			//fp.destroy();
+			//pnlDetailForm.setQuery();
 			close(Animation.PUSH_FROM_TOP);
 			msgBox.info(1, message);
 		}

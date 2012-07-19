@@ -70,8 +70,8 @@ TablePanel {
 		
 		/*	stk.scrollTo(0,0,StickyTable.SCROLL_POSITION_TOP);
 		 *	stk.select(0,0);
-		 *	logApp.log(Log.INFO, "ContactStickyTablePanel::onCreate - Row 0,0 selected: "+ vObjContact.ContactName.getStringValue(mrsm.getRow()));
-		 *	pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(mrsm.getRow()));
+		 *	logApp.log(Log.INFO, "ContactStickyTablePanel::onCreate - Row 0,0 selected: "+ dpObjContact.ContactName.getStringValue(mrsm.getRow()));
+		 *	pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(mrsm.getRow()));
 		 *	pnlDetailForm.setRow(mrsm.getRow());
 		*/
 		//stk.select(1,1);
@@ -99,9 +99,9 @@ TablePanel {
 		
 		DataRow dtRw = info.getDataRow();
 		if(!dtRw.isDeleted()){		
-			String str01 = vObjContact.ContactLastName.getStringValue(dtRw) + " " + vObjContact.ContactName.getStringValue(dtRw);
+			String str01 = dpObjContact.ContactLastName.getStringValue(dtRw) + " " + dpObjContact.ContactName.getStringValue(dtRw);
 			str01 = str01.toUpperCase();
-			String str02 = vObjContact.ContactEmail.getStringValue(dtRw);					
+			String str02 = dpObjContact.ContactEmail.getStringValue(dtRw);					
 	
 			tblVwCell.lbl01.setText(str01);
 			tblVwCell.lbl02.setText(str02);
@@ -122,7 +122,7 @@ TablePanel {
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		logApp.log(Log.INFO, "ContactStickyTablePanel::onSelectionChanged - Row: "+ row);
 		
-		//pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(mrsm.getRow()));
+		//pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(mrsm.getRow()));
 		pnlDetailForm.setRow(mrsm.getRow());
 		
 	}
@@ -186,7 +186,7 @@ TablePanel {
 		stk.reload();
 		if (mrsm.getRowCount(0)>0) {
 			stk.select(0,0);
-			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + vObjContact.ContactLastName.getStringValue(mrsm.getRow()));
+			pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(mrsm.getRow()));
 			pnlDetailForm.setRow(mrsm.getRow());
 		}
 		
@@ -199,7 +199,7 @@ TablePanel {
 		stk.reload();
 		if (mrsm.getRowCount(0)>0) {
 			stk.select(0,0);
-			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(mrsm.getRow()));
+			pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()));
 			pnlDetailForm.setRow(mrsm.getRow());
 		}
 		//iRowCount = pnlDetail.getRowCount();
@@ -225,10 +225,10 @@ TablePanel {
 		for(int i = 0; i < letterList.length(); i++) {
 			RowSetModel rsm1 = new RowSetModel();
 			if (sAccountCode != "") {
-				rsm1.setRows(vObjContact.getContactStartsWithFromAccount(letterList.getItem(i),sAccountCode));
+				rsm1.setRows(dpObjContact.getContactStartsWithFromAccount(letterList.getItem(i),sAccountCode));
 				}
 			else { 
-				rsm1.setRows(vObjContact.getContactStartsWith(letterList.getItem(i)));
+				rsm1.setRows(dpObjContact.getContactStartsWith(letterList.getItem(i)));
 			}
 			
 			if(rsm1.getRowCount(0) > 0) {
@@ -248,10 +248,10 @@ TablePanel {
 		for(int i = 0; i < letterList.length(); i++) {
 			RowSetModel rsm1 = new RowSetModel();
 			if (sAccountCode != "") {
-				rsm1.setRows(vObjContact.getContactContainsStartsWithFromAccount(letterList.getItem(i),str,sAccountCode));
+				rsm1.setRows(dpObjContact.getContactContainsStartsWithFromAccount(letterList.getItem(i),str,sAccountCode));
 				}
 			else { 
-				rsm1.setRows(vObjContact.getContactContainsStartsWith(letterList.getItem(i),str));
+				rsm1.setRows(dpObjContact.getContactContainsStartsWith(letterList.getItem(i),str));
 			}
 			
 			if(rsm1.getRowCount(0) > 0) {

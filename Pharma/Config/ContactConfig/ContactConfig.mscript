@@ -34,7 +34,7 @@ UIObject {
 		cfg.Caption.setStringValue("Nome",row);		
 		cfg.FieldType.setStringValue("TextField",row);
 		row.applyUpdates();
-		entityFieldMap.putValue("ContactName",vObjContact.ContactName);
+		entityFieldMap.putValue("ContactName",dpObjContact.ContactName);
 //ContactLastName
 		row=cfg.getNewRow();
 		cfg.Entity.setStringValue("Contact",row);
@@ -44,7 +44,7 @@ UIObject {
 		cfg.Caption.setStringValue("Cognome",row);		
 		cfg.FieldType.setStringValue("TextField",row);
 		row.applyUpdates();
-		entityFieldMap.putValue("ContactLastName",vObjContact.ContactLastName);
+		entityFieldMap.putValue("ContactLastName",dpObjContact.ContactLastName);
 		
 		//ContactStatus
 		row=cfg.getNewRow();
@@ -55,7 +55,7 @@ UIObject {
 		cfg.Caption.setStringValue("Stato",row);		
 		cfg.FieldType.setStringValue("TextField",row);
 		row.applyUpdates();
-		entityFieldMap.putValue("ContactStatus",vObjContact.ContactStatus);
+		entityFieldMap.putValue("ContactStatus",dpObjContact.ContactStatus);
 		
 		//ContactPhone
 		row=cfg.getNewRow();
@@ -66,7 +66,7 @@ UIObject {
 		cfg.Caption.setStringValue("Telefono",row);		
 		cfg.FieldType.setStringValue("TextField",row);
 		row.applyUpdates();
-		entityFieldMap.putValue("ContactPhone",vObjContact.ContactPhone);
+		entityFieldMap.putValue("ContactPhone",dpObjContact.ContactPhone);
 		
 		//ContactMail
 		row=cfg.getNewRow();
@@ -77,7 +77,7 @@ UIObject {
 		cfg.Caption.setStringValue("e-Mail",row);		
 		cfg.FieldType.setStringValue("TextField",row);
 		row.applyUpdates();
-		entityFieldMap.putValue("ContactEmail",vObjContact.ContactEmail);
+		entityFieldMap.putValue("ContactEmail",dpObjContact.ContactEmail);
 		
 		//ContactStreetAddress
 		row=cfg.getNewRow();
@@ -88,7 +88,7 @@ UIObject {
 		cfg.Caption.setStringValue("Indirizzo",row);		
 		cfg.FieldType.setStringValue("TextField",row);
 		row.applyUpdates();
-		entityFieldMap.putValue("ContactStreetAddress",vObjContact.ContactStreetAddress);
+		entityFieldMap.putValue("ContactStreetAddress",dpObjContact.ContactStreetAddress);
 		
 		
 		fieldMap.putValue("Contact",entityFieldMap);

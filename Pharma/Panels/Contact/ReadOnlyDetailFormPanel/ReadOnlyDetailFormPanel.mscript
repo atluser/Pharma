@@ -1,5 +1,4 @@
 ScrollableTablePanel {
-
 	/*
 	 * Attributes
 	 */
@@ -34,6 +33,8 @@ ScrollableTablePanel {
 	
 	Panels.HeaderPanel pnlHeader;
 	Panels.DetailPanel pnlDetail;
+	
+	Label txtNoContactMessage = new Label();
 	
 	//Aggiungiamo i bottoni per le intestazioni
 	
@@ -130,172 +131,113 @@ ScrollableTablePanel {
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {
-
 		setUpHeader();
-		
-		// Header Panel
-		TablePanel pnlHeaderRoot = new TablePanel();
-		pnlHeaderRoot.add(picTitleIcon,"rowspan=2");
-		pnlHeaderRoot.add(lblTitleName,"valign=bottom");
-		pnlHeaderRoot.startNewRow();
-		pnlHeaderRoot.add(lblTitleMail,"valign=top");
-		//pnlHeaderRoot.setInsets(0,48,0,0);
-		//pnlHeaderRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
-		pnlHeaderRoot.setColumnWidth(0, Sizing.PERCENTS, 10);
-		pnlHeaderRoot.setColumnWidth(1, Sizing.PERCENTS, 50);
-		pnlHeaderRoot.setRowHeight(0, Sizing.PREFERRED, 1);
-		pnlHeaderRoot.setRowHeight(1, Sizing.PREFERRED, 1);
-		
-		TablePanel pnlHeader = new TablePanel();
-		pnlHeader.add(pnlHeaderRoot,"halign=center,valign=top");
-		pnlHeader.setColumnWidth(0, Sizing.PREFERRED, 1);
-		
-		/*
-		pnlBodyRoot.add(new Separator(), "");
-		pnlBodyRoot.startNewRow();
-		*/
-		//setUpHeaderSection("Anagrafica");
-		setUpButton(btnAnagrafica,"Anagrafica", true);
-		pnlBodyRoot.add(btnAnagrafica, "hfill=fill");
-		pnlBodyRoot.startNewRow();
-		setUpSection01();
-		pnlBodyRoot.startNewRow();
-		pnlBodyRoot.add(new Separator(), "");
-		pnlBodyRoot.startNewRow();
-		
-		setUpButton(btnLoc,"Localizzazione e Comunicazioni",false);
-		pnlBodyRoot.add(btnLoc, "hfill=fill");
-		pnlBodyRoot.startNewRow();
-		setUpSection02();
-		pnlBodyRoot.startNewRow();
-		pnlBodyRoot.add(new Separator(), "");
-		pnlBodyRoot.startNewRow();
-		
-		setUpButton(btnInfo,"Altre Informazioni",false);
-		pnlBodyRoot.add(btnInfo, "hfill=fill");
-		pnlBodyRoot.startNewRow();
-		setUpSection03();
-		/*
-		pnlBodyRoot.startNewRow();
-		pnlBodyRoot.add(new Separator(), "");
-		pnlBodyRoot.startNewRow();
-		*/
-		
-		pnlBodyRoot.enableScroll(true);
-		//pnlBodyRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-		pnlBodyRoot.setColumnWidth(0, Sizing.PERCENTS, 65);
-		
-		//section header button
-		pnlBodyRoot.setRowHeight(0, Sizing.PREFERRED, 0);
-		//section form
-		pnlBodyRoot.setRowHeight(1, Sizing.PREFERRED, 0);
-		//separator
-		pnlBodyRoot.setRowHeight(2, Sizing.PIXELS, 48);
-		
-		//and so on...
-		
-		pnlBodyRoot.setRowHeight(3, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(4, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(5, Sizing.PIXELS, 48);
-		
-		pnlBodyRoot.setRowHeight(6, Sizing.PREFERRED, 0);
-		pnlBodyRoot.setRowHeight(7, Sizing.PREFERRED, 0);
-		//pnlBodyRoot.setRowHeight(8, Sizing.PIXELS, 48);
-		
-		/* Rows for the correlated items buttons
-		 *
-		 *	pnlBodyRoot.setRowHeight(9, Sizing.PREFERRED, 0);
-		 *	pnlBodyRoot.setRowHeight(10, Sizing.PREFERRED, 0);
-		 *	pnlBodyRoot.setRowHeight(11, Sizing.PREFERRED, 0);
-		 *	pnlBodyRoot.setRowHeight(12, Sizing.PREFERRED, 0);
-		 *
-		*/
-		
-		ScrollableTablePanel pnlBody = new ScrollableTablePanel();
-		pnlBody.enableScroll(true);
-		pnlBody.add(pnlBodyRoot,"halign=center,valign=top");
-		pnlBody.setColumnWidth(0, Sizing.PREFERRED, 1);
-		
-		/*
-		setRowHeight(9, Sizing.PIXELS, 48);
-		setRowHeight(10, Sizing.PREFERRED, 0);
-		setRowHeight(11, Sizing.PIXELS, 48);
-		setRowHeight(12, Sizing.PREFERRED, 0);
-		setRowHeight(13, Sizing.PREFERRED, 0);
-		*/
-		
-		/*
-		 DataRow firstRow = vObjContact.getContacts().getRowSet().first();
-		logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: number of rows: " + vObjContact.getContacts().getRowSet().getSize());
-		logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjContact.ContactName.getStringValue(firstRow));
-		setRow(firstRow);
-		logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: row setted");
-		pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow));
-		*/
-		
-		//DataRow firstRow = new DataRow();
-		
-		add(pnlHeader,fill);
-		startNewRow();
-		add(pnlBody,fill);
-		
-		setInsets(48,0,48,0);
-		//setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-		setBackColor(Colors.White);
-		setColumnWidth(0, Sizing.PREFERRED, 1);
-		setRowHeight(0, Sizing.PREFERRED, 0);
-		setRowHeight(1, Sizing.PREFERRED, 1);
-		//setRowHeight(2, Sizing.PREFERRED, 1);
-		
-		pnlForm01.setVisible(true);
-		pnlForm02.setVisible(false);
-		pnlForm03.setVisible(false);
-		
-		/*
-		if(iNumContacts>0)
+		if(iNumContacts<1)
 		{
-			setUpHeaderSection("Anagrafica");
-			startNewRow();
-			setUpSection01();
-			startNewRow();
-			add(new Separator(), "");
-			startNewRow();
+			TablePanel pnlHeaderRootNoContact = new TablePanel();
+
+			Font fntMsg = new Font();
+			fntMsg.setFamily("Arial");
+			fntMsg.setSize(24);
+			fntMsg.setBold();
+			txtNoContactMessage.setFont(fntMsg);
+			txtNoContactMessage.setForeColor(Color.create(189,0,0));
+			txtNoContactMessage.setText("Non sono presenti contatti. Crearne di nuovi!");
 			
-			setUpHeaderSection("Localizzazione e Comunicazioni");
-			startNewRow();
-			setUpSection02();
-			startNewRow();
-			add(new Separator(), "");
-			startNewRow();
+			pnlHeaderRootNoContact.add(picTitleIcon);
+			pnlHeaderRootNoContact.add(txtNoContactMessage, "hfill=fill");
 			
-			setUpHeaderSection("Altre Informazioni");
-			startNewRow();
-			setUpSection03();
-			startNewRow();
-			add(new Separator(), "");
-			startNewRow();
-	
-			enableScroll(true);
-			setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
-			setColumnWidth(0, Sizing.PERCENTS, 65);
+			add(pnlHeaderRootNoContact,"halign=left,valign=top");
 			
+			setColumnWidth(0, Sizing.PREFERRED, 1);
 			setRowHeight(0, Sizing.PREFERRED, 0);
-			setRowHeight(1, Sizing.PREFERRED, 0);
-			setRowHeight(2, Sizing.PIXELS, 48);
-		
-			setRowHeight(3, Sizing.PREFERRED, 0);
-			setRowHeight(4, Sizing.PREFERRED, 0);
-			setRowHeight(5, Sizing.PIXELS, 48);
+			setBackColor(Colors.White); 
+		}
+		else
+		{	
+			// Header Panel
+			TablePanel pnlHeaderRoot = new TablePanel();
+			pnlHeaderRoot.add(picTitleIcon,"rowspan=2");
+			pnlHeaderRoot.add(lblTitleName,"valign=bottom");
+			pnlHeaderRoot.startNewRow();
+			pnlHeaderRoot.add(lblTitleMail,"valign=top");
+			//pnlHeaderRoot.setInsets(0,48,0,0);
+			//pnlHeaderRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
+			pnlHeaderRoot.setColumnWidth(0, Sizing.PERCENTS, 10);
+			pnlHeaderRoot.setColumnWidth(1, Sizing.PERCENTS, 50);
+			pnlHeaderRoot.setRowHeight(0, Sizing.PREFERRED, 1);
+			pnlHeaderRoot.setRowHeight(1, Sizing.PREFERRED, 1);
 			
-			setRowHeight(6, Sizing.PREFERRED, 0);
-			setRowHeight(7, Sizing.PREFERRED, 0);
-			setRowHeight(8, Sizing.PIXELS, 48);
+			TablePanel pnlHeader = new TablePanel();
+			pnlHeader.add(pnlHeaderRoot,"halign=center,valign=top");
+			pnlHeader.setColumnWidth(0, Sizing.PREFERRED, 1);
 			
-			setRowHeight(9, Sizing.PREFERRED, 0);
-			setRowHeight(10, Sizing.PREFERRED, 0);
-			setRowHeight(11, Sizing.PREFERRED, 0);
-			setRowHeight(12, Sizing.PREFERRED, 0);
+			/*
+			pnlBodyRoot.add(new Separator(), "");
+			pnlBodyRoot.startNewRow();
 			*/
+			//setUpHeaderSection("Anagrafica");
+			setUpButton(btnAnagrafica,"Anagrafica", true);
+			pnlBodyRoot.add(btnAnagrafica, "hfill=fill");
+			pnlBodyRoot.startNewRow();
+			setUpSection01();
+			pnlBodyRoot.startNewRow();
+			pnlBodyRoot.add(new Separator(), "");
+			pnlBodyRoot.startNewRow();
+			
+			setUpButton(btnLoc,"Localizzazione e Comunicazioni",false);
+			pnlBodyRoot.add(btnLoc, "hfill=fill");
+			pnlBodyRoot.startNewRow();
+			setUpSection02();
+			pnlBodyRoot.startNewRow();
+			pnlBodyRoot.add(new Separator(), "");
+			pnlBodyRoot.startNewRow();
+			
+			setUpButton(btnInfo,"Altre Informazioni",false);
+			pnlBodyRoot.add(btnInfo, "hfill=fill");
+			pnlBodyRoot.startNewRow();
+			setUpSection03();
+			/*
+			pnlBodyRoot.startNewRow();
+			pnlBodyRoot.add(new Separator(), "");
+			pnlBodyRoot.startNewRow();
+			*/
+			
+			pnlBodyRoot.enableScroll(true);
+			//pnlBodyRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+			pnlBodyRoot.setColumnWidth(0, Sizing.PERCENTS, 65);
+			
+			//section header button
+			pnlBodyRoot.setRowHeight(0, Sizing.PREFERRED, 0);
+			//section form
+			pnlBodyRoot.setRowHeight(1, Sizing.PREFERRED, 0);
+			//separator
+			pnlBodyRoot.setRowHeight(2, Sizing.PIXELS, 48);
+			
+			//and so on...
+			
+			pnlBodyRoot.setRowHeight(3, Sizing.PREFERRED, 0);
+			pnlBodyRoot.setRowHeight(4, Sizing.PREFERRED, 0);
+			pnlBodyRoot.setRowHeight(5, Sizing.PIXELS, 48);
+			
+			pnlBodyRoot.setRowHeight(6, Sizing.PREFERRED, 0);
+			pnlBodyRoot.setRowHeight(7, Sizing.PREFERRED, 0);
+			//pnlBodyRoot.setRowHeight(8, Sizing.PIXELS, 48);
+			
+			/* Rows for the correlated items buttons
+			 *
+			 *	pnlBodyRoot.setRowHeight(9, Sizing.PREFERRED, 0);
+			 *	pnlBodyRoot.setRowHeight(10, Sizing.PREFERRED, 0);
+			 *	pnlBodyRoot.setRowHeight(11, Sizing.PREFERRED, 0);
+			 *	pnlBodyRoot.setRowHeight(12, Sizing.PREFERRED, 0);
+			 *
+			*/
+			
+			ScrollableTablePanel pnlBody = new ScrollableTablePanel();
+			pnlBody.enableScroll(true);
+			pnlBody.add(pnlBodyRoot,"halign=center,valign=top");
+			pnlBody.setColumnWidth(0, Sizing.PREFERRED, 1);
+			
 			/*
 			setRowHeight(9, Sizing.PIXELS, 48);
 			setRowHeight(10, Sizing.PREFERRED, 0);
@@ -305,17 +247,33 @@ ScrollableTablePanel {
 			*/
 			
 			/*
-			 DataRow firstRow = vObjContact.getContacts().getRowSet().first();
-			logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: number of rows: " + vObjContact.getContacts().getRowSet().getSize());
-			logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjContact.ContactName.getStringValue(firstRow));
+			 DataRow firstRow = dpObjContact.getContacts().getRowSet().first();
+			logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: number of rows: " + dpObjContact.getContacts().getRowSet().getSize());
+			logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: set first row, name: " + dpObjContact.ContactName.getStringValue(firstRow));
 			setRow(firstRow);
 			logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: row setted");
-			pnlDetail.txtFldName.setText(vObjContact.ContactName.getStringValue(firstRow));
+			pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(firstRow));
 			*/
 			
 			//DataRow firstRow = new DataRow();
-		//}
-
+			
+			add(pnlHeader,fill);
+			startNewRow();
+			add(pnlBody,fill);
+			
+			setInsets(48,0,48,0);
+			//setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+			setBackColor(Colors.White);
+			setColumnWidth(0, Sizing.PREFERRED, 1);
+			setRowHeight(0, Sizing.PREFERRED, 0);
+			setRowHeight(1, Sizing.PREFERRED, 1);
+			//setRowHeight(2, Sizing.PREFERRED, 1);
+			
+			pnlForm01.setVisible(true);
+			pnlForm02.setVisible(false);
+			pnlForm03.setVisible(false);
+		}
+		
 	}	
 	
 	callback rchBtnAddress onClick(Control c) {
@@ -360,7 +318,7 @@ ScrollableTablePanel {
 			fromAccountFlag = false;
 		} else {	
 			
-			sAccountCode = vObjContact.RelAccountCode.getStringValue(currentRow);
+			sAccountCode = dpObjContact.RelAccountCode.getStringValue(currentRow);
 			logApp.log(Log.INFO, "RelAccountCode = " + sAccountCode);
 			RowSetModel rsm = new RowSetModel();
 			rsm.setRows(vObjAccount.getAccountRow(sAccountCode));
@@ -628,83 +586,83 @@ ScrollableTablePanel {
 			
 		currentRow = dtRw;	
 		
-		lblTitleName.setText(vObjContact.ContactLastName.getStringValue(dtRw) + " " + vObjContact.ContactName.getStringValue(dtRw));
-		lblTitleMail.setText(vObjContact.ContactEmail.getStringValue(dtRw));
+		lblTitleName.setText(dpObjContact.ContactLastName.getStringValue(dtRw) + " " + dpObjContact.ContactName.getStringValue(dtRw));
+		lblTitleMail.setText(dpObjContact.ContactEmail.getStringValue(dtRw));
 		 
 		txtMdlName.setRow(dtRw);
-		txtMdlName.setText(vObjContact.ContactName.getStringValue(dtRw));
+		txtMdlName.setText(dpObjContact.ContactName.getStringValue(dtRw));
 		txtFldName.setDataModel(txtMdlName);
 		
 		txtMdlLastName.setRow(dtRw);
-		txtMdlLastName.setText(vObjContact.ContactLastName.getStringValue(dtRw));
+		txtMdlLastName.setText(dpObjContact.ContactLastName.getStringValue(dtRw));
 		txtFldLastName.setDataModel(txtMdlLastName);
 		
 		txtMdlRelAccount.setRow(dtRw);
-		//txtMdlRelAccount.setText(vObjContact.RelAccountName.getStringValue(dtRw));
+		//txtMdlRelAccount.setText(dpObjContact.RelAccountName.getStringValue(dtRw));
 		txtFldRelAccount.setDataModel(txtMdlRelAccount);
 		
 		txtMdlTitle.setRow(dtRw);
-		txtMdlTitle.setText(vObjContact.ContactTitle.getStringValue(dtRw));
+		txtMdlTitle.setText(dpObjContact.ContactTitle.getStringValue(dtRw));
 		txtFldTitle.setDataModel(txtMdlTitle);
 		
 		txtMdlFunction.setRow(dtRw);
-		txtMdlFunction.setText(vObjContact.ContactFunction.getStringValue(dtRw));
+		txtMdlFunction.setText(dpObjContact.ContactFunction.getStringValue(dtRw));
 		txtFldFunction.setDataModel(txtMdlFunction);
 		
 		txtMdlStatus.setRow(dtRw);
-		txtMdlStatus.setText(vObjContact.ContactStatus.getStringValue(dtRw));
+		txtMdlStatus.setText(dpObjContact.ContactStatus.getStringValue(dtRw));
 		txtFldStatus.setDataModel(txtMdlStatus);
 		
 		txtMdlAddress.setRow(dtRw);
-		txtMdlAddress.setText(vObjContact.ContactStreetAddress.getStringValue(dtRw) + " - " + vObjContact.ContactCap.getStringValue(dtRw) + " - " + vObjContact.ContactStreetCity.getStringValue(dtRw) + " (" + vObjContact.ContactProvince.getStringValue(dtRw) + ") " + vObjContact.ContactCountry.getStringValue(dtRw));
+		txtMdlAddress.setText(dpObjContact.ContactStreetAddress.getStringValue(dtRw) + " - " + dpObjContact.ContactCap.getStringValue(dtRw) + " - " + dpObjContact.ContactStreetCity.getStringValue(dtRw) + " (" + dpObjContact.ContactProvince.getStringValue(dtRw) + ") " + dpObjContact.ContactCountry.getStringValue(dtRw));
 		txtFldAddress.setDataModel(txtMdlAddress);
 		
 		txtMdlStreetAddress.setRow(dtRw);
-		txtMdlStreetAddress.setText(vObjContact.ContactStreetAddress.getStringValue(dtRw));
+		txtMdlStreetAddress.setText(dpObjContact.ContactStreetAddress.getStringValue(dtRw));
 		txtFldStreetAddress.setDataModel(txtMdlStreetAddress);
 		
 		txtMdlCity.setRow(dtRw);
-		txtMdlCity.setText(vObjContact.ContactStreetCity.getStringValue(dtRw));
+		txtMdlCity.setText(dpObjContact.ContactStreetCity.getStringValue(dtRw));
 		txtFldCity.setDataModel(txtMdlCity);
 		
 		txtMdlCap.setRow(dtRw);
-		txtMdlCap.setText(vObjContact.ContactCap.getStringValue(dtRw));
+		txtMdlCap.setText(dpObjContact.ContactCap.getStringValue(dtRw));
 		txtFldCap.setDataModel(txtMdlCap);
 		
 		txtMdlProvince.setRow(dtRw);
-		txtMdlProvince.setText(vObjContact.ContactProvince.getStringValue(dtRw));
+		txtMdlProvince.setText(dpObjContact.ContactProvince.getStringValue(dtRw));
 		txtFldProvince.setDataModel(txtMdlProvince);
 		
 		txtMdlCountry.setRow(dtRw);
-		txtMdlCountry.setText(vObjContact.ContactCountry.getStringValue(dtRw));
+		txtMdlCountry.setText(dpObjContact.ContactCountry.getStringValue(dtRw));
 		txtFldCountry.setDataModel(txtMdlCountry);
 		
 		txtMdlPhone.setRow(dtRw);
-		txtMdlPhone.setText(vObjContact.ContactPhone.getStringValue(dtRw));
+		txtMdlPhone.setText(dpObjContact.ContactPhone.getStringValue(dtRw));
 		txtFldPhone.setDataModel(txtMdlPhone);
 		
 		txtMdlOfficePhone.setRow(dtRw);
-		txtMdlOfficePhone.setText(vObjContact.ContactOfficePhone.getStringValue(dtRw));
+		txtMdlOfficePhone.setText(dpObjContact.ContactOfficePhone.getStringValue(dtRw));
 		txtFldOfficePhone.setDataModel(txtMdlOfficePhone);
 
 		txtMdlEmail.setRow(dtRw);
-		txtMdlEmail.setText(vObjContact.ContactEmail.getStringValue(dtRw));
+		txtMdlEmail.setText(dpObjContact.ContactEmail.getStringValue(dtRw));
 		txtFldEmail.setDataModel(txtMdlEmail);
 		
 		txtMdlAge.setRow(dtRw);
-		txtMdlAge.setText(vObjContact.ContactAge.getStringValue(dtRw));
+		txtMdlAge.setText(dpObjContact.ContactAge.getStringValue(dtRw));
 		txtFldAge.setDataModel(txtMdlAge);
 		
 		txtMdlGender.setRow(dtRw);
-		txtMdlGender.setText(vObjContact.ContactGender.getStringValue(dtRw));
+		txtMdlGender.setText(dpObjContact.ContactGender.getStringValue(dtRw));
 		txtFldGender.setDataModel(txtMdlGender);
 		
 		txtMdlNote.setRow(dtRw);
-		txtMdlNote.setText(vObjContact.ContactNote.getStringValue(dtRw));
+		txtMdlNote.setText(dpObjContact.ContactNote.getStringValue(dtRw));
 		txtFldNote.setDataModel(txtMdlNote);
 		
 		//txtMdlAlways.setRow(dtRw);
-		//txtMdlAlways.setText(vObjContact.ContactAlways.getStringValue(dtRw));
+		//txtMdlAlways.setText(dpObjContact.ContactAlways.getStringValue(dtRw));
 		//txtFldAlways.setDataModel(txtMdlAlways);
 
 		refresh();		
@@ -735,12 +693,12 @@ ScrollableTablePanel {
 	void setFirstRecord() {
 		
 		if(sAccountCode != "") {
-			if((vObjContact.getContactsFromAccount(sAccountCode).getRowSet() != null) && (vObjContact.getContactsFromAccount(sAccountCode).getRowSet().getSize() > 0)) {
-				setRow(vObjContact.getContactsFromAccount(sAccountCode).getRowSet().first());
+			if((dpObjContact.getContactsFromAccount(sAccountCode).getRowSet() != null) && (dpObjContact.getContactsFromAccount(sAccountCode).getRowSet().getSize() > 0)) {
+				setRow(dpObjContact.getContactsFromAccount(sAccountCode).getRowSet().first());
 			}		
 		} else {
-			//if(vObjContact.getContacts().getRowSet() != null && vObjContact.getContacts().getRowSet().getSize() > 0) {
-				//setRow(vObjContact.getContacts().getRowSet().first());
+			//if(dpObjContact.getContacts().getRowSet() != null && dpObjContact.getContacts().getRowSet().getSize() > 0) {
+				//setRow(dpObjContact.getContacts().getRowSet().first());
 			if(iNumContacts>0) {
 				setRow(dpRowSetContact.first());
 			}		

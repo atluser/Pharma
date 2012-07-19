@@ -18,19 +18,20 @@ TablePanel {
 		// Master Panel		
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
 		pnlMaster.setContentPanel(stk);
-		
+		DataRow firstRow = null;
 		// Detail Panel
 		//Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 		pnlDetail.setContentPanel(pnlDetailForm);
-		logApp.log(Log.INFO,"dtullo onCreate Accnt RootTablePanel: " + iNumAccounts);
 		if(iNumAccounts<1)
 			pnlDetail.txtFldName.setText("Non sono presenti accounts. Crearne di nuovi!");
-		
+		else
+		{
+			firstRow = vObjAccount.getAccounts().getRowSet().first();
+			pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(firstRow));	
+		}
 		pnlDetailForm.setDetailPanel(pnlDetail);
 		pnlDetailForm.setFirstRecord();
 		
-		DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
-		pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(firstRow));
 		stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);
 		/*if(stk.rsm.hasMoreRows(0)){

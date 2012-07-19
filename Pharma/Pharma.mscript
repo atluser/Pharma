@@ -21,7 +21,7 @@ UIProject {
 	boolean sOpenDP = false;	//True = dataproject già aperto. False = Dataproject non aperto
 
 	PharmaDP.DataStore.Account vObjAccount = null; //istanzio l'Account del dp
-	PharmaDP.DataStore.Contact vObjContact = null; //istanzio i Contact del dp
+	PharmaDP.DataStore.Contact dpObjContact = null; //istanzio i Contact del dp
 		
 	DataRowSet dpRowSetAccnt = null; //DataRowSet contenente gli account
 	DataRow dpRowAccnt = null; //DataRow Account
@@ -44,7 +44,7 @@ UIProject {
 	
 	
 	
-	//Contact vObjContact = new Contact();
+	//Contact dpObjContact = new Contact();
 	ListOfValues vObjLOV = new ListOfValues();
 	Order vObjOrder=new Order();
 	OrderItem vObjOrderItem=new OrderItem();
@@ -137,9 +137,7 @@ UIProject {
 			//sOpenDP=open(dp,Password.create(""),true);
 			sOpenDP = open(dp, null, true); //Apro il dataproject
 			vObjAccount = dp.Account; //istanzio l'Account del dp
-			vObjContact = dp.Contact; //istanzio i Contact del dp
-		
-			//dpRowSetAccnt = vObjAccount.getRowSet(); //Recupero gli account presenti
+			dpObjContact = dp.Contact; //istanzio i Contact del dp
 		}	
 		
 		if(sOpenDP==true)
@@ -192,7 +190,7 @@ UIProject {
 		//scrStart = getNewStartScreen();
 		scrStart.push(Animation.NONE, false);
 		//scrStart.push(Animation.NONE, false);
-		scrStart.push(Animation.NONE, false);		
+		//scrStart.push(Animation.NONE, false);		
 		//DataRow row=vObjUtil.getNewOrder("00100988");
 		//Screens.OrderEntry.OrderHeaderScreen scrStart= new Screens.OrderEntry.OrderHeaderScreen();
 		//scrStart.setData(row);
@@ -200,8 +198,8 @@ UIProject {
 	}
 
 	callback onStop(){
-		if(sOpenDP==true)
-			dp.saveData();
+		//if(sOpenDP==true)
+		//	dp.saveData();
 	}
 
 	callback onUserChanged(){

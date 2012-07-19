@@ -299,11 +299,11 @@ UIObject {
 	}
 	
 	DataRow getNewContactRow(){
-		int id=vObjContact.createQuery().getRowSet().getSize()+1;
-		DataRow row = vObjContact.getNewRow();
-		vObjContact.ContactId.setStringValue(""+id, row);
-		//vObjContact.ContactStreetCity.setStringValue("Città",row);	
-		vObjContact.ContactStatus.setStringValue("Nuovo",row);	
+		int id=dpObjContact.createQuery().getRowSet().getSize()+1;
+		DataRow row = dpObjContact.getNewRow();
+		dpObjContact.ContactId.setStringValue(""+id, row);
+		//dpObjContact.ContactStreetCity.setStringValue("Città",row);	
+		dpObjContact.ContactStatus.setStringValue("Nuovo",row);	
         //row.applyUpdates();
         return row  ;
 
@@ -667,16 +667,13 @@ UIObject {
 			iNumAccounts = 0;
 		else
 		{
-			logApp.log(Log.INFO,"dtullo voUtility LoadAccount got First: " + iNumAccounts);
 			iNumAccounts = 0;
 			DataRow row = dpRowSetAccnt.first();
 			while(row != null){
 				iNumAccounts = iNumAccounts + 1;
 				row = dpRowSetAccnt.next();
 			}
-			logApp.log(Log.INFO,"dtullo voUtility LoadAccount got First 2: " + iNumAccounts);
 		}
-		logApp.log(Log.INFO,"dtullo voUtility LoadAccount: " + iNumAccounts);
 	}
 	
 	String getAccountName(String accountId){
@@ -707,12 +704,12 @@ UIObject {
 	
 	DataRow getNewContact(String accountCode){
 		
-		int id=vObjContact.createQuery().getRowSet().getSize()+1;
-		DataRow row = vObjContact.getNewRow();
-		vObjContact.ContactId.setStringValue(""+id, row);
-		//vObjContact.ContactStreetCity.setStringValue("Città",row);	
-		vObjContact.ContactStatus.setStringValue("Nuovo",row);	
-		vObjContact.RelAccountCode.setStringValue(accountCode,row);
+		int id=dpObjContact.createQuery().getRowSet().getSize()+1;
+		DataRow row = dpObjContact.getNewRow();
+		dpObjContact.ContactId.setStringValue(""+id, row);
+		//dpObjContact.ContactStreetCity.setStringValue("Città",row);	
+		dpObjContact.ContactStatus.setStringValue("Nuovo",row);	
+		dpObjContact.RelAccountCode.setStringValue(accountCode,row);
         //row.applyUpdates();
         return row  ;
 			
@@ -834,11 +831,11 @@ UIObject {
 	
 
 String getContactName(String contactId){
-		Query q=vObjContact.getContactRow(contactId);
+		Query q=dpObjContact.getContactRow(contactId);
 		DataRow row=q.getRowSet().first();
 		String contactName="";
 		if(row!=null)
-			contactName=vObjContact.ContactName.getStringValue(row);
+			contactName=dpObjContact.ContactName.getStringValue(row);
 		
 		return contactName;		
 	}
