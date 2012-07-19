@@ -188,6 +188,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgActivitiesList">
         <properties/>
         <properties/>
@@ -756,6 +762,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgActivitiesList">
         <properties/>
         <properties/>
@@ -1313,6 +1325,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.ICN_CONTACT">
         <properties/>
         <properties/>
         <properties/>
@@ -2787,6 +2805,9 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgActivitiesList">
         <properties/>
       </imagePaths>
@@ -3068,6 +3089,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.ICN_CONTACT">
         <properties/>
       </imagePaths>
       <imagePaths name="ImgActivitiesList">
@@ -3954,6 +3978,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgActivitiesList">
         <properties/>
         <properties/>
@@ -4319,6 +4347,9 @@
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+      </imagePaths>
       <imagePaths name="ImgActivitiesList">
         <properties/>
       </imagePaths>
@@ -4600,6 +4631,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.ICN_CONTACT">
         <properties/>
       </imagePaths>
       <imagePaths name="ImgActivitiesList">
@@ -4885,6 +4919,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icon">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.ICN_CONTACT">
         <properties/>
       </imagePaths>
       <imagePaths name="ImgActivitiesList">

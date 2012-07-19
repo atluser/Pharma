@@ -130,17 +130,14 @@ Screen {
 			String message="Operazione effettuata con successo";
 			MessageBox msgBox=new MessageBox();
 			//stk.save(dataObject);		
-			fp.save();
+			//fp.save();
 			//Salvo i dati!
 			DataRow AccntRowContext = null;
 			if(fp.currentRow==null)
-			{
 				AccntRowContext = vObjAccount.getNewRow();
-			}
 			else
-			{
 				AccntRowContext = fp.currentRow;
-			}
+
 			//vObjAccount.AccountId.setStringValue(fp.txtName.getText(),AccntRowContext);
 			//vObjAccount.AccountCategory.setStringValue(fp.txtName.getText(),AccntRowContext);
 			//vObjAccount.AccountProvince.setStringValue(fp.txtName.getText(),AccntRowContext);
@@ -177,7 +174,7 @@ Screen {
 			}
 			originListStk.reload();*/
 			//detailStk.reload();
-			pnlDetailForm.setRow(fp.currentRow);
+			pnlDetailForm.setRow(AccntRowContext);
 			//pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(fp.currentRow));
 			close(Animation.PUSH_FROM_TOP);
 			msgBox.info(1, message);

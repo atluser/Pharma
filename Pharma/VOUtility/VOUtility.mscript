@@ -1,4 +1,82 @@
 UIObject {
+	
+	Integer getEntityCode(String sEntityType)
+	{
+		int sCode = 0;
+		if(sOpenDP==true)
+		{
+			PharmaDP.DataStore.CodiciEntita dpObjEntityCode = dp.CodiciEntita; //istanzio l''oggetto con i codici entità
+			DataRowSet dpRowSetCode = dp.CodiciEntita.getRowSet(); //DataRowSet contenente gli account
+			DataRow dtCode = null;
+			
+			if(dpRowSetCode.first()==null)
+			{
+				dtCode = dpObjEntityCode.getNewRow();
+				dpObjEntityCode.CodiceAccount.setIntegerValue(Platform.createInteger(1),dtCode);
+				dpObjEntityCode.CodiceContacts.setIntegerValue(Platform.createInteger(1),dtCode);
+				dpObjEntityCode.CodiceEvents.setIntegerValue(Platform.createInteger(1),dtCode);
+				dpObjEntityCode.CodiceListItem.setIntegerValue(Platform.createInteger(1),dtCode);
+				dpObjEntityCode.CodiceLOV.setIntegerValue(Platform.createInteger(1),dtCode);
+				dpObjEntityCode.CodiceOrder.setIntegerValue(Platform.createInteger(1),dtCode);
+				dpObjEntityCode.CodiceOrderItem.setIntegerValue(Platform.createInteger(1),dtCode);
+				dpObjEntityCode.CodicePriceList.setIntegerValue(Platform.createInteger(1),dtCode);
+				dpObjEntityCode.CodicePriceListItem.setIntegerValue(Platform.createInteger(1),dtCode);
+				dpObjEntityCode.CodiceProducts.setIntegerValue(Platform.createInteger(1),dtCode);
+				dpObjEntityCode.CodiceProductList.setIntegerValue(Platform.createInteger(1),dtCode);
+				sCode = 1;
+			}
+			else
+			{
+				dtCode = dpRowSetCode.first();
+				if(sEntityType=="Account")
+				{
+					sCode = dpObjEntityCode.CodiceAccount.getIntegerValue(dtCode).intValue();
+					sCode++;
+					dpObjEntityCode.CodiceAccount.setIntegerValue(Platform.createInteger(sCode),dtCode);
+				}
+				
+				if(sEntityType=="Contact")
+				{
+					sCode = dpObjEntityCode.CodiceContacts.getIntegerValue(dtCode).intValue();
+					sCode++;
+					dpObjEntityCode.CodiceContacts.setIntegerValue(Platform.createInteger(sCode),dtCode);
+				}
+			}
+			dtCode.applyUpdates();
+			dp.saveData();
+		}
+		return Platform.createInteger(sCode);
+	}
+	
+	
+	void loadAccount(){
+		dpRowSetAccnt = dp.Account.getRowSet(); //Apro il rowset
+		iNumAccounts = getDataRowSetSize(dpRowSetAccnt);
+	}
+	
+	
+	void loadContact() {
+		dpRowSetContact = dp.Contact.getRowSet(); //Apro il rowset
+		iNumContacts = getDataRowSetSize(dpRowSetContact);
+	}
+	
+	//mi rendo conto che è una porcata, ma non si riesce a fare andare il count... in futuro, ci riproveremo!
+	int getDataRowSetSize(DataRowSet drs){
+		int iNumRecord = 0;
+		if(drs.first() == null)
+			iNumRecord = 0;
+		else{
+			iNumContacts = 0;
+			DataRow row = drs.first();
+			while(row != null){
+				if(row.isDeleted() == false)
+					iNumRecord = iNumRecord + 1;
+				row = drs.next();
+			}
+		}
+		return iNumRecord;
+	}
+	
 	void loadProducts(){
 		DataRow row=null;
 		row=vObjProducts.getNewRow();		
@@ -287,26 +365,22 @@ UIObject {
 	
 	
 	DataRow getNewAccountRow(){
-		int id=vObjAccount.createQuery().getRowSet().getSize()+1;
+		String id=getEntityCode("Account").toString();
 		DataRow row = vObjAccount.getNewRow();		
-        vObjAccount.AccountId.setStringValue(""+id, row);
-        vObjAccount.AccountCode.setStringValue(""+id, row);
-        //vObjAccount.AccountName.setStringValue("AccountName", row);
+        vObjAccount.AccountId.setStringValue(id, row);
+        vObjAccount.AccountCode.setStringValue(id, row);
         vObjAccount.AccountType.setStringValue("Prospect", row);        
         vObjAccount.AccountStatus.setStringValue("Nuovo", row);
-        return row  ;
+        return row;
 
 	}
 	
 	DataRow getNewContactRow(){
-		int id=dpObjContact.createQuery().getRowSet().getSize()+1;
+		String id=getEntityCode("Contact").toString();
 		DataRow row = dpObjContact.getNewRow();
-		dpObjContact.ContactId.setStringValue(""+id, row);
-		//dpObjContact.ContactStreetCity.setStringValue("Città",row);	
+		dpObjContact.ContactId.setStringValue(id, row);
 		dpObjContact.ContactStatus.setStringValue("Nuovo",row);	
-        //row.applyUpdates();
         return row  ;
-
 	}
 	
 	void loadLOV(){
@@ -624,57 +698,7 @@ UIObject {
         row.applyUpdates();                                                                
 	}
 	
-	void loadAccount(){
-		/*int iSize;
-		iSize = dpRowSetAccnt.getSize();
-		if(iSize>0)
-		{
-			dpRowSetAccnt.first();
-			while(dpRowSetAccnt != null){
-				dpRowAccnt = vObjAccount.getNewRow();
-				vObjAccount.AccountId.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountId"),dpRowAccnt);
-				vObjAccount.AccountCode.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountCode"),dpRowAccnt);
-				vObjAccount.AccountName.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountName"),dpRowAccnt);
-				vObjAccount.AccountType.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountType"),dpRowAccnt);
-				vObjAccount.AccountCategory.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountCategory"),dpRowAccnt);
-				vObjAccount.AccountStreetAddress.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountStreetAddress"),dpRowAccnt);
-				vObjAccount.AccountCity.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountCity"),dpRowAccnt);
-				vObjAccount.AccountProvince.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountProvince"),dpRowAccnt);
-				vObjAccount.AccountPostalCode.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountPostalCode"),dpRowAccnt);
-				vObjAccount.AccountCountry.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountCountry"),dpRowAccnt);
-				vObjAccount.AccountStatus.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountStatus"),dpRowAccnt);
-				vObjAccount.AccountPhone.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountPhone"),dpRowAccnt);
-				vObjAccount.AccountPrefix.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountPrefix"),dpRowAccnt);
-				vObjAccount.AccountFax.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountFax"),dpRowAccnt);
-				vObjAccount.AccountEmail.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountEmail"),dpRowAccnt);
-				vObjAccount.AccountWebSite.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountWebSite"),dpRowAccnt);
-				vObjAccount.AccountRating.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountRating"),dpRowAccnt);
-				vObjAccount.AccountRevenue.setStringValue(dpRowSetAccnt.getCurrentRow().getString("AccountRevenue"),dpRowAccnt);
-				vObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(dpRowSetAccnt.getCurrentRow().getString("AccountNumberOfEmployee")),dpRowAccnt);
-				dpRowAccnt.applyUpdates();
-				dpRowSetAccnt.next();
-			}
-		}
-		else
-		{
-			dpRowAccnt = vObjAccount.getNewRow();
-			dpRowAccnt.applyUpdates();
-		}*/
-		
-		dpRowSetAccnt = dp.Account.getRowSet(); //Apro il rowset
-		//mi rendo conto che è una porcata, ma non si riesce a fare andare il count... in futuro, ci riproveremo!
-		if(dpRowSetAccnt.first() == null)
-			iNumAccounts = 0;
-		else
-		{
-			iNumAccounts = 0;
-			DataRow row = dpRowSetAccnt.first();
-			while(row != null){
-				iNumAccounts = iNumAccounts + 1;
-				row = dpRowSetAccnt.next();
-			}
-		}
-	}
+	
 	
 	String getAccountName(String accountId){
 		Query q=vObjAccount.getAccountRow(accountId);
@@ -810,23 +834,6 @@ UIObject {
         vObjOrder.OrderTotalDiscount.setDoubleValue(Platform.createDouble(20.00), row); 
         row.applyUpdates();		
 		
-	}
-	
-	void loadContact() {
-		dpRowSetContact = dp.Contact.getRowSet(); //Apro il rowset
-		
-		//mi rendo conto che è una porcata, ma non si riesce a fare andare il count... in futuro, ci riproveremo!
-		if(dpRowSetContact.first() == null)
-			iNumContacts = 0;
-		else
-		{
-			iNumContacts = 0;
-			DataRow row = dpRowSetContact.first();
-			while(row != null){
-				iNumContacts = iNumContacts + 1;
-				row = dpRowSetContact.next();
-			}
-		}
 	}
 	
 

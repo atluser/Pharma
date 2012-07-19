@@ -7,6 +7,7 @@ Screen {
 	Button btnMenu = new Button();
 	
 	Panels.Contact.EditFormScrollableTablePanel fp = new Panels.Contact.EditFormScrollableTablePanel();
+	HorizontalPanel pnlHeader = new HorizontalPanel();
 	//StickyTable originListStk;
 	Panels.Contact.StickyTablePanel stkTP;
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
@@ -44,7 +45,6 @@ Screen {
 		setUpButtons();
 		
 		// Header Panel
-		HorizontalPanel pnlHeader = new HorizontalPanel();
 		pnlHeader.add(btnHome);
 		pnlHeader.add(new Separator(), "");
 		pnlHeader.add(btnDone);
@@ -57,7 +57,7 @@ Screen {
 		pnlHeader.setColumnWidth(2, Sizing.PREFERRED,0);
 		pnlHeader.setColumnWidth(3, Sizing.PREFERRED,0);
 		pnlHeader.setColumnWidth(4, Sizing.PREFERRED,0);			
-		
+		/*
 		add(pnlHeader,"hfill=fill");
 //		ScrollableTablePanel pnl = new ScrollableTablePanel();
 //header		
@@ -73,7 +73,8 @@ Screen {
 		
 //		add(pnl,"halign=center,vfill=fill");
 		setRowHeight(0, Sizing.PREFERRED, 0);	
-		setRowHeight(1, Sizing.PREFERRED, 1);
+		setRowHeight(1, Sizing.PREFERRED, 1);*/
+		setContPanel();
 	}
 
 	callback onDeactivate(Container container){
@@ -133,8 +134,7 @@ Screen {
 			String message="Operazione effettuata con successo";
 			MessageBox msgBox=new MessageBox();
 			//stk.save(dataObject);		
-			/*
-			//fp.save();
+			
 			//Salvo i dati!
 			DataRow ContactRowContext = null;
 			if(fp.currentRow==null)
@@ -162,8 +162,8 @@ Screen {
 			dpObjContact.ContactAge.setStringValue(fp.txtAge.getText(),ContactRowContext);
 			dpObjContact.ContactNote.setStringValue(fp.txtNote.getText(),ContactRowContext);
 			ContactRowContext.applyUpdates();
-			dp.saveData();*/
-			fp.save();//Salvo i dati!
+			dp.saveData();
+			//fp.save();//Salvo i dati!
 
 			//ricarico sticky
 			//svuoto rsm
@@ -181,12 +181,10 @@ Screen {
 			originListStk.reload();*/
 			//detailStk.reload();
 			//pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(fp.currentRow) + " " + dpObjContact.ContactLastName.getStringValue(fp.currentRow));
-			//if(sOpenDP==true)
-			//	vObjUtil.loadContact();
-			//pnlDetailForm.setRow(ContactRowContext);
-			//pnlDetailForm.refresh();
-			//fp.destroy();
-			//pnlDetailForm.setQuery();
+			pnlDetailForm.setRow(ContactRowContext);
+			if(sOpenDP==true)
+				vObjUtil.loadContact();
+			
 			close(Animation.PUSH_FROM_TOP);
 			msgBox.info(1, message);
 		}
@@ -211,7 +209,7 @@ Screen {
 	 boolean checkRequired(){
 	 	boolean result=false;
 	 	//check required field
-		String message="Valirizzare campo ";
+		String message="Valorizzare campo ";
 		MessageBox msgBox=new MessageBox();		
 		if(fp.txtName.getText()==""){
 			message+="Nome";
@@ -274,5 +272,15 @@ Screen {
 	
 	void setAccountCode (String str) {
 		sAccountCode = str;
+	}
+	
+	void setContPanel(){
+		add(pnlHeader,"hfill=fill");
+		add(fp,"halign=center,valign=center,vfill=fill");
+		
+		setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgWhiteBackground, 0, 0, 0, 0));						
+
+		setRowHeight(0, Sizing.PREFERRED, 0);	
+		setRowHeight(1, Sizing.PREFERRED, 1);
 	}
 }

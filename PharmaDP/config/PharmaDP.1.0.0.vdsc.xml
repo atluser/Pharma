@@ -2,7 +2,7 @@
 <VDSC_PROVIDER>
   <VDSC>
     <UID>5544899311306412543</UID>
-    <VERSION>7197794933671120255</VERSION>
+    <VERSION>-393550881855243140</VERSION>
     <DOCUMENT>
       <NAME>PharmaDP.1.0.0</NAME>
     </DOCUMENT>
@@ -177,6 +177,112 @@
             <NAME>Account.AccountWebSite</NAME>
             <TYPE>
               <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+        </ATTRIBUTES>
+        <LINKS/>
+      </OBJECT>
+      <OBJECT>
+        <NAME>CodiciEntita</NAME>
+        <DISPLAY_NAME>CodiciEntita</DISPLAY_NAME>
+        <ATTRIBUTES>
+          <ATTRIBUTE>
+            <NAME>CodiciEntita.CodiceAccount</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CodiciEntita.CodiceContacts</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CodiciEntita.CodiceEvents</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CodiciEntita.CodiceLOV</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CodiciEntita.CodiceListItem</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CodiciEntita.CodiceOrder</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CodiciEntita.CodiceOrderItem</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CodiciEntita.CodicePriceList</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CodiciEntita.CodicePriceListItem</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CodiciEntita.CodiceProductList</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CodiciEntita.CodiceProducts</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
             </TYPE>
             <VSCRIPT/>
             <NULLABLE/>
@@ -1506,7 +1612,22 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
+        <NAME>CodiciEntita4</NAME>
+        <OBJECT>CodiciEntita</OBJECT>
+        <ATTRIBUTES>
+          <ASCENDING_ATTRIBUTE>CodiciEntita.CodiceAccount</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
         <NAME>Contact10</NAME>
+        <OBJECT>Contact</OBJECT>
+        <CONTAINS_ATTRIBUTE>Contact.ContactLastName</CONTAINS_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>Contact11</NAME>
         <OBJECT>Contact</OBJECT>
         <CONTAINS_ATTRIBUTE>Contact.ContactLastName</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1515,32 +1636,24 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Contact4</NAME>
+        <NAME>Contact5</NAME>
         <OBJECT>Contact</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>Contact.ContactId</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Contact5</NAME>
-        <OBJECT>Contact</OBJECT>
-        <ATTRIBUTES>
-          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
-        </ATTRIBUTES>
-      </INDEX>
-      <INDEX>
         <NAME>Contact6</NAME>
         <OBJECT>Contact</OBJECT>
         <ATTRIBUTES>
-          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
         <NAME>Contact7</NAME>
         <OBJECT>Contact</OBJECT>
-        <STARTS_WITH_ATTRIBUTE>Contact.ContactLastName</STARTS_WITH_ATTRIBUTE>
         <ATTRIBUTES>
+          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
@@ -1549,20 +1662,20 @@
         <OBJECT>Contact</OBJECT>
         <STARTS_WITH_ATTRIBUTE>Contact.ContactLastName</STARTS_WITH_ATTRIBUTE>
         <ATTRIBUTES>
-          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
         <NAME>Contact9</NAME>
         <OBJECT>Contact</OBJECT>
-        <CONTAINS_ATTRIBUTE>Contact.ContactLastName</CONTAINS_ATTRIBUTE>
+        <STARTS_WITH_ATTRIBUTE>Contact.ContactLastName</STARTS_WITH_ATTRIBUTE>
         <ATTRIBUTES>
+          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListItem11</NAME>
+        <NAME>ListItem12</NAME>
         <OBJECT>ListItem</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>ListItem.OrderCode</ATTRIBUTE>
@@ -1570,7 +1683,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListItem12</NAME>
+        <NAME>ListItem13</NAME>
         <OBJECT>ListItem</OBJECT>
         <CONTAINS_ATTRIBUTE>ListItem.ProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1580,7 +1693,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListOfValues13</NAME>
+        <NAME>ListOfValues14</NAME>
         <OBJECT>ListOfValues</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>ListOfValues.Type</ATTRIBUTE>
@@ -1588,7 +1701,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListOfValues14</NAME>
+        <NAME>ListOfValues15</NAME>
         <OBJECT>ListOfValues</OBJECT>
         <CONTAINS_ATTRIBUTE>ListOfValues.Value</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1597,25 +1710,16 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Order15</NAME>
-        <OBJECT>Order</OBJECT>
-        <ATTRIBUTES>
-          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
-        </ATTRIBUTES>
-      </INDEX>
-      <INDEX>
         <NAME>Order16</NAME>
         <OBJECT>Order</OBJECT>
         <ATTRIBUTES>
-          <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
+          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
         <NAME>Order17</NAME>
         <OBJECT>Order</OBJECT>
-        <CONTAINS_ATTRIBUTE>Order.OrderCode</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
-          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
@@ -1624,18 +1728,27 @@
         <OBJECT>Order</OBJECT>
         <CONTAINS_ATTRIBUTE>Order.OrderCode</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
+          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>OrderItem19</NAME>
+        <NAME>Order19</NAME>
+        <OBJECT>Order</OBJECT>
+        <CONTAINS_ATTRIBUTE>Order.OrderCode</CONTAINS_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>OrderItem20</NAME>
         <OBJECT>OrderItem</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>OrderItem.OrderCode</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>OrderItem20</NAME>
+        <NAME>OrderItem21</NAME>
         <OBJECT>OrderItem</OBJECT>
         <CONTAINS_ATTRIBUTE>OrderItem.OrderItemProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1644,7 +1757,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>OrderItem21</NAME>
+        <NAME>OrderItem22</NAME>
         <OBJECT>OrderItem</OBJECT>
         <CONTAINS_ATTRIBUTE>OrderItem.OrderItemProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1654,7 +1767,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceList22</NAME>
+        <NAME>PriceList23</NAME>
         <OBJECT>PriceList</OBJECT>
         <CONTAINS_ATTRIBUTE>PriceList.PriceListName</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1662,21 +1775,21 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem23</NAME>
+        <NAME>PriceListItem24</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>PriceListItem.PriceListCode</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem24</NAME>
+        <NAME>PriceListItem25</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <ATTRIBUTES>
           <ASCENDING_ATTRIBUTE>PriceListItem.ProductCode</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem25</NAME>
+        <NAME>PriceListItem26</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <CONTAINS_ATTRIBUTE>PriceListItem.ProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1685,7 +1798,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Products26</NAME>
+        <NAME>Products27</NAME>
         <OBJECT>Products</OBJECT>
         <ATTRIBUTES>
           <ASCENDING_ATTRIBUTE>Products.ProductCode</ASCENDING_ATTRIBUTE>

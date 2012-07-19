@@ -1,0 +1,21 @@
+DataStoreObject {
+	//Contiene un solo record in cui sarà indicato l'ultimo codice utilizzato per ogni entità	
+	IntegerField CodiceAccount 			{return Platform.createInteger(1);}
+	IntegerField CodiceContacts 		{return Platform.createInteger(1);}
+	IntegerField CodiceEvents 			{return Platform.createInteger(1);}
+	IntegerField CodiceListItem 		{return Platform.createInteger(1);}
+	IntegerField CodiceLOV 				{return Platform.createInteger(1);}
+	IntegerField CodiceOrder 			{return Platform.createInteger(1);}
+	IntegerField CodiceOrderItem 		{return Platform.createInteger(1);}
+	IntegerField CodicePriceList 		{return Platform.createInteger(1);}
+	IntegerField CodicePriceListItem 	{return Platform.createInteger(1);}
+	IntegerField CodiceProducts 		{return Platform.createInteger(1);}
+	IntegerField CodiceProductList 		{return Platform.createInteger(1);}
+	
+	Query getAllCodes() {
+		return AllCodes();
+	}
+	query AllCodes<> {
+		ascendingBy CodiceAccount;
+	}
+}

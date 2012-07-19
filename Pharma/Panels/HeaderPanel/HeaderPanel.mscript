@@ -58,7 +58,7 @@ HorizontalPanel {
 		setUpButtons();	
 		//setUpMenuPopover();
 		setUpCrmMenuPopover(c);
-		setUpPopup();
+		//setUpPopup();
 
 		rg.addButton(tbb01);
 		rg.addButton(tbb03);
@@ -216,7 +216,7 @@ HorizontalPanel {
 		logApp.log(Log.INFO, "HeaderPanel - btnDelete onClick()");
 		poCrmMenu.dismiss();				
 		msg.ask ( 1 ,false , "ATTENZIONE!" , "Sei sicuro di cancellare il record?" , "OK" , "Cancel" );
-
+		
 	}	
 
 
@@ -446,8 +446,8 @@ HorizontalPanel {
 
 
 		Panels.EditStickyTablePanel pnl = new Panels.EditStickyTablePanel();
-		DataRow dtRw =  vObjUtil.getNewAccountRow();
-		pnl.init("Account", dtRw);
+		DataRow dtRw =  vObjUtil.getNewAccountRow();  //MA PERCHé ALL'AVVIO DELL'APPLICAZIONE CREO UN ACCOUNT?!?!?!?!
+		//pnl.init("Account", dtRw);
 
 		//puNew.init(pnl, vObjAccount);
 

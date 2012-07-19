@@ -17,6 +17,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="Account">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Account.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="CodiciEntita">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="CodiciEntita.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DatabaseObjectNode" name="Contact">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Contact.mscript"/>
     </children>
@@ -59,6 +62,7 @@
       <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="OrderItem" displayName="OrderItem"/>
       <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="PriceList" displayName="PriceList"/>
       <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="ProductList" displayName="ProductList"/>
+      <objects xsi:type="com.vaultus.studio.ecore.data:DatabaseObject" name="CodiciEntita" displayName="CodiciEntita"/>
     </dataSource>
   </children>
 </com.vaultus.studio.ecore.studio:DataProject>

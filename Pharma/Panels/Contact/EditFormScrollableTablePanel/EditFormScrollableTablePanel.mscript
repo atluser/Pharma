@@ -530,7 +530,7 @@ ScrollableTablePanel {
 
 			currentRow.applyUpdates();
 			*/
-		DataRow ContactRowContext = null;
+		/*DataRow ContactRowContext = null;
 		if(currentRow==null)
 			ContactRowContext = dpObjContact.getNewRow();
 		else
@@ -560,8 +560,8 @@ ScrollableTablePanel {
 		if(sOpenDP==true)
 		{
 			dp.saveData();
-			//vObjUtil.loadContact();
-		}
+			vObjUtil.loadContact();
+		}*/
 	}
 	
 	/*callback pkrCountry onValueChange(Control c){

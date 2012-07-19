@@ -108,7 +108,10 @@ TablePanel {
 		
 	}	
 	
-	/*)
+	/*callback onClose(Container c)
+	{
+		shutdown();
+	}/*)
 	Screens.HomeScreen getNewHomeScreen() {
 		
 		logApp.log(Log.INFO, "StartPanel - getNewHomeScreen()");

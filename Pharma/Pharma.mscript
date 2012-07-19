@@ -19,7 +19,7 @@ UIProject {
 	*********************************************/
 	PharmaDP.DataStore dp = new PharmaDP.DataStore(); //istanzio il dataproject
 	boolean sOpenDP = false;	//True = dataproject già aperto. False = Dataproject non aperto
-
+	
 	PharmaDP.DataStore.Account vObjAccount = null; //istanzio l'Account del dp
 	PharmaDP.DataStore.Contact dpObjContact = null; //istanzio i Contact del dp
 		

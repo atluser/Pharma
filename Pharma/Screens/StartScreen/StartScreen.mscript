@@ -1,5 +1,12 @@
 Screen {
 	
+	//DTULLO TEMP!!!
+	Action actClear = new Action();
+	
+	callback actClear onRun(Action a) {
+		dp.clearData();
+	}
+	
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
 		//TODO: add code
 	}
@@ -21,6 +28,11 @@ Screen {
 	}
 
 	callback onCreate(Container container){
+		// Menu
+		Menu mn = new Menu();
+		actClear.setText("Cancella Dati");
+		mn.add(actClear);
+		setMenu(mn);
 		
 		Panels.StartPanel pnlStart = new Panels.StartPanel();
 		
