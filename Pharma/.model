@@ -5202,13 +5202,16 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Documents.mscript" hidden="true"/>
     <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="ANDROID" hidden="true">
       <documentPaths name="AspirinaC_FI" string="C:/Users/dspagnuolo.ATL01/Desktop/foglietto_illustrativo_AspirinaC.pdf" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/FOGLIETTO_ILLUSTRATIVO_ASPIRINAC.PDF"/>
+      <documentPaths name="xmlLov" string="C:/Users/dtullo/Desktop/xmlLov.txt" path="C:/USERS/DTULLO/DESKTOP/XMLLOV.TXT"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="BLACKBERRY" hidden="true"/>
     <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="NET" hidden="true"/>
     <children xsi:type="com.vaultus.studio.ecore.studio:DocumentSetNode" name="OBJC" hidden="true">
       <documentPaths name="AspirinaC_FI" string="C:/Users/dspagnuolo.ATL01/Desktop/foglietto_illustrativo_AspirinaC.pdf" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/FOGLIETTO_ILLUSTRATIVO_ASPIRINAC.PDF"/>
+      <documentPaths name="xmlLov" string="C:/Users/dtullo/Desktop/xmlLov.txt" path="C:/USERS/DTULLO/DESKTOP/XMLLOV.TXT"/>
     </children>
     <documents name="AspirinaC_FI"/>
+    <documents name="xmlLov"/>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:ColorsNode" name="Colors">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Colors.mscript" hidden="true"/>

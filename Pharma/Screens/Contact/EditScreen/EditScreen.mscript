@@ -188,6 +188,7 @@ Screen {
 			close(Animation.PUSH_FROM_TOP);
 			msgBox.info(1, message);
 		}
+		refresh();
 	}
 	
 	callback btnUndo onClick(Control c) {

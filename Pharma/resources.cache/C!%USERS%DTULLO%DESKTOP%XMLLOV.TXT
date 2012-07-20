@@ -1,0 +1,302 @@
+<xmlLov>
+	<Lov>
+		<Type>PROVINCE</Type>
+		<Name>MI</Name>
+		<Value>MI</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>PROVINCE</Type>
+		<Name>BG</Name>
+		<Value>BG</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>PROVINCE</Type>
+		<Name>TO</Name>
+		<Value>TO</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+39</Name>
+		<Value>Italia</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+33</Name>
+		<Value>Francia</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+49</Name>
+		<Value>Germania</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+34</Name>
+		<Value>Spagna</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+32</Name>
+		<Value>Belgio</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+31</Name>
+		<Value>Olanda</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+351</Name>
+		<Value>Portogallo</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+353</Name>
+		<Value>Irlanda</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+43</Name>
+		<Value>Austria</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+45</Name>
+		<Value>Danimarca</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+46</Name>
+		<Value>Svezia</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+47</Name>
+		<Value>Norvegia</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+48</Name>
+		<Value>Polonia</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+30</Name>
+		<Value>Grecia</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+41</Name>
+		<Value>Svizzera</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+44</Name>
+		<Value>Gran Bretagna</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>COUNTRY</Type>
+		<Name>+1</Name>
+		<Value>U.S.A</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>CATEGORY</Type>
+		<Name>Farmacia</Name>
+		<Value>Farmacia</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>CATEGORY</Type>
+		<Name>ASL</Name>
+		<Value>ASL</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>CATEGORY</Type>
+		<Name>Ospedale</Name>
+		<Value>Ospedale</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>RATING</Type>
+		<Name>Gold</Name>
+		<Value>Gold</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>RATING</Type>
+		<Name>Platinum</Name>
+		<Value>Platinum</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>RATING</Type>
+		<Name>Silver</Name>
+		<Value>Silver</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>REVENUE</Type>
+		<Name>0 - 100 K</Name>
+		<Value>0 - 100 K</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>REVENUE</Type>
+		<Name>100 - 500 K</Name>
+		<Value>100 - 500 K</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>REVENUE</Type>
+		<Name>500 - 1000 K</Name>
+		<Value>500 - 1000 K</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>PRODUCT_CATEGORY</Type>
+		<Name>COLD & PAIN</Name>
+		<Value>COLD & PAIN</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>PRODUCT_CATEGORY</Type>
+		<Name>PROPOLI/LENITOS</Name>
+		<Value>PROPOLI/LENITOS</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>PRODUCT_CATEGORY</Type>
+		<Name>VITAMINE</Name>
+		<Value>VITAMINE</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>PRODUCT_CATEGORY</Type>
+		<Name>NUTRITIONAL</Name>
+		<Value>NUTRITIONAL</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>TITLE</Type>
+		<Name>Ing</Name>
+		<Value>Ing</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>TITLE</Type>
+		<Name>Sig</Name>
+		<Value>Sig</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>TITLE</Type>
+		<Name>Sig.ra</Name>
+		<Value>SIG.ra</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>TITLE</Type>
+		<Name>Dott</Name>
+		<Value>Dott</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>FUNCTION</Type>
+		<Name>Medico</Name>
+		<Value>Medico</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>FUNCTION</Type>
+		<Name>Titolare</Name>
+		<Value>Titolare</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>FUNCTION</Type>
+		<Name>Responsabile</Name>
+		<Value>Responsabile</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>GENDER</Type>
+		<Name>Maschio</Name>
+		<Value>Maschio</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>GENDER</Type>
+		<Name>Femmina</Name>
+		<Value>Femmina</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+
+	<Lov>
+		<Type>GENDER</Type>
+		<Name>Non Definito</Name>
+		<Value>Non Definito</Value>
+		<LanguageCode>ITA</LanguageCode>
+	</Lov>
+</xmlLov>
