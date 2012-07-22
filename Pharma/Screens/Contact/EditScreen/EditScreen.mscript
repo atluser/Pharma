@@ -170,13 +170,13 @@ Screen {
 			//stkTP.setAccountCode(sAccountCode);
 			stkTP.setQuery();
 			//RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
-			//rsm.setRows(vObjAccount.getAccounts());
+			//rsm.setRows(dpObjAccount.getAccounts());
 			//reset query
 			/*
 			MultiRowSetModel mrsm=(MultiRowSetModel) originListStk.getDataModel();
 			for (int i=0;i<mrsm.getGroupCount();i++){
 				RowSetModel rsm=mrsm.getComponent(i);
-				//rsm.setRows(vObjAccount.getAccountStartsWith(originListStk.arr.getItem(i)));
+				//rsm.setRows(dpObjAccount.getAccountStartsWith(originListStk.arr.getItem(i)));
 			}
 			originListStk.reload();*/
 			//detailStk.reload();
@@ -249,13 +249,13 @@ Screen {
 	
 	}
 	
-	void init(DataRow row, TablePanel tp,TablePanel accfp, TablePanel condp){
+	void init(DataRow row, TablePanel tp,TablePanel accfp){//}, TablePanel condp){
 		//sticky table origine dati				
 		//detail form
 		
 		pnlDetailForm=(Panels.Contact.ReadOnlyDetailFormPanel)accfp;				
 		stkTP=(Panels.Contact.StickyTablePanel)tp;
-		pnlDetail=(Panels.DetailPanel)condp;
+		//pnlDetail=(Panels.DetailPanel)condp;
 		fp.setRow(row);
 		//refresh();		
 			

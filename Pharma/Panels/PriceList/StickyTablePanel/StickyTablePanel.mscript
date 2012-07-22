@@ -16,7 +16,7 @@ TablePanel {
 
 	callback onCreate(Container c){
 		
-		//rsm.setRows(vObjPriceList.createQuery());
+		//rsm.setRows(dpObjPriceList.createQuery());
 		setQuery();
 		
 		stk.setDataModel(rsm);
@@ -55,8 +55,8 @@ TablePanel {
 		
 		DataRow dtRw = info.getDataRow();
 		if(!dtRw.isDeleted()){		
-			String str01 = vObjPriceList.PriceListName.getStringValue(dtRw);
-			String str02 = vObjPriceList.PriceListDescription.getStringValue(dtRw) ;//+ " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " - (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")";					
+			String str01 = dpObjPriceList.PriceListName.getStringValue(dtRw);
+			String str02 = dpObjPriceList.PriceListDescription.getStringValue(dtRw) ;//+ " - " + dpObjAccount.AccountCity.getStringValue(dtRw) + " - (" + dpObjAccount.AccountProvince.getStringValue(dtRw) + ")";					
 	
 			tblVwCell.lbl01.setText(str01);
 			tblVwCell.lbl02.setText(str02);
@@ -75,7 +75,7 @@ TablePanel {
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		
-		//pnlDetail.txtFldName.setText(vObjPriceList.PriceListName.getStringValue(rsm.getRow()));
+		//pnlDetail.txtFldName.setText(dpObjPriceList.PriceListName.getStringValue(rsm.getRow()));
 		pnlDetailForm.setRow(rsm.getRow());
 		
 	}
@@ -122,7 +122,7 @@ TablePanel {
 	
 	callback src onValueChangingPaused(Control c){
 		//appLog.log(Log.INFO,"paused");		
-		rsm.setRows(vObjPriceList.getPriceList(src.getText()));
+		rsm.setRows(dpObjPriceList.getPriceList(src.getText()));
 		stk.reload();
 	}
 	
@@ -136,7 +136,7 @@ TablePanel {
 	}
 
 	void setQuery() {
-		rsm.setRows(vObjPriceList.createQuery());
+		rsm.setRows(dpObjPriceList.createQuery());
 	}
 
 }

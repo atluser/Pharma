@@ -186,7 +186,7 @@ Screen {
 		scr.setAccountCode(sAccountCode);
 		appLog.log(Log.INFO,"account code "+sAccountCode);
 		DataRow row=vObjUtil.getNewContact(sAccountCode);
-		scr.init(row,stk,pnlDetailForm,pnlDetail);
+		scr.init(row,stk,pnlDetailForm);//,pnlDetail);
 		scr.push(Animation.PUSH_FROM_BOTTOM,false); 
 	}
 
@@ -198,7 +198,7 @@ Screen {
 		//detailStk=pnlAccountRoot.getDetailStickyTable();
 		//pnlDetailForm=pnlContactRoot.pnlDetailForm;
 		Screens.Contact.EditScreen scr = new Screens.Contact.EditScreen();
-		scr.init(row,stk,pnlDetailForm,pnlDetail);		
+		scr.init(row,stk,pnlDetailForm);//,pnlDetail);		
 		scr.push(Animation.PUSH_FROM_BOTTOM, false);
 	}		
 	

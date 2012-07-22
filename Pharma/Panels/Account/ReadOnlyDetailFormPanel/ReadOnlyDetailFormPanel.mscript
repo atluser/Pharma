@@ -145,9 +145,9 @@ ScrollableTablePanel {
 		*/
 		
 		/*
-		 * DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
-		 * logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: number of rows: " + vObjAccount.getAccounts().getRowSet().getSize());
-		 * logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjAccount.AccountName.getStringValue(firstRow));
+		 * DataRow firstRow = dpObjAccount.getAccounts().getRowSet().first();
+		 * logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: number of rows: " + dpObjAccount.getAccounts().getRowSet().getSize());
+		 * logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: set first row, name: " + dpObjAccount.AccountName.getStringValue(firstRow));
 		 * setRow(firstRow);
 		*/
 		
@@ -211,9 +211,9 @@ ScrollableTablePanel {
 			setRowHeight(13, Sizing.PREFERRED, 0);
 			*/
 		/*	dtullo - Merge sbagliato??
-			DataRow firstRow = vObjAccount.getAccounts().getRowSet().first();
-			logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: number of rows: " + vObjAccount.getAccounts().getRowSet().getSize());
-			logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: set first row, name: " + vObjAccount.AccountName.getStringValue(firstRow));
+			DataRow firstRow = dpObjAccount.getAccounts().getRowSet().first();
+			logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: number of rows: " + dpObjAccount.getAccounts().getRowSet().getSize());
+			logApp.log(Log.INFO,"Account ReadOnlyDetailFormPanel - onCreate: set first row, name: " + dpObjAccount.AccountName.getStringValue(firstRow));
 			setRow(firstRow);
 			
 		}
@@ -561,14 +561,14 @@ ScrollableTablePanel {
 		currentRow = dtRw;	
 				
 		txtMdlCode.setRow(dtRw);
-		txtMdlCode.setText(vObjAccount.AccountCode.getStringValue(dtRw));
+		txtMdlCode.setText(dpObjAccount.AccountCode.getStringValue(dtRw));
 		txtFldCode.setDataModel(txtMdlCode);
 						
 		//logApp.log(Log.INFO, "ReadOnlyDetailFormPanel - setRow() - txtFldCode.getText: " + txtFldCode.getText());
-		//logApp.log(Log.INFO, "ReadOnlyDetailFormPanel - setRow() - getSize: " + vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet().getSize());
+		//logApp.log(Log.INFO, "ReadOnlyDetailFormPanel - setRow() - getSize: " + dpObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet().getSize());
 		
-		if(vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet() != null)
-			iNumberOfOrders = vObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet().getSize();
+		if(dpObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet() != null)
+			iNumberOfOrders = dpObjOrder.getOrderRowByAccountCode(txtFldCode.getText()).getRowSet().getSize();
 			btn03.setText(StringConstants.TBB_ORDERS_STR.getString() + " (" + iNumberOfOrders + ")");
 			
 		if(dpObjContact.getContactsFromAccount(txtFldCode.getText()).getRowSet() != null) {
@@ -577,23 +577,23 @@ ScrollableTablePanel {
 		btn01.setText(StringConstants.TBB_CONTACTS_STR.getString() + " (" + iNumberOfContacts + ")");
 	
 		txtMdlName.setRow(dtRw);
-		txtMdlName.setText(vObjAccount.AccountName.getStringValue(dtRw));
+		txtMdlName.setText(dpObjAccount.AccountName.getStringValue(dtRw));
 		txtFldName.setDataModel(txtMdlName);
 		
 		txtMdlType.setRow(dtRw);
-		txtMdlType.setText(vObjAccount.AccountType.getStringValue(dtRw));
+		txtMdlType.setText(dpObjAccount.AccountType.getStringValue(dtRw));
 		txtFldType.setDataModel(txtMdlType);
 
 		txtMdlCategory.setRow(dtRw);
-		txtMdlCategory.setText(vObjAccount.AccountCategory.getStringValue(dtRw));
+		txtMdlCategory.setText(dpObjAccount.AccountCategory.getStringValue(dtRw));
 		txtFldCategory.setDataModel(txtMdlCategory);
 
 		txtMdlStatus.setRow(dtRw);
-		txtMdlStatus.setText(vObjAccount.AccountStatus.getStringValue(dtRw));
+		txtMdlStatus.setText(dpObjAccount.AccountStatus.getStringValue(dtRw));
 		txtFldStatus.setDataModel(txtMdlStatus);
 			 
 		txtMdlAddress.setRow(dtRw);
-		txtMdlAddress.setText(vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " \n" + vObjAccount.AccountPostalCode.getStringValue(dtRw) + " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")\n" + vObjAccount.AccountCountry.getStringValue(dtRw));
+		txtMdlAddress.setText(dpObjAccount.AccountStreetAddress.getStringValue(dtRw) + " \n" + dpObjAccount.AccountPostalCode.getStringValue(dtRw) + " - " + dpObjAccount.AccountCity.getStringValue(dtRw) + " (" + dpObjAccount.AccountProvince.getStringValue(dtRw) + ")\n" + dpObjAccount.AccountCountry.getStringValue(dtRw));
 		txtFldAddress.setDataModel(txtMdlAddress);
 		
 		/*
@@ -603,56 +603,56 @@ ScrollableTablePanel {
 		*/
 		
 		txtMdlStreetAddress.setRow(dtRw);
-		txtMdlStreetAddress.setText(vObjAccount.AccountStreetAddress.getStringValue(dtRw));
+		txtMdlStreetAddress.setText(dpObjAccount.AccountStreetAddress.getStringValue(dtRw));
 		txtFldStreetAddress.setDataModel(txtMdlStreetAddress);
 	
 		txtMdlCity.setRow(dtRw);
-		txtMdlCity.setText(vObjAccount.AccountCity.getStringValue(dtRw));
+		txtMdlCity.setText(dpObjAccount.AccountCity.getStringValue(dtRw));
 		txtFldCity.setDataModel(txtMdlCity);
 	
 		txtMdlProvince.setRow(dtRw);
-		txtMdlProvince.setText(vObjAccount.AccountProvince.getStringValue(dtRw));
+		txtMdlProvince.setText(dpObjAccount.AccountProvince.getStringValue(dtRw));
 		txtFldProvince.setDataModel(txtMdlProvince);	
 	
 		txtMdlPostalCode.setRow(dtRw);
-		txtMdlPostalCode.setText(vObjAccount.AccountPostalCode.getStringValue(dtRw));
+		txtMdlPostalCode.setText(dpObjAccount.AccountPostalCode.getStringValue(dtRw));
 		txtFldPostalCode.setDataModel(txtMdlPostalCode);
 	
 		txtMdlCountry.setRow(dtRw);
-		//txtMdlCountry.setRows(vObjLOV.getLOV("COUNTRY"));
-		//txtMdlCountry.setChoicesAttribute(vObjLOV.Value);
-		//txtMdlCountry.setChoicesKeyAttribute(vObjLOV.Name);
-		txtMdlCountry.setText(vObjAccount.AccountCountry.getStringValue(dtRw));
-		//txtMdlCountry.addField(vObjAccount.AccountCountry);
+		//txtMdlCountry.setRows(dpObjLOV.getLOV("COUNTRY"));
+		//txtMdlCountry.setChoicesAttribute(dpObjLOV.Value);
+		//txtMdlCountry.setChoicesKeyAttribute(dpObjLOV.Name);
+		txtMdlCountry.setText(dpObjAccount.AccountCountry.getStringValue(dtRw));
+		//txtMdlCountry.addField(dpObjAccount.AccountCountry);
 		//txtFldCountry.setText(txtMdlCountry.getText());
 		txtFldCountry.setDataModel(txtMdlCountry);
 		
 		txtMdlPhone.setRow(dtRw);
-		txtMdlPhone.setText(vObjAccount.AccountPhone.getStringValue(dtRw));
+		txtMdlPhone.setText(dpObjAccount.AccountPhone.getStringValue(dtRw));
 		txtFldPhone.setDataModel(txtMdlPhone);
 		
 		txtMdlFax.setRow(dtRw);
-		txtMdlFax.setText(vObjAccount.AccountFax.getStringValue(dtRw));
+		txtMdlFax.setText(dpObjAccount.AccountFax.getStringValue(dtRw));
 		txtFldFax.setDataModel(txtMdlFax);
 		
 		txtMdlEmail.setRow(dtRw);
-		txtMdlEmail.setText(vObjAccount.AccountEmail.getStringValue(dtRw));
+		txtMdlEmail.setText(dpObjAccount.AccountEmail.getStringValue(dtRw));
 		txtFldEmail.setDataModel(txtMdlEmail);
 		
 		txtMdlWebSite.setRow(dtRw);
-		txtMdlWebSite.setText(vObjAccount.AccountWebSite.getStringValue(dtRw));
+		txtMdlWebSite.setText(dpObjAccount.AccountWebSite.getStringValue(dtRw));
 		txtFldWebSite.setDataModel(txtMdlWebSite);
 		
 		txtMdlRating.setRow(dtRw);
-		txtMdlRating.setText(vObjAccount.AccountRating.getStringValue(dtRw));
+		txtMdlRating.setText(dpObjAccount.AccountRating.getStringValue(dtRw));
 		txtFldRating.setDataModel(txtMdlRating);
 		
 		txtMdlRevenue.setRow(dtRw);
-		txtMdlRevenue.setText(vObjAccount.AccountRevenue.getStringValue(dtRw));
+		txtMdlRevenue.setText(dpObjAccount.AccountRevenue.getStringValue(dtRw));
 		txtFldRevenue.setDataModel(txtMdlRevenue);
 		
 		txtMdlNumberOfEmployee.setRow(dtRw);
-		txtMdlNumberOfEmployee.setText(vObjAccount.AccountNumberOfEmployee.getIntegerValue(dtRw).toString());
+		txtMdlNumberOfEmployee.setText(dpObjAccount.AccountNumberOfEmployee.getIntegerValue(dtRw).toString());
 		txtFldNumberOfEmployee.setDataModel(txtMdlNumberOfEmployee);
 		
 		refresh();
@@ -667,8 +667,8 @@ ScrollableTablePanel {
 	void setFirstRecord() {
 		
 	
-			if(vObjAccount.getAccounts().getRowSet() != null && vObjAccount.getAccounts().getRowSet().getSize() > 0) {
-				setRow(vObjAccount.getAccounts().getRowSet().first());
+			if(dpObjAccount.getAccounts().getRowSet() != null && dpObjAccount.getAccounts().getRowSet().getSize() > 0) {
+				setRow(dpObjAccount.getAccounts().getRowSet().first());
 			}		
 		
 	}

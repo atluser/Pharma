@@ -41,6 +41,13 @@ UIObject {
 					sCode++;
 					dpObjEntityCode.CodiceContacts.setIntegerValue(Platform.createInteger(sCode),dtCode);
 				}
+				
+				if(sEntityType=="Order")
+				{
+					sCode = dpObjEntityCode.CodiceOrder.getIntegerValue(dtCode).intValue();
+					sCode++;
+					dpObjEntityCode.CodiceOrder.setIntegerValue(Platform.createInteger(sCode),dtCode);
+				}
 			}
 			dtCode.applyUpdates();
 			dp.saveData();
@@ -60,6 +67,82 @@ UIObject {
 		iNumContacts = getDataRowSetSize(dpRowSetContact);
 	}
 	
+	void loadOrder() {
+		dpRowSetOrder = dp.Order.getRowSet(); //Apro il rowset
+		iNumOrder = getDataRowSetSize(dpRowSetOrder);
+	}
+	
+	void loadOrderItem() {
+		dpRowSetOrderItem = dp.OrderItem.getRowSet(); //Apro il rowset
+		iNumOrderItem = getDataRowSetSize(dpRowSetOrderItem);
+	}
+	
+	void loadPriceList(){
+		dpRowSetPriceList = dp.PriceList.getRowSet(); //Apro il rowset
+		if(dpRowSetPriceList.first()==null)
+		{
+			VOUtilityTemp vObjUtilTemp = new VOUtilityTemp();
+			vObjUtilTemp.loadPriceList();
+		}
+		else
+			iNumPriceList = getDataRowSetSize(dpRowSetPriceList);
+	}
+	
+	void loadPriceListItem(){
+		dpRowSetPriceListItem = dp.PriceListItem.getRowSet(); //Apro il rowset
+		if(dpRowSetPriceListItem.first()==null)
+		{
+			VOUtilityTemp vObjUtilTemp = new VOUtilityTemp();
+			vObjUtilTemp.loadPriceListItem();
+		}
+		else
+			iNumPriceListItem = getDataRowSetSize(dpRowSetPriceListItem);
+	}
+	
+	void loadLOV(){
+		dpRowSetLOV = dp.ListOfValues.getRowSet(); //Apro il rowset
+		if(dpRowSetLOV.first()==null)
+		{
+			VOUtilityTemp vObjUtilTemp = new VOUtilityTemp();
+			vObjUtilTemp.loadLOV();
+		}
+		else
+			iNumLOV = getDataRowSetSize(dpRowSetLOV);
+	}
+	
+	void loadCrmEntities() {
+		dpRowSetCrmEntity = dp.CrmEntity.getRowSet(); //Apro il rowset
+		if(dpRowSetCrmEntity.first()==null)
+		{
+			VOUtilityTemp vObjUtilTemp = new VOUtilityTemp();
+			vObjUtilTemp.loadCrmEntity();
+		}
+		else
+			iNumCrmEntity = getDataRowSetSize(dpRowSetCrmEntity);
+	}
+	
+	void loadEvent(){
+		dpRowSetEvent = dp.Event.getRowSet(); //Apro il rowset
+		if(dpRowSetEvent.first()==null)
+		{
+			VOUtilityTemp vObjUtilTemp = new VOUtilityTemp();
+			vObjUtilTemp.loadEvent();
+		}
+		else
+			iNumEvent = getDataRowSetSize(dpRowSetEvent);
+	}
+	
+	void loadProducts(){
+		dpRowSetProducts = dp.Products.getRowSet(); //Apro il rowset
+		if(dpRowSetProducts.first()==null)
+		{
+			VOUtilityTemp vObjUtilTemp = new VOUtilityTemp();
+			vObjUtilTemp.loadProducts();
+		}
+		else
+			iNumProducts = getDataRowSetSize(dpRowSetProducts);
+	}
+	
 	//mi rendo conto che è una porcata, ma non si riesce a fare andare il count... in futuro, ci riproveremo!
 	int getDataRowSetSize(DataRowSet drs){
 		int iNumRecord = 0;
@@ -77,54 +160,71 @@ UIObject {
 		return iNumRecord;
 	}
 	
-	void loadProducts(){
-		DataRow row=null;
-		row=vObjProducts.getNewRow();		
-		vObjProducts.ProductCode.setStringValue("018622175",row);
-		vObjProducts.ProductName.setStringValue("SUPRADYN",row);
-		vObjProducts.ProductCategory.setStringValue("COLD & PAIN",row);
-		row.applyUpdates();
+	DataRow getNewAccountRow(){
+		String id=getEntityCode("Account").toString();
+		DataRow row = dpObjAccount.getNewRow();		
+        dpObjAccount.AccountId.setStringValue(id, row);
+        dpObjAccount.AccountCode.setStringValue(id, row);
+        dpObjAccount.AccountType.setStringValue("Prospect", row);        
+        dpObjAccount.AccountStatus.setStringValue("Nuovo", row);
+        return row;
+
+	}
+	
+	DataRow getNewContactRow(){
+		String id=getEntityCode("Contact").toString();
+		DataRow row = dpObjContact.getNewRow();
+		dpObjContact.ContactId.setStringValue(id, row);
+		dpObjContact.ContactStatus.setStringValue("Nuovo",row);	
+        return row  ;
+	}
+	
+	DataRow getNewOrderRow(){
+		String id=getEntityCode("Order").toString();
+		DataRow row = dpObjOrder.getNewRow();
+		dpObjOrder.OrderId.setStringValue(id, row);
+        return row;
 	}
 	
 	DataRow insertListItem(String orderCode,String productCode, String productName,String  category,String image, Double unitPrice){
 
-		DataRow dt = vObjListItem.getNewRow();
+		DataRow dt = dpObjListItem.getNewRow();
 
-		vObjListItem.ProductCode.setStringValue(productCode,dt);
-		vObjListItem.OrderCode.setStringValue(orderCode,dt);
-		vObjListItem.ProductName.setStringValue(productName,dt);
-		vObjListItem.ProductImage.setStringValue(image,dt);
-		vObjListItem.ProductCategory.setStringValue(category,dt);
-		vObjListItem.UnitPrice.setCurrencyValue(unitPrice,dt);				
+		dpObjListItem.ProductCode.setStringValue(productCode,dt);
+		dpObjListItem.OrderCode.setStringValue(orderCode,dt);
+		dpObjListItem.ProductName.setStringValue(productName,dt);
+		dpObjListItem.ProductImage.setStringValue(image,dt);
+		dpObjListItem.ProductCategory.setStringValue(category,dt);
+		dpObjListItem.UnitPrice.setCurrencyValue(unitPrice,dt);				
 		//canvassDetailObj.MinQty.setIntegerValue(Platform.createInteger(minQty),dt);
 		//canvassDetailObj.Image.setStringValue(image,dt);
 		dt.applyUpdates();
-
+		dp.saveData();
 		return dt;
 
 	}
 
 	double getOrderTotalGross(String orderCode){
-		Query q=vObjOrderItem.getOrderItem(orderCode);
+		Query q=dpObjOrderItem.getOrderItem(orderCode);
 		double sum=0.0;
 		if(q!=null){
 			DataRowSet set=q.getRowSet();
 			DataRow found=set.first();			
 			while(found!=null){
-				sum=sum+vObjOrderItem.OrderItemTotalGross.getCurrencyValue(found).doubleValue();
+				sum=sum+dpObjOrderItem.OrderItemTotalGross.getCurrencyValue(found).doubleValue();
 				found=set.next();
 			}			
 		}
 		return sum;
 	}
 	double getOrderTotalNet(String orderCode){
-		Query q=vObjOrderItem.getOrderItem(orderCode);
+		Query q=dpObjOrderItem.getOrderItem(orderCode);
 		double sum=0.0;
 		if(q!=null){
 			DataRowSet set=q.getRowSet();
 			DataRow found=set.first();			
 			while(found!=null){
-				sum=sum+vObjOrderItem.OrderItemTotalNet.getCurrencyValue(found).doubleValue();
+				sum=sum+dpObjOrderItem.OrderItemTotalNet.getCurrencyValue(found).doubleValue();
 				found=set.next();
 			}			
 		}
@@ -140,586 +240,26 @@ UIObject {
 		productImageMap.putValue("Defenflu",Images.Products.Defenflu);	
 	}
 	
-	
-	void loadPriceListItem(){
-		DataRow row=null;
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.ProductCode.setStringValue("018622175",row);
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductName.setStringValue("SUPRADYN",row);
-		vObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.ProductImage.setStringValue("Supradin",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622171",row);		
-		vObjPriceListItem.ProductName.setStringValue("LASONIL GEL RX",row);
-		vObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(15.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.ProductImage.setStringValue("Lasonil",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622172",row);		
-		vObjPriceListItem.ProductName.setStringValue("SANIPIRINA",row);
-		vObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(false),row);
-		vObjPriceListItem.ProductImage.setStringValue("Sanipirina",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622170",row);		
-		vObjPriceListItem.ProductName.setStringValue("ASPIRINA C",row);
-		vObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(15.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(false),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.ProductImage.setStringValue("Aspirina",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622176",row);		
-		vObjPriceListItem.ProductName.setStringValue("LENITOS PASTIGLIE",row);
-		vObjPriceListItem.ProductCategory.setStringValue("PROPOLI/LENITOS",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(20.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.ProductImage.setStringValue("Lenitos",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622177",row);		
-		vObjPriceListItem.ProductName.setStringValue("LENIGOLA",row);
-		vObjPriceListItem.ProductCategory.setStringValue("PROPOLI/LENITOS",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(20.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.ProductImage.setStringValue("Lenigola",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622178",row);		
-		vObjPriceListItem.ProductName.setStringValue("DEFENFLU C",row);
-		vObjPriceListItem.ProductCategory.setStringValue("PROPOLI/LENITOS",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.ProductImage.setStringValue("Defenflu",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622179",row);		
-		vObjPriceListItem.ProductName.setStringValue("BECOZYM",row);
-		vObjPriceListItem.ProductCategory.setStringValue("VITAMINE",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(15.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(false),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(false),row);
-		vObjPriceListItem.ProductImage.setStringValue("Becozym",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622180",row);		
-		vObjPriceListItem.ProductName.setStringValue("BENADON",row);
-		vObjPriceListItem.ProductCategory.setStringValue("VITAMINE",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.ProductImage.setStringValue("Benadon",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622181",row);		
-		vObjPriceListItem.ProductName.setStringValue("ELEVIT",row);
-		vObjPriceListItem.ProductCategory.setStringValue("VITAMINE",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.ProductImage.setStringValue("Elevit",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622182",row);		
-		vObjPriceListItem.ProductName.setStringValue("AUTAN",row);
-		vObjPriceListItem.ProductCategory.setStringValue("JOHNSON WAX",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.ProductImage.setStringValue("Autan",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622183",row);		
-		vObjPriceListItem.ProductName.setStringValue("CALCIDON",row);
-		vObjPriceListItem.ProductCategory.setStringValue("NUTRITIONAL",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.ProductImage.setStringValue("Calcidon",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-				
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622184",row);		
-		vObjPriceListItem.ProductName.setStringValue("REDOXON",row);
-		vObjPriceListItem.ProductCategory.setStringValue("NUTRITIONAL",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.ProductImage.setStringValue("Redoxon",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-		
-		row=vObjPriceListItem.getNewRow();			
-		vObjPriceListItem.PriceListCode.setStringValue("0001",row);
-		vObjPriceListItem.ProductCode.setStringValue("018622185",row);		
-		vObjPriceListItem.ProductName.setStringValue("FAVE DI FUCA",row);
-		vObjPriceListItem.ProductCategory.setStringValue("LASSATIVI",row);
-		vObjPriceListItem.UOM.setStringValue("Scatola",row);
-		vObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
-		vObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
-		vObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
-		//vObjPriceListItem.ProductImage.setStringValue("Redoxon",row);
-		vObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
-		row.applyUpdates();
-	}
-	
-	
-	void loadPriceList(){
-		DataRow row=null;
-		row=vObjPriceList.getNewRow();
-		int id=vObjPriceList.createQuery().getRowSet().getSize()+1;
-		vObjPriceList.PriceListCode.setStringValue("0001",row);
-		vObjPriceList.PriceListName.setStringValue("AHLB0001",row);
-		vObjPriceList.PriceListType.setStringValue("Listino Base Divisionale",row);
-		vObjPriceList.PriceListDescription.setStringValue("Listino Base Divisionale HealtCare",row);
-		vObjPriceList.PriceListDivision.setStringValue("AH",row);
-		//vObjPriceList.PriceListCurrencyCode.setCurrencyStringValue(0.0,row);
-		vObjPriceList.PriceListStatus.setStringValue("Attivo",row);
-		vObjPriceList.PriceListStartDate.setDateValue(Platform.createDate(),row);
-		//vObjPriceList.PriceListEndDate.setDateValue(Platform.createDate(),row);
-		vObjPriceList.PriceListMinOrder.setIntegerValue(Platform.createInteger(100),row);
-		row.applyUpdates();
-	}
-	
-	
-	void loadCrmEntities() {
-		
-		insertCrmEntity(6, StringConstants.TBB_SERVICE_REQUESTS_STR.getString());
-		//insertCrmEntity(5, StringConstants.TBB_PRICELIST_STR.getString());
-		insertCrmEntity(5, StringConstants.TBB_ACTIVITIES_STR.getString());
-		insertCrmEntity(4, StringConstants.TBB_CATALOG_STR.getString());		
-
-	}
-	
-	void insertCrmEntity(int id, String name) {
-		
-		DataRow dtRw = vObjCrmEntity.getNewRow();
-		vObjCrmEntity.Id.setIntegerValue(Platform.createInteger(id), dtRw); 
-        vObjCrmEntity.Name.setStringValue(name, dtRw);      
-        dtRw.applyUpdates();		
-			
-	}
-	
-	
-	DataRow getNewAccountRow(){
-		String id=getEntityCode("Account").toString();
-		DataRow row = vObjAccount.getNewRow();		
-        vObjAccount.AccountId.setStringValue(id, row);
-        vObjAccount.AccountCode.setStringValue(id, row);
-        vObjAccount.AccountType.setStringValue("Prospect", row);        
-        vObjAccount.AccountStatus.setStringValue("Nuovo", row);
-        return row;
-
-	}
-	
-	DataRow getNewContactRow(){
-		String id=getEntityCode("Contact").toString();
-		DataRow row = dpObjContact.getNewRow();
-		dpObjContact.ContactId.setStringValue(id, row);
-		dpObjContact.ContactStatus.setStringValue("Nuovo",row);	
-        return row  ;
-	}
-	
-	void loadLOV(){
-		
-		//PROVINCE
-		DataRow row ;
-		row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("PROVINCE", row);
-        vObjLOV.Name.setStringValue("MI", row);
-        vObjLOV.Value.setStringValue("MI", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("PROVINCE", row);
-        vObjLOV.Name.setStringValue("BG", row);
-        vObjLOV.Value.setStringValue("BG", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("PROVINCE", row);
-        vObjLOV.Name.setStringValue("TO", row);
-        vObjLOV.Value.setStringValue("TO", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        //STATI
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+39", row);
-        vObjLOV.Value.setStringValue("Italia", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+33", row);
-        vObjLOV.Value.setStringValue("Francia", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+49", row);
-        vObjLOV.Value.setStringValue("Germania", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+34", row);
-        vObjLOV.Value.setStringValue("Spagna", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+32", row);
-        vObjLOV.Value.setStringValue("Belgio", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+31", row);
-        vObjLOV.Value.setStringValue("Olanda", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+351", row);
-        vObjLOV.Value.setStringValue("Portogallo", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+353", row);
-        vObjLOV.Value.setStringValue("Irlanda", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+43", row);
-        vObjLOV.Value.setStringValue("Austria", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+45", row);
-        vObjLOV.Value.setStringValue("Danimarca", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+46", row);
-        vObjLOV.Value.setStringValue("Svezia", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+47", row);
-        vObjLOV.Value.setStringValue("Norvegia", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+48", row);
-        vObjLOV.Value.setStringValue("Polonia", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+30", row);
-        vObjLOV.Value.setStringValue("Grecia", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+41", row);
-        vObjLOV.Value.setStringValue("Svizzera", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+44", row);
-        vObjLOV.Value.setStringValue("Gran Bretagna", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("COUNTRY", row);
-        vObjLOV.Name.setStringValue("+1", row);
-        vObjLOV.Value.setStringValue("U.S.A", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        //CATEGORIE
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("CATEGORY", row);
-        vObjLOV.Name.setStringValue("Farmacia", row);
-        vObjLOV.Value.setStringValue("Farmacia", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("CATEGORY", row);
-        vObjLOV.Name.setStringValue("ASL", row);
-        vObjLOV.Value.setStringValue("ASL", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("CATEGORY", row);
-        vObjLOV.Name.setStringValue("Ospedale", row);
-        vObjLOV.Value.setStringValue("Ospedale", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        //RATING
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("RATING", row);
-        vObjLOV.Name.setStringValue("Gold", row);
-        vObjLOV.Value.setStringValue("Gold", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("RATING", row);
-        vObjLOV.Name.setStringValue("Platinum", row);
-        vObjLOV.Value.setStringValue("Platinum", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();        
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("RATING", row);
-        vObjLOV.Name.setStringValue("Silver", row);
-        vObjLOV.Value.setStringValue("Silver", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        //REVENUE
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("REVENUE", row);
-        vObjLOV.Name.setStringValue("0 - 100 K", row);
-        vObjLOV.Value.setStringValue("0 - 100 K", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("REVENUE", row);
-        vObjLOV.Name.setStringValue("100 - 500 K", row);
-        vObjLOV.Value.setStringValue("100 - 500 K", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("REVENUE", row);
-        vObjLOV.Name.setStringValue("500 - 1000 K", row);
-        vObjLOV.Value.setStringValue("500 - 1000 K", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        //CATEGORIE PRODOTTI
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
-        vObjLOV.Name.setStringValue("COLD & PAIN", row);
-        vObjLOV.Value.setStringValue("COLD & PAIN", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
-        vObjLOV.Name.setStringValue("PROPOLI/LENITOS", row);
-        vObjLOV.Value.setStringValue("PROPOLI/LENITOS", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
-        vObjLOV.Name.setStringValue("VITAMINE", row);
-        vObjLOV.Value.setStringValue("VITAMINE", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
-        vObjLOV.Name.setStringValue("NUTRITIONAL", row);
-        vObjLOV.Value.setStringValue("NUTRITIONAL", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();  
-        
-        //TITOLI (contatti)
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("TITLE", row);
-        vObjLOV.Name.setStringValue("Ing.", row);
-        vObjLOV.Value.setStringValue("Ing.", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("TITLE", row);
-        vObjLOV.Name.setStringValue("Sig.", row);
-        vObjLOV.Value.setStringValue("Sig.", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();        
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("TITLE", row);
-        vObjLOV.Name.setStringValue("Sig.ra", row);
-        vObjLOV.Value.setStringValue("SIG.ra.", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("TITLE", row);
-        vObjLOV.Name.setStringValue("Dott.", row);
-        vObjLOV.Value.setStringValue("Dott.", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();               
-        
-        //FUNZIONI (contatti)
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("FUNCTION", row);
-        vObjLOV.Name.setStringValue("Medico", row);
-        vObjLOV.Value.setStringValue("Medico", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates(); 
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("FUNCTION", row);
-        vObjLOV.Name.setStringValue("Titolare", row);
-        vObjLOV.Value.setStringValue("Titolare", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("FUNCTION", row);
-        vObjLOV.Name.setStringValue("Responsabile", row);
-        vObjLOV.Value.setStringValue("Responsabile", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();  
-        
-        //SESSO (contatti)
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("GENDER", row);
-        vObjLOV.Name.setStringValue("Maschio", row);
-        vObjLOV.Value.setStringValue("Maschio", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates(); 
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("GENDER", row);
-        vObjLOV.Name.setStringValue("Femmina", row);
-        vObjLOV.Value.setStringValue("Femmina", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates(); 
-        
-        row= vObjLOV.getNewRow();		
-        vObjLOV.Type.setStringValue("GENDER", row);
-        vObjLOV.Name.setStringValue("Non Definito", row);
-        vObjLOV.Value.setStringValue("Non Definito", row);
-        vObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();                                                                
-	}
-	
-	
-	
 	String getAccountName(String accountId){
-		Query q=vObjAccount.getAccountRow(accountId);
+		Query q=dpObjAccount.getAccountRow(accountId);
 		DataRow row=q.getRowSet().first();
 		String accountName="";
 		if(row!=null)
-			accountName=vObjAccount.AccountName.getStringValue(row);
+			accountName=dpObjAccount.AccountName.getStringValue(row);
 		
 		return accountName;		
 	}
 	
 	 DataRow getNewOrder(String accountCode){
 		
-		DataRow dt = vObjOrder.getNewRow();
+		DataRow dt = dpObjOrder.getNewRow();
 				
-		vObjOrder.AccountCode.setStringValue(accountCode,dt);
-		vObjOrder.OrderCode.setStringValue(Platform.toString(Platform.createDate().getTime()),dt);
-		vObjOrder.OrderStatus.setStringValue("Bozza",dt);
-		vObjOrder.OrderDate.setDateValue(Platform.createDate(),dt);
-		vObjOrder.Order1stDeliveryDate.setDateValue(Platform.createDate(Platform.getCurrentTime()+86400000),dt);
-//		vObjOrder.Type.setStringValue("Sales");
+		dpObjOrder.AccountCode.setStringValue(accountCode,dt);
+		dpObjOrder.OrderCode.setStringValue(Platform.toString(Platform.createDate().getTime()),dt);
+		dpObjOrder.OrderStatus.setStringValue("Bozza",dt);
+		dpObjOrder.OrderDate.setDateValue(Platform.createDate(),dt);
+		dpObjOrder.Order1stDeliveryDate.setDateValue(Platform.createDate(Platform.getCurrentTime()+86400000),dt);
+//		dpObjOrder.Type.setStringValue("Sales");
 		
 		dt.applyUpdates();	
 		return dt;	
@@ -755,11 +295,12 @@ UIObject {
 	}
 	*/
 	void insertList(String code,String description,int minQty){
-		
-		DataRow dt = vObjList.getNewRow();		
-		vObjList.PriceListCode.setStringValue(code,dt);
-		vObjList.PriceListDescription.setStringValue(description,dt);		
+		DataRow dt = dpObjPriceList.getNewRow();		
+		dpObjPriceList.PriceListCode.setStringValue(code,dt);
+		dpObjPriceList.PriceListDescription.setStringValue(description,dt);		
 		dt.applyUpdates();
+		
+		dp.saveData();
 		
 	}
 	
@@ -783,61 +324,8 @@ UIObject {
 		//insertCanvass("C","TEST",0);
 	}
 */
-	void loadOrder() {
-		
-		DataRow row = vObjOrder.getNewRow();
 
-        vObjOrder.OrderCode.setStringValue("00000001", row);
-        vObjOrder.OrderDate.setDateValue(Platform.createDate(), row);
-        vObjOrder.OrderType.setStringValue("Ordine di Vendita", row);
-        vObjOrder.AccountCode.setStringValue("00100052", row);
-        vObjOrder.OrderPriceList.setStringValue("Listino Base", row);
-        vObjOrder.OrderStatus.setStringValue("Confermato", row);
-        vObjOrder.Order1stDeliveryDate.setDateValue(Platform.createDate(), row);
-        vObjOrder.Order2ndDeliveryDate.setDateValue(Platform.createDate(), row);
-        vObjOrder.Order3rdDeliveryDate.setDateValue(Platform.createDate(), row);
-	    vObjOrder.OrderPaymentMode.setStringValue("Ri.Ba.", row);
-        vObjOrder.OrderTotalGross.setCurrencyValue(Platform.createDouble(100.00) , row);
-        vObjOrder.OrderTotalNet.setCurrencyValue(Platform.createDouble(85.00), row);
-        vObjOrder.OrderTotalDiscount.setDoubleValue(Platform.createDouble(10.00), row); 
-        row.applyUpdates();
-
-        row = vObjOrder.getNewRow();
-        vObjOrder.OrderCode.setStringValue("00000002", row);
-        vObjOrder.OrderDate.setDateValue(Platform.createDate(), row);
-        vObjOrder.OrderType.setStringValue("Ordine di Vendita", row);
-        vObjOrder.AccountCode.setStringValue("00100052", row);
-        vObjOrder.OrderPriceList.setStringValue("Listino Base", row);
-        vObjOrder.OrderStatus.setStringValue("Confermato", row);
-        vObjOrder.Order1stDeliveryDate.setDateValue(Platform.createDate(), row);
-        vObjOrder.Order2ndDeliveryDate.setDateValue(Platform.createDate(), row);
-        vObjOrder.Order3rdDeliveryDate.setDateValue(Platform.createDate(), row);
-	    vObjOrder.OrderPaymentMode.setStringValue("Ri.Ba.", row);
-        vObjOrder.OrderTotalGross.setCurrencyValue(Platform.createDouble(150.00) , row);
-        vObjOrder.OrderTotalNet.setCurrencyValue(Platform.createDouble(125.00), row);
-        vObjOrder.OrderTotalDiscount.setDoubleValue(Platform.createDouble(15.00), row); 
-        row.applyUpdates();
-		
-        row = vObjOrder.getNewRow();
-        vObjOrder.OrderCode.setStringValue("00000001", row);
-        vObjOrder.OrderDate.setDateValue(Platform.createDate(), row);
-        vObjOrder.OrderType.setStringValue("Ordine di Vendita", row);
-        vObjOrder.AccountCode.setStringValue("00100853", row);
-        vObjOrder.OrderPriceList.setStringValue("Listino Base", row);
-        vObjOrder.OrderStatus.setStringValue("Confermato", row);
-        vObjOrder.Order1stDeliveryDate.setDateValue(Platform.createDate(), row);
-        vObjOrder.Order2ndDeliveryDate.setDateValue(Platform.createDate(), row);
-        vObjOrder.Order3rdDeliveryDate.setDateValue(Platform.createDate(), row);
-	    vObjOrder.OrderPaymentMode.setStringValue("Ri.Ba.", row);
-        vObjOrder.OrderTotalGross.setCurrencyValue(Platform.createDouble(150.00) , row);
-        vObjOrder.OrderTotalNet.setCurrencyValue(Platform.createDouble(125.00), row);
-        vObjOrder.OrderTotalDiscount.setDoubleValue(Platform.createDouble(20.00), row); 
-        row.applyUpdates();		
-		
-	}
-	
-
-String getContactName(String contactId){
+	String getContactName(String contactId){
 		Query q=dpObjContact.getContactRow(contactId);
 		DataRow row=q.getRowSet().first();
 		String contactName="";
@@ -846,16 +334,4 @@ String getContactName(String contactId){
 		
 		return contactName;		
 	}
-	
-	
-	void loadEvent(){
-		DataRow row;
-		row=vObjEvent.getNewRow();		
-		vObjEvent.Code.setStringValue("1",row);
-		vObjEvent.Subject.setStringValue("Presentazione SOVREPIN",row);
-		vObjEvent.Description.setStringValue("nuovo prodotto di punta",row);
-		vObjEvent.StartDate.setDateValue(Platform.createDate(),row);
-		row.applyUpdates();
-	}
-	
 }

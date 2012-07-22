@@ -38,24 +38,24 @@ TableViewCell {
 	void setRow(DataRow dtRw) {
 		
 		/*OK
-		String strAccId = vObjAccount.AccountId.getStringValue(dtRw);
+		String strAccId = dpObjAccount.AccountId.getStringValue(dtRw);
 		txtMdlAccId.setText(strAccId);
 		
-		String strAccName = vObjAccount.AccountName.getStringValue(dtRw);
+		String strAccName = dpObjAccount.AccountName.getStringValue(dtRw);
 		txtMdlAccName.setText(strAccName);
 		
-		String strAccStreetAddress = vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")";
+		String strAccStreetAddress = dpObjAccount.AccountStreetAddress.getStringValue(dtRw) + " - " + dpObjAccount.AccountCity.getStringValue(dtRw) + " (" + dpObjAccount.AccountProvince.getStringValue(dtRw) + ")";
 		txtMdlAccStreetAddress.setText(strAccStreetAddress);
 		*/
 		
 		/*
-		String strAccAccountCity = vObjAccount.AccountCity.getStringValue(dtRw);
+		String strAccAccountCity = dpObjAccount.AccountCity.getStringValue(dtRw);
 		txtMdlAccStreetAddress.setText(strAccStreetAddress);
 		
-		String strAccAccountProvince = vObjAccount.AccountProvince.getStringValue(dtRw);
+		String strAccAccountProvince = dpObjAccount.AccountProvince.getStringValue(dtRw);
 		txtMdlAccStreetAddress.setText(strAccStreetAddress);		
 		*/
-		//strAddr = vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " -  " + vObjAccount.AccountCity.getStringValue(dtRw) + " (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")";
+		//strAddr = dpObjAccount.AccountStreetAddress.getStringValue(dtRw) + " -  " + dpObjAccount.AccountCity.getStringValue(dtRw) + " (" + dpObjAccount.AccountProvince.getStringValue(dtRw) + ")";
 	
 	}
 	

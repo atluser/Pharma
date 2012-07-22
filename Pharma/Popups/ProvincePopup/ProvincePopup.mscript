@@ -35,7 +35,7 @@ Popup {
 		stk.setGridLineStyle(LineStyle.SOLID);
 		stk.setGridLineColor(Colors.Gray);						
 						
-		//rsm.setRows(vObjLOV.getLOV("PROVINCE"));						
+		//rsm.setRows(dpObjLOV.getLOV("PROVINCE"));						
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
 		
@@ -138,7 +138,7 @@ Popup {
 		
 		DataRow dtRw = info.getDataRow();
 		if(!dtRw.isDeleted()){		
-			String str01 = vObjLOV.Value.getStringValue(dtRw);							
+			String str01 = dpObjLOV.Value.getStringValue(dtRw);							
 			tblVwCell.lbl.setText(str01);			
 		}
 	}
@@ -157,8 +157,8 @@ Popup {
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		//mdlChoice.setSelectedIndex(row);		
 		//Cells.SimpleTableViewCell tblVwCell = (Cells.SimpleTableViewCell)cell;				
-		btnPopup.setText(vObjLOV.Value.getStringValue(rsm.getRow()));
-		mdlPickMap.setText(vObjLOV.Name.getStringValue(rsm.getRow()));
+		btnPopup.setText(dpObjLOV.Value.getStringValue(rsm.getRow()));
+		mdlPickMap.setText(dpObjLOV.Name.getStringValue(rsm.getRow()));
 		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
 		btnPopup.refresh();
 		
@@ -220,7 +220,7 @@ Popup {
 	
 	callback tblSearch onValueChangingPaused(Control c){
 		//appLog.log(Log.INFO,"paused");
-		//Query q=vObjAccount.getAccountContains(tblSearch.getText());
+		//Query q=dpObjAccount.getAccountContains(tblSearch.getText());
 		executeQuery(tblSearch.getText());
 		stk.reload();
 	}
@@ -235,7 +235,7 @@ Popup {
 	}*/
 	
 	void executeQuery(String val){
-		rsm.setRows(vObjLOV.getLOVByVal(TYPE,val));
+		rsm.setRows(dpObjLOV.getLOVByVal(TYPE,val));
 	}
 	
 	void setQuery(Query q){		

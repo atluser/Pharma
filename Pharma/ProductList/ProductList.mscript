@@ -20,8 +20,8 @@ VirtualObject {
 		map listItem.PriceListCode as myListCode;
 	}
 	
-	query getProductList2<Products products,PriceListItem listItem, String listCode >{
-		from productList<products,listItem>;	
+	query getProductList2<PharmaDP.DataStore.Products products,PharmaDP.DataStore.PriceListItem listItem, String listCode >{
+		//from productList<products,listItem>;
 		ascendingBy myProductCode;
 	
 	}

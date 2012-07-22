@@ -17,7 +17,11 @@ TablePanel {
 	 *
 	 */
 	callback onCreate(Container c) {
-		
+	
+	}
+	
+	void setupPanel(Panels.Order.ReadOnlyDetailTablePanel pnl){
+		pnlDetail = pnl;
 		setQuery();
 		
 		stk.setDataModel(rsm);
@@ -39,9 +43,7 @@ TablePanel {
 		setColumnWidth(0, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);		
-		
 	}
-	
 	///////////////////////////////
 	// Callback to configure cells
 	///////////////////////////////
@@ -58,16 +60,16 @@ TablePanel {
 		DataRow dtRw = info.getDataRow();
 		if(!dtRw.isDeleted()){
 			/*		
-			String str01 = vObjOrder.OrderCode.getStringValue(dtRw);
-			String str02 = vObjOrder.OrderStatus.getStringValue(dtRw);					
-			String str03 = vObjOrder.OrderDate.getDateValue(dtRw);	
+			String str01 = dpObjOrder.OrderCode.getStringValue(dtRw);
+			String str02 = dpObjOrder.OrderStatus.getStringValue(dtRw);					
+			String str03 = dpObjOrder.OrderDate.getDateValue(dtRw);	
 			*/
-			String str01 = (vObjOrder.OrderCode.getStringValue(dtRw) != null) ? vObjOrder.OrderCode.getStringValue(dtRw) : "Data not found!";
-			String str02 = (vObjOrder.OrderStatus.getStringValue(dtRw) != null) ? vObjOrder.OrderStatus.getStringValue(dtRw) : "Data not found!";
-			String str03 = (vObjOrder.OrderDate.getDateValue(dtRw) != null) ? vObjOrder.OrderDate.getDateValue(dtRw).toString() : "Data not found!";
+			String str01 = (dpObjOrder.OrderCode.getStringValue(dtRw) != null) ? dpObjOrder.OrderCode.getStringValue(dtRw) : "Data not found!";
+			String str02 = (dpObjOrder.OrderStatus.getStringValue(dtRw) != null) ? dpObjOrder.OrderStatus.getStringValue(dtRw) : "Data not found!";
+			String str03 = (dpObjOrder.OrderDate.getDateValue(dtRw) != null) ? dpObjOrder.OrderDate.getDateValue(dtRw).toString() : "Data not found!";
 			
-			if(vObjOrder.OrderDate.getDateValue(dtRw) != null) {
-				str03 = getFormattedDate(vObjOrder.OrderDate, dtRw);	
+			if(dpObjOrder.OrderDate.getDateValue(dtRw) != null) {
+				str03 = getFormattedDate(dpObjOrder.OrderDate, dtRw);	
 			}
 			
 			tblVwCell.lbl01.setText(str01);
@@ -156,22 +158,25 @@ TablePanel {
 	 * Custom methods
 	 */
 	void setQuery() {
-		rsm.setRows(vObjOrder.getOrders());
+		if(dpRowSetOrder.first()!=null)
+			rsm.setRows(dpObjOrder.getOrders());
 	} 
 	 
 	void setQuery(String str) {
-		
-		if(sAccountCode != "") {
-			rsm.setRows(vObjOrder.getOrderContains(sAccountCode,str));
-		} else {
-			rsm.setRows(vObjOrder.getOrderContains(str));
+		if(dpRowSetOrder.first()!=null)
+		{
+			if(sAccountCode != "") {
+				rsm.setRows(dpObjOrder.getOrderContains(sAccountCode,str));
+			} else {
+				rsm.setRows(dpObjOrder.getOrderContains(str));
+			}
 		}
-		
 	} 
 	
 	void setQuery(String str01, String str02) {
-		rsm.setRows(vObjOrder.getOrderContains(str01, str02));
-		//lbl.setText(" " + vObjOrder.getOrderContains(str01, str02).getRowSet().getSize() + "Records");
+		if(dpRowSetOrder.first()!=null)
+			rsm.setRows(dpObjOrder.getOrderContains(str01, str02));
+		//lbl.setText(" " + dpObjOrder.getOrderContains(str01, str02).getRowSet().getSize() + "Records");
 	}
 	  
 	void setDetailPanel(Panels.Order.ReadOnlyDetailTablePanel pnl) {
@@ -181,7 +186,7 @@ TablePanel {
 	String getFormattedDate(DateAttribute dtAtt, DataRow dtRw) {
 		
 		/*
-		Date startDate=vObjPriceList.PriceListStartDate.getDateValue(dtRw);
+		Date startDate=dpObjPriceList.PriceListStartDate.getDateValue(dtRw);
 		int m=startDate.month();
 		int d=startDate.day();
 		int y=startDate.year();

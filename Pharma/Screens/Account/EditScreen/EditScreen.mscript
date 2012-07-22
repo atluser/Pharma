@@ -134,29 +134,29 @@ Screen {
 			//Salvo i dati!
 			DataRow AccntRowContext = null;
 			if(fp.currentRow==null)
-				AccntRowContext = vObjAccount.getNewRow();
+				AccntRowContext = dpObjAccount.getNewRow();
 			else
 				AccntRowContext = fp.currentRow;
 
-			//vObjAccount.AccountId.setStringValue(fp.txtName.getText(),AccntRowContext);
-			//vObjAccount.AccountCategory.setStringValue(fp.txtName.getText(),AccntRowContext);
-			//vObjAccount.AccountProvince.setStringValue(fp.txtName.getText(),AccntRowContext);
-			//vObjAccount.AccountCountry.setStringValue(fp.txtName.getText(),AccntRowContext);
-			//vObjAccount.AccountRating.setStringValue(fp.txtName.getText(),AccntRowContext);
-			//vObjAccount.AccountRevenue.setStringValue(fp.txtName.getText(),AccntRowContext);
-			vObjAccount.AccountCode.setStringValue(fp.txtCode.getText(),AccntRowContext);
-			vObjAccount.AccountName.setStringValue(fp.txtName.getText(),AccntRowContext);
-			vObjAccount.AccountType.setStringValue(fp.txtType.getText(),AccntRowContext);
-			vObjAccount.AccountStatus.setStringValue(fp.txtStatus.getText(),AccntRowContext);
-			vObjAccount.AccountStreetAddress.setStringValue(fp.txtStreetAddress.getText(),AccntRowContext);
-			vObjAccount.AccountCity.setStringValue(fp.txtCity.getText(),AccntRowContext);
-			vObjAccount.AccountPostalCode.setStringValue(fp.txtCap.getText(),AccntRowContext);
-			vObjAccount.AccountPhone.setStringValue(fp.txtPhone.getText(),AccntRowContext);
-			vObjAccount.AccountFax.setStringValue(fp.txtFax.getText(),AccntRowContext);
-			vObjAccount.AccountEmail.setStringValue(fp.txtMail.getText(),AccntRowContext);
-			vObjAccount.AccountWebSite.setStringValue(fp.txtUrl.getText(),AccntRowContext);
-			vObjAccount.AccountPrefix.setStringValue(fp.txtPrefix.getText(),AccntRowContext);
-			vObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(fp.txtEmpNum.getText()),AccntRowContext);
+			//dpObjAccount.AccountId.setStringValue(fp.txtName.getText(),AccntRowContext);
+			//dpObjAccount.AccountCategory.setStringValue(fp.txtName.getText(),AccntRowContext);
+			//dpObjAccount.AccountProvince.setStringValue(fp.txtName.getText(),AccntRowContext);
+			//dpObjAccount.AccountCountry.setStringValue(fp.txtName.getText(),AccntRowContext);
+			//dpObjAccount.AccountRating.setStringValue(fp.txtName.getText(),AccntRowContext);
+			//dpObjAccount.AccountRevenue.setStringValue(fp.txtName.getText(),AccntRowContext);
+			dpObjAccount.AccountCode.setStringValue(fp.txtCode.getText(),AccntRowContext);
+			dpObjAccount.AccountName.setStringValue(fp.txtName.getText(),AccntRowContext);
+			dpObjAccount.AccountType.setStringValue(fp.txtType.getText(),AccntRowContext);
+			dpObjAccount.AccountStatus.setStringValue(fp.txtStatus.getText(),AccntRowContext);
+			dpObjAccount.AccountStreetAddress.setStringValue(fp.txtStreetAddress.getText(),AccntRowContext);
+			dpObjAccount.AccountCity.setStringValue(fp.txtCity.getText(),AccntRowContext);
+			dpObjAccount.AccountPostalCode.setStringValue(fp.txtCap.getText(),AccntRowContext);
+			dpObjAccount.AccountPhone.setStringValue(fp.txtPhone.getText(),AccntRowContext);
+			dpObjAccount.AccountFax.setStringValue(fp.txtFax.getText(),AccntRowContext);
+			dpObjAccount.AccountEmail.setStringValue(fp.txtMail.getText(),AccntRowContext);
+			dpObjAccount.AccountWebSite.setStringValue(fp.txtUrl.getText(),AccntRowContext);
+			dpObjAccount.AccountPrefix.setStringValue(fp.txtPrefix.getText(),AccntRowContext);
+			dpObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(fp.txtEmpNum.getText()),AccntRowContext);
 			AccntRowContext.applyUpdates();
 			dp.saveData();
 			
@@ -164,18 +164,18 @@ Screen {
 			//svuoto rsm
 			stkTP.setInitQuery();
 			//RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
-			//rsm.setRows(vObjAccount.getAccounts());
+			//rsm.setRows(dpObjAccount.getAccounts());
 			//reset query
 			/*
 			MultiRowSetModel mrsm=(MultiRowSetModel) originListStk.getDataModel();
 			for (int i=0;i<mrsm.getGroupCount();i++){
 				RowSetModel rsm=mrsm.getComponent(i);
-				//rsm.setRows(vObjAccount.getAccountStartsWith(originListStk.arr.getItem(i)));
+				//rsm.setRows(dpObjAccount.getAccountStartsWith(originListStk.arr.getItem(i)));
 			}
 			originListStk.reload();*/
 			//detailStk.reload();
 			pnlDetailForm.setRow(AccntRowContext);
-			//pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(fp.currentRow));
+			//pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(fp.currentRow));
 			close(Animation.PUSH_FROM_TOP);
 			msgBox.info(1, message);
 		}

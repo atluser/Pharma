@@ -1,30 +1,32 @@
 TablePanel {
 
-	// Detail Panel
+	//Detail Panel
 	Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
-	// Master Panel
-	Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
+	//Sticky Panel
+	Panels.Order.StickyTablePanel pnlSticky = new Panels.Order.StickyTablePanel();
 	
 	callback onCreate(Container c) {
-		
+		setupPanel();
+	}
+	
+	void setupPanel()
+	{
 		// Detail Panel
 		//Panels.Order.ReadOnlyDetailTablePanel pnlDetail = new Panels.Order.ReadOnlyDetailTablePanel();
 			
 		// Master Panel
-		//Panels.Order.StickyTablePanel pnlMaster = new Panels.Order.StickyTablePanel();
-		pnlMaster.setDetailPanel(pnlDetail);
-		
-		pnlMaster.setAccountCode("");
-		pnlMaster.setQuery("");
+		//Panels.Order.StickyTablePanel pnlSticky = new Panels.Order.StickyTablePanel();
+		//pnlSticky.setDetailPanel(pnlDetail); //spostato nella funzione sotto!
+		pnlSticky.setupPanel(pnlDetail);
+		pnlSticky.setAccountCode("");
+		//pnlSticky.setQuery("");
 		pnlDetail.setAccountCode("");
 		pnlDetail.setFirstRecord();
 			
-		add(pnlMaster,"hfill=fill,vfill=fill");
+		add(pnlSticky,"hfill=fill,vfill=fill");
 		add(pnlDetail,"hfill=fill,vfill=fill");
 		setColumnWidth(0, Sizing.PIXELS, 300);
 		setColumnWidth(1, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 1);	
-		
 	}
-	
 }

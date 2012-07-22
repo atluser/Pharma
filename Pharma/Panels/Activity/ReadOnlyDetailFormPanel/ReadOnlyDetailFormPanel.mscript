@@ -72,7 +72,7 @@ ScrollableTablePanel {
 		setRowHeight(1, Sizing.PREFERRED, 1);
 		
 		
-		setRow(vObjEvent.createQuery().getRowSet().first());
+		setRow(dpObjEvent.createQuery().getRowSet().first());
 	
 	}
 	
@@ -94,28 +94,28 @@ ScrollableTablePanel {
 			
 		currentRow = dtRw;
 	
-		String endDate=(vObjEvent.EndDate.getDateValue(dtRw)!=null)?vObjEvent.EndDate.getDateValue(dtRw).toString() : null;
-		String strStartDate= (vObjEvent.StartDate.getDateValue(dtRw)!=null )? vObjEvent.StartDate.getDateValue(dtRw).toString():null;
+		String endDate=(dpObjEvent.EndDate.getDateValue(dtRw)!=null)?dpObjEvent.EndDate.getDateValue(dtRw).toString() : null;
+		String strStartDate= (dpObjEvent.StartDate.getDateValue(dtRw)!=null )? dpObjEvent.StartDate.getDateValue(dtRw).toString():null;
 		
-		if(vObjEvent.StartDate.getDateValue(dtRw)!=null){			
+		if(dpObjEvent.StartDate.getDateValue(dtRw)!=null){			
 			DateFormatModel dtFormat=new DateFormatModel();
 			dtFormat.setStyle(DateStyles.DATE_MEDIUM );
-			dtFormat.addField(vObjPriceList.PriceListStartDate);
+			dtFormat.addField(dpObjPriceList.PriceListStartDate);
 			dtFormat.setRow(dtRw);
 			strStartDate=dtFormat.getText();
 			
 		}	
 		
-		txtFldCode.setText(vObjEvent.Code.getStringValue(dtRw));	
-		txtFldName.setText(vObjEvent.Subject.getStringValue(dtRw));
-		txtFldDescription.setText(vObjEvent.Description.getStringValue(dtRw));
-		txtFldType.setText(vObjEvent.Type.getStringValue(dtRw));
-		//txtFldDivision.setText(vObjPriceList.PriceListDivision.getStringValue(dtRw));
-		txtFldStatus.setText(vObjEvent.Status.getStringValue(dtRw));
+		txtFldCode.setText(dpObjEvent.Code.getStringValue(dtRw));	
+		txtFldName.setText(dpObjEvent.Subject.getStringValue(dtRw));
+		txtFldDescription.setText(dpObjEvent.Description.getStringValue(dtRw));
+		txtFldType.setText(dpObjEvent.Type.getStringValue(dtRw));
+		//txtFldDivision.setText(dpObjPriceList.PriceListDivision.getStringValue(dtRw));
+		txtFldStatus.setText(dpObjEvent.Status.getStringValue(dtRw));
 		txtFldStartDate.setText(strStartDate);
 		txtFldEndDate.setText(endDate);
-		//txtFldCurrencyCode.setText(vObjPriceList.PriceListCurrencyCode.getStringValue(dtRw));
-		//txtFldMinOrder.setText(vObjPriceList.PriceListMinOrder.getIntegerValue(dtRw).toString());
+		//txtFldCurrencyCode.setText(dpObjPriceList.PriceListCurrencyCode.getStringValue(dtRw));
+		//txtFldMinOrder.setText(dpObjPriceList.PriceListMinOrder.getIntegerValue(dtRw).toString());
 	}
 	
 	void setUpHeaderSection(String str) {

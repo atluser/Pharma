@@ -10,12 +10,12 @@ ScrollableTablePanel {
 	//disegno pannello
 	void drowDetailItem(String priceListCode){
 		//get Category
-		Query q=vObjLOV.getLOV("PRODUCT_CATEGORY");
+		Query q=dpObjLOV.getLOV("PRODUCT_CATEGORY");
 		DataRowSet set=q.getRowSet();
 		DataRow dtRow=set.first();		
 		while(dtRow!=null){//ciclo category
-			String category=vObjLOV.Value.getStringValue(dtRow);
-			Query q1=vObjPriceListItem.getListItemByCategory(priceListCode,category,"");
+			String category=dpObjLOV.Value.getStringValue(dtRow);
+			Query q1=dpObjPriceListItem.getListItemByCategory(priceListCode,category,"");
 			DataRowSet rowSet=q1.getRowSet();
 			DataRow found=rowSet.first();
 			

@@ -191,18 +191,18 @@ TablePanel {
 		setRowHeight(1, Sizing.PREFERRED, 1);
 		
 		/*
-		if(vObjOrder.getOrderContains("").getRowSet() != null && vObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
-			setRow(vObjOrder.getOrderContains("").getRowSet().first());
+		if(dpObjOrder.getOrderContains("").getRowSet() != null && dpObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
+			setRow(dpObjOrder.getOrderContains("").getRowSet().first());
 		}	
 		*/
 		/*
 		if(sAccountCode != "") {
-			if(vObjOrder.getOrderContains(sAccountCode,"").getRowSet() != null && vObjOrder.getOrderContains(sAccountCode,"").getRowSet().getSize() > 0) {
-				setRow(vObjOrder.getOrderContains(sAccountCode,"").getRowSet().first());
+			if(dpObjOrder.getOrderContains(sAccountCode,"").getRowSet() != null && dpObjOrder.getOrderContains(sAccountCode,"").getRowSet().getSize() > 0) {
+				setRow(dpObjOrder.getOrderContains(sAccountCode,"").getRowSet().first());
 			}		
 		} else {
-			if(vObjOrder.getOrderContains("").getRowSet() != null && vObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
-				setRow(vObjOrder.getOrderContains("").getRowSet().first());
+			if(dpObjOrder.getOrderContains("").getRowSet() != null && dpObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
+				setRow(dpObjOrder.getOrderContains("").getRowSet().first());
 			}		
 		}
 		*/
@@ -256,7 +256,7 @@ TablePanel {
 		} else {	
 			
 			RowSetModel rsm = new RowSetModel();
-			rsm.setRows(vObjAccount.getAccountRow(sAccountCode));
+			rsm.setRows(dpObjAccount.getAccountRow(sAccountCode));
 			
 			logApp.log(Log.INFO, "ReadOnlyDeatilTablePanel - lblFld04 onClick() - rowCount: " + rsm.getRowCount(0));
 			
@@ -272,7 +272,7 @@ TablePanel {
 				
 				if (pnlHeader.pnlAccountRoot.stk.rsm.getRowCount(0)>0) {
 					pnlHeader.pnlAccountRoot.stk.stk.select(0,0);
-					pnlHeader.pnlAccountRoot.pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(pnlHeader.pnlAccountRoot.stk.rsm.getRow()));
+					pnlHeader.pnlAccountRoot.pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(pnlHeader.pnlAccountRoot.stk.rsm.getRow()));
 					pnlHeader.pnlAccountRoot.pnlDetailForm.setRow(pnlHeader.pnlAccountRoot.stk.rsm.getRow());
 				}
 				
@@ -499,7 +499,7 @@ TablePanel {
 	String getFormattedDate(DateAttribute dtAtt, DataRow dtRw) {
 		
 		/*
-		Date startDate=vObjPriceList.PriceListStartDate.getDateValue(dtRw);
+		Date startDate=dpObjPriceList.PriceListStartDate.getDateValue(dtRw);
 		int m=startDate.month();
 		int d=startDate.day();
 		int y=startDate.year();
@@ -517,47 +517,47 @@ TablePanel {
 	 
 	void setRow(DataRow dtRw) {
 		
-		sAccountCode = (vObjOrder.AccountCode.getStringValue(dtRw) != null) ? vObjOrder.AccountCode.getStringValue(dtRw) : "";
+		sAccountCode = (dpObjOrder.AccountCode.getStringValue(dtRw) != null) ? dpObjOrder.AccountCode.getStringValue(dtRw) : "";
 		
-		String str01 = (vObjOrder.OrderCode.getStringValue(dtRw) != null) ? vObjOrder.OrderCode.getStringValue(dtRw) : "Data not found!";
-		String str02 = (vObjOrder.OrderDate.getDateValue(dtRw) != null) ? vObjOrder.OrderDate.getDateValue(dtRw).toString() : "Data not found!";
-		String str03 = (vObjOrder.OrderType.getStringValue(dtRw) != null) ? vObjOrder.OrderType.getStringValue(dtRw) : "Data not found!";
-		String str04 = (vObjOrder.AccountName.getStringValue(dtRw) != null) ? vObjOrder.AccountName.getStringValue(dtRw) : "Data not found!";
-		String str05 = (vObjOrder.OrderPriceList.getStringValue(dtRw) != null) ? vObjOrder.OrderPriceList.getStringValue(dtRw) : "Data not found!";
-		String str06 = (vObjOrder.OrderStatus.getStringValue(dtRw) != null) ? vObjOrder.OrderStatus.getStringValue(dtRw) : "Data not found!";
+		String str01 = (dpObjOrder.OrderCode.getStringValue(dtRw) != null) ? dpObjOrder.OrderCode.getStringValue(dtRw) : "Data not found!";
+		String str02 = (dpObjOrder.OrderDate.getDateValue(dtRw) != null) ? dpObjOrder.OrderDate.getDateValue(dtRw).toString() : "Data not found!";
+		String str03 = (dpObjOrder.OrderType.getStringValue(dtRw) != null) ? dpObjOrder.OrderType.getStringValue(dtRw) : "Data not found!";
+		String str04 = (dpObjOrder.AccountName.getStringValue(dtRw) != null) ? dpObjOrder.AccountName.getStringValue(dtRw) : "Data not found!";
+		String str05 = (dpObjOrder.OrderPriceList.getStringValue(dtRw) != null) ? dpObjOrder.OrderPriceList.getStringValue(dtRw) : "Data not found!";
+		String str06 = (dpObjOrder.OrderStatus.getStringValue(dtRw) != null) ? dpObjOrder.OrderStatus.getStringValue(dtRw) : "Data not found!";
 		
-		String str07 = (vObjOrder.Order1stDeliveryDate.getDateValue(dtRw) != null) ? vObjOrder.Order1stDeliveryDate.getDateValue(dtRw).toString() : "Data not found!";
-		String str08 = (vObjOrder.Order2ndDeliveryDate.getDateValue(dtRw) != null) ? vObjOrder.Order2ndDeliveryDate.getDateValue(dtRw).toString() : "Data not found!";
-		String str09= (vObjOrder.Order3rdDeliveryDate.getDateValue(dtRw) != null) ? vObjOrder.Order3rdDeliveryDate.getDateValue(dtRw).toString() : "Data not found!";
-		String str10 = (vObjOrder.OrderPaymentMode.getStringValue(dtRw) != null) ? vObjOrder.OrderPaymentMode.getStringValue(dtRw) : "Data not found!";
-		String str11 = (vObjOrder.OrderNote.getStringValue(dtRw) != null) ? vObjOrder.OrderNote.getStringValue(dtRw) : "Data not found!";
+		String str07 = (dpObjOrder.Order1stDeliveryDate.getDateValue(dtRw) != null) ? dpObjOrder.Order1stDeliveryDate.getDateValue(dtRw).toString() : "Data not found!";
+		String str08 = (dpObjOrder.Order2ndDeliveryDate.getDateValue(dtRw) != null) ? dpObjOrder.Order2ndDeliveryDate.getDateValue(dtRw).toString() : "Data not found!";
+		String str09= (dpObjOrder.Order3rdDeliveryDate.getDateValue(dtRw) != null) ? dpObjOrder.Order3rdDeliveryDate.getDateValue(dtRw).toString() : "Data not found!";
+		String str10 = (dpObjOrder.OrderPaymentMode.getStringValue(dtRw) != null) ? dpObjOrder.OrderPaymentMode.getStringValue(dtRw) : "Data not found!";
+		String str11 = (dpObjOrder.OrderNote.getStringValue(dtRw) != null) ? dpObjOrder.OrderNote.getStringValue(dtRw) : "Data not found!";
 		
-		String str12 = (vObjOrder.OrderTotalGross.getCurrencyValue(dtRw) != null) ? vObjOrder.OrderTotalGross.getCurrencyValue(dtRw).toString() : "Data not found!";
-		String str13 = (vObjOrder.OrderTotalNet.getCurrencyValue(dtRw) != null) ? vObjOrder.OrderTotalNet.getCurrencyValue(dtRw).toString() : "Data not found!";
-		String str14 = (vObjOrder.OrderTotalDiscount.getDoubleValue(dtRw) != null) ? vObjOrder.OrderTotalDiscount.getDoubleValue(dtRw).toString() : "Data not found!";
+		String str12 = (dpObjOrder.OrderTotalGross.getCurrencyValue(dtRw) != null) ? dpObjOrder.OrderTotalGross.getCurrencyValue(dtRw).toString() : "Data not found!";
+		String str13 = (dpObjOrder.OrderTotalNet.getCurrencyValue(dtRw) != null) ? dpObjOrder.OrderTotalNet.getCurrencyValue(dtRw).toString() : "Data not found!";
+		String str14 = (dpObjOrder.OrderTotalDiscount.getDoubleValue(dtRw) != null) ? dpObjOrder.OrderTotalDiscount.getDoubleValue(dtRw).toString() : "Data not found!";
 		
 		currentRow = dtRw;	
 		
 		/* DA VERIFICARE
-		if(vObjOrderItem.getOrderItemsByOrderCode(str01).getRowSet() != null)
-			iNumberOfOrderItems = vObjOrderItem.getOrderItemsByOrderCode(str01).getRowSet().getSize();
+		if(dpObjOrderItem.getOrderItemsByOrderCode(str01).getRowSet() != null)
+			iNumberOfOrderItems = dpObjOrderItem.getOrderItemsByOrderCode(str01).getRowSet().getSize();
 			btn01.setText(StringConstants.TBB_ORDER_ITEMS_STR.getString() + " (" + iNumberOfOrderItems + ")");
 		*/
 				
-		if(vObjOrder.OrderDate.getDateValue(dtRw) != null) {
-			str02 = getFormattedDate(vObjOrder.OrderDate, dtRw);	
+		if(dpObjOrder.OrderDate.getDateValue(dtRw) != null) {
+			str02 = getFormattedDate(dpObjOrder.OrderDate, dtRw);	
 		}
 		
-		if(vObjOrder.Order1stDeliveryDate.getDateValue(dtRw) != null) {
-			str07 = getFormattedDate(vObjOrder.Order1stDeliveryDate, dtRw);
+		if(dpObjOrder.Order1stDeliveryDate.getDateValue(dtRw) != null) {
+			str07 = getFormattedDate(dpObjOrder.Order1stDeliveryDate, dtRw);
 		}
 		
-		if(vObjOrder.Order2ndDeliveryDate.getDateValue(dtRw) != null) {
-			str08 = getFormattedDate(vObjOrder.Order2ndDeliveryDate, dtRw);
+		if(dpObjOrder.Order2ndDeliveryDate.getDateValue(dtRw) != null) {
+			str08 = getFormattedDate(dpObjOrder.Order2ndDeliveryDate, dtRw);
 		}
 		
-		if(vObjOrder.Order3rdDeliveryDate.getDateValue(dtRw) != null) {
-			str09 = getFormattedDate(vObjOrder.Order3rdDeliveryDate, dtRw);
+		if(dpObjOrder.Order3rdDeliveryDate.getDateValue(dtRw) != null) {
+			str09 = getFormattedDate(dpObjOrder.Order3rdDeliveryDate, dtRw);
 		}
 		
 		lbl01.setText(str01);
@@ -593,12 +593,12 @@ TablePanel {
 	void setFirstRecord() {
 		
 		if(sAccountCode != "") {
-			if(vObjOrder.getOrderContains(sAccountCode,"").getRowSet() != null && vObjOrder.getOrderContains(sAccountCode,"").getRowSet().getSize() > 0) {
-				setRow(vObjOrder.getOrderContains(sAccountCode,"").getRowSet().first());
+			if(dpObjOrder.getOrderContains(sAccountCode,"").getRowSet() != null && dpObjOrder.getOrderContains(sAccountCode,"").getRowSet().getSize() > 0) {
+				setRow(dpObjOrder.getOrderContains(sAccountCode,"").getRowSet().first());
 			}		
 		} else {
-			if(vObjOrder.getOrderContains("").getRowSet() != null && vObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
-				setRow(vObjOrder.getOrderContains("").getRowSet().first());
+			if(dpObjOrder.getOrderContains("").getRowSet() != null && dpObjOrder.getOrderContains("").getRowSet().getSize() > 0) {
+				setRow(dpObjOrder.getOrderContains("").getRowSet().first());
 			}		
 		}
 		

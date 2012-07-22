@@ -71,12 +71,12 @@ TableViewCell {
 		txtDiscount2.setDataModel(numMdlDiscount2);
 		
 		
-		numMdlQuantity1.addField(vObjOrderItem.OrderItemQty1);
-		numMdlQuantity2.addField(vObjOrderItem.OrderItemQty2);
-		numMdlQuantity3.addField(vObjOrderItem.OrderItemQty3);
+		numMdlQuantity1.addField(dpObjOrderItem.OrderItemQty1);
+		numMdlQuantity2.addField(dpObjOrderItem.OrderItemQty2);
+		numMdlQuantity3.addField(dpObjOrderItem.OrderItemQty3);
 		
-		numMdlDiscount1.addField(vObjOrderItem.OrderItemProductDiscount1);
-		numMdlDiscount2.addField(vObjOrderItem.OrderItemProductDiscount2);
+		numMdlDiscount1.addField(dpObjOrderItem.OrderItemProductDiscount1);
+		numMdlDiscount2.addField(dpObjOrderItem.OrderItemProductDiscount2);
 			
 		lblProductCode.setFont(fnt);
 		lblProductCode.setForeColor(Colors.Black);	
@@ -104,47 +104,47 @@ TableViewCell {
 	}
 			
 	void populateData(DataRow row, int grp){		
-		String image=vObjOrderItem.OrderItemProductImage.getStringValue(row);
+		String image=dpObjOrderItem.OrderItemProductImage.getStringValue(row);
 		appLog.log(Log.INFO,"getting image "+image);
 		ImageReference img=(ImageReference)productImageMap.getValue(image);
 		appLog.log(Log.INFO,"setting image "+image);
 		if(img!=null)	picBox.setImage(img);
 		appLog.log(Log.INFO,"set image "+image);
 					
-		lblProductCode.setText(vObjOrderItem.OrderItemProductCode.getStringValue(row));
+		lblProductCode.setText(dpObjOrderItem.OrderItemProductCode.getStringValue(row));
 		appLog.log(Log.INFO,"set productCode ");
-		lblName.setText(vObjOrderItem.OrderItemProductName.getStringValue(row));
+		lblName.setText(dpObjOrderItem.OrderItemProductName.getStringValue(row));
 		appLog.log(Log.INFO,"set productName ");
-		Double unitPrice=vObjOrderItem.OrderItemProductPrice.getCurrencyValue(row);
+		Double unitPrice=dpObjOrderItem.OrderItemProductPrice.getCurrencyValue(row);
 		if(unitPrice!=null)	lblUnitPrice.setText(unitPrice.toString());
 		appLog.log(Log.INFO,"set productPrice ");
 		/*
 		
-		lblTotal1.setText(vObjOrderItem.OrderItemTotalGross.getCurrencyValue(row).toString());
+		lblTotal1.setText(dpObjOrderItem.OrderItemTotalGross.getCurrencyValue(row).toString());
 		appLog.log(Log.INFO,"set total1 ");
-		lblTotal2.setText(vObjOrderItem.OrderItemTotalNet.getCurrencyValue(row).toString());
+		lblTotal2.setText(dpObjOrderItem.OrderItemTotalNet.getCurrencyValue(row).toString());
 		appLog.log(Log.INFO,"set total2 ");
 		
 		*/
-		lblCategory.setText(vObjOrderItem.OrderItemProductCategory.getStringValue(row));
+		lblCategory.setText(dpObjOrderItem.OrderItemProductCategory.getStringValue(row));
 		/*
 		
-		Double TOT2=vObjOrderItem.OrderItemTotalGross.getCurrencyValue(row);
+		Double TOT2=dpObjOrderItem.OrderItemTotalGross.getCurrencyValue(row);
 		double tot2=0.0;
 		if(TOT2!=null) tot2=TOT2.doubleValue();
 		
 		
-		Double TOT1=vObjOrderItem.OrderItemTotalNet.getCurrencyValue(row);
+		Double TOT1=dpObjOrderItem.OrderItemTotalNet.getCurrencyValue(row);
 		double tot1=0.0;
 		if(TOT1!=null) tot1=TOT1.doubleValue();
 		
-		int totQty=vObjOrderItem.OrderItemTotalQty.getIntegerValue(row).intValue();
+		int totQty=dpObjOrderItem.OrderItemTotalQty.getIntegerValue(row).intValue();
 		*/
 		switch(grp){			
 			case 0:							
 				txtQuantity1.setDataModel(numMdlQuantity1);
 				/*
-				int qty=vObjOrderItem.OrderItemQty1.getIntegerValue(row).intValue();
+				int qty=dpObjOrderItem.OrderItemQty1.getIntegerValue(row).intValue();
 				double tot=tot2/totQty*qty;				
 				lblTotal1.setText(""+tot);				
 				tot=tot1/totQty*qty;
@@ -179,10 +179,10 @@ TableViewCell {
 		TextField txtQuantity=(TextField) c;
 		String qty=txtQuantity.getText();
 		if(qty!=null && qty!="")		
-			//vObjListItem.Qty1.setIntegerValue(Platform.createInteger(qty),cellRow);
+			//dpObjListItem.Qty1.setIntegerValue(Platform.createInteger(qty),cellRow);
 			att.setIntegerValue(Platform.createInteger(qty),cellRow);
-		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(cellRow).toString());
-		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(cellRow).toString());
+		lblTotal1.setText(dpObjListItem.Total1.getCurrencyValue(cellRow).toString());
+		lblTotal2.setText(dpObjListItem.Total2.getCurrencyValue(cellRow).toString());
 	}
 	
 	
@@ -197,15 +197,15 @@ TableViewCell {
 		TextField txtQuantity=(TextField) c;
 		String qty=txtQuantity.getText();
 		if(qty!=null && qty!="")		
-			//vObjListItem.Qty1.setIntegerValue(Platform.createInteger(qty),cellRow);
+			//dpObjListItem.Qty1.setIntegerValue(Platform.createInteger(qty),cellRow);
 			att.setDoubleValue(Platform.createDouble(qty),cellRow);
-		lblTotal1.setText(vObjListItem.Total1.getCurrencyValue(cellRow).toString());
-		lblTotal2.setText(vObjListItem.Total2.getCurrencyValue(cellRow).toString());
+		lblTotal1.setText(dpObjListItem.Total1.getCurrencyValue(cellRow).toString());
+		lblTotal2.setText(dpObjListItem.Total2.getCurrencyValue(cellRow).toString());
 	}
 		
 	
 	callback txtQuantity1 onFocusLost(Control c){
-		setQty(c,vObjListItem.Qty1);
+		setQty(c,dpObjListItem.Qty1);
 	
 	}
 	callback txtQuantity1 onFocusGained(Control c){
@@ -213,7 +213,7 @@ TableViewCell {
 	}
 	
 	callback txtQuantity2 onFocusLost(Control c){
-		setQty(c,vObjListItem.Qty2);
+		setQty(c,dpObjListItem.Qty2);
 	
 	}
 	callback txtQuantity2 onFocusGained(Control c){
@@ -221,7 +221,7 @@ TableViewCell {
 	}
 	
 	callback txtQuantity3 onFocusLost(Control c){
-		setQty(c,vObjListItem.Qty3);
+		setQty(c,dpObjListItem.Qty3);
 	
 	}
 	callback txtQuantity3 onFocusGained(Control c){
@@ -230,13 +230,13 @@ TableViewCell {
 	
 	
 	callback txtDiscount1 onFocusLost(Control c){
-		setDiscount(c,vObjListItem.Discount1);
+		setDiscount(c,dpObjListItem.Discount1);
 	}
 	callback txtDiscount1 onFocusGained(Control c){
 		cleanQty(c);
 	}
 	callback txtDiscount2 onFocusLost(Control c){
-		setDiscount(c,vObjListItem.Discount2);
+		setDiscount(c,dpObjListItem.Discount2);
 	}
 	callback txtDiscount2 onFocusGained(Control c){
 		cleanQty(c);

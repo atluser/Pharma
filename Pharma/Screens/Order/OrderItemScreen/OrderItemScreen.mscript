@@ -9,7 +9,8 @@ Screen {
 	ObjectArray arrObj=new ObjectArray();
 	ScrollableVerticalPanel cvDtlTP=new ScrollableVerticalPanel();
 	//Panels.OrderEntry.DetailTP cvDtlTP=new Panels.OrderEntry.DetailTP();	
-	
+	Panels.Order.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Order.ReadOnlyDetailFormPanel();
+	Panels.Order.EditFormScrollableTablePanel fp = new Panels.Order.EditFormScrollableTablePanel();
 //	Panels.OrderEntry.HeaderPanel hp=new Panels.OrderEntry.HeaderPanel(); 
 	BackgroundButton btnConfirm=new BackgroundButton();
 	
@@ -182,6 +183,12 @@ Screen {
 	//	stk.orderCode=orderCode;		
 	//	stk.setQuery("");
 		stk.init(orderCode);
+	}
+	
+	void init(DataRow row, TablePanel tp,TablePanel accfp){//}, TablePanel condp){
+		pnlDetailForm=(Panels.Order.ReadOnlyDetailFormPanel)accfp;				
+		stk=(Panels.Order.OrderItemStickyTablePanel)tp;
+		fp.setRow(row);
 	}
 	
 		

@@ -85,8 +85,8 @@ TablePanel {
 		
 		DataRow dtRw = info.getDataRow();
 		if(!dtRw.isDeleted()){		
-			String str01 = vObjAccount.AccountName.getStringValue(dtRw);
-			String str02 = vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " - (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")";					
+			String str01 = dpObjAccount.AccountName.getStringValue(dtRw);
+			String str02 = dpObjAccount.AccountStreetAddress.getStringValue(dtRw) + " - " + dpObjAccount.AccountCity.getStringValue(dtRw) + " - (" + dpObjAccount.AccountProvince.getStringValue(dtRw) + ")";					
 	
 			tblVwCell.lbl01.setText(str01);
 			tblVwCell.lbl02.setText(str02);
@@ -107,7 +107,7 @@ TablePanel {
 		
 		//pnlDetailForm.setRow(rsm.getRow());
 		//pnlDetail.setRow(rsm.getRow());
-		pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(rsm.getRow()));
+		pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(rsm.getRow()));
 		pnlDetailForm.setRow(rsm.getRow());
 		
 	}
@@ -180,12 +180,12 @@ TablePanel {
 	
 	callback src onValueChangingPaused(Control c){
 		//appLog.log(Log.INFO,"paused");
-		//Query q=vObjAccount.getAccountContains(tblSearch.getText());
+		//Query q=dpObjAccount.getAccountContains(tblSearch.getText());
 		executeQuery(src.getText());
 		stk.reload();
 		if (rsm.getRowCount(0)>0) {
 			stk.select(0,0);
-			pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(rsm.getRow()));
+			pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(rsm.getRow()));
 			pnlDetailForm.setRow(rsm.getRow());
 		}
 	}
@@ -197,7 +197,7 @@ TablePanel {
 		stk.reload();
 		if (rsm.getRowCount(0)>0) {
 			stk.select(0,0);
-			pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(rsm.getRow()));
+			pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(rsm.getRow()));
 			pnlDetailForm.setRow(rsm.getRow());
 		}
 		//iRowCount = pnlDetail.getRowCount();
@@ -240,7 +240,7 @@ TablePanel {
 		/*
 		for (int i=0;i<rsm.getGroupCount();i++){
 			RowSetModel component=rsm.getComponent(i);
-			Query q=vObjAccount.getAccountContains(arr.getItem(i),s);
+			Query q=dpObjAccount.getAccountContains(arr.getItem(i),s);
 			component.setRows(q);
 		}*/
 	}
@@ -252,7 +252,7 @@ TablePanel {
 		arr.removeAllItems();
 		for(int i = 0; i < letterList.length(); i++) {	
 			RowSetModel rsm1 = new RowSetModel();
-			rsm1.setRows(vObjAccount.getAccountStartsWith(letterList.getItem(i)));
+			rsm1.setRows(dpObjAccount.getAccountStartsWith(letterList.getItem(i)));
 			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - "+ i + " : " + rsm1.getRowCount(0));	
 			if(rsm1.getRowCount(0) > 0) {
 				
@@ -273,7 +273,7 @@ TablePanel {
 		for(int i = 0; i < letterList.length(); i++) {
 			
 			RowSetModel rsm1 = new RowSetModel();
-			rsm1.setRows(vObjAccount.getAccountContains(letterList.getItem(i),s));
+			rsm1.setRows(dpObjAccount.getAccountContains(letterList.getItem(i),s));
 			
 			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - "+ i + " : " + rsm1.getRowCount(0));
 			

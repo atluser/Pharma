@@ -1,83 +1,26 @@
 DataStoreObject {
-	
 	// Dettaglio Ordine
-	StringField OrderCode {
-		return null;
-	}
-	
-	DateField OrderDate {
-		return Platform.createDate();
-	}	
-	
-	StringField OrderType {
-		return "Ordine di Vendita";
-	}
-	
-	StringField AccountCode{
-		return null;
-	}
-	
-	StringField AccountName{
-		//return vObjUtil.getAccountName(AccountCode);
-		return null;		
-	}
-	
-	StringField OrderPriceList {
-		return "Listino Base";
-	}	
-	
-	StringField OrderStatus{
-		return null;
-	}
-	
+	StringField OrderId				{return null;}
+	StringField OrderCode 			{return null;}
+	DateField OrderDate 			{return Platform.createDate();}	
+	StringField OrderType 			{return "Ordine di Vendita";}
+	StringField AccountCode			{return null;}
+	StringField AccountName			{return null;}//{return vObjUtil.getAccountName(AccountCode);}
+	StringField OrderPriceList 		{return "Listino Base";}	
+	StringField OrderStatus			{return null;}
 	// Consegna e Pagamento
-	DateField Order1stDeliveryDate {
-		return Platform.createDate();
-		//return null;
-	}
-
-	DateField Order2ndDeliveryDate {
-		return Platform.createDate();
-		//return null;
-	}	
-		
-	DateField Order3rdDeliveryDate {
-		return Platform.createDate();
-		//return null;
-	}	
-	
-	StringField OrderPaymentMode {
-		return null;
-	}
-		
-	StringField OrderNote {
-		return null;
-	}	
-		
+	DateField Order1stDeliveryDate 	{return null;}
+	DateField Order2ndDeliveryDate 	{return null;}	
+	DateField Order3rdDeliveryDate 	{return null;}	
+	StringField OrderPaymentMode	{return null;}
+	StringField OrderNote 			{return null;}	
 	// Totali Ordine
-	CurrencyField OrderTotalGross {
-		return null;
-		//return Platform.createDouble(vObjUtil.getOrderTotalGross(OrderCode));
-	}
-
-	CurrencyField OrderTotalNet {
-		return null;
-		//return Platform.createDouble(vObjUtil.getOrderTotalNet(OrderCode));
-	}
-
-	DoubleField OrderTotalDiscount {
-		return null;
-		//return Platform.createDouble(100.0*(1.0-OrderTotalNet.doubleValue()/OrderTotalGross.doubleValue()));
-	}
-
+	CurrencyField OrderTotalGross 	{return null;}//{return Platform.createDouble(vObjUtil.getOrderTotalGross(OrderCode));}
+	CurrencyField OrderTotalNet 	{return null;}//{return Platform.createDouble(vObjUtil.getOrderTotalNet(OrderCode));}
+	DoubleField OrderTotalDiscount 	{return null;}//{return Platform.createDouble(100.0*(1.0-OrderTotalNet.doubleValue()/OrderTotalGross.doubleValue()));}
 	//Da Eliminare	
-	StringField PromotionCode{
-		return null;
-	}
-	
-	IntegerField PromotionMinQty{
-		return Platform.createInteger(0);
-	}
+	StringField PromotionCode		{return null;}
+	IntegerField PromotionMinQty	{return Platform.createInteger(0);}
 	//
 	
 	Query getOrders() {

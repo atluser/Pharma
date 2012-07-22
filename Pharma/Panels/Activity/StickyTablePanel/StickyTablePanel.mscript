@@ -28,7 +28,7 @@ TablePanel {
 		pnlIndex.setArray(arr);
 		
 		//setQuery("");
-		Query q=vObjEvent.createQuery();
+		Query q=dpObjEvent.createQuery();
 		if(q!=null)	rsm.setRows(q);
 		//setQuery("");	
 		
@@ -68,16 +68,16 @@ TablePanel {
 		
 		DataRow dtRw = info.getDataRow();
 		if(!dtRw.isDeleted()){		
-			/*String str01 = vObjEvent.Subject.getStringValue(dtRw);
-			String str02 = vObjEvent.StartDate.getDateValue(dtRw).toString();					
+			/*String str01 = dpObjEvent.Subject.getStringValue(dtRw);
+			String str02 = dpObjEvent.StartDate.getDateValue(dtRw).toString();					
 	*/
 	/*
 			String str01 = dpObjContact.ContactLastName.getStringValue(dtRw) + " " + dpObjContact.ContactName.getStringValue(dtRw);
 			str01 = str01.toUpperCase();
 			String str02 = dpObjContact.ContactEmail.getStringValue(dtRw);					
 	*/
-			String str01 = vObjAccount.AccountName.getStringValue(dtRw);
-			String str02 = vObjAccount.AccountStreetAddress.getStringValue(dtRw) + " - " + vObjAccount.AccountCity.getStringValue(dtRw) + " - (" + vObjAccount.AccountProvince.getStringValue(dtRw) + ")";					
+			String str01 = dpObjAccount.AccountName.getStringValue(dtRw);
+			String str02 = dpObjAccount.AccountStreetAddress.getStringValue(dtRw) + " - " + dpObjAccount.AccountCity.getStringValue(dtRw) + " - (" + dpObjAccount.AccountProvince.getStringValue(dtRw) + ")";					
 	
 	
 			tblVwCell.lbl01.setText(str01);
@@ -100,7 +100,7 @@ TablePanel {
 		//pnlDetailForm.setRow(rsm.getRow());
 		//pnlDetail.setRow(rsm.getRow());
 		
-		pnlDetail.txtFldName.setText(vObjEvent.Subject.getStringValue(rsm.getRow()));
+		pnlDetail.txtFldName.setText(dpObjEvent.Subject.getStringValue(rsm.getRow()));
 		pnlDetailForm.setRow(rsm.getRow());
 		
 	}
@@ -173,12 +173,12 @@ TablePanel {
 	
 	callback tblSearch onValueChangingPaused(Control c){
 		//appLog.log(Log.INFO,"paused");
-		//Query q=vObjAccount.getAccountContains(tblSearch.getText());
+		//Query q=dpObjAccount.getAccountContains(tblSearch.getText());
 		//executeQuery(tblSearch.getText());
 		stk.reload();
 		if (rsm.getRowCount(0)>0) {
 			stk.select(0,0);
-			pnlDetail.txtFldName.setText(vObjEvent.Subject.getStringValue(rsm.getRow()));
+			pnlDetail.txtFldName.setText(dpObjEvent.Subject.getStringValue(rsm.getRow()));
 			pnlDetailForm.setRow(rsm.getRow());
 		}
 	}
@@ -209,7 +209,7 @@ TablePanel {
 			
 			RowSetModel rsm1 = new RowSetModel();
 			//rsm1.setRows(dpObjContact.contactContainsStartsWith(letterList.getItem(i),s));
-			rsm1.setRows(vObjAccount.accountContains(letterList.getItem(i),s));
+			rsm1.setRows(dpObjAccount.accountContains(letterList.getItem(i),s));
 			
 			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - "+ i + " : " + rsm1.getRowCount(0));
 			
