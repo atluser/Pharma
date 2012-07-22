@@ -5552,28 +5552,4 @@
       </children>
     </children>
   </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="CrmEntity">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="CrmEntity.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Event">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Event.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListItem">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListItem.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListOfValues">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListOfValues.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="PriceList">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceList.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="PriceListItem">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceListItem.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ProductList">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ProductList.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Products">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Products.mscript"/>
-  </children>
 </com.vaultus.studio.ecore.studio:UIProject>

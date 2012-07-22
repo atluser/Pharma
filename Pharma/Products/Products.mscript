@@ -1,7 +1,0 @@
-VirtualObject {
-	StringField ProductCode{return null;}
-	StringField ProductName{return null;}
-	StringField ProductCategory{return null;}
-
-}
-
