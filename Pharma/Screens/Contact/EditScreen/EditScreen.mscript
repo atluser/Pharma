@@ -181,6 +181,7 @@ Screen {
 			originListStk.reload();*/
 			//detailStk.reload();
 			//pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(fp.currentRow) + " " + dpObjContact.ContactLastName.getStringValue(fp.currentRow));
+			//logApp.log(LogINFO,"")
 			pnlDetailForm.setRow(ContactRowContext);
 			if(sOpenDP==true)
 				vObjUtil.loadContact();
@@ -249,13 +250,13 @@ Screen {
 	
 	}
 	
-	void init(DataRow row, TablePanel tp,TablePanel accfp, TablePanel condp){
+	void init(DataRow row, TablePanel tp,TablePanel accfp){
 		//sticky table origine dati				
 		//detail form
 		
 		pnlDetailForm=(Panels.Contact.ReadOnlyDetailFormPanel)accfp;				
 		stkTP=(Panels.Contact.StickyTablePanel)tp;
-		pnlDetail=(Panels.DetailPanel)condp;
+		//pnlDetail=(Panels.DetailPanel)condp;
 		fp.setRow(row);
 		//refresh();		
 			

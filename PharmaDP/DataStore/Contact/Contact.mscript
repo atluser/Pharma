@@ -159,13 +159,13 @@ DataStoreObject {
 		}
 
 	
-	//Retrieve contacts that starts with a given letter and caontains a given string
+	//Retrieve contacts that starts with a given letter and contains a given string
 	Query getContactContainsStartsWith(String letter, String src) {
 		return contactContainsStartsWith(letter,src);
 	}
 		query contactContainsStartsWith<String letter, String src> {
 			where ContactLastName startsWith letter; 
-			where ContactLastName contains src;
+			where ContactLastName contains src; 
 			ascendingBy ContactLastName;
 		}
 		

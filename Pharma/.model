@@ -5367,7 +5367,7 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="EditFormScrollableTablePanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditFormScrollableTablePanel.mscript"/>
       </children>
-      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ReadOnlyDetailFormPanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ReadOnlyDetailFormPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ReadOnlyDetailFormPanel.mscript"/>
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
@@ -5522,6 +5522,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Contact">
       <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="EditScreen">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditScreen.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="MapScreen">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MapScreen.mscript"/>
       </children>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Order">

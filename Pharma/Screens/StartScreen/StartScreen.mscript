@@ -5,6 +5,7 @@ Screen {
 	
 	callback actClear onRun(Action a) {
 		dp.clearData();
+		iNumContacts=0;
 	}
 	
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){

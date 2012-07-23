@@ -69,6 +69,7 @@ TablePanel {
 		
 	}
 	
+	/*
 	callback lnkA onClick (Control c) {
 		if (lnkA.isEnabled()) {
 			Popover popLetter = new Popover();
@@ -82,8 +83,8 @@ TablePanel {
 			scrHome.showPopover(popLetter,false,null);
 		}
 	}
+	*/
 	
-	/*
 	callback lnkA onClick(Control c) {
 		if(lnkA.isEnabled()) {
 			appLog.log(Log.INFO, "IndexPanel - lnkA onClick()");
@@ -91,7 +92,7 @@ TablePanel {
 			stkTbl.select(arr.findItem("A"),0);
 		}
 	}
-	*/
+	
 
 	callback lnkB onClick(Control c) {
 		if(lnkB.isEnabled()) {

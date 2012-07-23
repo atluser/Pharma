@@ -5,7 +5,7 @@ Screen {
 	
 	Panels.Contact.StickyTablePanel stk = new Panels.Contact.StickyTablePanel();
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Contact.ReadOnlyDetailFormPanel();
-	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
+	//Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 	BorderPanel brdPanelRoot = new BorderPanel();
 	
 	Button btnHome = new Button();
@@ -77,11 +77,11 @@ Screen {
 		pnlDetailForm.setContactScreen((Screens.Account.ContactScreen) container);
 		pnlDetailForm.setFirstRecord();
 		
-		pnlDetail.setContentPanel(pnlDetailForm);	
+		//pnlDetail.setContentPanel(pnlDetailForm);	
 		DataRow firstRow = dpObjContact.getContactsFromAccount(sAccountCode).getRowSet().first();
-		pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(firstRow) + " " + dpObjContact.ContactLastName.getStringValue(firstRow));		
-		
-		stk.setDetailPanel(pnlDetail);
+		//pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(firstRow) + " " + dpObjContact.ContactLastName.getStringValue(firstRow));		
+		pnlDetailForm.setRow(firstRow);
+		//stk.setDetailPanel(pnlDetail);
 		stk.setDetailFormPanel(pnlDetailForm);
 
 		/*if(stk.rsm.hasMoreRows(0)){
@@ -101,7 +101,7 @@ Screen {
 		
 		//adding  panesls to root panel
 		pnlRoot.add(pnlMaster, fill);
-	 	pnlRoot.add(pnlDetail, fill);
+	 	pnlRoot.add(pnlDetailForm, fill);
 	 	pnlRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
 	 	
 	 	//put the header and the root in the border panel
@@ -186,7 +186,7 @@ Screen {
 		scr.setAccountCode(sAccountCode);
 		appLog.log(Log.INFO,"account code "+sAccountCode);
 		DataRow row=vObjUtil.getNewContact(sAccountCode);
-		scr.init(row,stk,pnlDetailForm,pnlDetail);
+		scr.init(row,stk,pnlDetailForm);
 		scr.push(Animation.PUSH_FROM_BOTTOM,false); 
 	}
 
@@ -198,7 +198,7 @@ Screen {
 		//detailStk=pnlAccountRoot.getDetailStickyTable();
 		//pnlDetailForm=pnlContactRoot.pnlDetailForm;
 		Screens.Contact.EditScreen scr = new Screens.Contact.EditScreen();
-		scr.init(row,stk,pnlDetailForm,pnlDetail);		
+		scr.init(row,stk,pnlDetailForm);		
 		scr.push(Animation.PUSH_FROM_BOTTOM, false);
 	}		
 	

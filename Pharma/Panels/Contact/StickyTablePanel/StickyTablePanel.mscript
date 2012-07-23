@@ -20,6 +20,8 @@ TablePanel {
 	BackgroundButton btnClearSearch = new BackgroundButton();
 	//Button btnClearSearch = new Button();
 	String fill = "hfill=fill, vfill=fill";
+	
+	Button btnMapView = new Button(); 
 
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
 	Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
@@ -37,7 +39,7 @@ TablePanel {
 		setColumnWidth(1, Sizing.PREFERRED, 0);
 		setRowHeight(0, Sizing.PIXELS, 60);
 		setRowHeight(1, Sizing.PREFERRED, 1);	
-		//setRowHeight(2, Sizing.PREFERRED, 0);
+		setRowHeight(2, Sizing.PREFERRED, 0);
 		
 		pnlIndex.setHomeScreen(scrHome);
 		pnlIndex.setStickyTable(stk);
@@ -61,12 +63,15 @@ TablePanel {
 		
 		startNewRow();
 		add(stk, "hfill=fill,vfill=fill");
-		add(pnlIndex, "hfill=fill,valign=top");	
+		add(pnlIndex, "hfill=fill,valign=top");
+		startNewRow();
+		btnMapView.setText("Map View");
+		add(btnMapView,"colspan=2, vfill=fill, hfill=fill");	
 		
 		setInsets(0,0,0,0);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
 		
-			
+		pnlDetailForm.setStickyTable((Panels.Contact.StickyTablePanel) c);
 		
 		/*	stk.scrollTo(0,0,StickyTable.SCROLL_POSITION_TOP);
 		 *	stk.select(0,0);
@@ -186,7 +191,7 @@ TablePanel {
 		stk.reload();
 		if (mrsm.getRowCount(0)>0) {
 			stk.select(0,0);
-			pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(mrsm.getRow()));
+			//pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(mrsm.getRow()));
 			pnlDetailForm.setRow(mrsm.getRow());
 		}
 		
@@ -214,6 +219,12 @@ TablePanel {
 			default:
 				lblRowCount.setText("" + iRowCount + " Account/s");
 		}
+	}
+
+	callback btnMapView onClick(Control c) {
+		Screens.Contact.MapScreen scrMap = new Screens.Contact.MapScreen();
+		scrMap.mapField.clearLocations();
+		scrMap.push(Animation.SLIDE_FROM_RIGHT,false);
 	}
 	
 	/*

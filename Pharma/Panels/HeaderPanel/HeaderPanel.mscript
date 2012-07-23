@@ -9,6 +9,7 @@ HorizontalPanel {
 	int iTmpIdx = 4; 
 
 	int currentEntity=0; 
+	
 
 	StackPanel stkPnl;
 	Panels.Account.RootTablePanel pnlAccountRoot;
@@ -106,6 +107,22 @@ HorizontalPanel {
 
 		logApp.log(Log.INFO, "HeaderPanel - rg onToolBarButtonClicked()");
 		btnToolbarClick(idxClicked);		
+		switch (idxClicked) {
+			
+			case 1:
+				//Contatti
+				if(iNumContacts<1) {
+					DataRow row=vObjUtil.getNewContactRow();
+					TablePanel pnlDetailForm=pnlContactRoot.pnlDetailForm;
+					Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();
+					TablePanel stkTP=pnlContactRoot.stk;
+					scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);
+					scrNewOrEditRecordCon.push(Animation.PUSH_FROM_BOTTOM, false);
+					MessageBox msgBox = new MessageBox();
+					msgBox.info(1,"Non esistono contatti. Creane uno!");
+				}
+			break;
+		}
 	}
 
 
@@ -149,10 +166,10 @@ HorizontalPanel {
 				row=vObjUtil.getNewContactRow();
 				originStk=pnlContactRoot.getStickyTable();
 				pnlDetailForm=pnlContactRoot.pnlDetailForm;
-				pnlDetail=pnlContactRoot.pnlDetail;
+				//pnlDetail=pnlContactRoot.pnlDetail;
 				stkTP=pnlContactRoot.stk;
 				Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();
-				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm, pnlDetail);
+				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);
 				scrNewOrEditRecordCon.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 		}
@@ -203,7 +220,7 @@ HorizontalPanel {
 				//detailStk=pnlAccountRoot.getDetailStickyTable();
 				pnlDetailForm=pnlContactRoot.pnlDetailForm;
 				Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();
-				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm,pnlDetail);		
+				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);		
 				scrNewOrEditRecordCon.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 		}
@@ -551,5 +568,5 @@ HorizontalPanel {
 		}						
 		
 	}
-
+	
 }
