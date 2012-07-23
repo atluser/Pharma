@@ -250,11 +250,9 @@ Screen {
 	
 	}
 	
-<<<<<<< HEAD
-	void init(DataRow row, TablePanel tp,TablePanel accfp){
-=======
+
 	void init(DataRow row, TablePanel tp,TablePanel accfp){//}, TablePanel condp){
->>>>>>> e0a39e52685e7bfedfa06c55acac965b93fc0846
+
 		//sticky table origine dati				
 		//detail form
 		

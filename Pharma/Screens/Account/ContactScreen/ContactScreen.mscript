@@ -186,11 +186,7 @@ Screen {
 		scr.setAccountCode(sAccountCode);
 		appLog.log(Log.INFO,"account code "+sAccountCode);
 		DataRow row=vObjUtil.getNewContact(sAccountCode);
-<<<<<<< HEAD
 		scr.init(row,stk,pnlDetailForm);
-=======
-		scr.init(row,stk,pnlDetailForm);//,pnlDetail);
->>>>>>> e0a39e52685e7bfedfa06c55acac965b93fc0846
 		scr.push(Animation.PUSH_FROM_BOTTOM,false); 
 	}
 
@@ -202,11 +198,7 @@ Screen {
 		//detailStk=pnlAccountRoot.getDetailStickyTable();
 		//pnlDetailForm=pnlContactRoot.pnlDetailForm;
 		Screens.Contact.EditScreen scr = new Screens.Contact.EditScreen();
-<<<<<<< HEAD
 		scr.init(row,stk,pnlDetailForm);		
-=======
-		scr.init(row,stk,pnlDetailForm);//,pnlDetail);		
->>>>>>> e0a39e52685e7bfedfa06c55acac965b93fc0846
 		scr.push(Animation.PUSH_FROM_BOTTOM, false);
 	}		
 	

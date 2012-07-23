@@ -169,11 +169,7 @@ HorizontalPanel {
 				//pnlDetail=pnlContactRoot.pnlDetail;
 				stkTP=pnlContactRoot.stk;
 				Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();
-<<<<<<< HEAD
 				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);
-=======
-				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);//, pnlDetail);
->>>>>>> e0a39e52685e7bfedfa06c55acac965b93fc0846
 				scrNewOrEditRecordCon.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 		}
@@ -224,11 +220,7 @@ HorizontalPanel {
 				//detailStk=pnlAccountRoot.getDetailStickyTable();
 				pnlDetailForm=pnlContactRoot.pnlDetailForm;
 				Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();
-<<<<<<< HEAD
 				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);		
-=======
-				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);//,pnlDetail);		
->>>>>>> e0a39e52685e7bfedfa06c55acac965b93fc0846
 				scrNewOrEditRecordCon.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 		}
