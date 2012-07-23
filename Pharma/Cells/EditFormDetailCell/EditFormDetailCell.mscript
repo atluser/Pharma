@@ -38,9 +38,9 @@ TableViewCell {
 		else if(fieldType.equals("ComboBox")){
 			data=new ComboBox();
 			choiceModel=new ChoiceModel();
-			choiceModel.setChoicesAttribute(vObjLOV.Value);
-			choiceModel.setChoicesKeyAttribute(vObjLOV.Name);
-			Query q=vObjLOV.getLOV(picklist);
+			choiceModel.setChoicesAttribute(dpObjLOV.Value);
+			choiceModel.setChoicesKeyAttribute(dpObjLOV.Name);
+			Query q=dpObjLOV.getLOV(picklist);
 			choiceModel.setRows(q);
 			model=choiceModel;
 			//data.setDataModel(choiceModel);

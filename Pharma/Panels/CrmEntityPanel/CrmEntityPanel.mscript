@@ -20,7 +20,7 @@ TablePanel {
 		//set size (note: this is required)
 		setRowHeight(0, Sizing.PREFERRED, 1);
 
-		rsm.setRows(vObjCrmEntity.getCrmEntities());
+		rsm.setRows(dpObjCrmEntity.getCrmEntities());
 		
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
@@ -42,10 +42,10 @@ TablePanel {
 		Cells.SimpleTableViewCell tblVwCell = (Cells.SimpleTableViewCell) cell;
 		//tblVwCell.setRow(info.getDataRow());
 		DataRow dtRw = info.getDataRow();
-		String str = vObjCrmEntity.Name.getStringValue(dtRw);
+		String str = dpObjCrmEntity.Name.getStringValue(dtRw);
 		
 		//ERRORE DA VERIFICARE
-		//StringAttribute strAtt = (StringAttribute)vObjCrmEntity.getAttribute("Name");
+		//StringAttribute strAtt = (StringAttribute)dpObjCrmEntity.getAttribute("Name");
 		//String str = strAtt.getStringValue(dtRw);
 		
 		tblVwCell.lbl.setText(str);
@@ -69,7 +69,7 @@ TablePanel {
 	callback stk onSelectionChanged(TableView c , int group , int row) {	
 	
 		logApp.log(Log.INFO, "CrmEntityPanel - stk onSelectionChanged()");
-		pnlHeader.showToolbarButton(vObjCrmEntity.Id.getIntegerValue(rsm.getRow()).intValue());
+		pnlHeader.showToolbarButton(dpObjCrmEntity.Id.getIntegerValue(rsm.getRow()).intValue());
 
 	}
 	

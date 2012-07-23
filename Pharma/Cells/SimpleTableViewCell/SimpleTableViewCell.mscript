@@ -29,7 +29,7 @@ TableViewCell {
 	
 	void setRow(DataRow dtRw) {
 		
-		//String str = vObjCrmEntity.Name.getStringValue(dtRw);
+		//String str = dpObjCrmEntity.Name.getStringValue(dtRw);
 		//txtMdl.setText("   " + str);
 		
 	}

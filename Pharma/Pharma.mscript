@@ -1,18 +1,12 @@
 UIProject {
 	Screens.StartScreen scrStart;
 	Screens.HomeScreen scrHome;
-	
-	/*
-	 * Logs
-	 */
+	/** Logs **/
 	Log logApp = getLog();
 	Log appLog = getLog();
 	
-	/*
-	 * Virtual objects
-	 */
-	CrmEntity vObjCrmEntity = new CrmEntity();
-	//Account vObjAccount = new Account();
+	/** VOUtility **/
+	VOUtility vObjUtil = new VOUtility();
 	
 	/*********************************************
 	LEGGO GLI OGGETTI PRESENTI NEL DATASTORE
@@ -20,54 +14,77 @@ UIProject {
 	PharmaDP.DataStore dp = new PharmaDP.DataStore(); //istanzio il dataproject
 	boolean sOpenDP = false;	//True = dataproject già aperto. False = Dataproject non aperto
 	
-	PharmaDP.DataStore.Account vObjAccount = null; //istanzio l'Account del dp
+	PharmaDP.DataStore.Account dpObjAccount = null; //istanzio l'Account del dp
 	PharmaDP.DataStore.Contact dpObjContact = null; //istanzio i Contact del dp
+	PharmaDP.DataStore.Order dpObjOrder = null; //istanzio gli order del dp
+	PharmaDP.DataStore.OrderItem dpObjOrderItem = null; //istanzio gli orderItem del dp
+	PharmaDP.DataStore.PriceList dpObjPriceList = null; //istanzio i Price Listdel dp
+	PharmaDP.DataStore.PriceListItem dpObjPriceListItem = null; //istanzio i price list item del dp
+	PharmaDP.DataStore.ListOfValues dpObjLOV = null; //istanzio le LOV del dp
+	PharmaDP.DataStore.Event dpObjEvent = null; //istanzio gli event del dp
+	PharmaDP.DataStore.ListItem dpObjListItem = null; //istanzio gli event del dp
+	PharmaDP.DataStore.Products dpObjProducts = null; //istanzio gli event del dp
+	PharmaDP.DataStore.CrmEntity dpObjCrmEntity = null; //istanzio gli event del dp
+	PharmaDP.DataStore.ProductList dpObjProductList = null; //istanzio gli event del dp
+
 		
 	DataRowSet dpRowSetAccnt = null; //DataRowSet contenente gli account
-	DataRow dpRowAccnt = null; //DataRow Account
-	
 	DataRowSet dpRowSetContact = null; //DataRowSet contenente i contatti
+	DataRowSet dpRowSetOrder = null; //DataRowSet contenente gli ordini
+	DataRowSet dpRowSetOrderItem = null; //DataRowSet contenente gli OrderItem
+	DataRowSet dpRowSetPriceList = null; //DataRowSet contenente i price list
+	DataRowSet dpRowSetPriceListItem = null; //DataRowSet contenente i price list item
+	DataRowSet dpRowSetLOV = null; //DataRowSet contenente le LOV
+	DataRowSet dpRowSetEvent = null; //DataRowSet contenente gli events
+	DataRowSet dpRowSetListItem = null; //DataRowSet contenente gli events
+	DataRowSet dpRowSetProducts = null; //DataRowSet contenente gli events
+	DataRowSet dpRowSetCrmEntity = null; //DataRowSet contenente gli events
+	DataRowSet dpRowSetProductList = null; //DataRowSet contenente gli events
+		
+	DataRow dpRowAccnt = null; //DataRow Account
 	DataRow dpRowContact = null; //DataRow contact
+	DataRow dpRowOrder = null; //DataRow Ordini
+	DataRow dpRowOrderItem = null; //DataRow OrderItem
+	DataRow dpRowPriceList = null; //DataRow Price List
+	DataRow dpRowPriceListItem = null; //DataRow Price List Item
+	DataRow dpRowLOV = null; //DataRow LOV
+	DataRow dpRowEvent = null; //DataRow LOV
+	DataRow dpRowListItem = null; //DataRow LOV
+	DataRow dpRowProducts = null; //DataRow LOV
+	DataRow dpRowCrmEntity = null; //DataRow LOV
+	DataRow dpRowProductList = null; //DataRow LOV
 	
 	//Contengono il numero di entità
 	int iNumContacts 		= 0;
 	int iNumAccounts 		= 0;
-	int iNumEvents			= 0;
+	int iNumEvent			= 0;
 	int iNumListItem		= 0;
-	int iNumListOfValue		= 0;
+	int iNumLOV				= 0;
 	int iNumOrder			= 0;
 	int iNumOrderItem		= 0;
 	int iNumPriceList		= 0;
 	int iNumPriceListItem	= 0;
 	int iNumProductList		= 0;
 	int iNumProducts		= 0;
+	int iNumCrmEntity 		= 0;
 	
 	
-	
-	//Contact dpObjContact = new Contact();
-	ListOfValues vObjLOV = new ListOfValues();
-	Order vObjOrder=new Order();
-	OrderItem vObjOrderItem=new OrderItem();
-	ListItem vObjListItem=new ListItem();
-	//PharmaDP.DataStore.PriceListItem vObjPriceListItem=dp.PriceListItem;
-	PriceListItem vObjPriceListItem=new PriceListItem();
-	PriceList vObjList=new PriceList();
-	ProductList vObjProductList=new ProductList();
-	PriceList vObjPriceList=new PriceList();
-	Products vObjProducts=new Products();
-	Event vObjEvent=new Event();
-	//PharmaDP.DataStore.Products vObjProducts=dp.Products;
+	//ListOfValues dpObjLOV = new ListOfValues();
+	//ListItem dpObjListItem=new ListItem();
+	//CrmEntity dpObjCrmEntity = new CrmEntity();
+	//PriceList vObjList=new PriceList();
+	//ProductList dpObjProductList=new ProductList();
+	//PriceList dpObjPriceList=new PriceList();
+	//Products dpObjProducts=new Products();
+	//Event dpObjEvent=new Event();
+	//PharmaDP.DataStore.Products dpObjProducts=dp.Products;
 		
 	// Documents Viewer
     DocumentPreview docPreview; 
     Screens.PdfScreen scrPdf; 	
-	
-	/*
-	 * VOUtility
-	 */
-	VOUtility vObjUtil = new VOUtility();
+    
 	Config.AccountConfig accountConfig=new Config.AccountConfig(); 
-	Config.ContactConfig contactConfig=new Config.ContactConfig();
+	//Config.ContactConfig contactConfig=new Config.ContactConfig();
 	Config.Field cfg=new Config.Field();
 	Config.Sections cfgSections=new Config.Sections();
 	
@@ -136,29 +153,40 @@ UIProject {
 		if(!dp.isOpened()){
 			//sOpenDP=open(dp,Password.create(""),true);
 			sOpenDP = open(dp, null, true); //Apro il dataproject
-			vObjAccount = dp.Account; //istanzio l'Account del dp
+			dpObjAccount = dp.Account; //istanzio l'Account del dp
 			dpObjContact = dp.Contact; //istanzio i Contact del dp
+			dpObjOrder = dp.Order;//istanzio gli order del dp
+			dpObjOrderItem = dp.OrderItem;//istanzio gli order item del dp
+			dpObjPriceList = dp.PriceList;//istanzio i price list del dp
+			dpObjPriceListItem = dp.PriceListItem;//istanzio i price list item del dp
+			dpObjLOV = dp.ListOfValues;//istanzio le LOV del dp
+			dpObjEvent = dp.Event;//istanzio gli event del dp
+			dpObjListItem = dp.ListItem;//istanzio gli event del dp
+			dpObjProducts = dp.Products;//istanzio gli event del dp
+			dpObjCrmEntity = dp.CrmEntity;//istanzio gli event del dp
+			dpObjProductList = dp.ProductList;//istanzio gli event del dp
 		}	
 		
 		if(sOpenDP==true)
 		{
 			vObjUtil.loadAccount();
 			vObjUtil.loadContact();
+			vObjUtil.loadOrder();
+			vObjUtil.loadOrderItem();
+			vObjUtil.loadPriceList();
+			vObjUtil.loadPriceListItem();
+			vObjUtil.loadLOV();
+			vObjUtil.loadEvent();
+			vObjUtil.loadProducts();
+			vObjUtil.loadCrmEntities();
+			//vObjUtil.loadProductList();
 		}
 		letterList=List.split(letter,";");
-		vObjUtil.loadCrmEntities();
-		vObjUtil.loadLOV();
-		vObjUtil.loadProducts();
-		//vObjUtil.loadListItem();
-		vObjUtil.loadPriceList();
-		vObjUtil.loadPriceListItem();
-		vObjUtil.loadOrder();		
-		vObjUtil.loadImage();
-		vObjUtil.loadEvent();
+		vObjUtil.loadImage(); //not a real data....
 		
 		//test join
 		appLog.log(Log.INFO,"LANCIO QUERY ");
-		Query q=vObjProductList.getProductList2(vObjProducts,vObjPriceListItem,"");
+		/*Query q=dpObjProductList.getProductList2(dpObjProducts,dpObjPriceListItem,"");
 		if(q!=null){
 			DataRowSet rs=q.getRowSet();
 			appLog.log(Log.INFO,"query OK");
@@ -166,20 +194,20 @@ UIProject {
 				appLog.log(Log.INFO,"ROWSET not null");
 				appLog.log(Log.INFO,"SIZE "+""+rs.getSize());
 				DataRow row=q.getRowSet().first();
-				String productName=vObjProductList.myProductName.getStringValue(row);
+				String productName=dpObjProductList.myProductName.getStringValue(row);
 				appLog.log(Log.INFO,"PRODUCTNAME "+productName);
 			}
 			else appLog.log(Log.INFO,"rowset null ");
 		
 		}else 
 			appLog.log(Log.INFO,"query is null");
-		
+		*/
 		docPreview = new DocumentPreview();
 		
 		//configura account
 		accountConfig.fillAccountConfig();
 		//configura contact
-		contactConfig.fillContactConfig();
+		//contactConfig.fillContactConfig();
 		
 		//configura stringhe sezione 
 		Config.ScreenConfiguration config=new Config.ScreenConfiguration();

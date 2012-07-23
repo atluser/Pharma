@@ -50,9 +50,9 @@ FormPanel {
 		
 	}
 	void setList(){
-		cmbMdlCanvass.setChoicesAttribute(vObjList.PriceListDescription);
-		cmbMdlCanvass.setChoicesKeyAttribute(vObjList.PriceListCode);
-		cmbMdlCanvass.setRows(vObjList.createQuery());
+		cmbMdlCanvass.setChoicesAttribute(dpObjPriceList.PriceListDescription);
+		cmbMdlCanvass.setChoicesKeyAttribute(dpObjPriceList.PriceListCode);
+		cmbMdlCanvass.setRows(dpObjPriceList.createQuery());
 		
 		pkCanvass.setDataModel(cmbMdlCanvass);
 //		pkrEl.setText("select one");
@@ -72,37 +72,37 @@ FormPanel {
 		fpRow=row;		
 		//appLog.log(Log.INFO,"orderHeaderPanel orderCode "+orderObj.OrderCode.getStringValue(fpRow));
 				
-		txtMdlAccountCode.addField(vObjOrder.AccountCode);
+		txtMdlAccountCode.addField(dpObjOrder.AccountCode);
 		txtMdlAccountCode.setRow(row);
 		txtAccountCode.setDataModel(txtMdlAccountCode);				
 		txtMdlAccountCode.setEditable(false);
 		
 		
-		txtMdlAccountName.addField(vObjOrder.AccountName);
+		txtMdlAccountName.addField(dpObjOrder.AccountName);
 		txtMdlAccountName.setRow(row);
 		txtAccountName.setDataModel(txtMdlAccountName);				
 		txtMdlAccountName.setEditable(false);		
 						
-		txtMdlOrderCode.addField(vObjOrder.OrderCode);
+		txtMdlOrderCode.addField(dpObjOrder.OrderCode);
 		txtMdlOrderCode.setRow(row);
 		txtOrderCode.setDataModel(txtMdlOrderCode);	
 		txtMdlOrderCode.setEditable(false);
 		
-		txtMdlOrderStatus.addField(vObjOrder.OrderStatus);
+		txtMdlOrderStatus.addField(dpObjOrder.OrderStatus);
 		txtMdlOrderStatus.setRow(row);
 		txtOrderStatus.setDataModel(txtMdlOrderStatus);	
 		txtMdlOrderStatus.setEditable(false);
 		
-		txtMdlOrderType.addField(vObjOrder.OrderType);
+		txtMdlOrderType.addField(dpObjOrder.OrderType);
 		txtMdlOrderType.setRow(row);
 		txtOrderType.setDataModel(txtMdlOrderType);	
 		txtMdlOrderType.setEditable(false);
 		
-		dtMdlOrder.addField(vObjOrder.OrderDate);
+		dtMdlOrder.addField(dpObjOrder.OrderDate);
 		dtMdlOrder.setRow(row);
 		dtOrder.setDataModel(dtMdlOrder);			
 		
-		cmbMdlCanvass.addField(vObjOrder.PromotionCode);
+		cmbMdlCanvass.addField(dpObjOrder.PromotionCode);
 		cmbMdlCanvass.setRow(row);
 	}
 	
@@ -111,7 +111,7 @@ FormPanel {
 		cmbMdlCanvass.updateRow();
 		//msgBox.info(1,cmbMdlCanvass.getKeyValue()+"\n"+pkCanvass.getSelectedIndex()+"\n "+cmbMdlCanvass.getSelectedIndex());
 		//orderObj.PromotionCode.setStringValue(cmbMdlCanvass.getKeyValue(),fpRow);		
-		vObjOrder.PromotionCode.setStringValue(""+pkCanvass.getSelectedIndex(),fpRow);
+		dpObjOrder.PromotionCode.setStringValue(""+pkCanvass.getSelectedIndex(),fpRow);
 		fpRow.applyUpdates();		
 	}
 

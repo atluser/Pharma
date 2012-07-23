@@ -35,7 +35,7 @@ UIObject {
 		cfg.ReadOnly.setBooleanValue(Platform.createBoolean(true),row);
 		cfg.FieldType.setStringValue("TextField",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountCode",vObjAccount.AccountCode);
+		accountFieldMap.putValue("AccountCode",dpObjAccount.AccountCode);
 		
 		//AccountName
 		row=cfg.getNewRow();
@@ -46,7 +46,7 @@ UIObject {
 		cfg.Caption.setStringValue("Ragione Sociale",row);
 		cfg.FieldType.setStringValue("TextField",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountName",vObjAccount.AccountName);
+		accountFieldMap.putValue("AccountName",dpObjAccount.AccountName);
 		
 		//accountType		
 		row=cfg.getNewRow();
@@ -58,7 +58,7 @@ UIObject {
 		cfg.ReadOnly.setBooleanValue(Platform.createBoolean(true),row);
 		cfg.FieldType.setStringValue("TextField",row);
 		row.applyUpdates();				
-		accountFieldMap.putValue("AccountType",vObjAccount.AccountType);
+		accountFieldMap.putValue("AccountType",dpObjAccount.AccountType);
 		
 		//accountCategory
 		row=cfg.getNewRow();
@@ -69,7 +69,7 @@ UIObject {
 		cfg.Caption.setStringValue("Categoria",row);
 		cfg.FieldType.setStringValue("TextField",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountCategory",vObjAccount.AccountCategory);
+		accountFieldMap.putValue("AccountCategory",dpObjAccount.AccountCategory);
 		
 		//AccountStatus
 		row=cfg.getNewRow();
@@ -81,7 +81,7 @@ UIObject {
 		cfg.ReadOnly.setBooleanValue(Platform.createBoolean(true),row);
 		cfg.FieldType.setStringValue("TextField",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountStatus",vObjAccount.AccountStatus);
+		accountFieldMap.putValue("AccountStatus",dpObjAccount.AccountStatus);
 		//-------------------------------
 		row=cfg.getNewRow();
 		cfg.Entity.setStringValue("Account",row);
@@ -91,7 +91,7 @@ UIObject {
 		cfg.FieldType.setStringValue("TextField",row);
 		cfg.Caption.setStringValue("Indirizzo",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountStreetAddress",vObjAccount.AccountStreetAddress);
+		accountFieldMap.putValue("AccountStreetAddress",dpObjAccount.AccountStreetAddress);
 		
 		//AccountCity
 		row=cfg.getNewRow();
@@ -102,7 +102,7 @@ UIObject {
 		cfg.FieldType.setStringValue("TextField",row);
 		cfg.Caption.setStringValue("Citta",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountCity",vObjAccount.AccountCity);
+		accountFieldMap.putValue("AccountCity",dpObjAccount.AccountCity);
 		
 		//AccountProvince			
 		row=cfg.getNewRow();
@@ -114,7 +114,7 @@ UIObject {
 		cfg.Caption.setStringValue("Provincia",row);
 		cfg.PickList.setStringValue("PROVINCE",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountProvince",vObjAccount.AccountProvince);
+		accountFieldMap.putValue("AccountProvince",dpObjAccount.AccountProvince);
 		
 		//AccountPostalCode
 		row=cfg.getNewRow();
@@ -125,7 +125,7 @@ UIObject {
 		cfg.FieldType.setStringValue("TextField",row);
 		cfg.Caption.setStringValue("CAP",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountPostalCode",vObjAccount.AccountPostalCode);
+		accountFieldMap.putValue("AccountPostalCode",dpObjAccount.AccountPostalCode);
 		
 		
 		//-----------------------------------------------------
@@ -138,7 +138,7 @@ UIObject {
 		cfg.FieldType.setStringValue("TextField",row);
 		cfg.Caption.setStringValue("e-Mail",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountEmail",vObjAccount.AccountEmail);
+		accountFieldMap.putValue("AccountEmail",dpObjAccount.AccountEmail);
 	
 		//AccountPhone
 		row=cfg.getNewRow();
@@ -149,7 +149,7 @@ UIObject {
 		cfg.FieldType.setStringValue("TextField",row);
 		cfg.Caption.setStringValue("Telefono",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountPhone",vObjAccount.AccountPhone);	
+		accountFieldMap.putValue("AccountPhone",dpObjAccount.AccountPhone);	
 	
 	//AccountFax
 		row=cfg.getNewRow();
@@ -160,7 +160,7 @@ UIObject {
 		cfg.FieldType.setStringValue("TextField",row);
 		cfg.Caption.setStringValue("Fax",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountFax",vObjAccount.AccountFax);
+		accountFieldMap.putValue("AccountFax",dpObjAccount.AccountFax);
 	
 	
 	
@@ -173,7 +173,7 @@ UIObject {
 		cfg.FieldType.setStringValue("TextField",row);
 		cfg.Caption.setStringValue("Sito",row);
 		row.applyUpdates();
-		accountFieldMap.putValue("AccountWebSite",vObjAccount.AccountWebSite);
+		accountFieldMap.putValue("AccountWebSite",dpObjAccount.AccountWebSite);
 		
 		fieldMap.putValue("Account",accountFieldMap);
 	}

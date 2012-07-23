@@ -317,14 +317,14 @@ ScrollableTablePanel {
 	void setChoiceModel(){
 	/*	
 		
-		mdlCountry.setChoicesAttribute(vObjLOV.Value);
-		mdlCountry.setChoicesKeyAttribute(vObjLOV.Name);
-		mdlCountry.setRows(vObjLOV.getLOV("COUNTRY"));		
+		mdlCountry.setChoicesAttribute(dpObjLOV.Value);
+		mdlCountry.setChoicesKeyAttribute(dpObjLOV.Name);
+		mdlCountry.setRows(dpObjLOV.getLOV("COUNTRY"));		
 		//mdlCountry.setSelectedIndex(1);		
 				
-		mdlProvince.setChoicesAttribute(vObjLOV.Name);
-		mdlProvince.setChoicesKeyAttribute(vObjLOV.Name);
-		mdlProvince.setRows(vObjLOV.getLOV("PROVINCE"));
+		mdlProvince.setChoicesAttribute(dpObjLOV.Name);
+		mdlProvince.setChoicesKeyAttribute(dpObjLOV.Name);
+		mdlProvince.setRows(dpObjLOV.getLOV("PROVINCE"));
 		
 		/*Font fnt2=new Font();
 		fnt2.setFamily("Arial");
@@ -506,23 +506,23 @@ ScrollableTablePanel {
 			dpObjContact.ContactStatus.setStringValue(txtStatus.getText(),currentRow);
 			//int idx=txtCategory.getSelectedIndex();
 			//String key=mdlCategory.getKeyValue();
-			//vObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);		
+			//dpObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);		
 			dpObjContact.ContactStreetAddress.setStringValue(txtStreetAddress.getText(),currentRow);
 			dpObjContact.ContactStreetCity.setStringValue(txtCity.getText(),currentRow);
 			dpObjContact.ContactCap.setStringValue(txtCap.getText(),currentRow);
 			//idx=pkrProvince.getSelectedIndex();
-			//vObjAccount.AccountProvince.setStringValue(pkrProvince.getChoice(idx),currentRow);
+			//dpObjAccount.AccountProvince.setStringValue(pkrProvince.getChoice(idx),currentRow);
 			dpObjContact.ContactProvince.setStringValue(btnProvincePopup.getText(),currentRow);
 			//idx=pkrCountry.getSelectedIndex();
 			//String key =mdlCountry.getKeyValue();
-			//vObjAccount.AccountCountry.setStringValue(pkrCountry.getChoice(idx),currentRow);
-			//vObjAccount.AccountCountry.setStringValue(mdlCountry.getKeyValue(),currentRow);
+			//dpObjAccount.AccountCountry.setStringValue(pkrCountry.getChoice(idx),currentRow);
+			//dpObjAccount.AccountCountry.setStringValue(mdlCountry.getKeyValue(),currentRow);
 			dpObjContact.ContactCountry.setStringValue(btnCountryPopup.getText(),currentRow);
 					
 			dpObjContact.ContactPhone.setStringValue(txtPhone.getText(),currentRow);
 			dpObjContact.ContactOfficePhone.setStringValue(txtOfficePhone.getText(),currentRow);
 			dpObjContact.ContactEmail.setStringValue(txtMail.getText(),currentRow);
-			//vObjAccount.AccountPrefix.setStringValue(mdlPrefix.getText(),currentRow);
+			//dpObjAccount.AccountPrefix.setStringValue(mdlPrefix.getText(),currentRow);
 			
 			dpObjContact.ContactAge.setStringValue(txtAge.getText(),currentRow);
 			dpObjContact.ContactGender.setStringValue(btnGenderPopup.getText(),currentRow);
@@ -585,7 +585,7 @@ ScrollableTablePanel {
 		//province.stk.setDataModel(mdlProvince);
 		province.btnPopup=btnCountryPopup;
 		province.mdlPickMap=mdlPrefix;
-		province.setQuery(vObjLOV.getLOV("COUNTRY"));
+		province.setQuery(dpObjLOV.getLOV("COUNTRY"));
 		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 1, Sizing.PERCENTS, 50, false);
 		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
 		*/
@@ -611,7 +611,7 @@ ScrollableTablePanel {
 		//province.stk.setDataModel(mdlProvince);
 		province.btnPopup=btnProvincePopup;
 		province.mdlPickMap=mdlProvince;
-		province.setQuery(vObjLOV.getLOV("PROVINCE"));
+		province.setQuery(dpObjLOV.getLOV("PROVINCE"));
 		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 1, Sizing.PERCENTS, 50, false);*/
 		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
 	}
@@ -624,7 +624,7 @@ ScrollableTablePanel {
 		province.btnPopup=button;
 		province.mdlPickMap=model;
 		province.lblTitle.setText(title);
-		province.setQuery(vObjLOV.getLOV(type));
+		province.setQuery(dpObjLOV.getLOV(type));
 		province.TYPE=type;				
 		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);		 
 		
@@ -681,7 +681,7 @@ ScrollableTablePanel {
 							
 		pnlPick.btnPopup=button;
 		pnlPick.mdlPickMap=model;
-		pnlPick.setQuery(vObjLOV.getLOV(type));
+		pnlPick.setQuery(dpObjLOV.getLOV(type));
 		pnlPick.TYPE=type;				
 		pnlPick.stk.reload();
 		

@@ -1,0 +1,17 @@
+DataStoreObject {
+	IntegerField Id {
+		return null;
+	}
+	
+	StringField Name {
+		return null;
+	}
+	
+	Query getCrmEntities() {
+		return crmEntities();
+	}
+	
+	query crmEntities<> {
+		ascendingBy Id;
+	}
+}

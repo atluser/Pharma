@@ -14,7 +14,7 @@ DataStoreObject {
 		from productList<products,listItem>;	
 		ascendingBy myProductCode;
 	
-	}*/
+	}
 	
 	/*mapping productList<Products products,PriceListItem listItem >{
 		join products.ProductCode==listItem.ProductCode;

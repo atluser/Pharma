@@ -83,26 +83,26 @@ TablePanel {
 			tblVwCell.populateData(dtRw,grp);
 	
 		/*
-			String strCode = vObjPriceListItem.ProductCode.getStringValue(dtRw);
-			String strName = vObjPriceListItem.ProductName.getStringValue(dtRw);					
-			String strUOM = vObjPriceListItem.UOM.getStringValue(dtRw);
-			String strPrice = vObjPriceListItem.UnitPrice.getCurrencyValue(dtRw).toString();
-			Boolean bScount1=vObjPriceListItem.DiscountProduct.getBooleanValue(dtRw);
-			Boolean bScount2=vObjPriceListItem.DiscountNumber.getBooleanValue(dtRw);
+			String strCode = dpObjPriceListItem.ProductCode.getStringValue(dtRw);
+			String strName = dpObjPriceListItem.ProductName.getStringValue(dtRw);					
+			String strUOM = dpObjPriceListItem.UOM.getStringValue(dtRw);
+			String strPrice = dpObjPriceListItem.UnitPrice.getCurrencyValue(dtRw).toString();
+			Boolean bScount1=dpObjPriceListItem.DiscountProduct.getBooleanValue(dtRw);
+			Boolean bScount2=dpObjPriceListItem.DiscountNumber.getBooleanValue(dtRw);
 	
 			tblVwCell.lblCode.setText(strCode);
 			tblVwCell.lblName.setText(strName);
 			tblVwCell.lblUOM.setText(strUOM);
-			tblVwCell.mdlPrice.setValue(vObjPriceListItem.UnitPrice.getCurrencyValue(dtRw));
+			tblVwCell.mdlPrice.setValue(dpObjPriceListItem.UnitPrice.getCurrencyValue(dtRw));
 			
 			tblVwCell.picDiscount1.setChecked(bScount1);			
 			tblVwCell.picDiscount2.setChecked(bScount2);
-			ImageReference img=(ImageReference)productImageMap.getValue(vObjPriceListItem.ProductImage.getStringValue(dtRw));
+			ImageReference img=(ImageReference)productImageMap.getValue(dpObjPriceListItem.ProductImage.getStringValue(dtRw));
 			if(img!=null)	tblVwCell.picBox.setImage(img);
-			appLog.log(Log.INFO,"PRODUCT "+vObjPriceListItem.ProductName.getStringValue(dtRw)+" Image "+vObjPriceListItem.ProductImage.getStringValue(dtRw));
+			appLog.log(Log.INFO,"PRODUCT "+dpObjPriceListItem.ProductName.getStringValue(dtRw)+" Image "+dpObjPriceListItem.ProductImage.getStringValue(dtRw));
 			
-			tblVwCell.lblQtyMin.setText(vObjPriceListItem.QtyMin.getIntegerValue(dtRw).toString());
-			tblVwCell.lblQtyMax.setText(vObjPriceListItem.QtyMax.getIntegerValue(dtRw).toString());*/
+			tblVwCell.lblQtyMin.setText(dpObjPriceListItem.QtyMin.getIntegerValue(dtRw).toString());
+			tblVwCell.lblQtyMax.setText(dpObjPriceListItem.QtyMax.getIntegerValue(dtRw).toString());*/
 		}
 	}
 	
@@ -120,7 +120,7 @@ TablePanel {
 		
 		//pnlDetailForm.setRow(rsm.getRow());
 		//pnlDetail.setRow(rsm.getRow());
-		//pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(rsm.getRow()));
+		//pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(rsm.getRow()));
 		//pnlDetailForm.setRow(rsm.getRow());
 		
 	}
@@ -213,15 +213,15 @@ TablePanel {
 	}
 	void init (String code){
 		orderCode=code;
-		Query q=vObjOrder.getOrderRow(orderCode);
+		Query q=dpObjOrder.getOrderRow(orderCode);
 		if(q!=null){
 			DataRowSet set=q.getRowSet();
 			DataRow dtRow=set.first();				
 			if(dtRow!=null){								
-				dateObjArray.insertItem(0,vObjOrder.Order1stDeliveryDate.getDateValue(dtRow));
-				if (vObjOrder.Order2ndDeliveryDate.getDateValue(dtRow)!=null) 
-					dateObjArray.insertItem(1,vObjOrder.Order2ndDeliveryDate.getDateValue(dtRow));
-				if (vObjOrder.Order3rdDeliveryDate.getDateValue(dtRow)!=null) dateObjArray.insertItem(2,vObjOrder.Order3rdDeliveryDate.getDateValue(dtRow));
+				dateObjArray.insertItem(0,dpObjOrder.Order1stDeliveryDate.getDateValue(dtRow));
+				if (dpObjOrder.Order2ndDeliveryDate.getDateValue(dtRow)!=null) 
+					dateObjArray.insertItem(1,dpObjOrder.Order2ndDeliveryDate.getDateValue(dtRow));
+				if (dpObjOrder.Order3rdDeliveryDate.getDateValue(dtRow)!=null) dateObjArray.insertItem(2,dpObjOrder.Order3rdDeliveryDate.getDateValue(dtRow));
 			}
 		}
 		setQuery("");
@@ -241,13 +241,13 @@ TablePanel {
 			RowSetModel rsm1 = new RowSetModel();
 			switch(i){
 				case 0:
-					rsm1.setRows(vObjOrderItem.getListItemByDate1(orderCode,val));
+					rsm1.setRows(dpObjOrderItem.getListItemByDate1(orderCode,val));
 					break;
 				case 1:
-					rsm1.setRows(vObjOrderItem.getListItemByDate2(orderCode,val));
+					rsm1.setRows(dpObjOrderItem.getListItemByDate2(orderCode,val));
 					break;
 				case 2:
-					rsm1.setRows(vObjOrderItem.getListItemByDate3(orderCode,val));
+					rsm1.setRows(dpObjOrderItem.getListItemByDate3(orderCode,val));
 					break;					
 			}								
 			

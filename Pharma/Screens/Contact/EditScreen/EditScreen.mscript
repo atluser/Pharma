@@ -170,13 +170,13 @@ Screen {
 			//stkTP.setAccountCode(sAccountCode);
 			stkTP.setQuery();
 			//RowSetModel rsm=(RowSetModel)originListStk.getDataModel();
-			//rsm.setRows(vObjAccount.getAccounts());
+			//rsm.setRows(dpObjAccount.getAccounts());
 			//reset query
 			/*
 			MultiRowSetModel mrsm=(MultiRowSetModel) originListStk.getDataModel();
 			for (int i=0;i<mrsm.getGroupCount();i++){
 				RowSetModel rsm=mrsm.getComponent(i);
-				//rsm.setRows(vObjAccount.getAccountStartsWith(originListStk.arr.getItem(i)));
+				//rsm.setRows(dpObjAccount.getAccountStartsWith(originListStk.arr.getItem(i)));
 			}
 			originListStk.reload();*/
 			//detailStk.reload();
@@ -250,7 +250,11 @@ Screen {
 	
 	}
 	
+<<<<<<< HEAD
 	void init(DataRow row, TablePanel tp,TablePanel accfp){
+=======
+	void init(DataRow row, TablePanel tp,TablePanel accfp){//}, TablePanel condp){
+>>>>>>> e0a39e52685e7bfedfa06c55acac965b93fc0846
 		//sticky table origine dati				
 		//detail form
 		

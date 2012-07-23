@@ -207,7 +207,7 @@ TablePanel {
 			appLog.log(Log.INFO,"processo valore "+txt.getText());
 			TextModel model=(TextModel)txt.getDataModel();
 			String attributeName=model.getAttribute(0);
-			StringAttribute attribute=(StringAttribute) vObjAccount.getAttribute(attributeName); 
+			StringAttribute attribute=(StringAttribute) dpObjAccount.getAttribute(attributeName); 
 			attribute.setStringValue(txt.getText(),currentRow);
 			//attribute.setStringValue(txt.getText(),attribute.getRow());
 			appLog.log(Log.INFO,"insertito valore "+txt.getText()+" su attributo "+attribute.getName());
@@ -239,7 +239,7 @@ TablePanel {
 			appLog.log(Log.INFO,"processo valore "+txt);
 			Model model=cell.model;
 			String attributeName=model.getAttribute(0);
-			//StringAttribute attribute=(StringAttribute) vObjAccount.getAttribute(attributeName); 
+			//StringAttribute attribute=(StringAttribute) dpObjAccount.getAttribute(attributeName); 
 			StringAttribute attribute=(StringAttribute) obj.getAttribute(attributeName);
 			attribute.setStringValue(txt,currentRow);		
 			appLog.log(Log.INFO,"insertito valore "+txt+" su attributo "+attribute.getName());

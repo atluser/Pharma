@@ -54,7 +54,7 @@ Popup {
                  * while (prodRow==null) {
                  *      logApp.log("ProductInfo - row not setted.");
                  * }
-                 * logApp.log("ProductInfo - row setted, name: " + vObjPriceListItem.ProductName.getStringValue(prodRow));
+                 * logApp.log("ProductInfo - row setted, name: " + dpObjPriceListItem.ProductName.getStringValue(prodRow));
                 */
                 
                 //setting the header panel with title and close button
@@ -98,14 +98,14 @@ Popup {
         }
         
         void setHeader() {
-                lblName.setText(vObjPriceListItem.ProductName.getStringValue(prodRow));
+                lblName.setText(dpObjPriceListItem.ProductName.getStringValue(prodRow));
                 lblName = setLabel(lblName, "Arial", Colors.White, 22);
                 logApp.log(Log.INFO, "ProductInfo - lblName font setted.");
                 
                 pnlLabelContainer.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
                 //jump to the 2nd cell of the panel adding null to the first cell, and then add the label
                 pnlLabelContainer.add(lblName,align);
-                logApp.log(Log.INFO, "ProductInfo - Row setted name: " + vObjPriceListItem.ProductName.getStringValue(prodRow));
+                logApp.log(Log.INFO, "ProductInfo - Row setted name: " + dpObjPriceListItem.ProductName.getStringValue(prodRow));
                 //add the label container in the cell (0,0)+(0,1) of the root table panel
                 pnl.add(pnlLabelContainer,"colspan=2," + fill + "," + align);
                 
@@ -150,8 +150,8 @@ Popup {
         
         /*  void setContent() {
          *      logApp.log(Log.INFO, "ProductInfo - Setting the label");
-         *      lblName.setText(vObjPriceListItem.ProductName.getStringValue(prodRow));
-         *      logApp.log(Log.INFO, "ProductInfo - Label setted - text: " + vObjPriceListItem.ProductName.getStringValue(prodRow));
+         *      lblName.setText(dpObjPriceListItem.ProductName.getStringValue(prodRow));
+         *      logApp.log(Log.INFO, "ProductInfo - Label setted - text: " + dpObjPriceListItem.ProductName.getStringValue(prodRow));
          *  }
         */   
         

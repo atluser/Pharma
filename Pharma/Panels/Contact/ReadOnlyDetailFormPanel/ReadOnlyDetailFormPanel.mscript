@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 TablePanel {
 	/*
 	 * Attributes
@@ -767,3 +768,760 @@ TablePanel {
 		pnlStk=stk;
 	}
 }
+=======
+ScrollableTablePanel {
+	/*
+	 * Attributes
+	 */
+	DataRow currentRow = null;
+	
+	/* this section will be used in place of the detail panel 
+	 * so we will have the header inside this panel and no more in the detail panel
+	*/
+	// PANEL HEADER SECTION
+	Label lblTitleName = new Label();
+	Label lblTitleMail = new Label();
+	PictureBox picTitleIcon = new PictureBox();
+	
+	String sAccountCode = "";
+	boolean fromAccountFlag = false;
+	
+	//Set the screen from the account
+	Screens.Account.ContactScreen scrContact;
+	
+	String fill = "hfill=fill, vfill=fill";
+	
+	//Pannello Dati Anagrafici 
+	FormPanel pnlForm01 = new FormPanel();
+	//Pannello Localizzazione e Comunicazioni
+	FormPanel pnlForm02 = new FormPanel();
+	//Pannello Altre Info
+	FormPanel pnlForm03 = new FormPanel();
+	
+	BackgroundButton btnAnagrafica = new BackgroundButton();
+	BackgroundButton btnLoc = new BackgroundButton();
+	BackgroundButton btnInfo = new BackgroundButton();
+	
+	Panels.HeaderPanel pnlHeader;
+	Panels.DetailPanel pnlDetail;
+	
+	Label txtNoContactMessage = new Label();
+	
+	//Aggiungiamo i bottoni per le intestazioni
+	
+	//-- DATI ANAGRAFICI --
+	
+	//Nome
+	TextModel txtMdlName = new TextModel();
+	Label txtFldName = new Label(); 
+	
+	//Cognome
+	TextModel txtMdlLastName = new TextModel();
+	Label txtFldLastName = new Label();
+	
+	//Cliente Relazionato
+	TextModel txtMdlRelAccount = new TextModel();
+	Link txtFldRelAccount = new Link();
+	
+	//Titolo
+	TextModel txtMdlTitle = new TextModel();
+	Label txtFldTitle = new Label();
+	
+	//Titolo
+	TextModel txtMdlFunction = new TextModel();
+	Label txtFldFunction = new Label();
+	
+	//Stato Contatto (Attivo|Inattivo|Nuovo)
+	TextModel txtMdlStatus = new TextModel();
+	Label txtFldStatus = new Label();
+	
+	//-- LOCALIZZAZIONE E COMUNICAZIONI --
+	
+	//Indirizzo
+	TextModel txtMdlAddress = new TextModel();
+	Label txtFldAddress = new Label();
+	//Maps
+	RichButton rchBtnAddress = new RichButton();
+	
+	//StreetAddress
+	TextModel txtMdlStreetAddress = new TextModel();
+	Label txtFldStreetAddress = new Label();
+	
+	//Città
+	TextModel txtMdlCity = new TextModel();
+	Label txtFldCity = new Label();
+	
+	//CAP
+	TextModel txtMdlCap = new TextModel();
+	Label txtFldCap = new Label();
+	
+	//Provincia
+	TextModel txtMdlProvince = new TextModel();
+	Label txtFldProvince = new Label();
+	
+	//Stato
+	TextModel txtMdlCountry = new TextModel();
+	Label txtFldCountry = new Label();
+	
+	//Telefono Personale
+	TextModel txtMdlPhone = new TextModel();
+	Label txtFldPhone = new Label();
+	
+	//Telefono Ufficio
+	TextModel txtMdlOfficePhone = new TextModel();
+	Label txtFldOfficePhone = new Label();
+	
+	//Email
+	TextModel txtMdlEmail = new TextModel();
+	Label txtFldEmail = new Label();
+	//Email Send
+	RichButton rchBtnEmail = new RichButton();
+	
+	//-- ALTRE INFO --
+	//Email
+	TextModel txtMdlAge = new TextModel();
+	Label txtFldAge = new Label();
+	
+	//Sesso
+	TextModel txtMdlGender = new TextModel();
+	Label txtFldGender = new Label();
+	
+	//Note
+	TextModel txtMdlNote = new TextModel();
+	Label txtFldNote = new Label();
+	
+	TablePanel pnlBodyRoot = new TablePanel();
+		
+
+	//Always
+	//TextModel txtMdlAlways = new TextModel();
+	//Label txtFldAlways = new Label();
+	
+
+	/*
+	 * Callback methods
+	 */
+	callback onCreate(Container c) {
+		setUpHeader();
+		if(iNumContacts<1)
+		{
+			TablePanel pnlHeaderRootNoContact = new TablePanel();
+
+			Font fntMsg = new Font();
+			fntMsg.setFamily("Arial");
+			fntMsg.setSize(24);
+			fntMsg.setBold();
+			txtNoContactMessage.setFont(fntMsg);
+			txtNoContactMessage.setForeColor(Color.create(189,0,0));
+			txtNoContactMessage.setText("Non sono presenti contatti. Crearne di nuovi!");
+			
+			pnlHeaderRootNoContact.add(picTitleIcon);
+			pnlHeaderRootNoContact.add(txtNoContactMessage, "hfill=fill");
+			
+			add(pnlHeaderRootNoContact,"halign=left,valign=top");
+			
+			setColumnWidth(0, Sizing.PREFERRED, 1);
+			setRowHeight(0, Sizing.PREFERRED, 0);
+			setBackColor(Colors.White); 
+		}
+		else
+		{	
+			// Header Panel
+			TablePanel pnlHeaderRoot = new TablePanel();
+			pnlHeaderRoot.add(picTitleIcon,"rowspan=2");
+			pnlHeaderRoot.add(lblTitleName,"valign=bottom");
+			pnlHeaderRoot.startNewRow();
+			pnlHeaderRoot.add(lblTitleMail,"valign=top");
+			//pnlHeaderRoot.setInsets(0,48,0,0);
+			//pnlHeaderRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
+			pnlHeaderRoot.setColumnWidth(0, Sizing.PERCENTS, 10);
+			pnlHeaderRoot.setColumnWidth(1, Sizing.PERCENTS, 50);
+			pnlHeaderRoot.setRowHeight(0, Sizing.PREFERRED, 1);
+			pnlHeaderRoot.setRowHeight(1, Sizing.PREFERRED, 1);
+			
+			TablePanel pnlHeader = new TablePanel();
+			pnlHeader.add(pnlHeaderRoot,"halign=center,valign=top");
+			pnlHeader.setColumnWidth(0, Sizing.PREFERRED, 1);
+			
+			/*
+			pnlBodyRoot.add(new Separator(), "");
+			pnlBodyRoot.startNewRow();
+			*/
+			//setUpHeaderSection("Anagrafica");
+			setUpButton(btnAnagrafica,"Anagrafica", true);
+			pnlBodyRoot.add(btnAnagrafica, "hfill=fill");
+			pnlBodyRoot.startNewRow();
+			setUpSection01();
+			pnlBodyRoot.startNewRow();
+			pnlBodyRoot.add(new Separator(), "");
+			pnlBodyRoot.startNewRow();
+			
+			setUpButton(btnLoc,"Localizzazione e Comunicazioni",false);
+			pnlBodyRoot.add(btnLoc, "hfill=fill");
+			pnlBodyRoot.startNewRow();
+			setUpSection02();
+			pnlBodyRoot.startNewRow();
+			pnlBodyRoot.add(new Separator(), "");
+			pnlBodyRoot.startNewRow();
+			
+			setUpButton(btnInfo,"Altre Informazioni",false);
+			pnlBodyRoot.add(btnInfo, "hfill=fill");
+			pnlBodyRoot.startNewRow();
+			setUpSection03();
+			/*
+			pnlBodyRoot.startNewRow();
+			pnlBodyRoot.add(new Separator(), "");
+			pnlBodyRoot.startNewRow();
+			*/
+			
+			pnlBodyRoot.enableScroll(true);
+			//pnlBodyRoot.setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+			pnlBodyRoot.setColumnWidth(0, Sizing.PERCENTS, 65);
+			
+			//section header button
+			pnlBodyRoot.setRowHeight(0, Sizing.PREFERRED, 0);
+			//section form
+			pnlBodyRoot.setRowHeight(1, Sizing.PREFERRED, 0);
+			//separator
+			pnlBodyRoot.setRowHeight(2, Sizing.PIXELS, 48);
+			
+			//and so on...
+			
+			pnlBodyRoot.setRowHeight(3, Sizing.PREFERRED, 0);
+			pnlBodyRoot.setRowHeight(4, Sizing.PREFERRED, 0);
+			pnlBodyRoot.setRowHeight(5, Sizing.PIXELS, 48);
+			
+			pnlBodyRoot.setRowHeight(6, Sizing.PREFERRED, 0);
+			pnlBodyRoot.setRowHeight(7, Sizing.PREFERRED, 0);
+			//pnlBodyRoot.setRowHeight(8, Sizing.PIXELS, 48);
+			
+			/* Rows for the correlated items buttons
+			 *
+			 *	pnlBodyRoot.setRowHeight(9, Sizing.PREFERRED, 0);
+			 *	pnlBodyRoot.setRowHeight(10, Sizing.PREFERRED, 0);
+			 *	pnlBodyRoot.setRowHeight(11, Sizing.PREFERRED, 0);
+			 *	pnlBodyRoot.setRowHeight(12, Sizing.PREFERRED, 0);
+			 *
+			*/
+			
+			ScrollableTablePanel pnlBody = new ScrollableTablePanel();
+			pnlBody.enableScroll(true);
+			pnlBody.add(pnlBodyRoot,"halign=center,valign=top");
+			pnlBody.setColumnWidth(0, Sizing.PREFERRED, 1);
+			
+			/*
+			setRowHeight(9, Sizing.PIXELS, 48);
+			setRowHeight(10, Sizing.PREFERRED, 0);
+			setRowHeight(11, Sizing.PIXELS, 48);
+			setRowHeight(12, Sizing.PREFERRED, 0);
+			setRowHeight(13, Sizing.PREFERRED, 0);
+			*/
+			
+			/*
+			 DataRow firstRow = dpObjContact.getContacts().getRowSet().first();
+			logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: number of rows: " + dpObjContact.getContacts().getRowSet().getSize());
+			logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: set first row, name: " + dpObjContact.ContactName.getStringValue(firstRow));
+			setRow(firstRow);
+			logApp.log(Log.INFO,"Contact ReadOnlyDetailFormPanel - onCreate: row setted");
+			pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(firstRow));
+			*/
+			
+			//DataRow firstRow = new DataRow();
+			
+			add(pnlHeader,fill);
+			startNewRow();
+			add(pnlBody,fill);
+			
+			setInsets(48,0,48,0);
+			//setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
+			setBackColor(Colors.White);
+			setColumnWidth(0, Sizing.PREFERRED, 1);
+			setRowHeight(0, Sizing.PREFERRED, 0);
+			setRowHeight(1, Sizing.PREFERRED, 1);
+			//setRowHeight(2, Sizing.PREFERRED, 1);
+			
+			pnlForm01.setVisible(true);
+			pnlForm02.setVisible(false);
+			pnlForm03.setVisible(false);
+		}
+		
+	}	
+	
+	callback rchBtnAddress onClick(Control c) {
+	
+		logApp.log(Log.INFO, "ReadOnlyDeatilFormPanel - rchBtnAddress onClick()");	
+		//setMap(String accountName, String refer,String street,String city, String region, String postalcode,String country)
+		Screens.MapScreen scr = new Screens.MapScreen();
+		scr.setMap( txtFldName.getText(), "", txtFldStreetAddress.getText(), txtFldCity.getText(), "", txtFldCap.getText(), txtFldCountry.getText());
+		scr.push(0,false);
+	
+	}
+	
+	callback rchBtnEmail onClick(Control c) {
+	
+		logApp.log(Log.INFO, "ReadOnlyDeatilFormPanel - rchBtnEmail onClick()");
+		
+		MessageBox msgBox = new MessageBox();
+        MessagingManager messagingManager = new MessagingManager();
+        Email email = messagingManager.createEmail();
+        //StringAttribute emailAtt = (StringAttribute)entityFieldMap.getValue("AccountEmail");
+        //String strEmail = emailAtt.getStringValue(currentRow);
+		if (email == null) {
+			msgBox.info(1,"Non esiste un account email");
+		    // Email is not available (e.g. no email account is setup on the device)
+		    // Inform the user about this
+		} else {
+		    RecipientList toList = email.getTo();
+		    toList.clear();
+		    toList.addAddress(txtFldEmail.getText());
+		    email.setSubject("Email di prova");
+		    email.setBody("Questa è una email di prova");
+		    messagingManager.showMessage(email);
+		}	
+	
+	}
+	
+	callback txtFldRelAccount onClick(Control c) {
+		logApp.log(Log.INFO, "txtFldRelAccount Clicked...");
+		logApp.log(Log.INFO, "FromAccountFlag = " + fromAccountFlag);
+		if(fromAccountFlag == true) {
+			scrContact.close();
+			fromAccountFlag = false;
+		} else {	
+			
+			sAccountCode = dpObjContact.RelAccountCode.getStringValue(currentRow);
+			logApp.log(Log.INFO, "RelAccountCode = " + sAccountCode);
+			RowSetModel rsm = new RowSetModel();
+			rsm.setRows(dpObjAccount.getAccountRow(sAccountCode));
+			logApp.log(Log.INFO, "Data Row Loaded " + sAccountCode);
+			if(rsm.getRowCount(0) > 0) {
+		
+				pnlHeader.rg.setSelectedIndex(0);
+				pnlHeader.btnToolbarClick(0);
+				logApp.log(Log.INFO, "Header - currentEntity " + pnlHeader.currentEntity);
+						
+				pnlHeader.pnlAccountRoot.stk.src.setText(txtFldRelAccount.getText());
+				pnlHeader.pnlAccountRoot.stk.executeQuery(txtFldRelAccount.getText());
+				pnlHeader.pnlAccountRoot.stk.stk.reload();
+				logApp.log(Log.INFO, "Header - Sticky Table reloaded ");
+				
+				if (pnlHeader.pnlAccountRoot.stk.rsm.getRowCount(0)>0) {
+					pnlHeader.pnlAccountRoot.stk.stk.select(0,0);
+					pnlHeader.pnlAccountRoot.pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(pnlHeader.pnlAccountRoot.stk.rsm.getRow()));
+					pnlHeader.pnlAccountRoot.pnlDetailForm.setRow(pnlHeader.pnlAccountRoot.stk.rsm.getRow());
+				}
+			}
+		}
+	}
+	
+	callback btnAnagrafica onClick (Control c) {
+		if (pnlForm01.isVisible()) {
+			pnlForm01.setVisible(false);
+		} else {
+			pnlForm01.setVisible(true);
+		}
+		flipBackground(btnAnagrafica,pnlForm01.isVisible());
+	}
+	
+	callback btnLoc onClick (Control c) {
+		if (pnlForm02.isVisible()) {
+			pnlForm02.setVisible(false);
+		} else {
+			pnlForm02.setVisible(true);
+		}
+		flipBackground(btnLoc,pnlForm02.isVisible());
+	}
+	
+	callback btnInfo onClick (Control c) {
+		if (pnlForm03.isVisible()) {
+			pnlForm03.setVisible(false);
+		} else {
+			pnlForm03.setVisible(true);
+		}
+		flipBackground(btnInfo,pnlForm03.isVisible());
+	}
+	
+	/*
+	 * Custom methods
+	 */
+	 
+	/*
+	 *	void setUpHeaderSection(String str) {
+	 *		Font fnt = new Font(); 
+	 *		fnt.setFamily("Arial");
+	 *		fnt.setSize(22);
+	 *		fnt.setBold();
+	 *		
+	 *			Label lblIntestation = new Label();
+	 *			lblIntestation.setText(str);
+	 *			lblIntestation.setFont(fnt);
+	 *			//lbl.setForeColor(Colors.Black);
+	 *			lblIntestation.setForeColor(Color.create(189,0,0));
+	 *			//lbl.setBackColor(Color.create(189,0,0));
+	 *			//picBox.setImage(Images.VodafoneImages.DettaglioCliente.getImage());
+	 *			
+	 *			//add(picBox);
+	 *			add(lblIntestation,"hfill=fill");
+	 *	}
+	*/
+	
+	void setUpSection01() {
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(20);
+		
+		txtFldName.setFont(fnt);
+		txtFldName.setForeColor(Colors.Black);
+		
+		txtFldLastName.setFont(fnt);
+		txtFldLastName.setForeColor(Colors.Black);
+		
+		txtFldRelAccount.setFont(fnt);
+		txtFldRelAccount.setForeColor(Colors.Blue);
+		
+		txtFldTitle.setFont(fnt);
+		txtFldTitle.setForeColor(Colors.Black);
+		
+		txtFldFunction.setFont(fnt);
+		txtFldFunction.setForeColor(Colors.Black);
+		
+		txtFldStatus.setFont(fnt);
+		txtFldStatus.setForeColor(Colors.Black);
+		
+		fnt.setBold();
+		
+		Label lblName = new Label();
+		lblName.setText("Nome");
+		lblName.setFont(fnt);
+		lblName.setForeColor(Colors.Black);		
+		pnlForm01.add(lblName, "halign=right", txtFldName, "halign=left,hfill=fill");
+		
+		Label lblLastName = new Label();
+		lblLastName.setText("Cognome");
+		lblLastName.setFont(fnt);
+		lblLastName.setForeColor(Colors.Black);		
+		pnlForm01.add(lblLastName, "halign=right", txtFldLastName, "halign=left,hfill=fill");
+		
+		Label lblRelAccount = new Label();
+		lblRelAccount.setText("Cliente");
+		lblRelAccount.setFont(fnt);
+		lblRelAccount.setForeColor(Colors.Black);		
+		pnlForm01.add(lblRelAccount, "halign=right", txtFldRelAccount, "halign=left,hfill=fill");
+		
+		Label lblTitle = new Label();
+		lblTitle.setText("Titolo");
+		lblTitle.setFont(fnt);
+		lblTitle.setForeColor(Colors.Black);		
+		pnlForm01.add(lblTitle, "halign=right", txtFldTitle, "halign=left,hfill=fill");
+		
+		Label lblFunction = new Label();
+		lblFunction.setText("Funzione");
+		lblFunction.setFont(fnt);
+		lblFunction.setForeColor(Colors.Black);		
+		pnlForm01.add(lblFunction, "halign=right", txtFldFunction, "halign=left,hfill=fill");
+		
+		Label lblStatus = new Label();
+		lblStatus.setText("Stato");
+		lblStatus.setFont(fnt);
+		lblStatus.setForeColor(Colors.Black);		
+		pnlForm01.add(lblStatus, "halign=right", txtFldStatus, "halign=left,hfill=fill");
+		
+		pnlForm01.setInsets(8,8,8,8);
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.Inform, 20, 20, 20, 20));
+		pnlForm01.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgFormBG, 20, 20, 20, 20));
+		//pnlForm0101.setBackground(Background.createGradientRoundedBackground(Color.create(222,222,222), Color.create(222,222,222), Color.create(196,196,196), Color.create(196,196,196)));
+		
+		pnlForm01.setLabelColumnWidth(Sizing.PERCENTS, 20);
+		//pnlForm0101.setLabelColumnWidth(Sizing.PREFERRED, 0);
+		pnlForm01.setControlColumnWidth(Sizing.PREFERRED, 1);
+		//pnlForm0101.setControlColumnWidth(Sizing.PERCENTS, 35);
+		
+		pnlBodyRoot.add(pnlForm01,"hfill=fill");
+		
+	}
+	
+	void setUpSection02() {
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(20);
+		
+		txtFldAddress.setFont(fnt);
+		txtFldAddress.setForeColor(Colors.Blue);
+		rchBtnAddress.add(txtFldAddress,"hfill=fill");
+		
+		txtFldPhone.setFont(fnt);
+		txtFldPhone.setForeColor(Colors.Black);
+		
+		txtFldOfficePhone.setFont(fnt);
+		txtFldOfficePhone.setForeColor(Colors.Black);
+		
+		txtFldEmail.setFont(fnt);
+		txtFldEmail.setForeColor(Colors.Blue);
+		rchBtnEmail.add(txtFldEmail,"hfill=fill");
+		
+		fnt.setBold();
+		
+		Label lblPhone = new Label();
+		lblPhone.setText("Tel. Personale");
+		lblPhone.setFont(fnt);
+		lblPhone.setForeColor(Colors.Black);		
+		pnlForm02.add(lblPhone, "halign=right", txtFldPhone, "halign=left,hfill=fill");
+		
+		Label lblOfficePhone = new Label();
+		lblOfficePhone.setText("Tel. Ufficio");
+		lblOfficePhone.setFont(fnt);
+		lblOfficePhone.setForeColor(Colors.Black);		
+		pnlForm02.add(lblOfficePhone, "halign=right", txtFldOfficePhone, "halign=left,hfill=fill");
+		
+		Label lblEmail = new Label();
+		lblEmail.setText("E-mail");
+		lblEmail.setFont(fnt);
+		lblEmail.setForeColor(Colors.Black);		
+		pnlForm02.add(lblEmail, "halign=right", rchBtnEmail, "halign=left,hfill=fill");
+		
+		Label lblAddress = new Label();
+		lblAddress.setText("Indirizzo");
+		lblAddress.setFont(fnt);
+		lblAddress.setForeColor(Colors.Black);		
+		pnlForm02.add(lblAddress, "halign=right", rchBtnAddress, "halign=left,hfill=fill"); 
+		
+		pnlForm02.setInsets(8,8,8,8);
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.Inform, 20, 20, 20, 20));
+		pnlForm02.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgFormBG, 20, 20, 20, 20));
+		//pnlForm0101.setBackground(Background.createGradientRoundedBackground(Color.create(222,222,222), Color.create(222,222,222), Color.create(196,196,196), Color.create(196,196,196)));
+		
+		pnlForm02.setLabelColumnWidth(Sizing.PERCENTS, 20);
+		//pnlForm0101.setLabelColumnWidth(Sizing.PREFERRED, 0);
+		pnlForm02.setControlColumnWidth(Sizing.PREFERRED, 1);
+		//pnlForm0101.setControlColumnWidth(Sizing.PERCENTS, 35);
+		
+		pnlBodyRoot.add(pnlForm02,"hfill=fill");
+		
+	}
+	
+	void setUpSection03() {
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(20);
+		
+		txtFldAge.setFont(fnt);
+		txtFldAge.setForeColor(Colors.Black);
+		
+		txtFldGender.setFont(fnt);
+		txtFldGender.setForeColor(Colors.Black);
+		
+		txtFldNote.setFont(fnt);
+		txtFldNote.setForeColor(Colors.Black);
+	
+		fnt.setBold();
+		
+		Label lblAge = new Label();
+		lblAge.setText("Età");
+		lblAge.setFont(fnt);
+		lblAge.setForeColor(Colors.Black);		
+		pnlForm03.add(lblAge, "halign=right", txtFldAge, "halign=left,hfill=fill");
+		
+		Label lblGender = new Label();
+		lblGender.setText("Sesso");
+		lblGender.setFont(fnt);
+		lblGender.setForeColor(Colors.Black);		
+		pnlForm03.add(lblGender, "halign=right", txtFldGender, "halign=left,hfill=fill");
+		
+		Label lblNote = new Label();
+		lblNote.setText("Note");
+		lblNote.setFont(fnt);
+		lblNote.setForeColor(Colors.Black);		
+		pnlForm03.add(lblNote, "halign=right", txtFldNote, "halign=left,hfill=fill");
+		
+		pnlForm03.setInsets(8,8,8,8);
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.Inform, 20, 20, 20, 20));
+		pnlForm03.setBackground(Background.createColorRoundedBackground(Colors.BackgroundGray));
+		//pnlForm0101.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.ImgFormBG, 20, 20, 20, 20));
+		//pnlForm0101.setBackground(Background.createGradientRoundedBackground(Color.create(222,222,222), Color.create(222,222,222), Color.create(196,196,196), Color.create(196,196,196)));
+		
+		pnlForm03.setLabelColumnWidth(Sizing.PERCENTS, 20);
+		//pnlForm0101.setLabelColumnWidth(Sizing.PREFERRED, 0);
+		pnlForm03.setControlColumnWidth(Sizing.PREFERRED, 1);
+		//pnlForm0101.setControlColumnWidth(Sizing.PERCENTS, 35);
+		
+		pnlBodyRoot.add(pnlForm03,"hfill=fill");
+	}
+	
+	
+	//retrieve data from virtal object
+	void setRow(DataRow dtRw) {
+			
+		currentRow = dtRw;	
+		
+		lblTitleName.setText(dpObjContact.ContactLastName.getStringValue(dtRw) + " " + dpObjContact.ContactName.getStringValue(dtRw));
+		lblTitleMail.setText(dpObjContact.ContactEmail.getStringValue(dtRw));
+		 
+		txtMdlName.setRow(dtRw);
+		txtMdlName.setText(dpObjContact.ContactName.getStringValue(dtRw));
+		txtFldName.setDataModel(txtMdlName);
+		
+		txtMdlLastName.setRow(dtRw);
+		txtMdlLastName.setText(dpObjContact.ContactLastName.getStringValue(dtRw));
+		txtFldLastName.setDataModel(txtMdlLastName);
+		
+		txtMdlRelAccount.setRow(dtRw);
+		//txtMdlRelAccount.setText(dpObjContact.RelAccountName.getStringValue(dtRw));
+		txtFldRelAccount.setDataModel(txtMdlRelAccount);
+		
+		txtMdlTitle.setRow(dtRw);
+		txtMdlTitle.setText(dpObjContact.ContactTitle.getStringValue(dtRw));
+		txtFldTitle.setDataModel(txtMdlTitle);
+		
+		txtMdlFunction.setRow(dtRw);
+		txtMdlFunction.setText(dpObjContact.ContactFunction.getStringValue(dtRw));
+		txtFldFunction.setDataModel(txtMdlFunction);
+		
+		txtMdlStatus.setRow(dtRw);
+		txtMdlStatus.setText(dpObjContact.ContactStatus.getStringValue(dtRw));
+		txtFldStatus.setDataModel(txtMdlStatus);
+		
+		txtMdlAddress.setRow(dtRw);
+		txtMdlAddress.setText(dpObjContact.ContactStreetAddress.getStringValue(dtRw) + " - " + dpObjContact.ContactCap.getStringValue(dtRw) + " - " + dpObjContact.ContactStreetCity.getStringValue(dtRw) + " (" + dpObjContact.ContactProvince.getStringValue(dtRw) + ") " + dpObjContact.ContactCountry.getStringValue(dtRw));
+		txtFldAddress.setDataModel(txtMdlAddress);
+		
+		txtMdlStreetAddress.setRow(dtRw);
+		txtMdlStreetAddress.setText(dpObjContact.ContactStreetAddress.getStringValue(dtRw));
+		txtFldStreetAddress.setDataModel(txtMdlStreetAddress);
+		
+		txtMdlCity.setRow(dtRw);
+		txtMdlCity.setText(dpObjContact.ContactStreetCity.getStringValue(dtRw));
+		txtFldCity.setDataModel(txtMdlCity);
+		
+		txtMdlCap.setRow(dtRw);
+		txtMdlCap.setText(dpObjContact.ContactCap.getStringValue(dtRw));
+		txtFldCap.setDataModel(txtMdlCap);
+		
+		txtMdlProvince.setRow(dtRw);
+		txtMdlProvince.setText(dpObjContact.ContactProvince.getStringValue(dtRw));
+		txtFldProvince.setDataModel(txtMdlProvince);
+		
+		txtMdlCountry.setRow(dtRw);
+		txtMdlCountry.setText(dpObjContact.ContactCountry.getStringValue(dtRw));
+		txtFldCountry.setDataModel(txtMdlCountry);
+		
+		txtMdlPhone.setRow(dtRw);
+		txtMdlPhone.setText(dpObjContact.ContactPhone.getStringValue(dtRw));
+		txtFldPhone.setDataModel(txtMdlPhone);
+		
+		txtMdlOfficePhone.setRow(dtRw);
+		txtMdlOfficePhone.setText(dpObjContact.ContactOfficePhone.getStringValue(dtRw));
+		txtFldOfficePhone.setDataModel(txtMdlOfficePhone);
+
+		txtMdlEmail.setRow(dtRw);
+		txtMdlEmail.setText(dpObjContact.ContactEmail.getStringValue(dtRw));
+		txtFldEmail.setDataModel(txtMdlEmail);
+		
+		txtMdlAge.setRow(dtRw);
+		txtMdlAge.setText(dpObjContact.ContactAge.getStringValue(dtRw));
+		txtFldAge.setDataModel(txtMdlAge);
+		
+		txtMdlGender.setRow(dtRw);
+		txtMdlGender.setText(dpObjContact.ContactGender.getStringValue(dtRw));
+		txtFldGender.setDataModel(txtMdlGender);
+		
+		txtMdlNote.setRow(dtRw);
+		txtMdlNote.setText(dpObjContact.ContactNote.getStringValue(dtRw));
+		txtFldNote.setDataModel(txtMdlNote);
+		
+		//txtMdlAlways.setRow(dtRw);
+		//txtMdlAlways.setText(dpObjContact.ContactAlways.getStringValue(dtRw));
+		//txtFldAlways.setDataModel(txtMdlAlways);
+
+		refresh();		
+	}
+	
+	void setContactScreen(Screens.Account.ContactScreen scr) {
+		scrContact = scr;
+	}
+	
+	void setAccountCode(String str) {
+		sAccountCode = str;
+	}
+	
+	void setHeaderPanel(Panels.HeaderPanel pnl) {
+		pnlHeader = pnl;
+		logApp.log(Log.INFO, "Header setted");
+	}
+	
+	void setFromAccountFlag(boolean b) {
+		fromAccountFlag = b;
+	}
+	
+	void setDetailPanel (Panels.DetailPanel pnl) {
+		pnlDetail = pnl;
+	}
+	
+	
+	void setFirstRecord() {
+		
+		if(sAccountCode != "") {
+			if((dpObjContact.getContactsFromAccount(sAccountCode).getRowSet() != null) && (dpObjContact.getContactsFromAccount(sAccountCode).getRowSet().getSize() > 0)) {
+				setRow(dpObjContact.getContactsFromAccount(sAccountCode).getRowSet().first());
+			}		
+		} else {
+			//if(dpObjContact.getContacts().getRowSet() != null && dpObjContact.getContacts().getRowSet().getSize() > 0) {
+				//setRow(dpObjContact.getContacts().getRowSet().first());
+			if(iNumContacts>0) {
+				setRow(dpRowSetContact.first());
+			}		
+		}
+		
+	}
+	
+	void setUpButton(BackgroundButton btn, String str, boolean visible) {
+		
+		//setting the font of the inside label
+		Font fnt = new Font(); 
+		fnt.setFamily("Arial");
+		fnt.setSize(22);
+		fnt.setBold();
+		
+		//general features of the buttons
+		btn.setFont(fnt);
+		btn.setText(str);
+		btn.setForeColor(Color.create(189,0,0));
+		btn.setLeftSpacing(30);
+		
+		flipBackground(btn,visible);
+	}
+	
+	void flipBackground(BackgroundButton btn, boolean visible) {
+		if (visible==true) {
+			btn.setBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_HIDE, 0, 46, 0, 0));
+			btn.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_HIDE_ON, 0, 46, 0, 0));
+			btn.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_HIDE_ON, 0, 46, 0, 0));
+		} else {
+			btn.setBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW, 0, 46, 0, 0));
+			btn.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
+			btn.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.Backgrounds.BCK_BTN_SHOW_ON, 0, 46, 0, 0));
+		}
+	}
+	
+	void setUpHeader() {
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		
+		fnt.setSize(18);
+		lblTitleMail.setFont(fnt);
+		lblTitleMail.setForeColor(Colors.Black);
+
+		fnt.setSize(22);
+		fnt.setBold();
+		lblTitleName.setFont(fnt);
+		lblTitleName.setForeColor(Color.create(189,0,0));
+	
+		picTitleIcon.setImage(Images.Icons.ICN_CONTACT);
+	
+	} 
+}
+>>>>>>> e0a39e52685e7bfedfa06c55acac965b93fc0846

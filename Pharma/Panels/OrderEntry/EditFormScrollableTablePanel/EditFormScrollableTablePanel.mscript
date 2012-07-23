@@ -181,11 +181,11 @@ ScrollableTablePanel {
 	
 	void setModel(){		
 		Font txtfnt=new Font();
-		mdlDate.addField(vObjOrder.OrderDate);
-		mdlShipDate1.addField(vObjOrder.Order1stDeliveryDate);
-		mdlShipDate2.addField(vObjOrder.Order2ndDeliveryDate);
-		mdlShipDate3.addField(vObjOrder.Order3rdDeliveryDate);
-		mdlNote.addField(vObjOrder.OrderNote);
+		mdlDate.addField(dpObjOrder.OrderDate);
+		mdlShipDate1.addField(dpObjOrder.Order1stDeliveryDate);
+		mdlShipDate2.addField(dpObjOrder.Order2ndDeliveryDate);
+		mdlShipDate3.addField(dpObjOrder.Order3rdDeliveryDate);
+		mdlNote.addField(dpObjOrder.OrderNote);
 		
 		txtNote.setDataModel(mdlNote);
 		txtDate.setDataModel(mdlDate);
@@ -224,10 +224,10 @@ ScrollableTablePanel {
 	
 	void setRow(DataRow row){		
 		currentRow=row;			
-		txtCode.setText(vObjOrder.OrderCode.getStringValue(row));
-		txtType.setText(vObjOrder.OrderType.getStringValue(row));
-		txtAccount.setText(vObjOrder.AccountName.getStringValue(row));
-		txtStatus.setText(vObjOrder.OrderStatus.getStringValue(row));
+		txtCode.setText(dpObjOrder.OrderCode.getStringValue(row));
+		txtType.setText(dpObjOrder.OrderType.getStringValue(row));
+		txtAccount.setText(dpObjOrder.AccountName.getStringValue(row));
+		txtStatus.setText(dpObjOrder.OrderStatus.getStringValue(row));
 		
 		mdlDate.setRow(row);
 		
@@ -235,8 +235,8 @@ ScrollableTablePanel {
 		mdlShipDate2.setRow(row);
 		mdlShipDate3.setRow(row);
 		
-		txtPriceList.setText(vObjOrder.OrderPriceList.getStringValue(row));
-		btnPaymentMethod.setText(vObjOrder.OrderPaymentMode.getStringValue(row));
+		txtPriceList.setText(dpObjOrder.OrderPriceList.getStringValue(row));
+		btnPaymentMethod.setText(dpObjOrder.OrderPaymentMode.getStringValue(row));
 		
 		mdlNote.setRow(row);
 		
@@ -247,9 +247,9 @@ ScrollableTablePanel {
 	}
 	
 	void save(){		
-			vObjOrder.Order1stDeliveryDate.setDateValue(mdlShipDate1.getDate(),currentRow);
-			vObjOrder.Order2ndDeliveryDate.setDateValue(mdlShipDate2.getDate(),currentRow);
-			vObjOrder.Order3rdDeliveryDate.setDateValue(mdlShipDate3.getDate(),currentRow);
+			dpObjOrder.Order1stDeliveryDate.setDateValue(mdlShipDate1.getDate(),currentRow);
+			dpObjOrder.Order2ndDeliveryDate.setDateValue(mdlShipDate2.getDate(),currentRow);
+			dpObjOrder.Order3rdDeliveryDate.setDateValue(mdlShipDate3.getDate(),currentRow);
 			currentRow.applyUpdates();
 		
 	}
@@ -324,7 +324,7 @@ ScrollableTablePanel {
 		province.btnPopup=button;
 		province.mdlPickMap=model;
 		province.lblTitle.setText(title);
-		province.setQuery(vObjLOV.getLOV(type));
+		province.setQuery(dpObjLOV.getLOV(type));
 		province.TYPE=type;				
 		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);		 
 		

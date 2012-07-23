@@ -2,7 +2,7 @@
 <VDSC_PROVIDER>
   <VDSC>
     <UID>5544899311306412543</UID>
-    <VERSION>-393550881855243140</VERSION>
+    <VERSION>-5946028913963492503</VERSION>
     <DOCUMENT>
       <NAME>PharmaDP.1.0.0</NAME>
     </DOCUMENT>
@@ -470,6 +470,31 @@
         <LINKS/>
       </OBJECT>
       <OBJECT>
+        <NAME>CrmEntity</NAME>
+        <DISPLAY_NAME>CrmEntity</DISPLAY_NAME>
+        <ATTRIBUTES>
+          <ATTRIBUTE>
+            <NAME>CrmEntity.Id</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CrmEntity.Name</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+        </ATTRIBUTES>
+        <LINKS/>
+      </OBJECT>
+      <OBJECT>
         <NAME>Event</NAME>
         <DISPLAY_NAME>Event</DISPLAY_NAME>
         <ATTRIBUTES>
@@ -892,6 +917,15 @@
             <NAME>Order.OrderDate</NAME>
             <TYPE>
               <DATE_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Order.OrderId</NAME>
+            <TYPE>
+              <STRING_TYPE/>
             </TYPE>
             <VSCRIPT/>
             <NULLABLE/>
@@ -1675,7 +1709,14 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListItem12</NAME>
+        <NAME>CrmEntity12</NAME>
+        <OBJECT>CrmEntity</OBJECT>
+        <ATTRIBUTES>
+          <ASCENDING_ATTRIBUTE>CrmEntity.Id</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>ListItem13</NAME>
         <OBJECT>ListItem</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>ListItem.OrderCode</ATTRIBUTE>
@@ -1683,7 +1724,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListItem13</NAME>
+        <NAME>ListItem14</NAME>
         <OBJECT>ListItem</OBJECT>
         <CONTAINS_ATTRIBUTE>ListItem.ProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1693,7 +1734,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListOfValues14</NAME>
+        <NAME>ListOfValues15</NAME>
         <OBJECT>ListOfValues</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>ListOfValues.Type</ATTRIBUTE>
@@ -1701,7 +1742,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListOfValues15</NAME>
+        <NAME>ListOfValues16</NAME>
         <OBJECT>ListOfValues</OBJECT>
         <CONTAINS_ATTRIBUTE>ListOfValues.Value</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1710,25 +1751,16 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Order16</NAME>
-        <OBJECT>Order</OBJECT>
-        <ATTRIBUTES>
-          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
-        </ATTRIBUTES>
-      </INDEX>
-      <INDEX>
         <NAME>Order17</NAME>
         <OBJECT>Order</OBJECT>
         <ATTRIBUTES>
-          <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
+          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
         <NAME>Order18</NAME>
         <OBJECT>Order</OBJECT>
-        <CONTAINS_ATTRIBUTE>Order.OrderCode</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
-          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
@@ -1737,18 +1769,27 @@
         <OBJECT>Order</OBJECT>
         <CONTAINS_ATTRIBUTE>Order.OrderCode</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
+          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>OrderItem20</NAME>
+        <NAME>Order20</NAME>
+        <OBJECT>Order</OBJECT>
+        <CONTAINS_ATTRIBUTE>Order.OrderCode</CONTAINS_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>OrderItem21</NAME>
         <OBJECT>OrderItem</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>OrderItem.OrderCode</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>OrderItem21</NAME>
+        <NAME>OrderItem22</NAME>
         <OBJECT>OrderItem</OBJECT>
         <CONTAINS_ATTRIBUTE>OrderItem.OrderItemProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1757,7 +1798,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>OrderItem22</NAME>
+        <NAME>OrderItem23</NAME>
         <OBJECT>OrderItem</OBJECT>
         <CONTAINS_ATTRIBUTE>OrderItem.OrderItemProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1767,7 +1808,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceList23</NAME>
+        <NAME>PriceList24</NAME>
         <OBJECT>PriceList</OBJECT>
         <CONTAINS_ATTRIBUTE>PriceList.PriceListName</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1775,21 +1816,21 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem24</NAME>
+        <NAME>PriceListItem25</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>PriceListItem.PriceListCode</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem25</NAME>
+        <NAME>PriceListItem26</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <ATTRIBUTES>
           <ASCENDING_ATTRIBUTE>PriceListItem.ProductCode</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem26</NAME>
+        <NAME>PriceListItem27</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <CONTAINS_ATTRIBUTE>PriceListItem.ProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1798,7 +1839,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Products27</NAME>
+        <NAME>Products28</NAME>
         <OBJECT>Products</OBJECT>
         <ATTRIBUTES>
           <ASCENDING_ATTRIBUTE>Products.ProductCode</ASCENDING_ATTRIBUTE>

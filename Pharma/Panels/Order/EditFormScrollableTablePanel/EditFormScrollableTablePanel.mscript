@@ -1,0 +1,5 @@
+ScrollableTablePanel {
+	
+	void setRow(DataRow row){}
+
+}

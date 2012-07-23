@@ -5226,6 +5226,9 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="VOUtility" sortOrder="1000" image="icons/window_plus_16.png" superclass="UIObject">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VOUtility.mscript"/>
   </children>
+  <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="VOUtilityTemp" sortOrder="1000" image="icons/window_plus_16.png" superclass="UIObject">
+    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VOUtilityTemp.mscript"/>
+  </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Cells">
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="EditFormDetailCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditFormDetailCell.mscript"/>
@@ -5381,6 +5384,9 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailPanel.mscript"/>
       </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="EditFormScrollableTablePanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditFormScrollableTablePanel.mscript"/>
+      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MasterPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MasterPanel.mscript"/>
       </children>
@@ -5390,11 +5396,11 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderItemStickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItemStickyTablePanel.mscript"/>
       </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ReadOnlyDetailFormPanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ReadOnlyDetailFormPanel.mscript"/>
+      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="ReadOnlyDetailTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ReadOnlyDetailTablePanel.mscript"/>
-      </children>
-      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootPanel" sortOrder="1400" image="icons/border.png" superclass="BorderPanel">
-        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootPanel.mscript"/>
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootTablePanel.mscript"/>
@@ -5528,6 +5534,9 @@
       </children>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Order">
+      <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="EditScreen">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="EditScreen.mscript"/>
+      </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:ScreenNode" name="OrderItemScreen">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItemScreen.mscript"/>
       </children>
@@ -5545,35 +5554,5 @@
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceListItemScreen.mscript"/>
       </children>
     </children>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="CrmEntity">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="CrmEntity.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Event">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Event.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Order">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Order.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListItem">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListItem.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ListOfValues">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ListOfValues.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="OrderItem">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItem.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="PriceList">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceList.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="PriceListItem">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PriceListItem.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="ProductList">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ProductList.mscript"/>
-  </children>
-  <children xsi:type="com.vaultus.studio.ecore.studio:VirtualObjectNode" name="Products">
-    <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Products.mscript"/>
   </children>
 </com.vaultus.studio.ecore.studio:UIProject>

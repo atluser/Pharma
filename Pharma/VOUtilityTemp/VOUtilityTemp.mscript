@@ -1,0 +1,569 @@
+UIObject {
+	void loadPriceList(){
+		DataRow row = dpObjPriceList.getNewRow();
+		dpObjPriceList.PriceListCode.setStringValue("0001",row);
+		dpObjPriceList.PriceListName.setStringValue("AHLB0001",row);
+		dpObjPriceList.PriceListType.setStringValue("Listino Base Divisionale",row);
+		dpObjPriceList.PriceListDescription.setStringValue("Listino Base Divisionale HealtCare",row);
+		dpObjPriceList.PriceListDivision.setStringValue("AH",row);
+		dpObjPriceList.PriceListStatus.setStringValue("Attivo",row);
+		dpObjPriceList.PriceListStartDate.setDateValue(Platform.createDate(),row);
+		dpObjPriceList.PriceListMinOrder.setIntegerValue(Platform.createInteger(100),row);
+		row.applyUpdates();
+		
+		dp.saveData();
+		
+		vObjUtil.loadPriceList();
+	}
+	
+	void loadProducts(){
+		DataRow row = dpObjProducts.getNewRow();		
+		dpObjProducts.ProductCode.setStringValue("018622175",row);
+		dpObjProducts.ProductName.setStringValue("SUPRADYN",row);
+		dpObjProducts.ProductCategory.setStringValue("COLD & PAIN",row);
+		row.applyUpdates();
+		dp.saveData();
+		
+		vObjUtil.loadProducts();
+	}
+	
+	void loadCrmEntity(){
+		DataRow row = dpObjCrmEntity.getNewRow();
+		dpObjCrmEntity.Id.setIntegerValue(Platform.createInteger(6), row); 
+        dpObjCrmEntity.Name.setStringValue(StringConstants.TBB_SERVICE_REQUESTS_STR.getString(), row);
+		row.applyUpdates();
+		
+		dpObjCrmEntity.getNewRow();
+		dpObjCrmEntity.Id.setIntegerValue(Platform.createInteger(5), row); 
+        dpObjCrmEntity.Name.setStringValue(StringConstants.TBB_ACTIVITIES_STR.getString(), row);
+		row.applyUpdates();
+		
+		dpObjCrmEntity.getNewRow();
+		dpObjCrmEntity.Id.setIntegerValue(Platform.createInteger(4), row); 
+        dpObjCrmEntity.Name.setStringValue(StringConstants.TBB_CATALOG_STR.getString(), row);
+		row.applyUpdates();
+		
+		dp.saveData();
+		
+		vObjUtil.loadCrmEntities();
+	}
+	
+	void loadEvent(){
+		DataRow row = dpObjEvent.getNewRow();		
+		dpObjEvent.Code.setStringValue("1",row);
+		dpObjEvent.Subject.setStringValue("Presentazione SOVREPIN",row);
+		dpObjEvent.Description.setStringValue("nuovo prodotto di punta",row);
+		dpObjEvent.StartDate.setDateValue(Platform.createDate(),row);
+		row.applyUpdates();
+		dp.saveData();
+		
+		vObjUtil.loadEvent();
+	}
+	
+	void loadPriceListItem(){
+		appLog.log(Log.INFO,"DTULLO: VOUTilityTemp");
+		DataRow row = dpObjPriceListItem.getNewRow();
+		dpObjPriceListItem.ProductCode.setStringValue("018622175",row);
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductName.setStringValue("SUPRADYN",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Supradin",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622171",row);		
+		dpObjPriceListItem.ProductName.setStringValue("LASONIL GEL RX",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(15.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Lasonil",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622172",row);		
+		dpObjPriceListItem.ProductName.setStringValue("SANIPIRINA",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(false),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Sanipirina",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622170",row);		
+		dpObjPriceListItem.ProductName.setStringValue("ASPIRINA C",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("COLD & PAIN",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(15.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(false),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Aspirina",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622176",row);		
+		dpObjPriceListItem.ProductName.setStringValue("LENITOS PASTIGLIE",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("PROPOLI/LENITOS",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(20.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Lenitos",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622177",row);		
+		dpObjPriceListItem.ProductName.setStringValue("LENIGOLA",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("PROPOLI/LENITOS",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(20.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Lenigola",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622178",row);		
+		dpObjPriceListItem.ProductName.setStringValue("DEFENFLU C",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("PROPOLI/LENITOS",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Defenflu",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622179",row);		
+		dpObjPriceListItem.ProductName.setStringValue("BECOZYM",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("VITAMINE",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(15.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(false),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(false),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Becozym",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622180",row);		
+		dpObjPriceListItem.ProductName.setStringValue("BENADON",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("VITAMINE",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Benadon",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622181",row);		
+		dpObjPriceListItem.ProductName.setStringValue("ELEVIT",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("VITAMINE",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Elevit",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622182",row);		
+		dpObjPriceListItem.ProductName.setStringValue("AUTAN",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("JOHNSON WAX",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Autan",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622183",row);		
+		dpObjPriceListItem.ProductName.setStringValue("CALCIDON",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("NUTRITIONAL",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Calcidon",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+				
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622184",row);		
+		dpObjPriceListItem.ProductName.setStringValue("REDOXON",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("NUTRITIONAL",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.ProductImage.setStringValue("Redoxon",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		row=dpObjPriceListItem.getNewRow();			
+		dpObjPriceListItem.PriceListCode.setStringValue("0001",row);
+		dpObjPriceListItem.ProductCode.setStringValue("018622185",row);		
+		dpObjPriceListItem.ProductName.setStringValue("FAVE DI FUCA",row);
+		dpObjPriceListItem.ProductCategory.setStringValue("LASSATIVI",row);
+		dpObjPriceListItem.UOM.setStringValue("Scatola",row);
+		dpObjPriceListItem.UnitPrice.setCurrencyValue(Platform.createDouble(10.0),row);
+		dpObjPriceListItem.DiscountProduct.setBooleanValue(Platform.createBoolean(true),row);
+		dpObjPriceListItem.DiscountNumber.setBooleanValue(Platform.createBoolean(true),row);
+		//dpObjPriceListItem.ProductImage.setStringValue("Redoxon",row);
+		dpObjPriceListItem.QtyMax.setIntegerValue(Platform.createInteger(9999),row);
+		row.applyUpdates();
+		
+		dp.saveData();
+		
+		vObjUtil.loadPriceListItem();
+	}
+	
+	void loadLOV(){
+		
+		//PROVINCE
+		DataRow row = dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("PROVINCE", row);
+        dpObjLOV.Name.setStringValue("MI", row);
+        dpObjLOV.Value.setStringValue("MI", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("PROVINCE", row);
+        dpObjLOV.Name.setStringValue("BG", row);
+        dpObjLOV.Value.setStringValue("BG", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("PROVINCE", row);
+        dpObjLOV.Name.setStringValue("TO", row);
+        dpObjLOV.Value.setStringValue("TO", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        //STATI
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+39", row);
+        dpObjLOV.Value.setStringValue("Italia", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+33", row);
+        dpObjLOV.Value.setStringValue("Francia", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+49", row);
+        dpObjLOV.Value.setStringValue("Germania", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+34", row);
+        dpObjLOV.Value.setStringValue("Spagna", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+32", row);
+        dpObjLOV.Value.setStringValue("Belgio", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+31", row);
+        dpObjLOV.Value.setStringValue("Olanda", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+351", row);
+        dpObjLOV.Value.setStringValue("Portogallo", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+353", row);
+        dpObjLOV.Value.setStringValue("Irlanda", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+43", row);
+        dpObjLOV.Value.setStringValue("Austria", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+45", row);
+        dpObjLOV.Value.setStringValue("Danimarca", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+46", row);
+        dpObjLOV.Value.setStringValue("Svezia", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+47", row);
+        dpObjLOV.Value.setStringValue("Norvegia", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+48", row);
+        dpObjLOV.Value.setStringValue("Polonia", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+30", row);
+        dpObjLOV.Value.setStringValue("Grecia", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+41", row);
+        dpObjLOV.Value.setStringValue("Svizzera", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+44", row);
+        dpObjLOV.Value.setStringValue("Gran Bretagna", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("COUNTRY", row);
+        dpObjLOV.Name.setStringValue("+1", row);
+        dpObjLOV.Value.setStringValue("U.S.A", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        //CATEGORIE
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("CATEGORY", row);
+        dpObjLOV.Name.setStringValue("Farmacia", row);
+        dpObjLOV.Value.setStringValue("Farmacia", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("CATEGORY", row);
+        dpObjLOV.Name.setStringValue("ASL", row);
+        dpObjLOV.Value.setStringValue("ASL", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("CATEGORY", row);
+        dpObjLOV.Name.setStringValue("Ospedale", row);
+        dpObjLOV.Value.setStringValue("Ospedale", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        //RATING
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("RATING", row);
+        dpObjLOV.Name.setStringValue("Gold", row);
+        dpObjLOV.Value.setStringValue("Gold", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("RATING", row);
+        dpObjLOV.Name.setStringValue("Platinum", row);
+        dpObjLOV.Value.setStringValue("Platinum", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();        
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("RATING", row);
+        dpObjLOV.Name.setStringValue("Silver", row);
+        dpObjLOV.Value.setStringValue("Silver", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        //REVENUE
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("REVENUE", row);
+        dpObjLOV.Name.setStringValue("0 - 100 K", row);
+        dpObjLOV.Value.setStringValue("0 - 100 K", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("REVENUE", row);
+        dpObjLOV.Name.setStringValue("100 - 500 K", row);
+        dpObjLOV.Value.setStringValue("100 - 500 K", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("REVENUE", row);
+        dpObjLOV.Name.setStringValue("500 - 1000 K", row);
+        dpObjLOV.Value.setStringValue("500 - 1000 K", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        //CATEGORIE PRODOTTI
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
+        dpObjLOV.Name.setStringValue("COLD & PAIN", row);
+        dpObjLOV.Value.setStringValue("COLD & PAIN", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
+        dpObjLOV.Name.setStringValue("PROPOLI/LENITOS", row);
+        dpObjLOV.Value.setStringValue("PROPOLI/LENITOS", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
+        dpObjLOV.Name.setStringValue("VITAMINE", row);
+        dpObjLOV.Value.setStringValue("VITAMINE", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
+        dpObjLOV.Name.setStringValue("NUTRITIONAL", row);
+        dpObjLOV.Value.setStringValue("NUTRITIONAL", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();  
+        
+        //TITOLI (contatti)
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("TITLE", row);
+        dpObjLOV.Name.setStringValue("Ing.", row);
+        dpObjLOV.Value.setStringValue("Ing.", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("TITLE", row);
+        dpObjLOV.Name.setStringValue("Sig.", row);
+        dpObjLOV.Value.setStringValue("Sig.", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();        
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("TITLE", row);
+        dpObjLOV.Name.setStringValue("Sig.ra", row);
+        dpObjLOV.Value.setStringValue("SIG.ra.", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("TITLE", row);
+        dpObjLOV.Name.setStringValue("Dott.", row);
+        dpObjLOV.Value.setStringValue("Dott.", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();               
+        
+        //FUNZIONI (contatti)
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("FUNCTION", row);
+        dpObjLOV.Name.setStringValue("Medico", row);
+        dpObjLOV.Value.setStringValue("Medico", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates(); 
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("FUNCTION", row);
+        dpObjLOV.Name.setStringValue("Titolare", row);
+        dpObjLOV.Value.setStringValue("Titolare", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("FUNCTION", row);
+        dpObjLOV.Name.setStringValue("Responsabile", row);
+        dpObjLOV.Value.setStringValue("Responsabile", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();  
+        
+        //SESSO (contatti)
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("GENDER", row);
+        dpObjLOV.Name.setStringValue("Maschio", row);
+        dpObjLOV.Value.setStringValue("Maschio", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates(); 
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("GENDER", row);
+        dpObjLOV.Name.setStringValue("Femmina", row);
+        dpObjLOV.Value.setStringValue("Femmina", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates(); 
+        
+        dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("GENDER", row);
+        dpObjLOV.Name.setStringValue("Non Definito", row);
+        dpObjLOV.Value.setStringValue("Non Definito", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();                                                                
+		
+		dp.saveData();
+		
+		vObjUtil.loadLOV();
+	}
+}

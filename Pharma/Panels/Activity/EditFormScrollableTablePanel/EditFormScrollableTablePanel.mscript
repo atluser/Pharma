@@ -284,25 +284,25 @@ ScrollableTablePanel {
 		//mdlPrefix.setFont(txtfnt);
 		//mdlFaxPrefix.setFont(txtfnt);
 		
-		mdlCode.addField(vObjAccount.AccountCode);
+		mdlCode.addField(dpObjAccount.AccountCode);
 		//mdlCode.setFont(txtfnt);
-		mdlName.addField(vObjAccount.AccountName);
-		mdlType.addField(vObjAccount.AccountType);
-		mdlCategory.addField(vObjAccount.AccountCategory);
-		mdlStatus.addField(vObjAccount.AccountStatus);
-		mdlStreetAddress.addField(vObjAccount.AccountStreetAddress);
-		mdlCity.addField(vObjAccount.AccountCity);
-		mdlCap.addField(vObjAccount.AccountPostalCode);
-		mdlProvince.addField(vObjAccount.AccountProvince);
-		mdlCountry.addField(vObjAccount.AccountCountry);
-		mdlPhone.addField(vObjAccount.AccountPhone);
-		mdlFax.addField(vObjAccount.AccountFax);
-		mdlMail.addField(vObjAccount.AccountEmail);
-		mdlUrl.addField(vObjAccount.AccountWebSite);
-		mdlPrefix.addField(vObjAccount.AccountPrefix);
-		mdlRating.addField(vObjAccount.AccountRating);
-		mdlRevenue.addField(vObjAccount.AccountRevenue);
-		mdlEmpNum.addField(vObjAccount.AccountNumberOfEmployee);
+		mdlName.addField(dpObjAccount.AccountName);
+		mdlType.addField(dpObjAccount.AccountType);
+		mdlCategory.addField(dpObjAccount.AccountCategory);
+		mdlStatus.addField(dpObjAccount.AccountStatus);
+		mdlStreetAddress.addField(dpObjAccount.AccountStreetAddress);
+		mdlCity.addField(dpObjAccount.AccountCity);
+		mdlCap.addField(dpObjAccount.AccountPostalCode);
+		mdlProvince.addField(dpObjAccount.AccountProvince);
+		mdlCountry.addField(dpObjAccount.AccountCountry);
+		mdlPhone.addField(dpObjAccount.AccountPhone);
+		mdlFax.addField(dpObjAccount.AccountFax);
+		mdlMail.addField(dpObjAccount.AccountEmail);
+		mdlUrl.addField(dpObjAccount.AccountWebSite);
+		mdlPrefix.addField(dpObjAccount.AccountPrefix);
+		mdlRating.addField(dpObjAccount.AccountRating);
+		mdlRevenue.addField(dpObjAccount.AccountRevenue);
+		mdlEmpNum.addField(dpObjAccount.AccountNumberOfEmployee);
 		
 		//btnProvinceSticky.setText("Provincia");
 		//btnProvinceSticky.setDataModel(mdlProvince);
@@ -331,14 +331,14 @@ ScrollableTablePanel {
 	void setChoiceModel(){
 	/*	
 		
-		mdlCountry.setChoicesAttribute(vObjLOV.Value);
-		mdlCountry.setChoicesKeyAttribute(vObjLOV.Name);
-		mdlCountry.setRows(vObjLOV.getLOV("COUNTRY"));		
+		mdlCountry.setChoicesAttribute(dpObjLOV.Value);
+		mdlCountry.setChoicesKeyAttribute(dpObjLOV.Name);
+		mdlCountry.setRows(dpObjLOV.getLOV("COUNTRY"));		
 		//mdlCountry.setSelectedIndex(1);		
 				
-		mdlProvince.setChoicesAttribute(vObjLOV.Name);
-		mdlProvince.setChoicesKeyAttribute(vObjLOV.Name);
-		mdlProvince.setRows(vObjLOV.getLOV("PROVINCE"));
+		mdlProvince.setChoicesAttribute(dpObjLOV.Name);
+		mdlProvince.setChoicesKeyAttribute(dpObjLOV.Name);
+		mdlProvince.setRows(dpObjLOV.getLOV("PROVINCE"));
 		
 		/*Font fnt2=new Font();
 		fnt2.setFamily("Arial");
@@ -513,32 +513,32 @@ ScrollableTablePanel {
 	}
 	
 	void save(){
-			vObjAccount.AccountName.setStringValue(txtName.getText(),currentRow);
+			dpObjAccount.AccountName.setStringValue(txtName.getText(),currentRow);
 			//int idx=txtCategory.getSelectedIndex();
 			//String key=mdlCategory.getKeyValue();
-			//vObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);
-			vObjAccount.AccountCategory.setStringValue(btnCategoryPopup.getText(),currentRow);			
-			vObjAccount.AccountStreetAddress.setStringValue(txtStreetAddress.getText(),currentRow);
-			vObjAccount.AccountCity.setStringValue(txtCity.getText(),currentRow);
-			vObjAccount.AccountPostalCode.setStringValue(txtCap.getText(),currentRow);
+			//dpObjAccount.AccountCategory.setStringValue(txtCategory.getChoice(idx),currentRow);
+			dpObjAccount.AccountCategory.setStringValue(btnCategoryPopup.getText(),currentRow);			
+			dpObjAccount.AccountStreetAddress.setStringValue(txtStreetAddress.getText(),currentRow);
+			dpObjAccount.AccountCity.setStringValue(txtCity.getText(),currentRow);
+			dpObjAccount.AccountPostalCode.setStringValue(txtCap.getText(),currentRow);
 			//idx=pkrProvince.getSelectedIndex();
-			//vObjAccount.AccountProvince.setStringValue(pkrProvince.getChoice(idx),currentRow);
-			vObjAccount.AccountProvince.setStringValue(btnProvincePopup.getText(),currentRow);
+			//dpObjAccount.AccountProvince.setStringValue(pkrProvince.getChoice(idx),currentRow);
+			dpObjAccount.AccountProvince.setStringValue(btnProvincePopup.getText(),currentRow);
 			//idx=pkrCountry.getSelectedIndex();
 			//String key =mdlCountry.getKeyValue();
-			//vObjAccount.AccountCountry.setStringValue(pkrCountry.getChoice(idx),currentRow);
-			//vObjAccount.AccountCountry.setStringValue(mdlCountry.getKeyValue(),currentRow);
-			vObjAccount.AccountCountry.setStringValue(btnCountryPopup.getText(),currentRow);
+			//dpObjAccount.AccountCountry.setStringValue(pkrCountry.getChoice(idx),currentRow);
+			//dpObjAccount.AccountCountry.setStringValue(mdlCountry.getKeyValue(),currentRow);
+			dpObjAccount.AccountCountry.setStringValue(btnCountryPopup.getText(),currentRow);
 					
-			vObjAccount.AccountPhone.setStringValue(txtPhone.getText(),currentRow);
-			vObjAccount.AccountFax.setStringValue(txtFax.getText(),currentRow);
-			vObjAccount.AccountEmail.setStringValue(txtMail.getText(),currentRow);
-			vObjAccount.AccountWebSite.setStringValue(txtUrl.getText(),currentRow);
-			vObjAccount.AccountPrefix.setStringValue(mdlPrefix.getText(),currentRow);
-			vObjAccount.AccountRating.setStringValue(btnRatingPopup.getText(),currentRow);
-			vObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
-			vObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
-			vObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(txtEmpNum.getText()),currentRow);
+			dpObjAccount.AccountPhone.setStringValue(txtPhone.getText(),currentRow);
+			dpObjAccount.AccountFax.setStringValue(txtFax.getText(),currentRow);
+			dpObjAccount.AccountEmail.setStringValue(txtMail.getText(),currentRow);
+			dpObjAccount.AccountWebSite.setStringValue(txtUrl.getText(),currentRow);
+			dpObjAccount.AccountPrefix.setStringValue(mdlPrefix.getText(),currentRow);
+			dpObjAccount.AccountRating.setStringValue(btnRatingPopup.getText(),currentRow);
+			dpObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
+			dpObjAccount.AccountRevenue.setStringValue(btnRevenuePopup.getText(),currentRow);
+			dpObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(txtEmpNum.getText()),currentRow);
 			
 			currentRow.applyUpdates();
 		
@@ -565,7 +565,7 @@ ScrollableTablePanel {
 		//province.stk.setDataModel(mdlProvince);
 		province.btnPopup=btnCountryPopup;
 		province.mdlPickMap=mdlPrefix;
-		province.setQuery(vObjLOV.getLOV("COUNTRY"));
+		province.setQuery(dpObjLOV.getLOV("COUNTRY"));
 		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 1, Sizing.PERCENTS, 50, false);
 		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
 		*/
@@ -579,7 +579,7 @@ ScrollableTablePanel {
 		//province.stk.setDataModel(mdlProvince);
 		province.btnPopup=btnProvincePopup;
 		province.mdlPickMap=mdlProvince;
-		province.setQuery(vObjLOV.getLOV("PROVINCE"));
+		province.setQuery(dpObjLOV.getLOV("PROVINCE"));
 		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 1, Sizing.PERCENTS, 50, false);*/
 		//scrHome.showPopup(puNew, Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PERCENTS, 100, Sizing.PERCENTS, 50, true);
 	}
@@ -602,7 +602,7 @@ ScrollableTablePanel {
 		province.btnPopup=button;
 		province.mdlPickMap=model;
 		province.lblTitle.setText(title);
-		province.setQuery(vObjLOV.getLOV(type));
+		province.setQuery(dpObjLOV.getLOV(type));
 		province.TYPE=type;				
 		scr.showPopup(province,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);		 
 		
@@ -659,7 +659,7 @@ ScrollableTablePanel {
 							
 		pnlPick.btnPopup=button;
 		pnlPick.mdlPickMap=model;
-		pnlPick.setQuery(vObjLOV.getLOV(type));
+		pnlPick.setQuery(dpObjLOV.getLOV(type));
 		pnlPick.TYPE=type;				
 		pnlPick.stk.reload();
 		

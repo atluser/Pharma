@@ -32,7 +32,7 @@ TablePanel {
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
 		//setColumnWidth(0, Sizing.PREFERRED, 0);		
-		//rsm.setRows(vObjLOV.getLOV("PROVINCE"));						
+		//rsm.setRows(dpObjLOV.getLOV("PROVINCE"));						
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
 		
@@ -70,7 +70,7 @@ TablePanel {
 		
 		DataRow dtRw = info.getDataRow();
 		if(!dtRw.isDeleted()){		
-			String str01 = vObjLOV.Value.getStringValue(dtRw);							
+			String str01 = dpObjLOV.Value.getStringValue(dtRw);							
 			tblVwCell.lbl.setText(str01);			
 		}
 	}
@@ -88,8 +88,8 @@ TablePanel {
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
 		//mdlChoice.setSelectedIndex(row);		
 		//Cells.SimpleTableViewCell tblVwCell = (Cells.SimpleTableViewCell)cell;				
-		btnPopup.setText(vObjLOV.Value.getStringValue(rsm.getRow()));
-		mdlPickMap.setText(vObjLOV.Name.getStringValue(rsm.getRow()));
+		btnPopup.setText(dpObjLOV.Value.getStringValue(rsm.getRow()));
+		mdlPickMap.setText(dpObjLOV.Name.getStringValue(rsm.getRow()));
 		po.dismiss();
 		
 		
@@ -159,14 +159,14 @@ TablePanel {
 	}*/
 	
 	void executeQuery(String value){
-		rsm.setRows(vObjLOV.getLOVByVal(TYPE,value));
+		rsm.setRows(dpObjLOV.getLOVByVal(TYPE,value));
 	}
 	
 	void setQuery(Query q){
 		rsm.setRows(q);
 	}
 	/*void init (RowSetModel rsm){
-		//rsm.setRows(vObjLOV.getLOV("PROVINCE"));						
+		//rsm.setRows(dpObjLOV.getLOV("PROVINCE"));						
 		//set the model for the sticky table
 		stk.setDataModel(rsm);
 		

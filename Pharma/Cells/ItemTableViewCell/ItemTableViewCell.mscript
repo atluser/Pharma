@@ -107,7 +107,7 @@ TableViewCell {
 		appLog.log(Log.INFO,"btnInfo Clicked " );
 		Popups.ProductInfo popInfo = new Popups.ProductInfo();
 		popInfo.setProductRow(row);
-		appLog.log(Log.INFO,"ProductInfo - ItemTableViewCell -- popup datarow setted, product NAME: " + vObjPriceListItem.ProductName.getStringValue(row));
+		appLog.log(Log.INFO,"ProductInfo - ItemTableViewCell -- popup datarow setted, product NAME: " + dpObjPriceListItem.ProductName.getStringValue(row));
 		popInfo.setImageReference(img);
 		appLog.log(Log.INFO,"ProductInfo - popup Image reference setted");
 		scrPriceList.showPopup(popInfo,Popup.POPUP_TYPE_NONE, Sizing.PREFERRED ,0 , Sizing.PREFERRED, 0 ,false,true);

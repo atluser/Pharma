@@ -138,7 +138,7 @@ HorizontalPanel {
 
 		//default account
 		String entity="";//"Account";
-		//VirtualObject obj=vObjAccount;
+		//VirtualObject obj=dpObjAccount;
 		DataRow row=null;//=vObjUtil.getNewAccountRow();
 		StickyTable originStk=null;//=pnlAccountRoot.getStickyTable();
 		//StickyTable detailStk=pnlAccountRoot.getDetailStickyTable();
@@ -149,7 +149,7 @@ HorizontalPanel {
 		switch(currentEntity){
 			case 0:
 				entity="Account";
-				//obj=vObjAccount;
+				//obj=dpObjAccount;
 				row=vObjUtil.getNewAccountRow();
 				originStk=pnlAccountRoot.getStickyTable();
 				pnlDetailForm=pnlAccountRoot.pnlDetailForm;
@@ -162,14 +162,18 @@ HorizontalPanel {
 			
 			case 1:
 				entity="Contact";
-				//obj=vObjAccount;
+				//obj=dpObjAccount;
 				row=vObjUtil.getNewContactRow();
 				originStk=pnlContactRoot.getStickyTable();
 				pnlDetailForm=pnlContactRoot.pnlDetailForm;
 				//pnlDetail=pnlContactRoot.pnlDetail;
 				stkTP=pnlContactRoot.stk;
 				Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();
+<<<<<<< HEAD
 				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);
+=======
+				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);//, pnlDetail);
+>>>>>>> e0a39e52685e7bfedfa06c55acac965b93fc0846
 				scrNewOrEditRecordCon.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 		}
@@ -186,7 +190,7 @@ HorizontalPanel {
 
 			//default is account
 		String entity="";
-		//VirtualObject obj=vObjAccount;
+		//VirtualObject obj=dpObjAccount;
 		DataRow row=null;//pnlAccountRoot.getCurrentRow();
 		StickyTable originStk=pnlAccountRoot.getStickyTable();
 		TablePanel stkTP=null;
@@ -197,7 +201,7 @@ HorizontalPanel {
 		switch(currentEntity){
 			case 0:
 				entity="Account";
-				//obj=vObjAccount;
+				//obj=dpObjAccount;
 				//row=pnlAccountRoot.getCurrentRow();
 				row=pnlAccountRoot.pnlDetailForm.currentRow;
 				originStk=pnlAccountRoot.getStickyTable();
@@ -211,7 +215,7 @@ HorizontalPanel {
 			break;
 			case 1:
 				entity="Contact";
-				//obj=vObjAccount;
+				//obj=dpObjAccount;
 				//row=pnlAccountRoot.getCurrentRow();
 				row=pnlContactRoot.pnlDetailForm.currentRow;
 				originStk=pnlContactRoot.getStickyTable();
@@ -220,7 +224,11 @@ HorizontalPanel {
 				//detailStk=pnlAccountRoot.getDetailStickyTable();
 				pnlDetailForm=pnlContactRoot.pnlDetailForm;
 				Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();
+<<<<<<< HEAD
 				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);		
+=======
+				scrNewOrEditRecordCon.init(row,stkTP,pnlDetailForm);//,pnlDetail);		
+>>>>>>> e0a39e52685e7bfedfa06c55acac965b93fc0846
 				scrNewOrEditRecordCon.push(Animation.PUSH_FROM_BOTTOM, false);
 			break;
 		}
@@ -466,7 +474,7 @@ HorizontalPanel {
 		DataRow dtRw =  vObjUtil.getNewAccountRow();  //MA PERCHé ALL'AVVIO DELL'APPLICAZIONE CREO UN ACCOUNT?!?!?!?!
 		//pnl.init("Account", dtRw);
 
-		//puNew.init(pnl, vObjAccount);
+		//puNew.init(pnl, dpObjAccount);
 
 		//puNew.add(pnl, "halign=center,vfill=fill");
 		//puNew.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgRedBackground, 0, 0, 0, 0));	

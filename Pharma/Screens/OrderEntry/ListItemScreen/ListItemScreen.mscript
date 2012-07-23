@@ -188,12 +188,12 @@ Screen {
 	
 	void loadListItem(String priceListCode){
 		//get Category
-		Query q=vObjLOV.getLOV("PRODUCT_CATEGORY");
+		Query q=dpObjLOV.getLOV("PRODUCT_CATEGORY");
 		DataRowSet set=q.getRowSet();
 		DataRow dtRow=set.first();		
 		while(dtRow!=null){//ciclo category
-			String category=vObjLOV.Value.getStringValue(dtRow);
-			Query q1=vObjPriceListItem.getListItemByCategory(priceListCode,category,"");
+			String category=dpObjLOV.Value.getStringValue(dtRow);
+			Query q1=dpObjPriceListItem.getListItemByCategory(priceListCode,category,"");
 			DataRowSet rowSet=q1.getRowSet();
 			DataRow found=rowSet.first();
 			appLog.log(Log.INFO,"analizzo category "+category);
@@ -210,11 +210,11 @@ Screen {
 			while(found!=null){							
 				appLog.log(Log.INFO,"dentro while eseguo query ");
 				//check if row already exists
-				String productCode=vObjPriceListItem.ProductCode.getStringValue(found);
-				String productName=vObjPriceListItem.ProductName.getStringValue(found);
-				String productImage=vObjPriceListItem.ProductImage.getStringValue(found);
-				Double unitPrice=vObjPriceListItem.UnitPrice.getCurrencyValue(found);				
-				Query q2=vObjListItem.getListItem2(orderCode,productCode);
+				String productCode=dpObjPriceListItem.ProductCode.getStringValue(found);
+				String productName=dpObjPriceListItem.ProductName.getStringValue(found);
+				String productImage=dpObjPriceListItem.ProductImage.getStringValue(found);
+				Double unitPrice=dpObjPriceListItem.UnitPrice.getCurrencyValue(found);				
+				Query q2=dpObjListItem.getListItem2(orderCode,productCode);
 				DataRow qtRow;
 				if(q2!=null){		
 					DataRowSet rowSet2=q2.getRowSet();
@@ -242,12 +242,12 @@ Screen {
 	void drawDetailItem(String priceListCode,String expr){
 		listCode=priceListCode;		
 		//get Category
-		Query q=vObjLOV.getLOV("PRODUCT_CATEGORY");
+		Query q=dpObjLOV.getLOV("PRODUCT_CATEGORY");
 		DataRowSet set=q.getRowSet();
 		DataRow dtRow=set.first();		
 		while(dtRow!=null){//ciclo category
-			String category=vObjLOV.Value.getStringValue(dtRow);
-			Query q1=vObjPriceListItem.getListItemByCategory(priceListCode,category,expr);
+			String category=dpObjLOV.Value.getStringValue(dtRow);
+			Query q1=dpObjPriceListItem.getListItemByCategory(priceListCode,category,expr);
 			DataRowSet rowSet=q1.getRowSet();
 			DataRow found=rowSet.first();
 			appLog.log(Log.INFO,"analizzo category "+category);
@@ -280,11 +280,11 @@ Screen {
 				Panels.OrderEntry.DetailCellHPanel cell=new Panels.OrderEntry.DetailCellHPanel();
 				appLog.log(Log.INFO,"dentro while eseguo query ");
 				//check if row already exists
-				String productCode=vObjPriceListItem.ProductCode.getStringValue(found);
-				String productName=vObjPriceListItem.ProductName.getStringValue(found);
-				String productImage=vObjPriceListItem.ProductImage.getStringValue(found);
-				Double unitPrice=vObjPriceListItem.UnitPrice.getCurrencyValue(found);				
-				Query q2=vObjListItem.getListItem2(orderCode,productCode);
+				String productCode=dpObjPriceListItem.ProductCode.getStringValue(found);
+				String productName=dpObjPriceListItem.ProductName.getStringValue(found);
+				String productImage=dpObjPriceListItem.ProductImage.getStringValue(found);
+				Double unitPrice=dpObjPriceListItem.UnitPrice.getCurrencyValue(found);				
+				Query q2=dpObjListItem.getListItem2(orderCode,productCode);
 				DataRow qtRow;
 				if(q2!=null){		
 					DataRowSet rowSet2=q2.getRowSet();
@@ -314,7 +314,7 @@ Screen {
 
 	void createItem(String orderCode,ObjectArray arrObj){	
 		//cancello orderitem creato
-		Query q2=vObjOrderItem.getOrderItem(orderCode);
+		Query q2=dpObjOrderItem.getOrderItem(orderCode);
 		if(q2!=null){
 			DataRowSet rowSet2=q2.getRowSet();
 			DataRow found2=rowSet2.first();
@@ -324,23 +324,23 @@ Screen {
 			}
 		}
 		
-		Query q1=vObjListItem.getListItem(orderCode);
+		Query q1=dpObjListItem.getListItem(orderCode);
 		DataRowSet rowSet=q1.getRowSet();
 		DataRow found=rowSet.first();
 		appLog.log(Log.INFO,"creating orderitem");
 		while(found!=null){						
 			found.applyUpdates();
 			
-			String productCode=vObjListItem.ProductCode.getStringValue(found);
-			String productName=vObjListItem.ProductName.getStringValue(found);
-			String productImage=vObjListItem.ProductImage.getStringValue(found);
-			String productCategory=vObjListItem.ProductCategory.getStringValue(found);
-			Double unitPrice=vObjListItem.UnitPrice.getCurrencyValue(found);
-			Integer qty1=vObjListItem.Qty1.getIntegerValue(found);
-			Integer qty2=vObjListItem.Qty2.getIntegerValue(found);	
-			Integer qty3=vObjListItem.Qty3.getIntegerValue(found);					
-			Double discount1=vObjListItem.Discount1.getDoubleValue(found);
-			Double discount2=vObjListItem.Discount2.getDoubleValue(found);
+			String productCode=dpObjListItem.ProductCode.getStringValue(found);
+			String productName=dpObjListItem.ProductName.getStringValue(found);
+			String productImage=dpObjListItem.ProductImage.getStringValue(found);
+			String productCategory=dpObjListItem.ProductCategory.getStringValue(found);
+			Double unitPrice=dpObjListItem.UnitPrice.getCurrencyValue(found);
+			Integer qty1=dpObjListItem.Qty1.getIntegerValue(found);
+			Integer qty2=dpObjListItem.Qty2.getIntegerValue(found);	
+			Integer qty3=dpObjListItem.Qty3.getIntegerValue(found);					
+			Double discount1=dpObjListItem.Discount1.getDoubleValue(found);
+			Double discount2=dpObjListItem.Discount2.getDoubleValue(found);
 			appLog.log(Log.INFO,"orderitem product "+productCode+" qty ");
 			if(qty1==null || qty1.intValue()==0){
 				appLog.log(Log.INFO,"qty 0"+productCode);
@@ -348,18 +348,18 @@ Screen {
 				continue;
 			}
 						
-			DataRow row=vObjOrderItem.getNewRow();			
-			vObjOrderItem.OrderCode.setStringValue(orderCode,row);
-			vObjOrderItem.OrderItemProductCode.setStringValue(productCode,row);
-			vObjOrderItem.OrderItemProductName.setStringValue(productName,row);
-			vObjOrderItem.OrderItemProductImage.setStringValue(productImage,row);
-			vObjOrderItem.OrderItemProductCategory.setStringValue(productCategory,row);
-			vObjOrderItem.OrderItemProductPrice.setCurrencyValue(unitPrice,row);
-			vObjOrderItem.OrderItemQty1.setIntegerValue(qty1,row);
-			vObjOrderItem.OrderItemQty2.setIntegerValue(qty2,row);
-			vObjOrderItem.OrderItemQty3.setIntegerValue(qty3,row);
-			vObjOrderItem.OrderItemProductDiscount1.setDoubleValue(discount1,row);
-			vObjOrderItem.OrderItemProductDiscount2.setDoubleValue(discount2,row);
+			DataRow row=dpObjOrderItem.getNewRow();			
+			dpObjOrderItem.OrderCode.setStringValue(orderCode,row);
+			dpObjOrderItem.OrderItemProductCode.setStringValue(productCode,row);
+			dpObjOrderItem.OrderItemProductName.setStringValue(productName,row);
+			dpObjOrderItem.OrderItemProductImage.setStringValue(productImage,row);
+			dpObjOrderItem.OrderItemProductCategory.setStringValue(productCategory,row);
+			dpObjOrderItem.OrderItemProductPrice.setCurrencyValue(unitPrice,row);
+			dpObjOrderItem.OrderItemQty1.setIntegerValue(qty1,row);
+			dpObjOrderItem.OrderItemQty2.setIntegerValue(qty2,row);
+			dpObjOrderItem.OrderItemQty3.setIntegerValue(qty3,row);
+			dpObjOrderItem.OrderItemProductDiscount1.setDoubleValue(discount1,row);
+			dpObjOrderItem.OrderItemProductDiscount2.setDoubleValue(discount2,row);
 			
 			row.applyUpdates();
 			found=rowSet.next();

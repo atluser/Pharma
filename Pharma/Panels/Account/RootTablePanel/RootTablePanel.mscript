@@ -26,8 +26,8 @@ TablePanel {
 			pnlDetail.txtFldName.setText("Non sono presenti accounts. Crearne di nuovi!");
 		else
 		{
-			firstRow = vObjAccount.getAccounts().getRowSet().first();
-			pnlDetail.txtFldName.setText(vObjAccount.AccountName.getStringValue(firstRow));	
+			firstRow = dpObjAccount.getAccounts().getRowSet().first();
+			pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(firstRow));	
 		}
 		pnlDetailForm.setDetailPanel(pnlDetail);
 		pnlDetailForm.setFirstRecord();
