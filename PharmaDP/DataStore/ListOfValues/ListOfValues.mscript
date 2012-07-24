@@ -6,18 +6,18 @@ DataStoreObject {
 	StringField Name {return null;}
 
 	Query getLOVByVal(String type,String val){
-		return getLovByVal2(type,val);
+		return lovByVal(type,val);
 	}
-	query getLovByVal2<String type,String val>{
+	query lovByVal<String type,String val>{
 		where Type==type;
 		where Value contains val;
 		ascendingBy Value;
 	}
 
 	Query getLOV(String type){
-		return getLov2(type);
+		return lov(type);
 	}
-	query getLov2<String type>{
+	query lov<String type>{
 		where Type==type;
 		ascendingBy Value;
 	}	

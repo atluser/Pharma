@@ -14,6 +14,8 @@ TablePanel {
 	Panels.DetailPanel pnlDetail;
 	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm;
 	
+	RowSetModel rowCat = new RowSetModel();
+	
 	
 	//ObjectArray rsmArray=new ObjectArray();	
 	Array arr = new Array();
@@ -37,8 +39,12 @@ TablePanel {
 		pnlIndex.setArray(arr);
 		*/
 		//setInitQuery();
-		
+		//rsm.setRows(dpRowSetPriceListItem);
 		//set the model for the sticky table
+		rowCat.setRows(dpObjLOV.getLOV("PRODUCT_CATEGORY"));
+		logApp.log(Log.INFO, "danieleU - Category Lov has rows? " + rowCat.getRowCount(0) + " rows");
+		setQuery("");
+		logApp.log(Log.INFO, "danieleU - PriceListItem num rows: " + rsm.getSize());
 		stk.setDataModel(rsm);
 	
 		//HEADER
@@ -80,7 +86,9 @@ TablePanel {
 		Cells.ItemTableViewCell tblVwCell = (Cells.ItemTableViewCell)cell;
 		
 		DataRow dtRw = info.getDataRow();
-		if(!dtRw.isDeleted()){		
+		//if(!dtRw.isDeleted()){	
+		if (dpRowSetPriceListItem.first()!=null) {	
+			logApp.log(Log.INFO, "danieleU - ci sono elementi nel listino!");
 			String strCode = dpObjPriceListItem.ProductCode.getStringValue(dtRw);
 			String strName = dpObjPriceListItem.ProductName.getStringValue(dtRw);					
 			String strUOM = dpObjPriceListItem.UOM.getStringValue(dtRw);
@@ -107,7 +115,10 @@ TablePanel {
 			appLog.log(Log.INFO,"ProductInfo - Data row in Table View Cell setted, PRODUCT NAME: "+ dpObjPriceListItem.ProductName.getStringValue(dtRw));
 			tblVwCell.lblQtyMin.setText(dpObjPriceListItem.QtyMin.getIntegerValue(dtRw).toString());
 			tblVwCell.lblQtyMax.setText(dpObjPriceListItem.QtyMax.getIntegerValue(dtRw).toString());
+		} else {
+			logApp.log(Log.INFO, "danieleU - PriceListItem is EMPTY!!");
 		}
+		//}
 	}
 	
 	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
@@ -213,11 +224,19 @@ TablePanel {
 	void setQuery(String val){
 		//clean before start
 		rsm.clear();
+		logApp.log(Log.INFO,"danieleU - pricelist rowsetmodel cleared");
 		arr.removeAllItems();
+		/*
 		Query q=dpObjLOV.getLOV("PRODUCT_CATEGORY");
 		DataRowSet set=q.getRowSet();
+		logApp.log(Log.INFO, "danieleU - Category Lov has rows? " + vObjUtil.getDataRowSetSize(set));
 		DataRow dtRow=set.first();		
+		*/
+		
+		/*
+		DataRow dtRow = rowCat.getRow();
 		while(dtRow!=null){
+			logApp.log(Log.INFO,"danieleU - creating rowsetmodel category: " + dpObjLOV.Value.getStringValue(dtRow));
 			String category=dpObjLOV.Value.getStringValue(dtRow);
 			RowSetModel rsm1 = new RowSetModel();
 			rsm1.setRows(dpObjPriceListItem.getListItemByCategory(listCode,category,val));
@@ -230,17 +249,41 @@ TablePanel {
 				arr.insertItem(rsm.getGroupCount() - 1, category);	
 				//pnlIndex.enableIndexLinks(i);	
 			}
-							
-			dtRow=set.next();
+				
+			dtRow=rowCat.getRow();				
+			//dtRow=set.next();
 		}
-		stk.setNumberOfGroups(set.getSize());	
+		*/
+		int numCat = rowCat.getRowCount(0);
+		DataRow dtRow;
+		for (int i=0; i<numCat; i++) {
+			
+			rowCat.select(0,i); //select i-th element from the lov category
+			dtRow=rowCat.getRow(); //instantiate the i-th row
+			logApp.log(Log.INFO,"danieleU - creating rowsetmodel category: " + dpObjLOV.Value.getStringValue(dtRow));
+			String category=dpObjLOV.Value.getStringValue(dtRow);
+			RowSetModel rsm1 = new RowSetModel();
+			rsm1.setRows(dpObjPriceListItem.getListItemByCategory(listCode,category,val));
+			
+			appLog.log(Log.INFO, "StickyTablePanel - setInitQuery() - rsm1.hasRow() - " + category+" : " + rsm1.getRowCount(0));
+			
+			if(rsm1.getRowCount(0) > 0) {
+				
+				rsm.add(rsm1);
+				arr.insertItem(rsm.getGroupCount() - 1, category);	
+				//pnlIndex.enableIndexLinks(i);	
+			}
+			
+		}
+		//stk.setNumberOfGroups(set.getSize());	
+		stk.setNumberOfGroups(rowCat.getRowCount(0));
+		logApp.log(Log.INFO, "danieleU - PriceListItem num rows: " + rsm.getSize());
 				
 	}
 	
 	void setPriceListScreen (Screens.PriceList.PriceListItemScreen scr) {
 		scrPriceList=scr;
 	}
-	
 	
 	
 	/*

@@ -13,7 +13,7 @@ UIObject {
 		
 		dp.saveData();
 		
-		vObjUtil.loadPriceList();
+		//vObjUtil.loadPriceList();
 	}
 	
 	void loadProducts(){
@@ -24,7 +24,7 @@ UIObject {
 		row.applyUpdates();
 		dp.saveData();
 		
-		vObjUtil.loadProducts();
+		//vObjUtil.loadProducts();
 	}
 	
 	void loadCrmEntity(){
@@ -45,7 +45,7 @@ UIObject {
 		
 		dp.saveData();
 		
-		vObjUtil.loadCrmEntities();
+		//vObjUtil.loadCrmEntities();
 	}
 	
 	void loadEvent(){
@@ -57,7 +57,7 @@ UIObject {
 		row.applyUpdates();
 		dp.saveData();
 		
-		vObjUtil.loadEvent();
+		//vObjUtil.loadEvent();
 	}
 	
 	void loadPriceListItem(){
@@ -246,7 +246,7 @@ UIObject {
 		
 		dp.saveData();
 		
-		vObjUtil.loadPriceListItem();
+		//vObjUtil.loadPriceListItem();
 	}
 	
 	void loadLOV(){
@@ -259,14 +259,14 @@ UIObject {
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("PROVINCE", row);
         dpObjLOV.Name.setStringValue("BG", row);
         dpObjLOV.Value.setStringValue("BG", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("PROVINCE", row);
         dpObjLOV.Name.setStringValue("TO", row);
         dpObjLOV.Value.setStringValue("TO", row);
@@ -274,91 +274,91 @@ UIObject {
         row.applyUpdates();
         
         //STATI
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+39", row);
         dpObjLOV.Value.setStringValue("Italia", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+33", row);
         dpObjLOV.Value.setStringValue("Francia", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+49", row);
         dpObjLOV.Value.setStringValue("Germania", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+34", row);
         dpObjLOV.Value.setStringValue("Spagna", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+32", row);
         dpObjLOV.Value.setStringValue("Belgio", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+31", row);
         dpObjLOV.Value.setStringValue("Olanda", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+351", row);
         dpObjLOV.Value.setStringValue("Portogallo", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+353", row);
         dpObjLOV.Value.setStringValue("Irlanda", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+43", row);
         dpObjLOV.Value.setStringValue("Austria", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+45", row);
         dpObjLOV.Value.setStringValue("Danimarca", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+46", row);
         dpObjLOV.Value.setStringValue("Svezia", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+47", row);
         dpObjLOV.Value.setStringValue("Norvegia", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+48", row);
         dpObjLOV.Value.setStringValue("Polonia", row);
@@ -366,28 +366,28 @@ UIObject {
         row.applyUpdates();
         
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+30", row);
         dpObjLOV.Value.setStringValue("Grecia", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+41", row);
         dpObjLOV.Value.setStringValue("Svizzera", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+44", row);
         dpObjLOV.Value.setStringValue("Gran Bretagna", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("COUNTRY", row);
         dpObjLOV.Name.setStringValue("+1", row);
         dpObjLOV.Value.setStringValue("U.S.A", row);
@@ -395,21 +395,21 @@ UIObject {
         row.applyUpdates();
         
         //CATEGORIE
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("CATEGORY", row);
         dpObjLOV.Name.setStringValue("Farmacia", row);
         dpObjLOV.Value.setStringValue("Farmacia", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("CATEGORY", row);
         dpObjLOV.Name.setStringValue("ASL", row);
         dpObjLOV.Value.setStringValue("ASL", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("CATEGORY", row);
         dpObjLOV.Name.setStringValue("Ospedale", row);
         dpObjLOV.Value.setStringValue("Ospedale", row);
@@ -417,21 +417,21 @@ UIObject {
         row.applyUpdates();
         
         //RATING
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("RATING", row);
         dpObjLOV.Name.setStringValue("Gold", row);
         dpObjLOV.Value.setStringValue("Gold", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("RATING", row);
         dpObjLOV.Name.setStringValue("Platinum", row);
         dpObjLOV.Value.setStringValue("Platinum", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();        
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("RATING", row);
         dpObjLOV.Name.setStringValue("Silver", row);
         dpObjLOV.Value.setStringValue("Silver", row);
@@ -439,21 +439,21 @@ UIObject {
         row.applyUpdates();
         
         //REVENUE
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("REVENUE", row);
         dpObjLOV.Name.setStringValue("0 - 100 K", row);
         dpObjLOV.Value.setStringValue("0 - 100 K", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("REVENUE", row);
         dpObjLOV.Name.setStringValue("100 - 500 K", row);
         dpObjLOV.Value.setStringValue("100 - 500 K", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("REVENUE", row);
         dpObjLOV.Name.setStringValue("500 - 1000 K", row);
         dpObjLOV.Value.setStringValue("500 - 1000 K", row);
@@ -461,28 +461,28 @@ UIObject {
         row.applyUpdates();
         
         //CATEGORIE PRODOTTI
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
         dpObjLOV.Name.setStringValue("COLD & PAIN", row);
         dpObjLOV.Value.setStringValue("COLD & PAIN", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
         dpObjLOV.Name.setStringValue("PROPOLI/LENITOS", row);
         dpObjLOV.Value.setStringValue("PROPOLI/LENITOS", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
         dpObjLOV.Name.setStringValue("VITAMINE", row);
         dpObjLOV.Value.setStringValue("VITAMINE", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("PRODUCT_CATEGORY", row);
         dpObjLOV.Name.setStringValue("NUTRITIONAL", row);
         dpObjLOV.Value.setStringValue("NUTRITIONAL", row);
@@ -490,28 +490,28 @@ UIObject {
         row.applyUpdates();  
         
         //TITOLI (contatti)
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("TITLE", row);
         dpObjLOV.Name.setStringValue("Ing.", row);
         dpObjLOV.Value.setStringValue("Ing.", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("TITLE", row);
         dpObjLOV.Name.setStringValue("Sig.", row);
         dpObjLOV.Value.setStringValue("Sig.", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();        
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("TITLE", row);
         dpObjLOV.Name.setStringValue("Sig.ra", row);
         dpObjLOV.Value.setStringValue("SIG.ra.", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("TITLE", row);
         dpObjLOV.Name.setStringValue("Dott.", row);
         dpObjLOV.Value.setStringValue("Dott.", row);
@@ -519,21 +519,21 @@ UIObject {
         row.applyUpdates();               
         
         //FUNZIONI (contatti)
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("FUNCTION", row);
         dpObjLOV.Name.setStringValue("Medico", row);
         dpObjLOV.Value.setStringValue("Medico", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates(); 
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("FUNCTION", row);
         dpObjLOV.Name.setStringValue("Titolare", row);
         dpObjLOV.Value.setStringValue("Titolare", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("FUNCTION", row);
         dpObjLOV.Name.setStringValue("Responsabile", row);
         dpObjLOV.Value.setStringValue("Responsabile", row);
@@ -541,21 +541,21 @@ UIObject {
         row.applyUpdates();  
         
         //SESSO (contatti)
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("GENDER", row);
         dpObjLOV.Name.setStringValue("Maschio", row);
         dpObjLOV.Value.setStringValue("Maschio", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates(); 
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("GENDER", row);
         dpObjLOV.Name.setStringValue("Femmina", row);
         dpObjLOV.Value.setStringValue("Femmina", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates(); 
         
-        dpObjLOV.getNewRow();
+        row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("GENDER", row);
         dpObjLOV.Name.setStringValue("Non Definito", row);
         dpObjLOV.Value.setStringValue("Non Definito", row);
@@ -564,6 +564,43 @@ UIObject {
 		
 		dp.saveData();
 		
-		vObjUtil.loadLOV();
+		//vObjUtil.loadLOV();
 	}
+	
+	void loadContact() {
+		DataRow row;
+		
+		row = dpObjContact.getNewRow();
+		dpObjContact.ContactId.setStringValue("00000001",row);
+		dpObjContact.ContactName.setStringValue("Aldo",row);
+		dpObjContact.ContactLastName.setStringValue("Bianchi",row);
+		dpObjContact.ContactEmail.setStringValue("abianchi@gmail.com",row);
+		dpObjContact.ContactStreetAddress.setStringValue("via Lecco 15",row);
+		dpObjContact.ContactStreetCity.setStringValue("Monza",row);
+		dpObjContact.ContactAge.setStringValue("32",row);
+		row.applyUpdates();
+		
+		row = dpObjContact.getNewRow();
+		dpObjContact.ContactId.setStringValue("00000002",row);
+		dpObjContact.ContactName.setStringValue("Maria",row);
+		dpObjContact.ContactLastName.setStringValue("Rossi",row);
+		dpObjContact.ContactEmail.setStringValue("mrossi@hotmail.it",row);
+		dpObjContact.ContactStreetAddress.setStringValue("via sempione 43",row);
+		dpObjContact.ContactStreetCity.setStringValue("Varese",row);
+		dpObjContact.ContactAge.setStringValue("45",row);
+		row.applyUpdates();
+		
+		row = dpObjContact.getNewRow();
+		dpObjContact.ContactId.setStringValue("00000003",row);
+		dpObjContact.ContactName.setStringValue("Pasquale",row);
+		dpObjContact.ContactLastName.setStringValue("Mascara",row);
+		dpObjContact.ContactEmail.setStringValue("pasmascara@yahoo.com",row);
+		dpObjContact.ContactStreetAddress.setStringValue("Via Giacomo Matteotti 143",row);
+		dpObjContact.ContactStreetCity.setStringValue("Cinisello Balsamo",row);
+		dpObjContact.ContactAge.setStringValue("38",row);
+		row.applyUpdates();
+		
+		dp.saveData();
+	}
+	
 }

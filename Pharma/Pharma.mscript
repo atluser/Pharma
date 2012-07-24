@@ -7,7 +7,7 @@ UIProject {
 	
 	/** VOUtility **/
 	VOUtility vObjUtil = new VOUtility();
-	VOUtilityTemp vObjUtilTemp = new VOUtilityTemp();
+	//VOUtilityTemp vObjUtilTemp = new VOUtilityTemp();
 	
 	/*********************************************
 	LEGGO GLI OGGETTI PRESENTI NEL DATASTORE
@@ -170,16 +170,16 @@ UIProject {
 		
 		if(sOpenDP==true)
 		{
-			
+			logApp.log(Log.INFO,"danieleU - DataProject is Open, loading entities...");
 			vObjUtil.loadAccount();
 			vObjUtil.loadContact();
 			vObjUtil.loadOrder();
 			vObjUtil.loadOrderItem();
-			vObjUtilTemp.loadPriceList();
-			vObjUtilTemp.loadPriceListItem();
-			vObjUtilTemp.loadLOV();
-			vObjUtilTemp.loadEvent();
-			vObjUtilTemp.loadProducts();
+			vObjUtil.loadPriceList();
+			vObjUtil.loadPriceListItem();
+			vObjUtil.loadLOV();
+			vObjUtil.loadEvent();
+			vObjUtil.loadProducts();
 			vObjUtil.loadCrmEntities();
 			//vObjUtil.loadProductList();
 		}

@@ -30,6 +30,10 @@ DataStoreObject {
 	StringField NumContact{return null;}
 	//StringField ContactAlways{return "always";}
 	
+	StringField searchKey {
+		return ContactLastName + " " + ContactName;
+	}
+	
 	Query getAllContacts()
 	{
 		return getAllContactRows();
@@ -42,7 +46,7 @@ DataStoreObject {
 		}
 		
 		query contactRows<> {
-			ascendingBy ContactLastName;
+			ascendingBy searchKey;
 		}
 	
 	Query getFirstRow() {
@@ -58,7 +62,7 @@ DataStoreObject {
 		}
 		query ContactStartsWith<String strStart>{
 			where ContactLastName startsWith strStart; 
-			ascendingBy ContactLastName;
+			ascendingBy searchKey;
 		}
 	
 	Query getContactRow(String ContactId){
@@ -119,10 +123,10 @@ DataStoreObject {
 	}
 		query contactContainsFromAccount<String src, String acode> {
 
-			where ContactLastName contains src;
+			where searchKey contains src;
 			where RelAccountCode == acode;
 
-			ascendingBy ContactLastName;
+			ascendingBy searchKey;
 		}
 	
 	//Retrieve contacts based on a search string
@@ -130,8 +134,8 @@ DataStoreObject {
 		return contactContains(src);
 	}
 		query contactContains<String src> {
-			where ContactLastName contains src;
-			ascendingBy ContactLastName;
+			where searchKey contains src;
+			ascendingBy searchKey;
 		}
 	
 	//Retrieve contacts from the related Account
@@ -143,7 +147,7 @@ DataStoreObject {
 	}
 		query contactFromAccount<String acode> {
 			where RelAccountCode == acode;
-			ascendingBy ContactLastName;
+			ascendingBy searchKey;
 		}
 	
 	//Retrieve contacts that start with a given letter and related to a given account
@@ -155,7 +159,7 @@ DataStoreObject {
 		query contactStartsWithFromAccount<String letter, String acode> {
 			where ContactLastName startsWith letter; 
 			where RelAccountCode==acode;
-			ascendingBy ContactLastName;
+			ascendingBy searchKey;
 		}
 
 	
@@ -165,8 +169,8 @@ DataStoreObject {
 	}
 		query contactContainsStartsWith<String letter, String src> {
 			where ContactLastName startsWith letter; 
-			where ContactLastName contains src; 
-			ascendingBy ContactLastName;
+			where searchKey contains src; 
+			ascendingBy searchKey;
 		}
 		
 	//Retrieve contacts that starts with a given letter, contains a given string and are related with an Account
@@ -176,8 +180,8 @@ DataStoreObject {
 		query contactContainsStartsWithFromAccount<String letter, String src, String acode> {
 			where RelAccountCode == acode;
 			where ContactLastName startsWith letter; 
-			where ContactLastName contains src;
-			ascendingBy ContactLastName;
+			where searchKey contains src;
+			ascendingBy searchKey;
 		}
 	
 	Query ContactCount(){

@@ -12,7 +12,6 @@ Screen {
 	Panels.Contact.StickyTablePanel stkTP;
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
 	Panels.DetailPanel pnlDetail;
-	VirtualObject dataObject;
 	Container sReloadCnt = null;
 	String sAccountCode = "";
 	
@@ -145,7 +144,7 @@ Screen {
 			//dpObjContact.ContactId.setStringValue(fp..getText(),ContactRowContext);
 			//dpObjContact.ContactTitle.setStringValue(fp..getText(),ContactRowContext);
 			//dpObjContact.ContactFunction.setStringValue(fp..getText(),ContactRowContext);
-			//dpObjContact.ContactProvince.setStringValue(fp..getText(),ContactRowContext);
+			//dpObjContact.ContactProvince.setStringValue(fp..getText().ContactRowContext);
 			//dpObjContact.ContactCountry.setStringValue(fp..getText(),ContactRowContext);
 			//dpObjContact.ContactGender.setStringValue(fp..getText(),ContactRowContext);
 			
@@ -153,12 +152,17 @@ Screen {
 			dpObjContact.ContactLastName.setStringValue(fp.txtLastName.getText(),ContactRowContext);
 			dpObjContact.RelAccountCode.setStringValue(fp.txtRelAccount.getText(),ContactRowContext);
 			dpObjContact.ContactStatus.setStringValue(fp.txtStatus.getText(),ContactRowContext);
+			dpObjContact.ContactTitle.setStringValue(fp.btnTitlePopup.getText(),ContactRowContext);
+			dpObjContact.ContactFunction.setStringValue(fp.btnFunctionPopup.getText(),ContactRowContext);
 			dpObjContact.ContactStreetAddress.setStringValue(fp.txtStreetAddress.getText(),ContactRowContext);
 			dpObjContact.ContactStreetCity.setStringValue(fp.txtCity.getText(),ContactRowContext);
 			dpObjContact.ContactCap.setStringValue(fp.txtCap.getText(),ContactRowContext);
+			dpObjContact.ContactProvince.setStringValue(fp.btnProvincePopup.getText(),ContactRowContext);
+			dpObjContact.ContactCountry.setStringValue(fp.btnCountryPopup.getText(),ContactRowContext);
 			dpObjContact.ContactPhone.setStringValue(fp.txtPhone.getText(),ContactRowContext);
 			dpObjContact.ContactOfficePhone.setStringValue(fp.txtOfficePhone.getText(),ContactRowContext);
 			dpObjContact.ContactEmail.setStringValue(fp.txtMail.getText(),ContactRowContext);
+			dpObjContact.ContactGender.setStringValue(fp.btnGenderPopup.getText(),ContactRowContext);
 			dpObjContact.ContactAge.setStringValue(fp.txtAge.getText(),ContactRowContext);
 			dpObjContact.ContactNote.setStringValue(fp.txtNote.getText(),ContactRowContext);
 			ContactRowContext.applyUpdates();

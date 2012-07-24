@@ -107,7 +107,7 @@ TablePanel {
 	RichButton rchBtnEmail = new RichButton();
 	
 	//-- ALTRE INFO --
-	//Email
+	//Età
 	TextModel txtMdlAge = new TextModel();
 	Label txtFldAge = new Label();
 	
@@ -134,6 +134,7 @@ TablePanel {
 	 */
 	callback onCreate(Container c) {
 		setUpHeader();
+		setRow(dpRowSetContact.first());
 		/*
 		if(iNumContacts<1)
 		{
@@ -291,7 +292,7 @@ TablePanel {
 		logApp.log(Log.INFO, "ReadOnlyDeatilFormPanel - rchBtnAddress onClick()");	
 		//setMap(String accountName, String refer,String street,String city, String region, String postalcode,String country)
 		Screens.MapScreen scr = new Screens.MapScreen();
-		scr.setMap( txtFldName.getText() + txtFldLastName.getText(), "", txtFldStreetAddress.getText(), txtFldCity.getText(), "", txtFldCap.getText(), txtFldCountry.getText());
+		scr.setMap( txtFldName.getText() + " " + txtFldLastName.getText(), "", txtFldStreetAddress.getText(), txtFldCity.getText(), "", txtFldCap.getText(), txtFldCountry.getText());
 		scr.push(0,false);
 	
 	}
@@ -624,7 +625,12 @@ TablePanel {
 		txtFldStatus.setDataModel(txtMdlStatus);
 		
 		txtMdlAddress.setRow(dtRw);
-		txtMdlAddress.setText(dpObjContact.ContactStreetAddress.getStringValue(dtRw) + " - " + dpObjContact.ContactCap.getStringValue(dtRw) + " - " + dpObjContact.ContactStreetCity.getStringValue(dtRw) + " (" + dpObjContact.ContactProvince.getStringValue(dtRw) + ") " + dpObjContact.ContactCountry.getStringValue(dtRw));
+		String address = (dpObjContact.ContactStreetAddress.getStringValue(dtRw)!=null) ? dpObjContact.ContactStreetAddress.getStringValue(dtRw) + " - " : "";
+		String cap = (dpObjContact.ContactCap.getStringValue(dtRw)!=null) ? dpObjContact.ContactCap.getStringValue(dtRw) + " - " : "";
+		String city = (dpObjContact.ContactStreetCity.getStringValue(dtRw)!=null) ? dpObjContact.ContactStreetCity.getStringValue(dtRw) + " " : "";
+		String prov = (dpObjContact.ContactProvince.getStringValue(dtRw)!=null) ? "(" + dpObjContact.ContactProvince.getStringValue(dtRw) + ")" : "";
+		String country = (dpObjContact.ContactCountry.getStringValue(dtRw)!=null) ? dpObjContact.ContactCountry.getStringValue(dtRw) : "";
+		txtMdlAddress.setText(address + cap + city + prov + country);
 		txtFldAddress.setDataModel(txtMdlAddress);
 		
 		txtMdlStreetAddress.setRow(dtRw);

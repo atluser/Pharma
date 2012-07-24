@@ -111,7 +111,7 @@ HorizontalPanel {
 			
 			case 1:
 				//Contatti
-				if(iNumContacts<1) {
+				if(dpRowSetContact.first()==null) {
 					DataRow row=vObjUtil.getNewContactRow();
 					TablePanel pnlDetailForm=pnlContactRoot.pnlDetailForm;
 					Screens.Contact.EditScreen scrNewOrEditRecordCon = new Screens.Contact.EditScreen();

@@ -40,6 +40,7 @@ TablePanel {
 		setRowHeight(0, Sizing.PIXELS, 60);
 		setRowHeight(1, Sizing.PREFERRED, 1);	
 		setRowHeight(2, Sizing.PREFERRED, 0);
+		setRowHeight(3, Sizing.PIXELS,40);
 		
 		pnlIndex.setHomeScreen(scrHome);
 		pnlIndex.setStickyTable(stk);
@@ -64,9 +65,15 @@ TablePanel {
 		startNewRow();
 		add(stk, "hfill=fill,vfill=fill");
 		add(pnlIndex, "hfill=fill,valign=top");
+		
 		startNewRow();
 		btnMapView.setText("Map View");
-		add(btnMapView,"colspan=2, vfill=fill, hfill=fill");	
+		add(btnMapView,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
+		
+		startNewRow();
+		Font fnt = new Font();
+		lblRowCount.setForeColor(Colors.Black);
+		add(lblRowCount, "colspan=2, valign=center, halign=center, valign=bottom");	
 		
 		setInsets(0,0,0,0);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
@@ -198,16 +205,18 @@ TablePanel {
 	}	
 	
 	callback btnClearSearch onClick(Control c) {
-		src.setText("")	;	
+		src.setText("");	
 		//pnlDetail.setQuery();
 		setQuery();
 		stk.reload();
 		if (mrsm.getRowCount(0)>0) {
-			stk.select(0,0);
-			pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()));
+			mrsm.select(0,0);
+			//pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()));
 			pnlDetailForm.setRow(mrsm.getRow());
 		}
 		//iRowCount = pnlDetail.getRowCount();
+		
+		/*
 		switch(iRowCount) {
 			
 			case 0:
@@ -219,6 +228,7 @@ TablePanel {
 			default:
 				lblRowCount.setText("" + iRowCount + " Account/s");
 		}
+		*/
 	}
 
 	callback btnMapView onClick(Control c) {
@@ -250,7 +260,11 @@ TablePanel {
 			}
 		}
 		arr.insertItem(mrsm.getGroupCount() , "");
-		stk.setNumberOfGroups(mrsm.getGroupCount());	
+		stk.setNumberOfGroups(mrsm.getGroupCount());
+		
+		//Count the query instances numeber
+		lblRowCount.setText("Numero Contatti: " + countResults(mrsm));
+		
 	} 
 	 
 	void setQuery(String str) {
@@ -273,6 +287,9 @@ TablePanel {
 			}
 		}
 		stk.setNumberOfGroups(mrsm.getGroupCount());	
+		
+		//Count the query instances numeber
+		lblRowCount.setText("Numero Contatti: " + countResults(mrsm));
 	} 
 	
 	void setUpButtons() {
@@ -320,6 +337,17 @@ TablePanel {
                 pnl.add(btnClearSearch,fill);
                 return pnl;
         }
+       
+    //Counts the rows of the result of a query that stores the elements in a MultiRowSetModel object (mrsm)    
+    int countResults(MultiRowSetModel mrsm) {
+    	int counter = 0;	
+		for (int i=0; i<mrsm.getGroupCount(); i++) {
+			for (int j=0; j<mrsm.getRowCount(i); j++) {
+				counter++;
+			}
+		}
+		return counter;
+    }
 	
 	void setAccountCode(String str) {
 		sAccountCode = str;

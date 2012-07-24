@@ -2,7 +2,7 @@
 <VDSC_PROVIDER>
   <VDSC>
     <UID>5544899311306412543</UID>
-    <VERSION>-5946028913963492503</VERSION>
+    <VERSION>-8467524508278455015</VERSION>
     <DOCUMENT>
       <NAME>PharmaDP.1.0.0</NAME>
     </DOCUMENT>
@@ -466,8 +466,34 @@
             <NULLABLE/>
             <MODIFIABLE/>
           </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Contact.searchKey</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
         </ATTRIBUTES>
-        <LINKS/>
+        <LINKS>
+          <LINK>
+            <FROM_ATTRIBUTE>Contact.searchKey</FROM_ATTRIBUTE>
+            <TO_OBJECT>Contact</TO_OBJECT>
+            <TO_ATTRIBUTE>Contact.ContactLastName</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+          <LINK>
+            <FROM_ATTRIBUTE>Contact.searchKey</FROM_ATTRIBUTE>
+            <TO_OBJECT>Contact</TO_OBJECT>
+            <TO_ATTRIBUTE>Contact.ContactName</TO_ATTRIBUTE>
+            <LINK_TYPE>
+              <VSCRIPT_DEPEND/>
+            </LINK_TYPE>
+          </LINK>
+        </LINKS>
       </OBJECT>
       <OBJECT>
         <NAME>CrmEntity</NAME>
@@ -1655,18 +1681,18 @@
       <INDEX>
         <NAME>Contact10</NAME>
         <OBJECT>Contact</OBJECT>
-        <CONTAINS_ATTRIBUTE>Contact.ContactLastName</CONTAINS_ATTRIBUTE>
+        <CONTAINS_ATTRIBUTE>Contact.searchKey</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
-          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
+          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>Contact.searchKey</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
         <NAME>Contact11</NAME>
         <OBJECT>Contact</OBJECT>
-        <CONTAINS_ATTRIBUTE>Contact.ContactLastName</CONTAINS_ATTRIBUTE>
+        <CONTAINS_ATTRIBUTE>Contact.searchKey</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
-          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
-          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>Contact.searchKey</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
@@ -1680,15 +1706,15 @@
         <NAME>Contact6</NAME>
         <OBJECT>Contact</OBJECT>
         <ATTRIBUTES>
-          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
+          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>Contact.searchKey</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
         <NAME>Contact7</NAME>
         <OBJECT>Contact</OBJECT>
         <ATTRIBUTES>
-          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
-          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>Contact.searchKey</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
@@ -1696,7 +1722,8 @@
         <OBJECT>Contact</OBJECT>
         <STARTS_WITH_ATTRIBUTE>Contact.ContactLastName</STARTS_WITH_ATTRIBUTE>
         <ATTRIBUTES>
-          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
+          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>Contact.searchKey</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
@@ -1704,8 +1731,7 @@
         <OBJECT>Contact</OBJECT>
         <STARTS_WITH_ATTRIBUTE>Contact.ContactLastName</STARTS_WITH_ATTRIBUTE>
         <ATTRIBUTES>
-          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
-          <ASCENDING_ATTRIBUTE>Contact.ContactLastName</ASCENDING_ATTRIBUTE>
+          <ASCENDING_ATTRIBUTE>Contact.searchKey</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>

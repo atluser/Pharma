@@ -306,7 +306,7 @@ TablePanel {
 		
 		Font fnt = new Font();
 		fnt.setFamily("Arial");
-		fnt.setSize(16);
+		fnt.setSize(14);
 		fnt.setBold();
 		
 		lnkA.setFont(fnt);

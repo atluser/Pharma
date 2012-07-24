@@ -49,13 +49,17 @@ Screen {
 			rsm.select(0,i);
 			DataRow row = rsm.getRow();
 			logApp.log(Log.INFO, "Contact - MapScreen - Row Name: " + dpObjContact.ContactName.getStringValue(row));
-			MapAnnotation mapAnot = new MapAnnotation();
-			mapAnot.setShowCallout(true);
-			mapAnot.setEnabled(true);
-			mapAnot.setTitle(dpObjContact.ContactName.getStringValue(row) + " " + dpObjContact.ContactLastName.getStringValue(row));
-			mapAnot.setSubTitle(dpObjContact.ContactEmail.getStringValue(row));
-			mapAnot.setImageType(MapAnnotation.IMAGE_TYPE_DEFAULT);
-			mapField.addLocation(dpObjContact.ContactStreetAddress.getStringValue(row),"",dpObjContact.ContactStreetCity.getStringValue(row),dpObjContact.ContactCap.getStringValue(row),dpObjContact.ContactCountry.getStringValue(row),mapAnot);
+			if (dpObjContact.ContactStreetAddress.getStringValue(row)!=null) {
+				MapAnnotation mapAnot = new MapAnnotation();
+				mapAnot.setShowCallout(true);
+				mapAnot.setEnabled(true);
+				mapAnot.setTitle(dpObjContact.ContactName.getStringValue(row) + " " + dpObjContact.ContactLastName.getStringValue(row));
+				mapAnot.setSubTitle(dpObjContact.ContactStreetAddress.getStringValue(row) + " - " + dpObjContact.ContactStreetCity.getStringValue(row));
+				mapAnot.setImageType(MapAnnotation.IMAGE_TYPE_RESOURCED);
+				mapAnot.setImage(Images.Icons.ICN_CONTACT.getImage());
+				mapAnot.setShowCallout(true);
+				mapField.addLocation(dpObjContact.ContactStreetAddress.getStringValue(row),"",dpObjContact.ContactStreetCity.getStringValue(row),dpObjContact.ContactCap.getStringValue(row),dpObjContact.ContactCountry.getStringValue(row),mapAnot);
+			}
 		}
 		
 		//mapField.addLocation("madonnina del grappa","","lombardia","20025","Italia");		

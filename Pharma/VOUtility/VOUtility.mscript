@@ -61,10 +61,112 @@ UIObject {
 		iNumAccounts = getDataRowSetSize(dpRowSetAccnt);
 	}
 	
+	//Generate <numRows> random contacts with essential informations 
+	void fillContacts(int numRows) {
+		
+		DataRow row;
+		
+		int rName; //random integer value that identifies the index in the names list
+		int rLastName; //random integer value that identifies the index in the last names list
+		int rStreetNum; //random integer between 0 and 20 used for the street address number
+		String name = "";
+		String lastName = "";
+		String address = "";
+		long seed;
+		int id;
+		String allNames = "Alessandro,Corrado,Eva,Giovanni,Laura,Massimo,Rita,Sara,Stefano,Tommaso,Aldo,Piero,Ugo,Luigi,Anna,Mirko,Silvia,Marco,Chiara,Stefania,Fabio,Fabrizio,Gennaro,Dante,Oliviero,Mario,Gianni,Pino,Luisa,Oscar,Martino,Manuele,Emanuele,Mauro,Annalisa,Roberta,Ilaria,Gilberto,Fausto,Luca";
+		String allLastNames="Rossi,Paoli,Cammarano,Manzoni,Bedin,Ottavio,Chirico,Ridolfi,Pecchia,Righi,Moggi,Galliani,Moreno,Costa,Solmi,Reus,Olivi,Macchia,Di Stefano,Nieddu,Rea,Sczezny,Olivera,Orti,Canicola,Perticone,Bassi,Leali,Cappiello,Mandorlini,Schicchi,Beltrano,Serafini,Vogel,Stendardo,Giaccherini,Stella,Friedrich,Masi,Boniperti";
+		String allAddresses= "Via Adamello,Via Alassio,Via Aniene,Via Apelle,Via degli Artaria,Via Bagutta,Via Baguttino,Via privata Benadir,Via Cancano,Via Carbonia";
+		List addresses;
+		List lastNames;
+		List names;
+		
+		//add an array to remind which combinations of name and laast names has been taken during the loop
+		Array taken = new Array();
+		
+		lastNames=List.split(allLastNames,",");
+		names = List.split(allNames,",");
+		addresses = List.split(allAddresses,",");
+		
+		taken.removeAllItems();
+		
+		//add the first element
+		seed = Platform.getCurrentTime();
+		rName = Platform.parseInt(Platform.toString(seed % 32000)) % 40;
+		//logApp.log(Log.INFO,"danieleU - rName - seed %32000: " + Platform.parseInt(Platform.toString(seed % 32000)) + " index %30: " + rName);
+		
+		seed = Platform.getCurrentTime();
+		rLastName = Platform.parseInt(Platform.toString(seed % 32000)) % 40;
+		//logApp.log(Log.INFO,"danieleU - rLastName - seed %32000: " + Platform.parseInt(Platform.toString(seed % 32000)) + " index %30: " + rLastName);
+		
+		rStreetNum = Platform.parseInt(Platform.toString(seed % 32000)) % 20;
+		
+		name=names.getItem(rName);
+		lastName = lastNames.getItem(rLastName);
+		address = addresses.getItem(0) + " " + rStreetNum;
+		
+		//add the first element to the list of the taken names+lastnames
+		taken.addItem(name+lastName);
+		
+		row = dpObjContact.getNewRow();
+		dpObjContact.ContactId.setStringValue(Platform.toString(seed),row);
+		dpObjContact.ContactName.setStringValue(name,row);
+		dpObjContact.ContactLastName.setStringValue(lastName,row);
+		dpObjContact.ContactEmail.setStringValue(name + lastName + "@mail.com",row);
+		dpObjContact.ContactStreetAddress.setStringValue(address,row);
+		dpObjContact.ContactStreetCity.setStringValue("Milano",row);
+		row.applyUpdates();
+		
+		for (int i=1; i<numRows; i++) {
+			//generate the random number and retrieve Name and LastName
+			while (taken.containsItem(name+lastName)) {
+				seed = Platform.getCurrentTime();
+				rName = Platform.parseInt(Platform.toString(seed % 32000)) % 40;
+				//logApp.log(Log.INFO,"danieleU - rName - seed %32000: " + Platform.parseInt(Platform.toString(seed % 32000)) + " index %30: " + rName);
+				seed = Platform.getCurrentTime();
+				rLastName = Platform.parseInt(Platform.toString(seed % 32000)) % 40;
+				//logApp.log(Log.INFO,"danieleU - rLastName - seed %32000: " + Platform.parseInt(Platform.toString(seed % 32000)) + " index %30: " + rLastName);
+				name=names.getItem(rName);
+				lastName = lastNames.getItem(rLastName);
+				logApp.log(Log.INFO,"danieleU - taken: " + taken.containsItem(name+lastName));
+				
+				if (i<10) {
+					rStreetNum = Platform.parseInt(Platform.toString(seed % 32000)) % 20;
+					address = addresses.getItem(i) + " " + rStreetNum;
+				} 
+			}
+			taken.addItem(name+lastName);
+			//insert the contact in the DB
+			row = dpObjContact.getNewRow();
+			dpObjContact.ContactId.setStringValue(Platform.toString(seed),row);
+			dpObjContact.ContactName.setStringValue(name,row);
+			dpObjContact.ContactLastName.setStringValue(lastName,row);
+			dpObjContact.ContactEmail.setStringValue(name + lastName + "@mail.com",row);
+			if (i<10) {
+				dpObjContact.ContactStreetAddress.setStringValue(address,row);
+				dpObjContact.ContactStreetCity.setStringValue("Milano",row);
+			}
+			row.applyUpdates();
+		}
+		//save the changes on the Data Project
+		dp.saveData();
+	}
 	
 	void loadContact() {
 		dpRowSetContact = dp.Contact.getRowSet(); //Apro il rowset
-		iNumContacts = getDataRowSetSize(dpRowSetContact);
+		if(dpRowSetContact.first()==null)
+		{
+			logApp.log(Log.INFO, "danieleU - loacContact, lista contatti vuota");
+			
+			/*
+			 * VOUtilityTemp vObjUtilTemp = new VOUtilityTemp();
+			 * vObjUtilTemp.loadContact();
+			*/
+			
+			fillContacts(50);
+		}
+		else
+			iNumPriceList = getDataRowSetSize(dpRowSetPriceList);
 	}
 	
 	void loadOrder() {
@@ -81,6 +183,7 @@ UIObject {
 		dpRowSetPriceList = dp.PriceList.getRowSet(); //Apro il rowset
 		if(dpRowSetPriceList.first()==null)
 		{
+			logApp.log(Log.INFO, "danieleU - loadPriceList, listini vuoti");
 			VOUtilityTemp vObjUtilTemp = new VOUtilityTemp();
 			vObjUtilTemp.loadPriceList();
 		}
@@ -334,4 +437,6 @@ UIObject {
 		
 		return contactName;		
 	}
+
 }
+
