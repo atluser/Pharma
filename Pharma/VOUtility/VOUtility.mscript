@@ -166,7 +166,7 @@ UIObject {
 			fillContacts(50);
 		}
 		else
-			iNumPriceList = getDataRowSetSize(dpRowSetPriceList);
+			iNumContacts = getDataRowSetSize(dpRowSetContact);
 	}
 	
 	void loadOrder() {
