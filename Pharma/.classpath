@@ -2,6 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/EclipseWorkspace/AppVodafone01/mobistudio.preferences/com.antennasoftware.amp.runtime/library.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseWorkspace/AppVodafone01/mobistudio.preferences/com.atlantictechnologies.extensions.pdfcreator/bin"/>
+	<classpathentry kind="lib" path="C:/EclipseWorkspace/AppVodafone01/mobistudio.preferences/com.atlantictechnologies.extensions.sendEmailWithAttachment/bin"/>
 	<classpathentry exported="true" kind="src" path="/PharmaDP"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

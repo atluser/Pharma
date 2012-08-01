@@ -7,17 +7,13 @@ TablePanel {
 	//RowSetModel rsm = new RowSetModel();
 	MultiRowSetModel rsm=new MultiRowSetModel();
 	
-	//Panels.DetailStickyTablePanel pnlDetailForm;
-	Panels.DetailPanel pnlDetail;
 	ReadOnlyDetailFormPanel pnlDetailForm;
 	
 	PictureBox picBoxSearch = new PictureBox();
 	
 	//ObjectArray rsmArray=new ObjectArray();	
 	Array arr = new Array();
-	
-	//Panels.SearchHeaderHorizontalPanel pnlSearch = new Panels.SearchHeaderHorizontalPanel();
-	//SearchField tblSearch =pnlSearch.search;
+
 	SearchField src = new SearchField();
 	BackgroundButton btnClearSearch = new BackgroundButton();
 	Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
@@ -31,17 +27,15 @@ TablePanel {
 	 * Callback methods
 	 */
 	callback onCreate(Container c) {		
-			
 		setColumnWidth(0, Sizing.PIXELS, 346);
 		setColumnWidth(1, Sizing.PREFERRED, 0);
 		setRowHeight(0, Sizing.PIXELS, 60); //header
 		setRowHeight(1, Sizing.PREFERRED, 1); //scrollable
-		//setRowHeight(2, Sizing.PREFERRED, 0); //footer
 		
 		pnlIndex.setStickyTable(stk);
 		pnlIndex.setArray(arr);
 		
-		setInitQuery();
+		//setInitQuery();
 		setUpButtons();
 		
 		//set the model for the sticky table
@@ -63,10 +57,6 @@ TablePanel {
 
 		setInsets(0,0,0,0);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
-		
-		//setColumnWidth(0, Sizing.PERCENTS, 25);
-		//setColumnWidth(0, Sizing.PREFERRED, 1);
-		
 	}
 
 	///////////////////////////////
@@ -77,10 +67,6 @@ TablePanel {
 	}
 	
 	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
-		/* OK
-		Panels.Accounts.AccountTableViewCell tblVwCell = (Panels.Accounts.AccountTableViewCell) cell;
-		tblVwCell.setRow(info.getDataRow());
-		*/
 		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
 		
 		DataRow dtRw = info.getDataRow();
@@ -104,10 +90,7 @@ TablePanel {
 	}		
 	
 	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
-		
-		//pnlDetailForm.setRow(rsm.getRow());
-		//pnlDetail.setRow(rsm.getRow());
-		pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(rsm.getRow()));
+		//pnlDetailForm.setupContent();
 		pnlDetailForm.setRow(rsm.getRow());
 		
 	}
@@ -117,37 +100,23 @@ TablePanel {
 	////////////////////////////
 	
 	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
-		
-		//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
-		
-		//Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
-		//if(rsm.getRowCount(group) > 0) {
-			//appLog.log(Log.INFO, "StickyTablePanel - onHeaderCreateInfo() - getRowCount(" + group + "): " + rsm.getRowCount(group));
-			Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
-			header.enableDirectionalScroll(true); 
-			//header.lbl.setText(letterList.getItem(group));
-			info.setPanel(header);
-		//}
-		
+		Panels.Cells.SectionHeaderCell header=new Panels.Cells.SectionHeaderCell();
+		header.enableDirectionalScroll(true); 
+		info.setPanel(header);
 	}
 	
 	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
 		cell.setCouldBeSelected(false);		
 		cell.setHeight(Sizing.PIXELS, 30);
-		//cell.setHeight(Sizing.PREFERRED, 0);
 		cell.setWidth(Sizing.PERCENTS, 100);
 	}
 	
 	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
-	
-			Panels.Cells.SectionHeaderCell header = (Panels.Cells.SectionHeaderCell)cell;
-			if(grp<arr.length()){
-				header.lbl.setText(arr.getItem(grp));				
-				appLog.log(Log.INFO,"ACCOUNT Header lecter section "+grp+" "+arr.getItem(grp));
-			}
-		
-	
-		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.LightGray, Colors.LightGray));
+		Panels.Cells.SectionHeaderCell header = (Panels.Cells.SectionHeaderCell)cell;
+		if(grp<arr.length()){
+			header.lbl.setText(arr.getItem(grp));				
+			appLog.log(Log.INFO,"ACCOUNT Header lecter section "+grp+" "+arr.getItem(grp));
+		}
 	}
 			
 		
@@ -174,33 +143,26 @@ TablePanel {
 	
 		//search callback
 	callback src onValueChange ( Control c ) {
-		//appLog.log(Log.INFO,"change");
 		src.setOnValueChangingPausedDelay(500);
 	}
 	
 	callback src onValueChangingPaused(Control c){
-		//appLog.log(Log.INFO,"paused");
-		//Query q=dpObjAccount.getAccountContains(tblSearch.getText());
 		executeQuery(src.getText());
 		stk.reload();
 		if (rsm.getRowCount(0)>0) {
 			stk.select(0,0);
-			pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(rsm.getRow()));
 			pnlDetailForm.setRow(rsm.getRow());
 		}
 	}
 	
 	callback btnClearSearch onClick(Control c) {
 		src.setText("")	;	
-		//pnlDetail.setQuery();
 		executeQuery(src.getText());
 		stk.reload();
 		if (rsm.getRowCount(0)>0) {
 			stk.select(0,0);
-			pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(rsm.getRow()));
 			pnlDetailForm.setRow(rsm.getRow());
 		}
-		//iRowCount = pnlDetail.getRowCount();
 		switch(iRowCount) {
 			
 			case 0:
@@ -217,19 +179,17 @@ TablePanel {
 	/*
 	 * Custom methods
 	 */
-	 
-	/* 
-	void setDetailPanel(Panels.DetailStickyTablePanel pnl) {
-		pnlDetailForm = pnl;
-	}
-	*/
-	void setDetailPanel(Panels.DetailPanel pnl) {
-		pnlDetail = pnl;
-	}
 	
-	void setDetailFormPanel(Panels.Account.ReadOnlyDetailFormPanel  pnl) {
+	/*void setDetailPanel(Panels.DetailStickyTablePanel pnl) {
 		pnlDetailForm = pnl;
-	}
+	}*/
+	/*void setDetailPanel(Panels.DetailPanel pnl) {
+		pnlDetail = pnl;
+	}*/
+	
+	//void setDetailFormPanel(Panels.Account.ReadOnlyDetailFormPanel  pnl) {
+	//	pnlDetailForm = pnl;
+	//}
 	
 	void executeQuery(String s){
 		//ricostruisco il multirow con la nuova query
@@ -264,8 +224,18 @@ TablePanel {
 			//rsmArray.insertItem(i, rsm1);
 		}
 		arr.insertItem(rsm.getGroupCount() , "");
-		stk.setNumberOfGroups(letterList.length());	
-				
+		stk.setNumberOfGroups(letterList.length());
+		
+		pnlDetailForm.refresh();
+		
+		/*
+		if(dpRowSetAccnt.first() != null)
+		{
+			pnlDetailForm.setupContent();
+			pnlDetailForm.setRow(dpRowSetAccnt.first());
+		}
+		else
+			pnlDetailForm.setupContentNoAccount();*/
 	}
 	
 	void setQuery(String s){
@@ -310,16 +280,16 @@ TablePanel {
 	*/
 	
 	 SearchField setUpSearchField(SearchField src) {
-                Font fnt = new Font();
-                fnt.setSize(18);
-                fnt.setFamily("Arial");
-                src.setFont(fnt);
-                src.setTextHint("Search...");
-                src.setFocusedForeColor(Color.create(58,58,58));
-                src.setDisabledForeColor(Color.create(58,58,58));
-                src.setBackColor(Colors.White);
-                return src;
-        }
+		Font fnt = new Font();
+		fnt.setSize(18);
+		fnt.setFamily("Arial");
+		src.setFont(fnt);
+		src.setTextHint("Search...");
+		src.setFocusedForeColor(Color.create(58,58,58));
+		src.setDisabledForeColor(Color.create(58,58,58));
+		src.setBackColor(Colors.White);
+		return src;
+	}
         
         /* usage:
          *
