@@ -2,14 +2,11 @@ TablePanel {
 	
 	StickyTablePanel stk = new StickyTablePanel();
 	Panels.Account.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Account.ReadOnlyDetailFormPanel();	 
-	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
+	//Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
 	
 	String fill = "hfill=fill, vfill=fill";
 
 	callback onCreate(Container c) {
-		
-		logApp.log(Log.INFO, "RootPanel - onCreate()");
-		
 		//setting the layout of the root panel
 		setRowHeight(0,Sizing.PREFERRED,1);
 		setColumnWidth(0, Sizing.PREFERRED, 0);
@@ -18,10 +15,10 @@ TablePanel {
 		// Master Panel		
 		Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
 		pnlMaster.setContentPanel(stk);
-		DataRow firstRow = null;
+		//DataRow firstRow = null;
 		// Detail Panel
 		//Panels.DetailPanel pnlDetail = new Panels.DetailPanel();
-		pnlDetail.setContentPanel(pnlDetailForm);
+		/*pnlDetail.setContentPanel(pnlDetailForm);
 		if(iNumAccounts<1)
 			pnlDetail.txtFldName.setText("Non sono presenti accounts. Crearne di nuovi!");
 		else
@@ -30,18 +27,28 @@ TablePanel {
 			pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(firstRow));	
 		}
 		pnlDetailForm.setDetailPanel(pnlDetail);
-		pnlDetailForm.setFirstRecord();
+		*/
+		//pnlDetailForm.setFirstRecord();
 		
-		stk.setDetailPanel(pnlDetail);
-		stk.setDetailFormPanel(pnlDetailForm);
+		//stk.setDetailPanel(pnlDetail);
+		/*if(dpRowSetAccnt.first() != null)
+		{
+			pnlDetailForm.setupContent();
+			pnlDetailForm.setRow(dpRowSetAccnt.first());
+		}
+		else
+			pnlDetailForm.setupContentNoAccount();
+		*/
+		//stk.setDetailFormPanel(pnlDetailForm);
+		stk.pnlDetailForm = pnlDetailForm;
+		stk.setInitQuery();
 		/*if(stk.rsm.hasMoreRows(0)){
 			stk.stk.scrollTo(0,0,TableView.SCROLL_POSITION_NONE);
 			stk.stk.select(0,0);
-		}*/		
-		
+		}*/
 		
 	 	add(pnlMaster, fill);
-	 	add(pnlDetail, fill);
+	 	add(pnlDetailForm, "halign=center, vfill=fill");
 	 	setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
 	 	
 	}

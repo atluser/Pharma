@@ -128,6 +128,7 @@ Screen {
 	callback btnDone onClick(Control c) {
 		if(checkRequired()){
 			String message="Operazione effettuata con successo";
+			int iNumAccntTemp = iNumAccounts;
 			MessageBox msgBox=new MessageBox();
 			//stk.save(dataObject);		
 			//fp.save();
@@ -159,7 +160,7 @@ Screen {
 			dpObjAccount.AccountNumberOfEmployee.setIntegerValue(Platform.createInteger(fp.txtEmpNum.getText()),AccntRowContext);
 			AccntRowContext.applyUpdates();
 			dp.saveData();
-			
+			vObjUtil.loadAccount();
 			//ricarico sticky
 			//svuoto rsm
 			stkTP.setInitQuery();
@@ -174,7 +175,10 @@ Screen {
 			}
 			originListStk.reload();*/
 			//detailStk.reload();
-			pnlDetailForm.setRow(AccntRowContext);
+			if(iNumAccntTemp>0)
+				pnlDetailForm.setRow(AccntRowContext);
+			else
+				pnlDetailForm.setupContent(AccntRowContext);
 			//pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(fp.currentRow));
 			close(Animation.PUSH_FROM_TOP);
 			msgBox.info(1, message);

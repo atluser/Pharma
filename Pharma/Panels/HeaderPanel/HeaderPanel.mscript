@@ -153,7 +153,7 @@ HorizontalPanel {
 				row=vObjUtil.getNewAccountRow();
 				originStk=pnlAccountRoot.getStickyTable();
 				pnlDetailForm=pnlAccountRoot.pnlDetailForm;
-				pnlDetail=pnlAccountRoot.pnlDetail;
+				//pnlDetail=pnlAccountRoot.pnlDetail;
 				stkTP=pnlAccountRoot.stk;
 				Screens.Account.EditScreen scrNewOrEditRecordAcc = new Screens.Account.EditScreen();
 				scrNewOrEditRecordAcc.init(row,stkTP,pnlDetailForm,pnlDetail);
@@ -202,7 +202,7 @@ HorizontalPanel {
 				row=pnlAccountRoot.pnlDetailForm.currentRow;
 				originStk=pnlAccountRoot.getStickyTable();
 				stkTP=pnlAccountRoot.stk;
-				pnlDetail=pnlAccountRoot.pnlDetail;
+				//pnlDetail=pnlAccountRoot.pnlDetail;
 				//detailStk=pnlAccountRoot.getDetailStickyTable();
 				pnlDetailForm=pnlAccountRoot.pnlDetailForm;
 				Screens.Account.EditScreen scrNewOrEditRecordAcc = new Screens.Account.EditScreen();

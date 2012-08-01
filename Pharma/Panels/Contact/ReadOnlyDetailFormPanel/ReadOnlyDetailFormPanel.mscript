@@ -349,7 +349,7 @@ TablePanel {
 				
 				if (pnlHeader.pnlAccountRoot.stk.rsm.getRowCount(0)>0) {
 					pnlHeader.pnlAccountRoot.stk.stk.select(0,0);
-					pnlHeader.pnlAccountRoot.pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(pnlHeader.pnlAccountRoot.stk.rsm.getRow()));
+					//pnlHeader.pnlAccountRoot.pnlDetail.txtFldName.setText(dpObjAccount.AccountName.getStringValue(pnlHeader.pnlAccountRoot.stk.rsm.getRow()));
 					pnlHeader.pnlAccountRoot.pnlDetailForm.setRow(pnlHeader.pnlAccountRoot.stk.rsm.getRow());
 				}
 			}
