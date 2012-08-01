@@ -1,0 +1,238 @@
+TablePanel {
+	
+	MapField mapField = new MapField();
+	String fill="hfill=fill, vfill=fill";
+	
+	LocationManager loc = new LocationManager();
+	Navigator nav = Navigator.getNavigatorInstance();
+	
+	RowSetModel rsm;
+	
+	//is an array of 2 strings [contactName+lastName,latitude,longitude]
+	Array lastSearchedLocation = new Array();
+	
+	Array visitPlan = new Array();
+	
+	boolean enabled;
+	
+	Panels.MapView.StickyTablePanel stk;
+	Panels.MapView.RootTablePanel pnlRoot;
+	
+	//my position
+	double myLat = 0;
+	double myLon = 0;
+	
+	callback onCreate(Container c) {
+		
+		setRowHeight(0,Sizing.PREFERRED,1);
+		setColumnWidth(0,Sizing.PREFERRED,1);
+		
+		loc.startLocationUpdate(); 
+		lastSearchedLocation.removeAllItems();
+		//rsm.setRows(dpObjContact.getContactStartsWithHasValidAddress());
+		stk.setMapPanel((Panels.MapView.MapPanel)c);
+		initMap();
+	}
+	
+	void setRowSetModel (RowSetModel mdl) {
+		rsm=mdl;
+		initMap();
+	}
+	
+	//create the initial map that you can see after open screen 
+	void initMap() {
+		mapField.clearLocations();
+		//addAllLocations();
+		add(mapField,fill);
+	}
+	
+	//adds all the queried locations on the map field
+	void addAllLocations() {
+		mapField.startBatchAdd();
+		for (int j=0;j<rsm.getGroupCount();j++) {
+			for (int i=0; i<rsm.getRowCount(j); i++) {
+				rsm.select(j,i);
+				DataRow row = rsm.getRow();
+				addSingleLocation(row,Images.Maps.PIN.getImage(), 0, 0);	
+			}
+		}
+		mapField.endBatchAdd();
+		pnlRoot.lblTitle.setText("Tutte le locazioni");
+	}
+	
+	
+	//adds a single location on the mapfield
+	void addSingleLocation(DataRow row, Image annotImage,double latitude, double longitude) {
+		
+		MapAnnotation mapAnot = new MapAnnotation();
+		if (row!=null) {
+			mapAnot.setEnabled(true);
+			mapAnot.setShowCallout(true);
+			mapAnot.setTitle(dpObjContact.ContactName.getStringValue(row) + " " + dpObjContact.ContactLastName.getStringValue(row));
+			mapAnot.setSubTitle(dpObjContact.ContactStreetAddress.getStringValue(row) + " - " + dpObjContact.ContactStreetCity.getStringValue(row));
+		} else {
+			mapAnot.setEnabled(false);
+			mapAnot.setShowCallout(false);
+		}
+		if (annotImage!=null) {
+			mapAnot.setImageType(MapAnnotation.IMAGE_TYPE_RESOURCED);
+			mapAnot.setImage(annotImage);
+		} else {
+			mapAnot.setImageType(MapAnnotation.IMAGE_TYPE_DEFAULT);
+		}
+		mapAnot.setShowCallout(true);
+		if ((latitude!=0)&&(longitude!=0)) {
+			mapField.addLocation(latitude,longitude,mapAnot);
+		} else {
+			//it means that i have the data row
+			mapField.addLocation(dpObjContact.ContactStreetAddress.getStringValue(row),"",dpObjContact.ContactStreetCity.getStringValue(row),dpObjContact.ContactCap.getStringValue(row),dpObjContact.ContactCountry.getStringValue(row),mapAnot);
+			
+			//now remind what i have searched to give the distance between this position and my position
+			lastSearchedLocation.removeAllItems();
+			String address = dpObjContact.ContactStreetAddress.getStringValue(row) + " " + dpObjContact.ContactStreetCity.getStringValue(row);
+			logApp.log(Log.INFO, "Coordinates - lastSearched address - " + address);
+			String lat = Platform.toString(nav.getLatitude(address));
+			String lon = Platform.toString(nav.getLongitude(address));
+			logApp.log(Log.INFO, "Coordinates - lastSearched address - " + lat + " " + lon);
+			lastSearchedLocation.addItem(dpObjContact.ContactName.getStringValue(row) + " " + dpObjContact.ContactLastName.getStringValue(row));
+			lastSearchedLocation.addItem(lat);
+			lastSearchedLocation.addItem(lon);
+		}
+		
+	}
+	
+	void addMyPosition() {
+		if (loc.isLocationServicesEnabled()==true) {
+			loc.setAccuracy(LocationManager.LOCATION_ACCURACY_BEST);
+			logApp.log(Log.INFO,"Coordinates - Accuracy setted");
+			loc.setFrequency(LocationManager.UPDATE_FREQUENCY_LIVE);
+			logApp.log(Log.INFO,"Coordinates - Starting location update...");
+			
+			//repeat until we have a valid location
+			while (loc.getLocation()==null) {}
+			
+			Location position = loc.getLocation();
+			logApp.log(Log.INFO,"Coordinates - Location getted");
+			myLat = position.getLatitude();
+			myLon = position.getLongitude();
+			String address=nav.getAddress(myLat,myLon);
+			logApp.log(Log.INFO,"Coordinates - extension address:" + address);
+			logApp.log(Log.INFO,"Coordinates - getted");
+			logApp.log(Log.INFO,"Coordinates - Latitide: " + myLat);
+			logApp.log(Log.INFO,"Coordinates - Longitude: " + myLon);
+			addSingleLocation(null,Images.Maps.YOU_ARE_HERE.getImage(),myLat,myLon);
+			
+			//calculate the distance between my position and last point searched (if exist)
+			if (lastSearchedLocation.length()>0) {
+				double latDest = Platform.parseDouble(lastSearchedLocation.getItem(1));
+				double lonDest = Platform.parseDouble(lastSearchedLocation.getItem(2));
+				float dist = nav.getDistance(myLat,myLon,latDest,lonDest);
+				pnlRoot.lblTitle.setText("Tu sei in:     " + address + "  e disti " + dist + " metri da " + lastSearchedLocation.getItem(0));
+			} else {
+				pnlRoot.lblTitle.setText("Tu sei in:     " + address);
+			}
+		} else {
+			logApp.log(Log.INFO, "Coordinates - Device is not enabled");
+			MessageBox msg = new MessageBox();
+			msg.info(1,"Il device non è abilitato per il fix GPS. Prego, attivare il GPS per avere questa funzionalità.");
+		}
+	}
+	
+	void setStickyTable(Panels.MapView.StickyTablePanel pnl) {
+		stk=pnl;
+	}
+
+	void setRootPanel(Panels.MapView.RootTablePanel pnl) {
+		pnlRoot=pnl;
+	}
+	
+	void getVisitPlan() {
+		//array that contains IDs of the loacations
+		Array toVisit = new Array();
+		Array goTo = new Array();
+		String lat = "";
+		String lon = "";
+		
+		//load all contacts into array
+		for (int j=0;j<rsm.getGroupCount();j++) {
+			for (int i=0; i<rsm.getRowCount(j); i++) {
+				rsm.select(j,i);
+				DataRow row = rsm.getRow();
+				toVisit.addItem(dpObjContact.ContactId.getStringValue(row));
+			}	
+		}
+		logApp.log(Log.INFO,"VisitPlan - TOVISIT length:" + toVisit.length());
+		
+		while (toVisit.length()>0) {
+			if (goTo.length()>0) {
+				lat=goTo.getItem(1);
+				lon=goTo.getItem(2);
+				goTo.removeAllItems();
+				goTo = calcNearest(toVisit,Platform.parseDouble(lat),Platform.parseDouble(lon));
+				logApp.log(Log.INFO,"VisitPlan - Location added");
+			} else {
+				//it means that is the first cicle and we have to calculate the distance from my position
+				goTo = calcNearest(toVisit,myLat,myLon);
+			}
+			visitPlan.addItem(goTo.getItem(0));
+			logApp.log(Log.INFO,"VisitPlan - Item added");
+			toVisit.removeItem(goTo.getItem(0));
+			logApp.log(Log.INFO,"VisitPlan - toVisit - Item removed");
+		}
+		
+		RowSetModel rmodel = new RowSetModel();
+		for (int i=0; i<visitPlan.length();i++) {
+			rmodel.setRows(dpObjContact.getContactRow(visitPlan.getItem(i)));
+			rmodel.select(0,0);
+			DataRow row = rmodel.getRow();
+			logApp.log(Log.INFO, "VisitPlan - go to: " + dpObjContact.ContactLastName.getStringValue(row) + " " + dpObjContact.ContactName.getStringValue(row));
+		}
+	}
+	
+	//calculate the nearest point into an array of locations from a start location [pointId,latitude,longitude]
+	Array calcNearest(Array arr, double startLat, double startLon) {
+		Array nearestPoint = new Array();
+		
+		String nearestId = "";
+		String address = "";
+		float nearest = 0;
+		float dist = 0;
+		RowSetModel rmodel = new RowSetModel();
+		double curLat = 0;
+		double curLon = 0;
+		
+		for (int i=0; i<arr.length(); i++) {
+			logApp.log(Log.INFO, "VisitPlan - entro nel ciclo");
+			rmodel.setRows(dpObjContact.getContactRow(arr.getItem(i)));
+			rmodel.select(0,0);    //i have always only one element in the model because i take that by ID
+			DataRow row = rmodel.getRow();
+			logApp.log(Log.INFO, "VisitPlan - row getted: " + arr.getItem(i) + " number of items: " + arr.length());
+			address = dpObjContact.ContactStreetAddress.getStringValue(row) + " " + dpObjContact.ContactStreetCity.getStringValue(row);
+			curLat = nav.getLatitude(address);
+			curLon = nav.getLongitude(address);
+			logApp.log(Log.INFO, "VisitPlan - Coordinates getted for: " + address);
+			dist = nav.getDistance(startLat,startLon,curLat,curLon);
+			logApp.log(Log.INFO, "VisitPlan - distance getted: " + dist);
+			if (nearest==0) {
+				nearest=dist;
+				nearestId = dpObjContact.ContactId.getStringValue(row);
+				nearestPoint.removeAllItems();
+				nearestPoint.addItem(nearestId);
+				nearestPoint.addItem(Platform.toString(curLat));
+				nearestPoint.addItem(Platform.toString(curLon));
+			} else {
+				if (dist<nearest) { 
+					nearest=dist;
+					nearestId = dpObjContact.ContactId.getStringValue(row);
+					nearestPoint.removeAllItems();
+					nearestPoint.addItem(nearestId);
+					nearestPoint.addItem(Platform.toString(curLat));
+					nearestPoint.addItem(Platform.toString(curLon));
+				}
+			}
+		}
+		logApp.log(Log.INFO, "VisitPlan - ho un nearest point: " + nearestPoint.getItem(0));
+		return nearestPoint;
+	}
+	
+}

@@ -1,0 +1,460 @@
+TablePanel {
+
+	/*
+	 *
+	 */	
+	String sAccountCode = ""; 
+	
+	Label lbl = new Label();
+	
+	Array arr = new Array();
+	
+	SearchField src = new SearchField();
+	StickyTable stk = new StickyTable();
+	Panels.MapView.MapPanel pnlMap;
+	//RowSetModel rsm = new RowSetModel();
+	//Panels.DetailPanel pnlDetail;
+	MultiRowSetModel mrsm = new MultiRowSetModel();
+	
+	BackgroundButton btnClearSearch = new BackgroundButton();
+	//Button btnClearSearch = new Button();
+	String fill = "hfill=fill, vfill=fill";
+	
+	Button btnMapView = new Button(); 
+	Button btnViewAll = new Button();
+	Button btnMyPos = new Button();
+	Button btnVisitPlan = new Button();
+
+	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
+	Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
+	
+	int iRowCount = 0;
+	Label lblRowCount = new Label();
+	
+	Popups.LoadingPopup popLoading = new Popups.LoadingPopup();
+	
+	Timer tmrAddSingle = new Timer();
+	Timer tmrAddPosition = new Timer();
+	Timer tmrSeeAll = new Timer();
+	WaitCursor wc = new WaitCursor();
+	
+	/*
+	 *
+	 */
+	callback onCreate(Container c) {
+		
+		//set size (note: this is required)
+		setColumnWidth(0, Sizing.PIXELS, 346);
+		setColumnWidth(1, Sizing.PREFERRED, 0);
+		setRowHeight(0, Sizing.PIXELS, 60);
+		setRowHeight(1, Sizing.PREFERRED, 1);	
+		setRowHeight(2, Sizing.PIXELS,50);
+		setRowHeight(3, Sizing.PIXELS,50);
+		setRowHeight(4, Sizing.PIXELS,50);
+		setRowHeight(5, Sizing.PIXELS,50);
+		setRowHeight(6, Sizing.PREFERRED,0);
+		
+		
+		pnlIndex.setHomeScreen(scrHome);
+		pnlIndex.setStickyTable(stk);
+		pnlIndex.setArray(arr);
+		
+		setQuery();
+		//pnlMap.setRowSetModel(mrsm);
+		setUpButtons();
+		
+		//stk.setDataModel(rsm);
+		stk.setDataModel(mrsm);
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray); 
+		
+		src = setUpSearchField(src);
+
+        /* create the panel which contains the search bar */
+        TablePanel pnl = new TablePanel();
+        pnl=setUpSearchBar(pnl,src,btnClearSearch,330,40);
+        add(pnl, "colspan=2, valign=center, halign=center");
+		
+		startNewRow();
+		add(stk, "hfill=fill,vfill=fill");
+		add(pnlIndex, "hfill=fill,valign=top");
+		
+		startNewRow();
+		btnMyPos.setText("La mia posizione");
+		add(btnMyPos,"colspan=2,vfill=fill, hfill=fill, valign=bottom");
+		
+		startNewRow();
+		btnViewAll.setText("See all");
+		add(btnViewAll,"colspan=2,vfill=fill, hfill=fill, valign=bottom");
+		
+		startNewRow();
+		btnMapView.setText("Normal View");
+		add(btnMapView,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
+		
+		startNewRow();
+		btnVisitPlan.setText("Giro Visite Consigliato");
+		add(btnVisitPlan,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
+		
+		startNewRow();
+		Font fnt = new Font();
+		lblRowCount.setForeColor(Colors.Black);
+		add(lblRowCount, "colspan=2, valign=center, halign=center, valign=bottom");	
+		
+		setInsets(0,0,0,0);
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
+		
+		/*	stk.scrollTo(0,0,StickyTable.SCROLL_POSITION_TOP);
+		 *	stk.select(0,0);
+		 *	logApp.log(Log.INFO, "ContactStickyTablePanel::onCreate - Row 0,0 selected: "+ dpObjContact.ContactName.getStringValue(mrsm.getRow()));
+		 *	pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(mrsm.getRow()));
+		 *	pnlDetailForm.setRow(mrsm.getRow());
+		*/
+		//stk.select(1,1);
+		//stk.select(0,0);		
+		
+		wc.setHeight(Sizing.PREFERRED,300);
+		wc.setWidth(Sizing.PREFERRED,300);
+		wc.setHorizontalAlignment(WaitCursor.CENTER);
+		wc.setVerticalAlignment(WaitCursor.CENTER);
+		wc.setBlocking(true);
+		
+		/*
+		AnimatedImageList imgList = new AnimatedImageList();
+		imgList.addImage(Images.Icons.LOADING.getImage());
+		imgList.setRepeatCount(1);
+		imgList.setDuration(50);
+		wc.setImageList(imgList);
+		*/
+		Font fntCursor = new Font();
+		fntCursor.setSize(18);
+		wc.setText("LOADING...");
+		wc.setForeColor(Colors.White);
+		
+		
+	}
+	
+	///////////////////////////////
+	// Callback to configure cells
+	///////////////////////////////
+	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
+		info.setPanel(new Cells.TwoRowsTableViewCell());
+	}
+	
+	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
+		//Panels.AccountTableViewCell tblVwCell = (Panels.AccountTableViewCell) cell;
+		//tblVwCell.populateData(info.getDataRow());
+		
+		//Panels.Contacts.ContactTableViewCell tblVwCell = (Panels.Contacts.ContactTableViewCell) cell;
+		//tblVwCell.setRow(info.getDataRow());
+
+		//tblViewCell = new TableViewCell();
+		//tblViewCell = cell;
+		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
+		
+		DataRow dtRw = info.getDataRow();
+		if(!dtRw.isDeleted()){		
+			String str01 = dpObjContact.ContactLastName.getStringValue(dtRw) + " " + dpObjContact.ContactName.getStringValue(dtRw);
+			str01 = str01.toUpperCase();
+			String str02 = dpObjContact.ContactEmail.getStringValue(dtRw);					
+	
+			tblVwCell.lbl01.setText(str01);
+			tblVwCell.lbl02.setText(str02);
+		}
+		
+	}
+	
+	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
+		cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PREFERRED, 0);
+		cell.setCouldBeSelected(true);
+	}
+	
+	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
+		sizeInfo.setHeight(60);
+	}		
+	
+	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
+		logApp.log(Log.INFO, "ContactStickyTablePanel::onSelectionChanged - Row: "+ row);
+		
+		//pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(mrsm.getRow()));
+		//pnlDetailForm.setRow(mrsm.getRow());
+		pnlMap.mapField.clearLocations();
+		//Popups.LoadingPopup popLoading = new Popups.LoadingPopup();
+		//scrMap.showPopup(popLoading,Popup.POPUP_TYPE_NONE, Sizing.PREFERRED ,0 , Sizing.PREFERRED, 0 ,false,true);
+		//pnlMap.addSingleLocation(mrsm.getRow(),Images.Maps.PIN.getImage(),0,0);
+		//popLoading.hide(Popup.POPUP_TYPE_NONE);
+		scrMap.setWaitCursor(wc);
+		tmrAddSingle.schedule(50);
+	}
+		
+	////////////////////////////
+	// Sticky Header (Optional)
+	////////////////////////////
+	callback stk onHeaderCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		//info.setPanel(new Panels.AccountHeaderTableViewPanel());
+		 Cells.SectionHeaderCell header=new Cells.SectionHeaderCell();
+			header.enableDirectionalScroll(true); 
+			//header.lbl.setText(letterList.getItem(group));
+			info.setPanel(header); 
+	}
+	
+	callback stk onHeaderConfigure(TableView c, CellConfig cell, int group){
+		 cell.setCouldBeSelected(false);		
+		cell.setHeight(Sizing.PIXELS, 30);
+		//cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PERCENTS, 100); 
+	}
+	
+	callback stk onHeaderInfo(TableView c, TableViewPanel cell, Header info, int grp) {
+		Cells.SectionHeaderCell header = (Cells.SectionHeaderCell)cell;
+		if(grp<arr.length()){
+			header.lbl.setText(arr.getItem(grp));				
+			appLog.log(Log.INFO,"CONTACT Header lecter section "+grp+" "+arr.getItem(grp));
+		}
+	}		
+		
+	////////////////////////////
+	// Footer (Optional)
+	////////////////////////////
+	callback stk onFooterCreateInfo(TableView c, TableViewPanelCreateInfo info, int group){
+		/*
+		TableViewPanel pnlFooter = new TableViewPanel();
+		pnlFooter.add(lbl,"halign=center,valign=center");
+		
+		info.setPanel(pnlFooter);
+		*/
+	}
+	
+	callback stk onFooterConfigure(TableView c, CellConfig cell, int group){
+		/*
+		cell.setCouldBeSelected(false);
+		cell.setHeight(Sizing.PIXELS, 60);
+		cell.setWidth(Sizing.PERCENTS, 100);
+		*/
+	}
+	
+	callback stk onFooterInfo(TableView c, TableViewPanel cell, Footer info, int grp) {
+		//cell.setBackground(Background.createVerticalGradientRectangleBackground(Colors.DarkGray, Colors.DarkGray));
+	}
+	
+	callback src onValueChange (Control c) {
+		src.setOnValueChangingPausedDelay(500);
+	}
+	
+	callback src onValueChangingPaused(Control c){
+		setQuery(src.getText());	
+		stk.reload();
+		
+	}	
+	
+	callback btnClearSearch onClick(Control c) {
+		src.setText("");	
+		//pnlDetail.setQuery();
+		setQuery();
+		stk.reload();
+		//iRowCount = pnlDetail.getRowCount();
+		
+		/*
+		switch(iRowCount) {
+			
+			case 0:
+				lblRowCount.setText("No Accounts");
+				break;
+			case 1:	
+				lblRowCount.setText("" + iRowCount + " Account/s");
+				break;
+			default:
+				lblRowCount.setText("" + iRowCount + " Account/s");
+		}
+		*/
+	}
+
+	callback btnMyPos onClick(Control c) {
+		scrMap.setWaitCursor(wc);
+		tmrAddPosition.schedule(50);
+	}
+	
+	callback btnViewAll onClick(Control c) {
+		pnlMap.mapField.clearLocations();
+		scrMap.setWaitCursor(wc);
+		tmrSeeAll.schedule(50);
+	}
+	
+	callback btnMapView onClick(Control c) {
+		pnlMap.loc.stopLocationUpdate();
+		scrMap.close(Animation.SLIDE_FROM_LEFT);
+	}
+	
+	callback btnVisitPlan onClick(Control c) {
+		if (pnlMap.myLat==0) {
+			MessageBox msg = new MessageBox();
+			msg.info(1,"Devi prima rilevare la posizione per poter generare il Giro Visite!");
+		} else {
+			Popups.LoadingPopup popLoading = new Popups.LoadingPopup();
+			scrMap.showPopup(popLoading,Popup.POPUP_TYPE_NONE, Sizing.PREFERRED ,0 , Sizing.PREFERRED, 0 ,false,true);
+			pnlMap.getVisitPlan();
+			//popLoading.hide(Popup.POPUP_TYPE_NONE);
+		}
+	}
+	
+	callback tmrAddSingle timerFired(Timer tmr) {
+		//scrMap.setWaitCursor(wc);
+		
+		pnlMap.addSingleLocation(mrsm.getRow(),Images.Maps.PIN.getImage(),0,0);
+		
+		scrMap.setWaitCursor(null);
+		//popLoading.hide(Popup.POPUP_TYPE_NONE);
+	}
+	
+	callback tmrAddPosition timerFired(Timer tmr) {
+		//scrMap.setWaitCursor(wc);
+		
+		pnlMap.addMyPosition();
+		
+		scrMap.setWaitCursor(null);
+		//popLoading.hide(Popup.POPUP_TYPE_NONE);
+	}
+	
+	callback tmrSeeAll timerFired(Timer tmr) {
+		//scrMap.setWaitCursor(wc);
+		
+		pnlMap.addAllLocations();
+		
+		scrMap.setWaitCursor(null);
+		//popLoading.hide(Popup.POPUP_TYPE_NONE);
+	}
+	/*
+	 * Custom methods
+	 */
+	void setQuery() {
+		arr.removeAllItems();
+		mrsm.clear();
+		for(int i = 0; i < letterList.length(); i++) {
+			RowSetModel rsm1 = new RowSetModel();
+			if (sAccountCode != "") {
+				rsm1.setRows(dpObjContact.getContactStartsWithFromAccount(letterList.getItem(i),sAccountCode));
+				}
+			else { 
+				rsm1.setRows(dpObjContact.getContactStartsWithHasValidAddress(letterList.getItem(i)));
+			}
+			
+			if(rsm1.getRowCount(0) > 0) {
+				
+				mrsm.add(rsm1);
+				arr.insertItem(mrsm.getGroupCount() - 1, letterList.getItem(i));	
+				pnlIndex.enableIndexLinks(i);	
+			}
+		}
+		arr.insertItem(mrsm.getGroupCount() , "");
+		stk.setNumberOfGroups(mrsm.getGroupCount());
+		
+		//Count the query instances numeber
+		lblRowCount.setText("Numero Contatti: " + countResults(mrsm));
+		
+	} 
+	 
+	void setQuery(String str) {
+		arr.removeAllItems();
+		mrsm.clear();
+		for(int i = 0; i < letterList.length(); i++) {
+			RowSetModel rsm1 = new RowSetModel();
+			if (sAccountCode != "") {
+				rsm1.setRows(dpObjContact.getContactContainsStartsWithFromAccount(letterList.getItem(i),str,sAccountCode));
+				}
+			else { 
+				rsm1.setRows(dpObjContact.getContactContainsStartsWithHasValidAddress(letterList.getItem(i),str));
+			}
+			
+			if(rsm1.getRowCount(0) > 0) {
+				
+				mrsm.add(rsm1);
+				arr.insertItem(mrsm.getGroupCount() - 1, letterList.getItem(i));	
+				pnlIndex.enableIndexLinks(i);	
+			}
+		}
+		stk.setNumberOfGroups(mrsm.getGroupCount());	
+		
+		//Count the query instances numeber
+		lblRowCount.setText("Numero Contatti: " + countResults(mrsm));
+	} 
+	
+	void setUpButtons() {
+		btnClearSearch.setBackground(Background.create9PartImageRectangleBackground(Images.Buttons.BTN_CANCEL_u,0,0,0,0));
+		btnClearSearch.setFocusedBackground(Background.create9PartImageRectangleBackground(Images.Buttons.BTN_CANCEL_s,0,0,0,0));
+		btnClearSearch.setSelectedBackground(Background.create9PartImageRectangleBackground(Images.Buttons.BTN_CANCEL_s,0,0,0,0));
+		
+		/*
+		 * btnClearSearch.setImage(Images.Buttons.BTN_CANCEL_u.getImage());
+		 * btnClearSearch.setFocusedImage(Images.Buttons.BTN_CANCEL_s.getImage());
+	 	 * btnClearSearch.setSelectedImage(Images.Buttons.BTN_CANCEL_s.getImage());	
+	 	*/
+	}
+	
+	SearchField setUpSearchField(SearchField src) {
+                Font fnt = new Font();
+                fnt.setSize(18);
+                fnt.setFamily("Arial");
+                src.setFont(fnt);
+                src.setTextHint("Search...");
+                src.setFocusedForeColor(Color.create(58,58,58));
+                src.setDisabledForeColor(Color.create(58,58,58));
+                src.setBackColor(Colors.White);
+                return src;
+        }
+        
+        /* usage:
+         *
+         *      setUpSearchBar(TablePanel pnl, SearchField src, BackgroundButton btnClearSearch, int width, int height);
+         *
+         * returns a 1x3 table panel with lens image, the specified search field and the clear search button
+        */
+        TablePanel setUpSearchBar(TablePanel pnl, SearchField src, BackgroundButton btnClearSearch, int width, int height) {
+                PictureBox picBoxSearch = new PictureBox();
+                picBoxSearch.setImage(Images.Buttons.BTN_32x32_SEARCH_u.getImage());
+                //pnl.setInsets(0,8,0,0);
+                pnl.setRowHeight(0, Sizing.PIXELS, height);
+                pnl.setColumnWidth(0, Sizing.PIXELS, height);
+                pnl.setColumnWidth(1, Sizing.PIXELS, (width-(2*height)));
+                pnl.setColumnWidth(2, Sizing.PIXELS, height);
+                //pnl.setBackground(Background.createHorizontalTiledImageRectangleBackground(Images.Backgrounds.BCK_SEARCH.getImage(),5,5));
+                pnl.setBackColor(Colors.White);
+                pnl.add(picBoxSearch,fill);
+                pnl.add(src,"hfill=fill");
+                pnl.add(btnClearSearch,fill);
+                return pnl;
+        }
+       
+    //Counts the rows of the result of a query that stores the elements in a MultiRowSetModel object (mrsm)    
+    int countResults(MultiRowSetModel mrsm) {
+    	int counter = 0;	
+		for (int i=0; i<mrsm.getGroupCount(); i++) {
+			for (int j=0; j<mrsm.getRowCount(i); j++) {
+				counter++;
+			}
+		}
+		return counter;
+    }
+	
+	void setAccountCode(String str) {
+		sAccountCode = str;
+	}
+	
+	String getAccountCode() {
+		return sAccountCode;
+	}
+	
+	void setDetailFormPanel(Panels.Contact.ReadOnlyDetailFormPanel pnl) {
+		pnlDetailForm = pnl;
+	}
+
+	void setMapScreen(Screen scr) {
+		scrMap=(Screens.Contact.MapScreen) scr;
+	}
+	
+	void setMapPanel(Panels.MapView.MapPanel pnl) {
+		pnlMap=pnl;
+	}
+	
+}
+

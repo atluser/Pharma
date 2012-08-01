@@ -1,0 +1,109 @@
+TablePanel {
+	
+	Panels.MapView.StickyTablePanel stk = new Panels.MapView.StickyTablePanel();
+	Panels.MapView.MapPanel pnlMap = new Panels.MapView.MapPanel();
+	
+	Label lblTitle = new Label();
+	
+	Panels.Contact.StickyTablePanel contStk;
+	
+	Panels.MasterPanel pnlMaster;
+	Panels.MapView.RootTablePanel thisPanel;
+	
+	String fill = "hfill=fill, vfill=fill";
+	
+	callback onCreate(Container c) {
+		thisPanel=(Panels.MapView.RootTablePanel)c;
+		setUpAll();
+	}
+	
+	StickyTable getStickyTable(){
+		return stk.stk;	
+	}
+	
+	void setUpAll()
+	{
+		
+		//setting the layout of the root panel
+		setRowHeight(0,Sizing.PREFERRED,0);
+		setRowHeight(1,Sizing.PREFERRED,1);
+		setColumnWidth(0, Sizing.PREFERRED, 0);
+		setColumnWidth(1, Sizing.PREFERRED, 1);
+		
+		TablePanel pnlHeader = new TablePanel();
+		setUpHeader(pnlHeader);
+		
+		add(pnlHeader,"colspan=2, hfill=fill");
+		startNewRow();
+
+		//Contiene la sticchio table
+
+		pnlMaster = new Panels.MasterPanel();		 		
+		pnlMaster.setContentPanel(stk);
+		
+		stk.setMapPanel(pnlMap);
+		
+		pnlMap.setRootPanel(thisPanel);
+		pnlMap.setStickyTable(stk);
+		logApp.log(Log.INFO, "danieleU - mapview setted pnlMap on stk");
+		
+		//Contiene il dettagli del contatto
+		//pnlDetailForm.setDetailPanel(pnlDetail);
+		
+		//if(iNumContacts>0)
+		//	pnlDetailForm.setFirstRecord();
+		
+		// Detail Panel
+		//pnlDetail.setContentPanel(pnlDetailForm);
+		
+		/*
+		if(dpRowSetContact.first()!=null)
+			pnlDetailForm.setFirstRecord();
+		*/
+		
+		//stk.setDetailPanel(pnlDetail);
+		
+		//stk.setDetailFormPanel(pnlDetailForm);
+		// Va fatto settando però il map Panel
+		
+		/*if(stk.rsm.hasMoreRows(0)){
+			stk.stk.scrollTo(0,0,TableView.SCROLL_POSITION_NONE);
+			stk.stk.select(0,0);
+		}*/	
+		
+		add(pnlMaster, fill);
+		//add(pnlDetail, fill);
+		add(pnlMap,fill);
+		
+	}
+	
+	void setUpHeader(TablePanel pnlHeader) {
+		Button btnBack = new Button();
+		
+		btnBack.setImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnBack.setFocusedImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		btnBack.setSelectedImage(Images.VodafoneImages.img_logo_vodafone.getImage());
+		
+		pnlHeader.setRowHeight(0,Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(0, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(1, Sizing.PREFERRED,0);
+		pnlHeader.setColumnWidth(2, Sizing.PREFERRED,0);
+		
+		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		pnlHeader.add(btnBack);
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(18);
+		lblTitle.setFont(fnt);
+		lblTitle.setForeColor(Colors.White);
+		lblTitle.setText("");
+		
+		pnlHeader.add(lblTitle);
+	}
+	
+	void setContactStickyTable(Panels.Contact.StickyTablePanel pnl) {
+		contStk=pnl;
+		contStk.setMapPanel(pnlMap);
+	}
+}

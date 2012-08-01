@@ -1,0 +1,41 @@
+Popup {
+	
+	String fill = "hfill=fill,vfill=fill";
+	
+	callback onCreate(Container c) {
+		
+		setRowHeight(0,Sizing.PIXELS,100);
+		setColumnWidth(0,Sizing.PIXELS,100);
+		
+		TablePanel pnlBody = new TablePanel();
+		
+		pnlBody.setRowHeight(0,Sizing.PREFERRED,0);
+		pnlBody.setColumnWidth(0,Sizing.PREFERRED,0);
+		
+		AnimationField anim = new AnimationField();
+		
+		anim.addImage(Images.Animations.LOADING_FRAME_0.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_1.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_2.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_3.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_4.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_5.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_6.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_7.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_8.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_9.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_10.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_11.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_12.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_13.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_14.getImage());
+		anim.addImage(Images.Animations.LOADING_FRAME_15.getImage());
+		
+		anim.setDuration(1500);
+		anim.setRepeatCount(10);
+		pnlBody.add(anim,fill);
+		anim.startAnimating();
+		add(pnlBody, fill);
+	}
+
+}
