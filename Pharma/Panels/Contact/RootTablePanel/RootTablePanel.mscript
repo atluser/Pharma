@@ -2,7 +2,7 @@ TablePanel {
 	
 	Panels.Contact.StickyTablePanel stk = new Panels.Contact.StickyTablePanel();
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm = new Panels.Contact.ReadOnlyDetailFormPanel();
-
+	
 	Panels.DetailPanel pnlDetail = new Panels.DetailPanel();	 
 	Screens.HomeScreen scrHome;
 	Panels.MasterPanel pnlMaster;
@@ -23,20 +23,19 @@ TablePanel {
 	
 	void setUpAll()
 	{
+		
 		//setting the layout of the root panel
 		setRowHeight(0,Sizing.PREFERRED,1);
 		setColumnWidth(0, Sizing.PREFERRED, 0);
 		setColumnWidth(1, Sizing.PREFERRED, 1);
-		
 
-		stk.setHomeScreen(scrHome);
 		//Contiene la sticchio table
 
 		pnlMaster = new Panels.MasterPanel();		 		
 		pnlMaster.setContentPanel(stk);
 		
 		//Contiene il dettagli del contatto
-		pnlDetailForm.setDetailPanel(pnlDetail);
+		//pnlDetailForm.setDetailPanel(pnlDetail);
 		
 		//if(iNumContacts>0)
 		//	pnlDetailForm.setFirstRecord();
@@ -53,8 +52,10 @@ TablePanel {
 			stk.stk.scrollTo(0,0,TableView.SCROLL_POSITION_NONE);
 			stk.stk.select(0,0);
 		}*/	
-		add(pnlMaster, fill);
+		
+		 add(pnlMaster, fill);
 		//add(pnlDetail, fill);
 		add(pnlDetailForm,fill);
+		
 	}
 }

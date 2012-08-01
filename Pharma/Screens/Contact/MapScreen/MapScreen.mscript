@@ -1,8 +1,12 @@
 Screen {
 	
-	MapField mapField=new MapField();
 	Action actClose = new Action();
-	RowSetModel rsm = new RowSetModel();
+	
+	Panels.MapView.RootTablePanel pnlRoot = new Panels.MapView.RootTablePanel();
+	
+	Array arr = new Array();
+	
+	String fill = "hfill=fill, vfill=fill";
 	
 	callback applyVisualStyle(Widget widget, StyleReceptor styleReceptor){
 		//TODO: add code
@@ -26,44 +30,9 @@ Screen {
 
 	callback onCreate(Container container){
 		
-		rsm.setRows(dpObjContact.getContacts());
+		setRowHeight(0, Sizing.PREFERRED, 1);
 		
-		/*
-		 *	 DataRow row = rsm.getRow();
-		 *	logApp.log(Log.INFO, "Contact - MapScreen - rows number: " + rsm.getRowCount(0));
-		 *	if (row==null) {
-		 *		logApp.log(Log.INFO, "Contact - MapScreen - Empty Row Set Model");
-		 *	}
-		 *	if (rsm.hasRow()) {
-		 *		logApp.log(Log.INFO, "Contact - MapScreen - Row Set Model HAS ROWS");
-		 *	} else {
-		 *		logApp.log(Log.INFO, "Contact - MapScreen - Row Set Model HAS NOT ROWS");
-		 *	}
-		 *	while (row!=null) {
-		 *		dpObjContact.ContactName.getStringValue(row);
-		 *		logApp.log(Log.INFO, "Contact - MapScreen - Row Name: " + dpObjContact.ContactName.getStringValue(row));
-		 *	}
-		*/
-		//mapField.clearLocations();
-		for (int i=0; i<rsm.getRowCount(0); i++) {
-			rsm.select(0,i);
-			DataRow row = rsm.getRow();
-			logApp.log(Log.INFO, "Contact - MapScreen - Row Name: " + dpObjContact.ContactName.getStringValue(row));
-			if (dpObjContact.ContactStreetAddress.getStringValue(row)!=null) {
-				MapAnnotation mapAnot = new MapAnnotation();
-				mapAnot.setShowCallout(true);
-				mapAnot.setEnabled(true);
-				mapAnot.setTitle(dpObjContact.ContactName.getStringValue(row) + " " + dpObjContact.ContactLastName.getStringValue(row));
-				mapAnot.setSubTitle(dpObjContact.ContactStreetAddress.getStringValue(row) + " - " + dpObjContact.ContactStreetCity.getStringValue(row));
-				mapAnot.setImageType(MapAnnotation.IMAGE_TYPE_RESOURCED);
-				mapAnot.setImage(Images.Icons.ICN_CONTACT.getImage());
-				mapAnot.setShowCallout(true);
-				mapField.addLocation(dpObjContact.ContactStreetAddress.getStringValue(row),"",dpObjContact.ContactStreetCity.getStringValue(row),dpObjContact.ContactCap.getStringValue(row),dpObjContact.ContactCountry.getStringValue(row),mapAnot);
-			}
-		}
-		
-		//mapField.addLocation("madonnina del grappa","","lombardia","20025","Italia");		
-		add(mapField,"vfill=fill,hfill=fill");
+		add(pnlRoot,fill);
 		
 		Menu mn = new Menu();
 		actClose.setText("Close");
@@ -118,17 +87,11 @@ Screen {
 	callback onStartOrientationChange(Screen screen, int int_){
 		//TODO: add code
 	}
-
 	
-	//Custom Methods
-	void setMap(String contactName, String refer,String street,String city, String region, String postalcode,String country){
-		MapAnnotation mapAnot = new MapAnnotation();
-		mapAnot.setShowCallout(true);
-		mapAnot.setEnabled(true);
-		mapAnot.setTitle(contactName);
-		mapAnot.setSubTitle(refer);
-		mapAnot.setImageType(MapAnnotation.IMAGE_TYPE_DEFAULT);
-		mapField.clearLocations();
-		mapField.addLocation(street,"",region,postalcode,country,mapAnot);
+	callback actClose onRun(Action a) {
+	
+		close(Animation.SLIDE_FROM_LEFT);
+	
 	}
+
 }

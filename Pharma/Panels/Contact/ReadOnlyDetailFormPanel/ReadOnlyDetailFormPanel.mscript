@@ -134,7 +134,9 @@ TablePanel {
 	 */
 	callback onCreate(Container c) {
 		setUpHeader();
-		setRow(dpRowSetContact.first());
+		RowSetModel rsm = new RowSetModel();
+		rsm.setRows(dpObjContact.getContacts());
+		if (rsm.getRowCount(0)>0) setRow(dpRowSetContact.first());
 		/*
 		if(iNumContacts<1)
 		{

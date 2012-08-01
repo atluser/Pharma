@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/dspagnuolo.ATL01/Desktop/eclipse/workspace/mobistudio.preferences/com.antennasoftware.amp.runtime/library.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dspagnuolo.ATL01/Desktop/eclipse/workspace/mobistudio.preferences/com.atlantictechnologies.extensions.navigator/bin"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,6 +1,8 @@
 UIProject {
 	Screens.StartScreen scrStart;
 	Screens.HomeScreen scrHome;
+	Screens.Contact.MapScreen scrMap;
+	
 	/** Logs **/
 	Log logApp = getLog();
 	Log appLog = getLog();

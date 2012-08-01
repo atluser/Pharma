@@ -33,6 +33,25 @@
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:PropertiesNode" name="Properties"/>
   <children xsi:type="com.vaultus.studio.ecore.studio:ImagesNode" name="Images">
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="Animations">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Animations.mscript" hidden="true"/>
+      <images name="LOADING_FRAME_0"/>
+      <images name="LOADING_FRAME_1"/>
+      <images name="LOADING_FRAME_10"/>
+      <images name="LOADING_FRAME_11"/>
+      <images name="LOADING_FRAME_12"/>
+      <images name="LOADING_FRAME_13"/>
+      <images name="LOADING_FRAME_14"/>
+      <images name="LOADING_FRAME_15"/>
+      <images name="LOADING_FRAME_2"/>
+      <images name="LOADING_FRAME_3"/>
+      <images name="LOADING_FRAME_4"/>
+      <images name="LOADING_FRAME_5"/>
+      <images name="LOADING_FRAME_6"/>
+      <images name="LOADING_FRAME_7"/>
+      <images name="LOADING_FRAME_8"/>
+      <images name="LOADING_FRAME_9"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="Backgrounds">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Backgrounds.mscript" hidden="true"/>
       <images name="BCK_BTN_HIDE"/>
@@ -50,6 +69,7 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="Icons">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Icons.mscript" hidden="true"/>
       <images name="ICN_CONTACT"/>
+      <images name="LOADING"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Images.mscript" hidden="true"/>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="MainScreenImages">
@@ -62,6 +82,11 @@
       <images name="img_logo_app"/>
       <images name="img_logo_atlantic"/>
       <images name="img_logo_vodafone"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="Maps">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Maps.mscript" hidden="true"/>
+      <images name="PIN"/>
+      <images name="YOU_ARE_HERE"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:ImagesFolderNode" name="PopoverImages">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="PopoverImages.mscript" hidden="true"/>
@@ -128,6 +153,102 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_0">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_1">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_10">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_11">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_12">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_13">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_14">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_15">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_2">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_3">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_4">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_5">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_6">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_7">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_8">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_9">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Aspirina">
         <properties/>
         <properties/>
@@ -189,6 +310,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.LOADING">
         <properties/>
         <properties/>
         <properties/>
@@ -279,6 +406,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.PIN">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.YOU_ARE_HERE">
         <properties/>
         <properties/>
         <properties/>
@@ -702,6 +841,102 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_0">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_1">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_10">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_11">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_12">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_13">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_14">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_15">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_2">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_3">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_4">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_5">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_6">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_7">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_8">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_9">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Aspirina">
         <properties/>
         <properties/>
@@ -763,6 +998,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.LOADING">
         <properties/>
         <properties/>
         <properties/>
@@ -853,6 +1094,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.PIN">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.YOU_ARE_HERE">
         <properties/>
         <properties/>
         <properties/>
@@ -1270,6 +1523,102 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_0">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_1">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_10">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_11">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_12">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_13">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_14">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_15">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_2">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_3">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_4">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_5">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_6">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_7">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_8">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_9">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Aspirina">
         <properties/>
         <properties/>
@@ -1331,6 +1680,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.LOADING">
         <properties/>
         <properties/>
         <properties/>
@@ -1421,6 +1776,18 @@
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.PIN">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.YOU_ARE_HERE">
         <properties/>
         <properties/>
         <properties/>
@@ -1838,6 +2205,102 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_0">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame0.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME0.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_1">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame1.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME1.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_10">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame10.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME10.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_11">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame11.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME11.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_12">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame12.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME12.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_13">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame13.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME13.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_14">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame14.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME14.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_15">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame15.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME15.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_2">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame2.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME2.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_3">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame3.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME3.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_4">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame4.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME4.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_5">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame5.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME5.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_6">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame6.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME6.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_7">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame7.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME7.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_8">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame8.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME8.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_9">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame9.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME9.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Aspirina">
         <properties/>
         <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/defenflu.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/DEFENFLU.PNG"/>
@@ -1967,6 +2430,12 @@
       <imagePaths name="Icons.ICN_CONTACT">
         <properties/>
         <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Icons/ICN_CONTACT.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ICONS/ICN_CONTACT.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.LOADING">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/LoadingPW.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/LOADINGPW.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -2120,6 +2589,108 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="LOADING">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_0">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_1">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_10">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_11">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_12">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_13">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_14">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_15">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_2">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_3">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_4">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_5">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_6">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_7">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_8">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_9">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Lasonil">
         <properties/>
         <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/LENIGOLA.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LENIGOLA.PNG"/>
@@ -2186,7 +2757,25 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Maps.PIN">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Pictures/pushpin.png" path="C:/USERS/DSPAGNUOLO.ATL01/PICTURES/PUSHPIN.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.YOU_ARE_HERE">
+        <properties/>
+        <properties string="C:/Users/dspagnuolo.ATL01/Pictures/youarehere.png" path="C:/USERS/DSPAGNUOLO.ATL01/PICTURES/YOUAREHERE.PNG"/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="OptionsIcon">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PIN">
         <properties/>
         <properties/>
         <properties/>
@@ -2588,6 +3177,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="YOU_ARE_HERE">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="aspirina">
         <properties/>
         <properties/>
@@ -2775,6 +3370,54 @@
       <imagePaths name="AboutIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_0">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_1">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_10">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_11">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_12">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_13">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_14">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_15">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_2">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_3">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_4">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_5">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_6">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_7">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_8">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_9">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Aspirina">
         <properties/>
       </imagePaths>
@@ -2806,6 +3449,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.LOADING">
         <properties/>
       </imagePaths>
       <imagePaths name="ImgActivitiesList">
@@ -2851,6 +3497,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.PIN">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.YOU_ARE_HERE">
         <properties/>
       </imagePaths>
       <imagePaths name="OptionsIcon">
@@ -3061,6 +3713,54 @@
       <imagePaths name="AboutIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_0">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_1">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_10">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_11">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_12">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_13">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_14">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_15">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_2">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_3">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_4">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_5">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_6">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_7">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_8">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_9">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Aspirina">
         <properties/>
       </imagePaths>
@@ -3092,6 +3792,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.LOADING">
         <properties/>
       </imagePaths>
       <imagePaths name="ImgActivitiesList">
@@ -3137,6 +3840,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.PIN">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.YOU_ARE_HERE">
         <properties/>
       </imagePaths>
       <imagePaths name="OptionsIcon">
@@ -3348,6 +4057,70 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_0">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame0.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME0.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_1">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame1.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME1.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_10">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame10.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME10.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_11">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame11.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME11.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_12">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame12.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME12.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_13">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame13.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME13.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_14">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame14.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME14.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_15">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame15.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME15.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_2">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame2.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME2.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_3">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame3.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME3.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_4">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame4.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME4.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_5">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame5.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME5.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_6">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame6.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME6.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_7">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame7.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME7.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_8">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame8.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME8.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_9">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Animations/Loading/LoadingFrame9.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ANIMATIONS/LOADING/LOADINGFRAME9.PNG"/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Aspirina">
         <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/defenflu.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/DEFENFLU.PNG"/>
         <properties/>
@@ -3434,6 +4207,10 @@
       </imagePaths>
       <imagePaths name="Icons.ICN_CONTACT">
         <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/Icons/ICN_CONTACT.PNG" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/ICONS/ICN_CONTACT.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.LOADING">
+        <properties string="C:/Users/dspagnuolo.ATL01/Desktop/Pharma Images/LoadingPW.png" path="C:/USERS/DSPAGNUOLO.ATL01/DESKTOP/PHARMA IMAGES/LOADINGPW.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="ImgActiviitesList">
@@ -3536,6 +4313,74 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="LOADING">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_0">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_1">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_10">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_11">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_12">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_13">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_14">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_15">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_2">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_3">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_4">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_5">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_6">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_7">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_8">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="LOADING_FRAME_9">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Lasonil">
         <properties string="C:/Users/mcolombo.ATL01/Documents/Antenna/Vodafone/immagini prodotti bayer/LENIGOLA.png" path="C:/USERS/MCOLOMBO.ATL01/DOCUMENTS/ANTENNA/VODAFONE/IMMAGINI PRODOTTI BAYER/LENIGOLA.PNG"/>
         <properties/>
@@ -3580,7 +4425,19 @@
         <properties string="/Users/admin/Desktop/VF/images/login/img_logo_vodafone.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/LOGIN/IMG_LOGO_VODAFONE.PNG"/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Maps.PIN">
+        <properties string="C:/Users/dspagnuolo.ATL01/Pictures/pushpin.png" path="C:/USERS/DSPAGNUOLO.ATL01/PICTURES/PUSHPIN.PNG"/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.YOU_ARE_HERE">
+        <properties string="C:/Users/dspagnuolo.ATL01/Pictures/youarehere.png" path="C:/USERS/DSPAGNUOLO.ATL01/PICTURES/YOUAREHERE.PNG"/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="OptionsIcon">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="PIN">
         <properties/>
         <properties/>
       </imagePaths>
@@ -3848,6 +4705,10 @@
         <properties string="/Users/admin/Desktop/VF/images/actionbar/tbb_01_pressed.png" path="/USERS/ADMIN/DESKTOP/VF/IMAGES/ACTIONBAR/TBB_01_PRESSED.PNG"/>
         <properties/>
       </imagePaths>
+      <imagePaths name="YOU_ARE_HERE">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="aspirina">
         <properties/>
         <properties/>
@@ -3938,6 +4799,70 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_0">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_1">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_10">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_11">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_12">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_13">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_14">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_15">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_2">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_3">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_4">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_5">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_6">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_7">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_8">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_9">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Aspirina">
         <properties/>
         <properties/>
@@ -3979,6 +4904,10 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.LOADING">
         <properties/>
         <properties/>
       </imagePaths>
@@ -4039,6 +4968,14 @@
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.PIN">
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.YOU_ARE_HERE">
         <properties/>
         <properties/>
       </imagePaths>
@@ -4317,6 +5254,54 @@
       <imagePaths name="AboutIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_0">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_1">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_10">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_11">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_12">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_13">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_14">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_15">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_2">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_3">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_4">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_5">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_6">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_7">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_8">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_9">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Aspirina">
         <properties/>
       </imagePaths>
@@ -4348,6 +5333,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.LOADING">
         <properties/>
       </imagePaths>
       <imagePaths name="ImgActivitiesList">
@@ -4393,6 +5381,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.PIN">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.YOU_ARE_HERE">
         <properties/>
       </imagePaths>
       <imagePaths name="OptionsIcon">
@@ -4603,6 +5597,54 @@
       <imagePaths name="AboutIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_0">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_1">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_10">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_11">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_12">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_13">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_14">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_15">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_2">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_3">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_4">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_5">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_6">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_7">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_8">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_9">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Aspirina">
         <properties/>
       </imagePaths>
@@ -4634,6 +5676,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.LOADING">
         <properties/>
       </imagePaths>
       <imagePaths name="ImgActivitiesList">
@@ -4679,6 +5724,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.PIN">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.YOU_ARE_HERE">
         <properties/>
       </imagePaths>
       <imagePaths name="OptionsIcon">
@@ -4891,6 +5942,54 @@
       <imagePaths name="AboutIcon">
         <properties/>
       </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_0">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_1">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_10">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_11">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_12">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_13">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_14">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_15">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_2">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_3">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_4">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_5">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_6">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_7">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_8">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Animations.LOADING_FRAME_9">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Aspirina">
         <properties/>
       </imagePaths>
@@ -4922,6 +6021,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Icons.ICN_CONTACT">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Icons.LOADING">
         <properties/>
       </imagePaths>
       <imagePaths name="ImgActivitiesList">
@@ -4967,6 +6069,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="MainScreenImages.img_logo_vodafone">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.PIN">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="Maps.YOU_ARE_HERE">
         <properties/>
       </imagePaths>
       <imagePaths name="OptionsIcon">
@@ -5197,6 +6305,7 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:VideoSetNode" name="BLACKBERRY" hidden="true"/>
     <children xsi:type="com.vaultus.studio.ecore.studio:VideoSetNode" name="NET" hidden="true"/>
     <children xsi:type="com.vaultus.studio.ecore.studio:VideoSetNode" name="OBJC" hidden="true"/>
+    <videos name="video"/>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:DocumentsNode" name="Documents">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="Documents.mscript" hidden="true"/>
@@ -5380,6 +6489,17 @@
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
       </children>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="MapView">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="MapPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="MapPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootTablePanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
+      </children>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Order">
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="DetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="DetailPanel.mscript"/>
@@ -5471,6 +6591,9 @@
     </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Popups">
+    <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="LoadingPopup">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="LoadingPopup.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="ProductInfo">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ProductInfo.mscript"/>
     </children>
@@ -5479,6 +6602,9 @@
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="SectionFormPopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SectionFormPopup.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="VisitPlanPopup">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VisitPlanPopup.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="ZoomImagePopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ZoomImagePopup.mscript"/>

@@ -4,8 +4,6 @@ TablePanel {
 	 *
 	 */	
 	String sAccountCode = ""; 
-	 	
-	Screens.HomeScreen scrHome;
 	
 	Label lbl = new Label();
 	
@@ -13,8 +11,11 @@ TablePanel {
 	
 	SearchField src = new SearchField();
 	StickyTable stk = new StickyTable();
+	
+	Panels.MapView.MapPanel pnlMap;
+	
 	//RowSetModel rsm = new RowSetModel();
-	Panels.DetailPanel pnlDetail;
+	//Panels.DetailPanel pnlDetail;
 	MultiRowSetModel mrsm = new MultiRowSetModel();
 	
 	BackgroundButton btnClearSearch = new BackgroundButton();
@@ -29,10 +30,14 @@ TablePanel {
 	int iRowCount = 0;
 	Label lblRowCount = new Label();
 	
+	Panels.Contact.StickyTablePanel thisPanel;
+	
 	/*
 	 *
 	 */
 	callback onCreate(Container c) {
+		
+		thisPanel=(Panels.Contact.StickyTablePanel)c;
 		
 		//set size (note: this is required)
 		setColumnWidth(0, Sizing.PIXELS, 346);
@@ -232,8 +237,16 @@ TablePanel {
 	}
 
 	callback btnMapView onClick(Control c) {
-		Screens.Contact.MapScreen scrMap = new Screens.Contact.MapScreen();
-		scrMap.mapField.clearLocations();
+		scrMap  = new Screens.Contact.MapScreen();
+		logApp.log(Log.INFO,"danieleU - MapView created");
+		scrMap.pnlRoot.setContactStickyTable(thisPanel);
+		logApp.log(Log.INFO,"danieleU - mapview sticky on pnlRoot setted");
+		pnlMap.mapField.clearLocations();
+		RowSetModel rsm = new RowSetModel();
+		rsm.setRows(dpObjContact.getContactHasValidAddress());
+		pnlMap.setRowSetModel(rsm);
+		logApp.log(Log.INFO,"danieleU - MapView rowsetmodel setted");
+		//scrMap.mapField.clearLocations();
 		scrMap.push(Animation.SLIDE_FROM_RIGHT,false);
 	}
 	
@@ -356,16 +369,14 @@ TablePanel {
 	String getAccountCode() {
 		return sAccountCode;
 	}
-
-	void setDetailPanel(Panels.DetailPanel pnl) {
-		pnlDetail = pnl;
-	}
 	
 	void setDetailFormPanel(Panels.Contact.ReadOnlyDetailFormPanel pnl) {
 		pnlDetailForm = pnl;
 	}
-
-	void setHomeScreen(Screen scr) {
-		scrHome=(Screens.HomeScreen) scr;
+	
+	
+	void setMapPanel(Panels.MapView.MapPanel pnl) {
+		pnlMap=pnl;
 	}
+
 }

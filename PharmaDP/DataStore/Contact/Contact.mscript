@@ -190,4 +190,31 @@ DataStoreObject {
 	query getContactCount<>{
 		unique count NumContact;
 	}
+	
+	Query getContactStartsWithHasValidAddress(String letter) {
+		return contactStartsWithHasValidAddress(letter);
+	}
+		query contactStartsWithHasValidAddress<String letter> {
+			where ContactLastName startsWith letter;
+			where ContactStreetAddress != null;
+			ascendingBy searchKey;
+		}
+		
+	Query getContactContainsStartsWithHasValidAddress(String letter, String src) {
+		return contactContainsStartsWithHasValidAddress(letter,src);
+	}
+		query contactContainsStartsWithHasValidAddress<String letter, String src> {
+			where ContactLastName startsWith letter;
+			where searchKey contains src;
+			where ContactStreetAddress != null;
+			ascendingBy searchKey;
+		}
+		
+	Query getContactHasValidAddress() {
+		return contactHasValidAddress();
+	}
+		query contactHasValidAddress<> {
+			where ContactStreetAddress != null;
+			where ContactStreetCity != null;
+		}
 }
