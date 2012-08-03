@@ -1,0 +1,52 @@
+TableViewCell {
+	
+	Font fnt01 = new Font();
+	Font fnt02 = new Font();
+	Label lbl01 = new Label();
+	Label lbl02 = new Label();
+	
+	String fill= "hfill=fill,vfill=fill";
+
+	callback onCreate(Container container){
+
+		TablePanel pnlBody = new TablePanel();
+		
+		pnlBody.setRowHeight(0,Sizing.PREFERRED,0);
+		pnlBody.setColumnWidth(0,Sizing.PREFERRED,0);
+		pnlBody.setColumnWidth(1,Sizing.PREFERRED,1);
+		
+		fnt01.setFamily("Arial");
+		fnt01.setSize(18);		
+		fnt01.setBold();
+		lbl01.setFont(fnt01);
+		lbl01.setForeColor(Colors.Black);
+		
+		fnt02.setFamily("Arial");		
+		fnt02.setSize(16);
+		lbl02.setFont(fnt02);		
+		lbl02.setForeColor(Colors.Gray);
+
+		//add(lbl01, "hfill=fill,vfill=fill");
+		pnlBody.add(lbl01, "vfill=fill,valign=center");
+		
+		//add(lbl02, "hfill=fill,vfill=fill");
+		pnlBody.add(lbl02, "vfill=fill,halign=center,valign=center");
+		
+		add(pnlBody,fill);
+		//setInsets ( int top, int left, int bottom, int right); 
+		setInsets (4, 8, 4, 8);
+		
+		setBackColor(Colors.White);
+		setFocusedBackground(Background.createVerticalGradientRectangleBackground(Color.create(230,0,0), Color.create(189,0,0)));
+		setColumnWidth(0, Sizing.PERCENTS, 30);	
+		setRowHeight(0, Sizing.PREFERRED, 1);
+		
+	}
+	
+	 callback onSelected (TableViewCell cell, boolean selected) {
+		appLog.log(Log.INFO, "TwoRowsTableViewCell - onSelected - cell clicked " + lbl01.getText() + " selected: " + selected);
+		//pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(rsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(rsm.getRow()));
+		//pnlDetailForm.setRow(rsm.getRow());	
+	}
+
+}

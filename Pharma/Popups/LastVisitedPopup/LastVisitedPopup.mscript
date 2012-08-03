@@ -1,0 +1,155 @@
+Popup {
+	
+	//TableModel tblModel = new TableModel();
+	RowSetModel rsm = new RowSetModel();
+	
+	StickyTable stk = new StickyTable();
+	
+	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
+	
+	String fill = "vfill=fill,hfill=fill";
+	
+	TablePanel pnlBody = new TablePanel();
+	
+	TablePanel pnlHeader = new TablePanel();
+	
+	TablePanel btnCloseContainer = new TablePanel();
+	Button btnClose = new Button();
+	
+	
+	
+	callback onCreate(Container c) {
+		
+		setRowHeight(0,Sizing.PREFERRED,1);
+		setRowHeight(1,Sizing.PREFERRED,0);
+		setColumnWidth(0,Sizing.PIXELS,400);
+			
+		setUpHeader();
+		add(pnlHeader,fill);
+		startNewRow();
+		
+		pnlBody.setRowHeight(0,Sizing.PREFERRED,0);
+		pnlBody.setColumnWidth(0,Sizing.PREFERRED,1);
+		
+		//stk.setNumberOfCellsInGroup(0,5);
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray); 
+		
+	}
+	
+	
+	
+
+	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
+		info.setPanel(new Cells.TwoRowsTableViewCell());
+	}
+	
+	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
+	
+		//Cells.RecentRecordCell tblVwCell = (Cells.RecentRecordCell)cell;
+		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
+		
+		DataRow dtRw = info.getDataRow();
+		if(!dtRw.isDeleted()){		
+			String str01 = dpObjContact.ContactLastName.getStringValue(dtRw) + " " + dpObjContact.ContactName.getStringValue(dtRw);
+			str01 = str01.toUpperCase();
+			String timestamp = dpObjContact.TimeVisited.getStringValue(dtRw);
+			Date date = Platform.createDate(Platform.parseLong(timestamp));
+			
+			String year = Platform.toString(date.year());
+			String month = Platform.toString(date.month()+1);
+			String day = Platform.toString(date.day());
+							
+			String hour = Platform.toString(date.hour());
+			int min = date.minute();
+			int sec = date.second();
+			String minute =  (min>=10) ? Platform.toString(min) : "0" + Platform.toString(min);
+			String second = (sec>=10) ? Platform.toString(sec) : "0" + Platform.toString(sec);
+			
+			String str02 = "Visitato il " + day + "/" + month + "/" + year + " alle " + hour + ":" + minute + ":" + second;
+			tblVwCell.lbl01.setText(str01);
+			tblVwCell.lbl02.setText(str02);
+		}
+		
+	}
+	
+	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
+		cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PREFERRED, 0);
+		cell.setCouldBeSelected(true);
+	}
+	
+	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
+		sizeInfo.setHeight(60);
+	}	
+	
+	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
+		logApp.log(Log.INFO, "ContactStickyTablePanel::onSelectionChanged - Row: "+ row);
+		
+		//pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(mrsm.getRow()));
+		pnlDetailForm.setRow(rsm.getRow());
+		DataRow dtRow = rsm.getRow();
+		long timestamp = Platform.getCurrentTime();
+		dpObjContact.TimeVisited.setStringValue(Platform.toString(timestamp),dtRow);
+		dtRow.applyUpdates();
+		dp.saveData();
+		hide(Popup.POPUP_TYPE_NONE);
+		
+	}
+	
+	callback btnClose onClick(Control c) {
+		hide(Popup.POPUP_TYPE_NONE);
+	}
+	
+	
+	void setRowSetModel(RowSetModel model) {
+		rsm=model;
+		//stk.reload();
+		stk.setDataModel(rsm);
+		pnlBody.add(stk,fill);
+		add(pnlBody,fill);
+	}
+	
+	void setDetailPanel(Panels.Contact.ReadOnlyDetailFormPanel pnl) {
+		pnlDetailForm=pnl;
+	}
+	
+	void setUpHeader() {
+		
+		pnlHeader.setRowHeight(0,Sizing.PIXELS,45);
+		pnlHeader.setColumnWidth(0,Sizing.PREFERRED,1);
+		pnlHeader.setColumnWidth(0,Sizing.PREFERRED,1);
+		
+		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+
+		Font fnt=new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(22);
+		
+		Label lblTitle = new Label();
+		lblTitle.setForeColor(Colors.White);
+		lblTitle.setFont(fnt);
+		lblTitle.setText("Record Recenti");
+		
+		pnlHeader.add(lblTitle,"halign=center,valign=center");
+		
+		setUpCloseButton();
+		
+		pnlHeader.add(btnCloseContainer,"halign=right");
+		
+	}
+	
+	void setUpCloseButton() {
+		
+		btnCloseContainer.setRowHeight(0,Sizing.PIXELS,45);
+		btnCloseContainer.setColumnWidth(1,Sizing.PIXELS,45);
+		
+		btnClose.setImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		
+		btnCloseContainer.add(btnClose,fill);
+		
+	}
+	
+	
+}
