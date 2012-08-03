@@ -30,16 +30,11 @@ DataStoreObject {
 	StringField NumContact{return null;}
 	//StringField ContactAlways{return "always";}
 	
+	StringField TimeVisited{return null;}
+	
 	StringField searchKey {
 		return ContactLastName + " " + ContactName;
 	}
-	
-	Query getAllContacts()
-	{
-		return getAllContactRows();
-	}
-	
-	query getAllContactRows<> {}
 	
 	Query getContacts() {
 			return contactRows();
@@ -47,6 +42,16 @@ DataStoreObject {
 		
 		query contactRows<> {
 			ascendingBy searchKey;
+		}
+	
+	//retrieve all contacts ascending by timestamp of visiting
+	Query getRecentContacts() {
+		return recentContacts();
+	}
+		query recentContacts<> {
+			where TimeVisited != null;
+			where TimeVisited != "";
+			descendingBy TimeVisited;
 		}
 	
 	Query getFirstRow() {
@@ -72,48 +77,7 @@ DataStoreObject {
 			where ContactId==contactId;
 		}
 	
-	/*	
-	Query getContactAccount(String str01) {
-		return contactAccount(str01);
-
-
-	}
-		query contactAccount<String str01> {
-			where RelAccountCode == str01;
-			ascendingBy ContactLastName;
-		}
-		
-	Query getContactRowByAccountCode(String letter, String accountCode) {
-			return contactRowByAccountCode(letter,accountCode);
-		}
-		query contactRowByAccountCode<String letter, String accountCode>{
-			where RelAccountCode==accountCode;
-			where ContactLastName startsWith letter;
-			ascendingBy ContactLastName;
-		}	
 	
-	Query getContactContains(String letter, String str01, String str02){
-			return contactContains(letter, str01, str02);
-
-
-	}
-		query contactContains<String letter, String str01, String str02>{
-			where RelAccountCode == str01;
-			where ContactLastName contains str02;
-
-			where ContactLastName startsWith letter;
-			ascendingBy ContactLastName;
-		}	
-	
-	Query getContactContainsNoRel(String letter, String str01){
-		return contactContainsNoRel(letter, str01);
-	}
-		query contactContainsNoRel<String letter, String str01>{
-			where ContactLastName contains str01;
-			where ContactLastName startsWith letter;
-			ascendingBy ContactLastName;
-		}
-	*/
 	
 	//retrieve contacts based on a search string and a related account
 	Query getContactContainsFromAccount(String src, String acode) {

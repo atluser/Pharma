@@ -46,7 +46,7 @@ TablePanel {
 
 	callback btn01 onClick(Control c) {
 	
-		Screens.HomeScreen scrHome = new Screens.HomeScreen();
+		scrHome = new Screens.HomeScreen();
 		//scrHome = getNewHomeScreen();
 		scrHome.push(Animation.NONE, false);	
 		

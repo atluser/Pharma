@@ -1,8 +1,14 @@
 Popup {
 	
 	Array toVisit;
+	Array distances;
 	int len;
 	TablePanel pnlBody = new TablePanel();
+	
+	String align = "halign=center,valign=center";
+	String fill = "hfill=fll, vfill=fill";
+	
+	Font fnt = new Font();
 	
 	callback onCreate(Container c) {
 		
@@ -15,19 +21,59 @@ Popup {
 			pnlBody.setRowHeight(i,Sizing.PIXELS,50);
 		}
 		
-		Label lbl = new Label();
+		pnlBody.setInsets(8,8,8,8);
 		
-		for (int i=0;i<len;i++) {
-			//lbl.setText(toVisit.)
-		}
+		fnt.setSize(20);
+		fnt.setFamily("Arial");
+		
+		pnlBody.setBackColor(Colors.White);
+		
 		
 	}
-
+	
+	void setDistArray(Array arr) {
+		distances=arr;
+	}
+	
 	void setArray(Array arr) {
 		toVisit=arr;
 		len=arr.length();
+		//we add the row with the total
 		pnlBody.setRowHeight(len,Sizing.PIXELS,50);
-		pnlBody.refresh();
+		fillTable();
+		add(pnlBody,fill);
 	}
 	
+	
+		
+	void fillTable() {
+		Label lblName;
+		Label lblDist;
+		int dist;
+		
+		for (int i=0;i<len;i++) {
+			lblName = new Label();
+			lblDist = new Label();
+			lblName.setText(toVisit.getItem(i));
+			lblName.setForeColor(Colors.Black);
+			lblName.setFont(fnt);
+			
+			dist = (int)(Platform.parseDouble(distances.getItem(i)));
+			lblDist.setText(Platform.toString(dist) + " metri");
+			lblDist.setForeColor(Colors.Black);
+			lblDist.setFont(fnt);
+			
+			pnlBody.add(lblName,align);
+			pnlBody.add(lblDist,align);
+			pnlBody.startNewRow();
+		}
+	}
+	
+	int getOverallDistance() {
+		int sum=0;
+		for (int i=0;i<distances.length();i++) {
+			sum+=(int)(Platform.parseDouble(distances.getItem(i)));
+		}
+		return sum;
+	}
 }

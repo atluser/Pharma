@@ -6354,6 +6354,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="OrderItemTableViewCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="OrderItemTableViewCell.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RecentRecordCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewCell">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RecentRecordCell.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SectionHeaderCell" sortOrder="1400" image="icons/sectioned_panel.png" superclass="TableViewPanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SectionHeaderCell.mscript"/>
     </children>
@@ -6591,6 +6594,9 @@
     </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Popups">
+    <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="LastVisitedPopup">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="LastVisitedPopup.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="LoadingPopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="LoadingPopup.mscript"/>
     </children>

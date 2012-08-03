@@ -36,6 +36,7 @@ TablePanel {
 	Timer tmrAddSingle = new Timer();
 	Timer tmrAddPosition = new Timer();
 	Timer tmrSeeAll = new Timer();
+	Timer tmrVisitPlan = new Timer();
 	WaitCursor wc = new WaitCursor();
 	
 	/*
@@ -48,11 +49,11 @@ TablePanel {
 		setColumnWidth(1, Sizing.PREFERRED, 0);
 		setRowHeight(0, Sizing.PIXELS, 60);
 		setRowHeight(1, Sizing.PREFERRED, 1);	
-		setRowHeight(2, Sizing.PIXELS,50);
-		setRowHeight(3, Sizing.PIXELS,50);
-		setRowHeight(4, Sizing.PIXELS,50);
-		setRowHeight(5, Sizing.PIXELS,50);
-		setRowHeight(6, Sizing.PREFERRED,0);
+		setRowHeight(2, Sizing.PREFERRED,0);
+		//setRowHeight(3, Sizing.PIXELS,50);
+		//setRowHeight(4, Sizing.PIXELS,50);
+		//setRowHeight(5, Sizing.PIXELS,50);
+		setRowHeight(4, Sizing.PREFERRED,0);
 		
 		
 		pnlIndex.setHomeScreen(scrHome);
@@ -80,21 +81,34 @@ TablePanel {
 		add(stk, "hfill=fill,vfill=fill");
 		add(pnlIndex, "hfill=fill,valign=top");
 		
-		startNewRow();
+		TablePanel pnlTools = new TablePanel();
+		pnlTools.setRowHeight(0,Sizing.PIXELS,50);
+		pnlTools.setRowHeight(1,Sizing.PIXELS,50);
+		pnlTools.setColumnWidth(0,Sizing.PIXELS,175);
+		pnlTools.setColumnWidth(1,Sizing.PIXELS,175);
+		
+		
 		btnMyPos.setText("La mia posizione");
-		add(btnMyPos,"colspan=2,vfill=fill, hfill=fill, valign=bottom");
+		//add(btnMyPos,"colspan=2,vfill=fill, hfill=fill, valign=bottom");
+		pnlTools.add(btnMyPos,"vfill=fill, hfill=fill");
 		
-		startNewRow();
+		//startNewRow();
 		btnViewAll.setText("See all");
-		add(btnViewAll,"colspan=2,vfill=fill, hfill=fill, valign=bottom");
+		//add(btnViewAll,"colspan=2,vfill=fill, hfill=fill, valign=bottom");
+		pnlTools.add(btnViewAll,"vfill=fill, hfill=fill");
 		
-		startNewRow();
+		pnlTools.startNewRow();
 		btnMapView.setText("Normal View");
-		add(btnMapView,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
+		//add(btnMapView,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
+		pnlTools.add(btnMapView,"vfill=fill, hfill=fill");
+		
+		//startNewRow();
+		btnVisitPlan.setText("Giro Visite Consigliato");
+		//add(btnVisitPlan,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
+		pnlTools.add(btnVisitPlan,"vfill=fill, hfill=fill");
 		
 		startNewRow();
-		btnVisitPlan.setText("Giro Visite Consigliato");
-		add(btnVisitPlan,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
+		add(pnlTools,"vfill=fill,hfill=fill,colspan=2,valign=bottom");
 		
 		startNewRow();
 		Font fnt = new Font();
@@ -104,17 +118,8 @@ TablePanel {
 		setInsets(0,0,0,0);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
 		
-		/*	stk.scrollTo(0,0,StickyTable.SCROLL_POSITION_TOP);
-		 *	stk.select(0,0);
-		 *	logApp.log(Log.INFO, "ContactStickyTablePanel::onCreate - Row 0,0 selected: "+ dpObjContact.ContactName.getStringValue(mrsm.getRow()));
-		 *	pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(mrsm.getRow()));
-		 *	pnlDetailForm.setRow(mrsm.getRow());
-		*/
-		//stk.select(1,1);
-		//stk.select(0,0);		
-		
-		wc.setHeight(Sizing.PREFERRED,300);
-		wc.setWidth(Sizing.PREFERRED,300);
+		wc.setHeight(Sizing.PIXELS,50);
+		wc.setWidth(Sizing.PIXELS,150);
 		wc.setHorizontalAlignment(WaitCursor.CENTER);
 		wc.setVerticalAlignment(WaitCursor.CENTER);
 		wc.setBlocking(true);
@@ -142,14 +147,6 @@ TablePanel {
 	}
 	
 	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
-		//Panels.AccountTableViewCell tblVwCell = (Panels.AccountTableViewCell) cell;
-		//tblVwCell.populateData(info.getDataRow());
-		
-		//Panels.Contacts.ContactTableViewCell tblVwCell = (Panels.Contacts.ContactTableViewCell) cell;
-		//tblVwCell.setRow(info.getDataRow());
-
-		//tblViewCell = new TableViewCell();
-		//tblViewCell = cell;
 		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
 		
 		DataRow dtRw = info.getDataRow();
@@ -291,10 +288,8 @@ TablePanel {
 			MessageBox msg = new MessageBox();
 			msg.info(1,"Devi prima rilevare la posizione per poter generare il Giro Visite!");
 		} else {
-			Popups.LoadingPopup popLoading = new Popups.LoadingPopup();
-			scrMap.showPopup(popLoading,Popup.POPUP_TYPE_NONE, Sizing.PREFERRED ,0 , Sizing.PREFERRED, 0 ,false,true);
-			pnlMap.getVisitPlan();
-			//popLoading.hide(Popup.POPUP_TYPE_NONE);
+			scrMap.setWaitCursor(wc);
+			tmrVisitPlan.schedule(50);
 		}
 	}
 	
@@ -308,21 +303,22 @@ TablePanel {
 	}
 	
 	callback tmrAddPosition timerFired(Timer tmr) {
-		//scrMap.setWaitCursor(wc);
 		
 		pnlMap.addMyPosition();
-		
 		scrMap.setWaitCursor(null);
-		//popLoading.hide(Popup.POPUP_TYPE_NONE);
 	}
 	
 	callback tmrSeeAll timerFired(Timer tmr) {
-		//scrMap.setWaitCursor(wc);
 		
 		pnlMap.addAllLocations();
-		
 		scrMap.setWaitCursor(null);
-		//popLoading.hide(Popup.POPUP_TYPE_NONE);
+	}
+	
+	callback tmrVisitPlan timerFired(Timer tmr) {
+		
+		pnlMap.getVisitPlan();
+		//pnlMap.getVisitPlanV2();
+		scrMap.setWaitCursor(null);
 	}
 	/*
 	 * Custom methods

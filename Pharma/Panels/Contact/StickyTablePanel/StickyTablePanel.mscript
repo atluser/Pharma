@@ -23,6 +23,7 @@ TablePanel {
 	String fill = "hfill=fill, vfill=fill";
 	
 	Button btnMapView = new Button(); 
+	Button btnRecentRecords = new Button();
 
 	Panels.Contact.ReadOnlyDetailFormPanel pnlDetailForm;
 	Panels.IndexPanel pnlIndex = new Panels.IndexPanel();
@@ -44,8 +45,9 @@ TablePanel {
 		setColumnWidth(1, Sizing.PREFERRED, 0);
 		setRowHeight(0, Sizing.PIXELS, 60);
 		setRowHeight(1, Sizing.PREFERRED, 1);	
-		setRowHeight(2, Sizing.PREFERRED, 0);
-		setRowHeight(3, Sizing.PIXELS,40);
+		setRowHeight(2, Sizing.PIXELS, 50);
+		setRowHeight(3, Sizing.PIXELS, 50);
+		setRowHeight(4, Sizing.PIXELS,40);
 		
 		pnlIndex.setHomeScreen(scrHome);
 		pnlIndex.setStickyTable(stk);
@@ -74,6 +76,10 @@ TablePanel {
 		startNewRow();
 		btnMapView.setText("Map View");
 		add(btnMapView,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
+		
+		startNewRow();
+		btnRecentRecords.setText("Record Recenti");
+		add(btnRecentRecords,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
 		
 		startNewRow();
 		Font fnt = new Font();
@@ -141,7 +147,24 @@ TablePanel {
 		
 		//pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(mrsm.getRow()));
 		pnlDetailForm.setRow(mrsm.getRow());
+		DataRow dtRow = mrsm.getRow();
+		long timestamp = Platform.getCurrentTime();
+		dpObjContact.TimeVisited.setStringValue(Platform.toString(timestamp),dtRow);
+		dtRow.applyUpdates();
+		dp.saveData();
 		
+		//if we have more than 5 items with a timestamp we put the older timestamp to null
+		RowSetModel mdl = new RowSetModel();
+		mdl.setRows(dpObjContact.getRecentContacts());
+		int length = mdl.getRowCount(0);
+		if (length>5) {
+			mdl.select(0,length-1);
+			dtRow = mdl.getRow();
+			dpObjContact.TimeVisited.setStringValue(null,dtRow);
+			dtRow.applyUpdates();
+		}
+		
+		dp.saveData();
 	}
 		
 	////////////////////////////
@@ -248,6 +271,20 @@ TablePanel {
 		logApp.log(Log.INFO,"danieleU - MapView rowsetmodel setted");
 		//scrMap.mapField.clearLocations();
 		scrMap.push(Animation.SLIDE_FROM_RIGHT,false);
+	}
+	
+	callback btnRecentRecords onClick(Control c) {
+		RowSetModel mdl = new RowSetModel();
+		mdl.setRows(dpObjContact.getRecentContacts());
+		if (mdl.getRowCount(0)>0) {
+			Popups.LastVisitedPopup lvPopup = new Popups.LastVisitedPopup();
+			lvPopup.setRowSetModel(mdl);
+			lvPopup.setDetailPanel(pnlDetailForm);
+			scrHome.showPopup(lvPopup,Popup.POPUP_TYPE_NONE, Sizing.PREFERRED,0,Sizing.PREFERRED,0,false,true);
+		} else {
+			MessageBox msg = new MessageBox();
+			msg.info(1,"Non hai ancora visitato nessun Contatto!");
+		} 
 	}
 	
 	/*

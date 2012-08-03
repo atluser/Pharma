@@ -2,7 +2,7 @@
 <VDSC_PROVIDER>
   <VDSC>
     <UID>5544899311306412543</UID>
-    <VERSION>-8467524508278455015</VERSION>
+    <VERSION>-3538702637266892412</VERSION>
     <DOCUMENT>
       <NAME>PharmaDP.1.0.0</NAME>
     </DOCUMENT>
@@ -459,6 +459,15 @@
           </ATTRIBUTE>
           <ATTRIBUTE>
             <NAME>Contact.RelAccountCode</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Contact.TimeVisited</NAME>
             <TYPE>
               <STRING_TYPE/>
             </TYPE>
@@ -1681,6 +1690,14 @@
       <INDEX>
         <NAME>Contact10</NAME>
         <OBJECT>Contact</OBJECT>
+        <STARTS_WITH_ATTRIBUTE>Contact.ContactLastName</STARTS_WITH_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ASCENDING_ATTRIBUTE>Contact.searchKey</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>Contact11</NAME>
+        <OBJECT>Contact</OBJECT>
         <CONTAINS_ATTRIBUTE>Contact.searchKey</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
           <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
@@ -1688,7 +1705,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Contact11</NAME>
+        <NAME>Contact12</NAME>
         <OBJECT>Contact</OBJECT>
         <CONTAINS_ATTRIBUTE>Contact.searchKey</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1714,15 +1731,13 @@
         <NAME>Contact7</NAME>
         <OBJECT>Contact</OBJECT>
         <ATTRIBUTES>
-          <ASCENDING_ATTRIBUTE>Contact.searchKey</ASCENDING_ATTRIBUTE>
+          <DESCENDING_ATTRIBUTE>Contact.TimeVisited</DESCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
         <NAME>Contact8</NAME>
         <OBJECT>Contact</OBJECT>
-        <STARTS_WITH_ATTRIBUTE>Contact.ContactLastName</STARTS_WITH_ATTRIBUTE>
         <ATTRIBUTES>
-          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Contact.searchKey</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
@@ -1731,18 +1746,19 @@
         <OBJECT>Contact</OBJECT>
         <STARTS_WITH_ATTRIBUTE>Contact.ContactLastName</STARTS_WITH_ATTRIBUTE>
         <ATTRIBUTES>
+          <ATTRIBUTE>Contact.RelAccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Contact.searchKey</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>CrmEntity12</NAME>
+        <NAME>CrmEntity13</NAME>
         <OBJECT>CrmEntity</OBJECT>
         <ATTRIBUTES>
           <ASCENDING_ATTRIBUTE>CrmEntity.Id</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListItem13</NAME>
+        <NAME>ListItem14</NAME>
         <OBJECT>ListItem</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>ListItem.OrderCode</ATTRIBUTE>
@@ -1750,7 +1766,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListItem14</NAME>
+        <NAME>ListItem15</NAME>
         <OBJECT>ListItem</OBJECT>
         <CONTAINS_ATTRIBUTE>ListItem.ProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1760,7 +1776,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListOfValues15</NAME>
+        <NAME>ListOfValues16</NAME>
         <OBJECT>ListOfValues</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>ListOfValues.Type</ATTRIBUTE>
@@ -1768,7 +1784,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>ListOfValues16</NAME>
+        <NAME>ListOfValues17</NAME>
         <OBJECT>ListOfValues</OBJECT>
         <CONTAINS_ATTRIBUTE>ListOfValues.Value</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1777,25 +1793,16 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Order17</NAME>
-        <OBJECT>Order</OBJECT>
-        <ATTRIBUTES>
-          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
-        </ATTRIBUTES>
-      </INDEX>
-      <INDEX>
         <NAME>Order18</NAME>
         <OBJECT>Order</OBJECT>
         <ATTRIBUTES>
-          <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
+          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
         <NAME>Order19</NAME>
         <OBJECT>Order</OBJECT>
-        <CONTAINS_ATTRIBUTE>Order.OrderCode</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
-          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
@@ -1804,18 +1811,27 @@
         <OBJECT>Order</OBJECT>
         <CONTAINS_ATTRIBUTE>Order.OrderCode</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
+          <ATTRIBUTE>Order.AccountCode</ATTRIBUTE>
           <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>OrderItem21</NAME>
+        <NAME>Order21</NAME>
+        <OBJECT>Order</OBJECT>
+        <CONTAINS_ATTRIBUTE>Order.OrderCode</CONTAINS_ATTRIBUTE>
+        <ATTRIBUTES>
+          <ASCENDING_ATTRIBUTE>Order.OrderCode</ASCENDING_ATTRIBUTE>
+        </ATTRIBUTES>
+      </INDEX>
+      <INDEX>
+        <NAME>OrderItem22</NAME>
         <OBJECT>OrderItem</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>OrderItem.OrderCode</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>OrderItem22</NAME>
+        <NAME>OrderItem23</NAME>
         <OBJECT>OrderItem</OBJECT>
         <CONTAINS_ATTRIBUTE>OrderItem.OrderItemProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1824,7 +1840,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>OrderItem23</NAME>
+        <NAME>OrderItem24</NAME>
         <OBJECT>OrderItem</OBJECT>
         <CONTAINS_ATTRIBUTE>OrderItem.OrderItemProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1834,7 +1850,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceList24</NAME>
+        <NAME>PriceList25</NAME>
         <OBJECT>PriceList</OBJECT>
         <CONTAINS_ATTRIBUTE>PriceList.PriceListName</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1842,21 +1858,21 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem25</NAME>
+        <NAME>PriceListItem26</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <ATTRIBUTES>
           <ATTRIBUTE>PriceListItem.PriceListCode</ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem26</NAME>
+        <NAME>PriceListItem27</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <ATTRIBUTES>
           <ASCENDING_ATTRIBUTE>PriceListItem.ProductCode</ASCENDING_ATTRIBUTE>
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>PriceListItem27</NAME>
+        <NAME>PriceListItem28</NAME>
         <OBJECT>PriceListItem</OBJECT>
         <CONTAINS_ATTRIBUTE>PriceListItem.ProductCalc</CONTAINS_ATTRIBUTE>
         <ATTRIBUTES>
@@ -1865,7 +1881,7 @@
         </ATTRIBUTES>
       </INDEX>
       <INDEX>
-        <NAME>Products28</NAME>
+        <NAME>Products29</NAME>
         <OBJECT>Products</OBJECT>
         <ATTRIBUTES>
           <ASCENDING_ATTRIBUTE>Products.ProductCode</ASCENDING_ATTRIBUTE>
