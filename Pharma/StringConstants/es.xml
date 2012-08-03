@@ -10,6 +10,8 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_MSG_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_OS_VERSION_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_SW_VERSION_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LAYOUT"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACCOUNTS_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACTIVITIES_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CATALOG_STR"/>
@@ -18,4 +20,5 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ORDER_ITEMS_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_PRICELIST_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_SERVICE_REQUESTS_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_SETTINGS_STR"/>
 </com.vaultus.ecore.properties:Properties>

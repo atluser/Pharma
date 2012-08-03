@@ -2,7 +2,11 @@
 <VDSC_PROVIDER>
   <VDSC>
     <UID>5544899311306412543</UID>
+<<<<<<< HEAD
     <VERSION>-3538702637266892412</VERSION>
+=======
+    <VERSION>-7178254496766639690</VERSION>
+>>>>>>> 6477a18384555dc0826edb7e29ef952b891da712
     <DOCUMENT>
       <NAME>PharmaDP.1.0.0</NAME>
     </DOCUMENT>
@@ -521,6 +525,24 @@
             <NAME>CrmEntity.Name</NAME>
             <TYPE>
               <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CrmEntity.bCanBeHidden</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CrmEntity.bShowed</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
             </TYPE>
             <VSCRIPT/>
             <NULLABLE/>
@@ -1645,6 +1667,40 @@
           </ATTRIBUTE>
           <ATTRIBUTE>
             <NAME>Products.ProductName</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+        </ATTRIBUTES>
+        <LINKS/>
+      </OBJECT>
+      <OBJECT>
+        <NAME>Settings</NAME>
+        <DISPLAY_NAME>Settings</DISPLAY_NAME>
+        <ATTRIBUTES>
+          <ATTRIBUTE>
+            <NAME>Settings.sPassword</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.sShowHomeScreen</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.sUser</NAME>
             <TYPE>
               <STRING_TYPE/>
             </TYPE>

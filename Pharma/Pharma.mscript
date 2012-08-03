@@ -29,6 +29,7 @@ UIProject {
 	PharmaDP.DataStore.Products dpObjProducts = null; //istanzio gli event del dp
 	PharmaDP.DataStore.CrmEntity dpObjCrmEntity = null; //istanzio gli event del dp
 	PharmaDP.DataStore.ProductList dpObjProductList = null; //istanzio gli event del dp
+	PharmaDP.DataStore.Settings dpObjSettings = null; //istanzio gli event del dp
 
 		
 	DataRowSet dpRowSetAccnt = null; //DataRowSet contenente gli account
@@ -43,6 +44,7 @@ UIProject {
 	DataRowSet dpRowSetProducts = null; //DataRowSet contenente gli events
 	DataRowSet dpRowSetCrmEntity = null; //DataRowSet contenente gli events
 	DataRowSet dpRowSetProductList = null; //DataRowSet contenente gli events
+	DataRowSet dpRowSetSettings = null; //DataRowSet contenente gli events
 		
 	DataRow dpRowAccnt = null; //DataRow Account
 	DataRow dpRowContact = null; //DataRow contact
@@ -56,6 +58,7 @@ UIProject {
 	DataRow dpRowProducts = null; //DataRow LOV
 	DataRow dpRowCrmEntity = null; //DataRow LOV
 	DataRow dpRowProductList = null; //DataRow LOV
+	DataRow dpRowSettings = null;
 	
 	//Contengono il numero di entità
 	int iNumContacts 		= 0;
@@ -168,11 +171,13 @@ UIProject {
 			dpObjProducts = dp.Products;//istanzio gli event del dp
 			dpObjCrmEntity = dp.CrmEntity;//istanzio gli event del dp
 			dpObjProductList = dp.ProductList;//istanzio gli event del dp
+			dpObjSettings = dp.Settings;
 		}	
 		
 		if(sOpenDP==true)
 		{
 			logApp.log(Log.INFO,"danieleU - DataProject is Open, loading entities...");
+			vObjUtil.loadSettings();
 			vObjUtil.loadAccount();
 			vObjUtil.loadContact();
 			vObjUtil.loadOrder();

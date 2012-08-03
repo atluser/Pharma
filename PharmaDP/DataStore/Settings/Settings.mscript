@@ -1,0 +1,12 @@
+DataStoreObject {
+	StringField sUser {return null;}
+	StringField sPassword {return null;}
+	StringField sShowHomeScreen {return null;}
+	
+	Query getSettings() {
+		return Settings();
+	}
+	
+	query Settings<> {
+	}
+}

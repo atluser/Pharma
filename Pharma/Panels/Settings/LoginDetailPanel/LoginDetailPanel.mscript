@@ -1,0 +1,60 @@
+TablePanel {
+	ScrollableTablePanel contentPanel = new ScrollableTablePanel();
+	FormPanel UserPassFP = new FormPanel();
+	
+	callback onCreate(Container c) {
+		setColumnWidth(0, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(22);		
+		fnt.setBold();
+		
+		Label txtFldNoAccnt = new Label();
+		
+		Label lblUser = new Label();
+		Label lblPwd = new Label();
+		Label lblHP = new Label();
+		
+		Label txtUser = new Label();
+		Label txtPwd = new Label();
+		Label txtHP = new Label();
+		
+		TextModel mdlUser = new TextModel();
+		TextModel mdlPwd = new TextModel();
+		TextModel mdlHP = new TextModel();
+		
+		mdlUser.addField(dpObjSettings.sUser);
+		mdlPwd.addField(dpObjSettings.sPassword);
+		mdlHP.addField(dpObjSettings.sShowHomeScreen);
+		
+		mdlUser.setRow(dpRowSettings);
+		mdlPwd.setRow(dpRowSettings);
+		mdlHP.setRow(dpRowSettings);
+		
+		txtUser.setDataModel(mdlUser);
+		txtPwd.setDataModel(mdlPwd);
+		txtHP.setDataModel(mdlHP);
+		
+		lblUser.setText("User");
+		lblPwd.setText("Password");
+		lblHP.setText("Mostra Home Page");
+		
+		txtFldNoAccnt.setFont(fnt);
+		txtFldNoAccnt.setForeColor(Color.create(189,0,0));
+		txtFldNoAccnt.setText("Impostazioni accesso applicazione");
+		//add(txtFldNoAccnt, "halign=center,hfill=fill");
+		add(txtFldNoAccnt);
+		startNewRow();
+		startNewRow();
+		
+		UserPassFP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
+		UserPassFP.add(lblUser,"halign=left",txtUser,"halign=left,hfill=fill");
+		UserPassFP.add(lblPwd,"halign=left",txtPwd,"halign=left,hfill=fill");
+		UserPassFP.add(lblHP,"halign=left",txtHP,"halign=left,hfill=fill");
+		//UserPassFP.setControlColumnWidth(Sizing.PREFERRED, 1);
+		//UserPassFP.setLabelColumnWidth(Sizing.PERCENTS,11);
+		//add(UserPassFP,"halign=center,vfill=fill");
+		add(UserPassFP);
+	}
+}

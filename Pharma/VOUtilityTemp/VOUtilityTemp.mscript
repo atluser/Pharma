@@ -29,18 +29,23 @@ UIObject {
 	
 	void loadCrmEntity(){
 		DataRow row = dpObjCrmEntity.getNewRow();
-		dpObjCrmEntity.Id.setIntegerValue(Platform.createInteger(6), row); 
-        dpObjCrmEntity.Name.setStringValue(StringConstants.TBB_SERVICE_REQUESTS_STR.getString(), row);
+		dpObjCrmEntity.Id.setIntegerValue(Platform.createInteger(4), row); 
+        dpObjCrmEntity.Name.setStringValue(StringConstants.TBB_CATALOG_STR.getString(), row);
 		row.applyUpdates();
 		
-		dpObjCrmEntity.getNewRow();
+		row = dpObjCrmEntity.getNewRow();
 		dpObjCrmEntity.Id.setIntegerValue(Platform.createInteger(5), row); 
         dpObjCrmEntity.Name.setStringValue(StringConstants.TBB_ACTIVITIES_STR.getString(), row);
 		row.applyUpdates();
 		
-		dpObjCrmEntity.getNewRow();
-		dpObjCrmEntity.Id.setIntegerValue(Platform.createInteger(4), row); 
-        dpObjCrmEntity.Name.setStringValue(StringConstants.TBB_CATALOG_STR.getString(), row);
+		row = dpObjCrmEntity.getNewRow();
+		dpObjCrmEntity.Id.setIntegerValue(Platform.createInteger(6), row); 
+        dpObjCrmEntity.Name.setStringValue(StringConstants.TBB_SERVICE_REQUESTS_STR.getString(), row);
+		row.applyUpdates();
+		
+		row = dpObjCrmEntity.getNewRow();
+		dpObjCrmEntity.Id.setIntegerValue(Platform.createInteger(7), row); 
+        dpObjCrmEntity.Name.setStringValue(StringConstants.TBB_SETTINGS_STR.getString(), row);
 		row.applyUpdates();
 		
 		dp.saveData();

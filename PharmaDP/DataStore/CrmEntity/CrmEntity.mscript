@@ -1,11 +1,8 @@
 DataStoreObject {
-	IntegerField Id {
-		return null;
-	}
-	
-	StringField Name {
-		return null;
-	}
+	IntegerField Id {return null;}
+	StringField Name {return null;}
+	BooleanField bShowed {return null;}
+	BooleanField bCanBeHidden {return null;}
 	
 	Query getCrmEntities() {
 		return crmEntities();

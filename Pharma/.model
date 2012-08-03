@@ -22,6 +22,8 @@
     <stringKeys>INFO_MSG_STR</stringKeys>
     <stringKeys>INFO_OS_VERSION_STR</stringKeys>
     <stringKeys>INFO_SW_VERSION_STR</stringKeys>
+    <stringKeys>SETTINGS_LAYOUT</stringKeys>
+    <stringKeys>SETTINGS_LOGIN</stringKeys>
     <stringKeys>TBB_ACCOUNTS_STR</stringKeys>
     <stringKeys>TBB_ACTIVITIES_STR</stringKeys>
     <stringKeys>TBB_CATALOG_STR</stringKeys>
@@ -30,6 +32,7 @@
     <stringKeys>TBB_ORDER_ITEMS_STR</stringKeys>
     <stringKeys>TBB_PRICELIST_STR</stringKeys>
     <stringKeys>TBB_SERVICE_REQUESTS_STR</stringKeys>
+    <stringKeys>TBB_SETTINGS_STR</stringKeys>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:PropertiesNode" name="Properties"/>
   <children xsi:type="com.vaultus.studio.ecore.studio:ImagesNode" name="Images">
@@ -6590,6 +6593,23 @@
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StickyTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StickyTablePanel.mscript"/>
+      </children>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Settings">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="LayoutDetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="LayoutDetailPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="LoginDetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="LoginDetailPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="RootTablePanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SettingDetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SettingDetailPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SettingPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SettingPanel.mscript"/>
       </children>
     </children>
   </children>
