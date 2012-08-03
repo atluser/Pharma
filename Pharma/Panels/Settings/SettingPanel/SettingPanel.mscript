@@ -1,0 +1,66 @@
+TablePanel {
+	
+	SettingDetailPanel setPnlDetail;
+	
+	ScrollableTablePanel stp = new ScrollableTablePanel();
+	TablePanel pnlContent = new TablePanel();
+	
+	Button b01 = new Button();	
+	Button b02 = new Button();
+
+	String fill = "hfill=fill,vfill=fill";
+	
+	callback onCreate(Container c) {
+		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
+		setUpButtons();
+		
+		pnlContent.setColumnWidth(0, Sizing.PREFERRED, 1);
+		pnlContent.setRowHeight(0, Sizing.PREFERRED, 0);
+		pnlContent.setInsets(10,10,10,10);
+		pnlContent.startNewRow(); pnlContent.add(b01,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b02,fill); 
+		
+		stp.enableScroll(true);
+		stp.add(pnlContent,fill);
+		stp.setColumnWidth(0, Sizing.PREFERRED, 1);
+		stp.setRowHeight(0, Sizing.PREFERRED, 0);
+		
+		add(stp,fill);
+		
+		setColumnWidth(0, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 1);
+	}
+	
+	void setUpButtons() {
+
+		Font fnt = new Font();
+		fnt.setSize(20);
+		fnt.setFamily("Arial");
+		
+		b01 = setupButtonStyle(b01, StringConstants.SETTINGS_LOGIN.getString(), fnt, Colors.White, Colors.Red, Colors.Red);
+		b02 = setupButtonStyle(b02, StringConstants.SETTINGS_LAYOUT.getString(), fnt, Colors.White, Colors.Red, Colors.Red);
+	}
+	
+	Button setupButtonStyle(Button sButton, String sText, Font fnt, Color cBackClr, Color cSelBackClr, Color cFocusBackClr)
+	{
+		sButton.setFont(fnt);
+		sButton.setText(sText);
+		sButton.setBackColor(cBackClr);
+		sButton.setSelectedBackColor(cSelBackClr);
+		sButton.setFocusedBackColor(cFocusBackClr);
+		sButton.setForeColor(Color.create(0,0,0));
+		sButton.setFocusedForeColor(Color.create(255,255,255));
+		sButton.setSelectedForeColor(Color.create(255,255,255));
+		
+		return sButton;
+	}
+	
+	//Azioni eseguite dai bottoni!
+	callback b01 onClick(Control c) { //LOGIN
+		setPnlDetail.setupPanel(0);
+	}
+	
+	callback b02 onClick(Control c) { //LAYOUT
+		setPnlDetail.setupPanel(1);
+	}
+}

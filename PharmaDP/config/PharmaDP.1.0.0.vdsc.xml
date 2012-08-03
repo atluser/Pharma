@@ -2,7 +2,7 @@
 <VDSC_PROVIDER>
   <VDSC>
     <UID>5544899311306412543</UID>
-    <VERSION>-8467524508278455015</VERSION>
+    <VERSION>-7178254496766639690</VERSION>
     <DOCUMENT>
       <NAME>PharmaDP.1.0.0</NAME>
     </DOCUMENT>
@@ -512,6 +512,24 @@
             <NAME>CrmEntity.Name</NAME>
             <TYPE>
               <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CrmEntity.bCanBeHidden</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>CrmEntity.bShowed</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
             </TYPE>
             <VSCRIPT/>
             <NULLABLE/>
@@ -1636,6 +1654,40 @@
           </ATTRIBUTE>
           <ATTRIBUTE>
             <NAME>Products.ProductName</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+        </ATTRIBUTES>
+        <LINKS/>
+      </OBJECT>
+      <OBJECT>
+        <NAME>Settings</NAME>
+        <DISPLAY_NAME>Settings</DISPLAY_NAME>
+        <ATTRIBUTES>
+          <ATTRIBUTE>
+            <NAME>Settings.sPassword</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.sShowHomeScreen</NAME>
+            <TYPE>
+              <STRING_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.sUser</NAME>
             <TYPE>
               <STRING_TYPE/>
             </TYPE>

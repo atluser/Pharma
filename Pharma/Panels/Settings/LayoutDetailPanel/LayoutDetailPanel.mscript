@@ -1,0 +1,13 @@
+TablePanel {
+	callback onCreate(Container c) {
+		Label txtFldNoAccnt = new Label();
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(24);
+		fnt.setBold();
+		txtFldNoAccnt.setFont(fnt);
+		txtFldNoAccnt.setForeColor(Color.create(189,0,0));
+		txtFldNoAccnt.setText("Layout Detail Panel!");
+		add(txtFldNoAccnt, "hfill=fill");
+	}
+}

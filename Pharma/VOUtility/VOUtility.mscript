@@ -246,6 +246,23 @@ UIObject {
 			iNumProducts = getDataRowSetSize(dpRowSetProducts);
 	}
 	
+	void loadSettings(){
+		dpRowSetSettings = dp.Settings.getRowSet();
+		if(dpRowSetSettings.first() == null)
+		{
+			DataRow row = dpObjSettings.getNewRow();
+			dpObjSettings.sUser.setStringValue(Device.getDeviceName(),row);
+			dpObjSettings.sPassword.setStringValue("Vodafone",row);
+			dpObjSettings.sShowHomeScreen.setStringValue("true",row);
+			
+			row.applyUpdates();
+		
+			dp.saveData();
+		}
+		
+		dpRowSettings = dpRowSetSettings.first();
+	}
+	
 	//mi rendo conto che è una porcata, ma non si riesce a fare andare il count... in futuro, ci riproveremo!
 	int getDataRowSetSize(DataRowSet drs){
 		int iNumRecord = 0;

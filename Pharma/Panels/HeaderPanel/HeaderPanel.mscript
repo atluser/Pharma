@@ -21,6 +21,7 @@ HorizontalPanel {
 	Panels.Catalog.RootPanel pnlCatalogRoot;
 	//Panels.PriceList.RootPanel pnlPriceListRoot;
 	Panels.PriceList.RootTablePanel pnlPriceListRoot;
+	Panels.Settings.RootTablePanel pnlSettingsRoot;
 	Screens.HomeScreen scrHome;
 
 	Button btnHome = new Button();
@@ -33,6 +34,7 @@ HorizontalPanel {
 	ToolBarButton tbb05 = new ToolBarButton();
 	ToolBarButton tbb06 = new ToolBarButton();
 	ToolBarButton tbb07 = new ToolBarButton();
+	ToolBarButton tbb08 = new ToolBarButton();
 
 	Button btnNew = new Button();
 	Button btnEdit = new Button();
@@ -57,9 +59,7 @@ HorizontalPanel {
 	callback onCreate(Container c) {
 
 		setUpButtons();	
-		//setUpMenuPopover();
 		setUpCrmMenuPopover(c);
-		//setUpPopup();
 
 		rg.addButton(tbb01);
 		rg.addButton(tbb03);
@@ -68,9 +68,11 @@ HorizontalPanel {
 		rg.addButton(tbb05);
 		rg.addButton(tbb06);
 		rg.addButton(tbb07);
+		rg.addButton(tbb08);
 		rg.hideButton(4);
 		rg.hideButton(5);
 		rg.hideButton(6);
+		rg.hideButton(7);
 		rg.setSelectedIndex(0);
 		rg.setNavigationType(ToolBar.SCROLLER);
 		rg.setAlignmentIfExtraSpace(ToolBar.SCROLLER, HorizontalAlignmentType.CENTER);
@@ -385,6 +387,16 @@ HorizontalPanel {
 		tbb07.setFocusedImage(Images.VodafoneImages.tbb_pressed.getImage());
 		tbb07.setSelectedImage(Images.VodafoneImages.tbb_pressed.getImage());		
 		tbb07.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);	
+		
+		tbb08.setFont(fnt);
+		tbb08.setText(StringConstants.TBB_SETTINGS_STR.getString());
+		tbb08.setForeColor(Color.create(255,255,255));
+		tbb08.setFocusedForeColor(Color.create(255,255,255));
+		tbb08.setSelectedForeColor(Color.create(255,255,255));
+		tbb08.setImage(Images.VodafoneImages.tbb_normal.getImage());
+		tbb08.setFocusedImage(Images.VodafoneImages.tbb_pressed.getImage());
+		tbb08.setSelectedImage(Images.VodafoneImages.tbb_pressed.getImage());		
+		tbb08.setHorizontalTextAlignment(HorizontalAlignmentType.CENTER);	
 
 		btnNew.setImage(Images.VodafoneImages.btn_new_normal.getImage());
 		btnNew.setFocusedImage(Images.VodafoneImages.btn_new_normal.getImage());
@@ -408,27 +420,7 @@ HorizontalPanel {
 
 	}
 
-	void setUpMenuPopover() {
 
-		logApp.log(Log.INFO, "HomePanel - setUpMenuPopover()");
-
-		poMenu.setAutoDismiss(true);
-
-		//Label lbl = new Label();
-		//lbl.setText("Popover");
-		Panels.CrmEntityPanel pnlCrmEntity = new Panels.CrmEntityPanel();			
-
-		apMenu.setPositionType(AnchorPosition.HORIZONTAL_POSITION_RIGHT, AnchorPosition.VERTICAL_POSITION_TOP);
-		apMenu.setAnchor(btnMenu);
-
-		poMenu.setTitle("AAA");	
-		//poCrmEntities.setBackground(Background.createVerticalGradientRectangleBackground(Colors.Green,Colors.Green));
-		poMenu.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
-		poMenu.setSize(Sizing.PIXELS, 110, Sizing.PIXELS, 240);
-		//poCrmEntities.add(lbl,"hfill=fill,vfill=fill");
-		poMenu.add(pnlCrmEntity, "hfill=fill,vfill=fill");
-
-	}
 
 	void setUpCrmMenuPopover(Container c) {
 
@@ -437,43 +429,16 @@ HorizontalPanel {
 		Panels.CrmEntityPanel pnlCrmEntity = new Panels.CrmEntityPanel();			
 		pnlCrmEntity.setHeaderPanel((Panels.HeaderPanel) c);
 
-
-		//actPoCrmMenuClose.setText("Close");
-		//actPoCrmMenuBack.setText("Back");						
-
-//		apCrmMenu.setPositionType(AnchorPosition.HORIZONTAL_POSITION_RIGHT, AnchorPosition.VERTICAL_POSITION_TOP);
 		apCrmMenu.setAnchor(btnCrmMenu);
 
-		//poCrmMenu.setBlocking(true);
 		poCrmMenu.setAutoDismiss(true);
-		//poCrmMenu.setTitle("AAA");
-		//poCrmMenu.setRightTitleBarAction(actPoCrmMenuClose);	
 		poCrmMenu.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgBlackBackground, 0, 0, 0, 0));
-		poCrmMenu.setSize(Sizing.PIXELS, 160, Sizing.PIXELS, 240);
+		poCrmMenu.setSize(Sizing.PIXELS, 210, Sizing.PIXELS, 240);
 		poCrmMenu.add(pnlCrmEntity, "hfill=fill,vfill=fill");
 
 	}	
 
-	void setUpPopup() {
 
-		Label lbl = new Label();
-		lbl.setText("*** POPUP ***");
-		//puNew.setTitle("AAA");
-
-
-
-		Panels.EditStickyTablePanel pnl = new Panels.EditStickyTablePanel();
-		DataRow dtRw =  vObjUtil.getNewAccountRow();  //MA PERCHé ALL'AVVIO DELL'APPLICAZIONE CREO UN ACCOUNT?!?!?!?!
-		//pnl.init("Account", dtRw);
-
-		//puNew.init(pnl, dpObjAccount);
-
-		//puNew.add(pnl, "halign=center,vfill=fill");
-		//puNew.setBackground(Background.create9PartImageRectangleBackground(Images.PopoverImages.ImgRedBackground, 0, 0, 0, 0));	
-		//puNew.setColumnWidth(0, Sizing.PERCENTS, 60);
-		//puNew.setRowHeight(0, Sizing.PERCENTS, 100);
-
-	}
 
 	void setStackPanel(StackPanel stk){
 		stkPnl = stk;	
@@ -498,6 +463,10 @@ HorizontalPanel {
 	void setServiceRequestRootPanel(Panels.ServiceRequest.RootPanel service){
 		pnlServiceRequestRoot = service;	
 	}	
+	
+	void setSettingsRootPanel (Panels.Settings.RootTablePanel settings){
+		pnlSettingsRoot = settings;
+	}
 
 	void setCatalogRootPanel(Panels.Catalog.RootPanel catalog){
 		pnlCatalogRoot = catalog;	
@@ -521,52 +490,34 @@ HorizontalPanel {
 	
 	void btnToolbarClick(int idxClicked){
 		currentEntity=idxClicked;
-		if (idxClicked == 0) {
-
-			poCrmMenu.dismiss();
+		poCrmMenu.dismiss();
+		if (idxClicked == 0) { //Account
 			stkPnl.select(pnlAccountRoot);
-
-		} else if (idxClicked == 1) {
-
-			poCrmMenu.dismiss();
-			//stkPnl.select(pnlActivityRoot);
-			//stkPnl.select(pnlPriceListRoot);
+		}
+		else if (idxClicked == 1) { //Contact
 			pnlContactRoot.pnlDetailForm.setFromAccountFlag(false);
 			stkPnl.select(pnlContactRoot);
-			//pnlContactRoot.refresh();
 			pnlContactRoot.stk.stk.reload();
-
-		} else if (idxClicked == 2) {
-
-			poCrmMenu.dismiss();
-			//stkPnl.select(pnlContactRoot);
+		} 
+		else if (idxClicked == 2) { //Order
 			stkPnl.select(pnlOrderRoot);
-
-		} else if (idxClicked == 3) {
-
-			poCrmMenu.dismiss();
-			//stkPnl.select(pnlOrderRoot);
+		} 
+		else if (idxClicked == 3) { //PriceList
 			stkPnl.select(pnlPriceListRoot);
-
-		} else if (idxClicked == 4) {
-
-			poCrmMenu.dismiss();
+		} 
+		else if (idxClicked == 4) { //Catalog
 			stkPnl.select(pnlCatalogRoot);
-
-		} else if (idxClicked == 5) {
-
-			poCrmMenu.dismiss();
-			//stkPnl.select(pnlPriceListRoot);
-			//appLog.log(Log.INFO,"PriceList");
-			stkPnl.select(pnlActivityRoot);				
-
-		} else if (idxClicked == 6) {
-		//priceList
-			poCrmMenu.dismiss();
+		}
+		else if (idxClicked == 5) { //Activity
+			stkPnl.select(pnlActivityRoot);
+		} 
+		else if (idxClicked == 6) {//Service Request
 			stkPnl.select(pnlServiceRequestRoot);
-
-		}						
-		
+		} 
+		else if (idxClicked == 7) {//Settings
+			stkPnl.select(pnlSettingsRoot);
+			pnlSettingsRoot.setPnlDetail.setupPanel(-1);
+		}					
 	}
 	
 }

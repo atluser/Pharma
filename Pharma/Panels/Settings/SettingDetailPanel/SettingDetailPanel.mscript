@@ -1,0 +1,48 @@
+TablePanel {
+	Label txtFldNoAccnt = new Label();
+	TablePanel settingLoginPnl = new Panels.Settings.LoginDetailPanel();
+	TablePanel settingLayoutPnl = new Panels.Settings.LayoutDetailPanel();
+	String sFill = "hfill=fill,valign=top,halign=center"; 
+	
+	callback onCreate(Container c) {
+		setColumnWidth(0, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(24);
+		fnt.setBold();
+		txtFldNoAccnt.setFont(fnt);
+		txtFldNoAccnt.setForeColor(Color.create(189,0,0));
+		txtFldNoAccnt.setText("Setting Detail Panel!");
+		add(txtFldNoAccnt, "halign=center");
+		add(settingLoginPnl, "halign=center,hfill=fill");
+		add(settingLayoutPnl, "halign=center,hfill=fill");
+		
+		txtFldNoAccnt.setVisible(true);
+		settingLoginPnl.setVisible(false);
+		settingLayoutPnl.setVisible(false);
+	}
+	
+	void setupPanel(int settingType){
+		switch(settingType){
+			case 0: //Login
+				txtFldNoAccnt.setVisible(false);
+				settingLoginPnl.setVisible(true);
+				settingLayoutPnl.setVisible(false);
+			break;
+			
+			case 1: //Layout
+				txtFldNoAccnt.setVisible(false);
+				settingLoginPnl.setVisible(false);
+				settingLayoutPnl.setVisible(true);
+			break;
+			
+			default:
+				txtFldNoAccnt.setVisible(true);
+				settingLoginPnl.setVisible(false);
+				settingLayoutPnl.setVisible(false);
+			break;
+			
+		}
+	}
+}

@@ -10,6 +10,8 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_MSG_STR" string="Pharma is designed by Atlantic Technologies S.p.A."/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_OS_VERSION_STR" string="OS Version:"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_SW_VERSION_STR" string="Software Version:"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LAYOUT" string="Layout"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN" string="Login"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACCOUNTS_STR" string="Accounts"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACTIVITIES_STR" string="Agenda"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CATALOG_STR" string="Catalog"/>
@@ -18,4 +20,5 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ORDER_ITEMS_STR" string="Order Items"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_PRICELIST_STR" string="PriceList"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_SERVICE_REQUESTS_STR" string="Service"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_SETTINGS_STR" string="Settings"/>
 </com.vaultus.ecore.properties:Properties>
