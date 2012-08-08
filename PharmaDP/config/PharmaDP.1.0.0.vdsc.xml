@@ -2,7 +2,7 @@
 <VDSC_PROVIDER>
   <VDSC>
     <UID>5544899311306412543</UID>
-    <VERSION>-191008633993529760</VERSION>
+    <VERSION>2652614017749146576</VERSION>
     <DOCUMENT>
       <NAME>PharmaDP.1.0.0</NAME>
     </DOCUMENT>
@@ -1678,16 +1678,169 @@
         <DISPLAY_NAME>Settings</DISPLAY_NAME>
         <ATTRIBUTES>
           <ATTRIBUTE>
-            <NAME>Settings.sPassword</NAME>
+            <NAME>Settings.bAutoLogin</NAME>
             <TYPE>
-              <STRING_TYPE/>
+              <BOOLEAN_TYPE/>
             </TYPE>
             <VSCRIPT/>
             <NULLABLE/>
             <MODIFIABLE/>
           </ATTRIBUTE>
           <ATTRIBUTE>
-            <NAME>Settings.sShowHomeScreen</NAME>
+            <NAME>Settings.bAutoSyncFriday</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bAutoSyncMonday</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bAutoSyncSaturday</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bAutoSyncSunday</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bAutoSyncThursday</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bAutoSyncTuesday</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bAutoSyncWednesday</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bCloseSync</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bEnableAutoSync</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bStartupSync</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bSyncAccount</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bSyncCatalogue</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bSyncContact</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bSyncOrders</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bSyncSRs</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.bSyncTask</NAME>
+            <TYPE>
+              <BOOLEAN_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.iSyncEveryMinuts</NAME>
+            <TYPE>
+              <INTEGER_TYPE/>
+            </TYPE>
+            <VSCRIPT/>
+            <NULLABLE/>
+            <MODIFIABLE/>
+          </ATTRIBUTE>
+          <ATTRIBUTE>
+            <NAME>Settings.sPassword</NAME>
             <TYPE>
               <STRING_TYPE/>
             </TYPE>

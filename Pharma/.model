@@ -16,6 +16,7 @@
     <stringKeys>BTN_CLOSE_STR</stringKeys>
     <stringKeys>BTN_EXIT_STR</stringKeys>
     <stringKeys>BTN_OK_STR</stringKeys>
+    <stringKeys>BTN_SAVE</stringKeys>
     <stringKeys>BTN_START_STR</stringKeys>
     <stringKeys>INFO_APP_NAME_STR</stringKeys>
     <stringKeys>INFO_DEVICE_NAME_STR</stringKeys>
@@ -24,6 +25,13 @@
     <stringKeys>INFO_SW_VERSION_STR</stringKeys>
     <stringKeys>SETTINGS_LAYOUT</stringKeys>
     <stringKeys>SETTINGS_LOGIN</stringKeys>
+    <stringKeys>SETTINGS_LOGIN_NEWPWD</stringKeys>
+    <stringKeys>SETTINGS_LOGIN_OLDPWD</stringKeys>
+    <stringKeys>SETTINGS_LOGIN_REDOPWD</stringKeys>
+    <stringKeys>SETTINGS_LOGIN_SHOWHP</stringKeys>
+    <stringKeys>SETTINGS_LOGIN_SHOWPWD</stringKeys>
+    <stringKeys>SETTINGS_LOGIN_USER</stringKeys>
+    <stringKeys>SETTINGS_SYNC</stringKeys>
     <stringKeys>TBB_ACCOUNTS_STR</stringKeys>
     <stringKeys>TBB_ACTIVITIES_STR</stringKeys>
     <stringKeys>TBB_CATALOG_STR</stringKeys>
@@ -6599,7 +6607,7 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="LayoutDetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="LayoutDetailPanel.mscript"/>
       </children>
-      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="LoginDetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="LoginDetailPanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="LoginDetailPanel.mscript"/>
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="RootTablePanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
@@ -6610,6 +6618,9 @@
       </children>
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SettingPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SettingPanel.mscript"/>
+      </children>
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SyncDetailPanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
+        <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SyncDetailPanel.mscript"/>
       </children>
     </children>
   </children>

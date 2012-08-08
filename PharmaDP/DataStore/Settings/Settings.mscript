@@ -1,7 +1,27 @@
 DataStoreObject {
+	//Login Settings
 	StringField sUser {return null;}
 	StringField sPassword {return null;}
-	StringField sShowHomeScreen {return null;}
+	BooleanField bAutoLogin {return null;}
+	
+	//Synchronization Settings
+	BooleanField bStartupSync {return null;}
+	BooleanField bCloseSync {return null;}
+	BooleanField bEnableAutoSync {return null;}
+	IntegerField iSyncEveryMinuts {return Platform.createInteger(30);}
+	BooleanField bAutoSyncSunday {return null;}
+	BooleanField bAutoSyncMonday {return null;}
+	BooleanField bAutoSyncTuesday {return null;}
+	BooleanField bAutoSyncWednesday {return null;}
+	BooleanField bAutoSyncThursday {return null;}
+	BooleanField bAutoSyncFriday {return null;}
+	BooleanField bAutoSyncSaturday {return null;}
+	BooleanField bSyncAccount {return null;}
+	BooleanField bSyncContact {return null;}
+	BooleanField bSyncOrders {return null;}
+	BooleanField bSyncCatalogue {return null;}
+	BooleanField bSyncTask {return null;}
+	BooleanField bSyncSRs {return null;}
 	
 	Query getSettings() {
 		return Settings();

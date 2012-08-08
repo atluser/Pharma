@@ -1,7 +1,8 @@
 TablePanel {
-	Label txtFldNoAccnt = new Label();
-	TablePanel settingLoginPnl = new Panels.Settings.LoginDetailPanel();
-	TablePanel settingLayoutPnl = new Panels.Settings.LayoutDetailPanel();
+	Label lblSectionHeader = new Label();
+	Panels.Settings.LoginDetailPanel settingLoginPnl = new Panels.Settings.LoginDetailPanel();
+	Panels.Settings.LayoutDetailPanel settingLayoutPnl = new Panels.Settings.LayoutDetailPanel();
+	Panels.Settings.SyncDetailPanel settingSyncPnl = new Panels.Settings.SyncDetailPanel();
 	String sFill = "hfill=fill,valign=top,halign=center"; 
 	
 	callback onCreate(Container c) {
@@ -11,36 +12,52 @@ TablePanel {
 		fnt.setFamily("Arial");
 		fnt.setSize(24);
 		fnt.setBold();
-		txtFldNoAccnt.setFont(fnt);
-		txtFldNoAccnt.setForeColor(Color.create(189,0,0));
-		txtFldNoAccnt.setText("Setting Detail Panel!");
-		add(txtFldNoAccnt, "halign=center");
+		lblSectionHeader.setFont(fnt);
+		lblSectionHeader.setForeColor(Color.create(189,0,0));
+		lblSectionHeader.setText("Setting Detail Panel!");
+		add(lblSectionHeader, "halign=center");
+		startNewRow();
 		add(settingLoginPnl, "halign=center,hfill=fill");
+		startNewRow();
 		add(settingLayoutPnl, "halign=center,hfill=fill");
+		startNewRow();
+		add(settingSyncPnl, "halign=center,hfill=fill");
+		startNewRow();
 		
-		txtFldNoAccnt.setVisible(true);
+		lblSectionHeader.setVisible(true);
 		settingLoginPnl.setVisible(false);
 		settingLayoutPnl.setVisible(false);
+		settingSyncPnl.setVisible(false);
 	}
 	
 	void setupPanel(int settingType){
 		switch(settingType){
 			case 0: //Login
-				txtFldNoAccnt.setVisible(false);
+				lblSectionHeader.setVisible(false);
 				settingLoginPnl.setVisible(true);
 				settingLayoutPnl.setVisible(false);
+				settingSyncPnl.setVisible(false);
 			break;
 			
 			case 1: //Layout
-				txtFldNoAccnt.setVisible(false);
+				lblSectionHeader.setVisible(false);
 				settingLoginPnl.setVisible(false);
 				settingLayoutPnl.setVisible(true);
+				settingSyncPnl.setVisible(false);
+			break;
+			
+			case 2: //Sync
+				lblSectionHeader.setVisible(false);
+				settingLoginPnl.setVisible(false);
+				settingLayoutPnl.setVisible(false);
+				settingSyncPnl.setVisible(true);
 			break;
 			
 			default:
-				txtFldNoAccnt.setVisible(true);
+				lblSectionHeader.setVisible(true);
 				settingLoginPnl.setVisible(false);
 				settingLayoutPnl.setVisible(false);
+				settingSyncPnl.setVisible(false);
 			break;
 			
 		}

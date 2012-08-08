@@ -4,6 +4,7 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_CLOSE_STR" string="Chiudi"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_EXIT_STR" string="Esci"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_OK_STR" string="OK"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_SAVE" string="Salva"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_START_STR" string="Avvia"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_APP_NAME_STR" string="Pharma"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_DEVICE_NAME_STR" string="Device Name:"/>
@@ -12,6 +13,13 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_SW_VERSION_STR" string="Software Version:"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LAYOUT" string="Layout"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN" string="Accesso"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_NEWPWD" string="Nuova Password"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_OLDPWD" string="Vecchia Password"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_REDOPWD" string="Ripeti Nuova Password"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_SHOWHP" string="Login Automatico: "/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_SHOWPWD" string="Mostra Password: "/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_USER" string="Username"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC" string="Sincronizzazione"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACCOUNTS_STR" string="Clienti"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACTIVITIES_STR" string="Agenda"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CATALOG_STR" string="Catalogo"/>

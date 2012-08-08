@@ -7,6 +7,7 @@ TablePanel {
 	
 	Button b01 = new Button();	
 	Button b02 = new Button();
+	Button b03 = new Button();
 
 	String fill = "hfill=fill,vfill=fill";
 	
@@ -19,6 +20,7 @@ TablePanel {
 		pnlContent.setInsets(10,10,10,10);
 		pnlContent.startNewRow(); pnlContent.add(b01,fill); 
 		pnlContent.startNewRow(); pnlContent.add(b02,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b03,fill); 
 		
 		stp.enableScroll(true);
 		stp.add(pnlContent,fill);
@@ -39,6 +41,7 @@ TablePanel {
 		
 		b01 = setupButtonStyle(b01, StringConstants.SETTINGS_LOGIN.getString(), fnt, Colors.White, Colors.Red, Colors.Red);
 		b02 = setupButtonStyle(b02, StringConstants.SETTINGS_LAYOUT.getString(), fnt, Colors.White, Colors.Red, Colors.Red);
+		b03 = setupButtonStyle(b03, StringConstants.SETTINGS_SYNC.getString(), fnt, Colors.White, Colors.Red, Colors.Red);
 	}
 	
 	Button setupButtonStyle(Button sButton, String sText, Font fnt, Color cBackClr, Color cSelBackClr, Color cFocusBackClr)
@@ -58,9 +61,14 @@ TablePanel {
 	//Azioni eseguite dai bottoni!
 	callback b01 onClick(Control c) { //LOGIN
 		setPnlDetail.setupPanel(0);
+		setPnlDetail.settingLoginPnl.loadSavedData();
 	}
 	
 	callback b02 onClick(Control c) { //LAYOUT
 		setPnlDetail.setupPanel(1);
+	}
+	
+	callback b03 onClick(Control c) { //SYNC
+		setPnlDetail.setupPanel(2);
 	}
 }

@@ -4,20 +4,16 @@ TablePanel {
 	Panels.Settings.SettingDetailPanel setPnlDetail = new Panels.Settings.SettingDetailPanel();
 
 	callback onCreate(Container c) {
-		//setColumnWidth(0, Sizing.PIXELS, 300);
-		//setColumnWidth(1, Sizing.PREFERRED, 1);
+		setRowHeight(0, Sizing.PREFERRED, 1);
 		setColumnWidth(0, Sizing.PERCENTS, 33);
 		setColumnWidth(1, Sizing.PERCENTS, 67);
-		setRowHeight(0, Sizing.PREFERRED, 1);
 		
-		// Master Panel
-		//Panels.MasterPanel pnlMaster = new Panels.MasterPanel();	 		
-		//pnlMaster.setContentPanel(setPnl);
 		setPnl.setPnlDetail = setPnlDetail;
 		
 	 	add(setPnl, "halign=center,hfill=fill,vfill=fill,valign=top");
 	 	//add(setPnlDetail, "halign=center,vfill=fill,hfill=fill,valign=top");
-	 	add(setPnlDetail, "hfill=fill, vfill=fill");
+	 	//add(setPnlDetail, "hfill=fill, vfill=fill");
+	 	add(setPnlDetail, "halign=center,hfill=fill,vfill=fill,valign=top");
 	 	setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgDetailBackground, 0, 0, 0, 0));
 	}
 }

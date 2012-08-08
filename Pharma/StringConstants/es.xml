@@ -4,6 +4,7 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_CLOSE_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_EXIT_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_OK_STR"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_SAVE"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_START_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_APP_NAME_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_DEVICE_NAME_STR"/>
@@ -12,6 +13,13 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_SW_VERSION_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LAYOUT"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_NEWPWD"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_OLDPWD"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_REDOPWD"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_SHOWHP"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_SHOWPWD"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_USER"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACCOUNTS_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACTIVITIES_STR"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CATALOG_STR"/>

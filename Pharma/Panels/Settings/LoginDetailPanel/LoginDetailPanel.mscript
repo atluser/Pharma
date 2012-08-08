@@ -1,60 +1,236 @@
-TablePanel {
-	ScrollableTablePanel contentPanel = new ScrollableTablePanel();
+ScrollableTablePanel {
 	FormPanel UserPassFP = new FormPanel();
+	TablePanel mainTP=new TablePanel();
 	
+	String labelAlign="halign=left";
+	String controlAlign="halign=left,hfill=fill";
+	String sPwdOld = "";
+	String sPwdNew = "";
+	String sPwdRedo = "";
+	//Label
+	Label lblSectionHeader = new Label();
+	Label lblUser = new Label();
+	Label lblPwdOld = new Label();
+	Label lblPwdNew = new Label();
+	Label lblPwdRedo = new Label();
+	Label lblShowPwd = new Label();
+	Label lblHP = new Label();
+	//Field
+	TextField txtUser = new TextField();
+	TextField pwdPwdOld = new TextField();
+	TextField pwdPwdNew = new TextField();
+	TextField pwdPwdRedo = new TextField();
+	CheckBox chkHP = new CheckBox ();
+	CheckBox chkShowPwd = new CheckBox ();
+	//Button
+	Button btnDone = new Button();
+		
 	callback onCreate(Container c) {
+		enableScroll(true);
+		setInsets(12,0,0,0);
 		setColumnWidth(0, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
-		Font fnt = new Font();
-		fnt.setFamily("Arial");
-		fnt.setSize(22);		
-		fnt.setBold();
 		
-		Label txtFldNoAccnt = new Label();
+		Font sectionFnt = new Font();
+		sectionFnt.setFamily("Arial");
+		sectionFnt.setSize(22);		
+		sectionFnt.setBold();
 		
-		Label lblUser = new Label();
-		Label lblPwd = new Label();
-		Label lblHP = new Label();
+		loadTextField();
+		setLabel();
+		loadSavedData();
+
+		lblSectionHeader.setFont(sectionFnt);
+		lblSectionHeader.setForeColor(Color.create(189,0,0));
+		lblSectionHeader.setText("Impostazioni accesso applicazione");
 		
-		Label txtUser = new Label();
-		Label txtPwd = new Label();
-		Label txtHP = new Label();
-		
-		TextModel mdlUser = new TextModel();
-		TextModel mdlPwd = new TextModel();
-		TextModel mdlHP = new TextModel();
-		
-		mdlUser.addField(dpObjSettings.sUser);
-		mdlPwd.addField(dpObjSettings.sPassword);
-		mdlHP.addField(dpObjSettings.sShowHomeScreen);
-		
-		mdlUser.setRow(dpRowSettings);
-		mdlPwd.setRow(dpRowSettings);
-		mdlHP.setRow(dpRowSettings);
-		
-		txtUser.setDataModel(mdlUser);
-		txtPwd.setDataModel(mdlPwd);
-		txtHP.setDataModel(mdlHP);
-		
-		lblUser.setText("User");
-		lblPwd.setText("Password");
-		lblHP.setText("Mostra Home Page");
-		
-		txtFldNoAccnt.setFont(fnt);
-		txtFldNoAccnt.setForeColor(Color.create(189,0,0));
-		txtFldNoAccnt.setText("Impostazioni accesso applicazione");
-		//add(txtFldNoAccnt, "halign=center,hfill=fill");
-		add(txtFldNoAccnt);
-		startNewRow();
-		startNewRow();
+		UserPassFP.setLabelColumnWidth(Sizing.PREFERRED, 1);
+		UserPassFP.setControlColumnWidth(Sizing.PREFERRED, 1);
 		
 		UserPassFP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
-		UserPassFP.add(lblUser,"halign=left",txtUser,"halign=left,hfill=fill");
-		UserPassFP.add(lblPwd,"halign=left",txtPwd,"halign=left,hfill=fill");
-		UserPassFP.add(lblHP,"halign=left",txtHP,"halign=left,hfill=fill");
-		//UserPassFP.setControlColumnWidth(Sizing.PREFERRED, 1);
-		//UserPassFP.setLabelColumnWidth(Sizing.PERCENTS,11);
-		//add(UserPassFP,"halign=center,vfill=fill");
-		add(UserPassFP);
+		UserPassFP.add(lblUser,labelAlign,txtUser,controlAlign);
+		UserPassFP.add(lblPwdOld,labelAlign,pwdPwdOld,controlAlign);
+		UserPassFP.add(lblPwdNew,labelAlign,pwdPwdNew,controlAlign);
+		UserPassFP.add(lblPwdRedo,labelAlign,pwdPwdRedo,controlAlign);
+		UserPassFP.add(lblShowPwd,labelAlign,chkShowPwd,controlAlign);
+		UserPassFP.add(lblHP,labelAlign,chkHP,controlAlign);
+		
+		mainTP.setColumnWidth(0, Sizing.PREFERRED, 1);
+		
+		mainTP.add(lblSectionHeader,"halign=center,vfill=fill");
+		mainTP.startNewRow();
+		mainTP.add(UserPassFP,"halign=center,vfill=fill");
+		mainTP.startNewRow();
+		mainTP.add(btnDone,"halign=center,vfill=fill");
+		
+		mainTP.enableScroll(true);
+		
+		add(mainTP,"halign=center,vfill=fill");
+	}
+	
+	//Imposta le label
+	void setLabel(){
+		Font txtfnt=new Font();
+		txtfnt.setFamily("Arial");
+		txtfnt.setSize(20);
+		txtfnt.setBold();
+		
+		lblUser.setText(StringConstants.SETTINGS_LOGIN_USER.getString() + ": ");
+		lblUser.setFont(txtfnt);
+		lblUser.setForeColor(Colors.Black);
+		
+		lblPwdOld.setText(StringConstants.SETTINGS_LOGIN_OLDPWD.getString() + ": ");
+		lblPwdOld.setFont(txtfnt);
+		lblPwdOld.setForeColor(Colors.Black);
+		
+		lblPwdNew.setText(StringConstants.SETTINGS_LOGIN_NEWPWD.getString() + ": ");
+		lblPwdNew.setFont(txtfnt);
+		lblPwdNew.setForeColor(Colors.Black);
+		
+		lblPwdRedo.setText(StringConstants.SETTINGS_LOGIN_REDOPWD.getString() + ": ");
+		lblPwdRedo.setFont(txtfnt);
+		lblPwdRedo.setForeColor(Colors.Black);
+		
+		lblShowPwd.setText(StringConstants.SETTINGS_LOGIN_SHOWPWD.getString());
+		lblShowPwd.setFont(txtfnt);
+		lblShowPwd.setForeColor(Colors.Black);
+		
+		lblHP.setText(StringConstants.SETTINGS_LOGIN_SHOWHP.getString());
+		lblHP.setFont(txtfnt);
+		lblHP.setForeColor(Colors.Black);
+		
+		btnDone.setText(StringConstants.BTN_SAVE.getString());
+	}
+	
+	
+	callback chkShowPwd onValueChange (Control c){
+		if(chkShowPwd.getChecked()==Platform.createBoolean(true)){
+			pwdPwdOld.setText(sPwdOld); 
+			pwdPwdNew.setText(sPwdNew);
+			pwdPwdRedo.setText("");
+			pwdPwdRedo.setVisible(false);
+			lblPwdRedo.setVisible(false);
+		}
+		else{
+			sPwdOld = setUserPassword(pwdPwdOld, sPwdOld);
+			sPwdNew = setUserPassword(pwdPwdNew, sPwdNew);
+			pwdPwdRedo.setVisible(true);
+			lblPwdRedo.setVisible(true);
+		}
+	}
+	
+	callback pwdPwdNew onValueChange (Control c){
+		sPwdNew = setUserPassword(pwdPwdNew, sPwdNew);
+	}
+	
+	callback pwdPwdRedo onValueChange (Control c){
+		sPwdRedo = setUserPassword(pwdPwdRedo, sPwdRedo);
+	}
+	
+	callback pwdPwdOld onValueChange (Control c){
+		sPwdOld = setUserPassword(pwdPwdOld, sPwdOld);
+	}
+	
+	//Imposta la password e scrive gli asterischi al posto della stringa
+	String setUserPassword(TextField tf, String sPrevPwd)
+	{
+		if(chkShowPwd.getChecked()==Platform.createBoolean(true)){
+			sPrevPwd = tf.getText();
+		}
+		else{
+			String asterischi = "";
+			String sCurrentChar;
+			if(tf.getText().length()>=sPrevPwd.length()){
+				sCurrentChar = tf.getText().substring(sPrevPwd.length(),tf.getText().length());
+		
+				sPrevPwd = sPrevPwd + sCurrentChar;
+				for(int i = 0; i < sPrevPwd.length(); i++){
+					asterischi = asterischi + "*";
+				}
+				tf.setText(asterischi);
+			}
+			else{
+				sPrevPwd = sPrevPwd.substring(0,tf.getText().length());
+			}
+		}
+		return sPrevPwd;
+	}
+	
+	//Caricamento dati salvati
+	void loadSavedData(){
+		if(dpRowSettings!=null){
+			txtUser.setText(dpObjSettings.sUser.getStringValue(dpRowSettings));
+			chkHP.setChecked(dpObjSettings.bAutoLogin.getBooleanValue(dpRowSettings));
+			chkShowPwd.setChecked(Platform.createBoolean(false));
+			pwdPwdOld.setText("");
+			pwdPwdNew.setText("");
+			pwdPwdRedo.setText("");
+		}
+	}
+	
+	//Caricamento proprietà textfield
+	void loadTextField(){
+		txtUser.setTextHint(StringConstants.SETTINGS_LOGIN_USER.getString());
+		pwdPwdOld.setTextHint(StringConstants.SETTINGS_LOGIN_OLDPWD.getString());
+		pwdPwdNew.setTextHint(StringConstants.SETTINGS_LOGIN_NEWPWD.getString());
+		pwdPwdRedo.setTextHint(StringConstants.SETTINGS_LOGIN_REDOPWD.getString());
+	}
+	
+	//Azione eseguita dal bottone salva
+	callback btnDone onClick(Control c) {
+		MessageBox msgBox=new MessageBox();	
+		String sCurrentPwd = "";
+		String sHashOldPwd = Platform.toString(sPwdOld.hashCode());
+		String sHashNewPwd = Platform.toString(sPwdNew.hashCode());
+		String sHashRedoPwd = Platform.toString(sPwdRedo.hashCode());
+		String sError = "";
+		
+		if(dpRowSettings!=null)
+			sCurrentPwd = dpObjSettings.sPassword.getStringValue(dpRowSettings);
+		
+		if(txtUser.getText()=="" || txtUser.getText()==null)
+			sError = sError + "\n - Valorizzare username";
+			
+		if(txtUser.getText().indexOf(" ")>0)
+			sError = sError + "\n - Username non può contenere spazi";
+			
+		//if(sPwdOld=="" || sPwdOld==null)
+		//	sError = sError + "\n - Valorizzare vecchia password";
+			
+		if(sPwdOld.length()>0 && sHashOldPwd != sCurrentPwd)
+			sError = sError + "\n - Vecchia password errata";
+			
+		if(sPwdOld.length()>0 && (sPwdNew=="" || sPwdNew==null))
+			sError = sError + "\n - Valorizzare nuova password";
+			
+		if(chkShowPwd.getChecked()==Platform.createBoolean(false) && sPwdOld.length()>0 && sPwdNew.length()>0 && (sPwdRedo=="" || sPwdRedo==null))
+			sError = sError + "\n - Ripeti nuova password";
+		
+		if(chkShowPwd.getChecked()==Platform.createBoolean(false) && sPwdRedo.length()>0 && sPwdNew.length()>0 && (sPwdRedo != sPwdNew))
+			sError = sError + "\n - Ripeti nuova password deve essere uguale a nuova password";
+			
+		if(sPwdNew.indexOf(" ")>0)
+			sError = sError + "\n - La nuova password non può contenere spazi";
+		
+		if(sError != ""){
+			msgBox.error(1,true,"Attenzione! Si sono verificati i seguenti errori",sError,"Ok", "");
+		}
+		else{
+			//dpObjSettings.sPassword.getStringValue(dpRowSettings);
+			if(sPwdNew.length()>0)
+				dpObjSettings.sPassword.setStringValue(sHashNewPwd,dpRowSettings);
+			dpObjSettings.sUser.setStringValue(txtUser.getText(),dpRowSettings);
+			dpObjSettings.bAutoLogin.setBooleanValue(chkHP.getChecked(),dpRowSettings);
+			dpRowSettings.applyUpdates();
+			dp.saveData();
+			loadSavedData();
+			if(sPwdNew.length()>0)
+				msgBox.info(1,"Utenza e password cambiate con successo");
+			else
+				msgBox.info(1,"Utenza cambiata con successo");
+		}
+			logApp.log(Log.INFO,"dtullo hash. sHashNewPwd: " + sPwdNew + " - " +  sHashNewPwd + " sHashOldPwd:" + sPwdOld + " - " + sHashOldPwd + " sHashRedoPwd: " + sPwdRedo + " - " + sHashRedoPwd);
+		
+		refresh();
 	}
 }

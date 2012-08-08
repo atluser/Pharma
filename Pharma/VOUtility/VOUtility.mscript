@@ -252,8 +252,9 @@ UIObject {
 		{
 			DataRow row = dpObjSettings.getNewRow();
 			dpObjSettings.sUser.setStringValue(Device.getDeviceName(),row);
-			dpObjSettings.sPassword.setStringValue("Vodafone",row);
-			dpObjSettings.sShowHomeScreen.setStringValue("true",row);
+			String sDefaultPassword = "Vodafone";
+			dpObjSettings.sPassword.setStringValue(Platform.toString(sDefaultPassword.hashCode()),row);
+			dpObjSettings.bAutoLogin.setBooleanValue(Platform.createBoolean(false),row);
 			
 			row.applyUpdates();
 		
