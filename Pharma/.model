@@ -32,6 +32,23 @@
     <stringKeys>SETTINGS_LOGIN_SHOWPWD</stringKeys>
     <stringKeys>SETTINGS_LOGIN_USER</stringKeys>
     <stringKeys>SETTINGS_SYNC</stringKeys>
+    <stringKeys>SETTINGS_SYNC_ACCOUNT</stringKeys>
+    <stringKeys>SETTINGS_SYNC_AUTO</stringKeys>
+    <stringKeys>SETTINGS_SYNC_CATALOGUE</stringKeys>
+    <stringKeys>SETTINGS_SYNC_CONTACT</stringKeys>
+    <stringKeys>SETTINGS_SYNC_FRIDAY</stringKeys>
+    <stringKeys>SETTINGS_SYNC_LOGOUT</stringKeys>
+    <stringKeys>SETTINGS_SYNC_MINUTES</stringKeys>
+    <stringKeys>SETTINGS_SYNC_MONDAY</stringKeys>
+    <stringKeys>SETTINGS_SYNC_ORDERS</stringKeys>
+    <stringKeys>SETTINGS_SYNC_SATURDAY</stringKeys>
+    <stringKeys>SETTINGS_SYNC_SR</stringKeys>
+    <stringKeys>SETTINGS_SYNC_STARTUP</stringKeys>
+    <stringKeys>SETTINGS_SYNC_SUNDAY</stringKeys>
+    <stringKeys>SETTINGS_SYNC_TASK</stringKeys>
+    <stringKeys>SETTINGS_SYNC_THURSDAY</stringKeys>
+    <stringKeys>SETTINGS_SYNC_TUESDAY</stringKeys>
+    <stringKeys>SETTINGS_SYNC_WEDNESDAY</stringKeys>
     <stringKeys>TBB_ACCOUNTS_STR</stringKeys>
     <stringKeys>TBB_ACTIVITIES_STR</stringKeys>
     <stringKeys>TBB_CATALOG_STR</stringKeys>
@@ -6619,7 +6636,7 @@
       <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SettingPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SettingPanel.mscript"/>
       </children>
-      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SyncDetailPanel" sortOrder="1400" image="icons/scrollable_table.png" superclass="ScrollableTablePanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SyncDetailPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
         <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SyncDetailPanel.mscript"/>
       </children>
     </children>
@@ -6639,6 +6656,9 @@
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="SectionFormPopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SectionFormPopup.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="SyncTimePopup">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SyncTimePopup.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="VisitPlanPopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VisitPlanPopup.mscript"/>

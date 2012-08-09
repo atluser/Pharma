@@ -1,0 +1,97 @@
+Popup {
+	TextField txtOrigField;
+	BackgroundButton btnPopup;
+	Label lblTitle=new Label();
+	String TYPE="";
+	
+	Screen CurrentScr;
+
+	StickyTable stk = new StickyTable();
+	RowSetModel rsm = new RowSetModel();
+	BackgroundButton btnClose=new BackgroundButton();
+	
+	callback onCreate(Container c) {
+		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);
+		
+		setColumnWidth(0, Sizing.PIXELS, 350);
+		
+		setInsets (4,4,4,4);
+		stk.setGridLineThickness(1);
+		stk.setGridLineStyle(LineStyle.SOLID);
+		stk.setGridLineColor(Colors.Gray);						
+		stk.setDataModel(rsm);
+
+		Font titlefnt=new Font();
+		titlefnt.setFamily("Arial");
+		titlefnt.setSize(22);
+		titlefnt.setBold();
+		
+		Font actfnt=titlefnt.createCopy();
+		actfnt.setSize(16);
+		btnClose.setImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		btnClose.setFocusedImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		btnClose.setSelectedImage(Images.VodafoneImages.btn_undo_normal.getImage());		
+		lblTitle.setFont(titlefnt);
+		lblTitle.setForeColor(Colors.Black);
+		
+		HorizontalPanel hzTitle=new HorizontalPanel();
+		hzTitle.setInsets(0,8,0,0);
+		lblTitle.setForeColor(Color.create(255,255,255));		
+		hzTitle.add(lblTitle,"halign=left");
+		hzTitle.add(btnClose,"halign=right");
+		hzTitle.setColumnWidth(1,Sizing.PREFERRED,0);
+		hzTitle.setColumnWidth(0,Sizing.PREFERRED,1);
+		hzTitle.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		
+		add(hzTitle,"hfill=fill");
+		
+		startNewRow();			
+		add(stk, "valign=top");
+		startNewRow();
+		
+		setBackColor(Colors.BackgroundGray);	
+	}
+
+	callback stk onCellCreateInfo(TableView c, TableViewCellCreateInfo info, int group, int row){
+		info.setPanel(new Cells.SimpleTableViewCell());
+	}
+	
+	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
+		Cells.SimpleTableViewCell tblVwCell = (Cells.SimpleTableViewCell)cell;
+		
+		DataRow dtRw = info.getDataRow();
+		if(!dtRw.isDeleted()){		
+			String str01 = dpObjLOV.Value.getStringValue(dtRw);							
+			tblVwCell.lbl.setText(str01);			
+		}
+	}
+	
+	callback stk onCellConfigure(TableView c, CellConfig cell, int group){
+		cell.setHeight(Sizing.PREFERRED, 0);
+		cell.setWidth(Sizing.PREFERRED, 0);
+		cell.setCouldBeSelected(true);
+	}
+	
+	callback stk onCellSize(TableView c, AbsoluteSize sizeInfo, int group, int row){
+		sizeInfo.setHeight(60);
+		sizeInfo.setWidth(200);
+	}		
+	
+	callback stk onSelectionChanged ( TableView c , int group , int row ) {	
+		btnPopup.setText(dpObjLOV.Value.getStringValue(rsm.getRow()));
+		txtOrigField.setText(dpObjLOV.Name.getStringValue(rsm.getRow()));
+		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
+		btnPopup.refresh();
+		CurrentScr.close();
+	}
+	
+	callback btnClose onClick(Control c){
+		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
+		CurrentScr.close();
+	}
+	
+	void setQuery(Query q){		
+		rsm.setRows(q);
+	}
+}

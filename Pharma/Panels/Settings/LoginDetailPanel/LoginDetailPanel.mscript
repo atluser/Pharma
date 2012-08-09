@@ -8,7 +8,6 @@ ScrollableTablePanel {
 	String sPwdNew = "";
 	String sPwdRedo = "";
 	//Label
-	Label lblSectionHeader = new Label();
 	Label lblUser = new Label();
 	Label lblPwdOld = new Label();
 	Label lblPwdNew = new Label();
@@ -31,18 +30,9 @@ ScrollableTablePanel {
 		setColumnWidth(0, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		
-		Font sectionFnt = new Font();
-		sectionFnt.setFamily("Arial");
-		sectionFnt.setSize(22);		
-		sectionFnt.setBold();
-		
 		loadTextField();
 		setLabel();
 		loadSavedData();
-
-		lblSectionHeader.setFont(sectionFnt);
-		lblSectionHeader.setForeColor(Color.create(189,0,0));
-		lblSectionHeader.setText("Impostazioni accesso applicazione");
 		
 		UserPassFP.setLabelColumnWidth(Sizing.PREFERRED, 1);
 		UserPassFP.setControlColumnWidth(Sizing.PREFERRED, 1);
@@ -56,9 +46,7 @@ ScrollableTablePanel {
 		UserPassFP.add(lblHP,labelAlign,chkHP,controlAlign);
 		
 		mainTP.setColumnWidth(0, Sizing.PREFERRED, 1);
-		
-		mainTP.add(lblSectionHeader,"halign=center,vfill=fill");
-		mainTP.startNewRow();
+
 		mainTP.add(UserPassFP,"halign=center,vfill=fill");
 		mainTP.startNewRow();
 		mainTP.add(btnDone,"halign=center,vfill=fill");

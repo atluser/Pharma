@@ -8,6 +8,26 @@ TablePanel {
 	Button b01 = new Button();	
 	Button b02 = new Button();
 	Button b03 = new Button();
+	
+	/*
+	Button b04 = new Button();
+	Button b05 = new Button();
+	Button b06 = new Button();
+	Button b07 = new Button();
+	Button b08 = new Button();
+	Button b09 = new Button();
+	Button b10 = new Button();
+	Button b11 = new Button();
+	Button b12 = new Button();
+	Button b13 = new Button();
+	Button b14 = new Button();
+	Button b15 = new Button();
+	Button b16 = new Button();
+	Button b17 = new Button();
+	Button b18 = new Button();
+	Button b19 = new Button();
+	Button b20 = new Button();
+	*/
 
 	String fill = "hfill=fill,vfill=fill";
 	
@@ -16,11 +36,30 @@ TablePanel {
 		setUpButtons();
 		
 		pnlContent.setColumnWidth(0, Sizing.PREFERRED, 1);
+		//pnlContent.setColumnWidth(0, Sizing.PERCENTS, 33);
 		pnlContent.setRowHeight(0, Sizing.PREFERRED, 0);
 		pnlContent.setInsets(10,10,10,10);
 		pnlContent.startNewRow(); pnlContent.add(b01,fill); 
 		pnlContent.startNewRow(); pnlContent.add(b02,fill); 
 		pnlContent.startNewRow(); pnlContent.add(b03,fill); 
+		
+		/*pnlContent.startNewRow(); pnlContent.add(b04,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b05,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b06,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b07,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b08,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b09,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b10,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b11,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b12,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b13,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b14,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b15,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b16,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b17,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b18,fill); 
+		pnlContent.startNewRow(); pnlContent.add(b19,fill);
+		pnlContent.startNewRow(); pnlContent.add(b20,fill);*/ 
 		
 		stp.enableScroll(true);
 		stp.add(pnlContent,fill);
@@ -42,6 +81,26 @@ TablePanel {
 		b01 = setupButtonStyle(b01, StringConstants.SETTINGS_LOGIN.getString(), fnt, Colors.White, Colors.Red, Colors.Red);
 		b02 = setupButtonStyle(b02, StringConstants.SETTINGS_LAYOUT.getString(), fnt, Colors.White, Colors.Red, Colors.Red);
 		b03 = setupButtonStyle(b03, StringConstants.SETTINGS_SYNC.getString(), fnt, Colors.White, Colors.Red, Colors.Red);
+		
+		/*
+		b04 = setupButtonStyle(b04, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b05 = setupButtonStyle(b05, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b06 = setupButtonStyle(b06, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b07 = setupButtonStyle(b07, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b08 = setupButtonStyle(b08, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b09 = setupButtonStyle(b09, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b10 = setupButtonStyle(b10, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b11 = setupButtonStyle(b11, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b12 = setupButtonStyle(b12, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b13 = setupButtonStyle(b13, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b14 = setupButtonStyle(b14, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b15 = setupButtonStyle(b15, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b16 = setupButtonStyle(b16, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b17 = setupButtonStyle(b17, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b18 = setupButtonStyle(b18, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b19 = setupButtonStyle(b19, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		b20 = setupButtonStyle(b20, "Vuoto", fnt, Colors.White, Colors.Red, Colors.Red);
+		*/
 	}
 	
 	Button setupButtonStyle(Button sButton, String sText, Font fnt, Color cBackClr, Color cSelBackClr, Color cFocusBackClr)
@@ -61,7 +120,6 @@ TablePanel {
 	//Azioni eseguite dai bottoni!
 	callback b01 onClick(Control c) { //LOGIN
 		setPnlDetail.setupPanel(0);
-		setPnlDetail.settingLoginPnl.loadSavedData();
 	}
 	
 	callback b02 onClick(Control c) { //LAYOUT

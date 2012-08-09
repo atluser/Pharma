@@ -3,58 +3,83 @@ TablePanel {
 	Panels.Settings.LoginDetailPanel settingLoginPnl = new Panels.Settings.LoginDetailPanel();
 	Panels.Settings.LayoutDetailPanel settingLayoutPnl = new Panels.Settings.LayoutDetailPanel();
 	Panels.Settings.SyncDetailPanel settingSyncPnl = new Panels.Settings.SyncDetailPanel();
-	String sFill = "hfill=fill,valign=top,halign=center"; 
+	String sFill = "hfill=fill,vfill=fill,halign=right,valign=top"; 
+	
+	ScrollableTablePanel pnlBody = new ScrollableTablePanel();
 	
 	callback onCreate(Container c) {
+		TablePanel pnlHeaderRoot = new TablePanel();
+		pnlHeaderRoot.add(lblSectionHeader,"valign=bottom");
+		pnlHeaderRoot.setColumnWidth(1, Sizing.PERCENTS, 67);
+		pnlHeaderRoot.setRowHeight(0, Sizing.PREFERRED, 1);
+		
+		TablePanel pnlHead = new TablePanel();
+		pnlHead.add(pnlHeaderRoot,"halign=center,valign=top");
+		pnlHead.setColumnWidth(0, Sizing.PREFERRED, 1);
+		pnlHead.setRowHeight(0,Sizing.PREFERRED,0);
+		
+		pnlBody.enableScroll(true);
+		pnlBody.add(settingLoginPnl, sFill);
+		pnlBody.startNewRow();
+		pnlBody.add(settingLayoutPnl, sFill);
+		pnlBody.startNewRow();
+		pnlBody.add(settingSyncPnl, sFill);		
+		
+		add(pnlHead,sFill);
+		startNewRow();
+		add(pnlBody,sFill);
+		
+		setupPanel(-1);
+		
+		pnlBody.setColumnWidth(0, Sizing.PERCENTS, 67);
+		pnlBody.setRowHeight(0, Sizing.PREFERRED, 0);
+		
 		setColumnWidth(0, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
+		setRowHeight(1, Sizing.PREFERRED, 1);
+	}
+	
+	void setupLabelHeader(String sLabel){
 		Font fnt = new Font();
 		fnt.setFamily("Arial");
 		fnt.setSize(24);
 		fnt.setBold();
 		lblSectionHeader.setFont(fnt);
 		lblSectionHeader.setForeColor(Color.create(189,0,0));
-		lblSectionHeader.setText("Setting Detail Panel!");
-		add(lblSectionHeader, "halign=center");
-		startNewRow();
-		add(settingLoginPnl, "halign=center,hfill=fill");
-		startNewRow();
-		add(settingLayoutPnl, "halign=center,hfill=fill");
-		startNewRow();
-		add(settingSyncPnl, "halign=center,hfill=fill");
-		startNewRow();
-		
-		lblSectionHeader.setVisible(true);
-		settingLoginPnl.setVisible(false);
-		settingLayoutPnl.setVisible(false);
-		settingSyncPnl.setVisible(false);
+		lblSectionHeader.setText(sLabel);
 	}
 	
 	void setupPanel(int settingType){
 		switch(settingType){
 			case 0: //Login
-				lblSectionHeader.setVisible(false);
+				setupLabelHeader("Login Detail Panel!");
+				settingLoginPnl.loadSavedData();
+				//lblSectionHeader.setVisible(false);
 				settingLoginPnl.setVisible(true);
 				settingLayoutPnl.setVisible(false);
 				settingSyncPnl.setVisible(false);
 			break;
 			
 			case 1: //Layout
-				lblSectionHeader.setVisible(false);
+				setupLabelHeader("Layout Detail Panel!");
+				//lblSectionHeader.setVisible(false);
 				settingLoginPnl.setVisible(false);
 				settingLayoutPnl.setVisible(true);
 				settingSyncPnl.setVisible(false);
 			break;
 			
 			case 2: //Sync
-				lblSectionHeader.setVisible(false);
+				setupLabelHeader("Sincronizzazione Detail Panel!");
+				settingSyncPnl.loadSavedData();
+				//lblSectionHeader.setVisible(false);
 				settingLoginPnl.setVisible(false);
 				settingLayoutPnl.setVisible(false);
 				settingSyncPnl.setVisible(true);
 			break;
 			
 			default:
-				lblSectionHeader.setVisible(true);
+				setupLabelHeader("Setting Detail Panel!");
+				//lblSectionHeader.setVisible(true);
 				settingLoginPnl.setVisible(false);
 				settingLayoutPnl.setVisible(false);
 				settingSyncPnl.setVisible(false);

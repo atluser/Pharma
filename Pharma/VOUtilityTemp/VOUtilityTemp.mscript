@@ -565,7 +565,37 @@ UIObject {
         dpObjLOV.Name.setStringValue("Non Definito", row);
         dpObjLOV.Value.setStringValue("Non Definito", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
-        row.applyUpdates();                                                                
+        row.applyUpdates();
+        
+        //Sincronizzazione
+        row=dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("SYNC", row);
+        dpObjLOV.Name.setStringValue("Ore", row);
+        dpObjLOV.Value.setStringValue("Ore", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row=dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("SYNC", row);
+        dpObjLOV.Name.setStringValue("Minuti", row);
+        dpObjLOV.Value.setStringValue("Minuti", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row=dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("SYNC", row);
+        dpObjLOV.Name.setStringValue("Giorni", row);
+        dpObjLOV.Value.setStringValue("Giorni", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+        
+        row=dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("SYNC", row);
+        dpObjLOV.Name.setStringValue("Settimane", row);
+        dpObjLOV.Value.setStringValue("Settimane", row);
+        dpObjLOV.LanguageCode.setStringValue("ITA", row);
+        row.applyUpdates();
+                                                                     
 		
 		dp.saveData();
 		
