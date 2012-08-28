@@ -1,0 +1,72 @@
+TablePanel {
+
+	Popup popup;
+	TablePanel pnlHeader = new TablePanel();
+	
+	TablePanel btnCloseContainer = new TablePanel();
+	Button btnClose = new Button();
+	Label lblTitle = new Label();
+	
+	String fill = "hfill=fill, vfill=fill";
+	
+	callback onCreate(Container c) {
+		
+		
+		setRowHeight(0,Sizing.PREFERRED,45);
+		setColumnWidth(0,Sizing.PREFERRED,1);
+		setColumnWidth(1,Sizing.PREFERRED,1);
+		
+		
+		setUpHeader();
+		
+		add(pnlHeader,fill);
+		
+	}
+	
+	callback btnClose onClick(Control c) {
+		popup.hide(Popup.POPUP_TYPE_NONE);
+	}
+	
+	void setUpHeader() {
+		
+		pnlHeader.setRowHeight(0,Sizing.PIXELS,45);
+		pnlHeader.setColumnWidth(0,Sizing.PREFERRED,1);
+		pnlHeader.setColumnWidth(1,Sizing.PREFERRED,1);
+		
+		pnlHeader.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+
+		Font fnt=new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(22);
+		
+		lblTitle.setForeColor(Colors.White);
+		lblTitle.setFont(fnt);
+		
+		lblTitle.setText("");
+		pnlHeader.add(lblTitle,"halign=center,valign=center");
+		
+		setUpCloseButton();
+		
+		pnlHeader.add(btnCloseContainer,"halign=right");
+		
+	}
+	
+	void setUpCloseButton() {
+		
+		btnCloseContainer.setRowHeight(0,Sizing.PIXELS,45);
+		btnCloseContainer.setColumnWidth(1,Sizing.PIXELS,45);
+		
+		btnClose.setImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		
+		btnCloseContainer.add(btnClose,fill);
+	}
+	
+	void setTitleText(String s) {
+		lblTitle.setText(s);
+	}
+	
+	void setPopup(Popup pop) {
+		popup=pop;
+	}
+	
+}

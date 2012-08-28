@@ -37,7 +37,8 @@ TablePanel {
 	Timer tmrAddPosition = new Timer();
 	Timer tmrSeeAll = new Timer();
 	Timer tmrVisitPlan = new Timer();
-	WaitCursor wc = new WaitCursor();
+	
+	MessageBox msgVisitPlan = new MessageBox();
 	
 	/*
 	 *
@@ -117,24 +118,6 @@ TablePanel {
 		
 		setInsets(0,0,0,0);
 		setBackground(Background.create9PartImageRectangleBackground(Images.SplitViewImages.ImgMasterBackground, 0, 0, 0, 0));
-		
-		wc.setHeight(Sizing.PIXELS,50);
-		wc.setWidth(Sizing.PIXELS,150);
-		wc.setHorizontalAlignment(WaitCursor.CENTER);
-		wc.setVerticalAlignment(WaitCursor.CENTER);
-		wc.setBlocking(true);
-		
-		/*
-		AnimatedImageList imgList = new AnimatedImageList();
-		imgList.addImage(Images.Icons.LOADING.getImage());
-		imgList.setRepeatCount(1);
-		imgList.setDuration(50);
-		wc.setImageList(imgList);
-		*/
-		Font fntCursor = new Font();
-		fntCursor.setSize(18);
-		wc.setText("LOADING...");
-		wc.setForeColor(Colors.White);
 		
 		
 	}
@@ -279,7 +262,7 @@ TablePanel {
 	}
 	
 	callback btnMapView onClick(Control c) {
-		pnlMap.loc.stopLocationUpdate();
+		loc.stopLocationUpdate();
 		scrMap.close(Animation.SLIDE_FROM_LEFT);
 	}
 	
@@ -288,6 +271,12 @@ TablePanel {
 			MessageBox msg = new MessageBox();
 			msg.info(1,"Devi prima rilevare la posizione per poter generare il Giro Visite!");
 		} else {
+			msgVisitPlan.ask(1,"La funzionalità Giro Visite permette di auto-generare la lista delle visite da effettuare ottimale in base a dei parametri selezionabili e alla distanza dalla tua posizione. La funzione richederà un po' di tempo. Continuare?");
+		}
+	}
+	
+	callback msgVisitPlan onDismissed(MessageBox messageBox , int contextId , int dismissalType , int result , String value) {
+		if (result==MessageBox.RESULT_OK) {
 			scrMap.setWaitCursor(wc);
 			tmrVisitPlan.schedule(50);
 		}
@@ -316,8 +305,8 @@ TablePanel {
 	
 	callback tmrVisitPlan timerFired(Timer tmr) {
 		
-		pnlMap.getVisitPlan();
-		//pnlMap.getVisitPlanV2();
+		//pnlMap.getVisitPlan();
+		pnlMap.getVisitPlanV2();
 		scrMap.setWaitCursor(null);
 	}
 	/*

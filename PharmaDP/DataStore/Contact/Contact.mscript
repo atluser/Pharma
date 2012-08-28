@@ -53,13 +53,6 @@ DataStoreObject {
 			where TimeVisited != "";
 			descendingBy TimeVisited;
 		}
-	
-	Query getFirstRow() {
-		return firstRow();
-	}
-		query firstRow<>{
-			where ContactId == "00000001";
-		}
 		
 	//Retrieve all contacts that start with a given letter	
 	Query getContactStartsWith(String strStart){

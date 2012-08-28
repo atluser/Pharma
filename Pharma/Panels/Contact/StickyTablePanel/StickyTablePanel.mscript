@@ -31,6 +31,8 @@ TablePanel {
 	int iRowCount = 0;
 	Label lblRowCount = new Label();
 	
+	Timer tmrMapView = new Timer();
+	
 	Panels.Contact.StickyTablePanel thisPanel;
 	
 	/*
@@ -73,13 +75,19 @@ TablePanel {
 		add(stk, "hfill=fill,vfill=fill");
 		add(pnlIndex, "hfill=fill,valign=top");
 		
-		startNewRow();
+		TablePanel pnlTools = new TablePanel();
+		pnlTools.setRowHeight(0,Sizing.PIXELS,50);
+		pnlTools.setColumnWidth(0,Sizing.PIXELS,175);
+		pnlTools.setColumnWidth(1,Sizing.PIXELS,175);
+		
 		btnMapView.setText("Map View");
-		add(btnMapView,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
+		pnlTools.add(btnMapView,"vfill=fill,hfill=fill");
+		
+		btnRecentRecords.setText("Record Recenti");
+		pnlTools.add(btnRecentRecords,"vfill=fill,hfill=fill");
 		
 		startNewRow();
-		btnRecentRecords.setText("Record Recenti");
-		add(btnRecentRecords,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
+		add(pnlTools,"colspan=2, vfill=fill, hfill=fill, valign=bottom");
 		
 		startNewRow();
 		Font fnt = new Font();
@@ -91,15 +99,6 @@ TablePanel {
 		
 		pnlDetailForm.setStickyTable((Panels.Contact.StickyTablePanel) c);
 		
-		/*	stk.scrollTo(0,0,StickyTable.SCROLL_POSITION_TOP);
-		 *	stk.select(0,0);
-		 *	logApp.log(Log.INFO, "ContactStickyTablePanel::onCreate - Row 0,0 selected: "+ dpObjContact.ContactName.getStringValue(mrsm.getRow()));
-		 *	pnlDetail.txtFldName.setText(dpObjContact.ContactName.getStringValue(mrsm.getRow()) + " " + dpObjContact.ContactLastName.getStringValue(mrsm.getRow()));
-		 *	pnlDetailForm.setRow(mrsm.getRow());
-		*/
-		//stk.select(1,1);
-		//stk.select(0,0);		
-		
 	}
 	
 	///////////////////////////////
@@ -110,14 +109,7 @@ TablePanel {
 	}
 	
 	callback stk onCellInfo(TableView c , TableViewCell cell , Cell info , int grp , int row ){
-		//Panels.AccountTableViewCell tblVwCell = (Panels.AccountTableViewCell) cell;
-		//tblVwCell.populateData(info.getDataRow());
 		
-		//Panels.Contacts.ContactTableViewCell tblVwCell = (Panels.Contacts.ContactTableViewCell) cell;
-		//tblVwCell.setRow(info.getDataRow());
-
-		//tblViewCell = new TableViewCell();
-		//tblViewCell = cell;
 		Cells.TwoRowsTableViewCell tblVwCell = (Cells.TwoRowsTableViewCell)cell;
 		
 		DataRow dtRw = info.getDataRow();
@@ -260,17 +252,8 @@ TablePanel {
 	}
 
 	callback btnMapView onClick(Control c) {
-		scrMap  = new Screens.Contact.MapScreen();
-		logApp.log(Log.INFO,"danieleU - MapView created");
-		scrMap.pnlRoot.setContactStickyTable(thisPanel);
-		logApp.log(Log.INFO,"danieleU - mapview sticky on pnlRoot setted");
-		pnlMap.mapField.clearLocations();
-		RowSetModel rsm = new RowSetModel();
-		rsm.setRows(dpObjContact.getContactHasValidAddress());
-		pnlMap.setRowSetModel(rsm);
-		logApp.log(Log.INFO,"danieleU - MapView rowsetmodel setted");
-		//scrMap.mapField.clearLocations();
-		scrMap.push(Animation.SLIDE_FROM_RIGHT,false);
+		scrHome.setWaitCursor(wc);
+		tmrMapView.schedule(50);
 	}
 	
 	callback btnRecentRecords onClick(Control c) {
@@ -285,6 +268,21 @@ TablePanel {
 			MessageBox msg = new MessageBox();
 			msg.info(1,"Non hai ancora visitato nessun Contatto!");
 		} 
+	}
+	
+	callback tmrMapView timerFired(Timer tmr) {
+		scrMap  = new Screens.Contact.MapScreen();
+		logApp.log(Log.INFO,"danieleU - MapView created");
+		scrMap.pnlRoot.setContactStickyTable(thisPanel);
+		logApp.log(Log.INFO,"danieleU - mapview sticky on pnlRoot setted");
+		pnlMap.mapField.clearLocations();
+		RowSetModel rsm = new RowSetModel();
+		rsm.setRows(dpObjContact.getContactHasValidAddress());
+		pnlMap.setRowSetModel(rsm);
+		logApp.log(Log.INFO,"danieleU - MapView rowsetmodel setted");
+		//scrMap.mapField.clearLocations();
+		scrHome.setWaitCursor(null);
+		scrMap.push(Animation.SLIDE_FROM_RIGHT,false);
 	}
 	
 	/*

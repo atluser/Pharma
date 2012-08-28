@@ -3,6 +3,11 @@ UIProject {
 	Screens.HomeScreen scrHome;
 	Screens.Contact.MapScreen scrMap;
 	
+	//Brings informations on your lacation
+	LocationManager loc = new LocationManager();
+	
+	WaitCursor wc = new WaitCursor();
+	
 	/** Logs **/
 	Log logApp = getLog();
 	Log appLog = getLog();
@@ -231,6 +236,20 @@ UIProject {
 		//DataRow row=vObjUtil.getNewOrder("00100988");
 		//Screens.OrderEntry.OrderHeaderScreen scrStart= new Screens.OrderEntry.OrderHeaderScreen();
 		//scrStart.setData(row);
+		
+		//loc.startLocationUpdate(); 
+		
+		wc.setHeight(Sizing.PREFERRED,1);
+		wc.setWidth(Sizing.PREFERRED,1);
+		wc.setHorizontalAlignment(WaitCursor.CENTER);
+		wc.setVerticalAlignment(WaitCursor.TOP);
+		wc.setBlocking(true);
+		
+		Font fntCursor = new Font();
+		fntCursor.setSize(18);
+		wc.setFont(fntCursor);
+		wc.setText("LOADING...");
+		wc.setForeColor(Colors.White);
 		
 	}
 

@@ -3,25 +3,39 @@ Popup {
 	Array toVisit;
 	Array distances;
 	int len;
+	
+	Panels.SimpleHeaderPanel pnlHeader = new Panels.SimpleHeaderPanel();
+	//TablePanel pnlHeader = new TablePanel();
 	TablePanel pnlBody = new TablePanel();
 	
 	String align = "halign=center,valign=center";
-	String fill = "hfill=fll, vfill=fill";
+	String fill = "hfill=fill, vfill=fill";
 	
 	Font fnt = new Font();
 	
 	callback onCreate(Container c) {
 		
+		setRowHeight(0,Sizing.PREFERRED,1);
+		setRowHeight(1,Sizing.PREFERRED,0);
+		setColumnWidth(0,Sizing.PIXELS,400);
+		
 		pnlBody.enableScroll(true);
 		
 		pnlBody.setColumnWidth(0,Sizing.PREFERRED,0);
-		pnlBody.setColumnWidth(1,Sizing.PREFERRED,0);
-		pnlBody.setColumnWidth(2,Sizing.PREFERRED,0);
+		pnlBody.setColumnWidth(1,Sizing.PREFERRED,1);
+		//pnlBody.setColumnWidth(2,Sizing.PREFERRED,0);
+		
 		for (int i=0;i<len;i++) {
 			pnlBody.setRowHeight(i,Sizing.PIXELS,50);
 		}
 		
 		pnlBody.setInsets(8,8,8,8);
+		
+		pnlHeader.setTitleText("Giro-Visite Consigliato");
+		pnlHeader.setPopup((Popup) c);
+		//setUpHeader();
+		add(pnlHeader,fill);
+		startNewRow();
 		
 		fnt.setSize(20);
 		fnt.setFamily("Arial");
@@ -63,8 +77,8 @@ Popup {
 			lblDist.setForeColor(Colors.Black);
 			lblDist.setFont(fnt);
 			
-			pnlBody.add(lblName,align);
-			pnlBody.add(lblDist,align);
+			pnlBody.add(lblName,"hfill=fill,vfill=fill,valign=center,halign=center");
+			pnlBody.add(lblDist,"hfill=fill,vfill=fill,valign=center,halign=center");
 			pnlBody.startNewRow();
 		}
 	}
@@ -76,4 +90,5 @@ Popup {
 		}
 		return sum;
 	}
+	
 }

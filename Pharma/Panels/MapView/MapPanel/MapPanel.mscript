@@ -3,7 +3,7 @@ TablePanel {
 	MapField mapField = new MapField();
 	String fill="hfill=fill, vfill=fill";
 	
-	LocationManager loc = new LocationManager();
+	
 	Navigator nav = Navigator.getNavigatorInstance();
 	
 	RowSetModel rsm;
@@ -29,8 +29,9 @@ TablePanel {
 		setRowHeight(0,Sizing.PREFERRED,1);
 		setColumnWidth(0,Sizing.PREFERRED,1);
 		
-		loc.startLocationUpdate(); 
+		loc.startLocationUpdate();
 		lastSearchedLocation.removeAllItems();
+		mapField.setDisplayUserLocation(true);
 		//rsm.setRows(dpObjContact.getContactStartsWithHasValidAddress());
 		stk.setMapPanel((Panels.MapView.MapPanel)c);
 		initMap();
@@ -38,7 +39,11 @@ TablePanel {
 	
 	void setRowSetModel (RowSetModel mdl) {
 		rsm=mdl;
+		DataRow row;
+		rsm.select(0,0);
+		row=rsm.getRow();
 		initMap();
+		addSingleLocation(row,Images.Maps.PIN.getImage(), 0, 0);
 	}
 	
 	//create the initial map that you can see after open screen 
@@ -88,7 +93,6 @@ TablePanel {
 		} else {
 			//it means that i have the data row
 			mapField.addLocation(dpObjContact.ContactStreetAddress.getStringValue(row),"",dpObjContact.ContactStreetCity.getStringValue(row),dpObjContact.ContactCap.getStringValue(row),dpObjContact.ContactCountry.getStringValue(row),mapAnot);
-			
 			//now remind what i have searched to give the distance between this position and my position
 			lastSearchedLocation.removeAllItems();
 			String address = dpObjContact.ContactStreetAddress.getStringValue(row) + " " + dpObjContact.ContactStreetCity.getStringValue(row);
@@ -99,22 +103,27 @@ TablePanel {
 			lastSearchedLocation.addItem(dpObjContact.ContactName.getStringValue(row) + " " + dpObjContact.ContactLastName.getStringValue(row));
 			lastSearchedLocation.addItem(lat);
 			lastSearchedLocation.addItem(lon);
-		}
 		
+		}
 	}
 	
 	void addMyPosition() {
 		if (loc.isLocationServicesEnabled()==true) {
+			//loc.startLocationUpdate();
 			loc.setAccuracy(LocationManager.LOCATION_ACCURACY_BEST);
 			logApp.log(Log.INFO,"Coordinates - Accuracy setted");
 			loc.setFrequency(LocationManager.UPDATE_FREQUENCY_LIVE);
 			logApp.log(Log.INFO,"Coordinates - Starting location update...");
-			
 			//repeat until we have a valid location
 			while (loc.getLocation()==null) {}
 			
 			Location position = loc.getLocation();
 			logApp.log(Log.INFO,"Coordinates - Location getted");
+			if (position==null) {
+				MessageBox msg = new MessageBox();
+			msg.info(1,"Ops! La posizione non è ancora stata rilevata, aspettare qualche secondo e riprovare...");
+			}
+			else {
 			myLat = position.getLatitude();
 			myLon = position.getLongitude();
 			String address=nav.getAddress(myLat,myLon);
@@ -132,6 +141,7 @@ TablePanel {
 				pnlRoot.lblTitle.setText("Tu sei in:     " + address + "  e disti " + dist + " metri da " + lastSearchedLocation.getItem(0));
 			} else {
 				pnlRoot.lblTitle.setText("Tu sei in:     " + address);
+			}
 			}
 		} else {
 			logApp.log(Log.INFO, "Coordinates - Device is not enabled");

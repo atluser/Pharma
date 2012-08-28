@@ -6427,6 +6427,9 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SearchHeaderHorizontalPanel" sortOrder="1400" image="icons/horizontal.png" superclass="HorizontalPanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SearchHeaderHorizontalPanel.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="SimpleHeaderPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SimpleHeaderPanel.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:UIObjectNode" name="StartPanel" sortOrder="1400" image="icons/table.png" superclass="TablePanel">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StartPanel.mscript"/>
     </children>
