@@ -13,11 +13,13 @@
   <children xsi:type="com.vaultus.studio.ecore.studio:StringsNode" name="StringConstants">
     <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="StringConstants.mscript" hidden="true"/>
     <stringKeys>BTN_ABOUT_STR</stringKeys>
+    <stringKeys>BTN_CANCEL_STR</stringKeys>
     <stringKeys>BTN_CLOSE_STR</stringKeys>
     <stringKeys>BTN_EXIT_STR</stringKeys>
     <stringKeys>BTN_OK_STR</stringKeys>
     <stringKeys>BTN_SAVE</stringKeys>
     <stringKeys>BTN_START_STR</stringKeys>
+    <stringKeys>BTN_TAP_TO_CHANGE</stringKeys>
     <stringKeys>INFO_APP_NAME_STR</stringKeys>
     <stringKeys>INFO_DEVICE_NAME_STR</stringKeys>
     <stringKeys>INFO_MSG_STR</stringKeys>
@@ -32,21 +34,35 @@
     <stringKeys>SETTINGS_LOGIN_SHOWPWD</stringKeys>
     <stringKeys>SETTINGS_LOGIN_USER</stringKeys>
     <stringKeys>SETTINGS_SYNC</stringKeys>
+    <stringKeys>SETTINGS_SYNC_1H</stringKeys>
+    <stringKeys>SETTINGS_SYNC_2H</stringKeys>
+    <stringKeys>SETTINGS_SYNC_30MIN</stringKeys>
     <stringKeys>SETTINGS_SYNC_ACCOUNT</stringKeys>
     <stringKeys>SETTINGS_SYNC_AUTO</stringKeys>
     <stringKeys>SETTINGS_SYNC_CATALOGUE</stringKeys>
     <stringKeys>SETTINGS_SYNC_CONTACT</stringKeys>
+    <stringKeys>SETTINGS_SYNC_DONE</stringKeys>
+    <stringKeys>SETTINGS_SYNC_ENTITY</stringKeys>
+    <stringKeys>SETTINGS_SYNC_EXT_PWD</stringKeys>
+    <stringKeys>SETTINGS_SYNC_EXT_PWD_REDO</stringKeys>
+    <stringKeys>SETTINGS_SYNC_EXT_SYST</stringKeys>
+    <stringKeys>SETTINGS_SYNC_EXT_SYSTEM_SECTION</stringKeys>
+    <stringKeys>SETTINGS_SYNC_EXT_TYPE</stringKeys>
+    <stringKeys>SETTINGS_SYNC_EXT_URL</stringKeys>
+    <stringKeys>SETTINGS_SYNC_FREQ</stringKeys>
     <stringKeys>SETTINGS_SYNC_FRIDAY</stringKeys>
     <stringKeys>SETTINGS_SYNC_LOGOUT</stringKeys>
-    <stringKeys>SETTINGS_SYNC_MINUTES</stringKeys>
     <stringKeys>SETTINGS_SYNC_MONDAY</stringKeys>
+    <stringKeys>SETTINGS_SYNC_ON_WEEKDAY</stringKeys>
     <stringKeys>SETTINGS_SYNC_ORDERS</stringKeys>
+    <stringKeys>SETTINGS_SYNC_ORG</stringKeys>
     <stringKeys>SETTINGS_SYNC_SATURDAY</stringKeys>
     <stringKeys>SETTINGS_SYNC_SR</stringKeys>
     <stringKeys>SETTINGS_SYNC_STARTUP</stringKeys>
     <stringKeys>SETTINGS_SYNC_SUNDAY</stringKeys>
     <stringKeys>SETTINGS_SYNC_TASK</stringKeys>
     <stringKeys>SETTINGS_SYNC_THURSDAY</stringKeys>
+    <stringKeys>SETTINGS_SYNC_TITLE</stringKeys>
     <stringKeys>SETTINGS_SYNC_TUESDAY</stringKeys>
     <stringKeys>SETTINGS_SYNC_WEDNESDAY</stringKeys>
     <stringKeys>TBB_ACCOUNTS_STR</stringKeys>
@@ -326,6 +342,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Buttons.BTN_CANCEL_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="GrayTrasparentBG">
         <properties/>
         <properties/>
         <properties/>
@@ -1019,6 +1041,12 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="GrayTrasparentBG">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
         <properties/>
@@ -1696,6 +1724,12 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Buttons.BTN_CANCEL_u">
+        <properties/>
+        <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="GrayTrasparentBG">
         <properties/>
         <properties/>
         <properties/>
@@ -2440,6 +2474,12 @@
       <imagePaths name="DettaglioCliente">
         <properties/>
         <properties/>
+        <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="GrayTrasparentBG">
+        <properties/>
+        <properties string="C:/Users/dtullo/Desktop/grey transparent bg.fw.png" path="C:/USERS/DTULLO/DESKTOP/GREY TRANSPARENT BG.FW.PNG"/>
         <properties/>
         <properties/>
       </imagePaths>
@@ -3473,6 +3513,9 @@
       <imagePaths name="Buttons.BTN_CANCEL_u">
         <properties/>
       </imagePaths>
+      <imagePaths name="GrayTrasparentBG">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
@@ -3814,6 +3857,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Buttons.BTN_CANCEL_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="GrayTrasparentBG">
         <properties/>
       </imagePaths>
       <imagePaths name="Icon">
@@ -4223,6 +4269,10 @@
       </imagePaths>
       <imagePaths name="DettaglioCliente">
         <properties/>
+        <properties/>
+      </imagePaths>
+      <imagePaths name="GrayTrasparentBG">
+        <properties string="C:/Users/dtullo/Desktop/grey transparent bg.fw.png" path="C:/USERS/DTULLO/DESKTOP/GREY TRANSPARENT BG.FW.PNG"/>
         <properties/>
       </imagePaths>
       <imagePaths name="ICN_CONTACT">
@@ -4927,6 +4977,10 @@
         <properties/>
         <properties/>
       </imagePaths>
+      <imagePaths name="GrayTrasparentBG">
+        <properties/>
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
         <properties/>
@@ -5357,6 +5411,9 @@
       <imagePaths name="Buttons.BTN_CANCEL_u">
         <properties/>
       </imagePaths>
+      <imagePaths name="GrayTrasparentBG">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
@@ -5698,6 +5755,9 @@
         <properties/>
       </imagePaths>
       <imagePaths name="Buttons.BTN_CANCEL_u">
+        <properties/>
+      </imagePaths>
+      <imagePaths name="GrayTrasparentBG">
         <properties/>
       </imagePaths>
       <imagePaths name="Icon">
@@ -6045,6 +6105,9 @@
       <imagePaths name="Buttons.BTN_CANCEL_u">
         <properties/>
       </imagePaths>
+      <imagePaths name="GrayTrasparentBG">
+        <properties/>
+      </imagePaths>
       <imagePaths name="Icon">
         <properties/>
       </imagePaths>
@@ -6308,6 +6371,7 @@
       </imagePaths>
     </children>
     <images name="AboutIcon"/>
+    <images name="GrayTrasparentBG"/>
     <images name="Icon"/>
     <images name="OptionsIcon"/>
     <images name="RolloverIcon"/>
@@ -6642,6 +6706,9 @@
     </children>
   </children>
   <children xsi:type="com.vaultus.studio.ecore.studio:FolderNode" name="Popups">
+    <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="ExtSystemPopup">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="ExtSystemPopup.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="LastVisitedPopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="LastVisitedPopup.mscript"/>
     </children>
@@ -6657,8 +6724,14 @@
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="SectionFormPopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SectionFormPopup.mscript"/>
     </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="SyncEntityPopup">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SyncEntityPopup.mscript"/>
+    </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="SyncTimePopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SyncTimePopup.mscript"/>
+    </children>
+    <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="SyncWeekdayPopup">
+      <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="SyncWeekdayPopup.mscript"/>
     </children>
     <children xsi:type="com.vaultus.studio.ecore.studio:DialogNode" name="VisitPlanPopup">
       <children xsi:type="com.vaultus.studio.ecore.studio:VScriptNode" name="VisitPlanPopup.mscript"/>

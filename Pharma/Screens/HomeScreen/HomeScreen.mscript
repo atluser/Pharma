@@ -43,6 +43,10 @@ Screen {
 		
 		pnlContactRoot.setHomeScreen((Screen)container);
 		
+		pnlSettingsRoot.setHomeScreen((Screen)container);
+		pnlSettingsRoot.setPnlDetail.setHomeScreen((Screen)container);
+		pnlSettingsRoot.setPnlDetail.settingSyncPnl.setHomeScreen((Screen)container);
+		
 		StackPanel stkPnlRoot = new StackPanel();		
 		stkPnlRoot.add(pnlAccountRoot);		
 		stkPnlRoot.add(pnlActivityRoot);
@@ -125,10 +129,14 @@ Screen {
 
 	callback onScreenOrientationChange(Screen screen, int int_){
 		//TODO: add code
+		iScreenWidth = Device.getScreenWidth();
+		iScreenHeigth = Device.getScreenHeight();
 	}
 
 	callback onScreenOrientationChange(Screen screen, int int_, int int_1){
 		//TODO: add code
+		iScreenWidth = Device.getScreenWidth();
+		iScreenHeigth = Device.getScreenHeight();
 	}
 
 	callback onStartOrientationChange(Screen screen, int int_){

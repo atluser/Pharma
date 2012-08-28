@@ -1,106 +1,191 @@
 TablePanel {
-	//ScrollableTablePanel pnlBody = new ScrollableTablePanel();
 	FormPanel SyncFP = new FormPanel();
+	FormPanel ExtSystemFP = new FormPanel();
 	TablePanel mainTP = new TablePanel();
+	
+	Screens.HomeScreen scrHome;
+	
+	void setHomeScreen(Screen scr) {
+		scrHome = (Screens.HomeScreen)scr;
+	}
 	
 	String labelAlign="halign=left";
 	String controlAlign="halign=left,hfill=fill";
+	String sPwdExt = "";
+	String sPwdRedoExt = "";
 	//Label
 	Label lblSectionHeader 		= new Label();
+	Label lblSectionExtSystem	= new Label();
 	Label lblStartupSync		= new Label();
 	Label lblCloseSync 			= new Label();
 	Label lblEnableAutoSync 	= new Label();
+	Label lblWeekDaySync 		= new Label();
 	Label lblSyncEveryMinuts 	= new Label();
-	Label lblAutoSyncSunday 	= new Label();
-	Label lblAutoSyncMonday 	= new Label();
-	Label lblAutoSyncTuesday 	= new Label();
-	Label lblAutoSyncWednesday 	= new Label();
-	Label lblAutoSyncThursday 	= new Label();
-	Label lblAutoSyncFriday 	= new Label();
-	Label lblAutoSyncSaturday 	= new Label();
-	Label lblSyncAccount 		= new Label();
-	Label lblSyncContact 		= new Label();
-	Label lblSyncOrders 		= new Label();
-	Label lblSyncCatalogue 		= new Label();
-	Label lblSyncTask 			= new Label();
-	Label lblSyncSRs 			= new Label();
+	Label lblEntityToSync	 	= new Label();
+	Label lblUserExt		 	= new Label();
+	Label lblPwdExt			 	= new Label();
+	Label lblOrgExt			 	= new Label();
+	Label lblUrlExt			 	= new Label();
+	Label lblTypeExt		 	= new Label();
+	Label lblPwdRedoExt		 	= new Label();
 	//Field
 	CheckBox chkStartupSync 		= new CheckBox();
 	CheckBox chkCloseSync 			= new CheckBox();
 	CheckBox chkEnableAutoSync 		= new CheckBox();
-	CheckBox chkAutoSyncSunday 		= new CheckBox();
-	CheckBox chkAutoSyncMonday 		= new CheckBox();
-	CheckBox chkAutoSyncTuesday		= new CheckBox();
-	CheckBox chkAutoSyncWednesday	= new CheckBox();
-	CheckBox chkAutoSyncThursday 	= new CheckBox();
-	CheckBox chkAutoSyncFriday 		= new CheckBox();
-	CheckBox chkAutoSyncSaturday 	= new CheckBox();
-	CheckBox chkSyncAccount 		= new CheckBox();
-	CheckBox chkSyncContact 		= new CheckBox();
-	CheckBox chkSyncOrders 			= new CheckBox();
-	CheckBox chkSyncCatalogue 		= new CheckBox();
-	CheckBox chkSyncTask 			= new CheckBox();
-	CheckBox chkSyncSRs 			= new CheckBox();
-	IntegerNumericField iSyncEveryMinuts = new IntegerNumericField();
+	TextField txtUserExt 			= new TextField();
+	TextField txtPwdExt 			= new TextField();
+	TextField txtPwdRedoExt 		= new TextField();
+	TextField txtOrgExt		 		= new TextField();
+	TextField txtUrlExt		 		= new TextField();
+	//TextField txtTypeExt 			= new TextField(); //SF,Siebel,Etc
+
+	String sSyncEveryMinuts = "0";
 	TextField sSyncEvery = new TextField();
 	
-	BackgroundButton btnSyncEveryPopup=new BackgroundButton();
+	//Popup
+	Popups.SyncWeekdayPopup syncWEPP = new Popups.SyncWeekdayPopup();
+	Popups.SyncEntityPopup syncEntPP = new Popups.SyncEntityPopup();
+	
 	//Button
-	Button btnDone = new Button();
+	Button btnDone = new Button();	
+	BackgroundButton btnSyncEveryPopup = new BackgroundButton();
+	BackgroundButton btnSyncDayWeekPopup = new BackgroundButton();
+	BackgroundButton btnSyncEntityPopup = new BackgroundButton();
+	BackgroundButton btnExtSystemPopup = new BackgroundButton();
 	
 	callback btnSyncEveryPopup onClick(Control c){
-		showPopup((BackgroundButton)c,sSyncEvery,"SYNC","Sincronizza ogni:");		
+		showPopupSyncFreq((BackgroundButton)c,sSyncEvery,"SYNC",StringConstants.SETTINGS_SYNC_FREQ.getString());		
 	}
 	
-	void showPopup(BackgroundButton button,TextField sField,String type,String title){
-		Screen scr = new Screen();
-		Popups.SyncTimePopup syncPP =new Popups.SyncTimePopup();	
+	callback btnExtSystemPopup onClick(Control c){
+		Popups.ExtSystemPopup extPP = new Popups.ExtSystemPopup();	
+		extPP.btnPopup=(BackgroundButton)c;
+		scrHome.showPopup(extPP,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PIXELS, PPWidth, true,true);		
+	}
+	
+	callback btnSyncDayWeekPopup onClick(Control c){
+		syncWEPP.lblTitle.setText(StringConstants.SETTINGS_SYNC_ON_WEEKDAY.getString());
+		scrHome.showPopup(syncWEPP,Popup.POPUP_TYPE_FROM_BOTTOM,Sizing.PREFERRED, 0, Sizing.PIXELS, PPWidth ,true,true);		
+	}
+	
+	callback btnSyncEntityPopup onClick(Control c){
+		syncEntPP.lblTitle.setText(StringConstants.SETTINGS_SYNC_ENTITY.getString());
+		scrHome.showPopup(syncEntPP,Popup.POPUP_TYPE_FROM_BOTTOM,Sizing.PREFERRED, 0, Sizing.PIXELS, PPWidth ,true,true);		
+	}
+	
+	void SetContentVisibility (boolean bVisible)
+	{
+		lblStartupSync.setVisible(bVisible);
+		lblCloseSync.setVisible(bVisible);
+		lblSyncEveryMinuts.setVisible(bVisible);
+		lblWeekDaySync.setVisible(bVisible);
+		lblEntityToSync.setVisible(bVisible);
+		chkStartupSync.setVisible(bVisible);
+		chkCloseSync.setVisible(bVisible);
+		btnSyncEveryPopup.setVisible(bVisible);
+		btnSyncDayWeekPopup.setVisible(bVisible);
+		btnSyncEntityPopup.setVisible(bVisible);
+		//External System Information
+		lblSectionExtSystem.setVisible(bVisible);
+		lblUserExt.setVisible(bVisible);
+		lblPwdExt.setVisible(bVisible);
+		lblOrgExt.setVisible(bVisible);
+		lblUrlExt.setVisible(bVisible);
+		lblTypeExt.setVisible(bVisible);
+		lblPwdRedoExt.setVisible(bVisible);
+		txtUserExt.setVisible(bVisible);
+		txtPwdExt.setVisible(bVisible);
+		txtPwdRedoExt.setVisible(bVisible);
+		txtOrgExt.setVisible(bVisible);
+		txtUrlExt.setVisible(bVisible);
+		btnExtSystemPopup.setVisible(bVisible);
+	}
+	
+	callback chkEnableAutoSync onValueChange(Control c){
+		boolean bVisible;
+		if(chkEnableAutoSync.getChecked()==Platform.createBoolean(true))
+			SetContentVisibility(true);
+		else
+			SetContentVisibility(false);
+		
+		refresh();
+	}
+	
+	void showPopupSyncFreq(BackgroundButton button,TextField sField,String type,String title){
+		Popups.SyncTimePopup syncPP = new Popups.SyncTimePopup();	
 		syncPP.btnPopup=button;
 		syncPP.txtOrigField=sField;
 		syncPP.lblTitle.setText(title);
 		syncPP.setQuery(dpObjLOV.getLOV(type));
 		syncPP.TYPE=type;
-		syncPP.CurrentScr = scr;
-		scr.setRowHeight(0,Sizing.PIXELS,1);
-		scr.push(Animation.PUSH_FROM_BOTTOM, false);	
-		scr.showPopup(syncPP,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PIXELS ,530 , Sizing.PREFERRED, 0,true,true);		 
+		scrHome.showPopup(syncPP,Popup.POPUP_TYPE_FROM_BOTTOM, Sizing.PREFERRED, 0, Sizing.PIXELS, PPWidth, true,true);
 	}
 	
 	callback onCreate(Container c) {
 		setInsets(12,0,0,0);
 		setColumnWidth(0, Sizing.PREFERRED, 1);
 		setRowHeight(0, Sizing.PREFERRED, 0);
-		//btnSyncEveryPopup.setText(sSyncEvery.getText());
 		setLabel();
 		
-		SyncFP.setLabelColumnWidth(Sizing.PREFERRED, 1);
-		//SyncFP.setControlColumnWidth(Sizing.PREFERRED, 1);
-		SyncFP.setControlColumnWidth(Sizing.PERCENTS, 10);
-		
-		SyncFP.setBackground(Background.createColorRoundedBackground( Colors.BackgroundGray));
+		//SyncFP.setLabelColumnWidth(Sizing.PREFERRED, 1);
+		SyncFP.setLabelColumnWidth(Sizing.PERCENTS, 25);
+		SyncFP.setControlColumnWidth(Sizing.PERCENTS, 15);
+		SyncFP.setBackColor(Colors.White);
+		SyncFP.add(lblEnableAutoSync,labelAlign,chkEnableAutoSync,controlAlign);
 		SyncFP.add(lblStartupSync,labelAlign,chkStartupSync,controlAlign);
 		SyncFP.add(lblCloseSync,labelAlign,chkCloseSync,controlAlign);
-		SyncFP.add(lblEnableAutoSync,labelAlign,chkEnableAutoSync,controlAlign);
-		//SyncFP.add(lblSyncEveryMinuts,labelAlign,iSyncEveryMinuts,controlAlign);
 		SyncFP.add(lblSyncEveryMinuts,labelAlign,btnSyncEveryPopup,controlAlign);
-		SyncFP.add(lblAutoSyncSunday,labelAlign,chkAutoSyncSunday,controlAlign);
-		SyncFP.add(lblAutoSyncMonday,labelAlign,chkAutoSyncMonday,controlAlign);
-		SyncFP.add(lblAutoSyncTuesday,labelAlign,chkAutoSyncTuesday,controlAlign);
-		SyncFP.add(lblAutoSyncWednesday,labelAlign,chkAutoSyncWednesday,controlAlign);
-		SyncFP.add(lblAutoSyncThursday,labelAlign,chkAutoSyncThursday,controlAlign);
-		SyncFP.add(lblAutoSyncFriday,labelAlign,chkAutoSyncFriday,controlAlign);
-		SyncFP.add(lblAutoSyncSaturday,labelAlign,chkAutoSyncSaturday,controlAlign);
-		SyncFP.add(lblSyncAccount,labelAlign,chkSyncAccount,controlAlign);
-		SyncFP.add(lblSyncContact,labelAlign,chkSyncContact,controlAlign);
-		SyncFP.add(lblSyncOrders,labelAlign,chkSyncOrders,controlAlign);
-		SyncFP.add(lblSyncCatalogue,labelAlign,chkSyncCatalogue,controlAlign);
-		SyncFP.add(lblSyncTask,labelAlign,chkSyncTask,controlAlign);
-		SyncFP.add(lblSyncSRs,labelAlign,chkSyncSRs,controlAlign);
+		SyncFP.add(lblWeekDaySync,labelAlign,btnSyncDayWeekPopup,controlAlign);
+		SyncFP.add(lblEntityToSync,labelAlign,btnSyncEntityPopup,controlAlign);
 		
-		SyncFP.setRowHeight(0, Sizing.PREFERRED, 0);
+		SyncFP.setRowHeight(0, Sizing.PIXELS, 40);
+		SyncFP.setRowHeight(1, Sizing.PIXELS, 40);
+		SyncFP.setRowHeight(2, Sizing.PIXELS, 40);
+		SyncFP.setRowHeight(3, Sizing.PIXELS, 40);
+		SyncFP.setRowHeight(4, Sizing.PIXELS, 40);
+		SyncFP.setRowHeight(5, Sizing.PIXELS, 40);
+		
+		Font fnt = new Font();
+		fnt.setFamily("Arial");
+		fnt.setSize(24);
+		fnt.setBold();
+		lblSectionExtSystem.setFont(fnt);
+		lblSectionExtSystem.setForeColor(Color.create(189,0,0));
+		lblSectionExtSystem.setText(StringConstants.SETTINGS_SYNC_EXT_SYSTEM_SECTION.getString());
+		
+		Font fntTxtField = new Font();
+		fntTxtField.setSize(12);
+		
+		//txtTypeExt.setFont(fntTxtField);
+		txtUrlExt.setFont(fntTxtField);
+		txtOrgExt.setFont(fntTxtField);
+		txtUserExt.setFont(fntTxtField);
+		txtPwdExt.setFont(fntTxtField);
+		txtPwdRedoExt.setFont(fntTxtField);
+		
+		ExtSystemFP.setLabelColumnWidth(Sizing.PERCENTS, 25);
+		ExtSystemFP.setControlColumnWidth(Sizing.PERCENTS, 15);
+		ExtSystemFP.setBackColor(Colors.White);
+		ExtSystemFP.add(lblTypeExt,labelAlign,btnExtSystemPopup,controlAlign);
+		ExtSystemFP.add(lblUrlExt,labelAlign,txtUrlExt,controlAlign);
+		ExtSystemFP.add(lblOrgExt,labelAlign,txtOrgExt,controlAlign);
+		ExtSystemFP.add(lblUserExt,labelAlign,txtUserExt,controlAlign);
+		ExtSystemFP.add(lblPwdExt,labelAlign,txtPwdExt,controlAlign);
+		ExtSystemFP.add(lblPwdRedoExt,labelAlign,txtPwdRedoExt,controlAlign);
+		
+		ExtSystemFP.setRowHeight(0, Sizing.PIXELS, 40);
+		ExtSystemFP.setRowHeight(1, Sizing.PIXELS, 40);
+		ExtSystemFP.setRowHeight(2, Sizing.PIXELS, 40);
+		ExtSystemFP.setRowHeight(3, Sizing.PIXELS, 40);
+		ExtSystemFP.setRowHeight(4, Sizing.PIXELS, 40);
+		ExtSystemFP.setRowHeight(5, Sizing.PIXELS, 40);
 		
 		mainTP.setColumnWidth(0, Sizing.PREFERRED, 1);
 		mainTP.add(SyncFP,"halign=center,vfill=fill");
+		mainTP.startNewRow();
+		mainTP.add(lblSectionExtSystem,"halign=center,vfill=fill");
+		mainTP.startNewRow();
+		mainTP.add(ExtSystemFP,"halign=center,vfill=fill");
 		mainTP.startNewRow();
 		mainTP.add(btnDone,"halign=center,vfill=fill");
 		
@@ -114,8 +199,30 @@ TablePanel {
 		txtfnt.setSize(20);
 		txtfnt.setBold();
 		
+		String i = Platform.toString(dpObjSettings.iSyncEveryMinuts.getIntegerValue(dpRowSettings)); 
+		if(i=="0" || i == null || i == "")
+			btnSyncEveryPopup.setText(StringConstants.BTN_TAP_TO_CHANGE.getString());
+		else
+			btnSyncEveryPopup.setText(dpObjSettings.sSyncEvery.getStringValue(dpRowSettings));
 		btnSyncEveryPopup.setFont(txtfnt);
-		btnSyncEveryPopup.setText("Seleziona");
+				
+		btnSyncDayWeekPopup.setFont(txtfnt);
+		btnSyncDayWeekPopup.setText(StringConstants.BTN_TAP_TO_CHANGE.getString());
+		
+		btnSyncEntityPopup.setFont(txtfnt);
+		btnSyncEntityPopup.setText(StringConstants.BTN_TAP_TO_CHANGE.getString());
+		
+		lblEnableAutoSync.setText(StringConstants.SETTINGS_SYNC_AUTO.getString() + ": ");
+		lblEnableAutoSync.setFont(txtfnt);
+		lblEnableAutoSync.setForeColor(Colors.Black);
+		
+		lblWeekDaySync.setText(StringConstants.SETTINGS_SYNC_ON_WEEKDAY.getString() + ": ");
+		lblWeekDaySync.setFont(txtfnt);
+		lblWeekDaySync.setForeColor(Colors.Black);
+		
+		lblEntityToSync.setText(StringConstants.SETTINGS_SYNC_ENTITY.getString() + ": ");
+		lblEntityToSync.setFont(txtfnt);
+		lblEntityToSync.setForeColor(Colors.Black);
 		
 		lblStartupSync.setText(StringConstants.SETTINGS_SYNC_STARTUP.getString() + ": ");
 		lblStartupSync.setFont(txtfnt);
@@ -125,115 +232,136 @@ TablePanel {
 		lblCloseSync.setFont(txtfnt);
 		lblCloseSync.setForeColor(Colors.Black);
 		
-		lblEnableAutoSync.setText(StringConstants.SETTINGS_SYNC_AUTO.getString() + ": ");
-		lblEnableAutoSync.setFont(txtfnt);
-		lblEnableAutoSync.setForeColor(Colors.Black);
-		
-		lblSyncEveryMinuts.setText(StringConstants.SETTINGS_SYNC_MINUTES.getString() + ": ");
+		lblSyncEveryMinuts.setText(StringConstants.SETTINGS_SYNC_FREQ.getString() + ": ");
 		lblSyncEveryMinuts.setFont(txtfnt);
 		lblSyncEveryMinuts.setForeColor(Colors.Black);
 		
-		lblAutoSyncSunday.setText(StringConstants.SETTINGS_SYNC_SUNDAY.getString() + ": ");
-		lblAutoSyncSunday.setFont(txtfnt);
-		lblAutoSyncSunday.setForeColor(Colors.Black);
-		
-		lblAutoSyncMonday.setText(StringConstants.SETTINGS_SYNC_MONDAY.getString() + ": ");
-		lblAutoSyncMonday.setFont(txtfnt);
-		lblAutoSyncMonday.setForeColor(Colors.Black);
-		
-		lblAutoSyncTuesday.setText(StringConstants.SETTINGS_SYNC_TUESDAY.getString() + ": ");
-		lblAutoSyncTuesday.setFont(txtfnt);
-		lblAutoSyncTuesday.setForeColor(Colors.Black);
-		
-		lblAutoSyncWednesday.setText(StringConstants.SETTINGS_SYNC_WEDNESDAY.getString() + ": ");
-		lblAutoSyncWednesday.setFont(txtfnt);
-		lblAutoSyncWednesday.setForeColor(Colors.Black);
-		
-		lblAutoSyncThursday.setText(StringConstants.SETTINGS_SYNC_THURSDAY.getString() + ": ");
-		lblAutoSyncThursday.setFont(txtfnt);
-		lblAutoSyncThursday.setForeColor(Colors.Black);
-		
-		lblAutoSyncFriday.setText(StringConstants.SETTINGS_SYNC_FRIDAY.getString() + ": ");
-		lblAutoSyncFriday.setFont(txtfnt);
-		lblAutoSyncFriday.setForeColor(Colors.Black);
-		
-		lblAutoSyncSaturday.setText(StringConstants.SETTINGS_SYNC_SATURDAY.getString() + ": ");
-		lblAutoSyncSaturday.setFont(txtfnt);
-		lblAutoSyncSaturday.setForeColor(Colors.Black);
-		
-		lblSyncAccount.setText(StringConstants.SETTINGS_SYNC_ACCOUNT.getString() + ": ");
-		lblSyncAccount.setFont(txtfnt);
-		lblSyncAccount.setForeColor(Colors.Black);
-		
-		lblSyncContact.setText(StringConstants.SETTINGS_SYNC_CONTACT.getString() + ": ");
-		lblSyncContact.setFont(txtfnt);
-		lblSyncContact.setForeColor(Colors.Black);
-		
-		lblSyncOrders.setText(StringConstants.SETTINGS_SYNC_ORDERS.getString() + ": ");
-		lblSyncOrders.setFont(txtfnt);
-		lblSyncOrders.setForeColor(Colors.Black);
-		
-		lblSyncCatalogue.setText(StringConstants.SETTINGS_SYNC_CATALOGUE.getString() + ": ");
-		lblSyncCatalogue.setFont(txtfnt);
-		lblSyncCatalogue.setForeColor(Colors.Black);
-		
-		lblSyncTask.setText(StringConstants.SETTINGS_SYNC_TASK.getString() + ": ");
-		lblSyncTask.setFont(txtfnt);
-		lblSyncTask.setForeColor(Colors.Black);
-		
-		lblSyncSRs.setText(StringConstants.SETTINGS_SYNC_SR.getString() + ": ");
-		lblSyncSRs.setFont(txtfnt);
-		lblSyncSRs.setForeColor(Colors.Black);
-		
 		btnDone.setText(StringConstants.BTN_SAVE.getString());
+		
+		//EXTERNAL SYSTEM
+		lblUserExt.setText(StringConstants.SETTINGS_LOGIN_USER.getString() + ": ");
+		lblUserExt.setFont(txtfnt);
+		lblUserExt.setForeColor(Colors.Black);
+		
+		lblPwdExt.setText(StringConstants.SETTINGS_SYNC_EXT_PWD.getString() + ": ");
+		lblPwdExt.setFont(txtfnt);
+		lblPwdExt.setForeColor(Colors.Black);
+		
+		lblOrgExt.setText(StringConstants.SETTINGS_SYNC_ORG.getString() + ": ");
+		lblOrgExt.setFont(txtfnt);
+		lblOrgExt.setForeColor(Colors.Black);
+		
+		lblUrlExt.setText(StringConstants.SETTINGS_SYNC_EXT_URL.getString() + ": ");
+		lblUrlExt.setFont(txtfnt);
+		lblUrlExt.setForeColor(Colors.Black);
+		
+		lblTypeExt.setText(StringConstants.SETTINGS_SYNC_EXT_TYPE.getString() + ": ");
+		lblTypeExt.setFont(txtfnt);
+		lblTypeExt.setForeColor(Colors.Black);
+		
+		lblPwdRedoExt.setText(StringConstants.SETTINGS_SYNC_EXT_PWD_REDO.getString() + ": ");
+		lblPwdRedoExt.setFont(txtfnt);
+		lblPwdRedoExt.setForeColor(Colors.Black);
+		
+		String sExt = dpObjSettings.sTypeExt.getStringValue(dpRowSettings); 
+		if(sExt == null || sExt == "")
+			btnExtSystemPopup.setText(StringConstants.BTN_TAP_TO_CHANGE.getString());
+		else
+			btnExtSystemPopup.setText(dpObjSettings.sTypeExt.getStringValue(dpRowSettings));
+		btnExtSystemPopup.setFont(txtfnt);
 	}
 	
 	//Carica i dati iniziali
 	void loadSavedData(){
 		if(dpRowSettings!=null){
+			chkEnableAutoSync.setChecked(dpObjSettings.bEnableAutoSync.getBooleanValue(dpRowSettings));
 			chkStartupSync.setChecked(dpObjSettings.bStartupSync.getBooleanValue(dpRowSettings));
 			chkCloseSync.setChecked(dpObjSettings.bCloseSync.getBooleanValue(dpRowSettings));
-			chkEnableAutoSync.setChecked(dpObjSettings.bEnableAutoSync.getBooleanValue(dpRowSettings));
-			chkAutoSyncSunday.setChecked(dpObjSettings.bAutoSyncSunday.getBooleanValue(dpRowSettings));
-			chkAutoSyncMonday.setChecked(dpObjSettings.bAutoSyncMonday.getBooleanValue(dpRowSettings));
-			chkAutoSyncTuesday.setChecked(dpObjSettings.bAutoSyncTuesday.getBooleanValue(dpRowSettings));
-			chkAutoSyncWednesday.setChecked(dpObjSettings.bAutoSyncWednesday.getBooleanValue(dpRowSettings));
-			chkAutoSyncThursday.setChecked(dpObjSettings.bAutoSyncThursday.getBooleanValue(dpRowSettings));
-			chkAutoSyncFriday.setChecked(dpObjSettings.bAutoSyncFriday.getBooleanValue(dpRowSettings));
-			chkAutoSyncSaturday.setChecked(dpObjSettings.bAutoSyncSaturday.getBooleanValue(dpRowSettings));
-			chkSyncAccount.setChecked(dpObjSettings.bSyncAccount.getBooleanValue(dpRowSettings));
-			chkSyncContact.setChecked(dpObjSettings.bSyncContact.getBooleanValue(dpRowSettings));
-			chkSyncOrders.setChecked(dpObjSettings.bSyncOrders.getBooleanValue(dpRowSettings));
-			chkSyncCatalogue.setChecked(dpObjSettings.bSyncCatalogue.getBooleanValue(dpRowSettings));
-			chkSyncTask.setChecked(dpObjSettings.bSyncTask.getBooleanValue(dpRowSettings));
-			chkSyncSRs.setChecked(dpObjSettings.bSyncSRs.getBooleanValue(dpRowSettings));
+			syncWEPP.chkAutoSyncSunday.setChecked(dpObjSettings.bAutoSyncSunday.getBooleanValue(dpRowSettings));
+			syncWEPP.chkAutoSyncMonday.setChecked(dpObjSettings.bAutoSyncMonday.getBooleanValue(dpRowSettings));
+			syncWEPP.chkAutoSyncTuesday.setChecked(dpObjSettings.bAutoSyncTuesday.getBooleanValue(dpRowSettings));
+			syncWEPP.chkAutoSyncWednesday.setChecked(dpObjSettings.bAutoSyncWednesday.getBooleanValue(dpRowSettings));
+			syncWEPP.chkAutoSyncThursday.setChecked(dpObjSettings.bAutoSyncThursday.getBooleanValue(dpRowSettings));
+			syncWEPP.chkAutoSyncFriday.setChecked(dpObjSettings.bAutoSyncFriday.getBooleanValue(dpRowSettings));
+			syncWEPP.chkAutoSyncSaturday.setChecked(dpObjSettings.bAutoSyncSaturday.getBooleanValue(dpRowSettings));
+			syncEntPP.chkSyncAccount.setChecked(dpObjSettings.bSyncAccount.getBooleanValue(dpRowSettings));
+			syncEntPP.chkSyncContact.setChecked(dpObjSettings.bSyncContact.getBooleanValue(dpRowSettings));
+			syncEntPP.chkSyncOrders.setChecked(dpObjSettings.bSyncOrders.getBooleanValue(dpRowSettings));
+			syncEntPP.chkSyncCatalogue.setChecked(dpObjSettings.bSyncCatalogue.getBooleanValue(dpRowSettings));
+			syncEntPP.chkSyncTask.setChecked(dpObjSettings.bSyncTask.getBooleanValue(dpRowSettings));
+			syncEntPP.chkSyncSRs.setChecked(dpObjSettings.bSyncSRs.getBooleanValue(dpRowSettings));
+			
+			sSyncEvery.setText(Platform.toString(dpObjSettings.iSyncEveryMinuts.getIntegerValue(dpRowSettings)));
+			
+			txtUserExt.setText(dpObjSettings.sUserExt.getStringValue(dpRowSettings));
+			txtOrgExt.setText(dpObjSettings.sOrganizationExt.getStringValue(dpRowSettings));
+			txtUrlExt.setText(dpObjSettings.sUrlExt.getStringValue(dpRowSettings));
+			btnExtSystemPopup.setText(dpObjSettings.sTypeExt.getStringValue(dpRowSettings));
 		}
 	}
 	
 	//Salva
 	callback btnDone onClick(Control c) {
 		MessageBox msgBox=new MessageBox();
-		dpObjSettings.bStartupSync.setBooleanValue(chkStartupSync.getChecked(),dpRowSettings);
-		dpObjSettings.bCloseSync.setBooleanValue(chkCloseSync.getChecked(),dpRowSettings);
 		dpObjSettings.bEnableAutoSync.setBooleanValue(chkEnableAutoSync.getChecked(),dpRowSettings);
-		dpObjSettings.bAutoSyncSunday.setBooleanValue(chkAutoSyncSunday.getChecked(),dpRowSettings);
-		dpObjSettings.bAutoSyncMonday.setBooleanValue(chkAutoSyncMonday.getChecked(),dpRowSettings);
-		dpObjSettings.bAutoSyncTuesday.setBooleanValue(chkAutoSyncTuesday.getChecked(),dpRowSettings);
-		dpObjSettings.bAutoSyncWednesday.setBooleanValue(chkAutoSyncWednesday.getChecked(),dpRowSettings);
-		dpObjSettings.bAutoSyncThursday.setBooleanValue(chkAutoSyncThursday.getChecked(),dpRowSettings);
-		dpObjSettings.bAutoSyncFriday.setBooleanValue(chkAutoSyncFriday.getChecked(),dpRowSettings);
-		dpObjSettings.bAutoSyncSaturday.setBooleanValue(chkAutoSyncSaturday.getChecked(),dpRowSettings);
-		dpObjSettings.bSyncAccount.setBooleanValue(chkSyncAccount.getChecked(),dpRowSettings);
-		dpObjSettings.bSyncContact.setBooleanValue(chkSyncContact.getChecked(),dpRowSettings);
-		dpObjSettings.bSyncOrders.setBooleanValue(chkSyncOrders.getChecked(),dpRowSettings);
-		dpObjSettings.bSyncCatalogue.setBooleanValue(chkSyncCatalogue.getChecked(),dpRowSettings);
-		dpObjSettings.bSyncTask.setBooleanValue(chkSyncTask.getChecked(),dpRowSettings);
-		dpObjSettings.bSyncSRs.setBooleanValue(chkSyncSRs.getChecked(),dpRowSettings);
+		dpObjSettings.bStartupSync.setBooleanValue(chkStartupSync.getChecked(),dpRowSettings);
+		dpObjSettings.iSyncEveryMinuts.setIntegerValue(Platform.createInteger(sSyncEvery.getText()),dpRowSettings);
+		if(sSyncEvery.getText()=="0")
+			dpObjSettings.sSyncEvery.setStringValue("",dpRowSettings);
+		else
+			dpObjSettings.sSyncEvery.setStringValue(btnSyncEveryPopup.getText(),dpRowSettings);
+		dpObjSettings.bCloseSync.setBooleanValue(chkCloseSync.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncSunday.setBooleanValue(syncWEPP.chkAutoSyncSunday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncMonday.setBooleanValue(syncWEPP.chkAutoSyncMonday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncTuesday.setBooleanValue(syncWEPP.chkAutoSyncTuesday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncWednesday.setBooleanValue(syncWEPP.chkAutoSyncWednesday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncThursday.setBooleanValue(syncWEPP.chkAutoSyncThursday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncFriday.setBooleanValue(syncWEPP.chkAutoSyncFriday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncSaturday.setBooleanValue(syncWEPP.chkAutoSyncSaturday.getChecked(),dpRowSettings);
+		dpObjSettings.bSyncAccount.setBooleanValue(syncEntPP.chkSyncAccount.getChecked(),dpRowSettings);
+		dpObjSettings.bSyncContact.setBooleanValue(syncEntPP.chkSyncContact.getChecked(),dpRowSettings);
+		dpObjSettings.bSyncOrders.setBooleanValue(syncEntPP.chkSyncOrders.getChecked(),dpRowSettings);
+		dpObjSettings.bSyncCatalogue.setBooleanValue(syncEntPP.chkSyncCatalogue.getChecked(),dpRowSettings);
+		dpObjSettings.bSyncTask.setBooleanValue(syncEntPP.chkSyncTask.getChecked(),dpRowSettings);
+		dpObjSettings.bSyncSRs.setBooleanValue(syncEntPP.chkSyncSRs.getChecked(),dpRowSettings);
+		//External System Info
+		dpObjSettings.sUserExt.setStringValue(txtUserExt.getText(),dpRowSettings);
+		dpObjSettings.sOrganizationExt.setStringValue(txtOrgExt.getText(),dpRowSettings);
+		dpObjSettings.sUrlExt.setStringValue(txtUrlExt.getText(),dpRowSettings);
+		dpObjSettings.sTypeExt.setStringValue(btnExtSystemPopup.getText(),dpRowSettings);
+		
 		dpRowSettings.applyUpdates();
 		dp.saveData();
 		loadSavedData();
-		msgBox.info(1,"Utenza e password cambiate con successo");
+		msgBox.info(1,StringConstants.SETTINGS_SYNC_DONE.getString());
 		refresh();
 	}
-
+	
+	callback txtPwdRedoExt onValueChange (Control c){
+		sPwdRedoExt = setUserPassword(txtPwdRedoExt, sPwdRedoExt);
+	}
+	
+	callback txtPwdExt onValueChange (Control c){
+		sPwdExt = setUserPassword(txtPwdExt, sPwdExt);
+	}
+	
+	String setUserPassword(TextField tf, String sPrevPwd)
+	{
+		String asterischi = "";
+		String sCurrentChar;
+		if(tf.getText().length()>=sPrevPwd.length()){
+			sCurrentChar = tf.getText().substring(sPrevPwd.length(),tf.getText().length());
+	
+			sPrevPwd = sPrevPwd + sCurrentChar;
+			for(int i = 0; i < sPrevPwd.length(); i++){
+				asterischi = asterischi + "*";
+			}
+			tf.setText(asterischi);
+		}
+		else{
+			sPrevPwd = sPrevPwd.substring(0,tf.getText().length());
+		}
+		
+		return sPrevPwd;
+	}
 }

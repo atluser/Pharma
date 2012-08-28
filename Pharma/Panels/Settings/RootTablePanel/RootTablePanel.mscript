@@ -3,6 +3,12 @@ TablePanel {
 	Panels.Settings.SettingPanel setPnl = new Panels.Settings.SettingPanel();
 	Panels.Settings.SettingDetailPanel setPnlDetail = new Panels.Settings.SettingDetailPanel();
 	
+	Screens.HomeScreen scrHome;
+	
+	void setHomeScreen(Screen scr) {
+		scrHome = (Screens.HomeScreen)scr;
+	}
+	
 	String fill = "hfill=fill, vfill=fill";
 	
 	callback onCreate(Container c) {

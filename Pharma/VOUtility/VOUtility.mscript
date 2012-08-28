@@ -255,6 +255,7 @@ UIObject {
 			String sDefaultPassword = "Vodafone";
 			dpObjSettings.sPassword.setStringValue(Platform.toString(sDefaultPassword.hashCode()),row);
 			dpObjSettings.bAutoLogin.setBooleanValue(Platform.createBoolean(false),row);
+			dpObjSettings.iSyncEveryMinuts.setIntegerValue(Platform.createInteger(0),row);
 			
 			row.applyUpdates();
 		

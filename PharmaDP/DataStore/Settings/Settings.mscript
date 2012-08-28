@@ -5,10 +5,11 @@ DataStoreObject {
 	BooleanField bAutoLogin {return null;}
 	
 	//Synchronization Settings
+	BooleanField bEnableAutoSync {return null;}
 	BooleanField bStartupSync {return null;}
 	BooleanField bCloseSync {return null;}
-	BooleanField bEnableAutoSync {return null;}
-	IntegerField iSyncEveryMinuts {return Platform.createInteger(30);}
+	StringField  sSyncEvery {return null;}
+	IntegerField iSyncEveryMinuts {return null;}
 	BooleanField bAutoSyncSunday {return null;}
 	BooleanField bAutoSyncMonday {return null;}
 	BooleanField bAutoSyncTuesday {return null;}
@@ -22,6 +23,13 @@ DataStoreObject {
 	BooleanField bSyncCatalogue {return null;}
 	BooleanField bSyncTask {return null;}
 	BooleanField bSyncSRs {return null;}
+	
+	//Salesforce Settings
+	StringField sUserExt {return null;}
+	StringField sPwdExt {return null;}
+	StringField sOrganizationExt {return null;}
+	StringField sUrlExt {return null;}
+	StringField sTypeExt {return null;}
 	
 	Query getSettings() {
 		return Settings();

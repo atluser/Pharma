@@ -3,13 +3,14 @@ Popup {
 	//String txtOrigField;
 	BackgroundButton btnPopup;
 	Label lblTitle=new Label();
-	String TYPE="";
 	
 	StickyTable stk = new StickyTable();
 	RowSetModel rsm = new RowSetModel();
 	BackgroundButton btnClose=new BackgroundButton();
 	
 	callback onCreate(Container c) {
+		rsm.setRows(dpObjLOV.getLOV("EXTSYSTEM"));
+		
 		setRowHeight(0, Sizing.PREFERRED, 0);
 		setRowHeight(1, Sizing.PREFERRED, 1);
 		
@@ -28,13 +29,14 @@ Popup {
 		actfnt.setSize(16);
 		btnClose.setImage(Images.VodafoneImages.btn_undo_normal.getImage());
 		btnClose.setFocusedImage(Images.VodafoneImages.btn_undo_normal.getImage());
-		btnClose.setSelectedImage(Images.VodafoneImages.btn_undo_normal.getImage());		
+		btnClose.setSelectedImage(Images.VodafoneImages.btn_undo_normal.getImage());
+		
+		lblTitle.setText(StringConstants.SETTINGS_SYNC_EXT_SYST.getString());		
 		lblTitle.setFont(titlefnt);
-		lblTitle.setForeColor(Colors.Black);
+		lblTitle.setForeColor(Colors.White);
 		
 		HorizontalPanel hzTitle=new HorizontalPanel();
-		hzTitle.setInsets(0,8,0,0);
-		lblTitle.setForeColor(Color.create(255,255,255));		
+		hzTitle.setInsets(0,8,0,0);		
 		hzTitle.add(lblTitle,"halign=left");
 		hzTitle.add(btnClose,"halign=right");
 		hzTitle.setColumnWidth(1,Sizing.PREFERRED,0);
@@ -83,9 +85,5 @@ Popup {
 	
 	callback btnClose onClick(Control c){
 		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
-	}
-	
-	void setQuery(Query q){		
-		rsm.setRows(q);
 	}
 }

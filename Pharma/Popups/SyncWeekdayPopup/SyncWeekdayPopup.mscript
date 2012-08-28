@@ -1,0 +1,155 @@
+Popup {
+	//SyncWeekdayPopup
+	BackgroundButton btnOk=new BackgroundButton();
+	BackgroundButton btnCancel=new BackgroundButton();
+	FormPanel SyncFP = new FormPanel();
+	
+	String labelAlign="halign=left";
+	String controlAlign="halign=right,hfill=fill";
+	
+	//Label
+	Label lblTitle=new Label();
+	Label lblAutoSyncSunday 	= new Label();
+	Label lblAutoSyncMonday 	= new Label();
+	Label lblAutoSyncTuesday 	= new Label();
+	Label lblAutoSyncWednesday 	= new Label();
+	Label lblAutoSyncThursday 	= new Label();
+	Label lblAutoSyncFriday 	= new Label();
+	Label lblAutoSyncSaturday 	= new Label();
+	//Field
+	CheckBox chkAutoSyncSunday 		= new CheckBox();
+	CheckBox chkAutoSyncMonday 		= new CheckBox();
+	CheckBox chkAutoSyncTuesday		= new CheckBox();
+	CheckBox chkAutoSyncWednesday	= new CheckBox();
+	CheckBox chkAutoSyncThursday 	= new CheckBox();
+	CheckBox chkAutoSyncFriday 		= new CheckBox();
+	CheckBox chkAutoSyncSaturday 	= new CheckBox();
+	
+	callback onCreate(Container c) {
+		setRowHeight(0, Sizing.PIXELS, 30);
+		setRowHeight(1, Sizing.PREFERRED, 1);
+		setInsets (4,4,4,4);
+		setBackColor(Colors.White);
+		
+		setLabel();
+		
+		Font titlefnt=new Font();
+		titlefnt.setFamily("Arial");
+		titlefnt.setSize(22);
+		titlefnt.setBold();
+
+		lblTitle.setFont(titlefnt);
+		lblTitle.setForeColor(Colors.White);
+		
+		HorizontalPanel hzTitle=new HorizontalPanel();
+		hzTitle.add(lblTitle,"halign=left");
+		hzTitle.setColumnWidth(0,Sizing.PREFERRED,1);
+		hzTitle.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		
+		add(hzTitle,"hfill=fill");
+		
+		SyncFP.add(lblAutoSyncSunday,labelAlign,chkAutoSyncSunday,controlAlign);
+		SyncFP.add(lblAutoSyncMonday,labelAlign,chkAutoSyncMonday,controlAlign);
+		SyncFP.add(lblAutoSyncTuesday,labelAlign,chkAutoSyncTuesday,controlAlign);
+		SyncFP.add(lblAutoSyncWednesday,labelAlign,chkAutoSyncWednesday,controlAlign);
+		SyncFP.add(lblAutoSyncThursday,labelAlign,chkAutoSyncThursday,controlAlign);
+		SyncFP.add(lblAutoSyncFriday,labelAlign,chkAutoSyncFriday,controlAlign);
+		SyncFP.add(lblAutoSyncSaturday,labelAlign,chkAutoSyncSaturday,controlAlign);
+		SyncFP.setBackColor(Colors.White); 
+		
+		startNewRow();			
+		add(SyncFP, "valign=top");
+		startNewRow();
+		
+		btnOk.setText(StringConstants.BTN_OK_STR.getString());
+		btnOk.setFont(titlefnt);
+		btnOk.setForeColor(Colors.White);
+		btnOk.setFocusedForeColor(Colors.White);
+		
+		btnCancel.setText(StringConstants.BTN_CANCEL_STR.getString());
+		btnCancel.setFont(titlefnt);
+		btnCancel.setForeColor(Colors.White);
+		btnCancel.setFocusedForeColor(Colors.White);
+		
+		HorizontalPanel hzBottom = new HorizontalPanel();
+		hzBottom.add(btnCancel,"halign=Center");
+		Separator spn = new Separator();
+		spn.setForeColor(Colors.White);
+		spn.setBackColor(Colors.White);
+		spn.setHeight(25);
+		spn.setWidth(2);
+		hzBottom.add(spn,"");
+		hzBottom.add(btnOk,"halign=Center");
+		hzBottom.setColumnWidth(0,Sizing.PIXELS,(PPWidth/2-1));
+		hzBottom.setColumnWidth(1,Sizing.PIXELS,2);
+		hzBottom.setColumnWidth(2,Sizing.PIXELS,(PPWidth/2-1));
+		hzBottom.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		
+		add(hzBottom,"hfill=fill");
+	}
+
+	callback btnOk onClick(Control c){
+		dpObjSettings.bAutoSyncSunday.setBooleanValue(chkAutoSyncSunday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncMonday.setBooleanValue(chkAutoSyncMonday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncTuesday.setBooleanValue(chkAutoSyncTuesday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncWednesday.setBooleanValue(chkAutoSyncWednesday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncThursday.setBooleanValue(chkAutoSyncThursday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncFriday.setBooleanValue(chkAutoSyncFriday.getChecked(),dpRowSettings);
+		dpObjSettings.bAutoSyncSaturday.setBooleanValue(chkAutoSyncSaturday.getChecked(),dpRowSettings);
+		dpRowSettings.applyUpdates();
+		dp.saveData();
+		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
+	}
+	
+	callback btnCancel onClick(Control c){
+		loadSavedData();
+		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
+	}
+	
+	void setLabel(){
+		Font txtfnt=new Font();
+		txtfnt.setFamily("Arial");
+		txtfnt.setSize(20);
+		txtfnt.setBold();
+		
+		lblAutoSyncSunday.setText(StringConstants.SETTINGS_SYNC_SUNDAY.getString() + ": ");
+		lblAutoSyncSunday.setFont(txtfnt);
+		lblAutoSyncSunday.setForeColor(Colors.Black);
+		
+		lblAutoSyncMonday.setText(StringConstants.SETTINGS_SYNC_MONDAY.getString() + ": ");
+		lblAutoSyncMonday.setFont(txtfnt);
+		lblAutoSyncMonday.setForeColor(Colors.Black);
+		
+		lblAutoSyncTuesday.setText(StringConstants.SETTINGS_SYNC_TUESDAY.getString() + ": ");
+		lblAutoSyncTuesday.setFont(txtfnt);
+		lblAutoSyncTuesday.setForeColor(Colors.Black);
+		
+		lblAutoSyncWednesday.setText(StringConstants.SETTINGS_SYNC_WEDNESDAY.getString() + ": ");
+		lblAutoSyncWednesday.setFont(txtfnt);
+		lblAutoSyncWednesday.setForeColor(Colors.Black);
+		
+		lblAutoSyncThursday.setText(StringConstants.SETTINGS_SYNC_THURSDAY.getString() + ": ");
+		lblAutoSyncThursday.setFont(txtfnt);
+		lblAutoSyncThursday.setForeColor(Colors.Black);
+		
+		lblAutoSyncFriday.setText(StringConstants.SETTINGS_SYNC_FRIDAY.getString() + ": ");
+		lblAutoSyncFriday.setFont(txtfnt);
+		lblAutoSyncFriday.setForeColor(Colors.Black);
+		
+		lblAutoSyncSaturday.setText(StringConstants.SETTINGS_SYNC_SATURDAY.getString() + ": ");
+		lblAutoSyncSaturday.setFont(txtfnt);
+		lblAutoSyncSaturday.setForeColor(Colors.Black);
+	}
+	
+	void loadSavedData(){
+		if(dpRowSettings!=null){
+			chkAutoSyncSunday.setChecked(dpObjSettings.bAutoSyncSunday.getBooleanValue(dpRowSettings));
+			chkAutoSyncMonday.setChecked(dpObjSettings.bAutoSyncMonday.getBooleanValue(dpRowSettings));
+			chkAutoSyncTuesday.setChecked(dpObjSettings.bAutoSyncTuesday.getBooleanValue(dpRowSettings));
+			chkAutoSyncWednesday.setChecked(dpObjSettings.bAutoSyncWednesday.getBooleanValue(dpRowSettings));
+			chkAutoSyncThursday.setChecked(dpObjSettings.bAutoSyncThursday.getBooleanValue(dpRowSettings));
+			chkAutoSyncFriday.setChecked(dpObjSettings.bAutoSyncFriday.getBooleanValue(dpRowSettings));
+			chkAutoSyncSaturday.setChecked(dpObjSettings.bAutoSyncSaturday.getBooleanValue(dpRowSettings));
+		}
+	}
+}

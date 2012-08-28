@@ -5,6 +5,12 @@ TablePanel {
 	Panels.Settings.SyncDetailPanel settingSyncPnl = new Panels.Settings.SyncDetailPanel();
 	String sFill = "hfill=fill,vfill=fill,halign=right,valign=top"; 
 	
+	Screens.HomeScreen scrHome;
+	
+	void setHomeScreen(Screen scr) {
+		scrHome = (Screens.HomeScreen)scr;
+	}
+	
 	ScrollableTablePanel pnlBody = new ScrollableTablePanel();
 	
 	callback onCreate(Container c) {
@@ -69,12 +75,19 @@ TablePanel {
 			break;
 			
 			case 2: //Sync
-				setupLabelHeader("Sincronizzazione Detail Panel!");
+				setupLabelHeader(StringConstants.SETTINGS_SYNC_TITLE.getString());
 				settingSyncPnl.loadSavedData();
 				//lblSectionHeader.setVisible(false);
 				settingLoginPnl.setVisible(false);
 				settingLayoutPnl.setVisible(false);
 				settingSyncPnl.setVisible(true);
+				
+				logApp.log(Log.INFO,"dtullo startupsync: " + Platform.toString(dpObjSettings.bEnableAutoSync.getBooleanValue(dpRowSettings)));
+				
+				if(dpObjSettings.bEnableAutoSync.getBooleanValue(dpRowSettings)==Platform.createBoolean(true))
+					settingSyncPnl.SetContentVisibility(true);
+				else
+					settingSyncPnl.SetContentVisibility(false);
 			break;
 			
 			default:

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <com.vaultus.ecore.properties:Properties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.vaultus.ecore.properties="http:///com/vaultus/ecore/properties.ecore" xmlns:com.vaultus.studio.ecore.strings="http:///com/vaultus/studio/ecore/strings.ecore">
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_ABOUT_STR" string="About"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_CANCEL_STR" string="Cancel"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_CLOSE_STR" string="Close"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_EXIT_STR" string="Exit"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_OK_STR" string="OK"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_SAVE" string="Save"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_START_STR" string="Start"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="BTN_TAP_TO_CHANGE" string="Tap to change"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_APP_NAME_STR" string="Pharma"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_DEVICE_NAME_STR" string="Device Name:"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="INFO_MSG_STR" string="Pharma is designed by Atlantic Technologies S.p.A."/>
@@ -20,23 +22,37 @@
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_SHOWPWD" string="Show Password: "/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_LOGIN_USER" string="Username"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC" string="Synchronization"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_ACCOUNT" string="Synchronize Accounts"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_AUTO" string="Enable Auto Synchronization"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_CATALOGUE" string="Synchronize Catalogues"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_CONTACT" string="Synchronize Contacts"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_FRIDAY" string="Autosynchronize on Friday"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_1H" string="Every hour"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_2H" string="Every 2 hours"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_30MIN" string="Every 30 minutes"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_ACCOUNT" string="Accounts"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_AUTO" string="Enable Synchronization"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_CATALOGUE" string="Catalogues"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_CONTACT" string="Contacts"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_DONE" string="Synchronization settings saved succesfully"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_ENTITY" string="Entity to sychronize"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_EXT_PWD" string="Password"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_EXT_PWD_REDO" string="Retype password"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_EXT_SYST" string="External System"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_EXT_SYSTEM_SECTION" string="External System Information"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_EXT_TYPE" string="Type"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_EXT_URL" string="URL"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_FREQ" string="Synchronize every"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_FRIDAY" string="Friday"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_LOGOUT" string="Synchronize on application close"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_MINUTES" string="Synchronize every minutes"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_MONDAY" string="Synchronize on Monday"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_ORDERS" string="Synchronize Orders"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_SATURDAY" string="Synchronize on Saturday"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_SR" string="Synchronize Service Requests"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_MONDAY" string="Monday"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_ON_WEEKDAY" string="Synchronize on"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_ORDERS" string="Orders"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_ORG" string="Organization"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_SATURDAY" string="Saturday"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_SR" string="Service Requests"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_STARTUP" string="Synchronize on Startup"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_SUNDAY" string="Synchronize on Sunday"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_TASK" string="Synchronize Tasks"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_THURSDAY" string="Synchronize on Thursday"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_TUESDAY" string="Synchronize on Tuesday"/>
-  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_WEDNESDAY" string="Synchronize on Wednesday"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_SUNDAY" string="Sunday"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_TASK" string="Tasks"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_THURSDAY" string="Thursday"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_TITLE" string="Synchronization settings"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_TUESDAY" string="Tuesday"/>
+  <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="SETTINGS_SYNC_WEDNESDAY" string="Wednesday"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACCOUNTS_STR" string="Accounts"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_ACTIVITIES_STR" string="Agenda"/>
   <properties xsi:type="com.vaultus.studio.ecore.strings:StringResource" name="TBB_CATALOG_STR" string="Catalog"/>

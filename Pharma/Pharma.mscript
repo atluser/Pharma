@@ -3,6 +3,10 @@ UIProject {
 	Screens.HomeScreen scrHome;
 	Screens.Contact.MapScreen scrMap;
 	
+	int iScreenWidth = Device.getScreenWidth();
+	int iScreenHeigth = Device.getScreenHeight();
+	int PPWidth = iScreenWidth/3;
+	
 	/** Logs **/
 	Log logApp = getLog();
 	Log appLog = getLog();
@@ -156,6 +160,8 @@ UIProject {
 	}
 
 	callback onStart(PushedData pushedData){
+		logApp.log(Log.INFO,"dtullo - width: " + (iScreenWidth-1) + " PPWidth: " + PPWidth);
+		
 		if(!dp.isOpened()){
 			//sOpenDP=open(dp,Password.create(""),true);
 			sOpenDP = open(dp, null, true); //Apro il dataproject

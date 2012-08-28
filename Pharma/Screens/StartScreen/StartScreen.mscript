@@ -81,10 +81,14 @@ Screen {
 
 	callback onScreenOrientationChange(Screen screen, int int_){
 		//TODO: add code
+		iScreenWidth = Device.getScreenWidth();
+		iScreenHeigth = Device.getScreenHeight();
 	}
 
 	callback onScreenOrientationChange(Screen screen, int int_, int int_1){
 		//TODO: add code
+		iScreenWidth = Device.getScreenWidth();
+		iScreenHeigth = Device.getScreenHeight();
 	}
 
 	callback onStartOrientationChange(Screen screen, int int_){

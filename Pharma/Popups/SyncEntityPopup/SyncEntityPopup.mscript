@@ -1,0 +1,148 @@
+Popup {
+	//SyncEntityPopup
+	BackgroundButton btnOk=new BackgroundButton();
+	BackgroundButton btnCancel=new BackgroundButton();
+	
+	FormPanel SyncFP = new FormPanel();
+	
+	String labelAlign="halign=left";
+	String controlAlign="halign=right,hfill=fill";
+	
+	//Label
+	Label lblTitle=new Label();
+	Label lblSyncAccount 		= new Label();
+	Label lblSyncContact 		= new Label();
+	Label lblSyncOrders 		= new Label();
+	Label lblSyncCatalogue 		= new Label();
+	Label lblSyncTask 			= new Label();
+	Label lblSyncSRs 			= new Label();
+	//Field
+	CheckBox chkSyncAccount 		= new CheckBox();
+	CheckBox chkSyncContact 		= new CheckBox();
+	CheckBox chkSyncOrders 			= new CheckBox();
+	CheckBox chkSyncCatalogue 		= new CheckBox();
+	CheckBox chkSyncTask 			= new CheckBox();
+	CheckBox chkSyncSRs 			= new CheckBox();
+	
+	callback onCreate(Container c) {
+		setRowHeight(0, Sizing.PIXELS, 30);
+		setRowHeight(1, Sizing.PREFERRED, 1);
+		setInsets (4,4,4,4);
+		setBackColor(Colors.White);
+		
+		setLabel();
+		
+		Font titlefnt=new Font();
+		titlefnt.setFamily("Arial");
+		titlefnt.setSize(22);
+		titlefnt.setBold();
+		
+		lblTitle.setFont(titlefnt);
+		lblTitle.setForeColor(Colors.White);
+		
+		HorizontalPanel hzTitle=new HorizontalPanel();
+		hzTitle.setInsets(0,8,0,0);
+		hzTitle.add(lblTitle,"halign=left");
+		hzTitle.setColumnWidth(0,Sizing.PREFERRED,1);
+		hzTitle.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		
+		add(hzTitle,"hfill=fill");
+		
+		SyncFP.add(lblSyncAccount,labelAlign,chkSyncAccount,controlAlign);
+		SyncFP.add(lblSyncContact,labelAlign,chkSyncContact,controlAlign);
+		SyncFP.add(lblSyncOrders,labelAlign,chkSyncOrders,controlAlign);
+		SyncFP.add(lblSyncCatalogue,labelAlign,chkSyncCatalogue,controlAlign);
+		SyncFP.add(lblSyncTask,labelAlign,chkSyncTask,controlAlign);
+		SyncFP.add(lblSyncSRs,labelAlign,chkSyncSRs,controlAlign);
+		SyncFP.setBackColor(Colors.White); 
+		
+		startNewRow();			
+		add(SyncFP, "valign=top");
+		startNewRow();
+		
+		btnOk.setText(StringConstants.BTN_OK_STR.getString());
+		btnOk.setFont(titlefnt);
+		btnOk.setForeColor(Colors.White);
+		btnOk.setFocusedForeColor(Colors.White);
+		
+		btnCancel.setText(StringConstants.BTN_CANCEL_STR.getString());
+		btnCancel.setFont(titlefnt);
+		btnCancel.setForeColor(Colors.White);
+		btnCancel.setFocusedForeColor(Colors.White);
+		
+		HorizontalPanel hzBottom = new HorizontalPanel();
+		hzBottom.add(btnCancel,"halign=Center");
+		Separator spn = new Separator();
+		spn.setForeColor(Colors.White);
+		spn.setBackColor(Colors.White);
+		spn.setHeight(25);
+		spn.setWidth(2);
+		hzBottom.add(spn,"");
+		hzBottom.add(btnOk,"halign=Center");
+		hzBottom.setColumnWidth(0,Sizing.PIXELS,(PPWidth/2-1));
+		hzBottom.setColumnWidth(1,Sizing.PIXELS,2);
+		hzBottom.setColumnWidth(2,Sizing.PIXELS,(PPWidth/2-1));
+		hzBottom.setBackground(Background.create9PartImageRectangleBackground(Images.VodafoneImages.img_actionbar_bg, 0, 0, 0, 0));
+		
+		add(hzBottom,"hfill=fill");
+	}
+	
+	callback btnOk onClick(Control c){
+		dpObjSettings.bSyncAccount.setBooleanValue(chkSyncAccount.getChecked(),dpRowSettings);
+		dpObjSettings.bSyncContact.setBooleanValue(chkSyncContact.getChecked(),dpRowSettings);
+		dpObjSettings.bSyncOrders.setBooleanValue(chkSyncOrders.getChecked(),dpRowSettings);
+		dpObjSettings.bSyncCatalogue.setBooleanValue(chkSyncCatalogue.getChecked(),dpRowSettings);
+		dpObjSettings.bSyncTask.setBooleanValue(chkSyncTask.getChecked(),dpRowSettings);
+		dpObjSettings.bSyncSRs.setBooleanValue(chkSyncSRs.getChecked(),dpRowSettings);
+		dpRowSettings.applyUpdates();
+		dp.saveData();
+		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
+	}
+	
+	callback btnCancel onClick(Control c){
+		loadSavedData();
+		hide(Popup.POPUP_TYPE_FROM_BOTTOM);
+	}
+	
+	void loadSavedData(){
+		if(dpRowSettings!=null){
+			chkSyncAccount.setChecked(dpObjSettings.bSyncAccount.getBooleanValue(dpRowSettings));
+			chkSyncContact.setChecked(dpObjSettings.bSyncContact.getBooleanValue(dpRowSettings));
+			chkSyncOrders.setChecked(dpObjSettings.bSyncOrders.getBooleanValue(dpRowSettings));
+			chkSyncCatalogue.setChecked(dpObjSettings.bSyncCatalogue.getBooleanValue(dpRowSettings));
+			chkSyncTask.setChecked(dpObjSettings.bSyncTask.getBooleanValue(dpRowSettings));
+			chkSyncSRs.setChecked(dpObjSettings.bSyncSRs.getBooleanValue(dpRowSettings));
+		}
+	}
+	
+	void setLabel(){
+		Font txtfnt=new Font();
+		txtfnt.setFamily("Arial");
+		txtfnt.setSize(20);
+		txtfnt.setBold();
+		
+		lblSyncAccount.setText(StringConstants.SETTINGS_SYNC_ACCOUNT.getString() + ": ");
+		lblSyncAccount.setFont(txtfnt);
+		lblSyncAccount.setForeColor(Colors.Black);
+		
+		lblSyncContact.setText(StringConstants.SETTINGS_SYNC_CONTACT.getString() + ": ");
+		lblSyncContact.setFont(txtfnt);
+		lblSyncContact.setForeColor(Colors.Black);
+		
+		lblSyncOrders.setText(StringConstants.SETTINGS_SYNC_ORDERS.getString() + ": ");
+		lblSyncOrders.setFont(txtfnt);
+		lblSyncOrders.setForeColor(Colors.Black);
+		
+		lblSyncCatalogue.setText(StringConstants.SETTINGS_SYNC_CATALOGUE.getString() + ": ");
+		lblSyncCatalogue.setFont(txtfnt);
+		lblSyncCatalogue.setForeColor(Colors.Black);
+		
+		lblSyncTask.setText(StringConstants.SETTINGS_SYNC_TASK.getString() + ": ");
+		lblSyncTask.setFont(txtfnt);
+		lblSyncTask.setForeColor(Colors.Black);
+		
+		lblSyncSRs.setText(StringConstants.SETTINGS_SYNC_SR.getString() + ": ");
+		lblSyncSRs.setFont(txtfnt);
+		lblSyncSRs.setForeColor(Colors.Black);
+	}
+}

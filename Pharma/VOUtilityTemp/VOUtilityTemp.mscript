@@ -570,32 +570,45 @@ UIObject {
         //Sincronizzazione
         row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("SYNC", row);
-        dpObjLOV.Name.setStringValue("Ore", row);
-        dpObjLOV.Value.setStringValue("Ore", row);
+        dpObjLOV.Name.setStringValue("30", row);
+        dpObjLOV.Value.setStringValue("30 Minuti", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
         row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("SYNC", row);
-        dpObjLOV.Name.setStringValue("Minuti", row);
-        dpObjLOV.Value.setStringValue("Minuti", row);
+        dpObjLOV.Name.setStringValue("60", row);
+        dpObjLOV.Value.setStringValue("1 ora", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
         row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("SYNC", row);
-        dpObjLOV.Name.setStringValue("Giorni", row);
-        dpObjLOV.Value.setStringValue("Giorni", row);
+        dpObjLOV.Name.setStringValue("120", row);
+        dpObjLOV.Value.setStringValue("2 Ore", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
         
         row=dpObjLOV.getNewRow();
         dpObjLOV.Type.setStringValue("SYNC", row);
-        dpObjLOV.Name.setStringValue("Settimane", row);
-        dpObjLOV.Value.setStringValue("Settimane", row);
+        dpObjLOV.Name.setStringValue("1440", row);
+        dpObjLOV.Value.setStringValue("1 Giorno", row);
         dpObjLOV.LanguageCode.setStringValue("ITA", row);
         row.applyUpdates();
-                                                                     
+        
+        row=dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("EXTSYSTEM", row);
+        dpObjLOV.Name.setStringValue("Salesforce", row);
+        dpObjLOV.Value.setStringValue("Salesforce", row);
+        dpObjLOV.LanguageCode.setStringValue("ALL", row);
+        row.applyUpdates();
+        
+        row=dpObjLOV.getNewRow();
+        dpObjLOV.Type.setStringValue("EXTSYSTEM", row);
+        dpObjLOV.Name.setStringValue("SIEBEL", row);
+        dpObjLOV.Value.setStringValue("SIEBEL", row);
+        dpObjLOV.LanguageCode.setStringValue("ALL", row);
+        row.applyUpdates();
 		
 		dp.saveData();
 		
